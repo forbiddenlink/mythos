@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { PageHeader } from "@/components/layout/page-header";
+import { Section, SectionHeading } from "@/components/layout/section";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { getDeities, getPantheonShortNames } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
@@ -13,10 +15,7 @@ import { DivineDomainsPageClient } from "./DivineDomainsPageClient";
 function DomainIndex() {
   const pages = getGodsOfDomains();
   return (
-    <section
-      aria-labelledby="domain-index-heading"
-      className="page-shell pb-20"
-    >
+    <Section tone="muted" spacing="md" aria-labelledby="domain-index-heading">
       <ItemListJsonLd
         name="Gods by domain"
         description="Every divine domain held by at least three deities in two or more traditions."
@@ -27,36 +26,43 @@ function DomainIndex() {
           position: index + 1,
         }))}
       />
-      <h2 id="domain-index-heading" className="page-section-title">
-        Every domain, deity by deity
-      </h2>
-      <p className="mt-2 max-w-[68ch] font-body text-muted-foreground">
-        One page per domain that at least three deities in two or more
-        traditions share, listing each of them with their entry&apos;s own
-        description.
-      </p>
-      <ul className="mt-6 grid gap-x-8 gap-y-2 font-body text-lg sm:grid-cols-2 lg:grid-cols-3">
+      <SectionHeading
+        id="domain-index-heading"
+        eyebrow="Index"
+        title="Every domain, deity by deity"
+        description="One page per domain that at least three deities in two or more traditions share."
+      />
+      <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
         {pages.map((page) => (
-          <li key={page.slug}>
+          <li
+            key={page.slug}
+            className="flex items-baseline justify-between gap-3 border-t border-border/60 py-3"
+          >
             <Link
               href={`/gods-of/${page.slug}`}
-              className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
+              className="font-serif text-lg text-foreground underline decoration-gold/40 underline-offset-4 hover:text-gold-text hover:decoration-current"
             >
               {godsOfTitle(page)}
-            </Link>{" "}
-            <span className="text-sm text-muted-foreground">
+            </Link>
+            <span className="shrink-0 type-meta text-muted-foreground tabular-nums">
               {page.deityCount} · {page.traditions.length} traditions
             </span>
           </li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 }
 
 export default function DivineDomainsPage() {
   return (
     <>
+      <PageHeader
+        mark="compass"
+        eyebrow="Cross-pantheon comparison"
+        title="Divine Domains"
+        lede="Compare the deities who share a sphere of influence, from war and wisdom to love and death."
+      />
       <DivineDomainsPageClient
         deities={project(getDeities(), [
           "id",

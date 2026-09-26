@@ -1,11 +1,19 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Users, ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ArrowRight } from "lucide-react";
+import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
+import {
+  ChipRow,
+  EmptyResults,
+  FilterChip,
+  FilterToolbar,
+} from "@/components/entities/FilterToolbar";
+import { Container } from "@/components/layout/container";
+import { SectionHeading } from "@/components/layout/section";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -13,17 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
-import {
-  DomainSelector,
-  getDomainMarkId,
-  PRIMARY_DOMAINS,
-} from "@/components/domains/DomainSelector";
-import { HeroMark } from "@/components/icons/hero-mark";
-import { MythosMark } from "@/components/icons/mythos-marks";
-import { DomainDeityCard } from "@/components/domains/DomainDeityCard";
 import { normalizeDeityReference } from "@/lib/deity-reference";
-import { cn } from "@/lib/utils";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 
 interface CrossPantheonParallel {
   pantheonId: string;
@@ -44,47 +43,27 @@ interface Deity {
   crossPantheonParallels?: CrossPantheonParallel[];
 }
 
-// Capitalize first letter
-function capitalize(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+/** The domains most traditions share, shown first. */
+const PRIMARY_DOMAINS = [
+  "war",
+  "love",
+  "death",
+  "wisdom",
+  "sea",
+  "fertility",
+  "sky",
+  "underworld",
+  "crafts",
+  "sun",
+  "magic",
+  "sovereignty",
+];
 
-// Pantheon color mapping
-const PANTHEON_COLORS: Record<string, string> = {
-  "greek-pantheon": "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  "roman-pantheon": "bg-red-500/20 text-red-400 border-red-500/30",
-  "norse-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-  "egyptian-pantheon": "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  "hindu-pantheon": "bg-orange-500/20 text-orange-400 border-orange-500/30",
-  "japanese-pantheon": "bg-pink-500/20 text-pink-400 border-pink-500/30",
-  "celtic-pantheon": "bg-green-500/20 text-green-400 border-green-500/30",
-  "aztec-pantheon": "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-  "chinese-pantheon": "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-  "mesopotamian-pantheon":
-    "bg-yellow-700/20 text-yellow-600 border-yellow-700/30",
-  "african-pantheon": "bg-bronze/20 text-bronze border-bronze/30",
-  "yoruba-pantheon": "bg-amber-600/20 text-amber-500 border-amber-600/30",
-  "akan-pantheon": "bg-yellow-600/20 text-yellow-500 border-yellow-600/30",
-  "hittite-pantheon": "bg-orange-700/20 text-orange-500 border-orange-700/30",
-  "canaanite-pantheon":
-    "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30",
-  "inuit-pantheon": "bg-sky-500/20 text-sky-400 border-sky-500/30",
-  "aboriginal-australian-pantheon":
-    "bg-red-700/20 text-red-400 border-red-700/30",
-  "dine-pantheon": "bg-cyan-700/20 text-cyan-300 border-cyan-700/30",
-  "polynesian-pantheon": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-  "mesoamerican-pantheon": "bg-lime-500/20 text-lime-400 border-lime-500/30",
-  "slavic-pantheon": "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
-  "haudenosaunee-pantheon": "bg-teal-500/20 text-teal-400 border-teal-500/30",
-  "tlingit-haida-pantheon": "bg-rose-500/20 text-rose-400 border-rose-500/30",
-};
-
-function getPantheonColor(pantheonId: string): string {
-  return PANTHEON_COLORS[pantheonId] || "bg-gold/20 text-gold border-gold/30";
-}
+const capitalize = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1);
 
 export function DivineDomainsPageClient({
-  deities: deitiesData,
+  deities,
   pantheonNames,
   domainPages = {},
 }: Readonly<{
@@ -99,443 +78,356 @@ export function DivineDomainsPageClient({
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [pantheonFilter, setPantheonFilter] = useState<string>("all");
 
-  const deities = deitiesData;
   const deityReferenceMap = useMemo(() => {
     const map = new Map<string, Deity>();
-    deities.forEach((deity) => {
+    for (const deity of deities) {
       map.set(normalizeDeityReference(deity.id), deity);
       map.set(normalizeDeityReference(deity.slug), deity);
-
-      deity.alternateNames?.forEach((alternateName) => {
+      for (const alternateName of deity.alternateNames ?? [])
         map.set(normalizeDeityReference(alternateName), deity);
-      });
-    });
+    }
     return map;
   }, [deities]);
 
-  // Get all unique domains from deities
-  const allDomains = useMemo(() => {
-    const domainSet = new Set<string>();
-    for (const deity of deities) {
-      for (const d of deity.domain ?? []) domainSet.add(d.toLowerCase());
-    }
-    return Array.from(domainSet).sort();
-  }, [deities]);
-
-  // Filter deities by selected domain
-  const filteredDeities = useMemo(() => {
-    if (!selectedDomain) return [];
-    return deities.filter((deity) =>
-      deity.domain?.some(
-        (d) => d.toLowerCase() === selectedDomain.toLowerCase(),
-      ),
-    );
-  }, [deities, selectedDomain]);
-
-  // Further filter by pantheon
-  const displayDeities = useMemo(() => {
-    if (pantheonFilter === "all") return filteredDeities;
-    return filteredDeities.filter((d) => d.pantheonId === pantheonFilter);
-  }, [filteredDeities, pantheonFilter]);
-
-  // Get available pantheons for the selected domain
-  const availablePantheons = useMemo(() => {
-    if (!selectedDomain) return [];
-    const pantheonIds = [...new Set(filteredDeities.map((d) => d.pantheonId))];
-    return pantheonIds
-      .map((id) => ({
-        id,
-        name: pantheonNames[id] || id,
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, [selectedDomain, filteredDeities, pantheonNames]);
-
-  // Find cross-pantheon connections for the selected domain
-  const crossPantheonConnections = useMemo(() => {
-    if (!selectedDomain) return [];
-
-    const connections: Array<{
-      from: Deity;
-      to: Deity;
-      note: string;
-    }> = [];
-
-    filteredDeities.forEach((deity) => {
-      deity.crossPantheonParallels?.forEach((parallel) => {
-        const connectedDeity = deityReferenceMap.get(
-          normalizeDeityReference(parallel.deityId),
-        );
-        if (
-          connectedDeity &&
-          connectedDeity.domain?.some(
-            (d) => d.toLowerCase() === selectedDomain.toLowerCase(),
-          )
-        ) {
-          // Avoid duplicates (A->B and B->A)
-          const exists = connections.some(
-            (c) =>
-              (c.from.id === deity.id && c.to.id === connectedDeity.id) ||
-              (c.from.id === connectedDeity.id && c.to.id === deity.id),
-          );
-          if (!exists) {
-            connections.push({
-              from: deity,
-              to: connectedDeity,
-              note: parallel.note || "",
-            });
-          }
-        }
-      });
-    });
-
-    return connections;
-  }, [selectedDomain, filteredDeities, deityReferenceMap]);
-
-  // Calculate domain statistics
+  // Every domain with its deity count and traditions.
   const domainStats = useMemo(() => {
-    const stats: Record<string, { count: number; pantheons: Set<string> }> = {};
-    deities.forEach((deity) => {
-      deity.domain?.forEach((domain) => {
-        const key = domain.toLowerCase();
-        if (!stats[key]) {
-          stats[key] = { count: 0, pantheons: new Set() };
-        }
-        stats[key].count++;
-        stats[key].pantheons.add(deity.pantheonId);
-      });
-    });
+    const stats = new Map<string, { count: number; pantheons: Set<string> }>();
+    for (const deity of deities) {
+      for (const raw of deity.domain ?? []) {
+        const key = raw.toLowerCase();
+        const entry = stats.get(key) ?? {
+          count: 0,
+          pantheons: new Set<string>(),
+        };
+        entry.count++;
+        entry.pantheons.add(deity.pantheonId);
+        stats.set(key, entry);
+      }
+    }
     return stats;
   }, [deities]);
 
+  // A distinct portrait and a few names per headline domain: deities that
+  // list the domain first win, then the more important ones.
+  const domainLeads = useMemo(() => {
+    const used = new Set<string>();
+    const leads = new Map<string, { image: string | null; names: string[] }>();
+    for (const domain of PRIMARY_DOMAINS) {
+      const holders = deities
+        .filter((d) => d.domain?.some((x) => x.toLowerCase() === domain))
+        .sort(
+          (a, b) =>
+            Number(a.domain[0]?.toLowerCase() !== domain) -
+              Number(b.domain[0]?.toLowerCase() !== domain) ||
+            (a.importanceRank ?? 999) - (b.importanceRank ?? 999),
+        );
+      const lead = holders.find((d) => d.imageUrl && !used.has(d.id));
+      if (lead) used.add(lead.id);
+      leads.set(domain, {
+        image: lead?.imageUrl ?? null,
+        names: holders.slice(0, 4).map((d) => d.name),
+      });
+    }
+    return leads;
+  }, [deities]);
+
+  const primaryDomains = PRIMARY_DOMAINS.filter((d) => domainStats.has(d));
+  const otherDomains = useMemo(
+    () =>
+      [...domainStats.keys()]
+        .filter((d) => !PRIMARY_DOMAINS.includes(d))
+        .sort((a, b) => a.localeCompare(b)),
+    [domainStats],
+  );
+
+  const filteredDeities = useMemo(() => {
+    if (!selectedDomain) return [];
+    return deities
+      .filter((deity) =>
+        deity.domain?.some((d) => d.toLowerCase() === selectedDomain),
+      )
+      .sort((a, b) => (a.importanceRank ?? 999) - (b.importanceRank ?? 999));
+  }, [deities, selectedDomain]);
+
+  const displayDeities =
+    pantheonFilter === "all"
+      ? filteredDeities
+      : filteredDeities.filter((d) => d.pantheonId === pantheonFilter);
+
+  const availablePantheons = useMemo(
+    () =>
+      [...new Set(filteredDeities.map((d) => d.pantheonId))]
+        .map((id) => ({ id, name: pantheonNames[id] || id }))
+        .sort((a, b) => a.name.localeCompare(b.name)),
+    [filteredDeities, pantheonNames],
+  );
+
+  // Cross-pantheon parallels between deities that share the domain
+  const crossPantheonConnections = useMemo(() => {
+    if (!selectedDomain) return [];
+    const connections: Array<{ from: Deity; to: Deity }> = [];
+    for (const deity of filteredDeities) {
+      for (const parallel of deity.crossPantheonParallels ?? []) {
+        const other = deityReferenceMap.get(
+          normalizeDeityReference(parallel.deityId),
+        );
+        if (
+          other?.domain?.some((d) => d.toLowerCase() === selectedDomain) &&
+          !connections.some(
+            (c) =>
+              (c.from.id === deity.id && c.to.id === other.id) ||
+              (c.from.id === other.id && c.to.id === deity.id),
+          )
+        )
+          connections.push({ from: deity, to: other });
+      }
+    }
+    return connections;
+  }, [selectedDomain, filteredDeities, deityReferenceMap]);
+
+  const selectDomain = (domain: string | null) => {
+    setSelectedDomain(domain);
+    setPantheonFilter("all");
+  };
+
+  const stats = selectedDomain ? domainStats.get(selectedDomain) : undefined;
+  const domainPage = selectedDomain ? domainPages[selectedDomain] : undefined;
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[50vh] min-h-100 flex items-center justify-center overflow-hidden">
-        {/* Background - gradient with subtle effects */}
-        <div className="absolute inset-0 z-0 bg-linear-to-br from-midnight via-midnight/95 to-midnight">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gold/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl" />
-          </div>
-        </div>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-midnight/50 via-midnight/40 to-midnight/80 z-10" />
+    <>
+      <Container className="pt-6 pb-4 md:pt-8">
+        <FilterToolbar
+          label="Choose a domain"
+          count={
+            selectedDomain && stats
+              ? `${filteredDeities.length} deities · ${stats.pantheons.size} traditions`
+              : `${domainStats.size} domains`
+          }
+          chips={
+            <ChipRow label="Domain">
+              <FilterChip
+                active={selectedDomain === null}
+                onClick={() => selectDomain(null)}
+              >
+                All
+              </FilterChip>
+              {primaryDomains.map((domain) => (
+                <FilterChip
+                  key={domain}
+                  active={selectedDomain === domain}
+                  onClick={() =>
+                    selectDomain(selectedDomain === domain ? null : domain)
+                  }
+                  count={domainStats.get(domain)?.count}
+                >
+                  {capitalize(domain)}
+                </FilterChip>
+              ))}
+            </ChipRow>
+          }
+        >
+          <Select
+            value={
+              selectedDomain && !PRIMARY_DOMAINS.includes(selectedDomain)
+                ? selectedDomain
+                : "none"
+            }
+            onValueChange={(value) =>
+              selectDomain(value === "none" ? null : value)
+            }
+          >
+            <SelectTrigger className="w-52">
+              <SelectValue placeholder="More domains" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="none">More domains…</SelectItem>
+              {otherDomains.map((domain) => (
+                <SelectItem key={domain} value={domain}>
+                  {`${capitalize(domain)} (${domainStats.get(domain)?.count ?? 0})`}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {selectedDomain && availablePantheons.length > 1 ? (
+            <Select value={pantheonFilter} onValueChange={setPantheonFilter}>
+              <SelectTrigger className="w-48">
+                <SelectValue placeholder="Tradition" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">
+                  {`All traditions (${filteredDeities.length})`}
+                </SelectItem>
+                {availablePantheons.map((pantheon) => (
+                  <SelectItem key={pantheon.id} value={pantheon.id}>
+                    {`${pantheon.name} (${
+                      filteredDeities.filter(
+                        (d) => d.pantheonId === pantheon.id,
+                      ).length
+                    })`}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          ) : null}
+        </FilterToolbar>
+      </Container>
 
-        {/* Radial gold glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[60%] bg-gradient-radial from-gold/10 via-transparent to-transparent z-10" />
-
-        {/* Hero Content */}
-        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <HeroMark mark="compass" tone="gold" size="lg" />
-          </div>
-          <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-            Cross-Pantheon Comparison
-          </span>
-          <h1 className="page-title text-parchment mb-6">Divine Domains</h1>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-            <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-          </div>
-          <p className="text-lg md:text-xl text-parchment/70 max-w-2xl mx-auto font-body leading-relaxed">
-            Compare deities across all pantheons who share the same divine
-            sphere of influence - from war and wisdom to love and death
-          </p>
-        </div>
-      </div>
-
-      {/* Content Section */}
-      <div className="container mx-auto max-w-7xl px-4 py-16 bg-mythic">
-        <Breadcrumbs />
-
-        {/* Domain Selector */}
-        <div className="mt-8 mb-10">
-          <h2 className="text-lg font-serif font-medium text-foreground mb-4">
-            Select a Domain
-          </h2>
-          <DomainSelector
-            selectedDomain={selectedDomain}
-            onDomainSelect={(domain) => {
-              setSelectedDomain(domain);
-              setPantheonFilter("all");
-            }}
-            availableDomains={allDomains}
-          />
-        </div>
-
+      <Container className="pt-8 pb-12">
         {selectedDomain ? (
           <>
-            {/* Domain Header with Stats */}
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-6 border-b border-border/50">
-              <div className="flex items-center gap-4">
-                <HeroMark
-                  mark={getDomainMarkId(selectedDomain)}
-                  tone="light"
-                  size="md"
-                />
-                <div>
-                  <h2 className="font-serif text-3xl font-semibold text-parchment">
-                    {capitalize(selectedDomain)}
-                  </h2>
-                  <p className="text-muted-foreground mt-1">
-                    {filteredDeities.length} deities across{" "}
-                    {availablePantheons.length} pantheons
-                  </p>
-                  {domainPages[selectedDomain.toLowerCase()] ? (
-                    <Link
-                      href={`/gods-of/${domainPages[selectedDomain.toLowerCase()]}`}
-                      className="mt-1 inline-block text-sm text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
-                    >
-                      Read the full {selectedDomain} page
-                    </Link>
-                  ) : null}
-                </div>
-              </div>
+            <SectionHeading
+              eyebrow="Domain"
+              title={capitalize(selectedDomain)}
+              description={`Deities across ${availablePantheons.length} traditions whose entries list ${selectedDomain}.`}
+              action={
+                domainPage
+                  ? {
+                      href: `/gods-of/${domainPage}`,
+                      label: `Read the full ${selectedDomain} page`,
+                    }
+                  : undefined
+              }
+            />
 
-              {/* Pantheon Filter */}
-              {availablePantheons.length > 1 && (
-                <Select
-                  value={pantheonFilter}
-                  onValueChange={setPantheonFilter}
-                >
-                  <SelectTrigger className="w-55">
-                    <SelectValue placeholder="Filter by pantheon" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">
-                      All Pantheons ({filteredDeities.length})
-                    </SelectItem>
-                    {availablePantheons.map((pantheon) => {
-                      const count = filteredDeities.filter(
-                        (d) => d.pantheonId === pantheon.id,
-                      ).length;
-                      return (
-                        <SelectItem key={pantheon.id} value={pantheon.id}>
-                          {pantheon.name} ({count})
-                        </SelectItem>
-                      );
-                    })}
-                  </SelectContent>
-                </Select>
-              )}
-            </div>
-
-            {/* Cross-Pantheon Connections */}
             {crossPantheonConnections.length > 0 &&
               pantheonFilter === "all" && (
-                <div className="mb-10 p-6 rounded-xl bg-card/50 border border-gold/10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Users className="h-5 w-5 text-gold" />
-                    <h3 className="font-serif text-lg font-medium text-foreground">
-                      Cross-Pantheon Parallels
-                    </h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    These deities share similar roles across different
-                    mythological traditions
-                  </p>
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                <section
+                  aria-labelledby="domain-parallels-heading"
+                  className="mb-12"
+                >
+                  <h3
+                    id="domain-parallels-heading"
+                    className="type-h3 text-foreground"
+                  >
+                    Parallels across traditions
+                  </h3>
+                  <ul className="mt-4 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
                     {crossPantheonConnections
                       .slice(0, 6)
-                      .map((connection, index) => (
-                        <div
-                          key={`${connection.from.id}-${connection.to.id}-${index}`}
-                          className="flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-border/50"
+                      .map(({ from, to }) => (
+                        <li
+                          key={`${from.id}-${to.id}`}
+                          className="flex items-center gap-2 border-t border-border/60 py-3"
                         >
-                          {/* From Deity */}
-                          <div className="flex items-center gap-2 flex-1 min-w-0">
-                            {connection.from.imageUrl ? (
-                              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
-                                <Image
-                                  src={connection.from.imageUrl}
-                                  alt={connection.from.name}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                            ) : (
-                              <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                                <Sparkles className="h-4 w-4 text-gold" />
-                              </div>
-                            )}
-                            <div className="min-w-0">
-                              <p className="text-sm font-medium text-foreground truncate">
-                                {connection.from.name}
-                              </p>
-                              <Badge
-                                variant="outline"
-                                className={cn(
-                                  "text-[10px] px-1.5 py-0",
-                                  getPantheonColor(connection.from.pantheonId),
-                                )}
-                              >
-                                {getPantheonName(connection.from.pantheonId)}
-                              </Badge>
-                            </div>
-                          </div>
-
-                          {/* Arrow */}
-                          <ArrowRight className="h-4 w-4 text-gold/60 shrink-0 mx-1" />
-
-                          {/* To Deity */}
-                          <div className="flex items-center gap-2 flex-1 min-w-0">
-                            {connection.to.imageUrl ? (
-                              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20 shrink-0">
-                                <Image
-                                  src={connection.to.imageUrl}
-                                  alt={connection.to.name}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                            ) : (
-                              <div className="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                                <Sparkles className="h-4 w-4 text-gold" />
-                              </div>
-                            )}
-                            <div className="min-w-0">
-                              <p className="text-sm font-medium text-foreground truncate">
-                                {connection.to.name}
-                              </p>
-                              <Badge
-                                variant="outline"
-                                className={cn(
-                                  "text-[10px] px-1.5 py-0",
-                                  getPantheonColor(connection.to.pantheonId),
-                                )}
-                              >
-                                {getPantheonName(connection.to.pantheonId)}
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
+                          <ParallelName
+                            deity={from}
+                            tradition={getPantheonName(from.pantheonId)}
+                          />
+                          <ArrowRight
+                            className="size-4 shrink-0 text-gold-text"
+                            aria-label="parallels"
+                          />
+                          <ParallelName
+                            deity={to}
+                            tradition={getPantheonName(to.pantheonId)}
+                          />
+                        </li>
                       ))}
-                  </div>
-                  {crossPantheonConnections.length > 6 && (
-                    <p className="text-sm text-muted-foreground mt-4 text-center">
-                      And {crossPantheonConnections.length - 6} more
-                      connections...
+                  </ul>
+                  {crossPantheonConnections.length > 6 ? (
+                    <p className="mt-2 type-meta text-muted-foreground">
+                      And {crossPantheonConnections.length - 6} more parallels.
                     </p>
-                  )}
-                </div>
+                  ) : null}
+                </section>
               )}
 
-            {/* Deity Grid */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {displayDeities.map((deity) => (
-                <DomainDeityCard
-                  key={deity.id}
-                  deity={deity}
-                  pantheonName={getPantheonName(deity.pantheonId)}
-                  selectedDomain={selectedDomain}
-                  allDeities={deities}
-                />
-              ))}
-            </div>
-
-            {displayDeities.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground">
-                  No deities found for this domain in the selected pantheon.
-                </p>
-              </div>
+            {displayDeities.length === 0 ? (
+              <EmptyResults
+                title="No deities here"
+                action={
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setPantheonFilter("all")}
+                  >
+                    Show every tradition
+                  </Button>
+                }
+              >
+                No deity in this tradition holds the domain.
+              </EmptyResults>
+            ) : (
+              <EntityGrid aspect="portrait">
+                {displayDeities.map((deity, index) => (
+                  <EntityCard
+                    key={deity.id}
+                    href={`/deities/${deity.slug}`}
+                    title={deity.name}
+                    image={deity.imageUrl}
+                    imagePosition="50% 22%"
+                    aspect="portrait"
+                    priority={index < 4}
+                    tradition={getPantheonName(deity.pantheonId)}
+                    traditionColor={getPantheonColor(deity.pantheonId)}
+                    subtitle={deity.domain
+                      .filter((d) => d.toLowerCase() !== selectedDomain)
+                      .slice(0, 3)
+                      .map(capitalize)
+                      .join(" · ")}
+                    description={deity.description}
+                  />
+                ))}
+              </EntityGrid>
             )}
           </>
         ) : (
-          /* Domain Overview Cards */
-          <>
-            <div className="mb-6">
-              <h2 className="font-serif text-2xl font-semibold text-foreground mb-2">
-                Browse Domains
-              </h2>
-              <p className="text-muted-foreground">
-                Select a domain above or click on a domain card below to see all
-                deities who share that sphere of influence
-              </p>
-            </div>
-
-            <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-              {PRIMARY_DOMAINS.map((domain) => {
-                const stats = domainStats[domain.id] || {
-                  count: 0,
-                  pantheons: new Set(),
-                };
-                const pantheonCount = stats.pantheons?.size || 0;
-
-                return (
-                  <button
-                    key={domain.id}
-                    type="button"
-                    className="text-left w-full"
-                    onClick={() => setSelectedDomain(domain.id)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setSelectedDomain(domain.id);
-                      }
-                    }}
-                  >
-                    <Card
-                      interactive
-                      className="group cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1"
-                    >
-                      <CardContent className="p-6 flex flex-col items-center text-center">
-                        <div className="relative mb-4 flex h-12 w-12 items-center justify-center border border-gold/30 bg-gold/5 group-hover:border-gold/50 transition-colors">
-                          <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-gold/40" />
-                          <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-gold/40" />
-                          <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-gold/40" />
-                          <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-gold/40" />
-                          <MythosMark
-                            id={domain.mark}
-                            className="relative h-6 w-6 text-gold"
-                          />
-                        </div>
-                        <h3 className="font-serif text-lg font-medium text-foreground group-hover:text-gold transition-colors duration-300">
-                          {domain.label}
-                        </h3>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          {stats.count}{" "}
-                          {stats.count === 1 ? "deity" : "deities"}
-                        </p>
-                        {pantheonCount > 1 && (
-                          <p className="text-xs text-muted-foreground/70 mt-1">
-                            {pantheonCount} pantheons
-                          </p>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Additional Domains Section */}
-            <div className="mt-12">
-              <h3 className="font-serif text-xl font-medium text-foreground mb-4">
-                All Domains
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {allDomains
-                  .filter((d) => !PRIMARY_DOMAINS.some((pd) => pd.id === d))
-                  .map((domain) => {
-                    const stats = domainStats[domain] || { count: 0 };
-                    return (
-                      <button
-                        key={domain}
-                        onClick={() => setSelectedDomain(domain)}
-                        className="px-3 py-1.5 text-sm rounded-full bg-muted/50 hover:bg-muted text-foreground/80 hover:text-foreground border border-border/50 hover:border-border transition-colors"
-                      >
-                        {capitalize(domain)} ({stats.count})
-                      </button>
-                    );
-                  })}
-              </div>
-            </div>
-          </>
+          <EntityGrid>
+            {primaryDomains.map((domain, index) => {
+              const entry = domainStats.get(domain);
+              const slug = domainPages[domain];
+              if (!entry || !slug) return null;
+              return (
+                <EntityCard
+                  key={domain}
+                  href={`/gods-of/${slug}`}
+                  title={capitalize(domain)}
+                  image={domainLeads.get(domain)?.image}
+                  imagePosition="50% 25%"
+                  aspect="landscape"
+                  priority={index < 3}
+                  headingLevel="h2"
+                  subtitle={`${entry.count} deities · ${entry.pantheons.size} traditions`}
+                  description={`${domainLeads.get(domain)?.names.join(", ")} and more.`}
+                />
+              );
+            })}
+          </EntityGrid>
         )}
-      </div>
-    </div>
+      </Container>
+    </>
+  );
+}
+
+function ParallelName({
+  deity,
+  tradition,
+}: {
+  deity: Deity;
+  tradition: string;
+}) {
+  return (
+    <Link
+      href={`/deities/${deity.slug}`}
+      className="group flex min-w-0 flex-1 items-center gap-2 rounded-md focus-visible:outline-2 focus-visible:outline-gold"
+    >
+      {deity.imageUrl ? (
+        <Image
+          src={deity.imageUrl}
+          alt=""
+          width={36}
+          height={36}
+          className="size-9 shrink-0 rounded-full object-cover object-top ring-1 ring-border"
+        />
+      ) : null}
+      <span className="min-w-0">
+        <span className="block truncate type-ui font-medium text-foreground group-hover:text-gold-text">
+          {deity.name}
+        </span>
+        <span className="block truncate type-meta text-muted-foreground">
+          {tradition}
+        </span>
+      </span>
+    </Link>
   );
 }

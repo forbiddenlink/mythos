@@ -148,7 +148,7 @@ export function AnkiDeckExport({
                   onClick={() => setSelectedPantheon("all")}
                   className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                     selectedPantheon === "all"
-                      ? "border border-gold bg-gold/15 text-gold font-semibold"
+                      ? "border border-gold bg-gold/15 text-gold-text font-semibold"
                       : "border border-border bg-card text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -164,7 +164,7 @@ export function AnkiDeckExport({
                       onClick={() => setSelectedPantheon(p.id)}
                       className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                         selectedPantheon === p.id
-                          ? "border border-gold bg-gold/15 text-gold font-semibold"
+                          ? "border border-gold bg-gold/15 text-gold-text font-semibold"
                           : "border border-border bg-card text-muted-foreground hover:text-foreground"
                       }`}
                     >
@@ -193,19 +193,19 @@ export function AnkiDeckExport({
           {/* Flashcard Live Preview */}
           {sampleCard && (
             <div className="flex flex-col justify-center">
-              <span className="text-xs uppercase tracking-wider text-gold/80 font-medium mb-2 flex items-center gap-1.5">
+              <span className="text-xs uppercase tracking-wider text-gold-text font-medium mb-2 flex items-center gap-1.5">
                 <Sparkles className="size-3.5" /> Card Preview
               </span>
-              <div className="rounded-xl border border-gold/40 bg-midnight/80 p-5 text-parchment shadow-lg">
+              <div className="dark rounded-xl border border-gold/40 bg-midnight p-5 text-parchment shadow-lg">
                 <div className="border-b border-gold/20 pb-3 text-center">
                   <span className="font-serif text-lg font-bold text-gold-text">
                     {sampleCard.name}
                   </span>
-                  <div className="text-[11px] uppercase tracking-widest text-parchment/60 mt-0.5">
+                  <div className="text-[11px] uppercase tracking-widest text-parchment/75 mt-0.5">
                     {sampleCard.pantheon}
                   </div>
                   {sampleCard.pronunciation?.ipa && (
-                    <div className="text-xs text-gold/70 mt-1">
+                    <div className="text-xs text-gold-light mt-1">
                       /{sampleCard.pronunciation.ipa}/
                     </div>
                   )}

@@ -50,9 +50,7 @@ export function CollectionsSection() {
       aria-labelledby="paths-collections"
       className="scroll-mt-24"
     >
-      <p className="mb-2 text-xs uppercase tracking-widest text-gold-text">
-        Explore by theme
-      </p>
+      <p className="type-eyebrow mb-2">Explore by theme</p>
       <h2 id="paths-collections" className="page-section-title">
         Themed collections
       </h2>

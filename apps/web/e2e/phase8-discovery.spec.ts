@@ -148,7 +148,8 @@ test.describe("Phase 8: Mythology Facts", () => {
     await expect(cards.first()).toBeVisible();
     const filter = page.getByRole("button", { name: /^Word Origins/ });
     const label = await filter.innerText();
-    const expectedCount = Number(label.match(/\((\d+)\)/)?.[1]);
+    // The chip shows its count after the label ("Word Origins 5").
+    const expectedCount = Number(label.match(/(\d+)\s*$/)?.[1]);
     expect(expectedCount).toBeGreaterThan(0);
     await filter.click();
     await expect(cards).toHaveCount(expectedCount);
