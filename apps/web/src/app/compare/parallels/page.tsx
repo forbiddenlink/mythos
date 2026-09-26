@@ -4,6 +4,9 @@ import {
   getPantheons,
 } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
+import { CompareNav } from "@/components/compare/CompareNav";
+import { Container } from "@/components/layout/container";
+import { PageHeader } from "@/components/layout/page-header";
 import { ParallelsPageClient, type ParallelEdge } from "./ParallelsPageClient";
 
 /** Every cross-pantheon parallel pair, deduplicated, resolved on the server. */
@@ -49,20 +52,37 @@ function buildParallels(): ParallelEdge[] {
 }
 
 export default function CrossPantheonParallelsPage() {
+  const edges = buildParallels();
+  const traditionCount = new Set(
+    edges.flatMap((e) => [e.fromPantheon, e.toPantheon]),
+  ).size;
   return (
-    <ParallelsPageClient
-      edges={buildParallels()}
-      deities={project(getDeities(), [
-        "id",
-        "name",
-        "slug",
-        "pantheonId",
-        "domain",
-        "symbols",
-        "description",
-        "imageUrl",
-      ])}
-      pantheons={project(getPantheons(), ["id", "name", "slug"])}
-    />
+    <div className="min-h-screen">
+      <PageHeader
+        eyebrow="Comparative mythology"
+        mark="scales"
+        title="Cross-Pantheon Parallels"
+        lede={`Universal motifs, syncretism and analogies between figures from ${traditionCount} world traditions.`}
+      />
+      <Container className="pt-2">
+        <CompareNav current="/compare/parallels" />
+      </Container>
+      <Container className="section-space-sm">
+        <ParallelsPageClient
+          edges={edges}
+          deities={project(getDeities(), [
+            "id",
+            "name",
+            "slug",
+            "pantheonId",
+            "domain",
+            "symbols",
+            "description",
+            "imageUrl",
+          ])}
+          pantheons={project(getPantheons(), ["id", "name", "slug"])}
+        />
+      </Container>
+    </div>
   );
 }

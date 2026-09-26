@@ -109,8 +109,8 @@ export function ComparisonSelector({
       {/* Search and Filter */}
       {selectedDeities.length < maxSelection && (
         <div className="space-y-4">
-          {/* Pantheon Filter */}
-          <div className="flex flex-wrap gap-2">
+          {/* Pantheon Filter: one scrolling row on phones */}
+          <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [&>button]:shrink-0">
             <Button
               variant={selectedPantheon === null ? "default" : "outline"}
               size="sm"
