@@ -11,7 +11,6 @@ import { Badge } from "@/components/ui/badge";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 import { EditorialByline } from "@/components/content/EditorialByline";
-import { DeityJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AppearsIn } from "@/components/mythology/AppearsIn";
 import { getPantheonColor } from "@/lib/pantheon-colors";
@@ -133,16 +132,6 @@ export function HeroPageClient({
 
   return (
     <div className="min-h-screen">
-      <DeityJsonLd
-        name={hero.name}
-        description={
-          hero.description || `${hero.name} - hero from ancient mythology`
-        }
-        alternateNames={hero.alternateNames}
-        url={`/heroes/${hero.slug}`}
-        image={hero.imageUrl || undefined}
-      />
-
       {/* Hero header */}
       <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">

@@ -1,0 +1,41 @@
+import locations from "@/data/locations.json";
+import pantheons from "@/data/pantheons.json";
+import { ogPalette, renderOgCard } from "@/lib/og/card";
+
+export const runtime = "edge";
+export const alt = "Location entry from Mythos Atlas";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+interface Entry {
+  id: string;
+  pantheonId: string;
+  name: string;
+  description: string;
+  locationType?: string;
+}
+
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const entry = (locations as unknown as Entry[]).find(
+    (item) => item.id === slug || item.id === slug,
+  );
+  if (!entry) {
+    return renderOgCard({ eyebrow: "Mythos Atlas", title: "Location" });
+  }
+  const tradition =
+    pantheons
+      .find((p) => p.id === entry.pantheonId)
+      ?.name.replace(/\s+(?:Pantheon|Tradition|Traditions)$/, "") ?? "World";
+  return renderOgCard({
+    eyebrow: `${tradition} place`,
+    title: entry.name,
+    subtitle: entry.locationType?.replaceAll("_", " "),
+    description: entry.description,
+    palette: ogPalette(entry.pantheonId),
+  });
+}

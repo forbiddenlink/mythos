@@ -51,7 +51,10 @@ export async function generateMetadata({
   return generateBaseMetadata({
     title: `${story.title} — A Reading`,
     description: `Read ${story.title} as a scroll-driven, cinematic ${pantheonName} myth.`,
-    url: `/stories/${story.slug}/read`,
+    // The reading presents the same narrative as the story entry, so the entry
+    // is canonical: signals consolidate there instead of splitting across two
+    // URLs with identical text.
+    url: `/stories/${story.slug}`,
     image: story.imageUrl || "/og-image.png",
     type: "article",
   });

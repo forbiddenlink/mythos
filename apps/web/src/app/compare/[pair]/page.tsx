@@ -72,6 +72,7 @@ export async function generateMetadata({
     description: description.slice(0, 300),
     url: `/compare/${comparison.slug}`,
     type: "article",
+    image: null,
     keywords: [
       `${a.name} vs ${b.name}`,
       `${b.name} vs ${a.name}`,

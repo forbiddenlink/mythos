@@ -8,7 +8,6 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { CatalogSourceNotes } from "@/components/sources/CatalogSourceNotes";
 import { EditorialByline } from "@/components/content/EditorialByline";
-import { ArtifactJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ArtifactProvenance } from "@/components/artifacts/ArtifactProvenance";
 import { SourceProvenance } from "@/components/deities/SourceProvenance";
@@ -85,13 +84,6 @@ export function ArtifactPageClient({
   }
   return (
     <div className="min-h-screen">
-      <ArtifactJsonLd
-        name={artifact.name}
-        description={artifact.description}
-        url={`/artifacts/${artifact.slug}`}
-        image={artifact.imageUrl || undefined}
-        powers={artifact.powers}
-      />
       <div className="relative overflow-hidden bg-midnight">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-linear-to-b from-bronze/25 via-midnight/90 to-midnight z-10"></div>

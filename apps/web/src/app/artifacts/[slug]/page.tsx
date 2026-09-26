@@ -11,6 +11,8 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { ArtifactPageClient } from "./ArtifactPageClient";
+import { ArtifactJsonLd } from "@/components/seo/JsonLd";
+import { citedWorksFor } from "@/lib/seo/cited-works";
 
 interface ArtifactData {
   id: string;
@@ -70,7 +72,8 @@ export async function generateMetadata({
     title: `${artifact.name} - ${pantheonName} Artifact`,
     description: description,
     url: `/artifacts/${artifact.slug}`,
-    image: artifact.imageUrl || "/og-image.png",
+    // The generated opengraph-image card for this route supplies og:image.
+    image: null,
     type: "article",
     keywords: [
       artifact.name,
@@ -121,11 +124,25 @@ export default async function ArtifactPage({ params }: PageProps) {
       (s): s is { id: string; slug: string; title: string } => s !== null,
     );
 
+  const pantheon = pantheons.find((p) => p.id === artifact.pantheonId);
+
   return (
-    <ArtifactPageClient
-      slug={slug}
-      owner={owner}
-      relatedStories={relatedStories}
-    />
+    <>
+      <ArtifactJsonLd
+        name={artifact.name}
+        description={artifact.description}
+        url={`/artifacts/${artifact.slug}`}
+        image={artifact.imageUrl || undefined}
+        powers={artifact.powers}
+        artifactType={artifact.type}
+        tradition={shortPantheonName(pantheon)}
+        citations={citedWorksFor(artifact)}
+      />
+      <ArtifactPageClient
+        slug={slug}
+        owner={owner}
+        relatedStories={relatedStories}
+      />
+    </>
   );
 }
