@@ -55,7 +55,7 @@ pnpm knip                             # unused files/deps/exports (CI)
 
 ## Layout
 
-- `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `search`, `analytics`, `csp-report`, `quiz`)
+- `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `search`, `analytics`, `csp-report`, `quiz`, `newsletter`, and the prerendered `catalog/*` and `daily-myth` JSON)
 - `apps/web/src/data/` - static JSON content: `pantheons.json`, `deities.json`, `stories.json`, `creatures.json`, `artifacts.json`, `locations.json`, `relationships.json`, plus game/progress data (`achievements.ts`, `daily-challenges.json`, `collections.json`, `journeys.json`, etc.)
 - `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the Zod catalog schemas in `src/lib/schemas.ts` (validated in tests) must stay consistent with these interfaces
 - `apps/web/src/components/ui/` - shadcn/ui components (new-york style), configured via `apps/web/components.json`
@@ -103,6 +103,9 @@ From `apps/web/.env.example`:
 - `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_ORG`, `SENTRY_PROJECT`, `SENTRY_AUTH_TOKEN` - error tracking
 - `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` - trace sample rate (default 0.15); set both to keep server/client sampling in sync
 - `NEXT_PUBLIC_SENTRY_REPLAY_ENABLED` - session replay, off by default
+- `RESEND_API_KEY` - secret; lets `/api/newsletter` add weekly-digest sign-ups to Resend. Without it the route answers 501 and the footer/daily-myth forms show "sign-ups open soon". Sign-ups use the `newsletter` Upstash bucket (5/hr per client, fails closed in production like the Oracle)
+- `RESEND_SEGMENT_ID` - optional, non-secret Resend segment for the digest (defaults to `ef4d9db5-a6ff-4f30-adf3-be3576e3fe42`)
+- `NEXT_PUBLIC_STRIPE_PATRON_LINK` - optional Stripe payment link for the recurring "patron" tier on `/support`; hidden when unset
 
 ## Gotchas
 
