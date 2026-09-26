@@ -1968,5 +1968,85 @@
     "relationshipType": "enemy_of",
     "confidenceLevel": "high",
     "description": "In the Aṉangu Tjukurpa shared at Uluṟu, the Liru kill Kuniya's nephew and Kuniya strikes down a Liru warrior at Muṯitjulu."
+  },
+  {
+    "id": "dine-sun-monster-slayer",
+    "fromDeityId": "johonaaei",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "The Sun is Monster Slayer's father in Matthews's version and in later tellings; he tests the twins before acknowledging them."
+  },
+  {
+    "id": "dine-changing-woman-monster-slayer",
+    "fromDeityId": "changing-woman",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "Changing Woman is Monster Slayer's mother in every published version used here."
+  },
+  {
+    "id": "dine-changing-woman-born-for-water",
+    "fromDeityId": "changing-woman",
+    "toDeityId": "born-for-water",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In many later tellings Changing Woman is the mother of both twins; in Matthews's 1897 version Born for Water is White Shell Woman's son by the water."
+  },
+  {
+    "id": "dine-white-shell-woman-born-for-water",
+    "fromDeityId": "white-shell-woman",
+    "toDeityId": "born-for-water",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Matthews's Navaho Legends (1897), White Shell Woman conceives Born for Water by the water; later tellings often give both twins to Changing Woman."
+  },
+  {
+    "id": "dine-twins",
+    "fromDeityId": "monster-slayer",
+    "toDeityId": "born-for-water",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Hero Twins are brothers in every version, whether born of one mother or two."
+  },
+  {
+    "id": "dine-sun-changing-woman",
+    "fromDeityId": "johonaaei",
+    "toDeityId": "changing-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "medium",
+    "description": "The Sun is the father of Changing Woman's son and later asks her to live with him in the house he builds in the west; the texts describe a partnership rather than a formal marriage."
+  },
+  {
+    "id": "dine-first-man-first-woman",
+    "fromDeityId": "first-man",
+    "toDeityId": "first-woman",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "First Man and First Woman are partners from the lower worlds onward; their quarrel leads to the separation of the sexes."
+  },
+  {
+    "id": "dine-spider-woman-twins",
+    "fromDeityId": "spider-woman",
+    "toDeityId": "monster-slayer",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Spider Woman guides the twins and gives them protection and words for the dangers of the journey to the Sun."
+  },
+  {
+    "id": "dine-white-shell-changing-woman",
+    "fromDeityId": "white-shell-woman",
+    "toDeityId": "changing-woman",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "low",
+    "description": "Many later tellings treat White Shell Woman as another name or aspect of Changing Woman, while Matthews presents them as two women; marked low confidence because the versions disagree."
+  },
+  {
+    "id": "dine-first-man-changing-woman",
+    "fromDeityId": "first-man",
+    "toDeityId": "changing-woman",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "In many tellings First Man finds the infant Changing Woman and he and First Woman raise her; this is fosterage, not birth, and it is marked low confidence for that reason."
   }
 ]

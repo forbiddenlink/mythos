@@ -2301,5 +2301,142 @@
       }
     ],
     "readingOrder": "Begin with the custodians' own introductions and the maps of the songlines before the art."
+  },
+  {
+    "id": "navaho-legends-matthews",
+    "title": "Navaho Legends",
+    "author": "Washington Matthews",
+    "year": "1897",
+    "type": "translation",
+    "language": "Diné bizaad (Navajo), English translation",
+    "description": "Matthews's translation of the Diné origin story and related narratives, recorded in the 1880s from Diné ceremonial practitioners. A foundational but outsider source, in an outdated orthography (Estsánatlehi, Nayénĕzgani, Tóbadzĭstsíni). Accounts in it differ from later tellings, for example on the mothers of the Hero Twins.",
+    "translators": [
+      {
+        "name": "Washington Matthews",
+        "year": 1897
+      }
+    ],
+    "characters": [
+      {
+        "id": "changing-woman",
+        "kind": "deity",
+        "role": "Estsánatlehi, mother of Monster Slayer",
+        "where": "origin legend, the war gods"
+      },
+      {
+        "id": "white-shell-woman",
+        "kind": "deity",
+        "role": "Yolkaí Estsán, mother of Born for Water in this version",
+        "where": "origin legend"
+      },
+      {
+        "id": "monster-slayer",
+        "kind": "deity",
+        "role": "Nayénĕzgani, slayer of the monsters",
+        "where": "origin legend, the war gods"
+      },
+      {
+        "id": "born-for-water",
+        "kind": "deity",
+        "role": "Tóbadzĭstsíni, his brother",
+        "where": "origin legend, the war gods"
+      },
+      {
+        "id": "johonaaei",
+        "kind": "deity",
+        "role": "Tsóhanoai, the Sun Bearer, the twins' father",
+        "where": "origin legend, the twins' journey"
+      },
+      {
+        "id": "spider-woman",
+        "kind": "deity",
+        "role": "helps the twins on their journey",
+        "where": "origin legend, the twins' journey"
+      },
+      {
+        "id": "first-man",
+        "kind": "deity",
+        "role": "Atsé Hastín, leader in the lower worlds",
+        "where": "origin legend"
+      },
+      {
+        "id": "first-woman",
+        "kind": "deity",
+        "role": "Atsé Estsán",
+        "where": "origin legend"
+      },
+      {
+        "id": "coyote",
+        "kind": "deity",
+        "role": "troublemaker in the lower worlds",
+        "where": "origin legend"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Flood of the Lower World",
+        "where": "origin legend",
+        "summary": "Water rises through the lower world and the people escape upward through a great reed."
+      },
+      {
+        "title": "The Twins at the Sun's House",
+        "where": "origin legend, the war gods",
+        "summary": "The twins reach their father's house, survive his tests with Spider Woman's help, and receive weapons of lightning."
+      },
+      {
+        "title": "Monsters Spared",
+        "where": "origin legend, the war gods",
+        "summary": "Monster Slayer spares Old Age, Cold, Poverty, and Hunger when each explains its place in life."
+      }
+    ],
+    "readingOrder": "Read the introduction on orthography and sources first; pair with Diné-authored works."
+  },
+  {
+    "id": "dine-bahane-zolbrod",
+    "title": "Diné bahane': The Navajo Creation Story",
+    "author": "Paul G. Zolbrod",
+    "year": "1984",
+    "type": "translation",
+    "language": "English (from Diné sources recorded by Matthews and others)",
+    "description": "A continuous English rendering of the Diné creation story, from the lower worlds through the emergence, the birth of Changing Woman, the Hero Twins, and the origin of the clans. Widely read, and criticised by some Diné readers for combining versions into a single narrative by a non-Diné author.",
+    "characters": [
+      {
+        "id": "first-man",
+        "kind": "deity",
+        "role": "finds Changing Woman as an infant",
+        "where": "Part Three"
+      },
+      {
+        "id": "changing-woman",
+        "kind": "deity",
+        "role": "mother of the Hero Twins",
+        "where": "Parts Three and Four"
+      },
+      {
+        "id": "monster-slayer",
+        "kind": "deity",
+        "role": "Naayééʼ Neizghání",
+        "where": "Part Four"
+      },
+      {
+        "id": "coyote",
+        "kind": "deity",
+        "role": "First Scolder, who scatters the stars",
+        "where": "Part Two"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Finding of Changing Woman",
+        "where": "Part Three",
+        "summary": "First Man finds an infant girl on Chʼóolʼį́ʼí, and she is raised by First Man and First Woman."
+      },
+      {
+        "title": "The Scattering of the Stars",
+        "where": "Part Two",
+        "summary": "Coyote grows impatient as the stars are placed carefully in the sky, and scatters the rest."
+      }
+    ],
+    "readingOrder": "Read with the introduction, and alongside Diné-authored sources that present these stories in their own terms."
   }
 ]

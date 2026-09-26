@@ -50,6 +50,7 @@ function getPantheonLabel(pantheonId: string): string {
     "canaanite-pantheon": "Canaanite",
     "inuit-pantheon": "Inuit",
     "aboriginal-australian-pantheon": "Aboriginal Australian",
+    "dine-pantheon": "Diné",
   };
   return labels[pantheonId] || "Ancient";
 }

@@ -253,6 +253,16 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   "wati-nyiru": "aboriginal-australian-pantheon",
   kuniya: "aboriginal-australian-pantheon",
   liru: "aboriginal-australian-pantheon",
+  "changing-woman": "dine-pantheon",
+  "white-shell-woman": "dine-pantheon",
+  "monster-slayer": "dine-pantheon",
+  "born-for-water": "dine-pantheon",
+  "first-man": "dine-pantheon",
+  "first-woman": "dine-pantheon",
+  "spider-woman": "dine-pantheon",
+  coyote: "dine-pantheon",
+  johonaaei: "dine-pantheon",
+  "talking-god": "dine-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -381,6 +391,11 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "baiames-ngunnhu": "aboriginal-australian-pantheon",
   "wagyl-and-derbarl-yerrigan": "aboriginal-australian-pantheon",
   "kuniya-and-liru": "aboriginal-australian-pantheon",
+  "the-dine-emergence": "dine-pantheon",
+  "birth-of-changing-woman": "dine-pantheon",
+  "twins-journey-to-the-sun": "dine-pantheon",
+  "monster-slayer-and-the-naayee": "dine-pantheon",
+  "changing-woman-goes-west": "dine-pantheon",
 };
 
 /**

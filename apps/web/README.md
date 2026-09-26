@@ -4,18 +4,18 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **20 pantheons**, **270 deities**, **30 heroes**, **126 stories**, **73 creatures**, **56 artifacts**, and **142 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **21 pantheons**, **280 deities**, **30 heroes**, **131 stories**, **77 creatures**, **57 artifacts**, and **147 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
-- 🏛️ **20 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Hittite, Canaanite (Ugarit), Inuit, Aboriginal Australian
-- 👑 **270 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
-- 📖 **126 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
-- 🐉 **73 Creatures** — Mythological beasts with detailed profiles
-- ⚔️ **56 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
-- 🗺️ **142 Locations** — Interactive mythological map with filters and 3 guided journeys
+- 🏛️ **21 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida, Hittite, Canaanite (Ugarit), Inuit, Aboriginal Australian, Diné (Navajo)
+- 👑 **280 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 📖 **131 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
+- 🐉 **77 Creatures** — Mythological beasts with detailed profiles
+- ⚔️ **57 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
+- 🗺️ **147 Locations** — Interactive mythological map with filters and 3 guided journeys
 - 🌳 **Family Trees** — Network graph (ReactFlow) and hierarchical (D3.js) visualizations
 - 🧠 **Quizzes & Games** — Relationship quiz, personality quiz, quick quiz, symbol memory game
 - 📚 **Spaced Repetition** — Flashcard review system with intelligent scheduling
@@ -119,14 +119,14 @@ src/
 │   ├── ui/               # shadcn/ui components
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
-│   ├── pantheons.json    # 20 pantheons
-│   ├── deities.json      # 270 deities
+│   ├── pantheons.json    # 21 pantheons
+│   ├── deities.json      # 280 deities
 │   ├── heroes.json       # 30 heroes
-│   ├── stories.json      # 126 stories
-│   ├── creatures.json    # 73 creatures
-│   ├── artifacts.json    # 56 artifacts
-│   ├── locations.json    # 142 locations
-│   ├── sources.json      # 43 primary/academic sources
+│   ├── stories.json      # 131 stories
+│   ├── creatures.json    # 77 creatures
+│   ├── artifacts.json    # 57 artifacts
+│   ├── locations.json    # 147 locations
+│   ├── sources.json      # 45 primary/academic sources
 │   └── relationships.json
 ├── hooks/                # Custom React hooks
 │   ├── useAchievements, useBookmarks, usePagination

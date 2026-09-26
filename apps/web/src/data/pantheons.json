@@ -724,5 +724,52 @@
     ],
     "imageUrl": "/pantheons/aboriginal-australian.jpg",
     "figuresLabel": "Ancestral Beings"
+  },
+  {
+    "id": "dine-pantheon",
+    "name": "Diné (Navajo) Tradition",
+    "slug": "dine",
+    "culture": "Diné (Navajo), within Diné Bikéyah, the land between the four sacred mountains",
+    "region": "Diné Bikéyah (the Navajo Nation and surrounding lands of the Four Corners region, southwestern United States)",
+    "timePeriodStart": null,
+    "timePeriodEnd": null,
+    "description": "The living tradition of the Diné, the People, whose Holy People (Diyin Dineʼé) include Changing Woman, the Hero Twins Monster Slayer and Born for Water, First Man and First Woman, Spider Woman, and Coyote; told here only at summary level, with seasonal and ceremonial restrictions respected.",
+    "detailedHistory": "## A note on telling these stories\n\nThe stories on this page are sacred narratives of a living people. Many Diné families teach that Coyote stories, and much of the account of the emergence and the Holy People, should be told only in winter, after the first frost and before the thunder of spring; telling them out of season can be harmful. Diné scholars, including the historian Jennifer Nez Denetdale, have also cautioned that outsiders' retellings have often distorted Diné history and religion, stripped stories of their ceremonial context, or treated them as quaint folklore. This site therefore keeps retellings short and at the level of published summaries, attributes them to their sources, does not describe ceremonies, and does not reproduce sandpaintings or ceremonial images; the plates on these pages are deliberately plain placeholders. Readers are encouraged to learn from Diné-authored works and Diné institutions such as Diné College and the Navajo Nation Museum.\n\n## The Diné and Diné Bikéyah\n\nThe Diné (the People), known in English as the Navajo, are one of the largest Native nations in the United States; the Navajo Nation's land spans parts of Arizona, New Mexico, and Utah. Diné Bikéyah, Diné land, is bounded by four sacred mountains: Sisnaajiní (Blanca Peak) in the east, Tsoodził (Mount Taylor) in the south, Dookʼoʼoosłííd (the San Francisco Peaks) in the west, and Dibé Ntsaa (Hesperus Mountain) in the north. Within them lie other sacred places, including Dziłnaʼoodiłii (Huerfano Mountain) and Chʼóolʼį́ʼí (Gobernador Knob), where Changing Woman was found. Archaeologists and linguists relate the Diné to other Athabaskan-speaking peoples of the north; Diné tradition tells of an emergence into this world from worlds below. This site does not set one account against the other, and gives no start date.\n\n## The Holy People\n\nThe Diyin Dineʼé, Holy People, are powerful beings who shaped the world and gave the Diné their way of life; the Diné are the Earth Surface People (Nihookáá Dineʼé). \"Holy\" here means powerful and to be approached carefully, not necessarily good: Coyote is among the Holy People, and so are beings who caused harm. Central to Diné thought is hózhó, often translated as beauty, harmony, or balance, which ceremonies seek to restore.\n\n## Sources and their limits\n\nThe best-known published sources were produced by outsiders. Washington Matthews, a U.S. Army surgeon who worked with Diné ceremonial practitioners in the 1880s, published *Navaho Legends* in 1897, a translation of the origin story and related narratives in the orthography of his day. Paul G. Zolbrod's *Diné bahaneʼ: The Navajo Creation Story* (1984) reworked Matthews's material and other sources into a continuous English narrative, and has itself been criticised by Diné readers for presenting a composite as if it were one authoritative telling. Diné-authored works include *Navajo History* (1971), produced by the Navajo Curriculum Center at Rough Rock Demonstration School, and essays gathered in *Diné Perspectives: Revitalizing and Reclaiming Navajo Thought* (2014, edited by Lloyd L. Lee). Accounts vary by family, clan, and ceremonial tradition, and differences between versions are not errors.",
+    "citationSources": [
+      {
+        "title": "Navaho Legends (Memoirs of the American Folk-Lore Society 5)",
+        "author": "Washington Matthews",
+        "date": "1897",
+        "type": "primary",
+        "sourceId": "navaho-legends-matthews"
+      },
+      {
+        "title": "Diné bahane': The Navajo Creation Story",
+        "author": "Paul G. Zolbrod",
+        "date": "1984",
+        "type": "primary",
+        "sourceId": "dine-bahane-zolbrod"
+      },
+      {
+        "title": "Navajo History, vol. 1 (Navajo Curriculum Center, Rough Rock Demonstration School; ed. Ethelou Yazzie)",
+        "author": "Navajo Curriculum Center (Diné-authored)",
+        "date": "1971",
+        "type": "secondary"
+      },
+      {
+        "title": "Reclaiming Diné History: The Legacies of Navajo Chief Manuelito and Juanita",
+        "author": "Jennifer Nez Denetdale",
+        "date": "2007",
+        "type": "secondary"
+      },
+      {
+        "title": "Diné Perspectives: Revitalizing and Reclaiming Navajo Thought",
+        "author": "Lloyd L. Lee (ed.)",
+        "date": "2014",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/dine.jpg",
+    "figuresLabel": "Holy People (Diyin Dineʼé)"
   }
 ]

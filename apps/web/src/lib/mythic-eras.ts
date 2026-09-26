@@ -116,6 +116,14 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: null,
     pantheonIds: ["aboriginal-australian-pantheon"],
   },
+  {
+    id: "dine-bikeyah",
+    label: "Diné Bikéyah",
+    blurb: "The land between the four sacred mountains, a living tradition",
+    start: null,
+    end: null,
+    pantheonIds: ["dine-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {

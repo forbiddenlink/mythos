@@ -13101,5 +13101,469 @@
       "practices": "This site does not describe ceremonies, sacred sites, or practices associated with this figure. Only the publicly shared story is summarised here; custodianship of the story belongs to the people named, and their own tellings take precedence."
     },
     "traditionRole": "Ancestral Beings (Aṉangu)"
+  },
+  {
+    "id": "changing-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "Changing Woman (Asdzą́ą́ Nádleehé)",
+    "slug": "changing-woman",
+    "originalLanguageName": {
+      "text": "Asdzą́ą́ Nádleehé",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Asdzą́ą́ Nádleehé",
+      "meaning": "'Woman who changes', 'the woman who is transformed time and again'"
+    },
+    "alternateNames": ["Estsánatlehi (Matthews's spelling)", "Asdzą́ą́ Nádleehé"],
+    "gender": "female",
+    "domain": [
+      "the renewal of life and the seasons",
+      "motherhood",
+      "the origin of the clans",
+      "the Kinaaldá"
+    ],
+    "symbols": ["turquoise", "the house in the west"],
+    "description": "The most beloved of the Diné Holy People, 'Woman who changes', found as an infant on Chʼóolʼį́ʼí, mother of the Hero Twins by the Sun, and creator of the first Diné clans; she grows old and young again with the seasons.",
+    "detailedBio": "## Woman who changes\n\nAsdzą́ą́ Nádleehé, Changing Woman, is often described as the most beloved and benevolent of the Diné Holy People. Her name refers to her renewal: she grows old in winter and becomes young again in spring, in the cycle of the seasons and of life itself. She is associated with the earth, with growth, and with the Blessingway, the ceremony at the heart of Diné religion, which this site does not describe.\n\n## Her finding\n\nIn many tellings, including those gathered in Zolbrod's *Diné bahaneʼ*, First Man finds her as an infant on top of Chʼóolʼį́ʼí (Gobernador Knob) in a place of dark cloud and rain, and she is raised by First Man and First Woman. She grows to womanhood in days, and her puberty ceremony, the first Kinaaldá, is the pattern for the Kinaaldá still held for Diné girls today. Matthews's 1897 version tells her origin differently, and this site does not choose between them.\n\n## Mother of the Hero Twins\n\nBy the Sun, Jóhonaaʼéí, she becomes the mother of Naayééʼ Neizghání, Monster Slayer; in many tellings she is also the mother of his twin, Tóbájíshchíní, Born for Water, while in Matthews's version Born for Water is the son of White Shell Woman. She hides the boys from the monsters and later sends them on their way.\n\n## The west and the clans\n\nWhen the monsters have been overcome, Changing Woman goes to live in the west, in a house the Sun built for her on the water. There, in widely published tellings, she creates the first Diné clans from skin rubbed from her own body, and sends them east to Diné Bikéyah. The clan system she began remains the basis of Diné identity: a Diné person introduces themselves by their clans.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/changing-woman.png",
+    "primarySources": [
+      {
+        "text": "Estsánatlehi bears Nayénĕzgani to the Sun and, with Yolkaí Estsán, raises the twins and hides them from the monsters (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      },
+      {
+        "text": "First Man finds an infant girl on the mountain Chʼóolʼį́ʼí, and she is raised to become Changing Woman (paraphrase).",
+        "source": "Paul G. Zolbrod, Diné bahaneʼ",
+        "date": "1984"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Estsánatlehi in the 1897 translation"
+      },
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Her finding and the Kinaaldá"
+      }
+    ],
+    "sources": [
+      "Frisbie, Charlotte Johnson. *Kinaaldá: A Study of the Navaho Girl's Puberty Ceremony* (Wesleyan University Press, 1967; University of Utah Press, 1993)."
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "white-shell-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "White Shell Woman (Yoołgaii Asdzą́ą́)",
+    "slug": "white-shell-woman",
+    "originalLanguageName": {
+      "text": "Yoołgaii Asdzą́ą́",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Yoołgaii Asdzą́ą́",
+      "meaning": "'White Shell Woman'"
+    },
+    "alternateNames": ["Yolkaí Estsán (Matthews's spelling)"],
+    "gender": "female",
+    "domain": ["white shell", "the east", "motherhood"],
+    "symbols": ["white shell"],
+    "description": "A Holy Person who in Matthews's 1897 version lives with Changing Woman and is the mother of Born for Water; in many later tellings she is another name or aspect of Changing Woman herself.",
+    "detailedBio": "## Two women, or one?\n\nWhite Shell Woman's relationship to Changing Woman differs from telling to telling. In Washington Matthews's *Navaho Legends* (1897), Yolkaí Estsán and Estsánatlehi are two women who live together; Changing Woman conceives a son by the Sun, and White Shell Woman conceives a son by the water, and the two boys grow up together as brothers: Monster Slayer and Born for Water. In many later tellings, White Shell Woman is another name for Changing Woman, or an aspect of her, and both twins are Changing Woman's sons.\n\n## White shell\n\nWhite shell is one of the four sacred stones of Diné tradition, associated with the east and with Sisnaajiní (Blanca Peak), the sacred mountain of the east. White Shell Woman's name links her with that stone and direction.\n\n## Why both entries exist\n\nThis site keeps White Shell Woman as a separate entry because a major published source treats her as a separate person, and because merging her into Changing Woman would erase that version. Readers should understand that many Diné tellers would not separate them.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/white-shell-woman.png",
+    "primarySources": [
+      {
+        "text": "Yolkaí Estsán conceives a son by the water, who is named Tóbadzĭstsíni, Child of the Water, and is raised with his brother (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Yolkaí Estsán in the 1897 version"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "monster-slayer",
+    "pantheonId": "dine-pantheon",
+    "name": "Monster Slayer (Naayééʼ Neizghání)",
+    "slug": "monster-slayer",
+    "originalLanguageName": {
+      "text": "Naayééʼ Neizghání",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Naayééʼ Neizghání",
+      "meaning": "'He who kills monsters (alien gods)'"
+    },
+    "alternateNames": [
+      "Nayénĕzgani (Matthews's spelling)",
+      "Slayer of Alien Gods"
+    ],
+    "gender": "male",
+    "domain": [
+      "protection of the Diné",
+      "the destruction of the monsters",
+      "war and courage"
+    ],
+    "symbols": ["lightning arrows", "flint armor"],
+    "description": "The elder of the Hero Twins, son of Changing Woman and the Sun, who with his brother journeys to their father's house and returns with lightning weapons to destroy the monsters that preyed on the Earth Surface People.",
+    "detailedBio": "## The elder twin\n\nNaayééʼ Neizghání, Monster Slayer, and his brother Tóbájíshchíní, Born for Water, are the Hero Twins of Diné tradition. Monster Slayer is the son of Changing Woman and the Sun, Jóhonaaʼéí. The twins grow up hidden from the naayééʼ, the monsters that are killing the people, and in time set out to find their father.\n\n## To the Sun and back\n\nHelped by Spider Woman, who gives them protection and words to pacify the guardians along the way, the twins pass through dangerous places and reach the Sun's house. The Sun tests them severely before he accepts them as his sons, and then gives them armour of flint and weapons, among them arrows of lightning. They return to the earth, and their first victim is Yéʼiitsoh, the Big Monster, killed near Tsoodził (Mount Taylor).\n\n## The monsters, and those spared\n\nAfter Yéʼiitsoh, Monster Slayer goes on to destroy many other monsters, among them the horned Déélgééd and the monster eagles of Tsé Bitʼaʼí (Shiprock). But in Matthews's 1897 version he spares Old Age, Cold, Poverty, and Hunger when each explains why the people need it: without old age there would be no new generations; without cold, no snow and water; without poverty, no new things made; without hunger, no pleasure in food. The story ends not with a world cleansed of every difficulty but with a world in balance.\n\n## After the killing\n\nIn several tellings the twins must undergo ceremonies to be restored after so much killing, which are the origin of ceremonies still practised; this site does not describe them.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/monster-slayer.png",
+    "primarySources": [
+      {
+        "text": "Nayénĕzgani spares Old Age, Cold, Poverty, and Hunger when each argues that the people would be worse off without it (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The war gods' journey and their battles"
+      },
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Part Four of the creation story"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "hero-twins",
+        "note": "Both are pairs of twin brothers who confront monstrous beings and must prove themselves to powerful elders; the Diné and K'iche' Maya stories are distinct traditions, not versions of one."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person · Hero Twin"
+  },
+  {
+    "id": "born-for-water",
+    "pantheonId": "dine-pantheon",
+    "name": "Born for Water (Tóbájíshchíní)",
+    "slug": "born-for-water",
+    "originalLanguageName": {
+      "text": "Tóbájíshchíní",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Tóbájíshchíní",
+      "meaning": "'Born for water' or 'child of the water'"
+    },
+    "alternateNames": [
+      "Tóbadzĭstsíni (Matthews's spelling)",
+      "Child of the Water"
+    ],
+    "gender": "male",
+    "domain": ["protection", "the Hero Twins' partnership"],
+    "symbols": ["water"],
+    "description": "The younger of the Hero Twins, Monster Slayer's brother; in Matthews's version the son of White Shell Woman by the water, in many later tellings Changing Woman's son by the Sun.",
+    "detailedBio": "## The younger twin\n\nTóbájíshchíní, Born for Water, is the brother of Monster Slayer, and the two act together through the journey to their father's house and the killing of the first monster. His name, usually translated \"born for water\" or \"child of the water\", reflects the version of his birth told in Matthews's *Navaho Legends*, in which White Shell Woman conceives him by the dripping of water, while Changing Woman conceives Monster Slayer by the Sun. In many later tellings both are Changing Woman's twin sons by the Sun.\n\n## Staying home\n\nAfter the twins kill Yéʼiitsoh, the brothers' paths divide in many tellings: Monster Slayer goes out to destroy the other monsters, while Born for Water stays at home to watch over their mothers, keeping watch over a sign (in some tellings a prayer-stick) that will show whether his brother is in danger. The partnership, one who goes out and one who guards, is part of what the twins represent.\n\n## Together\n\nThe twins are often invoked together, and in ceremonial contexts that this site does not describe they have complementary roles.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/born-for-water.png",
+    "primarySources": [
+      {
+        "text": "Tóbadzĭstsíni stays at home to guard the mothers while his brother goes out against the monsters, watching a sign that would warn him of danger (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Tóbadzĭstsíni in the 1897 version"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person · Hero Twin"
+  },
+  {
+    "id": "first-man",
+    "pantheonId": "dine-pantheon",
+    "name": "First Man (Áłtsé Hastiin)",
+    "slug": "first-man",
+    "originalLanguageName": {
+      "text": "Áłtsé Hastiin",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Áłtsé Hastiin",
+      "meaning": "'First Man'"
+    },
+    "alternateNames": ["Atsé Hastín (Matthews's spelling)"],
+    "gender": "male",
+    "domain": [
+      "leadership in the lower worlds",
+      "the ordering of the world",
+      "power used for good and ill"
+    ],
+    "symbols": ["white corn (in some tellings)", "the medicine bundle"],
+    "description": "One of the first beings of the lower worlds, who with First Woman leads the people through the emergence, helps order the world above, and in many tellings finds the infant Changing Woman.",
+    "detailedBio": "## In the lower worlds\n\nÁłtsé Hastiin, First Man, is formed in the lower worlds, in many tellings together with First Woman, and he is a leader of the beings who journey upward through successive worlds into this one, the Glittering World. Tellings differ on the number and colours of the worlds and on how First Man and First Woman come into being.\n\n## Ordering the world\n\nIn the world above, First Man takes part in shaping and ordering things: setting the sacred mountains in place and, in many tellings, arranging the stars in the sky, a careful work that Coyote disrupts by scattering the rest. He holds a medicine bundle of great power.\n\n## An ambiguous power\n\nFirst Man is not simply good. In some tellings he is associated with witchcraft as well as with protective knowledge, and he is linked to the origin of the monsters that later threaten the people. Diné tradition treats power as something that can be used for good or ill, and First Man embodies that ambiguity.\n\n## Finding Changing Woman\n\nIn many tellings, including Zolbrod's, it is First Man who finds the infant Changing Woman on Chʼóolʼį́ʼí, and he and First Woman raise her.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/first-man.png",
+    "primarySources": [
+      {
+        "text": "Atsé Hastín and Atsé Estsán lead the people upward through the lower worlds (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "First Man in Parts One to Three"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "first-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "First Woman (Áłtsé Asdzą́ą́)",
+    "slug": "first-woman",
+    "originalLanguageName": {
+      "text": "Áłtsé Asdzą́ą́",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Áłtsé Asdzą́ą́",
+      "meaning": "'First Woman'"
+    },
+    "alternateNames": ["Atsé Estsán (Matthews's spelling)"],
+    "gender": "female",
+    "domain": [
+      "the lower worlds and the emergence",
+      "the relationship of women and men"
+    ],
+    "symbols": ["yellow corn (in some tellings)"],
+    "description": "First Man's partner in the lower worlds, whose quarrel with him leads to the separation of women and men and, in many tellings, to the birth of the monsters; she helps raise Changing Woman.",
+    "detailedBio": "## Partner of First Man\n\nÁłtsé Asdzą́ą́, First Woman, comes into being in the lower worlds with First Man, and the two are partners through the journey upward. Like First Man, she is a being of great and ambiguous power.\n\n## The separation of the sexes\n\nA central episode of the origin story in many tellings, including Matthews's and Zolbrod's, is a quarrel between First Woman and First Man that leads the men and women to live apart, on opposite sides of a river. Both sides suffer, and eventually they reunite. In many tellings the monsters that later prey on the people were born as a consequence of that separation. The episode is often told as a lesson about the interdependence of women and men.\n\n## Raising Changing Woman\n\nIn many tellings First Woman raises the infant Changing Woman with First Man, and takes part in her Kinaaldá.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/first-woman.png",
+    "primarySources": [
+      {
+        "text": "A quarrel between First Man and First Woman leads the men and women to live apart across a river until hardship reunites them (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "The separation of the sexes"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "spider-woman",
+    "pantheonId": "dine-pantheon",
+    "name": "Spider Woman (Naʼashjéʼiiʼ Asdzą́ą́)",
+    "slug": "spider-woman",
+    "originalLanguageName": {
+      "text": "Naʼashjéʼiiʼ Asdzą́ą́",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Naʼashjéʼiiʼ Asdzą́ą́",
+      "meaning": "'Spider Woman'"
+    },
+    "alternateNames": ["Spider Grandmother (in some English retellings)"],
+    "gender": "female",
+    "domain": ["weaving", "help and protection", "knowledge"],
+    "symbols": ["the spider", "the loom"],
+    "description": "The Holy Person who guides the Hero Twins on their way to the Sun, giving them protection and words to calm the guardians; in Diné tradition she also taught weaving.",
+    "detailedBio": "## The twins' helper\n\nWhen the Hero Twins set out to find their father, they come upon Spider Woman, who lives underground and invites them in. She tells them who their father is and how dangerous the way to his house will be, and she gives them protection, in Matthews's version a sacred feather, and a prayer or chant to pacify the dangers and guardians they will meet. Her help makes the journey possible.\n\n## Weaving\n\nDiné tradition credits Spider Woman with teaching weaving, and Spider Man with making the first loom. Weaving remains one of the great Diné arts, and weavers speak of the knowledge as a gift from the Holy People. Some weavers leave a small line (sometimes called a spirit line) running out from the pattern; practices and explanations differ, and this site does not describe them further.\n\n## Spider Rock\n\nTsé Naʼashjéʼiiʼ, Spider Rock, a sandstone spire in Canyon de Chelly, is associated with Spider Woman. Canyon de Chelly is on Navajo Nation land and is visited with Diné guides.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/spider-woman.png",
+    "primarySources": [
+      {
+        "text": "Spider Woman receives the twins in her dwelling, tells them the way to their father's house, and gives them a charm and words to subdue the enemies on the way (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The twins' meeting with Spider Woman"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "coyote",
+    "pantheonId": "dine-pantheon",
+    "name": "Coyote (Máʼii)",
+    "slug": "coyote",
+    "originalLanguageName": {
+      "text": "Máʼii",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Máʼii",
+      "meaning": "'Coyote'"
+    },
+    "alternateNames": ["Máʼii", "First Scolder (Áłtsé Hashkéé)", "First Angry"],
+    "gender": "male",
+    "domain": [
+      "disorder and change",
+      "the scattering of the stars",
+      "death (in some tellings)"
+    ],
+    "symbols": ["the scattered stars", "the coyote"],
+    "description": "The disruptive Holy Person of the Diné origin story, whose theft of the Water Monster's child brings the flood of the lower world and whose impatience scatters the stars; Coyote stories are traditionally told only in winter.",
+    "detailedBio": "## Told in winter\n\nCoyote stories hold a special place in Diné tradition, and many Diné people teach that they should be told only in winter. This entry summarises Coyote's role in published accounts of the origin story; readers who follow the seasonal practice may prefer to read it in winter.\n\n## Troublemaker in the lower worlds\n\nIn Matthews's and later tellings, Coyote is present from the lower worlds onward, curious, impatient, and unable to leave things alone. His most serious act is stealing the child of Tééhooltsódii, the Water Monster; in response the Water Monster floods the world, and the people must climb upward to escape. The theft is eventually discovered and the child returned.\n\n## The scattered stars\n\nIn widely published tellings, when the stars are being carefully placed in the sky to make patterns that would teach the people, Coyote grows impatient, seizes what remains, and flings it across the sky, which is why so many stars lie scattered without order. Zolbrod calls Coyote \"First Scolder\".\n\n## Death\n\nIn some tellings Coyote decides that death should be permanent, throwing a stone (or hide) into the water with the reasoning that if people did not die, the world would be too crowded. Tellings differ, and this site does not present one as definitive.\n\n## Neither good nor evil\n\nCoyote is a Holy Person, and his actions have consequences that shape the world. Diné tradition treats him as a figure to learn from, including by his mistakes, and Coyote stories carry lessons about conduct.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/coyote.png",
+    "primarySources": [
+      {
+        "text": "Coyote steals the child of the water monster, and the waters rise until the people escape upward (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      },
+      {
+        "text": "Coyote, impatient with the careful placing of the stars, scatters the rest across the sky (paraphrase).",
+        "source": "Paul G. Zolbrod, Diné bahaneʼ",
+        "date": "1984"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "dine-bahane-zolbrod",
+        "note": "Coyote as First Scolder"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "tlingit-haida-pantheon",
+        "deityId": "raven",
+        "note": "Both are world-changing tricksters among Indigenous peoples of North America, whose disruptions shape how the world is; the Diné and Northwest Coast traditions are distinct."
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "loki",
+        "note": "Both are boundary-crossing tricksters whose mischief changes the world for good and ill; the comparison is typological only."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Many Diné families and teachers tell this story, like other Coyote and origin stories, only in the winter months, after the first frost and before the first thunder of spring. Readers who wish to follow that practice may prefer to return to this page in winter."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "johonaaei",
+    "pantheonId": "dine-pantheon",
+    "name": "The Sun Bearer (Jóhonaaʼéí)",
+    "slug": "johonaaei",
+    "originalLanguageName": {
+      "text": "Jóhonaaʼéí",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Jóhonaaʼéí",
+      "meaning": "'Sun'; the one who carries the sun"
+    },
+    "alternateNames": [
+      "Tsóhanoai (Matthews's spelling)",
+      "Sun Bearer",
+      "the Sun"
+    ],
+    "gender": "male",
+    "domain": [
+      "the sun",
+      "fatherhood of the Hero Twins",
+      "trial and recognition"
+    ],
+    "symbols": ["the sun", "the turquoise house in the east"],
+    "description": "The Sun, who carries the sun across the sky, father of Monster Slayer by Changing Woman; he tests the twins harshly before recognising them as his sons and giving them lightning weapons.",
+    "detailedBio": "## The one who carries the sun\n\nJóhonaaʼéí is the Sun, often described in English as the Sun Bearer because he carries the sun across the sky each day. He lives in a house in the east, described in Matthews's version as made of turquoise, from which he sets out each morning.\n\n## Father of the twins\n\nBy Changing Woman he is the father of Monster Slayer, and in many tellings of Born for Water too. When the twins arrive at his house, he is not pleased: his wife asks him whose children these are, and he tests the boys severely, throwing them against spikes, shutting them in an overheated sweat house, and offering them poisoned tobacco. Spider Woman's gifts and the help of others protect them, and at last he acknowledges them as his sons.\n\n## Gifts and a price\n\nThe Sun gives the twins armour of flint and weapons, including arrows of lightning, to destroy the monsters, and himself strikes the first blow against Yéʼiitsoh, who in some tellings is also his son. Later, in widely published tellings, he asks Changing Woman to live with him in the west, and builds her a house there on the water.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/johonaaei.png",
+    "primarySources": [
+      {
+        "text": "Tsóhanoai tests the twins in his house before owning them as his sons and giving them armour and weapons against the alien gods (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "The twins at the Sun's house"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
+  },
+  {
+    "id": "talking-god",
+    "pantheonId": "dine-pantheon",
+    "name": "Talking God (Haashchʼééłtiʼí)",
+    "slug": "talking-god",
+    "originalLanguageName": {
+      "text": "Haashchʼééłtiʼí",
+      "language": "Diné bizaad (Navajo)",
+      "transliteration": "Haashchʼééłtiʼí",
+      "meaning": "Often rendered 'Talking God'"
+    },
+    "alternateNames": ["Hastséyalti (Matthews's spelling)"],
+    "gender": "male",
+    "domain": ["the dawn and the east", "guidance and teaching"],
+    "symbols": ["the dawn"],
+    "description": "A leading Holy Person associated with the dawn and the east, who appears at key moments of the origin story to guide and teach; the ceremonies in which he appears are not described here.",
+    "detailedBio": "## A guide\n\nHaashchʼééłtiʼí, Talking God, is one of the most important of the Holy People, associated with the east and the dawn. In the origin story, as published by Matthews and Zolbrod, he appears at key moments to guide, teach, and help the people and other Holy People; in several tellings he is present at the finding or raising of Changing Woman, and he helps the Hero Twins.\n\n## In ceremony\n\nTalking God is a leader of the yéʼii, Holy People who are represented in certain Diné ceremonies. Those ceremonies are sacred, and this site does not describe them or reproduce images associated with them.\n\n## Limits of this entry\n\nBecause much of what is significant about Talking God belongs to ceremonial knowledge, this entry is deliberately brief, and records only the outline found in published narrative sources.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/talking-god.png",
+    "primarySources": [
+      {
+        "text": "Hastséyalti appears in the origin legend as a guide and helper of the people (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "navaho-legends-matthews",
+        "note": "Hastséyalti in the origin legend"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Holy People are part of a living religion. Ceremonies associated with them, including the Blessingway (Hózhǫ́ǫ́jí) and the chantways conducted by hataałii (ceremonial practitioners), are not described on this site, and sandpaintings are not reproduced, because they are sacred and made for healing within ceremony."
+    },
+    "traditionRole": "Holy Person"
   }
 ]

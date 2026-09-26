@@ -2564,5 +2564,95 @@
       }
     ],
     "imageUrl": "/locations/uluru.png"
+  },
+  {
+    "id": "blanca-peak",
+    "name": "Sisnaajiní (Blanca Peak)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the east bounding Diné Bikéyah, in the Sangre de Cristo Range of southern Colorado, associated with white shell and the dawn.",
+    "latitude": 37.5775,
+    "longitude": -105.4856,
+    "detailedBio": "## The eastern boundary\n\nSisnaajiní, known in English as Blanca Peak, is the sacred mountain of the east, one of the four that bound Diné Bikéyah. It rises to about 4,370 metres in the Sierra Blanca massif of the Sangre de Cristo Mountains in southern Colorado. It is associated with the east, with the dawn, and with white shell.\n\n## A holy mountain\n\nIn the Diné origin story the sacred mountains were set in place by the Holy People after the emergence, each with its own adornments and associations. Soil and other materials from the four mountains are used in ceremonies that this site does not describe.\n\n## Today\n\nThe mountain lies outside the present boundaries of the Navajo Nation, on land that includes private and public holdings. Diné people continue to regard it as sacred, and the protection of the sacred mountains is a recurring concern of the Navajo Nation.",
+    "primarySources": [
+      {
+        "text": "The Holy People set the sacred mountains in place at the four directions after the emergence (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/blanca-peak.png"
+  },
+  {
+    "id": "mount-taylor",
+    "name": "Tsoodził (Mount Taylor)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the south, in New Mexico, associated with turquoise; near it the Hero Twins killed Yéʼiitsoh, whose blood is said to have become the lava flows of the region.",
+    "latitude": 35.2383,
+    "longitude": -107.6086,
+    "detailedBio": "## The southern boundary\n\nTsoodził, known in English as Mount Taylor, is the sacred mountain of the south, a volcanic peak rising to about 3,445 metres near Grants, New Mexico. It is associated with the south and with turquoise, and it is sacred to several peoples of the region, including the Acoma and Laguna Pueblos, Zuni, and Hopi as well as the Diné.\n\n## Yéʼiitsoh\n\nIn the Hero Twins' story, the giant Yéʼiitsoh lived near Tsoodził, and the twins killed him at a lake nearby. Widely told accounts say his blood became the black lava flows, the malpais, near the mountain, and his head became Cabezon Peak to the east.\n\n## Protection\n\nIn 2008 and 2009 the State of New Mexico listed Mount Taylor as a Traditional Cultural Property at the request of Native nations, including the Navajo Nation, amid concern over proposed uranium mining; the listing was upheld by the New Mexico Supreme Court in 2014.",
+    "primarySources": [
+      {
+        "text": "The twins meet Yéitso at a lake near Tsoťsil and kill him with lightning (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/mount-taylor.png"
+  },
+  {
+    "id": "san-francisco-peaks",
+    "name": "Dookʼoʼoosłííd (San Francisco Peaks)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the west, near Flagstaff, Arizona, associated with abalone shell; sacred to many Native nations, and the subject of long legal disputes over a ski resort.",
+    "latitude": 35.3464,
+    "longitude": -111.678,
+    "detailedBio": "## The western boundary\n\nDookʼoʼoosłííd, the San Francisco Peaks, is the sacred mountain of the west, whose highest summit, Humphreys Peak, reaches about 3,850 metres north of Flagstaff, Arizona. It is associated with the west and with abalone shell. The peaks are sacred to many Native nations of the region, including the Hopi, for whom they are the home of the katsinam, as well as the Diné.\n\n## A contested mountain\n\nThe peaks have been the focus of long legal and political disputes over the Arizona Snowbowl ski resort, including its use of treated wastewater to make artificial snow, which the Navajo Nation, the Hopi Tribe, and others opposed as a desecration. In *Navajo Nation v. United States Forest Service* (2008), a federal appeals court ruled against the tribes. The dispute is often cited in discussions of sacred-site protection in the United States.\n\n## In the story\n\nAlong with the other sacred mountains, Dookʼoʼoosłííd was set in place by the Holy People after the emergence, and it marks the western edge of Diné Bikéyah, toward which Changing Woman went to live.",
+    "primarySources": [
+      {
+        "text": "The Holy People set the sacred mountains in place at the four directions after the emergence (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/san-francisco-peaks.png"
+  },
+  {
+    "id": "hesperus-mountain",
+    "name": "Dibé Ntsaa (Hesperus Mountain)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "The sacred mountain of the north, usually identified with Hesperus Mountain in the La Plata Mountains of southwestern Colorado, associated with jet.",
+    "latitude": 37.445,
+    "longitude": -108.089,
+    "detailedBio": "## The northern boundary\n\nDibé Ntsaa, \"big mountain sheep\", is the sacred mountain of the north, usually identified with Hesperus Mountain, the highest summit of the La Plata Mountains in southwestern Colorado, at about 4,035 metres. It is associated with the north and with jet (black stone).\n\n## Identification\n\nMost sources identify Dibé Ntsaa with Hesperus Mountain, but some Diné accounts and scholars have identified the northern sacred mountain differently, and this site notes that the identification is not uniform.\n\n## In the story\n\nWith Sisnaajiní, Tsoodził, and Dookʼoʼoosłííd, Dibé Ntsaa bounds Diné Bikéyah, the land into which the people emerged and within which, in the Diné understanding, they belong.",
+    "primarySources": [
+      {
+        "text": "The Holy People set the sacred mountains in place at the four directions after the emergence (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/locations/hesperus-mountain.png"
+  },
+  {
+    "id": "gobernador-knob",
+    "name": "Chʼóolʼį́ʼí (Gobernador Knob)",
+    "locationType": "mountain",
+    "pantheonId": "dine-pantheon",
+    "description": "A small peak in the Dinétah region of northern New Mexico where, in many tellings, First Man found the infant Changing Woman.",
+    "latitude": 36.7822,
+    "longitude": -107.5934,
+    "detailedBio": "## Where Changing Woman was found\n\nChʼóolʼį́ʼí, known in English as Gobernador Knob, is a small summit in Rio Arriba County, northern New Mexico, within the Four Corners region. In many tellings of the Diné origin story, it is here that First Man, following the sound of a baby's cry beneath a dark cloud, found the infant who would become Changing Woman.\n\n## Dinétah\n\nChʼóolʼį́ʼí lies in Dinétah, the region along the upper San Juan River where, in Diné tradition and in the archaeological record, early Diné life was centred. Together with nearby Dziłnaʼoodiłii (Huerfano Mountain), it is among the sacred mountains within the land bounded by the four directional mountains.\n\n## Respect\n\nThe knob is on public land, and it remains a sacred place for Diné people. This site gives its location because it is widely published, and asks readers to treat it accordingly.",
+    "primarySources": [
+      {
+        "text": "First Man finds an infant girl on the mountain Chʼóolʼį́ʼí (paraphrase).",
+        "source": "Paul G. Zolbrod, Diné bahaneʼ",
+        "date": "1984"
+      }
+    ],
+    "imageUrl": "/locations/gobernador-knob.png"
   }
 ]

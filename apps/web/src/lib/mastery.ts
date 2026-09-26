@@ -44,6 +44,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "canaanite-pantheon": "Canaanite",
   "inuit-pantheon": "Inuit",
   "aboriginal-australian-pantheon": "Aboriginal Australian",
+  "dine-pantheon": "Diné",
 };
 
 const MASTERY_THRESHOLDS = {

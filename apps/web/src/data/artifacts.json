@@ -1429,5 +1429,33 @@
         "date": "tablets of the late 13th or early 12th c. BCE"
       }
     ]
+  },
+  {
+    "id": "lightning-arrows-of-the-twins",
+    "pantheonId": "dine-pantheon",
+    "name": "The Sun's Gifts to the Hero Twins",
+    "slug": "lightning-arrows-of-the-twins",
+    "description": "The armour of flint and the weapons, among them arrows of lightning, that the Sun gave his sons when he at last acknowledged them, and with which they killed Yéʼiitsoh and the other monsters.",
+    "type": "weapon",
+    "powers": [
+      "lightning arrows that shatter the monsters' armour",
+      "flint armour that turns aside lightning and weapons"
+    ],
+    "owner": "monster-slayer",
+    "origin": "Washington Matthews, Navaho Legends (1897): given by the Sun (Tsóhanoai) to the twins at his house.",
+    "currentLocation": "With the Hero Twins",
+    "imageUrl": "/artifacts/lightning-arrows-of-the-twins.png",
+    "relatedStories": [
+      "twins-journey-to-the-sun",
+      "monster-slayer-and-the-naayee"
+    ],
+    "detailedBio": "## The father's gifts\n\nWhen the Sun finally acknowledges the twins as his sons, he asks what they want, and they ask for the means to destroy the monsters. In Matthews's version, the Sun gives them armour of flint and weapons that include arrows of lightning of different kinds. He sends them back to the earth on a path of lightning.\n\n## In use\n\nWith these weapons the twins kill Yéʼiitsoh, whose own armour of flint is shattered by the lightning arrows, and Monster Slayer goes on to kill Déélgééd and the monster eagles of Shiprock. Yéʼiitsoh's flint scales, in some tellings, are later used by the people.\n\n## Why this entry is brief\n\nThe Hero Twins' weapons and protections are connected with ceremonies of protection that this site does not describe. This entry records only what appears in the published narrative, not their ceremonial meaning, and it does not depict them.",
+    "primarySources": [
+      {
+        "text": "The Sun gives the twins armour and weapons of lightning with which to destroy the alien gods (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ]
   }
 ]

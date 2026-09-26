@@ -1563,5 +1563,91 @@
       }
     ],
     "imageUrl": "/creatures/mimih.png"
+  },
+  {
+    "id": "yeiitsoh",
+    "pantheonId": "dine-pantheon",
+    "name": "Yéʼiitsoh",
+    "slug": "yeiitsoh",
+    "description": "The Big Monster, greatest of the naayééʼ, a giant armoured in flint who lived near Tsoodził (Mount Taylor); the first monster killed by the Hero Twins, whose blood became the lava flows near the mountain.",
+    "habitat": "Near Tsoodził (Mount Taylor) and a lake where he came to drink",
+    "abilities": [
+      "giant size and strength",
+      "armour of flint",
+      "hurls lightning"
+    ],
+    "dangerLevel": 10,
+    "detailedBio": "## The Big Monster\n\nYéʼiitsoh (Matthews's Yéitso), the Big Monster, is the greatest of the naayééʼ, the monsters that preyed on the people after the emergence. He is a giant clad in armour of flint, and in some tellings he is himself a son of the Sun. He comes close to finding the Hero Twins when they are children, and his defeat is the twins' first act on returning from their father's house.\n\n## His death\n\nIn Matthews's version the twins confront Yéʼiitsoh at a lake near Tsoodził where he comes to drink. They exchange taunts; he hurls lightning at them and misses; the Sun strikes him first with lightning, and the twins follow with their lightning arrows, shattering his armour until he falls. The twins take his scalp, and the flow of his blood is turned aside so that it cannot bring him back to life.\n\n## In the land\n\nIn widely told accounts, Yéʼiitsoh's blood became the black lava flows near Mount Taylor, the malpais of the region, and his head became Cabezon Peak to the east. The story ties the volcanic landscape of the area to the twins' victory.",
+    "primarySources": [
+      {
+        "text": "The twins meet Yéitso at a lake near Tsoťsil; the Sun strikes first with lightning and the twins' lightning arrows shatter his armour (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/creatures/yeiitsoh.png"
+  },
+  {
+    "id": "deelgeed",
+    "pantheonId": "dine-pantheon",
+    "name": "Déélgééd",
+    "slug": "deelgeed",
+    "description": "The horned monster, a great beast of the open plain whom Monster Slayer killed with a lightning arrow through the heart after Gopher dug a tunnel beneath it.",
+    "habitat": "A wide open plain where nothing could approach it unseen",
+    "abilities": [
+      "gores with enormous horns",
+      "sees anyone approaching across open ground"
+    ],
+    "dangerLevel": 8,
+    "detailedBio": "## The horned monster\n\nDéélgééd (Matthews's Téelget) is one of the naayééʼ, a huge horned creature that lives on an open plain, killing anyone who comes near. Because the plain offers no cover, no one can approach it unseen.\n\n## Gopher's help\n\nIn Matthews's version, Gopher offers Monster Slayer help: he digs a tunnel beneath the monster and gnaws away the hair over its heart. Monster Slayer crawls through the tunnel and shoots a lightning arrow into the monster's heart, then takes refuge in side tunnels as the dying beast tears at the ground with its horns. When it is dead, Gopher asks for the hide and wears it still.\n\n## Marks in the world\n\nThe story explains features of animals: the gopher's coat, and in some tellings the stripes on the ground squirrel's face, painted with the monster's blood in celebration. Monster Slayer takes parts of the monster as trophies.",
+    "primarySources": [
+      {
+        "text": "Gopher digs beneath Téelget and gnaws the hair over its heart, and Nayénĕzgani shoots it through the heart from the tunnel (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/creatures/deelgeed.png"
+  },
+  {
+    "id": "tse-ninahalee",
+    "pantheonId": "dine-pantheon",
+    "name": "Tsé Nináhálééh",
+    "slug": "tse-ninahalee",
+    "description": "The monster eagles who nested on Tsé Bitʼaʼí (Shiprock) and carried people off to feed their young; Monster Slayer killed the adults and turned their young into the eagle and the owl.",
+    "habitat": "A nest on Tsé Bitʼaʼí, the rock with wings (Shiprock)",
+    "abilities": [
+      "seize people in their talons",
+      "drop victims from great heights"
+    ],
+    "dangerLevel": 8,
+    "detailedBio": "## The rock with wings\n\nTsé Bitʼaʼí, \"rock with wings\", is the Diné name for Shiprock, the volcanic peak in northwest New Mexico. In the Hero Twins' story it is the nesting place of the Tsé Nináhálééh (Matthews's Tsenahále), monstrous birds that carry people off to feed to their young.\n\n## Monster Slayer's trick\n\nIn Matthews's version Monster Slayer allows the male bird to seize him and drop him into the nest, protected from the fall by the feather Spider Woman gave him. When the adult birds return, he kills them with his lightning arrows.\n\n## The young spared\n\nMonster Slayer spares the young birds, turning one into the eagle, whose feathers would be used by the people, and the other into the owl. The feathers of the monster birds are scattered and become the many small birds of the world. As so often in this story, what was destructive is transformed into something that has a place in the world.",
+    "primarySources": [
+      {
+        "text": "Nayénĕzgani is carried to the nest of the Tsenahále, kills the parent birds, and turns the young into the eagle and the owl (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/creatures/tse-ninahalee.png"
+  },
+  {
+    "id": "teehooltsodii",
+    "pantheonId": "dine-pantheon",
+    "name": "Tééhooltsódii (Water Monster)",
+    "slug": "teehooltsodii",
+    "description": "The Water Monster of the lower world whose child Coyote stole, so that the waters rose until the people escaped upward through a reed; the child was returned and the waters receded.",
+    "habitat": "The waters of the lower worlds",
+    "abilities": ["commands the rising of the waters"],
+    "dangerLevel": 7,
+    "detailedBio": "## The flood of the lower world\n\nTééhooltsódii (Matthews's Tiéholtsodi), the Water Monster, lives in the waters of the lower world. When Coyote steals its child, it searches for the child and causes the waters to rise, until the whole lower world is flooded and the people must escape upward through a great reed into the world above.\n\n## The child returned\n\nWhen the waters follow the people up, the theft is discovered, and Coyote is made to give the child back. The waters then recede. In some tellings the Water Monster is placed in charge of waters afterward.\n\n## Not simply a villain\n\nThe Water Monster is not presented as evil: it acts to recover a stolen child, and the disaster is Coyote's doing. The episode is one of the clearest examples of how Coyote's disruptions shape the world. Many Diné families teach that this part of the story is told in winter.",
+    "primarySources": [
+      {
+        "text": "Coyote carries off the young of Tiéholtsodi, and the waters rise until the people flee upward (paraphrase).",
+        "source": "Washington Matthews, Navaho Legends",
+        "date": "1897"
+      }
+    ],
+    "imageUrl": "/creatures/teehooltsodii.png"
   }
 ]

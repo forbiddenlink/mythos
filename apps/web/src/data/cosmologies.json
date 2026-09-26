@@ -1615,5 +1615,80 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "dine-pantheon",
+    "title": "The Lower Worlds and the Glittering World",
+    "summary": "Beings journey upward through several lower worlds, escaping by a reed into the Glittering World, which the Holy People bound with four sacred mountains; the Sun crosses the sky above.",
+    "axis": {
+      "name": "The emergence reed",
+      "kind": "path",
+      "note": "In Matthews's version and others, the people climb up inside a great reed to escape the flood of the lower world. The place of emergence is identified differently by different tellers, and this site does not locate it."
+    },
+    "variantNote": "Diné tellings differ in the number of lower worlds (often four below this, the fifth), in their colours, and in their inhabitants; this diagram follows the outline shared by Matthews, Zolbrod, and the Diné-authored Navajo History without choosing between versions. Much Diné cosmological knowledge belongs to ceremony and is not represented here, and many families teach that the emergence story is told only in winter.",
+    "sources": [
+      "Washington Matthews, Navaho Legends, 1897",
+      "Paul G. Zolbrod, Diné bahaneʼ, 1984",
+      "Navajo Curriculum Center, Navajo History, 1971"
+    ],
+    "tiers": [
+      {
+        "id": "sky",
+        "label": "The sky",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "The Sun's path",
+            "description": "The Sun Bearer carries the sun across the sky from his house in the east, returning each evening to the west where Changing Woman lives.",
+            "deities": ["johonaaei"]
+          }
+        ]
+      },
+      {
+        "id": "glittering-world",
+        "label": "The Glittering World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Diné Bikéyah",
+            "description": "The land between the four sacred mountains, where Changing Woman was found, the twins killed the monsters, and the clans settled.",
+            "deities": [
+              "changing-woman",
+              "white-shell-woman",
+              "monster-slayer",
+              "born-for-water",
+              "spider-woman",
+              "talking-god"
+            ],
+            "creatures": ["yeiitsoh", "deelgeed", "tse-ninahalee"],
+            "locationId": "gobernador-knob"
+          }
+        ]
+      },
+      {
+        "id": "waters",
+        "label": "The waters below",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The Water Monster's waters",
+            "description": "The waters of the lower world that rose when Coyote stole the Water Monster's child.",
+            "creatures": ["teehooltsodii"]
+          }
+        ]
+      },
+      {
+        "id": "lower-worlds",
+        "label": "The lower worlds",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The lower worlds",
+            "description": "The earlier worlds through which the beings travelled upward, leaving each because of disorder; home of First Man, First Woman, and Coyote before the emergence.",
+            "deities": ["first-man", "first-woman", "coyote"]
+          }
+        ]
+      }
+    ]
   }
 ]

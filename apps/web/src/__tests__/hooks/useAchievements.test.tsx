@@ -212,7 +212,7 @@ describe("useAchievements", () => {
       );
 
       expect(allPantheonsAchievement?.progress?.current).toBe(0);
-      expect(allPantheonsAchievement?.progress?.target).toBe(20);
+      expect(allPantheonsAchievement?.progress?.target).toBe(21);
     });
 
     it("should track quick quiz score progress", () => {

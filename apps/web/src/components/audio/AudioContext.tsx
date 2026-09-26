@@ -33,6 +33,7 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "canaanite-pantheon": "/audio/ambient/default.mp3",
   "inuit-pantheon": "/audio/ambient/default.mp3",
   "aboriginal-australian-pantheon": "/audio/ambient/default.mp3",
+  "dine-pantheon": "/audio/ambient/default.mp3",
   default: "/audio/ambient/default.mp3",
 };
 
