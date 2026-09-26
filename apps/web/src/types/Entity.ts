@@ -19,17 +19,32 @@ export interface SearchResult {
   icon?: string; // identifier for icon component
 }
 
+/**
+ * Optional structured link from a free-text citation to a work in
+ * `sources.json`. Mirrors `SourceReferenceFields` in `src/lib/schemas.ts`.
+ */
+export interface SourceReference {
+  /** `id` of a record in `src/data/sources.json`. */
+  sourceId?: string;
+  /** Book, chapter, line, or section within that work. */
+  locator?: string;
+}
+
+/** A quoted or paraphrased passage attached to an entity. */
+export interface PrimarySource extends SourceReference {
+  text: string;
+  /** Human-readable citation label (always present, even with `sourceId`). */
+  source: string;
+  date?: string;
+}
+
 // Specific schemas for data files
 export interface Creature extends BaseEntity {
   habitat: string;
   abilities: string[];
   dangerLevel: number; // 1-10
   detailedBio?: string;
-  primarySources?: Array<{
-    text: string;
-    source: string;
-    date?: string;
-  }>;
+  primarySources?: PrimarySource[];
 }
 
 export interface Artifact extends BaseEntity {
@@ -38,11 +53,7 @@ export interface Artifact extends BaseEntity {
   origin?: string;
   powers: string[];
   detailedBio?: string;
-  primarySources?: Array<{
-    text: string;
-    source: string;
-    date?: string;
-  }>;
+  primarySources?: PrimarySource[];
 }
 
 export interface Pronunciation {
@@ -72,11 +83,13 @@ export interface Deity extends BaseEntity {
     deityId: string;
     note: string;
   }>;
-  primarySources?: Array<{
-    text: string;
-    source: string;
-    date?: string;
+  /** Parallels whose counterpart is a hero in heroes.json rather than a deity. */
+  heroParallels?: Array<{
+    pantheonId: string;
+    heroId: string;
+    note: string;
   }>;
+  primarySources?: PrimarySource[];
   worship?: {
     temples?: string[];
     festivals?: string[];
@@ -86,7 +99,7 @@ export interface Deity extends BaseEntity {
   sources?: string[];
 }
 
-export interface MythVariant {
+export interface MythVariant extends SourceReference {
   source: string;
   passage?: string;
   sourceUrl?: string;
@@ -108,16 +121,18 @@ export interface Story extends BaseEntity {
   moralThemes: string[];
   culturalSignificance: string;
   imageUrl?: string;
-  citationSources?: Array<{
-    title: string;
-    url?: string;
-    author?: string;
-    lines?: string;
-    book?: string;
-    chapters?: string;
-    chapter?: string;
-    type?: string;
-  }>;
+  citationSources?: Array<
+    SourceReference & {
+      title: string;
+      url?: string;
+      author?: string;
+      lines?: string;
+      book?: string;
+      chapters?: string;
+      chapter?: string;
+      type?: string;
+    }
+  >;
   featuredDeities?: string[];
   featuredLocations?: string[];
   relatedStories?: string[];
@@ -165,13 +180,14 @@ export interface Pantheon extends BaseEntity {
   timePeriodEnd?: number | null;
   description: string;
   detailedHistory?: string;
-  citationSources?: Array<{
-    title: string;
-    author?: string;
-    date?: string;
-    type?: string;
-  }>;
+  citationSources?: Array<
+    SourceReference & {
+      title: string;
+      author?: string;
+      date?: string;
+      type?: string;
+    }
+  >;
   imageUrl?: string;
   figuresLabel?: string;
 }
-

@@ -20,7 +20,14 @@
     "cronus",
     "gaia",
     "uranus",
-    "hecate"
+    "hecate",
+    "helios",
+    "selene",
+    "eos",
+    "tethys",
+    "asclepius",
+    "plutus",
+    "dioscuri"
   ],
   "norse-pantheon": [
     "odin",
@@ -39,7 +46,8 @@
     "ymir",
     "hodr",
     "idun",
-    "bragi"
+    "bragi",
+    "skadi"
   ],
   "egyptian-pantheon": [
     "ra",
@@ -95,7 +103,12 @@
     "agni",
     "sita",
     "ravana",
-    "yama"
+    "yama",
+    "kartikeya",
+    "usha",
+    "ganga",
+    "ashvins",
+    "purusha"
   ],
   "japanese-pantheon": [
     "izanagi",
@@ -163,7 +176,8 @@
     "pangu",
     "hou-yi",
     "nuwa",
-    "fuxi"
+    "fuxi",
+    "longwang"
   ],
   "mesopotamian-pantheon": [
     "anu",
@@ -179,7 +193,8 @@
     "gilgamesh",
     "enkidu",
     "dumuzi",
-    "utnapishtim"
+    "utnapishtim",
+    "ninhursag"
   ],
   "african-pantheon": [
     "olodumare",

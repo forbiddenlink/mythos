@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 generate_deity_plates.py
-Generates archival classical portrait plates for the 43 missing deities in Mythos Atlas,
+Generates archival classical portrait plates for deities in Mythos Atlas that have no\nillustration (43 in the first pass, 15 more in 2026-09),
 adhering to the dark-academia classical atlas style in .impeccable.md.
 """
 
@@ -72,7 +72,24 @@ DEITIES = [
     {"id": "raven", "name": "RAVEN", "tag": "TLINGIT & HAIDA", "domain": "YÉIL · THE TRANSFORMER · BRINGER OF LIGHT", "accent": (210, 75, 65), "bg": (20, 12, 14), "motif": "raven_light"},
     {"id": "fog-woman", "name": "FOG WOMAN", "tag": "TLINGIT & HAIDA", "domain": "RIVER MISTS · SALMON RUNS · SPRINGTIME", "accent": (120, 185, 185), "bg": (14, 20, 24), "motif": "salmon_mist"},
     {"id": "chief-fog-over-the-salmon", "name": "CHIEF FOG", "tag": "TLINGIT & HAIDA", "domain": "RIVER MOUTH CANOPIES · MISTS OF HARVEST", "accent": (150, 165, 175), "bg": (16, 18, 22), "motif": "fog_river"},
-    {"id": "naas-shaak-aankawu", "name": "NAAS SHAAK", "tag": "TLINGIT & HAIDA", "domain": "KEEPER OF DAYLIGHT · THREE BOXES OF STARS", "accent": (225, 160, 50), "bg": (22, 16, 14), "motif": "three_boxes"}
+    {"id": "naas-shaak-aankawu", "name": "NAAS SHAAK", "tag": "TLINGIT & HAIDA", "domain": "KEEPER OF DAYLIGHT · THREE BOXES OF STARS", "accent": (225, 160, 50), "bg": (22, 16, 14), "motif": "three_boxes"},
+
+    # 2026-09 additions: targets of cross-pantheon parallels that had no entry
+    {"id": "helios", "name": "HELIOS", "tag": "GREEK TITAN-BORN GOD", "domain": "THE SUN · ALL-SEEING WITNESS", "accent": (235, 175, 55), "bg": (26, 18, 10), "motif": "sun_disc"},
+    {"id": "selene", "name": "SELENE", "tag": "GREEK TITAN-BORN GODDESS", "domain": "THE MOON · THE MONTHS · ENDYMION", "accent": (170, 185, 220), "bg": (14, 16, 26), "motif": "starry_vault"},
+    {"id": "eos", "name": "EOS", "tag": "GREEK TITAN-BORN GODDESS", "domain": "ROSY-FINGERED DAWN · TITHONUS", "accent": (230, 130, 110), "bg": (24, 14, 16), "motif": "solar_wheel"},
+    {"id": "tethys", "name": "TETHYS", "tag": "GREEK TITANESS", "domain": "MOTHER OF RIVERS · WIFE OF OCEANUS", "accent": (80, 160, 175), "bg": (10, 20, 24), "motif": "salmon_mist"},
+    {"id": "asclepius", "name": "ASCLEPIUS", "tag": "GREEK GOD", "domain": "HEALING · THE SERPENT STAFF", "accent": (120, 175, 120), "bg": (14, 22, 16), "motif": "dual_serpents"},
+    {"id": "plutus", "name": "PLUTUS", "tag": "GREEK GOD", "domain": "WEALTH OF THE HARVEST · SON OF DEMETER", "accent": (215, 170, 70), "bg": (22, 18, 12), "motif": "golden_apples"},
+    {"id": "dioscuri", "name": "THE DIOSCURI", "tag": "GREEK DIVINE TWINS", "domain": "CASTOR & POLYDEUCES · SAVIORS AT SEA", "accent": (150, 170, 215), "bg": (14, 16, 24), "motif": "starry_vault"},
+    {"id": "kartikeya", "name": "KARTIKEYA", "tag": "HINDU GOD", "domain": "WAR · GENERAL OF THE GODS · THE SPEAR", "accent": (220, 95, 60), "bg": (26, 14, 12), "motif": "thunder_axe"},
+    {"id": "usha", "name": "USHA", "tag": "VEDIC GODDESS", "domain": "THE DAWN · AWAKENER OF ALL", "accent": (240, 150, 90), "bg": (26, 16, 12), "motif": "sun_disc"},
+    {"id": "ganga", "name": "GANGA", "tag": "HINDU GODDESS", "domain": "THE SACRED RIVER · PURIFICATION", "accent": (95, 175, 200), "bg": (10, 18, 24), "motif": "salmon_mist"},
+    {"id": "ashvins", "name": "THE ASHVINS", "tag": "VEDIC DIVINE TWINS", "domain": "HORSEMEN OF DAWN · PHYSICIANS", "accent": (210, 175, 90), "bg": (22, 18, 12), "motif": "solar_wheel"},
+    {"id": "purusha", "name": "PURUSHA", "tag": "VEDIC COSMIC BEING", "domain": "THE THOUSAND-HEADED PERSON · SACRIFICE", "accent": (200, 140, 70), "bg": (22, 16, 12), "motif": "four_faces"},
+    {"id": "skadi", "name": "SKAÐI", "tag": "NORSE GODDESS", "domain": "MOUNTAINS · WINTER · THE HUNT", "accent": (160, 195, 225), "bg": (12, 18, 26), "motif": "frost_chasm"},
+    {"id": "longwang", "name": "LONGWANG", "tag": "CHINESE DRAGON KINGS", "domain": "SEAS · RIVERS · BRINGERS OF RAIN", "accent": (80, 170, 140), "bg": (10, 20, 18), "motif": "fog_river"},
+    {"id": "ninhursag", "name": "NINHURSAG", "tag": "MESOPOTAMIAN GODDESS", "domain": "LADY OF THE MOUNTAIN · MOTHER OF BIRTH", "accent": (175, 150, 95), "bg": (20, 18, 14), "motif": "earth_vines"},
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):

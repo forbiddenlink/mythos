@@ -78,3 +78,45 @@ def write_webp(png_path: str | os.PathLike, webp_path: str | os.PathLike) -> Non
 
     with Image.open(png_path) as img:
         img.save(webp_path, "WEBP", quality=85)
+
+
+def _json_dumps_style(text: str):
+    """Return (ensure_ascii, trailing) if ``text`` is plain json.dumps output."""
+    import json
+
+    data = json.loads(text)
+    for ensure_ascii in (False, True):
+        body = json.dumps(data, indent=2, ensure_ascii=ensure_ascii)
+        for trailing in ("\n", ""):
+            if body + trailing == text:
+                return ensure_ascii, trailing
+    return None
+
+
+def write_data_json(path: str | os.PathLike, data) -> None:
+    """Rewrite a data file while keeping the formatting it already had.
+
+    Most catalogs are plain ``json.dumps(indent=2)`` output, but several are
+    Prettier-formatted (short arrays kept on one line). Files in the second
+    group are re-run through the repository's Prettier so a data edit does
+    not reformat the whole file.
+    """
+    import json
+
+    path = Path(path)
+    previous = path.read_text(encoding="utf-8") if path.exists() else None
+    style = _json_dumps_style(previous) if previous is not None else (False, "\n")
+    ensure_ascii, trailing = style or (False, "\n")
+    path.write_text(
+        json.dumps(data, indent=2, ensure_ascii=ensure_ascii) + trailing,
+        encoding="utf-8",
+    )
+    if style is None:
+        prettier = REPO_ROOT / "node_modules" / ".bin" / "prettier"
+        if not prettier.exists():
+            raise SystemExit(
+                f"{path} is Prettier-formatted; run pnpm install so "
+                "node_modules/.bin/prettier is available."
+            )
+        subprocess.run([str(prettier), "--write", str(path)], check=True,
+                       stdout=subprocess.DEVNULL)

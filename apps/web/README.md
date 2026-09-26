@@ -4,14 +4,14 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **16 pantheons**, **233 deities**, **27 heroes**, **108 stories**, **63 creatures**, **52 artifacts**, and **127 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **16 pantheons**, **248 deities**, **27 heroes**, **108 stories**, **63 creatures**, **52 artifacts**, and **127 mythological locations** — plus quizzes, interactive family trees, 3D artifact viewers, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
 ## Features
 
 - 🏛️ **16 Pantheons** — Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, Mesopotamian, African (Yoruba), Polynesian, Mesoamerican, Slavic, Haudenosaunee, Tlingit & Haida
-- 👑 **233 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
+- 👑 **248 Deity Profiles** — Filterable by gender, domain, and pantheon with smart sorting
 - 📖 **108 Epic Stories** — Including interactive branching narratives (choose-your-own-adventure)
 - 🐉 **63 Creatures** — Mythological beasts with detailed profiles
 - ⚔️ **52 Artifacts** — Legendary items with interactive 3D viewer (React Three Fiber)
@@ -120,7 +120,7 @@ src/
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
 │   ├── pantheons.json    # 16 pantheons
-│   ├── deities.json      # 233 deities
+│   ├── deities.json      # 248 deities
 │   ├── heroes.json       # 27 heroes
 │   ├── stories.json      # 108 stories
 │   ├── creatures.json    # 63 creatures

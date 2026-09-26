@@ -9,6 +9,16 @@ import { z } from "zod";
 
 const JsonObjectSchema = z.record(z.string(), z.unknown());
 
+/**
+ * Optional structured link from a free-text citation to a work in
+ * `sources.json`. `source` stays the human-readable label; `sourceId` names
+ * the catalog record and `locator` the book, line, or chapter within it.
+ */
+const SourceReferenceFields = {
+  sourceId: z.string().optional(),
+  locator: z.string().optional(),
+};
+
 const CitationSourceSchema = z.looseObject({
   title: z.string(),
   url: z.url({ protocol: /^https?$/ }).optional(),
@@ -19,6 +29,7 @@ const CitationSourceSchema = z.looseObject({
   book: z.string().optional(),
   chapter: z.string().optional(),
   chapters: z.string().optional(),
+  ...SourceReferenceFields,
 });
 
 const PrimarySourceExcerptSchema = z.looseObject({
@@ -43,6 +54,15 @@ const PrimarySourceExcerptSchema = z.looseObject({
   edition: z.string().min(1),
 });
 
+export const PrimarySourceSchema = z.looseObject({
+  text: z.string(),
+  source: z.string(),
+  date: z.string().optional(),
+  ...SourceReferenceFields,
+});
+
+export type PrimarySource = z.infer<typeof PrimarySourceSchema>;
+
 const MythVariantSchema = z.looseObject({
   source: z.string(),
   passage: z.string().optional(),
@@ -51,6 +71,7 @@ const MythVariantSchema = z.looseObject({
   date: z.string().optional(),
   difference: z.string(),
   note: z.string().optional(),
+  ...SourceReferenceFields,
 });
 
 // ═══════════════════════════════════════════════════════════════════
@@ -120,15 +141,17 @@ export const DeitySchema = z.looseObject({
       }),
     )
     .optional(),
-  primarySources: z
+  /** Parallels whose counterpart is a hero in heroes.json, not a deity. */
+  heroParallels: z
     .array(
       z.looseObject({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
+        pantheonId: z.string(),
+        heroId: z.string(),
+        note: z.string(),
       }),
     )
     .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
   primarySourceExcerpts: z.array(PrimarySourceExcerptSchema).optional(),
   furtherReading: z.array(JsonObjectSchema).optional(),
   worship: z
@@ -184,15 +207,7 @@ export const CreatureSchema = z.looseObject({
   dangerLevel: z.number().min(1).max(10),
   imageUrl: z.string().optional(),
   detailedBio: z.string().optional(),
-  primarySources: z
-    .array(
-      z.object({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
-      }),
-    )
-    .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
 });
 
 export type Creature = z.infer<typeof CreatureSchema>;
@@ -214,15 +229,7 @@ export const ArtifactSchema = z.looseObject({
   origin: z.string().optional(),
   imageUrl: z.string().optional(),
   detailedBio: z.string().optional(),
-  primarySources: z
-    .array(
-      z.object({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
-      }),
-    )
-    .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
 });
 
 export type Artifact = z.infer<typeof ArtifactSchema>;
@@ -242,15 +249,7 @@ export const LocationSchema = z.looseObject({
   longitude: z.number().nullable().optional(),
   imageUrl: z.string().optional(),
   detailedBio: z.string().optional(),
-  primarySources: z
-    .array(
-      z.object({
-        text: z.string(),
-        source: z.string(),
-        date: z.string().optional(),
-      }),
-    )
-    .optional(),
+  primarySources: z.array(PrimarySourceSchema).optional(),
 });
 
 export type Location = z.infer<typeof LocationSchema>;
