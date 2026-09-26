@@ -3,10 +3,18 @@ import glob
 import json
 import shutil
 
-artifact_dir = "/Users/elizabethstein/.gemini/antigravity/brain/31f47934-5b15-4f04-969d-edb6f79167e3"
-fallback_dir = "/Users/elizabethstein/.gemini/antigravity/brain/48d00e64-a577-43aa-86f1-9e168175ae71"
-public_path = "/Volumes/LizsDisk/mythos/apps/web/public"
-data_dir = "/Volumes/LizsDisk/mythos/apps/web/src/data"
+from _repo_paths import DATA_DIR, WEB_PUBLIC
+
+# Folders where an external AI image tool saved its renders. They were once
+# hard-coded to one developer's machine; pass them through the environment.
+artifact_dir = os.environ.get("MYTHOS_AI_RENDER_DIR", "")
+fallback_dir = os.environ.get("MYTHOS_AI_RENDER_FALLBACK_DIR", artifact_dir)
+public_path = str(WEB_PUBLIC)
+data_dir = str(DATA_DIR)
+
+if not artifact_dir:
+    print("Set MYTHOS_AI_RENDER_DIR to the folder holding generated renders.")
+    exit(1)
 
 queue_file = "/tmp/queue_phase2.txt"
 

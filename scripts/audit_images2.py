@@ -1,8 +1,10 @@
 import os, json, glob
 from collections import defaultdict
 
-data_dir = "/Volumes/LizsDisk/mythos/apps/web/src/data"
-public_dir = "/Volumes/LizsDisk/mythos/apps/web/public"
+from _repo_paths import DATA_DIR, WEB_PUBLIC
+
+data_dir = str(DATA_DIR)
+public_dir = str(WEB_PUBLIC)
 json_files = glob.glob(os.path.join(data_dir, "*.json"))
 
 missing = []

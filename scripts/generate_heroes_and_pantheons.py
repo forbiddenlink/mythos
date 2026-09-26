@@ -7,11 +7,10 @@ matching the established dark-academia classical atlas aesthetic.
 
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter
 
-REPO_ROOT = "/Volumes/LizsDisk/mythos"
-WEB_PUBLIC = os.path.join(REPO_ROOT, "apps/web/public")
+from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+
 HEROES_DIR = os.path.join(WEB_PUBLIC, "heroes")
 PANTHEONS_DIR = os.path.join(WEB_PUBLIC, "pantheons")
 
@@ -233,17 +232,9 @@ def generate_hero_plate(hero):
     draw.line([(64, 94), (W_HERO - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
 
     tag_text = f"MYTHOS ATLAS · {hero['pantheon']} HEROIC TRADITION"
-    font_candidates = [
-        "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
-        "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf",
-        "/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf"
-    ]
-    try:
-        font_sm = ImageFont.truetype(font_candidates[0], 16)
-        font_lg = ImageFont.truetype(font_candidates[1], 44)
-        font_sub = ImageFont.truetype(font_candidates[2], 18)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
+    font_sm = serif_font("regular", 16)
+    font_lg = serif_font("bold", 44)
+    font_sub = serif_font("italic", 18)
 
     draw.text((W_HERO // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
 
@@ -268,7 +259,7 @@ def generate_hero_plate(hero):
 
     # Export WebP
     webp_path = os.path.join(HEROES_DIR, f"{hero['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
+    write_webp(png_path, webp_path)
     print(f"  ✓ Hero: {hero['id']} -> PNG & WebP")
 
 # ---------------------------------------------------------------------------
@@ -372,11 +363,8 @@ def generate_pantheon_plate(p):
         draw.ellipse([cx + 20, m_cy - 10, cx + 45, cy + 10], fill=accent)
 
     # Typography
-    try:
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 46)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 20)
-    except:
-        font_lg = font_sub = ImageFont.load_default()
+    font_lg = serif_font("bold", 46)
+    font_sub = serif_font("regular", 20)
 
     draw.text((cx, h - 120), p["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
     draw.text((cx, h - 75), f"CODEX MYTHOLOGIAE · {p['culture']}", font=font_sub, fill=gold, anchor="mm")

@@ -7,11 +7,10 @@ and 11 missing stories in Mythos Atlas, adhering to the dark-academia classical 
 
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 
-REPO_ROOT = "/Volumes/LizsDisk/mythos"
-WEB_PUBLIC = os.path.join(REPO_ROOT, "apps/web/public")
+from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+
 CREATURES_DIR = os.path.join(WEB_PUBLIC, "creatures")
 LOCATIONS_DIR = os.path.join(WEB_PUBLIC, "locations")
 STORIES_DIR = os.path.join(WEB_PUBLIC, "stories")
@@ -508,12 +507,9 @@ def generate_square_plate(item, out_dir, category_tag, motif_fn):
     draw_plate_borders(draw, SIZE, SIZE, gold, accent)
 
     # Top category label
-    try:
-        font_sm = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 15)
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 36)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf", 17)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
+    font_sm = serif_font("regular", 15)
+    font_lg = serif_font("bold", 36)
+    font_sub = serif_font("italic", 17)
 
     draw.text((SIZE // 2, 55), f"MYTHOS ATLAS · {category_tag}", font=font_sm, fill=(200, 180, 140), anchor="mm")
     draw.line([(50, 75), (SIZE - 50, 75)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
@@ -532,7 +528,7 @@ def generate_square_plate(item, out_dir, category_tag, motif_fn):
 
     # Export WebP
     webp_path = os.path.join(out_dir, f"{item['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
+    write_webp(png_path, webp_path)
     print(f"  ✓ {item['id']} -> PNG & WebP")
 
 if __name__ == "__main__":

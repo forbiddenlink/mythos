@@ -7,13 +7,12 @@ adhering to the dark-academia classical atlas style in .impeccable.md.
 
 import os
 import math
-import subprocess
-from PIL import Image, ImageDraw, ImageFont
+import argparse
+from PIL import Image, ImageDraw
 
-REPO_ROOT = "/Volumes/LizsDisk/mythos"
-WEB_PUBLIC = os.path.join(REPO_ROOT, "apps/web/public")
+from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+
 DEITIES_DIR = os.path.join(WEB_PUBLIC, "deities")
-os.makedirs(DEITIES_DIR, exist_ok=True)
 
 W, H = 768, 1024
 
@@ -204,6 +203,7 @@ def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
         draw.line([(cx, cy - 70), (cx, cy + 70)], fill=gold, width=3)
 
 def generate_deity_plate(d):
+    os.makedirs(DEITIES_DIR, exist_ok=True)
     img = Image.new("RGBA", (W, H), d["bg"] + (255,))
     accent = d["accent"]
     gold = (212, 175, 55)
@@ -235,12 +235,9 @@ def generate_deity_plate(d):
     draw.line([(64, 94), (W - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
 
     tag_text = f"MYTHOS ATLAS · {d['tag']}"
-    try:
-        font_sm = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", 16)
-        font_lg = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", 46)
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Italic.ttf", 17)
-    except:
-        font_sm = font_lg = font_sub = ImageFont.load_default()
+    font_sm = serif_font("regular", 16)
+    font_lg = serif_font("bold", 46)
+    font_sub = serif_font("italic", 17)
 
     draw.text((W // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
 
@@ -265,11 +262,22 @@ def generate_deity_plate(d):
 
     # Export WebP
     webp_path = os.path.join(DEITIES_DIR, f"{d['id']}.webp")
-    subprocess.run(["/opt/homebrew/bin/cwebp", "-q", "85", png_path, "-o", webp_path], check=True, stdout=subprocess.DEVNULL)
+    write_webp(png_path, webp_path)
     print(f"  ✓ Deity: {d['id']} -> PNG & WebP")
 
 if __name__ == "__main__":
-    print(f"Generating {len(DEITIES)} Deity Portrait Plates...")
-    for d in DEITIES:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--only",
+        help="Comma-separated deity ids to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
+    selected = [d for d in DEITIES if wanted is None or d["id"] in wanted]
+    if wanted and len(selected) != len(wanted):
+        missing = wanted - {d["id"] for d in selected}
+        raise SystemExit(f"Unknown deity ids: {', '.join(sorted(missing))}")
+    print(f"Generating {len(selected)} Deity Portrait Plates...")
+    for d in selected:
         generate_deity_plate(d)
-    print("All 43 Deity Plates successfully generated!")
+    print(f"{len(selected)} deity plates generated in {DEITIES_DIR}")
