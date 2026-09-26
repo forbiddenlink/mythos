@@ -7,7 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  BookOpen,
   RotateCcw,
   Trophy,
   Skull,
@@ -225,7 +224,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Final narrative */}
-                <div className="prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40">
+                <div className="prose dark:prose-invert prose-gold max-w-none font-body text-[1.125rem] prose-p:leading-relaxed prose-p:text-foreground/90 prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40 prose-blockquote:font-body prose-blockquote:text-foreground [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none">
                   <ReactMarkdown>{currentNode.content}</ReactMarkdown>
                 </div>
 
@@ -333,10 +332,7 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
             transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
           >
             <Card className="border-border bg-card/50 shadow-none overflow-hidden">
-              <CardHeader className="flex flex-row items-center gap-3">
-                <div className="p-2 rounded-lg bg-gold/10 border border-gold/20">
-                  <BookOpen className="h-5 w-5 text-gold" />
-                </div>
+              <CardHeader className="flex flex-row items-center gap-3 border-b border-border/60">
                 <div>
                   <CardTitle className="text-xl font-serif text-foreground">
                     {story.title}
@@ -348,16 +344,14 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Story content */}
-                <div className="prose dark:prose-invert prose-gold max-w-none prose-p:leading-relaxed prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40">
+                <div className="prose dark:prose-invert prose-gold max-w-none font-body text-[1.125rem] prose-p:leading-relaxed prose-p:text-foreground/90 prose-headings:font-serif prose-headings:text-gold-text prose-strong:text-foreground prose-blockquote:border-l-gold/40 prose-blockquote:font-body prose-blockquote:text-foreground [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none">
                   <ReactMarkdown>{currentNode.content}</ReactMarkdown>
                 </div>
 
                 {/* Choices */}
                 {currentNode.choices && currentNode.choices.length > 0 && (
                   <div className="space-y-3">
-                    <p className="text-sm text-gold/70 font-medium uppercase tracking-wide">
-                      What do you do?
-                    </p>
+                    <p className="type-eyebrow">What do you do?</p>
                     <div className="space-y-2">
                       {currentNode.choices.map((choice, index) => (
                         <motion.button
