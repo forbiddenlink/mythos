@@ -177,9 +177,11 @@ export function TodaysMyth() {
         <div className="mt-8 min-h-48" aria-live="polite">
           {phase.kind === "loading" ? (
             <div
+              role="status"
               className="h-40 animate-pulse bg-muted/50 motion-reduce:animate-none"
-              aria-label="Loading today's myth"
-            />
+            >
+              <span className="sr-only">Loading today&apos;s myth</span>
+            </div>
           ) : null}
 
           {phase.kind === "error" ? (

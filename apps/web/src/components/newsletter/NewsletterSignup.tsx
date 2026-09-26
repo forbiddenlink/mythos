@@ -84,7 +84,7 @@ export function NewsletterSignup({
   return (
     <section
       aria-labelledby={`${id}-title`}
-      className={cn("max-w-md", className)}
+      className={cn("max-w-lg", className)}
       data-testid={`newsletter-${placement}`}
     >
       <h2
