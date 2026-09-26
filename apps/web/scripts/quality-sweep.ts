@@ -37,7 +37,6 @@ const routes = [
   "/cosmology",
   "/domains",
   "/timeline",
-  "/story-timeline",
   "/divine-domains",
   "/facts",
   "/about",

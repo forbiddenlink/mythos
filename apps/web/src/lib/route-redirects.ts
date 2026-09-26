@@ -32,4 +32,7 @@ export const CONSOLIDATION_REDIRECTS: readonly RouteRedirect[] = [
   permanent("/learning-paths", "/paths#reading-paths"),
   permanent("/collections", "/paths#collections"),
   permanent("/study", "/paths#study-guides"),
+
+  // One timeline page with a view toggle.
+  permanent("/story-timeline", "/timeline#stories"),
 ];
