@@ -3,6 +3,7 @@ import "server-only";
 import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
 import { getDeityComparisons } from "@/lib/comparisons";
+import { shortTraditionName } from "@/lib/tradition-name";
 
 /**
  * "Gods of <domain>" landing pages, derived entirely from the catalog.
@@ -84,10 +85,7 @@ const pantheons = pantheonsData as unknown as RawPantheon[];
 
 function shortTradition(pantheonId: string): string {
   const name = pantheons.find((p) => p.id === pantheonId)?.name;
-  return (
-    name?.replace(/\s+(?:Pantheon|Tradition|Traditions)$/, "") ??
-    pantheonId.replace(/-pantheon$/, "")
-  );
+  return name ? shortTraditionName(name) : pantheonId.replace(/-pantheon$/, "");
 }
 
 /** "The Sun" → "sun"; "Warfare" → "war". */

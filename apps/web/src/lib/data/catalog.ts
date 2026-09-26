@@ -32,6 +32,7 @@ import type {
   StoryRecord,
   StoryRef,
 } from "./types";
+import { shortTraditionName } from "@/lib/tradition-name";
 import { indexBy, project } from "./project";
 
 const deities = deitiesJson as unknown as readonly DeityRecord[];
@@ -150,10 +151,13 @@ export function getDeityListItems(): DeityListItem[] {
   return project(deities, DEITY_LIST_FIELDS);
 }
 
-/** Pantheon id → display name without the " Pantheon" suffix ("Greek"). */
+/**
+ * Pantheon id → short display name ("Greek", "Canaanite", "Finnish"), without
+ * the "Pantheon"/"Tradition" suffix or a parenthetical gloss.
+ */
 export function getPantheonShortNames(): Record<string, string> {
   return Object.fromEntries(
-    pantheons.map((p) => [p.id, p.name.replace(" Pantheon", "")]),
+    pantheons.map((p) => [p.id, shortTraditionName(p.name)]),
   );
 }
 
