@@ -3662,5 +3662,231 @@
       }
     ],
     "imageUrl": "/stories/abduction-of-persephone.png"
+  },
+  {
+    "id": "song-of-kumarbi",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Song of Kumarbi: Kingship in Heaven",
+    "slug": "song-of-kumarbi",
+    "summary": "A Hurrian song, preserved in Hittite translation, in which kingship in heaven passes from Alalu to Anu to Kumarbi, who bites off Anu's loins and finds himself pregnant with the storm-god who will overthrow him.",
+    "fullNarrative": "## A Hurrian song, not a Hittite one\n\nThis story comes from the Song of Kumarbi (CTH 344), the opening song of a Hurrian cycle about kingship among the gods. It survives in Hittite translation on tablets from Hattusa; its gods (Kumarbi, Teššub, Tašmišu) and places (Urkeš, the Hurrian cities of the east) are Hurrian, not native Hittite. The tablets are badly damaged, and the second half of the story in particular is full of gaps. What follows keeps close to Hoffner's translation and says so where the text is broken.\n\n## Nine years, and nine years\n\nThe singer calls on the Former Gods, the primeval deities of the underworld, to listen. Long ago, Alalu was king in heaven. Anu, the mightiest of the gods, served him as cup-bearer, bowing at his feet and putting the drinking cup in his hand. For nine years Alalu reigned. In the ninth year Anu went to war against him, defeated him, and Alalu fled down to the Dark Earth. Anu took the throne, and now Kumarbi, the offspring of Alalu, served Anu as cup-bearer, bowing at his feet in turn.\n\nFor nine years Anu reigned. In the ninth year Kumarbi rose against him. Anu could not withstand him; he slipped from Kumarbi's grasp and fled upward into the sky like a bird. Kumarbi rushed after him, seized him by the feet, and dragged him down from the sky. Then he bit off Anu's loins, and Anu's manhood went into Kumarbi's insides.\n\n## Anu's warning\n\nKumarbi rejoiced and laughed, but Anu turned to him and told him not to celebrate. By swallowing his manhood, Anu said, Kumarbi had become pregnant with a heavy burden: the Storm-god, the river Aranzah (the Tigris), and the god Tašmišu. Kumarbi, alarmed, spat out what he could; the text says that some of what he spat fell on a mountain, Kanzura, and grew there. Anu went back up to the sky, and Kumarbi went away to the city of Nippur.\n\n## The difficult birth\n\nThe following columns are the most broken part of the song. They seem to describe the gods inside Kumarbi discussing how to get out of him, and the problem of which part of his body they could leave through. At one point Kumarbi asks to be given his child to eat, and is given a stone instead, which hurts his teeth; the stone is then set up as an object of worship. The Storm-god is eventually born, and the song seems to have gone on to describe his coming to power, but the details are lost.\n\n## What the story does\n\nThe song explains how the storm-god Teššub came to rule the gods: not as the son of the reigning king, but as a child carried by his father's enemy, born out of that enemy's body, and destined to take his throne. The pattern of succession (a first king overthrown by his cup-bearer, who is overthrown in turn, until a storm-god rules) sets up the conflict of the rest of the cycle, in which the deposed Kumarbi fathers monsters to take kingship back.\n\n## The Hesiod question\n\nWhen the Hittite tablets were first published, scholars immediately noticed how closely this story resembles Hesiod's *Theogony*, composed centuries later in Greece: the succession of sky-kings, the mutilation of the sky-god, the swallowing, and the stone given in place of a child. Hans Güterbock's 1948 study made the comparison famous, and most scholars now accept that some version of this Near Eastern succession myth reached early Greek poets, probably through Syria and the eastern Mediterranean. The two stories are not the same, however: Kumarbi swallows Anu's seed, not his own children, and the stone episode belongs to a different moment. This site keeps them apart as related but distinct traditions.",
+    "keyExcerpts": "Alalu reigns in heaven until Anu overthrows him; Anu reigns until Kumarbi drags him from the sky and bites off his loins, becoming pregnant with the Storm-god who will one day take his throne.",
+    "category": "cosmology",
+    "moralThemes": [
+      "the instability of kingship",
+      "succession and rebellion",
+      "unintended consequences"
+    ],
+    "culturalSignificance": "The central succession myth of the Hurrian pantheon as the Hittites received it, and the closest known Near Eastern parallel to Hesiod's Theogony; its discovery reshaped the study of early Greek myth.",
+    "citationSources": [
+      {
+        "title": "Song of Kumarbi (CTH 344)",
+        "author": "Hurrian composition in Hittite translation",
+        "date": "Hittite copies 14th-13th c. BCE",
+        "type": "primary",
+        "sourceId": "kumarbi-cycle",
+        "chapter": "Song of Kumarbi, CTH 344"
+      },
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Song of Kumarbi"
+      },
+      {
+        "title": "The Hittite Version of the Hurrian Kumarbi Myths: Oriental Forerunners of Hesiod",
+        "author": "Hans G. Güterbock, American Journal of Archaeology 52",
+        "date": "1948",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["alalu", "kumarbi", "tarhunna"],
+    "featuredLocations": ["urkesh"],
+    "relatedStories": ["song-of-ullikummi", "titanomachy"],
+    "variants": [
+      {
+        "source": "Hesiod, Theogony",
+        "date": "c. 700 BCE",
+        "difference": "In Hesiod the succession runs Ouranos, Kronos, Zeus; Kronos castrates Ouranos with a sickle and swallows his own children, and Rhea gives him a stone in place of Zeus.",
+        "note": "Related but distinct: the Hurrian song has Kumarbi swallow Anu's seed and bear the storm-god himself."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The whole Hurrian cycle in Hittite translation"
+      },
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Hoffner's translation, with gaps marked"
+      },
+      {
+        "sourceId": "theogony",
+        "note": "The Greek succession myth for comparison"
+      }
+    ],
+    "imageUrl": "/stories/song-of-kumarbi.png"
+  },
+  {
+    "id": "song-of-ullikummi",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Song of Ullikummi",
+    "slug": "song-of-ullikummi",
+    "summary": "Kumarbi fathers a giant of basalt on a great rock and hides it on the shoulder of Upelluri in the sea, where it grows until it reaches heaven; Teššub is defeated until Ea cuts the monster from its base with the ancient copper tool that once separated heaven and earth.",
+    "fullNarrative": "## The longest Hurrian song\n\nThe Song of Ullikummi (CTH 345) is the best preserved song of the Hurrian Kumarbi cycle, known from several Hittite copies found at Hattusa. It continues the conflict of the Song of Kumarbi: the storm-god Teššub now rules in heaven, and the deposed Kumarbi wants his kingship back. The ending of the song is lost.\n\n## A rival made of stone\n\nKumarbi takes wisdom into his mind and plans an enemy for Teššub. He leaves his city of Urkeš and goes to a place where a huge rock lies, and he sleeps with the rock as with a woman. The rock gives birth to a son made of basalt, and Kumarbi names him Ullikummi, a name that announces his purpose: he is to destroy Kummiya, Teššub's city. To keep the child hidden from the gods until he is grown, Kumarbi has him taken down to the Dark Earth and placed on the right shoulder of Upelluri, the giant who stands in the sea and carries heaven and earth. There the stone child grows, a great distance each day and each month, until he stands out of the sea and his head reaches the sky.\n\n## The gods see him\n\nThe Sun-god is the first to notice the giant rising from the sea and goes to warn Teššub. Teššub, with his brother Tašmišu and his sister Šauška, climbs Mount Hazzi to look, and when he sees the monster he sits down and weeps. Šauška tries her own weapon: she adorns herself and sings to Ullikummi on the shore. But a great wave rises from the sea and tells her that there is no point singing to him, because he is deaf and cannot hear, and blind and cannot see, and has no compassion.\n\n## Defeat\n\nTeššub prepares for war, harnessing his bulls Šeri and Hurri to his chariot and calling out his storms and lightning. He attacks, with seventy gods beside him, but the battle goes badly. Ullikummi keeps growing and pushes all the way up to the gates of Kummiya, forcing Teššub's wife Hebat out of her temple so that she can no longer get news of her husband. Tašmišu brings Teššub the bad news and advises him to go to the wise god Ea.\n\n## The copper cutter\n\nEa goes first to Enlil and then to Upelluri, and asks the giant whether he knows what is standing on his shoulder. Upelluri says that he felt nothing when heaven and earth were built on him, nothing when they were cut apart, and now only a slight pain in his shoulder, though he does not know which god causes it. Ea then goes to the Former Gods and asks them to open the ancient storehouses and bring out the copper cutting tool with which heaven and earth were once separated. With it he cuts Ullikummi's feet away from Upelluri's shoulder, and the stone giant loses his strength.\n\n## The lost ending\n\nEa tells the gods to fight again, and Teššub mounts his chariot for a second battle. The song clearly moved toward his victory, but the last part of the text is broken, and the final defeat of Ullikummi is not preserved. The Hittite translators copied the song in the thirteenth century BCE, at the height of Hurrian influence at the Hittite court.\n\n## Reading the song\n\nThe central image, a monster growing on the shoulder of a world-bearing giant, cut free by the tool that once divided heaven from earth, is a myth about the structure of the cosmos as much as about a single fight. Scholars have compared Upelluri to the Greek Atlas and Ullikummi to Typhon, the last monster Zeus defeats in Hesiod; these are parallels in type, and this site does not treat any of them as the source of the others.",
+    "keyExcerpts": "A stone giant grows on the shoulder of Upelluri until it reaches heaven; Teššub loses the first battle, and only Ea's ancient copper cutter, which once divided heaven from earth, can sever the monster from its base.",
+    "category": "war",
+    "moralThemes": [
+      "wisdom over force",
+      "the cost of vengeance",
+      "cosmic order restored"
+    ],
+    "culturalSignificance": "The fullest surviving Hurrian myth, and an important witness to Hurrian influence at the thirteenth-century Hittite court; its monster-and-storm-god plot is often compared with Zeus's battle with Typhon.",
+    "citationSources": [
+      {
+        "title": "Song of Ullikummi (CTH 345)",
+        "author": "Hurrian composition in Hittite translation",
+        "date": "Hittite copies 13th c. BCE",
+        "type": "primary",
+        "sourceId": "kumarbi-cycle",
+        "chapter": "Song of Ullikummi, CTH 345"
+      },
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Song of Ullikummi"
+      }
+    ],
+    "featuredDeities": ["kumarbi", "tarhunna", "shaushka"],
+    "featuredLocations": ["urkesh"],
+    "relatedStories": ["song-of-kumarbi"],
+    "variants": [
+      {
+        "source": "Hesiod, Theogony 820-880",
+        "date": "c. 700 BCE",
+        "difference": "Zeus's last great opponent is Typhon, a monster born of Gaia and Tartarus, whom Zeus defeats with his thunderbolt without needing another god's help.",
+        "note": "A typological parallel often noted by scholars; the Greek account lacks Upelluri and the copper cutter."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The Hurrian cycle this song belongs to"
+      },
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Hoffner's translation of all the surviving copies"
+      }
+    ],
+    "imageUrl": "/stories/song-of-ullikummi.png"
+  },
+  {
+    "id": "storm-god-and-illuyanka",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Storm-god and the Serpent Illuyanka",
+    "slug": "storm-god-and-illuyanka",
+    "summary": "Two versions of an Anatolian myth recited at the Purulli festival of Nerik: in one the goddess Inara traps the serpent with a feast, in the other the Storm-god's son wins back his father's stolen heart and eyes.",
+    "fullNarrative": "## A festival text from Nerik\n\nThe Illuyanka tales (CTH 321) are Anatolian, not Hurrian. They are preserved on a single composition that presents itself as the words of Kella, a priest of the Storm-god of Nerik, and explains the Purulli festival, a spring festival of the sacred city of Nerik in the north of the Hittite lands. The text gives two different versions of the storm-god's fight with the serpent, one after the other, noting that the first way of telling it is no longer used. Illuyanka itself simply means \"serpent\" or \"dragon\" in Hittite.\n\n## The first version: a feast and a rope\n\nThe Storm-god and the serpent fought at a place called Kiškilušša, and the serpent defeated the Storm-god. The Storm-god called on all the gods for help, and the goddess Inara prepared a feast, setting out vessels of wine and other drinks in abundance. Then she went to the town of Zigaratta and found a mortal man named Hupašiya. She asked for his help, and he agreed on one condition: that he might sleep with her. Inara agreed, took him to the feast, and hid him.\n\nInara adorned herself and called the serpent up from its hole. The serpent came up with its children, and they ate and drank until they had emptied every vessel. Then they could not fit back into their hole. Hupašiya came out of hiding and tied the serpent up with a rope, and the Storm-god came with the other gods and killed it.\n\nInara then built a house on a cliff in the land of Tarukka and settled Hupašiya in it, telling him not to look out of the window while she was away, or he would see his wife and children. After twenty days he opened the window, saw them, and when Inara returned he begged to go home. Here the tablet breaks. Most scholars assume Inara killed or punished him, but the surviving text does not say.\n\n## The second version: a stolen heart\n\nIn the second version, the serpent defeated the Storm-god and took his heart and his eyes. To get them back, the Storm-god married the daughter of a poor man and had a son. When the son grew up, he married the serpent's daughter. The Storm-god told his son to ask for his heart and eyes as a gift when he went to his wife's house, and the serpent gave them. Restored, the Storm-god went down to the sea to fight the serpent again, and this time he was winning. His son, who was with the serpent, called out that he belonged to the serpent's household now, and told his father not to spare him. So the Storm-god killed both the serpent and his own son.\n\n## Why two versions?\n\nThe text ties both stories to the Purulli festival and to the cult of Nerik, and it seems to preserve two local traditions side by side rather than choosing one. In neither version does the storm-god win by strength alone: he needs a goddess and a mortal in one, and a son whom he must sacrifice in the other. The victory is costly for everyone who helps.\n\n## Place in a wider pattern\n\nThe combat of a storm-god with a serpent or sea monster is one of the most widespread motifs in the ancient world, from Baal's fight with Yamm and Litan at Ugarit to Thor and Jörmungandr in Norse myth. The Illuyanka tales are among the oldest written examples, but their particular details, the feast, the rope, the stolen heart and eyes, and the mortal who pays for helping a god, are distinctively Anatolian.",
+    "keyExcerpts": "Inara's feast traps the gorged serpent and a mortal ties it with a rope; in the later telling, the Storm-god's son wins back his father's heart and eyes and dies alongside the serpent.",
+    "category": "war",
+    "moralThemes": [
+      "victory through cunning rather than strength",
+      "the price paid by those who help the gods",
+      "divided loyalty"
+    ],
+    "culturalSignificance": "One of the oldest written storm-god-versus-serpent myths, and a rare example of a myth whose ritual setting (the Purulli festival of Nerik) is stated in the text itself.",
+    "citationSources": [
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Illuyanka Tales, CTH 321"
+      },
+      {
+        "title": "The Storm-God and the Serpent (Illuyanka)",
+        "author": "Gary Beckman, in The Context of Scripture vol. 1 (ed. W. W. Hallo)",
+        "date": "1997",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": ["tarhunna", "inara"],
+    "featuredLocations": ["nerik"],
+    "relatedStories": ["disappearance-of-telipinu"],
+    "variants": [
+      {
+        "source": "Illuyanka tales, second version (CTH 321)",
+        "difference": "The serpent steals the Storm-god's heart and eyes; the Storm-god's son by a mortal woman marries the serpent's daughter, recovers them, and is killed with the serpent at his own request.",
+        "note": "The text itself presents this as the later way of telling the story."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Both versions of the Illuyanka story in translation"
+      }
+    ],
+    "imageUrl": "/stories/storm-god-and-illuyanka.png"
+  },
+  {
+    "id": "disappearance-of-telipinu",
+    "pantheonId": "hittite-pantheon",
+    "title": "The Disappearance of Telipinu",
+    "slug": "disappearance-of-telipinu",
+    "summary": "The farming god Telipinu leaves in anger and the land withers; after the gods' searches fail, Hannahanna's bee finds him asleep, and the goddess Kamrušepa's ritual locks his rage away in the Dark Earth.",
+    "fullNarrative": "## A myth used as a ritual\n\nThe Disappearance of Telipinu (CTH 324) is the best preserved of several Hittite \"vanishing god\" texts. It is Anatolian in origin and written in Hittite; its god, Telipinu, was originally Hattian. It survives not as literature for its own sake but as the narrative part of an invocation ritual meant to bring an angry god home and restore the land's fertility. The beginning of the text is damaged.\n\n## The god walks out\n\nTelipinu became angry; the reason is lost in the damaged opening. In his rage he put his right shoe on his left foot and his left shoe on his right, and he left. Mist seized the windows, smoke seized the house. On the hearth the logs were stifled; on the altars the gods were stifled; in the fold the sheep were stifled, and in the pen the cattle. The sheep refused her lamb and the cow refused her calf. Telipinu went off and took with him grain, the fertility of the herds, growth and plenty, into the steppe and the meadow, and lay down in a meadow, where he was overcome with sleep.\n\nBarley and wheat no longer grew. Cattle, sheep, and people no longer conceived, and those already pregnant could not give birth. The mountains and trees dried up, the springs dried up, and famine came to the land. Gods and people alike were dying of hunger.\n\n## The search\n\nThe great Sun-god gave a feast and invited the thousand gods, but they ate and were not satisfied, drank and did not quench their thirst. The Storm-god realised that his son Telipinu was gone, and the gods began to search. The Sun-god sent out the swift eagle to look over the high mountains, the deep valleys, and the dark waters; the eagle came back without finding him. The Storm-god then spoke to Hannahanna, the Grandmother, who told him to go and look himself. He went to Telipinu's city and knocked at the gate, but he could not find him either, and he sat down to rest.\n\n## The bee\n\nHannahanna then sent a bee. The Storm-god objected that the bee was small and its wings were small, and that the great gods had already searched in vain. But Hannahanna told the bee to find Telipinu, sting his hands and feet to make him stand up, and wipe his eyes and feet with wax to purify him, and then bring him back. The bee searched the high mountains, the deep valleys, and the dark waters, until at last it found Telipinu asleep in a meadow in the grove of Lihzina. It stung his hands and feet, and he got up.\n\n## Worse before better\n\nWaking only made Telipinu angrier. He complained that he had been sleeping in his rage and that they had woken him and forced him to speak, and in his fury he began to destroy the land, flooding rivers and knocking down houses. So the gods turned to Kamrušepa, the goddess of magic, and a ritual began: the anger, rage, and sullenness of Telipinu were drawn out and taken away. The doorkeeper of the Dark Earth opened the seven doors and drew back the seven bolts, and down in the Dark Earth stood bronze vessels with lids of lead. Whatever goes into them does not come back out; it perishes there. So Telipinu's anger was shut away.\n\n## Home again\n\nTelipinu came back to his house and cared once more for his land. The mist left the windows and the smoke left the house; the altars and the hearth were restored; the sheep took back her lamb and the cow her calf. Before Telipinu stood an evergreen eya tree, and from it hung a hunting bag of sheep's fleece holding sheep fat, grain, wine, cattle and sheep, and long life and offspring.\n\n## What the story shows\n\nThe text lets us see how Hittites thought about blight and famine: as the absence of a god whose presence keeps life going, which could be repaired by finding, soothing, and honouring him. The ritual words that follow the story were meant to do exactly that for a real community in a real bad year.",
+    "keyExcerpts": "Telipinu storms off with his shoes on the wrong feet; the land withers, the eagle and the Storm-god fail to find him, and only Hannahanna's small bee succeeds, before Kamrušepa's rite locks his anger in bronze vessels in the Dark Earth.",
+    "category": "myth",
+    "moralThemes": [
+      "the dependence of life on divine presence",
+      "small helpers succeed where the mighty fail",
+      "anger contained rather than destroyed"
+    ],
+    "culturalSignificance": "The best preserved Hittite vanishing-god myth, embedded in a ritual meant for use in real crises of blight or famine; its evergreen tree hung with a fleece reflects actual Hittite cult practice.",
+    "citationSources": [
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner",
+        "chapter": "The Disappearance of Telipinu, CTH 324"
+      },
+      {
+        "title": "The Wrath of Telipinu",
+        "author": "Gary Beckman, in The Context of Scripture vol. 1 (ed. W. W. Hallo)",
+        "date": "1997",
+        "type": "secondary"
+      }
+    ],
+    "featuredDeities": [
+      "telipinu",
+      "tarhunna",
+      "hannahanna",
+      "kamrusepa",
+      "sun-goddess-of-the-earth"
+    ],
+    "featuredLocations": ["hattusa"],
+    "relatedStories": ["storm-god-and-illuyanka"],
+    "variants": [
+      {
+        "source": "Other Hittite vanishing-god texts (CTH 323-336)",
+        "difference": "Similar stories are told of the Storm-god, the Sun-god, Hannahanna, and other deities; in several of them the bee again finds the missing god.",
+        "note": "Telipinu's is the best preserved example of a recurring Anatolian ritual pattern."
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "The Telipinu text and the other vanishing-god myths"
+      }
+    ],
+    "imageUrl": "/stories/disappearance-of-telipinu.png"
   }
 ]

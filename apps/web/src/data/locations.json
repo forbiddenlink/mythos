@@ -2294,5 +2294,77 @@
       }
     ],
     "imageUrl": "/locations/haida-gwaii.png"
+  },
+  {
+    "id": "hattusa",
+    "name": "Hattusa",
+    "locationType": "city",
+    "pantheonId": "hittite-pantheon",
+    "description": "The Hittite capital near modern Boğazkale in central Türkiye, whose temple archives preserved almost every Hittite myth known today.",
+    "latitude": 40.0197,
+    "longitude": 34.6153,
+    "detailedBio": "## Capital and archive\n\nHattusa was the capital of the Hittite kingdom for most of its history, from the reign of Hattusili I in the seventeenth century BCE until the city was abandoned around 1180 BCE. Its ruins, near the village of Boğazkale (formerly Boğazköy) in Çorum Province, include massive fortification walls, gates carved with lions and sphinxes, and dozens of temples. The site is a UNESCO World Heritage Site.\n\n## Where the myths were found\n\nGerman excavations beginning in 1906 recovered tens of thousands of clay tablet fragments from the temples and palace archives. Among them were treaties, prayers, festival texts, and the mythological texts on this site: the Illuyanka tales, the Disappearance of Telipinu, and the Hittite translations of the Hurrian Kumarbi cycle. It was on the basis of these tablets that Bedřich Hrozný identified Hittite as an Indo-European language in 1915.\n\n## The Great Temple\n\nThe largest temple in the lower city, often called Temple 1, is generally thought to have been dedicated to the Storm-god of Hatti and the Sun-goddess of Arinna, the two chief deities of the state. Its storerooms held large numbers of tablets and storage vessels.",
+    "primarySources": [
+      {
+        "text": "The mythological tablets of CTH 321, 324, and 344-348 were excavated in the archives of Hattusa and published in the series Keilschrifttexte aus Boghazköi (KBo) and Keilschrifturkunden aus Boghazköi (KUB).",
+        "source": "H. A. Hoffner Jr., Hittite Myths (introduction and text notes)",
+        "date": "1998"
+      }
+    ],
+    "imageUrl": "/locations/hattusa.png"
+  },
+  {
+    "id": "yazilikaya",
+    "name": "Yazılıkaya",
+    "locationType": "sacred_site",
+    "pantheonId": "hittite-pantheon",
+    "description": "An open-air rock sanctuary just outside Hattusa whose carved procession of gods and goddesses, labelled in Hieroglyphic Luwian, shows the Hurrian-influenced pantheon of the thirteenth century BCE.",
+    "latitude": 40.0256,
+    "longitude": 34.6278,
+    "detailedBio": "## A gallery of the gods\n\nYazılıkaya (\"inscribed rock\" in Turkish) is a natural rock sanctuary about a kilometre and a half northeast of Hattusa. In its main chamber, reliefs carved mostly in the thirteenth century BCE show two processions converging on the back wall: gods on the left and goddesses on the right, each labelled with a name in Hieroglyphic Luwian.\n\n## The meeting of Teššub and Hebat\n\nAt the centre, the storm-god Teššub, standing on two mountain-gods, faces the goddess Hebat, who stands on a panther; behind her comes their son Šarruma. The names are Hurrian, reflecting the Hurrian theology promoted by the royal family in the thirteenth century, and the procession is often compared with the Hurrian offering lists (kaluti) that rank gods in the same order. Šauška appears on both sides of the procession.\n\n## King Tudhaliya IV\n\nA large relief shows King Tudhaliya IV, who is usually credited with the sanctuary's final form, and a smaller chamber holds a relief of Šarruma embracing the king, along with the enigmatic \"sword god\". The sanctuary may have been used for the spring festival; its exact function is still debated.",
+    "primarySources": [
+      {
+        "text": "The Hieroglyphic Luwian labels of the main chamber name the gods of the procession, headed by Teššub and Hebat, in an order close to Hurrian offering lists.",
+        "source": "E. Laroche, 'Le panthéon de Yazılıkaya', Journal of Cuneiform Studies 6",
+        "date": "1952"
+      }
+    ],
+    "imageUrl": "/locations/yazilikaya.png"
+  },
+  {
+    "id": "nerik",
+    "name": "Nerik (Oymaağaç Höyük)",
+    "locationType": "sacred_site",
+    "pantheonId": "hittite-pantheon",
+    "description": "The holy city of the Storm-god of Nerik in the north of the Hittite lands, where the Illuyanka story was recited at the Purulli festival; identified with Oymaağaç Höyük near Vezirköprü.",
+    "latitude": 41.2079,
+    "longitude": 35.43,
+    "detailedBio": "## The Storm-god's northern city\n\nNerik was one of the oldest and holiest cult centres of the Hattian and Hittite world, the seat of the Storm-god of Nerik, who was regarded as a son of the Storm-god of Hatti. The Illuyanka tales present themselves as the words of Kella, a priest of the Storm-god of Nerik, and link the serpent myth to the Purulli festival celebrated there.\n\n## Lost and restored\n\nFor much of the Hittite period Nerik lay in territory overrun by the Kaška, a people of the Black Sea hinterland, and the Hittite kings could not reach it; its cult was maintained from other towns. Hattusili III, in the thirteenth century BCE, recovered and rebuilt the city and made much of its restoration in his own texts.\n\n## Oymaağaç Höyük\n\nSince 2005 a German-Turkish excavation at Oymaağaç Höyük, in the Vezirköprü district of Samsun Province, has uncovered a large Hittite temple and cuneiform tablets mentioning Nerik, and the site is now widely identified as the ancient city. The coordinates given here are those of the mound.",
+    "primarySources": [
+      {
+        "text": "The Illuyanka text introduces itself as the words of Kella, priest of the Storm-god of Nerik, concerning the Purulli festival (paraphrase).",
+        "source": "Illuyanka tales, CTH 321, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Late Bronze Age copies"
+      }
+    ],
+    "imageUrl": "/locations/nerik.png"
+  },
+  {
+    "id": "urkesh",
+    "name": "Urkeš (Tell Mozan)",
+    "locationType": "city",
+    "pantheonId": "hittite-pantheon",
+    "description": "The ancient Hurrian city in northeastern Syria that the Kumarbi cycle names as Kumarbi's home, identified with the mound of Tell Mozan.",
+    "latitude": 37.0572,
+    "longitude": 40.9975,
+    "detailedBio": "## Kumarbi's city\n\nIn the Hurrian songs preserved at Hattusa, Kumarbi is the god of Urkeš: in the Song of Ullikummi he takes counsel in his mind and sets out from his city of Urkeš to plan Teššub's downfall. Hurrian tradition regarded Urkeš as an ancient and venerable city, and a Hurrian foundation inscription of its early kings has been found.\n\n## Tell Mozan\n\nExcavations at Tell Mozan in northeastern Syria, directed by Giorgio Buccellati and Marilyn Kelly-Buccellati from 1984, identified the site as Urkeš through inscribed seal impressions naming its kings (endan). Finds include a large temple terrace and a deep underground stone structure that the excavators interpret as a ritual pit (ābi) for communicating with the underworld, the kind of pit Hurrian rituals used to call up the Former Gods.\n\n## Not a Hittite city\n\nUrkeš was never part of the Hittite kingdom; it belongs on this site because the Hurrian myths the Hittites translated place Kumarbi there. It is a reminder that the Kumarbi cycle comes from a different world from native Anatolian tradition.",
+    "primarySources": [
+      {
+        "text": "Kumarbi takes wisdom into his mind and rises from his city Urkeš to plan a rival for Teššub (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hittite copies 13th c. BCE"
+      }
+    ],
+    "imageUrl": "/locations/urkesh.png"
   }
 ]

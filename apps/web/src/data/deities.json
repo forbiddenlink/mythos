@@ -11338,5 +11338,481 @@
     },
     "imageUrl": "/deities/naas-shaak-aankawu.png",
     "traditionRole": "Daylight Keeper"
+  },
+  {
+    "id": "tarhunna",
+    "pantheonId": "hittite-pantheon",
+    "name": "Tarhunna (the Storm-god of Hatti)",
+    "slug": "tarhunna",
+    "originalLanguageName": {
+      "text": "dU / dIŠKUR (read Tarḫunna)",
+      "language": "Hittite (Sumerogram)",
+      "transliteration": "Tarḫunna",
+      "meaning": "Probably 'the conqueror', from the Anatolian root tarḫu- 'to overcome'"
+    },
+    "alternateNames": [
+      "Storm-god of Hatti",
+      "Teššub (Hurrian)",
+      "Taru (Hattian)",
+      "Tarḫunt (Luwian)",
+      "Teshub"
+    ],
+    "gender": "male",
+    "domain": ["storms", "rain", "kingship", "the fertility of the land"],
+    "symbols": ["bull", "mace and lightning", "mountain"],
+    "description": "The chief god of the Hittite state: a storm-god of rain and thunder who gives the land its fertility, fights the serpent Illuyanka, and, under his Hurrian name Teššub, wins kingship in heaven in the Kumarbi cycle.",
+    "detailedBio": "## One god, several names\n\nHittite scribes usually wrote the storm-god's name with a Sumerian word-sign (dU or dIŠKUR, \"the Storm-god\"), so the Hittite reading is partly reconstructed; Tarḫunna is the most widely accepted reading, and the Luwian form Tarḫunt survived into the first millennium BCE. The same logogram covered the Hattian storm-god Taru and, from the fifteenth century onward, the Hurrian storm-god Teššub, whom the later Hittite royal family, closely tied to Hurrian Kizzuwatna, promoted to the head of the state cult. On this site these are treated as one entry because the Hittite sources themselves write them with one sign, but readers should know that the Hattian, Hittite, and Hurrian storm-gods had separate origins and were brought together by scribes and kings.\n\n## Storm-god of Hatti and local storm-gods\n\nThe Storm-god of Hatti was the king's divine lord; the king called himself the god's administrator, and treaties invoked the storm-god first among the divine witnesses. Alongside him, dozens of local storm-gods had their own cult cities, the most important being the Storm-god of Nerik and the Storm-god of Zippalanda, both regarded as his sons in cult texts. His sacred animals were two bulls, named Šeri and Hurri in Hurrian tradition, which draw his chariot.\n\n## In the myths\n\nIn the Anatolian Illuyanka tales, recited at the Purulli festival of Nerik, the storm-god is first defeated by the serpent Illuyanka and wins only with the help of others: the goddess Inara and her mortal helper Hupašiya in one version, and his own mortal son in the other. In the Hurrian Kumarbi cycle he appears as Teššub, conceived when Kumarbi swallows the seed of the sky-god Anu, born out of Kumarbi's body, and victorious in the struggle for kingship in heaven, though he loses his first battle against the stone giant Ullikummi and needs the wisdom of Ea to win. That pattern, a storm-king who is beaten before he triumphs, runs through both strands of his mythology.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/tarhunna.png",
+    "primarySources": [
+      {
+        "text": "The Storm-god is defeated by the serpent Illuyanka in the first encounter and prevails only after Inara's feast and Hupašiya's rope (paraphrase).",
+        "source": "Illuyanka tales, CTH 321, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Late Bronze Age copies of an older Hattian-Anatolian tradition"
+      },
+      {
+        "text": "Kumarbi learns from Anu that by swallowing his manhood he has become pregnant with the Storm-god, the river Aranzah (the Tigris), and Tašmišu (paraphrase).",
+        "source": "Song of Kumarbi, CTH 344, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 14th-13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Translations of the Illuyanka tales and the Kumarbi cycle"
+      },
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The Hurrian songs in which the storm-god wins kingship in heaven"
+      }
+    ],
+    "sources": [
+      "Collins, Billie Jean. *The Hittites and Their World* (Society of Biblical Literature, 2007).",
+      "Schwemer, Daniel. \"The Storm-Gods of the Ancient Near East: Summary, Synthesis, Recent Studies.\" *Journal of Ancient Near Eastern Religions* 7-8 (2007-2008)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "zeus",
+        "note": "Both are storm-kings who win rule in heaven after a succession struggle; the Kumarbi cycle is the closest Near Eastern parallel to the succession myth of Hesiod's Theogony."
+      },
+      {
+        "pantheonId": "norse-pantheon",
+        "deityId": "thor",
+        "note": "Both are storm-gods whose defining myth is combat with a great serpent (Illuyanka, Jörmungandr); the resemblance belongs to a widespread storm-god-versus-serpent pattern, not a shared text."
+      },
+      {
+        "pantheonId": "slavic-pantheon",
+        "deityId": "perun",
+        "note": "Comparative mythologists group the Illuyanka combat with the reconstructed Perun-Veles conflict as storm-god-versus-serpent myths; for Perun the combat is a scholarly reconstruction, while for the Hittite storm-god it is attested in text."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Great Temple (Temple 1) at Hattusa, shared with the Sun-goddess of Arinna",
+        "Temple of the Storm-god of Nerik at Oymaağaç Höyük"
+      ],
+      "festivals": [
+        "Purulli festival at Nerik",
+        "AN.TAḪ.ŠUM (spring) and nuntarriyašḫa (autumn) state festivals"
+      ],
+      "practices": "The king served as the storm-god's priest and steward, offering bread, beer, and animals at state festivals; the Illuyanka story was recited at the Purulli festival of Nerik."
+    }
+  },
+  {
+    "id": "sun-goddess-of-arinna",
+    "pantheonId": "hittite-pantheon",
+    "name": "Sun-goddess of Arinna",
+    "slug": "sun-goddess-of-arinna",
+    "originalLanguageName": {
+      "text": "dUTU URUArinna",
+      "language": "Hittite (Sumerogram)",
+      "transliteration": "Arinnitti (reading uncertain); Hattian Wurunšemu",
+      "meaning": "the Sun (goddess) of the city of Arinna"
+    },
+    "alternateNames": [
+      "Wurunšemu (Hattian)",
+      "Arinnitti",
+      "Hebat (by royal equation)"
+    ],
+    "gender": "female",
+    "domain": ["the sun", "kingship", "the protection of the Hittite state"],
+    "symbols": ["sun disk", "the city of Arinna"],
+    "description": "The Hattian sun-goddess of the holy city of Arinna, queen of the land of Hatti and, with the Storm-god, the highest deity of the Hittite state cult; Queen Puduhepa's prayer equates her with the Hurrian goddess Hebat.",
+    "detailedBio": "## Queen of the land of Hatti\n\nThe Sun-goddess of Arinna was a Hattian deity (her Hattian name was Wurunšemu) whom the Hittite kings made one of the two heads of their state religion. Royal prayers address her as the queen of the land of Hatti, and kings described the land and kingship as belonging to her and the Storm-god, who was regarded as her husband. Her holy city, Arinna, lay within a day's journey of Hattusa, but its site has never been securely identified; this site therefore does not give it a map location.\n\n## Hebat of the cedar land\n\nIn a well-known prayer (CTH 384), Queen Puduhepa, the Hurrian-born wife of King Hattusili III in the thirteenth century BCE, tells the goddess that in the land of Hatti she took the name Sun-goddess of Arinna, while in the land of cedars she took the name Hebat (paraphrase). The prayer is a deliberate theological equation by a Hurrian queen, bringing her native goddess, Teššub's consort, into line with the goddess of the Hittite state cult; it is evidence of how the pantheon was merged, not proof that the two goddesses were originally one.\n\n## Not the only sun deity\n\nHittite religion distinguished several solar deities: the Sun-goddess of Arinna; the male Sun-god of Heaven (Ištanu, Hurrian Šimige), who plays a role in myths such as the Disappearance of Telipinu; and the Sun-goddess of the Earth, an underworld goddess. This site keeps them apart, following the texts.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/sun-goddess-of-arinna.png",
+    "primarySources": [
+      {
+        "text": "Queen Puduhepa addresses the Sun-goddess of Arinna as her lady and says that in Hatti she bears that name, while in the land of cedars she is called Hebat (paraphrase).",
+        "source": "Prayer of Puduhepa to the Sun-goddess of Arinna, CTH 384, trans. I. Singer, Hittite Prayers",
+        "date": "13th c. BCE"
+      }
+    ],
+    "sources": [
+      "Singer, Itamar. *Hittite Prayers* (Society of Biblical Literature, 2002), prayers of Muršili II and Puduhepa."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "amaterasu",
+        "note": "Both are female sun deities at the head of a royal state cult; the traditions are historically unrelated, and the comparison is typological only."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Temple at Arinna (site unidentified)",
+        "Great Temple at Hattusa, shared with the Storm-god"
+      ],
+      "festivals": [
+        "Royal festival visits to Arinna during the AN.TAḪ.ŠUM spring festival"
+      ],
+      "practices": "Kings and queens addressed her in written prayers in times of plague and crisis, and royal journeys to Arinna were part of the great state festivals."
+    }
+  },
+  {
+    "id": "kumarbi",
+    "pantheonId": "hittite-pantheon",
+    "name": "Kumarbi",
+    "slug": "kumarbi",
+    "originalLanguageName": {
+      "text": "dKumarbi",
+      "language": "Hurrian (in Hittite texts)",
+      "transliteration": "Kumarbi",
+      "meaning": "Probably 'he of (the city of) Kumar'; the etymology is uncertain"
+    },
+    "alternateNames": ["Father of the gods (Hurrian)"],
+    "gender": "male",
+    "domain": ["the older order of gods", "grain", "kingship in heaven"],
+    "symbols": ["the city of Urkeš", "the swallowed stone"],
+    "description": "Hurrian father of the gods who seizes kingship in heaven by biting off the sky-god Anu's loins, unwittingly conceives the storm-god Teššub, and spends the rest of the Kumarbi cycle fathering monsters to overthrow him.",
+    "detailedBio": "## A Hurrian god in Hittite translation\n\nKumarbi belongs to the Hurrian pantheon of northern Syria and Upper Mesopotamia. His city was Urkeš (modern Tell Mozan in northeastern Syria), one of the oldest Hurrian centres, and he was equated in god-lists with the Mesopotamian grain-god Dagan and with Enlil. Everything known of his mythology comes from Hurrian songs preserved mainly in Hittite translation at Hattusa: the Song of Kumarbi (CTH 344), the Song of Hedammu (CTH 348), and the Song of Ullikummi (CTH 345).\n\n## Kingship in heaven\n\nIn the Song of Kumarbi, kingship in heaven passes through three generations. Alalu reigns nine years until his cup-bearer Anu, the sky, overthrows him; Anu reigns nine years until his cup-bearer Kumarbi, described as the offspring of Alalu, rebels. Kumarbi chases Anu into the sky, drags him down by the feet, and bites off his loins; Anu warns him that he has swallowed the seed of three powerful gods, among them the storm-god. Kumarbi spits out what he can but remains pregnant, and the storm-god is eventually born out of his body. The text is badly broken at this point; it appears that Kumarbi tries to devour the child and is given a stone instead, an episode widely compared with Rhea's stone in Hesiod.\n\n## The plotter\n\nIn the later songs Kumarbi, deposed, keeps plotting: he marries the daughter of the Sea and fathers the sea-serpent Hedammu, and he fathers the basalt giant Ullikummi on a great rock, sending both against Teššub. Neither succeeds. He is not presented as simply evil; he is the displaced older king of an older order, and the songs follow his schemes with some sympathy.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/kumarbi.png",
+    "primarySources": [
+      {
+        "text": "Kumarbi, the offspring of Alalu, serves Anu as cup-bearer for nine years and then rebels, biting off Anu's loins as he flees to the sky (paraphrase).",
+        "source": "Song of Kumarbi, CTH 344, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 14th-13th c. BCE"
+      },
+      {
+        "text": "Kumarbi takes counsel in his city Urkeš and plans a rival for Teššub, begetting the stone giant Ullikummi (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The songs in which Kumarbi seizes and loses kingship in heaven"
+      }
+    ],
+    "sources": [
+      "Güterbock, Hans G. \"The Hittite Version of the Hurrian Kumarbi Myths: Oriental Forerunners of Hesiod.\" *American Journal of Archaeology* 52 (1948).",
+      "López-Ruiz, Carolina. *When the Gods Were Born: Greek Cosmogonies and the Near East* (Harvard University Press, 2010)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "cronus",
+        "note": "Both are second-generation sky-kings who mutilate their predecessor, swallow what they should not, and are displaced by a storm-god; Güterbock's 1948 study made this the best-known Near Eastern parallel to Hesiod."
+      }
+    ],
+    "worship": {
+      "temples": ["Urkeš (Tell Mozan), his traditional Hurrian cult city"],
+      "festivals": [],
+      "practices": "Kumarbi received offerings in Hurrian cult lists (kaluti) alongside other gods of the Hurrian pantheon; he is far more prominent in myth than in recorded Hittite state ritual."
+    }
+  },
+  {
+    "id": "telipinu",
+    "pantheonId": "hittite-pantheon",
+    "name": "Telipinu",
+    "slug": "telipinu",
+    "originalLanguageName": {
+      "text": "dTelipinu",
+      "language": "Hattian (in Hittite texts)",
+      "transliteration": "Telipinu",
+      "meaning": "Hattian name; often explained as 'exalted son', though the etymology is debated"
+    },
+    "alternateNames": ["Telepinu", "Telepinus"],
+    "gender": "male",
+    "domain": ["agriculture", "the growth of crops", "fertility of herds"],
+    "symbols": ["the eya tree", "the kurša hunting bag", "the bee"],
+    "description": "A Hattian god of farming and growth, son of the Storm-god, whose angry departure makes the whole land barren until a bee finds him asleep and a ritual soothes his rage.",
+    "detailedBio": "## The god who goes missing\n\nTelipinu is a Hattian deity of agriculture and growth, called in the myth the son of the Storm-god. He is best known from the Disappearance of Telipinu (CTH 324), one of several Hittite \"vanishing god\" texts in which a deity leaves in anger and the world begins to die. The same pattern is told of the Storm-god, the Sun-god, the mother goddess Hannahanna, and others; Telipinu's version is simply the best preserved.\n\n## A myth inside a ritual\n\nThe Telipinu text is not a free-standing story but the narrative part of a ritual: it tells why the god left, then gives the words and actions that will bring him back and bind his anger in the underworld. Its closing image, an evergreen eya tree set up before Telipinu with a hunting bag of sheep's fleece hanging from it, holding fat, grain, wine, cattle, sheep, long life, and offspring, reflects actual cult practice.\n\n## Why his anger matters\n\nThe text never fully explains what enraged Telipinu. What it describes in detail is the result: mist and smoke fill houses, the fire dies on the hearth, gods and animals and people all cease to thrive, and barley and wheat stop growing. The myth models how the Hittites understood blight and famine, as the withdrawal of a god whose presence makes life possible, and how ritual could restore the relationship.",
+    "importanceRank": 1,
+    "imageUrl": "/deities/telipinu.png",
+    "primarySources": [
+      {
+        "text": "Telipinu goes off in anger, putting his right shoe on his left foot and his left shoe on his right; mist seizes the windows, smoke seizes the house, and barley and wheat no longer grow (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "The full Telipinu text and the related vanishing-god myths"
+      }
+    ],
+    "sources": [
+      "Beckman, Gary. \"The Wrath of Telipinu.\" In *The Context of Scripture*, vol. 1, ed. W. W. Hallo (Brill, 1997)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "demeter",
+        "note": "Both are agricultural deities whose withdrawal in grief or anger makes the earth barren until the gods intervene; the resemblance is typological."
+      },
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "dumuzi",
+        "note": "Both belong to the Near Eastern family of 'disappearing god' myths tied to the agricultural year, though Dumuzi's absence is a death in the underworld and Telipinu's is an angry departure."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Temples at Kašḫa, Tawiniya, and Hanḫana (sites not securely identified)"
+      ],
+      "festivals": [],
+      "practices": "Invocation rituals (mugawar) recited the story of his disappearance and used honey, fragrant oils, and sweet foods to draw him home; an evergreen eya tree hung with a fleece bag stood before him."
+    }
+  },
+  {
+    "id": "hannahanna",
+    "pantheonId": "hittite-pantheon",
+    "name": "Hannahanna",
+    "slug": "hannahanna",
+    "originalLanguageName": {
+      "text": "dḪannaḫanna (often written dNIN.TU or dMAḪ)",
+      "language": "Hittite",
+      "transliteration": "Ḫannaḫanna",
+      "meaning": "'Grandmother', from Hittite ḫanna- 'grandmother'"
+    },
+    "alternateNames": ["The Grandmother", "Mother goddess"],
+    "gender": "female",
+    "domain": ["birth", "motherhood", "wise counsel"],
+    "symbols": ["the bee"],
+    "description": "The Hittite mother goddess, 'the Grandmother', who when every other god has failed sends a bee to find the missing Telipinu.",
+    "detailedBio": "## The Grandmother\n\nHannahanna's name simply means \"grandmother\", and scribes often wrote it with Sumerian signs used for Mesopotamian birth and mother goddesses. She is a figure of wisdom and authority among the gods: in the Disappearance of Telipinu it is she who tells the Storm-god to go and look for his son, and she who, when he returns empty-handed, sends the bee.\n\n## The bee\n\nThe scene is one of the most memorable in Hittite literature. The Storm-god objects that the bee is small and its wings are small; Hannahanna sends it anyway, telling it to find Telipinu, sting his hands and feet to wake him, and smear him with wax. The bee finds him asleep in a meadow near the town of Lihzina and does exactly that, though waking Telipinu only makes him angrier, and a further ritual is needed.\n\n## A vanishing goddess herself\n\nLike several Hittite deities, Hannahanna has her own fragmentary \"disappearance\" myth, in which she too departs in anger and must be brought back, again with the help of a bee. The recurrence of the bee as the messenger who finds hidden gods is one of the distinctive features of this Anatolian tradition.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/hannahanna.png",
+    "primarySources": [
+      {
+        "text": "Hannahanna sends a bee to search for Telipinu, instructing it to sting his hands and feet and to wipe his eyes and feet with wax (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Includes both the Telipinu myth and the fragmentary myth of Hannahanna's own disappearance"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "She appears in birth rituals and in the vanishing-god rituals; no major temple of hers has been identified archaeologically."
+    }
+  },
+  {
+    "id": "inara",
+    "pantheonId": "hittite-pantheon",
+    "name": "Inara",
+    "slug": "inara",
+    "originalLanguageName": {
+      "text": "dInara",
+      "language": "Hattian (in Hittite texts)",
+      "transliteration": "Inar(a)",
+      "meaning": "Hattian name; possibly related to Hittite innara- 'vigorous'"
+    },
+    "alternateNames": ["Inar"],
+    "gender": "female",
+    "domain": ["wild animals", "protection", "the hunt"],
+    "symbols": ["the feast of vessels", "the house on the cliff"],
+    "description": "A Hattian goddess of the wild who helps the Storm-god defeat the serpent Illuyanka by laying out a great feast and recruiting the mortal Hupašiya.",
+    "detailedBio": "## The goddess of the first Illuyanka tale\n\nInara is a Hattian protective goddess associated with wild animals, known above all from the first version of the Illuyanka story. After the Storm-god is beaten by the serpent, Inara prepares a feast with vessels of wine and other drinks, and goes to the town of Zigaratta, where she meets a mortal man, Hupašiya. He agrees to help on condition that he may sleep with her; she agrees, hides him near the feast, and lures the serpent and its children out. When they have eaten and drunk so much that they cannot fit back into their hole, Hupašiya ties them up with a rope and the Storm-god kills them.\n\n## The house on the cliff\n\nThe sequel is strange and only partly preserved. Inara builds a house on a cliff in the land of Tarukka and installs Hupašiya there, forbidding him to look out of the window while she is away. He disobeys, sees his wife and children, and begs to go home. At this point the tablet breaks; most scholars infer that Inara punished him, but the text does not say so, and this site does not supply an ending.\n\n## A protective deity\n\nOutside this story, Inara belongs to a group of Hittite protective deities of the countryside, sometimes linked with the stag god of the wild. Her role in the myth, turning the Storm-god's defeat into victory through planning rather than force, is characteristic of the Anatolian tales, in which the storm-god rarely wins alone.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/inara.png",
+    "primarySources": [
+      {
+        "text": "Inara prepares a feast, goes to Zigaratta, and enlists the mortal Hupašiya, who binds the gorged serpent with a rope so that the Storm-god can kill it (paraphrase).",
+        "source": "Illuyanka tales, first version, CTH 321, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Late Bronze Age copies of an older Anatolian tradition"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "The two versions of the Illuyanka story"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": ["Invoked in festival texts of the Hattian cult"],
+      "practices": "Received offerings among the protective deities of the countryside in Hattian-derived festivals."
+    }
+  },
+  {
+    "id": "kamrusepa",
+    "pantheonId": "hittite-pantheon",
+    "name": "Kamrušepa",
+    "slug": "kamrusepa",
+    "originalLanguageName": {
+      "text": "dKamrušepa",
+      "language": "Hattian / Hittite",
+      "transliteration": "Kamrušepa",
+      "meaning": "Uncertain"
+    },
+    "alternateNames": ["Kamrusepa", "Katahzipuri (Hattian counterpart)"],
+    "gender": "female",
+    "domain": ["magic", "healing", "ritual purification"],
+    "symbols": ["the ritual fire", "the eagle's wing"],
+    "description": "Goddess of magic and healing rites, who in the Telipinu myth performs the ritual that draws out the angry god's rage and sends it to the Dark Earth.",
+    "detailedBio": "## The divine ritual expert\n\nKamrušepa is the goddess of magic in the Hittite texts, the divine model for human ritual practitioners. In incantations the healer often describes a problem and then says what Kamrušepa did about it, so that the human rite repeats a divine precedent. Her Hattian counterpart is Katahzipuri.\n\n## Soothing Telipinu\n\nIn the Disappearance of Telipinu, waking the god by the bee's sting only makes his anger worse, and he begins to destroy the land. The gods then turn to Kamrušepa, who performs a purification: she takes away his anger, rage, and sullenness, and the ritual sends them down to the Dark Earth, where they are locked in bronze vessels with lids of lead so that they cannot return. The text alternates between her actions and the words of a mortal ritualist, which shows how the myth was used: the human performer repeats what the goddess once did.\n\n## Other texts\n\nKamrušepa also appears in Luwian incantations and in rituals for healing people and animals; she is associated with the Sun-god and with the gate of the gods. She is known almost entirely from ritual literature, not from temples or state festivals.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/kamrusepa.png",
+    "primarySources": [
+      {
+        "text": "Kamrušepa performs the rite that removes Telipinu's anger, and his anger is shut away in bronze vessels in the Dark Earth (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "hittite-myths-hoffner",
+        "note": "Kamrušepa's role in the Telipinu ritual"
+      }
+    ]
+  },
+  {
+    "id": "shaushka",
+    "pantheonId": "hittite-pantheon",
+    "name": "Šauška",
+    "slug": "shaushka",
+    "originalLanguageName": {
+      "text": "dIŠTAR (read Šauška)",
+      "language": "Hurrian (in Hittite texts)",
+      "transliteration": "Šauška",
+      "meaning": "Hurrian name; commonly explained as 'the great one'"
+    },
+    "alternateNames": ["Shaushka", "Šawuška", "Ištar of Nineveh (by equation)"],
+    "gender": "female",
+    "domain": ["love and sexuality", "war", "healing"],
+    "symbols": ["wings", "the lion", "the attendants Ninatta and Kulitta"],
+    "description": "Hurrian goddess of love and war and sister of the storm-god Teššub, who in the Kumarbi cycle tries to overcome her brother's monstrous enemies by seduction.",
+    "detailedBio": "## A Hurrian Ištar\n\nŠauška is the Hurrian goddess whom Hittite scribes wrote with the sign for the Mesopotamian Ištar; her most famous cult was at Nineveh. She was a goddess of both love and war and could appear in male as well as female form. She became personally important to the Hittite royal family: King Hattusili III named her as his protective goddess in his autobiographical *Apology*.\n\n## Teššub's sister\n\nIn the Kumarbi cycle she is Teššub's sister and one of his closest allies. In the Song of Hedammu she confronts the sea-serpent by bathing, adorning herself, and displaying her beauty, drawing the monster out of the sea; the text is fragmentary but implies that she overcomes it by seduction and drugged drink. In the Song of Ullikummi she tries the same tactic against the stone giant and fails, because, as a great wave tells her, Ullikummi is deaf and blind and cannot be moved by beauty.\n\n## At Yazılıkaya\n\nŠauška appears twice in the relief procession of the rock sanctuary of Yazılıkaya near Hattusa, once among the male gods (reflecting her dual aspect) and once among the goddesses, accompanied by her attendants Ninatta and Kulitta.",
+    "importanceRank": 2,
+    "imageUrl": "/deities/shaushka.png",
+    "primarySources": [
+      {
+        "text": "Šauška sings and displays herself to the stone giant, but a great wave tells her that Ullikummi is deaf and blind and has no compassion (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "Šauška against Hedammu and Ullikummi"
+      }
+    ],
+    "sources": [
+      "Wegner, Ilse. *Gestalt und Kult der Ištar-Šawuška in Kleinasien* (Butzon & Bercker, 1981)."
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "inanna",
+        "note": "Hittite scribes wrote Šauška's name with the Ištar sign, and ancient god-lists equate her with the Mesopotamian goddess of love and war."
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Nineveh (her principal Hurrian cult centre)",
+        "Šamuḫa, where Hattusili III served her"
+      ],
+      "festivals": [],
+      "practices": "Hattusili III credited her with his rise to power; her statue from Nineveh was sent to Egypt to heal the pharaoh in the Amarna letters, showing her healing role."
+    }
+  },
+  {
+    "id": "sun-goddess-of-the-earth",
+    "pantheonId": "hittite-pantheon",
+    "name": "Sun-goddess of the Earth",
+    "slug": "sun-goddess-of-the-earth",
+    "originalLanguageName": {
+      "text": "taknaš dUTU",
+      "language": "Hittite",
+      "transliteration": "taknaš Ištanu",
+      "meaning": "the Sun (deity) of the Earth"
+    },
+    "alternateNames": [
+      "Allani (Hurrian)",
+      "Ereškigal (by equation)",
+      "Lelwani (associated)"
+    ],
+    "gender": "female",
+    "domain": ["the underworld", "the dead", "purification"],
+    "symbols": ["the Dark Earth", "the doors and bolts of the underworld"],
+    "description": "The Hittite ruler of the underworld, the 'Dark Earth', identified with the Hurrian Allani and the Mesopotamian Ereškigal: the sun as it travels beneath the earth at night.",
+    "detailedBio": "## The sun below\n\nThe Hittites imagined a sun deity of the underworld, the Sun-goddess of the Earth, who ruled the \"Dark Earth\" (dankui tekan) beneath the land of the living. The idea seems to be that the sun passes through the underworld at night; the goddess who governs that realm is its solar counterpart. In Hurrian texts she corresponds to Allani, the lady of the underworld, and god-lists equate her with the Mesopotamian Ereškigal.\n\n## The realm where anger is locked away\n\nThe Dark Earth is where Hittite rituals sent evils they wanted gone for good. At the end of the Telipinu myth, the god's anger is sent down to the Dark Earth, where the doorkeeper opens seven doors and draws back seven bolts, and bronze vessels with lids of lead stand ready to hold whatever goes in, so that it never comes back up. The same realm houses the \"Former Gods\", the older generation of deities banished below, whom Ea consults in the Song of Ullikummi.\n\n## In ritual rather than story\n\nThe Sun-goddess of the Earth appears mainly in purification rituals and in offerings for the dead rather than in narrative myth. This site includes her because the underworld she rules is essential to how Hittite myths end: problems are solved not by destroying them but by sending them down and sealing them in.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/sun-goddess-of-the-earth.png",
+    "primarySources": [
+      {
+        "text": "The doorkeeper opens the seven doors of the Dark Earth and draws back seven bolts; bronze vessels with lids of lead stand there, and what goes in does not come out again (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ],
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesopotamian-pantheon",
+        "deityId": "ereshkigal",
+        "note": "Ancient god-lists equate the Hurrian Allani, the Hittite Sun-goddess of the Earth, and Ereškigal as rulers of the underworld."
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked in purification rituals that sent impurity and evil into the Dark Earth, and in rites for the dead."
+    }
+  },
+  {
+    "id": "alalu",
+    "pantheonId": "hittite-pantheon",
+    "name": "Alalu",
+    "slug": "alalu",
+    "originalLanguageName": {
+      "text": "dAlalu",
+      "language": "Hurrian (in Hittite texts)",
+      "transliteration": "Alalu",
+      "meaning": "Possibly derived from a Mesopotamian name (Alala) found in god-lists"
+    },
+    "alternateNames": ["Alalus"],
+    "gender": "male",
+    "domain": ["the first kingship in heaven", "the Former Gods"],
+    "symbols": ["the cup-bearer's cup", "the Dark Earth"],
+    "description": "The first king in heaven in the Hurrian Song of Kumarbi, overthrown by his cup-bearer Anu after nine years and driven down to the Dark Earth; Kumarbi is called his offspring.",
+    "detailedBio": "## The first king\n\nThe Song of Kumarbi opens by calling on the Former Gods to listen, and then tells how, in earlier years, Alalu was king in heaven. Anu, the mightiest of the gods, served him as cup-bearer, bowing at his feet and handing him his drink. After nine years Anu rebelled and defeated him, and Alalu fled down to the Dark Earth.\n\n## Father of the plotter\n\nKumarbi, who later overthrows Anu, is described as Alalu's offspring, so the struggle for kingship in heaven becomes a feud between two lineages: Alalu and his descendant Kumarbi on one side, Anu and the storm-god conceived from his seed on the other. Alalu himself plays no further part in the surviving text.\n\n## Among the Former Gods\n\nAlalu belongs to the group Hittite texts call the Former Gods (karuileš šiuneš), primeval deities who were banished to the underworld and who are invoked in rituals as a group. The idea of a whole older generation of gods deposed and confined below the earth is another point of contact with the Greek Titans, but Alalu himself has no clear Greek equivalent.",
+    "importanceRank": 3,
+    "imageUrl": "/deities/alalu.png",
+    "primarySources": [
+      {
+        "text": "In former years Alalu was king in heaven, and Anu, first among the gods, stood before him as cup-bearer; after nine years Anu fought Alalu and defeated him, and Alalu fled down to the Dark Earth (paraphrase).",
+        "source": "Song of Kumarbi, CTH 344, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; Hittite copies 14th-13th c. BCE"
+      }
+    ],
+    "furtherReading": [
+      {
+        "sourceId": "kumarbi-cycle",
+        "note": "The opening of the Song of Kumarbi"
+      }
+    ]
   }
 ]

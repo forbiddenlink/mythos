@@ -1782,5 +1782,124 @@
       }
     ],
     "readingOrder": "Thomas Kinsella's 1969 translation is the classic English starting point; Ciaran Carson's 2007 Penguin Classics translation is a livelier modern alternative."
+  },
+  {
+    "id": "hittite-myths-hoffner",
+    "title": "Hittite Myths",
+    "author": "Harry A. Hoffner Jr. (translator; ed. Gary M. Beckman)",
+    "year": "1990; 2nd ed. 1998",
+    "type": "translation",
+    "language": "Hittite (English translation)",
+    "description": "The standard English translation of Hittite mythological texts, covering both the Anatolian myths preserved in rituals (the Illuyanka tales, the disappearance of Telipinu and other vanishing deities) and the Hurrian Kumarbi cycle translated into Hittite. Hoffner marks gaps and damaged passages throughout.",
+    "translators": [
+      {
+        "name": "Harry A. Hoffner Jr.",
+        "year": 1998
+      }
+    ],
+    "characters": [
+      {
+        "id": "tarhunna",
+        "kind": "deity",
+        "role": "the Storm-god, defeated and then victorious against the serpent; the Hurrian Teššub of the Kumarbi cycle",
+        "where": "Illuyanka tales (CTH 321); Kumarbi cycle (CTH 344-348)"
+      },
+      {
+        "id": "telipinu",
+        "kind": "deity",
+        "role": "the god whose angry departure starves the land",
+        "where": "The Disappearance of Telipinu (CTH 324)"
+      },
+      {
+        "id": "hannahanna",
+        "kind": "deity",
+        "role": "the mother goddess who sends the bee to find Telipinu",
+        "where": "The Disappearance of Telipinu (CTH 324)"
+      },
+      {
+        "id": "inara",
+        "kind": "deity",
+        "role": "prepares the feast that traps the serpent",
+        "where": "Illuyanka tales, first version (CTH 321)"
+      },
+      {
+        "id": "kamrusepa",
+        "kind": "deity",
+        "role": "performs the rite that soothes Telipinu's anger",
+        "where": "The Disappearance of Telipinu (CTH 324)"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Serpent at the Feast",
+        "where": "Illuyanka tales, first version (CTH 321)",
+        "summary": "Inara lays out a feast; the serpent and its children eat and drink until they cannot squeeze back into their hole, and the mortal Hupašiya binds them for the Storm-god."
+      },
+      {
+        "title": "The Bee Finds Telipinu",
+        "where": "The Disappearance of Telipinu (CTH 324)",
+        "summary": "After the Sun-god's eagle and the Storm-god himself fail, Hannahanna's bee finds Telipinu asleep in a meadow near Lihzina and stings him awake."
+      }
+    ],
+    "readingOrder": "Start with the Illuyanka tales and the Disappearance of Telipinu, which are short and Anatolian; then read the Song of Kumarbi and the Song of Ullikummi together as a Hurrian cycle."
+  },
+  {
+    "id": "kumarbi-cycle",
+    "title": "The Kumarbi Cycle (Song of Kumarbi, Song of Hedammu, Song of Ullikummi)",
+    "author": "Anonymous Hurrian poets; Hittite translations from the Hattusa archives",
+    "year": "Hurrian originals probably before the 14th c. BCE; surviving Hittite copies 14th-13th c. BCE",
+    "type": "ancient-text",
+    "language": "Hittite (translated from Hurrian), with Hurrian-language fragments",
+    "description": "A cycle of Hurrian songs about the struggle for kingship in heaven between Kumarbi, father of the gods, and the storm-god Teššub. Known mainly from Hittite translations found at Hattusa (CTH 344-348), it is the closest Near Eastern parallel to the succession myth of Hesiod's Theogony. Every song in the cycle is fragmentary.",
+    "translators": [
+      {
+        "name": "Harry A. Hoffner Jr.",
+        "year": 1998
+      }
+    ],
+    "characters": [
+      {
+        "id": "kumarbi",
+        "kind": "deity",
+        "role": "father of the gods, who seizes kingship from Anu and plots against Teššub",
+        "where": "Song of Kumarbi (CTH 344); Song of Ullikummi (CTH 345)"
+      },
+      {
+        "id": "alalu",
+        "kind": "deity",
+        "role": "the first king in heaven, overthrown by Anu",
+        "where": "Song of Kumarbi (CTH 344), opening"
+      },
+      {
+        "id": "tarhunna",
+        "kind": "deity",
+        "role": "Teššub, the storm-god born from Kumarbi, who wins kingship",
+        "where": "throughout the cycle"
+      },
+      {
+        "id": "shaushka",
+        "kind": "deity",
+        "role": "Teššub's sister, who tries to seduce Hedammu and Ullikummi",
+        "where": "Song of Hedammu (CTH 348); Song of Ullikummi (CTH 345)"
+      }
+    ],
+    "keyScenes": [
+      {
+        "title": "The Succession in Heaven",
+        "where": "Song of Kumarbi (CTH 344)",
+        "summary": "Alalu reigns nine years before Anu overthrows him; Anu reigns nine years before Kumarbi bites off his loins and swallows the seed of the storm-god."
+      },
+      {
+        "title": "The Stone Monster on Upelluri's Shoulder",
+        "where": "Song of Ullikummi (CTH 345)",
+        "summary": "Kumarbi fathers a basalt giant on a great rock and hides it on the shoulder of the world-bearing giant Upelluri, where it grows until it reaches the sky."
+      },
+      {
+        "title": "The Ancient Copper Cutter",
+        "where": "Song of Ullikummi (CTH 345)",
+        "summary": "Ea brings out the tool that once separated heaven from earth and cuts Ullikummi's feet from Upelluri's shoulder."
+      }
+    ],
+    "readingOrder": "Read the Song of Kumarbi first, then the Song of Ullikummi; the Song of Hedammu is more fragmentary and best read after both."
   }
 ]

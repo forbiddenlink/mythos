@@ -533,5 +533,45 @@
     ],
     "imageUrl": "/pantheons/tlingit-haida.jpg",
     "figuresLabel": "Ancestral Spirits & Transformers"
+  },
+  {
+    "id": "hittite-pantheon",
+    "name": "Hittite Pantheon",
+    "slug": "hittite",
+    "culture": "Hittite, with Hattian, Hurrian, and Luwian strands (Late Bronze Age Anatolia)",
+    "region": "Anatolia (central Türkiye) and northern Syria",
+    "timePeriodStart": -1650,
+    "timePeriodEnd": -1180,
+    "description": "The \"thousand gods of Hatti\": the layered pantheon of the Hittite kingdom, where a native storm-god and sun-goddess stood beside Hattian local deities and Hurrian gods whose myths, the Song of Kumarbi and the Song of Ullikummi, were translated into Hittite at the capital Hattusa.",
+    "detailedHistory": "## A pantheon assembled, not inherited\n\nThe Hittite kings of the Late Bronze Age (from about 1650 BCE until the collapse of the kingdom around 1180 BCE) ruled from Hattusa, near modern Boğazkale in central Türkiye, and their scribes spoke of \"the thousand gods of Hatti\" when they listed the divine witnesses to a treaty. The phrase was not an exaggeration so much as an honest description of how the pantheon was built: the Hittites, speakers of an Indo-European language, settled among the Hattians, a non-Indo-European people whose gods (the Storm-god of Nerik, the Sun-goddess of Arinna, Telipinu, Inara) they kept; they absorbed Luwian and Palaic deities from neighbouring Anatolian peoples; and from the fifteenth century BCE onward they took in the gods of the Hurrians of northern Syria and Mesopotamia, including Teššub, Hebat, Šauška, and Kumarbi. Rather than replacing local gods, Hittite religion tended to add them, so that the same storm-god might be worshipped under a Hattian, a Hittite, and a Hurrian name in different rites.\n\n## Where the myths come from, and why that matters\n\nAlmost everything on this site about Hittite myth comes from clay tablets excavated at Hattusa since 1906, the archive that allowed Bedřich Hrozný to identify Hittite as an Indo-European language in 1915. Two very different kinds of story survive. The Illuyanka tales and the myth of Telipinu's disappearance are **Anatolian and Hattian** in origin, and they survive because they were written down as part of rituals and festivals: the Illuyanka story was recited at the Purulli festival of Nerik, and the Telipinu story sits inside an invocation meant to coax an angry god home. The Song of Kumarbi, the Song of Ullikummi, and the Song of Hedammu, by contrast, are **Hurrian** literary compositions translated into Hittite; Hurrian-language fragments of the same cycle also survive, and its gods, places, and even its hero Teššub are Hurrian. Modern scholars group these songs as the Kumarbi cycle. This site marks the difference on every story, because treating Hurrian songs as native Hittite myth, a common simplification, hides how the pantheon was actually put together.\n\n## Fragmentary texts\n\nNearly every one of these compositions is broken. Tablets are damaged, columns are missing, and several endings, including the end of the Song of Ullikummi, are simply lost. Where this site retells a story, it follows the translations of Harry A. Hoffner Jr. (*Hittite Myths*, 2nd ed., 1998) and marks gaps as gaps rather than filling them from later Greek parallels. Text numbers in the *Catalogue des Textes Hittites* (CTH), the standard reference system for Hittite compositions, are given so readers can find each text in any modern edition.\n\n## Why Hittite myth matters beyond Anatolia\n\nThe Kumarbi cycle's succession of sky-kings (Alalu, then Anu, then Kumarbi, then the storm-god) and its castration and swallowing episodes are the closest known Near Eastern parallel to Hesiod's *Theogony*, and the storm-god's battle with the serpent Illuyanka belongs to a wide family of storm-god-versus-serpent stories stretching from Ugarit to Scandinavia. This site notes those parallels where they are well established, while treating the Hittite and Hurrian texts on their own terms first.",
+    "citationSources": [
+      {
+        "title": "Hittite Myths (2nd ed., SBL Writings from the Ancient World 2)",
+        "author": "Harry A. Hoffner Jr. (translator)",
+        "date": "1998",
+        "type": "primary",
+        "sourceId": "hittite-myths-hoffner"
+      },
+      {
+        "title": "The Kumarbi Cycle (Song of Kumarbi, Song of Hedammu, Song of Ullikummi), CTH 344-348",
+        "author": "Hurrian compositions in Hittite translation, Hattusa archives",
+        "date": "Late Bronze Age copies, 14th-13th c. BCE",
+        "type": "primary",
+        "sourceId": "kumarbi-cycle"
+      },
+      {
+        "title": "Hittite Prayers (SBL Writings from the Ancient World 11)",
+        "author": "Itamar Singer",
+        "date": "2002",
+        "type": "secondary"
+      },
+      {
+        "title": "The Hittites and Their World",
+        "author": "Billie Jean Collins",
+        "date": "2007",
+        "type": "secondary"
+      }
+    ],
+    "imageUrl": "/pantheons/hittite.jpg"
   }
 ]

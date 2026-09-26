@@ -216,6 +216,16 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   "fog-woman": "tlingit-haida-pantheon",
   "chief-fog-over-the-salmon": "tlingit-haida-pantheon",
   "naas-shaak-aankawu": "tlingit-haida-pantheon",
+  tarhunna: "hittite-pantheon",
+  "sun-goddess-of-arinna": "hittite-pantheon",
+  kumarbi: "hittite-pantheon",
+  telipinu: "hittite-pantheon",
+  hannahanna: "hittite-pantheon",
+  inara: "hittite-pantheon",
+  kamrusepa: "hittite-pantheon",
+  shaushka: "hittite-pantheon",
+  "sun-goddess-of-the-earth": "hittite-pantheon",
+  alalu: "hittite-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -326,6 +336,10 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "peacemaker-great-law-of-peace": "haudenosaunee-pantheon",
   "raven-steals-the-light": "tlingit-haida-pantheon",
   "raven-and-the-first-men": "tlingit-haida-pantheon",
+  "song-of-kumarbi": "hittite-pantheon",
+  "song-of-ullikummi": "hittite-pantheon",
+  "storm-god-and-illuyanka": "hittite-pantheon",
+  "disappearance-of-telipinu": "hittite-pantheon",
 };
 
 /**

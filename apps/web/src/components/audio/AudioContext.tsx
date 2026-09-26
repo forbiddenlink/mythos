@@ -29,6 +29,7 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "slavic-pantheon": "/audio/ambient/default.mp3",
   "haudenosaunee-pantheon": "/audio/ambient/default.mp3",
   "tlingit-haida-pantheon": "/audio/ambient/default.mp3",
+  "hittite-pantheon": "/audio/ambient/default.mp3",
   default: "/audio/ambient/default.mp3",
 };
 

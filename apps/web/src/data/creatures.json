@@ -6,10 +6,7 @@
     "slug": "fenrir",
     "description": "A monstrous wolf, son of Loki and Angrboda. Foretold to kill Odin during Ragnarok, he is bound by the magical ribbon Gleipnir until the end times.",
     "habitat": "Lyngvi (The Island of Heather)",
-    "abilities": [
-      "Boundless Growth",
-      "God-slaying Strength"
-    ],
+    "abilities": ["Boundless Growth", "God-slaying Strength"],
     "dangerLevel": 10,
     "imageUrl": "/creatures/fenrir.png",
     "detailedBio": "## The Bound Wolf\n\nFenrir is Loki's wolf-son by Angrboda, raised among the Aesir until his growth made the gods fear the prophecy that he would kill Odin. They bound him on Lyngvi with the dwarven fetter **Gleipnir**; Tyr lost his hand when Fenrir found the trick. He is a doom kept in chains, not a cult animal: no wolf-priesthood survives in the Eddas.\n\nAt Ragnarok he breaks free, swallows Odin, and dies by Vidar's vengeance. Snorri is the fullest prose witness; the poems supply the bite and the binding.",
@@ -28,11 +25,7 @@
     "slug": "cerberus",
     "description": "The three-headed hound of Hades who guards the gates of the Underworld to prevent the dead from leaving. His mane consists of writhing serpents.",
     "habitat": "The Underworld (Gates)",
-    "abilities": [
-      "Multi-headed Awareness",
-      "Immortality",
-      "Serpent Mane"
-    ],
+    "abilities": ["Multi-headed Awareness", "Immortality", "Serpent Mane"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/cerberus.jpg",
     "detailedBio": "## Hound of the Gate\n\nKerberos is the many-headed dog of Hades, set to keep the dead inside. Hesiod gives him fifty heads; later vase-painters and poets settle on three, with a serpent tail and a mane of snakes. Heracles' last labor is to haul him to the sunlit world and return him unharmed.\n\nVirgil's Aeneas drugs the beast with honeyed cake. The job is architectural, not decorative: the underworld needs a lock, and the lock has teeth.",
@@ -51,11 +44,7 @@
     "slug": "yamata-no-orochi",
     "description": "A legendary eight-headed and eight-tailed Japanese dragon serpent. Slain by the storm god Susanoo, who discovered the legendary sword Kusanagi within its body.",
     "habitat": "Koshi Province",
-    "abilities": [
-      "Eight Heads",
-      "Size Manipulation",
-      "Regeneration"
-    ],
+    "abilities": ["Eight Heads", "Size Manipulation", "Regeneration"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/yamata-no-orochi.jpg",
     "detailedBio": "## Eight Heads in the River\n\nThe Kojiki and Nihon Shoki tell how Susanoo found a family in Izumo whose daughters were being eaten, year by year, by an eight-headed, eight-tailed serpent that filled eight valleys. He stupefied it with eight vats of sake, cut it apart, and drew the sword **Kusanagi** from the tail.\n\nThe monster is local and hydrological — a Koshi-province terror — before it becomes an imperial relic in the grass-cutting sword.",
@@ -74,11 +63,7 @@
     "slug": "apep",
     "description": "The serpent of chaos and eternal enemy of Ra. He attempts to swallow the sun barge every night as it travels through the Duat, threatening to plunge the world into eternal darkness.",
     "habitat": "The Duat (Underworld)",
-    "abilities": [
-      "Hypnotic Gaze",
-      "Chaos Magic",
-      "Infinite Length"
-    ],
+    "abilities": ["Hypnotic Gaze", "Chaos Magic", "Infinite Length"],
     "dangerLevel": 10,
     "imageUrl": "/creatures/apep.png",
     "detailedBio": "## The Night Serpent\n\nApep (Apophis) is the chaos snake who waits in the Duat for Ra's night bark. Temple books of overpowering Apep prescribe spitting, trampling, and burning wax images so the sun can rise. He is not a god one petitions; he is the enemy the liturgy has to kill every night.\n\nCoffin and underworld books picture him already speared, because the rite assumes the danger is real until dawn.",
@@ -97,11 +82,7 @@
     "slug": "hydra",
     "description": "A gigantic water serpent with multiple heads that regenerate when severed. Slain by Heracles as his second labor, who discovered that two heads grow back for each one cut off.",
     "habitat": "Lake Lerna",
-    "abilities": [
-      "Regeneration",
-      "Venomous Breath",
-      "Immortal Central Head"
-    ],
+    "abilities": ["Regeneration", "Venomous Breath", "Immortal Central Head"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/hydra.jpg",
     "detailedBio": "## The Lernaean Water-Snake\n\nHesiod places the Hydra among Typhon and Echidna's brood. The second labor of Heracles is to kill the many-headed water-snake of Lerna; for each head cut, two grow, until Iolaus cauterizes the necks. The central head is called immortal and is buried under a rock.\n\nThe spring at Amymone is the local hook: a swamp monster tied to Argive hydrology, later moralized as a labor.",
@@ -120,11 +101,7 @@
     "slug": "chimera",
     "description": "A fire-breathing hybrid monster with the head of a lion, body of a goat, and tail of a serpent. Slain by the hero Bellerophon while riding the winged horse Pegasus.",
     "habitat": "Lycia",
-    "abilities": [
-      "Fire Breath",
-      "Triple Beast Strength",
-      "Venomous Tail"
-    ],
+    "abilities": ["Fire Breath", "Triple Beast Strength", "Venomous Tail"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/chimera.png",
     "detailedBio": "## Lion, Goat, Serpent\n\nHomer's Chimaira is a fire-breathing hybrid in Lycia, 'in front a lion, in the rear a serpent, in the middle a goat.' Bellerophon, riding Pegasus, kills her at the command of King Iobates. Hesiod makes her a child of Typhon and Echidna, kin to the Hydra.\n\nThe name later means any impossible compound; the Homeric beast is still a specific Lycian fire.",
@@ -166,11 +143,7 @@
     "slug": "sphinx",
     "description": "A creature with the body of a lion, wings of an eagle, and head of a woman. She terrorized Thebes, devouring travelers who failed to answer her riddles until Oedipus solved her puzzle.",
     "habitat": "Mount Phicium near Thebes",
-    "abilities": [
-      "Flight",
-      "Supernatural Intelligence",
-      "Prophetic Riddles"
-    ],
+    "abilities": ["Flight", "Supernatural Intelligence", "Prophetic Riddles"],
     "dangerLevel": 7,
     "imageUrl": "/creatures/sphinx.png",
     "detailedBio": "## The Theban Riddler\n\nThe Greek Sphinx is a winged lion-woman sent against Thebes. She asks the riddle of the creature that walks on four, two, then three feet; Oedipus answers 'man,' and she throws herself from the rock. Apollodorus and tragedy fix the episode as the city's entry-exam.\n\nShe is not the Giza guardian. Thebes's Sphinx eats the unlettered; Egypt's recumbent king watches the horizon.",
@@ -189,11 +162,7 @@
     "slug": "cyclops",
     "description": "One-eyed giants of immense strength. The most famous, Polyphemus, trapped Odysseus and his men in his cave. They were master craftsmen who forged Zeus's thunderbolts.",
     "habitat": "Sicily and Volcanic Islands",
-    "abilities": [
-      "Immense Strength",
-      "Master Craftsmanship",
-      "Stone Throwing"
-    ],
+    "abilities": ["Immense Strength", "Master Craftsmanship", "Stone Throwing"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/cyclops.png",
     "detailedBio": "## One Eye, Two Stories\n\nHesiod's Cyclopes — Brontes, Steropes, Arges — forge Zeus's thunderbolt. Homer's Polyphemus is a pastoral giant who cages Odysseus and is blinded for it. Later myth tries to join the smiths to the shepherds; the poems keep them apart.\n\nThe Odyssey episode is the one travelers remember: no wine-guest law, a cave, and a name stolen as 'Nobody.'",
@@ -212,11 +181,7 @@
     "slug": "medusa",
     "description": "The mortal Gorgon sister with living serpents for hair. Once beautiful, she was cursed by Athena and could turn anyone who looked upon her face to stone. Beheaded by the hero Perseus.",
     "habitat": "Western Libya",
-    "abilities": [
-      "Petrifying Gaze",
-      "Serpent Hair",
-      "Immortal Blood"
-    ],
+    "abilities": ["Petrifying Gaze", "Serpent Hair", "Immortal Blood"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/medusa.png",
     "detailedBio": "## The Mortal Gorgon\n\nOf the three Gorgons only Medusa is mortal. Perseus beheads her with Athena's aid; Pegasus and Chrysaor spring from the neck. Ovid adds the later tale that Athena punished Medusa's beauty after Poseidon's assault in the temple — a Roman overlay on an older beheading myth.\n\nThe head remains a weapon: the aegis, the apotropaic face on shields.",
@@ -235,11 +200,7 @@
     "slug": "jormungandr",
     "description": "The World Serpent, child of Loki, so massive it encircles Midgard and grasps its own tail. Destined to battle Thor at Ragnarok, where they will slay each other.",
     "habitat": "The Ocean Surrounding Midgard",
-    "abilities": [
-      "Venomous Breath",
-      "World-Encircling Size",
-      "Ocean Control"
-    ],
+    "abilities": ["Venomous Breath", "World-Encircling Size", "Ocean Control"],
     "dangerLevel": 10,
     "imageUrl": "/creatures/jormungandr.jpg",
     "detailedBio": "## The Midgard Serpent\n\nJormungandr is Loki's second monstrous child, cast by Odin into the sea that rings Midgard until the serpent bites its own tail. Thor fishes for him with an ox-head; Hymir cuts the line. At Ragnarok they kill each other: venom and hammer.\n\nThe creature record matches the deity-adjacent lore: one body, ocean-wide, waiting for the last tide.",
@@ -258,11 +219,7 @@
     "slug": "sleipnir",
     "description": "The eight-legged horse of Odin, born from Loki in mare form and the stallion Svadilfari. The fastest horse in existence, capable of traveling between the nine realms.",
     "habitat": "Asgard",
-    "abilities": [
-      "Realm Travel",
-      "Supernatural Speed",
-      "Flight"
-    ],
+    "abilities": ["Realm Travel", "Supernatural Speed", "Flight"],
     "dangerLevel": 3,
     "imageUrl": "/creatures/sleipnir.jpg",
     "detailedBio": "## Eight Legs to Hel\n\nSleipnir is Odin's grey, the best of horses, born when Loki as a mare lured the stallion Svadilfari away from the mason who nearly won the sun and Freyja. Hermod rides him to Hel after Baldr's death. The eight legs are in the poems; they are not a later cartoon.\n\nDanger is low because he is a mount, not a hunter — speed between worlds, not a bite.",
@@ -281,11 +238,7 @@
     "slug": "nidhogg",
     "description": "A dragon that gnaws at the roots of Yggdrasil, the World Tree. It feeds on the corpses of the dishonorable dead and represents destruction and decay in the cosmic order.",
     "habitat": "Nastrond (beneath Yggdrasil)",
-    "abilities": [
-      "Corpse Consumption",
-      "Root Gnawing",
-      "Decay Aura"
-    ],
+    "abilities": ["Corpse Consumption", "Root Gnawing", "Decay Aura"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/nidhogg.png",
     "detailedBio": "## Gnawer at the Root\n\nNidhogg is the dragon under Yggdrasil who chews the tree's root and, in Voluspa, flies up from Nidafjoll bearing corpses at the end of the world. Snorri parks him at Nastrond among oath-breakers. He is decay with a name, not a hoard-dragon of the Sigurd type.\n\nThe squirrel Ratatoskr carries insults between Nidhogg and the eagle above — a postal service of spite.",
@@ -304,11 +257,7 @@
     "slug": "draugr",
     "description": "Undead warriors who guard their burial mounds and treasure with supernatural strength. They possess dark magic and can increase their size, bringing death to any who disturb their rest.",
     "habitat": "Burial Mounds",
-    "abilities": [
-      "Size Manipulation",
-      "Superhuman Strength",
-      "Dark Magic"
-    ],
+    "abilities": ["Size Manipulation", "Superhuman Strength", "Dark Magic"],
     "dangerLevel": 6,
     "imageUrl": "/creatures/draugr.png",
     "detailedBio": "## The Mound-Dweller\n\nIcelandic sagas treat the draugr as a physically present corpse that walks, swells, and kills from inside its howe. Grettir fights Glam; other tales burn or behead the body to stop it. This is not a Greek shade: it has weight, stench, and legal aftermath.\n\nThe corpus is saga prose, not Eddic verse. Treasure-guarding is a motif; the terror is the neighbor who will not stay buried.",
@@ -350,11 +299,7 @@
     "slug": "ammit",
     "description": "The Devourer of the Dead, a demon with the head of a crocodile, torso of a lion, and hindquarters of a hippopotamus. She consumes the hearts of those found unworthy in the Hall of Judgment.",
     "habitat": "The Hall of Two Truths",
-    "abilities": [
-      "Soul Consumption",
-      "Heart Detection",
-      "Eternal Hunger"
-    ],
+    "abilities": ["Soul Consumption", "Heart Detection", "Eternal Hunger"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/ammit.png",
     "detailedBio": "## Eater of the Unjust Heart\n\nAmmit waits beside the balance in the Hall of Two Truths. If the heart outweighs Maat's feather, she eats it; the person dies a second death. She compounds crocodile, lion, and hippopotamus — Egypt's three most lethal waterside animals — into one judicial mouth.\n\nShe is not worshipped. Spell 125 of the Book of the Dead is a plea not to meet her.",
@@ -396,11 +341,7 @@
     "slug": "bennu",
     "description": "A sacred phoenix-like bird associated with the sun god Ra and rebirth. It created itself from the fires of a sacred tree in Heliopolis and inspired the Greek phoenix legend.",
     "habitat": "Heliopolis",
-    "abilities": [
-      "Rebirth",
-      "Solar Connection",
-      "Creation Magic"
-    ],
+    "abilities": ["Rebirth", "Solar Connection", "Creation Magic"],
     "dangerLevel": 2,
     "imageUrl": "/creatures/bennu.png",
     "detailedBio": "## The Self-Created Heron\n\nThe bennu is a heron of Heliopolis tied to Atum/Ra and to the benben stone. Pyramid Texts already know a bird of becoming. Later Greek writers (Herodotus, then the phoenix legend) recast it as a fire-rebirth cycle Egypt itself did not narrate that way.\n\nDanger is low: this is a cosmogonic bird, not a predator.",
@@ -442,11 +383,7 @@
     "slug": "garuda",
     "description": "The divine king of birds and mount of Lord Vishnu. Part eagle and part human, he is the eternal enemy of the Nagas and possesses speed that rivals thought itself.",
     "habitat": "Vaikuntha (Vishnu's Realm)",
-    "abilities": [
-      "Divine Flight",
-      "Naga Slaying",
-      "Thought-Speed Travel"
-    ],
+    "abilities": ["Divine Flight", "Naga Slaying", "Thought-Speed Travel"],
     "dangerLevel": 7,
     "imageUrl": "/creatures/garuda.png",
     "detailedBio": "## Enemy of Serpents, Mount of Vishnu\n\nGaruda, son of Vinata, wins amrita from the gods to free his mother from Kadru's naga-slavery, then becomes Vishnu's vahana. The Mahabharata's Adi Parva tells the raid; the Suparṇādhyāya and later Puranas expand the genealogy. He is both person and species-king.\n\nThai and Khmer courts reused him as a royal emblem. The Sanskrit core is still the bird who outflies thought to steal nectar.",
@@ -465,11 +402,7 @@
     "slug": "naga",
     "description": "Divine serpent beings who rule the underworld kingdom of Patala. They guard treasures, control rain and rivers, and can take human or serpent form at will.",
     "habitat": "Patala (Underworld)",
-    "abilities": [
-      "Shapeshifting",
-      "Water Control",
-      "Treasure Guardianship"
-    ],
+    "abilities": ["Shapeshifting", "Water Control", "Treasure Guardianship"],
     "dangerLevel": 6,
     "imageUrl": "/creatures/naga.jpg",
     "detailedBio": "## Serpent Lords of Patala\n\nNagas are a people more than a single beast: Vasuki, Shesha, Takshaka. They hold Patala, marry humans, and guard jewels. The Mahabharata burns them in Janamejaya's snake-sacrifice; the Bhagavata Purana seats Shesha under Vishnu. Buddhist and Jain canons keep their own naga-kings.\n\nDanger varies with the tale. Some nagas rain; some bite kings.",
@@ -488,11 +421,7 @@
     "slug": "makara",
     "description": "A legendary sea creature that serves as the mount of the river goddess Ganga and the god Varuna. It combines features of a crocodile, elephant, and fish in its hybrid form.",
     "habitat": "Sacred Rivers and Oceans",
-    "abilities": [
-      "Water Mastery",
-      "Divine Transport",
-      "Aquatic Supremacy"
-    ],
+    "abilities": ["Water Mastery", "Divine Transport", "Aquatic Supremacy"],
     "dangerLevel": 5,
     "imageUrl": "/creatures/makara.png",
     "detailedBio": "## Crocodile at the Threshold of Water\n\nMakara is the composite aquatic mount of Ganga and Varuna, and the vehicle-emblem of Kamadeva. Temple sculpture (Khajuraho, South Indian gopurams) shows a crocodile-elephant-fish hybrid more often than any single narrative hunt.\n\nRead it as a threshold animal of sacred rivers, not as a named villain with a death-scene.",
@@ -511,11 +440,7 @@
     "slug": "kitsune",
     "description": "Intelligent fox spirits who grow additional tails as they age, up to nine. They can be benevolent guardians or mischievous tricksters, and possess powerful shapeshifting abilities.",
     "habitat": "Forests and Inari Shrines",
-    "abilities": [
-      "Shapeshifting",
-      "Illusion Magic",
-      "Possession"
-    ],
+    "abilities": ["Shapeshifting", "Illusion Magic", "Possession"],
     "dangerLevel": 5,
     "imageUrl": "/creatures/kitsune.png",
     "detailedBio": "## Foxes Who Keep Accounts\n\nKitsune in medieval setsuwa (Konjaku, Uji shui) seduce, possess, and repay kindness. Inari's foxes are messengers at shrines; wild kitsune are another file. The nine-tailed elder is a Chinese import (Daji / Tamamo-no-Mae) grafted onto Japanese fox lore.\n\nThere is no single canonical fox. The honest page is a class of spirit with shrine and street variants.",
@@ -534,11 +459,7 @@
     "slug": "tengu",
     "description": "Supernatural beings with both avian and human features, known for their red faces and long noses. Once considered harbingers of war, they became protectors of mountains and masters of martial arts.",
     "habitat": "Mountain Forests",
-    "abilities": [
-      "Martial Mastery",
-      "Flight",
-      "Wind Control"
-    ],
+    "abilities": ["Martial Mastery", "Flight", "Wind Control"],
     "dangerLevel": 6,
     "imageUrl": "/creatures/tengu.jpg",
     "detailedBio": "## From Kite-Demon to Mountain Tutor\n\nEarly tengu (Nihon ryōiki, Heike) are disruptive kite-goblins who possess monks and start wars. Later yamabushi-tengu of Mt. Kurama teach sword work to Yoshitsune. The long nose and red face are medieval iconography, not Kojiki fauna.\n\nDanger sits in the middle: they punish arrogance more often than they eat travelers.",
@@ -580,11 +501,7 @@
     "slug": "cu-sith",
     "description": "A massive fairy hound the size of a bull, with shaggy dark green fur and braided tail. Its three barks summon death, and it roams the Scottish Highlands collecting souls of the dying.",
     "habitat": "Scottish Highlands",
-    "abilities": [
-      "Death Howl",
-      "Soul Collection",
-      "Supernatural Tracking"
-    ],
+    "abilities": ["Death Howl", "Soul Collection", "Supernatural Tracking"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/cu-sith.png",
     "detailedBio": "## The Green Hound of the Sithein\n\nScottish Gaelic tradition knows a large green fairy dog, the cù-sìth, whose barks (often three) are a death omen. Collectors (J. G. Campbell, later folklore archives) place it on the moors between this world and the sìth mounds. It is not Cú Chulainn's hound.\n\nThe record is oral and early-modern; there is no medieval tract devoted to the beast.",
@@ -603,11 +520,7 @@
     "slug": "each-uisge",
     "description": "A malevolent water horse of Scottish lochs and seas, far more dangerous than the kelpie. It appears as a beautiful horse but carries victims into the water to devour them, leaving only the liver behind.",
     "habitat": "Scottish Lochs and Coastal Waters",
-    "abilities": [
-      "Shapeshifting",
-      "Adhesive Skin",
-      "Underwater Speed"
-    ],
+    "abilities": ["Shapeshifting", "Adhesive Skin", "Underwater Speed"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/each-uisge.png",
     "detailedBio": "## The Salt-Water Horse\n\nThe each-uisge of the Highlands is the vicious cousin of the inland kelpie: a handsome horse by the loch or sea that, once mounted, adheres and dives. Survivors' tales (Campbell, later collectors) leave a liver on the shore. It can also appear as a handsome man.\n\nIrish *each uisce* shares the water-horse job, but the Highland name and the sea-loch setting are distinct. The danger is coastal and lacustrine.",
@@ -842,11 +755,7 @@
     "slug": "lares",
     "description": "Benevolent household spirits who protected the home and family. Each Roman household maintained a lararium shrine where offerings were made to these guardian deities. They were honored at crossroads and watched over travelers.",
     "habitat": "Roman Households and Crossroads",
-    "abilities": [
-      "Home Protection",
-      "Family Blessing",
-      "Travel Guidance"
-    ],
+    "abilities": ["Home Protection", "Family Blessing", "Travel Guidance"],
     "dangerLevel": 1,
     "imageUrl": "/creatures/lares.png",
     "detailedBio": "## Gods of the Cupboard and the Crossroads\n\nLares are Roman household and neighborhood gods, not monsters. The lararium received daily offerings; Lares Compitales watched the compita. Plautus, Cato, and countless inscriptions treat them as protective kin-spirits. Augustan religion publicized the Lares Augusti.\n\nDanger 1 is correct: they harm the neglected household, not the passerby as a beast would.",
@@ -865,11 +774,7 @@
     "slug": "lemures",
     "description": "Restless spirits of the dead who wandered the earth, often the ghosts of those who died without proper burial or lived wicked lives. During the festival of Lemuria in May, Romans performed rituals to appease these troubled shades.",
     "habitat": "The Mortal Realm (wandering)",
-    "abilities": [
-      "Intangibility",
-      "Fear Inducement",
-      "Haunting Presence"
-    ],
+    "abilities": ["Intangibility", "Fear Inducement", "Haunting Presence"],
     "dangerLevel": 5,
     "imageUrl": "/creatures/lemures.png",
     "detailedBio": "## Unquiet Dead in May\n\nOvid's Fasti describes Lemuria: the householder rises at midnight, casts black beans, and nine times bids the lemures depart. They are restless shades, often contrasted with the honored di Manes. The rite is domestic apotropaia, not a bestiary hunt.\n\nLater Christian writers moralize them as demons. Ovid still knows a calendar job.",
@@ -911,12 +816,7 @@
     "slug": "strix",
     "description": "A terrifying owl-like creature that fed on human flesh and blood, particularly targeting infants. These nocturnal predators were believed to be either transformed witches or beings of ill omen, and their appearance presaged death.",
     "habitat": "Night Skies and Shadowed Places",
-    "abilities": [
-      "Flight",
-      "Blood Draining",
-      "Shapeshifting",
-      "Death Omen"
-    ],
+    "abilities": ["Flight", "Blood Draining", "Shapeshifting", "Death Omen"],
     "dangerLevel": 7,
     "imageUrl": "/creatures/strix.png",
     "detailedBio": "## Owl of the Cradle\n\nRoman poets (Ovid, Pliny, Petronius) know the strix as a screech-owl witch-bird that attacks infants and drinks blood. Festus and later lexica keep the scare. It sits between omen-bird and shapeshifted woman; the natural-historical and the folkloric are not separated.\n\nMedieval Latin carried the word toward 'witch.' The pagan dossier is already violent.",
@@ -1079,11 +979,7 @@
     "slug": "fenghuang",
     "description": "The Chinese phoenix — an auspicious bird embodying yin-yang harmony, virtue, and the union of heaven and earth. Its appearance heralds a peaceful, just age.",
     "habitat": "Paulownia groves and high celestial peaks",
-    "abilities": [
-      "Auspicious Presence",
-      "Harmonic Song",
-      "Foresight"
-    ],
+    "abilities": ["Auspicious Presence", "Harmonic Song", "Foresight"],
     "dangerLevel": 2,
     "imageUrl": "/creatures/fenghuang.png",
     "detailedBio": "## Auspicious Pair, Not a Fire-Suicide\n\nFenghuang in Chinese classics (Shijing allusions, later rishu and han rhapsodies) is an omen-bird of virtuous rule, often a feng-male and huang-female pair. It is not the Greek phoenix's pyre. Han tombs and palaces use it as a good-governance badge.\n\nDanger 2: it appears when the age is already bearable.",
@@ -1125,11 +1021,7 @@
     "slug": "bai-ze",
     "description": "A wise white beast that taught the Yellow Emperor the names and natures of all supernatural creatures — knowledge used to protect humanity from spirits.",
     "habitat": "Holy mountains and imperial courts of legend",
-    "abilities": [
-      "Omniscient Lore",
-      "Spirit Identification",
-      "Counsel"
-    ],
+    "abilities": ["Omniscient Lore", "Spirit Identification", "Counsel"],
     "dangerLevel": 1,
     "imageUrl": "/creatures/bai-ze.png",
     "detailedBio": "## The White Marsh Informant\n\nBaize (hakutaku in Japan) meets the Yellow Emperor and dictates a catalogue of spirits so humans can name and ward them. The Baize tu tradition is the paper trail: an illustrated demonography, much of it lost and reconstructed from citations.\n\nDanger 1: the beast's gift is taxonomy. Later Japanese prints keep the ox-lion face.",
@@ -1148,11 +1040,7 @@
     "slug": "moo",
     "description": "Hawaiian lizard or dragon spirits that guard freshwater ponds and fishponds. They can appear as beautiful women or as great reptiles — dangerous if disrespected.",
     "habitat": "Fishponds, springs, and mountain pools of Hawaiʻi",
-    "abilities": [
-      "Shapeshifting",
-      "Water Guardianship",
-      "Illusion"
-    ],
+    "abilities": ["Shapeshifting", "Water Guardianship", "Illusion"],
     "dangerLevel": 6,
     "imageUrl": "/creatures/moo.png",
     "detailedBio": "## Lizard Guardians of the Pond\n\nHawaiian moʻo are reptilian water spirits, often female, who hold fishponds and springs. They can appear as women or as great lizards. Kamakau, Malo, and later ethnography record offerings and taboos; disrespect brings drowning or sickness.\n\nThis is living place-law, not a single named dragon to slay.",
@@ -1171,11 +1059,7 @@
     "slug": "taniwha",
     "description": "Māori water beings that dwell in rivers, caves, and the sea. Some protect tribes as guardians; others devour travelers who ignore sacred restrictions.",
     "habitat": "Deep rivers, coastal caves, and whirlpools",
-    "abilities": [
-      "Water Mastery",
-      "Guardianship",
-      "Devouring"
-    ],
+    "abilities": ["Water Mastery", "Guardianship", "Devouring"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/taniwha.png",
     "detailedBio": "## River Power, Kin or Killer\n\nIn Māori tradition a taniwha is a being of a specific river, cave, or coast: kaitiaki to its people, a devourer to strangers who ignore tapu. Whakapapa and local kōrero, not a pan-Polynesian novel, are the sources. Some taniwha are ancestors in another body.\n\nColonial writing sometimes flattened them into 'dragons.' The local file is political and geographic.",
@@ -1194,11 +1078,7 @@
     "slug": "nian",
     "description": "A mountain and sea beast that once terrorized villages at the turn of the year. Driven off by loud noise, fire, and the color red — the origin of Lunar New Year customs.",
     "habitat": "Mountains and coastal depths",
-    "abilities": [
-      "Seasonal Raid",
-      "Fear Aura",
-      "Great Strength"
-    ],
+    "abilities": ["Seasonal Raid", "Fear Aura", "Great Strength"],
     "dangerLevel": 7,
     "imageUrl": "/creatures/nian.png",
     "detailedBio": "## The Year-Beast of Noisy Red\n\nThe nian beast that raids at the turn of the year is a late folk etiology for New Year firecrackers, red paper, and noise. It is not in the early classics. Qing and modern popular retellings fix the plot: an old man or a village learns that scarlet and sound drive the beast off. Custom comes first in the record; the named monster is later etiology.",
@@ -1217,11 +1097,7 @@
     "slug": "anzu",
     "description": "A monstrous lion-headed eagle who stole the Tablet of Destinies from Enlil, throwing the cosmos into chaos until defeated by Ninurta.",
     "habitat": "Mountain peaks and storm clouds",
-    "abilities": [
-      "Flight",
-      "Destiny Theft",
-      "Storm Wings"
-    ],
+    "abilities": ["Flight", "Destiny Theft", "Storm Wings"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/anzu.png",
     "detailedBio": "## Thief of the Tablet of Destinies\n\nAnzû (Imdugud), the lion-headed eagle, steals Enlil's Tablet of Destinies in the Anzû epic; Ninurta recovers it. Older Imdugud reliefs (Tell al-Ubaid) show the bird as a temple emblem before the theft story. The Standard Babylonian poem is the narrative spine.\n\nChaos here is bureaucratic: stolen office, not a random storm.",
@@ -1240,11 +1116,7 @@
     "slug": "itzpapalotl-obsidian-host",
     "description": "Obsidian-butterfly warriors of the paradise Tamoanchan — beautiful, jagged, and lethal to the uninitiated.",
     "habitat": "Tamoanchan",
-    "abilities": [
-      "Obsidian Wings",
-      "Star Terror",
-      "Paradise Gate"
-    ],
+    "abilities": ["Obsidian Wings", "Star Terror", "Paradise Gate"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/itzpapalotl-obsidian-host.png",
     "detailedBio": "## Obsidian Butterflies of Tamoanchan\n\nItzpapalotl, the obsidian-butterfly, rules a host of tzitzimime linked to Tamoanchan. Codex Borgia and related ritual books show skeletal, clawed women with butterfly and knife attributes. The host is a war-band of tzitzimime, not a second biography of Itzpapalotl herself.",
@@ -1263,11 +1135,7 @@
     "slug": "mushussu",
     "description": "The snaked-headed dragon of Marduk, later emblem of Babylon — horns, lion forelegs, and bird hind talons.",
     "habitat": "Babylon / sacred precincts",
-    "abilities": [
-      "Sacred Terror",
-      "Royal Emblem",
-      "Venom Strike"
-    ],
+    "abilities": ["Sacred Terror", "Royal Emblem", "Venom Strike"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/mushussu.png",
     "detailedBio": "## The Snake-Dragon on the Gate\n\nMušḫuššu is the long-necked, horned dragon of Marduk on Babylon's Ishtar Gate: snake head, lion forelegs, bird hind talons. The Enūma Eliš and god lists give Marduk (and earlier Ninazu/Tishpak) the animal as emblem. It is glazed brick walking, not a forest hunt.\n\nDanger is ceremonial. The beast means the god is home.",
@@ -1286,11 +1154,7 @@
     "slug": "ugallu",
     "description": "Lion-demon storm spirits of Mesopotamian ritual art — fierce guardians who also threaten the unprotected.",
     "habitat": "Storm fronts / temple thresholds",
-    "abilities": [
-      "Storm Roar",
-      "Threshold Guard",
-      "Demon Strength"
-    ],
+    "abilities": ["Storm Roar", "Threshold Guard", "Demon Strength"],
     "dangerLevel": 7,
     "imageUrl": "/creatures/ugallu.png",
     "detailedBio": "## Storm-Demons at the Threshold\n\nUgallu ('big weather-beast') appear in Neo-Assyrian palace and ritual art as lion-headed, donkey-eared figures with daggers, paired with other apkallu and genii who guard doorways. Incantation series name them among the storm-helpers of Adad and as house protectors who can also threaten.\n\nThey are a type, not a named novel villain. The clay and the doorway are the primary sources.",
@@ -1471,5 +1335,73 @@
       }
     ],
     "imageUrl": "/creatures/baba-yaga.png"
+  },
+  {
+    "id": "illuyanka",
+    "pantheonId": "hittite-pantheon",
+    "name": "Illuyanka",
+    "slug": "illuyanka",
+    "description": "The great serpent of Anatolian myth that defeats the Storm-god before it is tricked, bound, and killed; its name is simply the Hittite word for 'serpent' or 'dragon'.",
+    "habitat": "A hole in the earth near Kiškilušša; in the second version, the sea",
+    "abilities": [
+      "defeats the Storm-god in their first encounter",
+      "steals the Storm-god's heart and eyes (second version)",
+      "enormous size and appetite"
+    ],
+    "dangerLevel": 8,
+    "detailedBio": "## A serpent, not a name\n\nIlluyanka is the Hittite common noun for \"serpent\" or \"dragon\"; the being in the myth is simply \"the serpent\". It appears in the two versions of the Illuyanka tales (CTH 321), which a priest of Nerik tells in connection with the Purulli festival.\n\n## Two defeats of the Storm-god\n\nIn both versions the serpent wins the first fight. In the first version it is then lured out of its hole with its children by the goddess Inara's lavish feast; they gorge themselves until they cannot squeeze back in, and the mortal Hupašiya ties them up for the Storm-god to kill. In the second version the serpent takes the Storm-god's heart and eyes, and gives them back only as a gift to the Storm-god's son, who has married the serpent's daughter; the restored Storm-god then kills the serpent at sea, and his son with it.\n\n## What it represents\n\nScholars have read Illuyanka as a figure of chaotic waters or of the forces that hold back spring growth, fitting the Purulli festival's place in the agricultural year, but the text itself offers no allegory. It is one of the oldest written examples of the storm-god's serpent enemy, a figure found from Ugarit's Litan to Norse Jörmungandr.",
+    "primarySources": [
+      {
+        "text": "The serpent and its children eat and drink at Inara's feast until they cannot go back down into their hole, and Hupašiya binds the serpent with a rope (paraphrase).",
+        "source": "Illuyanka tales, CTH 321, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Late Bronze Age copies"
+      }
+    ],
+    "imageUrl": "/creatures/illuyanka.png"
+  },
+  {
+    "id": "ullikummi",
+    "pantheonId": "hittite-pantheon",
+    "name": "Ullikummi",
+    "slug": "ullikummi",
+    "description": "A deaf and blind giant of basalt, fathered by Kumarbi on a great rock and grown on the shoulder of the world-bearing giant Upelluri until it reaches heaven, to destroy the storm-god's city of Kummiya.",
+    "habitat": "Standing in the sea on the right shoulder of Upelluri, rising to the sky",
+    "abilities": [
+      "grows without limit",
+      "immune to seduction, being deaf and blind",
+      "defeats Teššub and seventy gods in the first battle"
+    ],
+    "dangerLevel": 10,
+    "detailedBio": "## A weapon, not a person\n\nUllikummi is the monstrous son of Kumarbi in the Hurrian Song of Ullikummi (CTH 345). Kumarbi fathers him on a great rock so that he will be a rival to the storm-god Teššub, and names him for his purpose: the name is understood to mean something like \"destroy Kummiya\", Teššub's city. He is made of basalt (Hittite kunkunuzzi), and he has no inner life in the text at all: a great wave tells the goddess Šauška that he is deaf, blind, and without compassion.\n\n## Growing on Upelluri\n\nKumarbi hides the stone child by having him set on the right shoulder of Upelluri, the giant in the sea who bears heaven and earth, where he grows every day until he stands out of the water and reaches the sky. He defeats Teššub's first attack and pushes up to the gates of Kummiya, forcing the goddess Hebat out of her temple.\n\n## Cut from his base\n\nThe wise god Ea finds the weakness: Ullikummi's strength depends on his footing. Ea has the Former Gods bring out the ancient copper tool that once separated heaven from earth, and with it he cuts Ullikummi's feet from Upelluri's shoulder. The final battle is lost from the surviving tablets, but the song was clearly heading for Teššub's victory.",
+    "primarySources": [
+      {
+        "text": "The Sun-god sees the basalt giant standing in the sea, rising to heaven, and goes to warn Teššub (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hittite copies 13th c. BCE"
+      }
+    ],
+    "imageUrl": "/creatures/ullikummi.png"
+  },
+  {
+    "id": "hedammu",
+    "pantheonId": "hittite-pantheon",
+    "name": "Hedammu",
+    "slug": "hedammu",
+    "description": "A voracious sea-serpent, son of Kumarbi and the daughter of the Sea, whom the goddess Šauška draws out of the water with her beauty in the fragmentary Song of Hedammu.",
+    "habitat": "The sea",
+    "abilities": [
+      "devours cattle, fish, and people in huge quantities",
+      "threatens to starve the gods of offerings"
+    ],
+    "dangerLevel": 8,
+    "detailedBio": "## Another of Kumarbi's champions\n\nThe Song of Hedammu (CTH 348) is the most fragmentary song of the Hurrian Kumarbi cycle. In it, Kumarbi allies with the Sea and marries the Sea's daughter, Šertapšuruḫi, and their child is Hedammu, a monstrous serpent that lives in the sea and eats without end. Its appetite threatens the whole world: if it devours humanity and the animals, there will be no one left to bring offerings to the gods.\n\n## Šauška's plan\n\nThe goddess Šauška, Teššub's sister, takes on the serpent. The surviving fragments describe her bathing, anointing herself with perfumed oil, and adorning herself, then going down to the shore and showing herself to Hedammu, who is enchanted. The text seems to go on to describe her giving him a drugged or intoxicating drink, but the ending is not preserved, and it is not known exactly how Hedammu was overcome.\n\n## Relationship to Ullikummi\n\nHedammu's story and Ullikummi's are variations on a theme: Kumarbi breeds a monster to overthrow Teššub, and Šauška's seduction is tried against it. With Hedammu it seems to work; with the deaf and blind Ullikummi it fails, and a different kind of wisdom is needed.",
+    "primarySources": [
+      {
+        "text": "Kumarbi marries Šertapšuruḫi, daughter of the Sea, and she bears the serpent Hedammu, who devours without end (paraphrase).",
+        "source": "Song of Hedammu, CTH 348, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hurrian composition; fragmentary Hittite copies"
+      }
+    ],
+    "imageUrl": "/creatures/hedammu.png"
   }
 ]

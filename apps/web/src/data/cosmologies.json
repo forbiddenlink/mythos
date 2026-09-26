@@ -1309,5 +1309,88 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "hittite-pantheon",
+    "title": "Heaven, the Dark Earth, and the Giant in the Sea",
+    "summary": "Hittite texts describe heaven above, the land of the living, and the Dark Earth below, where the Former Gods and sealed-away evils lie; the Hurrian Song of Ullikummi adds Upelluri, the giant in the sea on whom heaven and earth were built.",
+    "axis": {
+      "name": "Upelluri",
+      "kind": "pillar",
+      "note": "In the Hurrian Song of Ullikummi, Upelluri is a giant standing in the sea on whom heaven and earth were built and then cut apart. He is not attested in native Anatolian myth, so this axis belongs to the Hurrian strand of the pantheon only."
+    },
+    "variantNote": "This diagram combines two traditions that the Hittite archives kept side by side: native Anatolian ideas of heaven, earth, and the Dark Earth (from rituals such as the Telipinu myth) and the Hurrian cosmology of the Kumarbi cycle, with its Former Gods, its giant Upelluri, and heaven and earth once joined. No single Hittite text lays out the whole scheme.",
+    "sources": [
+      "Disappearance of Telipinu (CTH 324)",
+      "Song of Kumarbi (CTH 344)",
+      "Song of Ullikummi (CTH 345)",
+      "H. A. Hoffner Jr., Hittite Myths, 2nd ed., 1998"
+    ],
+    "tiers": [
+      {
+        "id": "heaven",
+        "label": "Heaven",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Heaven (nepiš)",
+            "originalName": "nepiš",
+            "description": "The seat of kingship among the gods, ruled in turn by Alalu, Anu, Kumarbi, and the storm-god in the Hurrian songs.",
+            "deities": ["tarhunna", "shaushka"]
+          }
+        ]
+      },
+      {
+        "id": "earth",
+        "label": "The land",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "The land of Hatti",
+            "description": "The land of the living, whose fertility depends on gods such as Telipinu staying present and content; the Sun-goddess of Arinna is its queen.",
+            "deities": [
+              "sun-goddess-of-arinna",
+              "telipinu",
+              "hannahanna",
+              "inara",
+              "kamrusepa"
+            ],
+            "creatures": ["illuyanka"],
+            "locationId": "hattusa"
+          },
+          {
+            "name": "Urkeš",
+            "description": "Kumarbi's city in the Hurrian songs, from which he plots against Teššub.",
+            "deities": ["kumarbi"],
+            "locationId": "urkesh"
+          }
+        ]
+      },
+      {
+        "id": "sea",
+        "label": "The sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The sea around Upelluri",
+            "description": "Where Kumarbi's monsters are hidden and grow: the serpent Hedammu, and the stone giant Ullikummi on Upelluri's shoulder.",
+            "creatures": ["hedammu", "ullikummi"]
+          }
+        ]
+      },
+      {
+        "id": "dark-earth",
+        "label": "The Dark Earth",
+        "band": "under",
+        "realms": [
+          {
+            "name": "The Dark Earth",
+            "originalName": "dankui tekan",
+            "description": "The underworld behind seven doors and seven bolts, where bronze vessels with lead lids hold what must never return, and where the Former Gods, among them Alalu, were banished.",
+            "deities": ["sun-goddess-of-the-earth", "alalu"]
+          }
+        ]
+      }
+    ]
   }
 ]

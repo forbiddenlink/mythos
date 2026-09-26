@@ -92,6 +92,14 @@ export const MYTHIC_ERAS: MythicEra[] = [
     end: 2026,
     pantheonIds: ["tlingit-haida-pantheon"],
   },
+  {
+    id: "late-bronze-age-anatolia-levant",
+    label: "Hittite Anatolia & Ugarit",
+    blurb: "Late Bronze Age Hattusa and the city of Ugarit",
+    start: -1650,
+    end: -1180,
+    pantheonIds: ["hittite-pantheon"],
+  },
 ];
 
 export function pantheonIdsForEraId(eraId: string): Set<string> | null {

@@ -1334,5 +1334,52 @@
         "date": "colonial K'iche' text; 16th–18th century manuscript tradition"
       }
     ]
+  },
+  {
+    "id": "ancient-copper-cutter",
+    "pantheonId": "hittite-pantheon",
+    "name": "The Ancient Copper Cutter",
+    "slug": "ancient-copper-cutter",
+    "description": "The primeval copper cutting tool with which heaven and earth were once separated, brought out of the ancient storehouses so that Ea can sever the stone giant Ullikummi from Upelluri's shoulder.",
+    "type": "tool",
+    "powers": [
+      "separated heaven from earth at the beginning",
+      "cuts what no weapon can"
+    ],
+    "owner": "The Former Gods (kept in their ancient storehouses)",
+    "origin": "Song of Ullikummi (CTH 345): the tool used when heaven and earth were separated, kept by the Former Gods.",
+    "currentLocation": "Returned to the storehouses of the Former Gods (implied; the text breaks off)",
+    "imageUrl": "/artifacts/ancient-copper-cutter.png",
+    "relatedStories": ["song-of-ullikummi"],
+    "detailedBio": "## A tool from the making of the world\n\nIn the Song of Ullikummi, when the storm-god Teššub has been beaten and the stone giant is still growing, the wise god Ea goes to the Former Gods, the primeval deities of the underworld, and asks them to open the old storehouses of their fathers and bring out the ancient copper cutting tool, the one with which heaven and earth were separated. With it he cuts Ullikummi's feet away from the shoulder of Upelluri, and the giant loses the strength that came from his footing.\n\n## What the story assumes\n\nThe episode assumes a cosmology in which heaven and earth were once joined and had to be cut apart, and in which the cutting tool still exists, stored away. Upelluri himself says that he felt nothing when heaven and earth were built on him and nothing when they were cut apart. The idea of a primeval separation of heaven and earth is widespread in Near Eastern and other traditions; the Hurrian song is distinctive in making the separating tool a physical object that can be brought out again.\n\n## Nothing more is known\n\nThe text does not describe the tool's shape beyond calling it a copper cutter, and it has no life outside this one scene. It is not an archaeological object, and this site does not attach it to any real find.",
+    "primarySources": [
+      {
+        "text": "Ea asks the Former Gods to open the ancient storehouses and bring out the olden copper cutting tool with which heaven and earth were separated (paraphrase).",
+        "source": "Song of Ullikummi, CTH 345, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Hittite copies 13th c. BCE"
+      }
+    ]
+  },
+  {
+    "id": "kursa-hunting-bag",
+    "pantheonId": "hittite-pantheon",
+    "name": "The Kurša Bag on the Eya Tree",
+    "slug": "kursa-hunting-bag",
+    "description": "The hunting bag of sheep's fleece hung from an evergreen eya tree before the returned Telipinu, holding fat, grain, wine, cattle, sheep, long life, and offspring: a cult object as well as a mythic image.",
+    "type": "relic",
+    "powers": ["holds the land's abundance", "assures long life and offspring"],
+    "owner": "telipinu",
+    "origin": "Disappearance of Telipinu (CTH 324): set up before Telipinu when he returns; kurša bags were also real cult objects in Hittite festivals.",
+    "currentLocation": "Hung before Telipinu on the evergreen eya tree",
+    "imageUrl": "/artifacts/kursa-hunting-bag.png",
+    "relatedStories": ["disappearance-of-telipinu"],
+    "detailedBio": "## The closing image of the Telipinu myth\n\nWhen Telipinu's anger has been sent to the Dark Earth and he comes home, the text describes an evergreen eya tree set up before him, and hanging from it a hunting bag (kurša) made of sheep's fleece. In the bag lie sheep fat, grain, wine, cattle and sheep, and long years and progeny. The list turns the bag into a container for everything the god's absence had taken away.\n\n## A real cult object\n\nThe kurša was not only a mythic image. Hittite festival and inventory texts mention kurša bags or fleeces as sacred objects associated with protective deities, carried in procession and renewed in festivals; the most important was kept at Hattusa. The myth's final scene therefore describes something worshippers could actually see, which is one reason scholars read the Telipinu story as a charter for ritual practice.\n\n## Interpretation\n\nComparisons with the Golden Fleece of Greek myth have been proposed, since both are fleeces hung in a tree and associated with prosperity and kingship. The link is debated and should be treated as a possibility, not a demonstrated connection.",
+    "primarySources": [
+      {
+        "text": "Before Telipinu stands an eya tree, and from it hangs a hunting bag of sheep's fleece; in it lie sheep fat, grain, wine, cattle, sheep, long years, and progeny (paraphrase).",
+        "source": "Disappearance of Telipinu, CTH 324, trans. H. A. Hoffner Jr., Hittite Myths",
+        "date": "Old Hittite composition; later copies"
+      }
+    ]
   }
 ]

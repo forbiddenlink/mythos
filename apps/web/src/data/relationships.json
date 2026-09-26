@@ -1768,5 +1768,77 @@
     "relationshipType": "parent_of",
     "confidenceLevel": "low",
     "description": "In Swanton's telling, Raven transforms into a hemlock needle and is reborn as this old man's doted-on grandson, not his son; the site's relationship categories have no grandparent/grandchild type, so this edge is marked low confidence to flag that the actual kinship is one generation removed from what 'parent_of' literally states."
+  },
+  {
+    "id": "hittite-storm-god-sun-goddess-arinna",
+    "fromDeityId": "tarhunna",
+    "toDeityId": "sun-goddess-of-arinna",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "The Storm-god of Hatti and the Sun-goddess of Arinna head the Hittite state cult as a divine couple in royal prayers and festival texts; Puduhepa's prayer (CTH 384) further equates the goddess with Teššub's consort Hebat."
+  },
+  {
+    "id": "hittite-storm-god-telipinu",
+    "fromDeityId": "tarhunna",
+    "toDeityId": "telipinu",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "description": "In the Disappearance of Telipinu (CTH 324) the Storm-god searches for 'my son Telipinu'."
+  },
+  {
+    "id": "hittite-alalu-kumarbi",
+    "fromDeityId": "alalu",
+    "toDeityId": "kumarbi",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "The Song of Kumarbi calls Kumarbi the offspring (literally 'seed') of Alalu; the term may indicate descent rather than direct fatherhood."
+  },
+  {
+    "id": "hittite-kumarbi-storm-god-birth",
+    "fromDeityId": "kumarbi",
+    "toDeityId": "tarhunna",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In the Song of Kumarbi the storm-god is conceived when Kumarbi swallows Anu's manhood and is born from Kumarbi's body; Anu is the begetter, so this edge records the birth, not ordinary fatherhood."
+  },
+  {
+    "id": "hittite-kumarbi-storm-god-enmity",
+    "fromDeityId": "kumarbi",
+    "toDeityId": "tarhunna",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Throughout the Kumarbi cycle Kumarbi plots to overthrow Teššub, fathering Hedammu and Ullikummi for that purpose."
+  },
+  {
+    "id": "hittite-shaushka-storm-god",
+    "fromDeityId": "shaushka",
+    "toDeityId": "tarhunna",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The Hurrian songs make Šauška the sister of Teššub; she goes with him to Mount Hazzi in the Song of Ullikummi."
+  },
+  {
+    "id": "hittite-inara-storm-god",
+    "fromDeityId": "inara",
+    "toDeityId": "tarhunna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Inara prepares the feast that traps the serpent Illuyanka so that the Storm-god can kill it (CTH 321, first version)."
+  },
+  {
+    "id": "hittite-hannahanna-storm-god",
+    "fromDeityId": "hannahanna",
+    "toDeityId": "tarhunna",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "high",
+    "description": "Hannahanna counsels the Storm-god in the search for Telipinu and sends the bee that finds him (CTH 324)."
+  },
+  {
+    "id": "hittite-kamrusepa-telipinu",
+    "fromDeityId": "kamrusepa",
+    "toDeityId": "telipinu",
+    "relationshipType": "ally_of",
+    "confidenceLevel": "medium",
+    "description": "Kamrušepa performs the rite that removes Telipinu's anger and allows his return (CTH 324); the relationship is ritual rather than personal."
   }
 ]

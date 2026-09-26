@@ -40,6 +40,7 @@ const PANTHEON_NAMES: Record<string, string> = {
   "slavic-pantheon": "Slavic",
   "haudenosaunee-pantheon": "Haudenosaunee",
   "tlingit-haida-pantheon": "Tlingit & Haida",
+  "hittite-pantheon": "Hittite",
 };
 
 const MASTERY_THRESHOLDS = {
