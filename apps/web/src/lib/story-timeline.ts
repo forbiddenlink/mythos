@@ -279,7 +279,7 @@ export function groupEventsByEra(
     "heroic",
     "decline",
   ];
-  eras.forEach((era) => groups.set(era, []));
+  for (const era of eras) groups.set(era, []);
 
   // Group events
   events.forEach((event) => {

@@ -19,7 +19,7 @@ The former optional Rust/PostgreSQL backend (`apps/api`) was retired; see ARCHIT
 - Next.js 16.3.4, React 19.2.8, TypeScript 6.0.3 (web app)
 - pnpm 10.34.5 (`packageManager` field enforced), Turborepo
 - Node v22.22.2 (see `.nvmrc`)
-- Biome (`biome.json` at root) alongside ESLint/Prettier via Husky + lint-staged
+- ESLint is the primary linter and Prettier the formatter (Husky + lint-staged). Biome (`biome.json`) runs as a complementary lint pass only: its formatter, import sorting and a11y group are off (Prettier and eslint-plugin-jsx-a11y own those). knip (`knip.json`) checks for unused files, dependencies and exports. CI runs all three.
 
 ## Commands
 
@@ -48,8 +48,9 @@ pnpm --filter web e2e:ui
 
 pnpm --filter web analyze             # webpack bundle analyzer (sets ANALYZE=true)
 
-pnpm biome:check
+pnpm biome:check                      # complementary lint pass (CI)
 pnpm biome:fix
+pnpm knip                             # unused files/deps/exports (CI)
 ```
 
 ## Layout

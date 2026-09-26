@@ -19,7 +19,7 @@ import deitiesData from "@/data/deities.json";
 import { LayoutGrid, Sparkles, Table } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 
 interface Deity {
   id: string;
@@ -75,7 +75,7 @@ export function DeitiesPageClient() {
   const hasActiveFilters = filteredDeities !== allDeities;
   const displayDeities = hasActiveFilters ? filteredDeities : allDeities;
 
-  let deitiesContent;
+  let deitiesContent: ReactNode;
   if (displayDeities.length === 0 && hasActiveFilters) {
     deitiesContent = (
       <div className="text-center py-20">

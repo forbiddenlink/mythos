@@ -111,7 +111,7 @@ export default function DivinDomainsPage() {
   const allDomains = useMemo(() => {
     const domainSet = new Set<string>();
     deities.forEach((deity) => {
-      deity.domain?.forEach((d) => domainSet.add(d.toLowerCase()));
+      for (const d of deity.domain ?? []) domainSet.add(d.toLowerCase());
     });
     return Array.from(domainSet).sort();
   }, [deities]);

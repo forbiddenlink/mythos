@@ -38,7 +38,7 @@ export function RelatedDeities({
 
   // Create a map for quick lookup
   const deityMap = new Map<string, DeityBasic>();
-  deities.forEach((d) => deityMap.set(d.id, d));
+  for (const d of deities) deityMap.set(d.id, d);
 
   // Get full deity data for related deities
   const relatedWithData = relatedDeities

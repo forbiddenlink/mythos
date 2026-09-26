@@ -16,7 +16,7 @@
     "start": "turbo start",
     "biome:check": "biome check .",
     "biome:fix": "biome check . --write",
-    "biome:format": "biome format . --write"
+    "knip": "knip"
   },
   "lint-staged": {
     "apps/web/**/*.{ts,tsx}": [

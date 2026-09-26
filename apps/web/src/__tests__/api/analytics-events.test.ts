@@ -69,7 +69,7 @@ describe("POST /api/analytics/events", () => {
     expect(fetchSpy).toHaveBeenCalledTimes(1);
 
     const payload = JSON.parse(
-      String((fetchSpy.mock.calls[0]?.[1] as RequestInit).body),
+      String((fetchSpy.mock.calls[0]?.[1] as RequestInit | undefined)?.body),
     ) as Record<string, unknown>;
     expect(payload.event).toBe("pmf_survey_answered");
     expect(payload.distinct_id).toBe("anon-42");

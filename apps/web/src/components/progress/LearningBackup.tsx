@@ -6,7 +6,7 @@ import {
   parseLearningBackup,
   restoreLearningBackup,
   type BackupPreview,
-  type LearningBackup,
+  type LearningBackup as LearningBackupData,
 } from "@/lib/learning-backup";
 import { Button } from "@/components/ui/button";
 import {
@@ -70,7 +70,7 @@ export function LearningBackup() {
   const selectionId = useRef(0);
   const [isHydrated, setIsHydrated] = useState(false);
   const [isReading, setIsReading] = useState(false);
-  const [candidate, setCandidate] = useState<LearningBackup | null>(null);
+  const [candidate, setCandidate] = useState<LearningBackupData | null>(null);
   const [preview, setPreview] = useState<BackupPreview | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);

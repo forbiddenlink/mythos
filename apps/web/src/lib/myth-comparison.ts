@@ -417,6 +417,6 @@ function formatPantheonName(pantheonId: string): string {
  */
 export function getAvailableCategories(stories: Story[]): string[] {
   const categories = new Set<string>();
-  stories.forEach((story) => categories.add(story.category));
+  for (const story of stories) categories.add(story.category);
   return Array.from(categories).sort();
 }
