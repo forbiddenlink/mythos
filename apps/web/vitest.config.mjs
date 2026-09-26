@@ -21,23 +21,43 @@ export default defineConfig({
     },
     coverage: {
       provider: 'v8',
-      // Honest gate: only files with dedicated unit tests. Do not claim
-      // repo-wide 80% coverage — expand this list as tests are added.
+      // Gate: every module under src/lib/** (including lib/oracle,
+      // lib/analytics, lib/search, lib/http) plus the two tested hook/provider
+      // files. Thresholds sit a couple of points under the measured
+      // aggregate (Sep 2026: lines 66.5, statements 64.8, functions 71.1,
+      // branches 54.1) so a real regression fails CI. Components and app
+      // routes are covered by Playwright, not by this gate.
       include: [
-        'src/lib/spaced-repetition.ts',
-        'src/lib/mastery.ts',
-        'src/lib/search.ts',
-        'src/lib/relationship-quiz.ts',
-        'src/lib/utils.ts',
+        'src/lib/**/*.{ts,tsx}',
         'src/hooks/use-debounce.ts',
         'src/providers/progress-provider.tsx',
       ],
       exclude: ['**/*.d.ts', '**/types/**', '**/__tests__/**'],
       thresholds: {
-        lines: 80,
-        functions: 80,
-        branches: 70,
-        statements: 80,
+        lines: 64,
+        statements: 62,
+        functions: 68,
+        branches: 52,
+        // The original strict gate stays in force for the core learning
+        // modules that have always had dedicated unit tests.
+        'src/{lib/spaced-repetition,lib/mastery,lib/search,lib/relationship-quiz,lib/utils,hooks/use-debounce}.ts': {
+          lines: 80,
+          functions: 80,
+          branches: 70,
+          statements: 80,
+        },
+        'src/providers/progress-provider.tsx': {
+          lines: 80,
+          functions: 80,
+          branches: 70,
+          statements: 80,
+        },
+        'src/lib/analytics/**': {
+          lines: 90,
+          functions: 90,
+          branches: 80,
+          statements: 85,
+        },
       },
     },
   },

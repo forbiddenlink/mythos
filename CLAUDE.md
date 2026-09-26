@@ -40,7 +40,7 @@ pnpm --filter web exec tsc --noEmit   # TypeScript type check (web)
 
 pnpm --filter web test                # Vitest unit tests, run once
 pnpm --filter web test:watch
-pnpm --filter web test:coverage       # thresholds: 80% lines/functions/statements, 70% branches
+pnpm --filter web test:coverage       # gate over src/lib/** (see below)
 pnpm --filter web exec vitest run src/__tests__/lib/search.test.ts   # single file
 
 pnpm --filter web e2e                 # Playwright, headless Chromium (builds and starts production server on :3000)
@@ -77,6 +77,7 @@ pnpm biome:fix
 ## Testing
 
 - Unit: Vitest + `@testing-library/react`, jsdom environment. Tests in `apps/web/src/__tests__/`.
+- Coverage gate (`apps/web/vitest.config.mjs`): measures every file under `src/lib/**` (oracle, analytics, search, http, etc.) plus `use-debounce` and `progress-provider`. Aggregate thresholds are lines 64 / statements 62 / functions 68 / branches 52 (a little under measured values); the core learning modules (spaced-repetition, mastery, search, relationship-quiz, utils, use-debounce, progress-provider) keep 80/80/80/70, and `src/lib/analytics/**` needs 90 lines. Components and routes are not in the gate; Playwright covers them.
 - E2E: Playwright, specs in `apps/web/e2e/`. Config pre-sets `mythos-cookie-consent` in localStorage to bypass the consent banner.
 - CI (`.github/workflows/test.yml`, push/PR to main): lint + typecheck → unit tests with coverage (uploaded to Codecov) → E2E with Playwright (Chromium only).
 
