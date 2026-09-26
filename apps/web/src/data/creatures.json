@@ -1514,5 +1514,79 @@
       }
     ],
     "imageUrl": "/creatures/baba-yaga.png"
+  },
+  {
+    "id": "amaru",
+    "pantheonId": "inca-pantheon",
+    "name": "Amaru",
+    "slug": "amaru",
+    "description": "The great serpent of Andean tradition, linked with water, the underworld, and upheaval; in the Huarochirí stories Huallallo Carhuincho sends an amaru against Pariacaca, who turns it to stone with a golden staff.",
+    "habitat": "Beneath the earth, in lakes and springs, and emerging from mountains",
+    "abilities": [
+      "emerging from the earth",
+      "causing upheaval",
+      "turning to stone when defeated"
+    ],
+    "dangerLevel": 7,
+    "detailedBio": "## In the Huarochirí stories\n\n*Amaru* is the ordinary Quechua word for a large snake, and in Andean tradition it names a mighty serpent associated with water, the underworld, and violent change. In the Huarochirí Manuscript's account of the war between Pariacaca and Huallallo Carhuincho, Huallallo sends an amaru against the snow-mountain god; Pariacaca strikes it with a golden staff and it freezes into stone. Commentators note that the Huarochirí amaru is described with two heads, and two-headed serpents appear in older Andean art, on Moche and Chimú ceramics among others.\n\n## Serpent of power and rebellion\n\nThe serpent's name carried authority. A palace of the Inca Huayna Capac in Cusco was called Amarucancha, 'enclosure of the serpent' (its site is now occupied by the Jesuit church of La Compañía), and the last Inca ruler of Vilcabamba, executed in 1572, was Túpac Amaru, 'royal serpent'. In 1780 José Gabriel Condorcanqui took the name Túpac Amaru II when he led the great Andean rebellion against Spanish rule, and the name has remained a symbol of resistance.\n\n## Caution\n\nModern popular writing often presents the amaru as a fixed 'Inca dragon' with standard attributes. The colonial sources show a range of serpent beings rather than a single canonical monster; this entry keeps to the Huarochirí episode and the documented uses of the name.",
+    "primarySources": [
+      {
+        "text": "In the war with Pariacaca, Huallallo Carhuincho sent against him an amaru, a great serpent; Pariacaca struck it with his golden staff and it turned to stone.",
+        "source": "Huarochirí Manuscript, Huallallo Carhuincho episodes (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "chs. 8 and 16",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "imageUrl": "/creatures/amaru.png"
+  },
+  {
+    "id": "yacana",
+    "pantheonId": "inca-pantheon",
+    "name": "Yacana",
+    "slug": "yacana",
+    "description": "The celestial llama of the Huarochirí Manuscript, a dark shape in the Milky Way that walks down at midnight to drink from the sea; if it did not drink, the ocean would flood the world.",
+    "habitat": "The Milky Way (Mayu, the river of the sky)",
+    "abilities": [
+      "drinking the ocean to keep it from flooding the world",
+      "moving along the river of the sky",
+      "bestowing good fortune in herds"
+    ],
+    "dangerLevel": 1,
+    "detailedBio": "## The llama in the Milky Way\n\nChapter 29 of the Huarochirí Manuscript describes the Yacana as a llama-shaped being that moves through the middle of the sky along the Milky Way, which Andean people called Mayu, 'the river'. It has two eyes and a long neck, and it walks down at midnight, unseen, to drink water from the sea; if it did not, the manuscript says, the sea would flood the whole world. The same chapter names other stars and star groups, among them a smaller llama (the Yacana's young) and figures associated with herds.\n\n## Dark-cloud constellations\n\nUnlike most European constellations, which join bright stars, the Yacana is a shape made by dark dust lanes against the bright band of the Milky Way. The anthropologist Gary Urton, working in the Quechua community of Misminay near Cusco in the 1970s, documented a living system of such dark-cloud animals, including a llama whose eyes are the bright stars Alpha and Beta Centauri, closely matching the Huarochirí description written nearly four centuries earlier.\n\n## Water and the cosmos\n\nThe Yacana belongs to an Andean picture of water circulating between the sea, the sky, and the earth: the celestial river carries water across the sky, and the llama's drinking keeps the balance. Herders associated it with the fertility of their animals, and the manuscript connects its descent with good fortune for the llama flocks.",
+    "primarySources": [
+      {
+        "text": "The Yacana, a llama-shaped being, walks through the middle of the sky along the Milky Way; at midnight it drinks water from the sea, and if it did not drink, the water would flood the whole world.",
+        "source": "Huarochirí Manuscript, ch. 29 (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "ch. 29",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "imageUrl": "/creatures/yacana.png"
+  },
+  {
+    "id": "urcuchillay",
+    "pantheonId": "inca-pantheon",
+    "name": "Urcuchillay",
+    "slug": "urcuchillay",
+    "description": "The many-colored male llama of the stars, reported by colonial writers as the celestial guardian that herders prayed to for the increase and protection of their flocks.",
+    "habitat": "The night sky",
+    "abilities": [
+      "protecting llama and alpaca herds",
+      "promoting the increase of flocks"
+    ],
+    "dangerLevel": 1,
+    "detailedBio": "## A star for herders\n\nThe jurist Juan Polo de Ondegardo, investigating Andean religion in Cusco in the 1550s-1570s, reported that herders worshipped a star they called Urcuchillay, which they imagined as a male llama of many colors and credited with the protection and increase of the flocks; the Jesuit José de Acosta (1590) repeated his account. Polo reported similar star-guardians for other animals and for particular human activities, suggesting a general Andean idea that each kind of creature had a celestial prototype watching over it.\n\n## Herding and the sky\n\nLlamas and alpacas were the basis of Andean wealth: food, wool for cloth, transport, and the most important sacrificial animals of the state cult. It is no surprise that the sky itself held llamas, from the dark-cloud Yacana of the Huarochirí Manuscript to Urcuchillay's bright star. The *urku* in the name means 'male' (used of animals).\n\n## Identification\n\nWhich star Urcuchillay was is not stated clearly in the colonial sources, and modern proposals differ. This entry treats it as a named celestial guardian of herds without asserting a particular modern constellation.",
+    "primarySources": [
+      {
+        "text": "They worshipped a star called Urcuchillay, which they said was a ram of many colors and had charge of the preservation of their flocks.",
+        "source": "José de Acosta, Historia natural y moral de las Indias, Book 5, following Polo de Ondegardo (paraphrase)",
+        "sourceId": "acosta-natural-moral-history",
+        "locator": "Book 5",
+        "date": "published 1590"
+      }
+    ],
+    "imageUrl": "/creatures/urcuchillay.png"
   }
 ]

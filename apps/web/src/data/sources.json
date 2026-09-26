@@ -2024,5 +2024,158 @@
     "type": "academic",
     "language": "English",
     "description": "A collection of Seneca narratives recorded by the Seneca archaeologist and ethnologist Arthur C. Parker, including creation and trickster stories."
+  },
+  {
+    "id": "betanzos-suma-y-narracion",
+    "title": "Suma y narración de los Incas (Narrative of the Incas)",
+    "author": "Juan de Betanzos",
+    "year": "1551",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "An early account of Inca history and origins written in Cusco by a Spanish interpreter married to Cuxirimay Ocllo, a noblewoman of Atahualpa's lineage, and drawing on her royal kin. Its opening chapters give the fullest early version of Con Tici Viracocha's creation at Lake Titicaca and Tiwanaku.",
+    "translators": [
+      {
+        "name": "Roland Hamilton and Dana Buchanan",
+        "year": 1996
+      }
+    ]
+  },
+  {
+    "id": "garcilaso-royal-commentaries",
+    "title": "Comentarios Reales de los Incas (Royal Commentaries of the Incas)",
+    "author": "Inca Garcilaso de la Vega",
+    "year": "1609",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A history of the Incas written in Spain by the son of a Spanish captain and the Inca noblewoman Chimpu Ocllo. Source of the best-known version of Manco Cápac and Mama Ocllo as children of the Sun, and of detailed descriptions of the Coricancha and Inti Raymi, filtered through the author's wish to present Inca religion as a preparation for Christianity.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1869
+      },
+      {
+        "name": "Harold V. Livermore",
+        "year": 1966
+      }
+    ]
+  },
+  {
+    "id": "huarochiri-manuscript",
+    "title": "The Huarochirí Manuscript",
+    "author": "Anonymous Andean compiler(s), in the orbit of Francisco de Ávila",
+    "year": "c. 1598-1608",
+    "type": "ancient-text",
+    "language": "Quechua",
+    "description": "The only extended collection of Andean myth written in an Andean language before or soon after the conquest: 31 chapters on the huacas of Huarochirí province (Pariacaca, Cuniraya, Chaupi Ñamca, Pachacamac) and their people, recorded by Quechua-speaking Christians during the campaigns against 'idolatry'.",
+    "translators": [
+      {
+        "name": "José María Arguedas (Spanish)",
+        "year": 1966
+      },
+      {
+        "name": "Gerald Taylor (Spanish)",
+        "year": 1987
+      },
+      {
+        "name": "Frank Salomon and George L. Urioste",
+        "year": 1991
+      }
+    ]
+  },
+  {
+    "id": "avila-tratado-huarochiri",
+    "title": "Tratado y relación de los errores, falsos dioses y otras supersticiones (Narrative of the Errors, False Gods, and Other Superstitions of the Indians of Huarochirí)",
+    "author": "Francisco de Ávila",
+    "year": "1608",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "The extirpator Francisco de Ávila's unfinished Spanish treatise retelling, with hostile commentary, the first chapters of the Quechua Huarochirí material: Cuniraya and Cavillaca, the llama and the flood, Huatyacuri, and Pariacaca's birth from five eggs.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1873
+      }
+    ],
+    "externalUrl": "https://eada.lib.umd.edu/text-entries/narrative-of-the-errors-false-gods-and-other-superstitions-and-diabolical-rites-in-which-the-indians-of-the-province-of-huarochiri-lived-in-ancient-times/"
+  },
+  {
+    "id": "molina-fables-and-rites",
+    "title": "Relación de las fábulas y ritos de los Incas (Account of the Fables and Rites of the Incas)",
+    "author": "Cristóbal de Molina (of Cusco)",
+    "year": "c. 1575",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A Cusco priest's account of Inca origin stories and the ritual calendar, based on testimony from elders who had served the Inca state cult; it records Quechua prayers to the Creator and describes the Citua purification and the initiation rites at Huanacauri.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1873
+      },
+      {
+        "name": "Brian S. Bauer, Vania Smith-Oka, and Gabriel E. Cantarutti",
+        "year": 2011
+      }
+    ]
+  },
+  {
+    "id": "sarmiento-history-of-the-incas",
+    "title": "Historia de los Incas (History of the Incas)",
+    "author": "Pedro Sarmiento de Gamboa",
+    "year": "1572",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A history commissioned by Viceroy Francisco de Toledo, compiled from interviews with Inca lineage heads and read back to them for correction, but written to portray the Incas as tyrants. It tells Viracocha's creation and flood, and the Pacaritambo origin of the Ayar siblings.",
+    "translators": [
+      {
+        "name": "Clements R. Markham",
+        "year": 1907
+      }
+    ],
+    "externalUrl": "https://archive.org/details/historyincas00oviegoog"
+  },
+  {
+    "id": "guaman-poma-nueva-coronica",
+    "title": "El primer nueva corónica y buen gobierno (The First New Chronicle and Good Government)",
+    "author": "Felipe Guaman Poma de Ayala",
+    "year": "c. 1615",
+    "type": "ancient-text",
+    "language": "Spanish and Quechua",
+    "description": "An illustrated 1,189-page letter to Philip III by an Andean noble from Lucanas, with nearly 400 drawings of Inca rulers, ritual calendar, and colonial abuses. The manuscript is held by the Royal Danish Library in Copenhagen.",
+    "translators": [
+      {
+        "name": "Roland Hamilton",
+        "year": 2009
+      }
+    ]
+  },
+  {
+    "id": "acosta-natural-moral-history",
+    "title": "Historia natural y moral de las Indias (Natural and Moral History of the Indies)",
+    "author": "José de Acosta",
+    "year": "1590",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A Jesuit's survey of the natural world and religions of Peru and Mexico; its fifth book summarizes Andean worship of the Creator, Sun, thunder, earth (Pachamama), and sea (Mamacocha), largely following the jurist Polo de Ondegardo.",
+    "translators": [
+      {
+        "name": "Edward Grimston",
+        "year": 1604
+      }
+    ]
+  },
+  {
+    "id": "cobo-inca-religion",
+    "title": "Historia del Nuevo Mundo, Books 13-14 (Inca Religion and Customs)",
+    "author": "Bernabé Cobo",
+    "year": "1653",
+    "type": "ancient-text",
+    "language": "Spanish",
+    "description": "A Jesuit's late but systematic synthesis of earlier reports on Inca religion, including the gods of the Cusco state cult, the sky and thunder, and the list of shrines arranged along the ceque lines of Cusco.",
+    "translators": [
+      {
+        "name": "Roland Hamilton",
+        "year": 1990
+      }
+    ]
   }
 ]

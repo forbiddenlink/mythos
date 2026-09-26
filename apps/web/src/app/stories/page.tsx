@@ -236,7 +236,7 @@ export default function StoriesPage() {
     <div className="min-h-screen">
       <CollectionPageJsonLd
         name="Mythological Stories"
-        description="Epic tales and legends from ancient civilizations across 16 pantheons"
+        description="Epic tales and legends from ancient civilizations across 17 pantheons"
         url="/stories"
         numberOfItems={allStories.length}
       />

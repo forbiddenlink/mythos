@@ -216,6 +216,18 @@ export const DEITY_PANTHEON_MAP: Record<string, string> = {
   "fog-woman": "tlingit-haida-pantheon",
   "chief-fog-over-the-salmon": "tlingit-haida-pantheon",
   "naas-shaak-aankawu": "tlingit-haida-pantheon",
+  viracocha: "inca-pantheon",
+  inti: "inca-pantheon",
+  "mama-killa": "inca-pantheon",
+  pachamama: "inca-pantheon",
+  "mama-qucha": "inca-pantheon",
+  illapa: "inca-pantheon",
+  pachacamac: "inca-pantheon",
+  pariacaca: "inca-pantheon",
+  "cuniraya-viracocha": "inca-pantheon",
+  "huallallo-carhuincho": "inca-pantheon",
+  "manco-capac": "inca-pantheon",
+  "mama-ocllo": "inca-pantheon",
 };
 
 export const STORY_PANTHEON_MAP: Record<string, string> = {
@@ -326,6 +338,12 @@ export const STORY_PANTHEON_MAP: Record<string, string> = {
   "peacemaker-great-law-of-peace": "haudenosaunee-pantheon",
   "raven-steals-the-light": "tlingit-haida-pantheon",
   "raven-and-the-first-men": "tlingit-haida-pantheon",
+  "viracocha-creation-at-titicaca": "inca-pantheon",
+  "children-of-the-sun": "inca-pantheon",
+  "cuniraya-and-cavillaca": "inca-pantheon",
+  "the-llama-and-the-flood": "inca-pantheon",
+  "huatyacuri-and-the-false-god": "inca-pantheon",
+  "pariacaca-and-huallallo-carhuincho": "inca-pantheon",
 };
 
 /**

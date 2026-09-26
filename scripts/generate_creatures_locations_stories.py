@@ -1,23 +1,28 @@
 #!/usr/bin/env python3
 """
 generate_creatures_locations_stories.py
-Generates illustrations for the 7 missing creatures, 6 missing locations,
-and 11 missing stories in Mythos Atlas, adhering to the dark-academia classical atlas style.
+Generates illustrations for creatures, locations, stories, and artifacts in
+Mythos Atlas that have no other image, adhering to the dark-academia classical
+atlas style. Pass --only with comma-separated ids to redraw just those plates.
 """
 
+import argparse
 import os
 import math
 from PIL import Image, ImageDraw
 
+from _plate_emblems import draw_emblem
 from _repo_paths import WEB_PUBLIC, serif_font, write_webp
 
 CREATURES_DIR = os.path.join(WEB_PUBLIC, "creatures")
 LOCATIONS_DIR = os.path.join(WEB_PUBLIC, "locations")
 STORIES_DIR = os.path.join(WEB_PUBLIC, "stories")
+ARTIFACTS_DIR = os.path.join(WEB_PUBLIC, "artifacts")
 
 os.makedirs(CREATURES_DIR, exist_ok=True)
 os.makedirs(LOCATIONS_DIR, exist_ok=True)
 os.makedirs(STORIES_DIR, exist_ok=True)
+os.makedirs(ARTIFACTS_DIR, exist_ok=True)
 
 SIZE = 768
 
@@ -100,7 +105,12 @@ CREATURES = [
         "accent": (195, 150, 75),
         "bg": (20, 16, 12),
         "motif": "baba_yaga_hut"
-    }
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "amaru", "name": "AMARU", "subtitle": "SERPENT OF THE DEPTHS", "accent": (120, 170, 110), "bg": (12, 18, 14), "motif": "emblem_serpent2"},
+    {"id": "yacana", "name": "YACANA", "subtitle": "LLAMA OF THE MILKY WAY", "accent": (120, 130, 190), "bg": (10, 12, 22), "motif": "emblem_llama"},
+    {"id": "urcuchillay", "name": "URCUCHILLAY", "subtitle": "MANY-COLORED STAR LLAMA", "accent": (200, 140, 180), "bg": (14, 12, 22), "motif": "emblem_llama"},
 ]
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
@@ -108,6 +118,9 @@ def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
     # Outer ring
     draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
     draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "leshy_antlers":
         # Stag antlers & ancient oak foliage
@@ -240,13 +253,24 @@ LOCATIONS = [
         "accent": (195, 75, 65),
         "bg": (20, 14, 16),
         "motif": "haida_totem"
-    }
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "isla-del-sol", "name": "ISLAND OF THE SUN", "subtitle": "WHERE THE SUN ROSE · TITICACA", "accent": (225, 170, 60), "bg": (12, 16, 24), "motif": "emblem_lake_island"},
+    {"id": "tiwanaku", "name": "TIWANAKU", "subtitle": "CITY OF THE CREATION", "accent": (175, 150, 110), "bg": (18, 16, 14), "motif": "emblem_gateway"},
+    {"id": "coricancha", "name": "CORICANCHA", "subtitle": "GOLDEN ENCLOSURE OF THE SUN", "accent": (225, 175, 55), "bg": (22, 16, 10), "motif": "emblem_temple_walls"},
+    {"id": "pachacamac-sanctuary", "name": "PACHACAMAC", "subtitle": "ORACLE SANCTUARY OF THE COAST", "accent": (200, 140, 80), "bg": (20, 16, 12), "motif": "emblem_pyramid"},
+    {"id": "huanacauri", "name": "HUANACAURI", "subtitle": "FOUNDING HILL ABOVE CUSCO", "accent": (190, 150, 80), "bg": (20, 16, 12), "motif": "emblem_rod"},
+    {"id": "nevado-pariacaca", "name": "PARIACACA", "subtitle": "THE SNOW MOUNTAIN GOD", "accent": (170, 200, 225), "bg": (12, 16, 24), "motif": "emblem_mountain"},
 ]
 
 def draw_location_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
     draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
     draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "arkona_cliffs":
         # Cape Rügen sea cliff and four-headed wooden shrine
@@ -397,13 +421,24 @@ STORIES = [
         "accent": (175, 120, 190),
         "bg": (20, 14, 22),
         "motif": "story_persephone"
-    }
+    },
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "viracocha-creation-at-titicaca", "name": "VIRACOCHA MAKES THE WORLD", "subtitle": "CREATION AT TITICACA", "accent": (215, 165, 70), "bg": (12, 16, 24), "motif": "emblem_lake_island"},
+    {"id": "children-of-the-sun", "name": "CHILDREN OF THE SUN", "subtitle": "MANCO CÁPAC & MAMA OCLLO", "accent": (225, 170, 50), "bg": (22, 16, 10), "motif": "emblem_rod"},
+    {"id": "cuniraya-and-cavillaca", "name": "CUNIRAYA & CAVILLACA", "subtitle": "THE TRICKSTER AND THE SEA", "accent": (190, 140, 90), "bg": (14, 16, 22), "motif": "emblem_sea_rock"},
+    {"id": "the-llama-and-the-flood", "name": "THE LLAMA & THE FLOOD", "subtitle": "REFUGE ON VILLCACOTO", "accent": (120, 160, 200), "bg": (12, 16, 22), "motif": "emblem_llama"},
+    {"id": "huatyacuri-and-the-false-god", "name": "HUATYACURI", "subtitle": "THE RICH MAN WHO CALLED HIMSELF GOD", "accent": (180, 150, 90), "bg": (18, 16, 12), "motif": "emblem_serpent"},
+    {"id": "pariacaca-and-huallallo-carhuincho", "name": "PARIACACA & HUALLALLO", "subtitle": "WATER AGAINST FIRE", "accent": (190, 120, 90), "bg": (16, 14, 20), "motif": "emblem_eggs"},
 ]
 
 def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
     draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
     draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     if motif == "story_ibeji":
         # Twin carved figures
@@ -531,17 +566,46 @@ def generate_square_plate(item, out_dir, category_tag, motif_fn):
     write_webp(png_path, webp_path)
     print(f"  ✓ {item['id']} -> PNG & WebP")
 
+# ---------------------------------------------------------------------------
+# 4. Artifacts (emblem plates only; most artifact images are illustrations)
+# ---------------------------------------------------------------------------
+ARTIFACTS = [
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "golden-rod-of-manco-capac", "name": "THE GOLDEN ROD", "subtitle": "TEST OF THE GROUND AT HUANACAURI", "accent": (225, 175, 55), "bg": (22, 16, 12), "motif": "emblem_rod"},
+    {"id": "punchao", "name": "PUNCHAO", "subtitle": "GOLDEN IMAGE OF THE DAY", "accent": (225, 170, 50), "bg": (24, 16, 10), "motif": "emblem_sun_face"},
+    {"id": "sling-of-illapa", "name": "SLING OF ILLAPA", "subtitle": "THE CRACK OF THUNDER", "accent": (140, 165, 215), "bg": (14, 16, 26), "motif": "emblem_sling"},
+]
+
+def draw_artifact_motif(draw, cx, cy, r, motif, accent, gold):
+    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
+    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+    draw_emblem(draw, cx, cy, motif, accent, gold)
+
 if __name__ == "__main__":
-    print("Generating Creature Plates...")
-    for c in CREATURES:
-        generate_square_plate(c, CREATURES_DIR, "BESTIARY ARCHIVE", draw_creature_motif)
-
-    print("Generating Location Plates...")
-    for loc in LOCATIONS:
-        generate_square_plate(loc, LOCATIONS_DIR, "SACRED GEOGRAPHY", draw_location_motif)
-
-    print("Generating Story Plates...")
-    for s in STORIES:
-        generate_square_plate(s, STORIES_DIR, "MYTHIC TRADITION", draw_story_motif)
-
-    print("Creatures, Locations, and Stories completed!")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--only",
+        help="Comma-separated ids to (re)generate; default is every plate.",
+    )
+    args = parser.parse_args()
+    wanted = set(args.only.split(",")) if args.only else None
+    groups = [
+        ("Creature", CREATURES, CREATURES_DIR, "BESTIARY ARCHIVE", draw_creature_motif),
+        ("Location", LOCATIONS, LOCATIONS_DIR, "SACRED GEOGRAPHY", draw_location_motif),
+        ("Story", STORIES, STORIES_DIR, "MYTHIC TRADITION", draw_story_motif),
+        ("Artifact", ARTIFACTS, ARTIFACTS_DIR, "RELIQUARY", draw_artifact_motif),
+    ]
+    if wanted:
+        known = {item["id"] for _, items, *_ in groups for item in items}
+        missing = wanted - known
+        if missing:
+            raise SystemExit(f"Unknown ids: {', '.join(sorted(missing))}")
+    for label, items, out_dir, tag, motif_fn in groups:
+        selected = [i for i in items if wanted is None or i["id"] in wanted]
+        if not selected:
+            continue
+        print(f"Generating {len(selected)} {label} Plates...")
+        for item in selected:
+            generate_square_plate(item, out_dir, tag, motif_fn)
+    print("Creatures, Locations, Stories, and Artifacts completed!")

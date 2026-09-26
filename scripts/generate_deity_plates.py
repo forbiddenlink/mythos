@@ -10,6 +10,7 @@ import math
 import argparse
 from PIL import Image, ImageDraw
 
+from _plate_emblems import draw_emblem
 from _repo_paths import WEB_PUBLIC, serif_font, write_webp
 
 DEITIES_DIR = os.path.join(WEB_PUBLIC, "deities")
@@ -90,6 +91,20 @@ DEITIES = [
     {"id": "skadi", "name": "SKAÐI", "tag": "NORSE GODDESS", "domain": "MOUNTAINS · WINTER · THE HUNT", "accent": (160, 195, 225), "bg": (12, 18, 26), "motif": "frost_chasm"},
     {"id": "longwang", "name": "LONGWANG", "tag": "CHINESE DRAGON KINGS", "domain": "SEAS · RIVERS · BRINGERS OF RAIN", "accent": (80, 170, 140), "bg": (10, 20, 18), "motif": "fog_river"},
     {"id": "ninhursag", "name": "NINHURSAG", "tag": "MESOPOTAMIAN GODDESS", "domain": "LADY OF THE MOUNTAIN · MOTHER OF BIRTH", "accent": (175, 150, 95), "bg": (20, 18, 14), "motif": "earth_vines"},
+
+    # INCA & ANDEAN (2026-09)
+    {"id": "viracocha", "name": "VIRACOCHA", "tag": "INCA CREATOR", "domain": "MAKER OF SUN, MOON & THE NATIONS", "accent": (215, 165, 70), "bg": (22, 16, 12), "motif": "emblem_lake_island"},
+    {"id": "inti", "name": "INTI", "tag": "INCA GOD", "domain": "THE SUN · ANCESTOR OF THE INCA KINGS", "accent": (225, 170, 50), "bg": (24, 16, 10), "motif": "emblem_sun_face"},
+    {"id": "mama-killa", "name": "MAMA KILLA", "tag": "INCA GODDESS", "domain": "MOTHER MOON · THE MONTHS · THE QUEEN", "accent": (185, 195, 215), "bg": (14, 16, 24), "motif": "emblem_moon"},
+    {"id": "pachamama", "name": "PACHAMAMA", "tag": "ANDEAN GODDESS", "domain": "EARTH MOTHER · FIELDS · OFFERINGS", "accent": (150, 170, 80), "bg": (18, 18, 12), "motif": "emblem_earth"},
+    {"id": "mama-qucha", "name": "MAMA QUCHA", "tag": "ANDEAN GODDESS", "domain": "MOTHER SEA · LAKES & WATERS", "accent": (80, 160, 180), "bg": (10, 18, 24), "motif": "emblem_waves"},
+    {"id": "illapa", "name": "ILLAPA", "tag": "INCA GOD", "domain": "THUNDER · LIGHTNING · RAIN & HAIL", "accent": (140, 165, 215), "bg": (14, 16, 26), "motif": "emblem_lightning"},
+    {"id": "pachacamac", "name": "PACHACAMAC", "tag": "ANDEAN ORACLE GOD", "domain": "ANIMATOR OF THE WORLD · THE COAST", "accent": (200, 140, 80), "bg": (22, 16, 12), "motif": "emblem_pyramid"},
+    {"id": "pariacaca", "name": "PARIACACA", "tag": "HUAROCHIRÍ HUACA", "domain": "SNOW MOUNTAIN · STORM · IRRIGATION", "accent": (170, 200, 225), "bg": (12, 16, 24), "motif": "emblem_eggs"},
+    {"id": "cuniraya-viracocha", "name": "CUNIRAYA", "tag": "HUAROCHIRÍ HUACA", "domain": "TRICKSTER CREATOR · TERRACES & CANALS", "accent": (195, 150, 90), "bg": (20, 16, 12), "motif": "emblem_bird"},
+    {"id": "huallallo-carhuincho", "name": "HUALLALLO", "tag": "HUAROCHIRÍ HUACA", "domain": "FIRE · LORD OF THE OLD HOT WORLD", "accent": (215, 95, 55), "bg": (24, 12, 10), "motif": "emblem_flame"},
+    {"id": "manco-capac", "name": "MANCO CÁPAC", "tag": "INCA ANCESTOR", "domain": "FIRST INCA · FOUNDER OF CUSCO", "accent": (220, 175, 60), "bg": (22, 16, 12), "motif": "emblem_rod"},
+    {"id": "mama-ocllo", "name": "MAMA OCLLO", "tag": "INCA ANCESTRESS", "domain": "FOUNDING MOTHER · SPINNING & WEAVING", "accent": (190, 120, 150), "bg": (22, 14, 18), "motif": "emblem_flower"},
 ]
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
@@ -108,6 +123,9 @@ def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
             (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
             (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
         ], fill=dark, width=1)
+
+    if draw_emblem(draw, cx, cy, motif, accent, gold):
+        return
 
     # Motifs tailored to each of the 43 deities
     if motif in ("sickle_hourglass", "harvest_scythe"):

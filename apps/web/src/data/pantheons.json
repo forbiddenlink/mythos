@@ -559,5 +559,62 @@
     ],
     "imageUrl": "/pantheons/tlingit-haida.jpg",
     "figuresLabel": "Ancestral Spirits & Transformers"
+  },
+  {
+    "id": "inca-pantheon",
+    "name": "Inca and Andean Tradition",
+    "slug": "inca",
+    "culture": "Inca (Tawantinsuyu) and the wider Quechua- and Aymara-speaking Andean world",
+    "region": "Andes (western South America)",
+    "timePeriodStart": 1200,
+    "timePeriodEnd": 1572,
+    "description": "The religion of the Inca state and the older Andean shrines it absorbed: Viracocha the maker rising from Lake Titicaca, Inti the Sun as ancestor of the Inca kings, and the mountain and coastal huacas of the Huarochirí Manuscript, all known through writers of the colonial era.",
+    "detailedHistory": "## Known only through the colonial filter\n\nThe Incas kept records on knotted cords (khipu) read by trained specialists, but they left no written narratives of their gods. Every story on this site was written down after the Spanish invasion of 1532, by people with their own purposes. Juan de Betanzos (1551) wrote in Cusco with the help of his wife's royal Inca kin. Cristóbal de Molina (c. 1575) questioned elders who had served in the state cult. Pedro Sarmiento de Gamboa (1572) interviewed Inca lineage heads for a viceroy who wanted the Incas shown as tyrants. The Inca Garcilaso de la Vega (1609), son of a Spanish captain and an Inca noblewoman, wrote from Spain decades later and presented Inca religion as a noble monotheism that anticipated Christianity. Felipe Guaman Poma de Ayala (c. 1615), an Andean noble, drew and wrote a long protest to the Spanish king. And much of what survives about local gods comes from the campaigns to destroy them: the Quechua Huarochirí Manuscript (c. 1598-1608) was compiled in the circle of the extirpator Francisco de Ávila. Each of these sources is used here for what it can show, with its point of view stated.\n\n## Two layers: the state cult and the huacas\n\nAt the top of the Inca state cult stood the Creator (called Viracocha, Con Tici Viracocha, or Pachayachachic), the Sun (Inti), the Thunder (Illapa), and the Moon (Mama Killa), whose images and chambers were housed in the Coricancha, the gold-sheathed temple at the center of Cusco. Beneath and alongside them were countless huacas: mountains, springs, stones, ancestral mummies, and regional gods with their own priests, oracles, and stories, such as Pachacamac on the coast and Pariacaca in the highlands of Huarochirí. The Inca state generally absorbed these rather than abolishing them, adding a Temple of the Sun beside Pachacamac's ancient shrine, for example, and keeping the images of conquered peoples' huacas in Cusco. Around Cusco itself, the Jesuit Bernabé Cobo later listed more than three hundred shrines arranged along imaginary lines (ceques) radiating from the Coricancha.\n\n## Origins, ancestors, and the Sun\n\nThe Inca kings claimed descent from the Sun through the founding ancestor Manco Cápac. Chroniclers preserve two main versions of that origin: in one, told by Garcilaso, the Sun sends his son and daughter to Lake Titicaca to civilize humanity; in the other, told by Betanzos and Sarmiento, four brothers and four sisters emerge from a cave at Pacaritambo and travel to the valley of Cusco. Andean peoples more generally traced each lineage to a pacarina, a place of emergence such as a lake, spring, or cave.\n\n## After 1572, and today\n\nThe Inca state ended with the fall of Vilcabamba and the execution of Túpac Amaru in 1572, when the Sun image called the Punchao was also captured. Andean religion did not end with it. Quechua and Aymara communities continue to make offerings to Pachamama and to the mountain lords (apus), often alongside Catholic practice, and the Inti Raymi solstice pageant has been re-staged at Sacsayhuamán in Cusco since 1944 as a civic festival reconstructed largely from Garcilaso's description.",
+    "citationSources": [
+      {
+        "title": "Suma y narración de los Incas",
+        "author": "Juan de Betanzos",
+        "date": "1551",
+        "type": "primary",
+        "sourceId": "betanzos-suma-y-narracion"
+      },
+      {
+        "title": "Relación de las fábulas y ritos de los Incas",
+        "author": "Cristóbal de Molina",
+        "date": "c. 1575",
+        "type": "primary",
+        "sourceId": "molina-fables-and-rites"
+      },
+      {
+        "title": "Comentarios Reales de los Incas",
+        "author": "Inca Garcilaso de la Vega",
+        "date": "1609",
+        "type": "primary",
+        "sourceId": "garcilaso-royal-commentaries"
+      },
+      {
+        "title": "The Huarochirí Manuscript",
+        "author": "Anonymous; trans. Frank Salomon and George L. Urioste",
+        "date": "c. 1598-1608; trans. 1991",
+        "type": "primary",
+        "sourceId": "huarochiri-manuscript"
+      },
+      {
+        "title": "El primer nueva corónica y buen gobierno",
+        "author": "Felipe Guaman Poma de Ayala",
+        "date": "c. 1615",
+        "type": "primary",
+        "sourceId": "guaman-poma-nueva-coronica"
+      },
+      {
+        "title": "Inca Religion and Customs (Historia del Nuevo Mundo, Books 13-14)",
+        "author": "Bernabé Cobo; trans. Roland Hamilton",
+        "date": "1653; trans. 1990",
+        "type": "primary",
+        "sourceId": "cobo-inca-religion"
+      }
+    ],
+    "imageUrl": "/pantheons/inca.jpg",
+    "figuresLabel": "Deities, Huacas & Ancestors"
   }
 ]

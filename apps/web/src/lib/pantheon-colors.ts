@@ -20,6 +20,7 @@ export const PANTHEON_COLORS: Record<string, string> = {
   "slavic-pantheon": "#4a5d3a", // oak-forest olive green with a rust undertone (Perun's oak, iron)
   "haudenosaunee-pantheon": "#1f5c47", // white pine spruce-green (the Tree of Peace)
   "tlingit-haida-pantheon": "#a8442c", // formline ochre-red (Northwest Coast red paint, cedar bark)
+  "inca-pantheon": "#a3294f", // cochineal carmine (the red dye of Inca tapestry cloth, qompi)
 };
 
 export function getPantheonColor(pantheonId: string): string {
@@ -117,6 +118,11 @@ const PANTHEON_ACCENTS: Record<string, PantheonAccent> = {
     primary: "#b54a32",
     secondary: "#326b66",
     label: "Tlingit & Haida",
+  },
+  "inca-pantheon": {
+    primary: "#b83a5c",
+    secondary: "#8a2340",
+    label: "Inca & Andean",
   },
 };
 

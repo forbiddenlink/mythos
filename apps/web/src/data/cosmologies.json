@@ -1309,5 +1309,87 @@
         ]
       }
     ]
+  },
+  {
+    "pantheonId": "inca-pantheon",
+    "title": "Hanan Pacha, Kay Pacha, Uku Pacha: The Andean Worlds",
+    "summary": "An upper world of Sun, Moon, Thunder, and the heavenly river; this world of mountains, fields, and the sea; and an inner world from which ancestors emerged and serpents rise. Water circulates between them.",
+    "axis": {
+      "name": "Mayu, the River of the Sky",
+      "kind": "river",
+      "note": "The Milky Way, called Mayu ('river'), along which the llama Yacana walks to drink from the sea and from which the Thunder draws rain (Huarochirí Manuscript ch. 29; Cobo). It links sky, earth, and ocean in a single circuit of water rather than standing as a vertical tree or pillar."
+    },
+    "variantNote": "The neat three-level scheme of hanan pacha (upper world), kay pacha (this world), and uku pacha (inner or lower world) is well known today, but these terms are prominent in the Quechua catechisms of the 1580s, which used hanan pacha for the Christian heaven and ucu pacha for hell. Scholars debate how far the tripartite model reflects pre-conquest thought; the older sources show a world organized just as much by water, mountains, and the places of emergence (pacarinas) from which each people came. This diagram uses the three levels as a convenient frame, with that caution.",
+    "sources": [
+      "Huarochirí Manuscript, c. 1598-1608 (trans. Frank Salomon and George L. Urioste, 1991), chs. 1-6 and 29",
+      "Juan de Betanzos, Suma y narración de los Incas, 1551, Part 1, chs. 1-2",
+      "Bernabé Cobo, Historia del Nuevo Mundo, 1653, Books 13-14"
+    ],
+    "tiers": [
+      {
+        "id": "hanan-pacha",
+        "label": "Hanan Pacha: The Upper World",
+        "band": "sky",
+        "realms": [
+          {
+            "name": "Hanan Pacha",
+            "originalName": "hanan pacha",
+            "description": "The world above: the Sun, the Moon, the Thunder with his sling, the stars and dark-cloud animals, and the river of the Milky Way.",
+            "deities": ["inti", "mama-killa", "illapa", "viracocha"],
+            "creatures": ["yacana", "urcuchillay"],
+            "locationId": "isla-del-sol"
+          }
+        ]
+      },
+      {
+        "id": "kay-pacha",
+        "label": "Kay Pacha: This World",
+        "band": "earth",
+        "realms": [
+          {
+            "name": "Kay Pacha",
+            "originalName": "kay pacha",
+            "description": "The world of the living: the earth mother, the mountain lords and huacas, the fields and herds, and the city of Cusco at the center of the four quarters.",
+            "deities": [
+              "pachamama",
+              "pariacaca",
+              "pachacamac",
+              "cuniraya-viracocha",
+              "manco-capac",
+              "mama-ocllo"
+            ],
+            "locationId": "coricancha"
+          }
+        ]
+      },
+      {
+        "id": "mama-qucha",
+        "label": "Mama Qucha: The Sea",
+        "band": "water",
+        "realms": [
+          {
+            "name": "The Sea and the Lakes",
+            "originalName": "mama qucha",
+            "description": "The mother of waters at the edge of the world, into which Cavillaca vanished at Pachacamac and from which the sky-llama drinks at midnight.",
+            "deities": ["mama-qucha"],
+            "locationId": "pachacamac-sanctuary"
+          }
+        ]
+      },
+      {
+        "id": "uku-pacha",
+        "label": "Uku Pacha: The Inner World",
+        "band": "under",
+        "realms": [
+          {
+            "name": "Uku Pacha",
+            "originalName": "uku pacha",
+            "description": "The world within: the dark places beneath the earth through which Viracocha sent the peoples to emerge at their pacarinas, the realm of seeds and the dead, and the home of serpents such as the amaru.",
+            "deities": ["huallallo-carhuincho"],
+            "creatures": ["amaru"]
+          }
+        ]
+      }
+    ]
   }
 ]

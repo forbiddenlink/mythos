@@ -41,10 +41,10 @@ export const MYTHIC_ERAS: MythicEra[] = [
   {
     id: "precolumbian",
     label: "Pre-Columbian Americas",
-    blurb: "Mesoamerica through contact",
+    blurb: "Mesoamerica and the Andes through contact",
     start: -2000,
-    end: 1521,
-    pantheonIds: ["aztec-pantheon", "mesoamerican-pantheon"],
+    end: 1572,
+    pantheonIds: ["aztec-pantheon", "mesoamerican-pantheon", "inca-pantheon"],
   },
   {
     id: "asia-pacific",

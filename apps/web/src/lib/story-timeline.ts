@@ -399,6 +399,12 @@ export const PANTHEON_COLORS: Record<
     text: "text-destructive",
     dot: "bg-destructive",
   },
+  "inca-pantheon": {
+    bg: "bg-gold/15",
+    border: "border-gold/35",
+    text: "text-gold",
+    dot: "bg-gold",
+  },
 };
 
 /**

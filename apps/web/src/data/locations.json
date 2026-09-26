@@ -2572,5 +2572,143 @@
       }
     ],
     "imageUrl": "/locations/haida-gwaii.png"
+  },
+  {
+    "id": "isla-del-sol",
+    "name": "Island of the Sun (Lake Titicaca)",
+    "slug": "isla-del-sol",
+    "locationType": "island",
+    "pantheonId": "inca-pantheon",
+    "description": "The island in the Bolivian part of Lake Titicaca honored in Inca times as the place where the Sun first rose, site of a major Inca pilgrimage sanctuary centered on a sacred rock.",
+    "latitude": -16.0206,
+    "longitude": -69.1764,
+    "geography": "physical",
+    "detailedBio": "## Where the Sun rose\n\nThe Island of the Sun lies in the southern part of Lake Titicaca, today in Bolivia. Colonial writers including Bernabé Cobo and the Augustinian Alonso Ramos Gavilán (1621) report that Andeans held that the Sun had first risen from a great rock on the island after a time of darkness, and the Inca state turned the place into one of its most important pilgrimage centers, alongside the neighboring Island of the Moon (Coati).\n\n## The Inca sanctuary\n\nPilgrims passed through checkpoints on the mainland and the island before approaching the sacred rock, where offerings were made; Inca buildings still stand on the island, including the structures known as Pilkokaina and the Chincana. Archaeological survey by Brian Bauer and Charles Stanish has shown that the island had been a ritual center well before the Incas, who expanded and reorganized it.\n\n## In the myths\n\nThe island connects the two great Inca origin traditions: Betanzos's Viracocha makes the sun rise in the Titicaca basin, and Garcilaso's Sun places his children Manco Cápac and Mama Ocllo in the lake.",
+    "primarySources": [
+      {
+        "text": "They say that after a long darkness the Sun rose from a great rock on the island of Titicaca, and for this reason the Incas made it one of their principal shrines.",
+        "source": "Bernabé Cobo, Historia del Nuevo Mundo, Book 13 (paraphrase)",
+        "sourceId": "cobo-inca-religion",
+        "locator": "Book 13",
+        "date": "written 1653"
+      }
+    ],
+    "imageUrl": "/locations/isla-del-sol.png"
+  },
+  {
+    "id": "tiwanaku",
+    "name": "Tiwanaku",
+    "slug": "tiwanaku",
+    "locationType": "city",
+    "pantheonId": "inca-pantheon",
+    "description": "The ruined ceremonial city south of Lake Titicaca, capital of an Andean civilization of about 500-1000 CE, which the Incas claimed as the place where Viracocha made the sun, moon, and peoples.",
+    "latitude": -16.5547,
+    "longitude": -68.6733,
+    "geography": "physical",
+    "detailedBio": "## An older city\n\nTiwanaku, in the Bolivian altiplano near the southern shore of Lake Titicaca, was the center of a powerful state that flourished roughly between 500 and 1000 CE, centuries before the Incas. Its monuments include the stepped platform of Akapana, the sunken court, the Kalasasaya enclosure, and the monolithic Gateway of the Sun with its carved staff-bearing figure.\n\n## Claimed by the Incas\n\nBy the time the Incas incorporated the Titicaca basin in the fifteenth century, Tiwanaku was already in ruins. The Incas made it part of their own sacred history: in Betanzos's and Molina's accounts, it is at Tiwanaku that Viracocha makes the sun, moon, and stars and shapes the peoples in stone. Pedro Cieza de León, who visited in the 1540s, described the great stones and statues and recorded local claims that they had been made in a single night.\n\n## Today\n\nTiwanaku is a UNESCO World Heritage Site and a focus of Aymara cultural identity; Aymara New Year celebrations at the June solstice have been held there in recent decades.",
+    "primarySources": [
+      {
+        "text": "At Tiahuanaco the Creator made the sun, the moon, and the stars, and there he made the peoples of the land in stone and painted on each the dress it was to wear.",
+        "source": "Juan de Betanzos, Suma y narración de los Incas, Part 1, ch. 1 (paraphrase)",
+        "sourceId": "betanzos-suma-y-narracion",
+        "locator": "Part 1, ch. 1",
+        "date": "written 1551"
+      }
+    ],
+    "imageUrl": "/locations/tiwanaku.png"
+  },
+  {
+    "id": "coricancha",
+    "name": "Coricancha",
+    "slug": "coricancha",
+    "locationType": "temple",
+    "pantheonId": "inca-pantheon",
+    "description": "The 'golden enclosure', chief temple of the Sun in Cusco, where the images of the Creator, Sun, Moon, Thunder, and other powers were kept; its Inca stonework survives beneath the church and convent of Santo Domingo.",
+    "latitude": -13.52,
+    "longitude": -71.9756,
+    "geography": "physical",
+    "detailedBio": "## The golden enclosure\n\nThe Coricancha (*quri kancha*, 'golden enclosure') was the religious center of the Inca empire. Garcilaso de la Vega describes a main temple of the Sun with walls covered in gold plates, a great golden image of the Sun, and surrounding chambers dedicated to the Moon (lined with silver), to Venus and the stars, to thunder and lightning, and to the rainbow. The mummified bodies of past kings sat in state before the Sun's image. Bernabé Cobo later described the ceque system: lines of shrines radiating out from the Coricancha across the Cusco valley.\n\n## Stripped and rebuilt\n\nIn 1533 Spanish agents sent to collect Atahualpa's ransom pried the gold plates from its walls. The temple was then given to the Dominican order, whose church and convent of Santo Domingo were built on top of it. Earthquakes in 1650 and 1950 damaged the colonial buildings and exposed more of the fine Inca masonry beneath, including the famous curved wall on the west side.\n\n## Today\n\nThe site combines a working Catholic convent with a museum of the Inca structures, and is a focal point of Cusco's annual Inti Raymi pageant, which begins there before moving to Sacsayhuamán.",
+    "primarySources": [
+      {
+        "text": "The walls of the temple of the Sun were covered from the roof to the ground with plates of gold, and around a cloister stood chambers for the Moon, the stars, the thunder and lightning, and the rainbow.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      }
+    ],
+    "imageUrl": "/locations/coricancha.png"
+  },
+  {
+    "id": "pachacamac-sanctuary",
+    "name": "Sanctuary of Pachacamac",
+    "slug": "pachacamac-sanctuary",
+    "locationType": "sacred_site",
+    "pantheonId": "inca-pantheon",
+    "description": "The great oracle sanctuary near the mouth of the Lurín River south of Lima, center of Pachacamac's cult for over a thousand years, where the Incas added a Temple of the Sun and Hernando Pizarro broke the idol in 1533.",
+    "latitude": -12.2567,
+    "longitude": -76.9003,
+    "geography": "physical",
+    "detailedBio": "## A millennium of pilgrims\n\nThe adobe pyramids and plazas of Pachacamac spread over the desert coast just south of Lima, overlooking the Pacific near the mouth of the Lurín River. The site was a religious center from roughly the early centuries CE, grew in importance under the Wari influence of the later first millennium, and under the Ychsma polity became the seat of an oracle consulted from far along the coast and highlands.\n\n## Inca and Spanish\n\nThe Incas, taking the coast in the fifteenth century, built a Temple of the Sun on the hill above the older Painted Temple and a house of chosen women (acllahuasi), while continuing to consult Pachacamac's oracle. In January 1533 Hernando Pizarro arrived seeking gold, forced his way into the sanctuary, and had the idol destroyed; his letter and the account of Miguel de Estete describe the episode. A carved wooden idol found at the Painted Temple in 1938 is displayed in the site museum.\n\n## In the stories\n\nIn the Huarochirí stories, the proud huaca Cavillaca walks into the sea at Pachacamac with her child and becomes stone, and Cuniraya meets Pachacamac's daughters on the beach there.",
+    "primarySources": [
+      {
+        "text": "She disappeared, and came to the sea coast of Pachacamac, where she entered the sea with her child, and was turned into a rock. They say that the two rocks may still be seen, which are mother and child.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. II (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. II",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "imageUrl": "/locations/pachacamac-sanctuary.png"
+  },
+  {
+    "id": "huanacauri",
+    "name": "Huanacauri",
+    "slug": "huanacauri",
+    "locationType": "mountain",
+    "pantheonId": "inca-pantheon",
+    "description": "The sacred hill southeast of Cusco where, in Garcilaso's account, the Sun's golden rod sank into the earth, and where in the Pacaritambo tradition Ayar Uchu turned to stone; one of the holiest huacas of the Inca capital.",
+    "latitude": -13.5944,
+    "longitude": -71.9056,
+    "geography": "physical",
+    "detailedBio": "## The founding hill\n\nHuanacauri (Wanakawri) is a mountain south of Cusco visible from the city. Both major origin traditions of the Inca dynasty pass through it: in Garcilaso de la Vega's version, the golden rod given by the Sun to Manco Cápac and Mama Ocllo sinks into the ground here, showing them where to found Cusco; in the Pacaritambo version told by Betanzos and Sarmiento, Ayar Uchu, one of Manco's brothers, turns to stone on its summit and becomes a huaca, asking his siblings to honor him.\n\n## A huaca of the state\n\nHuanacauri was among the most important shrines in the Cusco region. Cristóbal de Molina describes how young Inca nobles, in the initiation rites (huarachicoy) held during the month of Capac Raymi, made pilgrimages to Huanacauri with offerings before receiving the breechcloths and ear ornaments of adulthood. The stone of Ayar Uchu was also carried into war as a guarantor of victory, according to colonial reports.\n\n## Today\n\nThe summit, with Inca remains, is reached by hikers from the Cusco valley, and remains part of the sacred landscape of local communities.",
+    "primarySources": [
+      {
+        "text": "On the hill called Huanacauri the golden rod sank into the ground so that they saw it no more.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      },
+      {
+        "text": "In the month of Capac Raymi the young men who were to be made knights went with offerings to the huaca of Huanacauri.",
+        "source": "Cristóbal de Molina, Relación de las fábulas y ritos de los Incas (paraphrase)",
+        "sourceId": "molina-fables-and-rites",
+        "date": "written c. 1575"
+      }
+    ],
+    "imageUrl": "/locations/huanacauri.png"
+  },
+  {
+    "id": "nevado-pariacaca",
+    "name": "Pariacaca Mountain",
+    "slug": "nevado-pariacaca",
+    "locationType": "mountain",
+    "pantheonId": "inca-pantheon",
+    "description": "The glaciated peak on the border of Peru's Lima and Junín regions that was, and was the home of, the god Pariacaca of the Huarochirí Manuscript, crossed by an Inca road from Jauja to the coast.",
+    "latitude": -11.9917,
+    "longitude": -75.9917,
+    "geography": "physical",
+    "detailedBio": "## The mountain as god\n\nIn Andean religion a great mountain can be a god in its own right, and Pariacaca is the clearest case in the colonial record. The Huarochirí Manuscript treats the snow peak and the god Pariacaca as one: born from five eggs on the nearby mountain Condorcoto, he goes up to the heights, defeats Huallallo Carhuincho, and establishes his cult, with the peoples of the province making pilgrimage to him.\n\n## Snow and water\n\nThe peak rises well above 5,000 meters on the continental divide in the Cordillera Central. Its snowmelt feeds the rivers and valleys of Huarochirí and Yauyos below, so that the mountain's role as the giver of irrigation water in the stories follows the landscape closely.\n\n## The road over the pass\n\nAn Inca road connecting the highland center of Jauja (Xauxa) with Pachacamac on the coast crossed the Pariacaca range; stretches of this route, with stone stairways, form part of the Qhapaq Ñan (Andean Road System) World Heritage listing. Spanish travelers of 1533 described the difficult crossing.",
+    "primarySources": [
+      {
+        "text": "Pariacaca ascended to the heights and there ordained how he was to be worshipped, and all the people of the province came to him with offerings.",
+        "source": "Huarochirí Manuscript, chs. 8-9 (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "chs. 8-9",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "imageUrl": "/locations/nevado-pariacaca.png"
   }
 ]

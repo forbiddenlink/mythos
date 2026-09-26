@@ -3766,5 +3766,261 @@
       }
     ],
     "imageUrl": "/stories/abduction-of-persephone.png"
+  },
+  {
+    "id": "viracocha-creation-at-titicaca",
+    "pantheonId": "inca-pantheon",
+    "title": "Viracocha Makes the World at Titicaca",
+    "slug": "viracocha-creation-at-titicaca",
+    "summary": "Rising from Lake Titicaca into a world of darkness, the Creator turns a first, disobedient people to stone, makes the sun, moon, and stars at Tiwanaku, shapes the nations in stone and sends them underground to emerge at their own places, then walks away across the western sea.",
+    "fullNarrative": "## A world without light\n\nIn the account Juan de Betanzos wrote down in Cusco in 1551, the world began in darkness. Out of a lake in the Collao, the great basin of Lake Titicaca, came a lord called Con Tici Viracocha. He made a sky and an earth and a first people who lived in that darkness. These people did something that angered him (Betanzos does not say what), and Viracocha turned them and their lord into stone.\n\n## Sun, moon, and stars at Tiwanaku\n\nThen Viracocha came out of the lake a second time and went to Tiwanaku, a short way to the south. There he made the sun and the day, the moon and the stars, and commanded the sun to move along its course. The Inca sanctuary on the Island of the Sun in the lake was later honored as the place where the sun first rose, a tradition recorded by Cobo and other writers.\n\n## The nations shaped in stone\n\nAt Tiwanaku Viracocha also shaped the peoples who would fill the land. He carved them in stone, groups of men and women, and painted on each group the clothing it would wear; he gave each nation its language, its songs, and the seeds it would plant. He then sent them down under the earth, to travel underground and emerge in the places he had appointed for them: from springs, caves, hills, trees, and lakes. These emergence places, the *pacarinas*, became the shrines of each people's origin.\n\nCristóbal de Molina, who questioned Cusco elders in the 1570s, tells the same episode: the Creator made the peoples at Tiwanaku and painted their clothes on them, and this is why each people honored the place where it emerged.\n\n## The journey of the Creator\n\nViracocha sent two helpers to call the peoples out of the earth, one along the coast and one along the edge of the eastern forests, while he himself went northwest through the highlands toward Cusco. At Cacha the people did not recognize him and came at him with weapons. He called down fire from the sky, which set a hill ablaze until the stones burned; when the people threw down their arms and begged for mercy, he put the fire out with his staff. The Incas later built a great temple there, the building whose massive central wall still stands at Raqchi.\n\nPassing through Urcos and Cusco, Viracocha continued north to the coast at Puerto Viejo, near modern Manta in Ecuador. There he met his helpers again, and together they walked out across the sea and were seen no more.\n\n## What the story does and does not say\n\nThis is a myth of the Inca state as told by Cusco informants two decades after the conquest. Its image of a tall man in a long robe who walks across the sea invited Spanish readers to see an apostle or saint, and the Andean habit of calling the Spaniards *viracochas* was later misread as proof that the invaders were taken for returning gods. Neither reading is in the story itself, which concerns how the Creator gave the peoples of the Andes their places, languages, and dress.",
+    "keyExcerpts": "Con Tici Viracocha rises from Lake Titicaca, petrifies a first people, makes the sun, moon, and stars at Tiwanaku, paints the nations in stone and sends them underground to emerge at their pacarinas, calls down fire at Cacha, and walks away over the sea near Manta.",
+    "category": "creation",
+    "moralThemes": [
+      "the ordering of peoples and places",
+      "origins as belonging to the land",
+      "the power and departure of the maker"
+    ],
+    "culturalSignificance": "The principal creation myth of the Inca state, tying the origin of all Andean peoples to Lake Titicaca and Tiwanaku, a site already ancient and ruined when the Incas claimed it.",
+    "citationSources": [
+      {
+        "title": "Suma y narración de los Incas, Part 1, chs. 1-2",
+        "sourceId": "betanzos-suma-y-narracion",
+        "author": "Juan de Betanzos",
+        "date": "1551",
+        "type": "primary"
+      },
+      {
+        "title": "Relación de las fábulas y ritos de los Incas",
+        "sourceId": "molina-fables-and-rites",
+        "author": "Cristóbal de Molina",
+        "date": "c. 1575",
+        "type": "primary"
+      },
+      {
+        "title": "Historia de los Incas",
+        "sourceId": "sarmiento-history-of-the-incas",
+        "author": "Pedro Sarmiento de Gamboa",
+        "date": "1572",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Pedro Sarmiento de Gamboa, Historia de los Incas",
+        "sourceId": "sarmiento-history-of-the-incas",
+        "date": "1572",
+        "difference": "The Creator's first creation is a race of giants, destroyed not by petrification alone but by a flood that covered the world, before the second creation at Tiwanaku.",
+        "note": "The flood element may reflect genuine Andean tradition, but it also invited comparison with Noah and has been scrutinized for Christian influence."
+      },
+      {
+        "source": "Inca Garcilaso de la Vega, Comentarios Reales",
+        "sourceId": "garcilaso-royal-commentaries",
+        "date": "1609",
+        "difference": "Garcilaso gives little weight to Viracocha as creator, presenting the unseen Pachacamac as the supreme god and the Sun's children as the civilizers of humanity.",
+        "note": "Garcilaso's apologetic aim, to present Inca religion as a proto-monotheism, shapes his selection."
+      }
+    ],
+    "featuredDeities": ["viracocha", "inti", "mama-killa"],
+    "featuredLocations": ["tiwanaku", "isla-del-sol"],
+    "relatedStories": ["children-of-the-sun"],
+    "imageUrl": "/stories/viracocha-creation-at-titicaca.png"
+  },
+  {
+    "id": "children-of-the-sun",
+    "pantheonId": "inca-pantheon",
+    "title": "Children of the Sun: Manco Cápac and Mama Ocllo",
+    "slug": "children-of-the-sun",
+    "summary": "The Sun sends his son and daughter from Lake Titicaca with a golden rod to find the place where it will sink into the earth; it vanishes at Huanacauri, and there they found Cusco. A second tradition tells instead of four brothers and four sisters emerging from a cave at Pacaritambo.",
+    "fullNarrative": "## Garcilaso's version: the golden rod\n\nThe Inca Garcilaso de la Vega, writing in Spain in 1609, says he heard this account as a boy in Cusco from an elderly Inca relative of his mother. In the beginning, people lived like wild animals, without farming, houses, or clothing. Our father the Sun, taking pity on them, sent a son and a daughter of his down to earth, placing them in Lake Titicaca. He gave them a rod of gold, half a yard long and two fingers thick, and told them to travel wherever they wished, and at every place they stopped to eat or sleep to try to push the rod into the ground. Where it sank in at a single thrust, there they were to stay and found their court.\n\nThe pair traveled north from the lake. At every resting place the rod refused the ground, until they came to the hill of Huanacauri above the valley of Cusco. There the rod sank into the earth and disappeared. Manco Cápac said to his sister-wife that this was the place their father meant them to settle. They separated to gather the people: Manco to the north of the valley and Mama Ocllo to the south. The people, amazed at their clothing and ornaments and trusting their words, followed them, and Cusco was founded. Manco taught the men to farm and to bring water in channels; Mama Ocllo taught the women to spin, weave, and make clothing.\n\n## The Pacaritambo version: brothers from a cave\n\nJuan de Betanzos (1551) and Pedro Sarmiento de Gamboa (1572), drawing on other Inca informants, tell a different story. At Pacaritambo, south of Cusco, four brothers and four sisters emerged from the central window of a cave called Tambo Toco: Ayar Manco, Ayar Cachi, Ayar Uchu, and Ayar Auca, with Mama Ocllo, Mama Huaco, and two other sisters. They set out with the people of that place to find good land.\n\nAyar Cachi was so strong that with his sling he could split hills and raise ravines, and his siblings feared him. They sent him back to the cave to fetch sacred objects they claimed to have left behind, and when he went in, their companion sealed the entrance with stone, trapping him forever. At Huanacauri another brother, Ayar Uchu, turned to stone and became the huaca of that hill, charging his siblings to honor him. A third, Ayar Auca, became a stone marking possession of the site of Cusco. Manco, the survivor, founded the city with his sisters, and Mama Ocllo bore his son Sinchi Roca, the next ruler.\n\n## Two stories, two purposes\n\nThe two versions are not simply right and wrong. The cave story ties the dynasty to a specific place of emergence, the *pacarina* that every Andean lineage had, and gives Huanacauri its status as a huaca. Garcilaso's story ties the dynasty directly to the Sun and presents the Incas as bringers of civilization, which suited his argument that the Incas prepared the Andes for Christianity. Sarmiento, commissioned by a viceroy who wanted to deny the Incas' legitimacy, lingers on episodes of violence against the valley's earlier people.",
+    "keyExcerpts": "The Sun gives his children a golden rod that sinks into the ground at Huanacauri; they found Cusco and teach farming and weaving. In the other version, the Ayar siblings leave the cave of Tambo Toco, Ayar Cachi is sealed back inside, Ayar Uchu becomes stone on Huanacauri, and Manco founds the city.",
+    "category": "origin",
+    "moralThemes": [
+      "legitimacy and descent",
+      "civilization as gift",
+      "sacrifice of kin to found a city"
+    ],
+    "culturalSignificance": "The charter myth of the Inca dynasty, explaining the royal claim to descent from the Sun and the sanctity of Huanacauri, a huaca central to the initiation of young Inca nobles.",
+    "citationSources": [
+      {
+        "title": "Comentarios Reales de los Incas, Part I, Book 1, chs. 15-16",
+        "sourceId": "garcilaso-royal-commentaries",
+        "author": "Inca Garcilaso de la Vega",
+        "date": "1609",
+        "type": "primary"
+      },
+      {
+        "title": "Suma y narración de los Incas",
+        "sourceId": "betanzos-suma-y-narracion",
+        "author": "Juan de Betanzos",
+        "date": "1551",
+        "type": "primary"
+      },
+      {
+        "title": "Historia de los Incas",
+        "sourceId": "sarmiento-history-of-the-incas",
+        "author": "Pedro Sarmiento de Gamboa",
+        "date": "1572",
+        "type": "primary"
+      }
+    ],
+    "variants": [
+      {
+        "source": "Juan de Betanzos and Pedro Sarmiento de Gamboa",
+        "sourceId": "sarmiento-history-of-the-incas",
+        "date": "1551 and 1572",
+        "difference": "The founders are eight siblings emerging from the cave of Tambo Toco at Pacaritambo rather than two children of the Sun placed in Lake Titicaca; three of Manco's brothers are lost or turned to stone on the way.",
+        "note": "Sarmiento also has a staff of gold tested against the soil of the valley, a motif shared with Garcilaso's version."
+      }
+    ],
+    "featuredDeities": ["manco-capac", "mama-ocllo", "inti"],
+    "featuredLocations": ["huanacauri", "isla-del-sol", "coricancha"],
+    "relatedStories": ["viracocha-creation-at-titicaca"],
+    "imageUrl": "/stories/children-of-the-sun.png"
+  },
+  {
+    "id": "cuniraya-and-cavillaca",
+    "pantheonId": "inca-pantheon",
+    "title": "Cuniraya and Cavillaca",
+    "slug": "cuniraya-and-cavillaca",
+    "summary": "The ragged trickster Cuniraya fathers a child on the proud huaca Cavillaca through a lúcuma fruit; when the child crawls to him before all the gods, she flees in shame to the sea at Pachacamac and turns to stone, while Cuniraya blesses and curses the animals he meets in pursuit.",
+    "fullNarrative": "## The beggar and the maiden\n\nIn the most ancient times, the Huarochirí stories say, Cuniraya Viracocha wandered the land looking like a miserably poor man in rags, and people who did not know him called him a lousy wretch. Yet he made terraces rise on the sides of ravines at a word and sent irrigation channels flowing by throwing a hollow cane.\n\nThere lived then a huaca named Cavillaca, a beautiful virgin whom all the huacas desired, but who would have none of them. One day, as she sat weaving beneath a lúcuma tree, Cuniraya turned himself into a bird, placed his seed in a ripe lúcuma, and let the fruit fall beside her. She ate it gladly, and from it she conceived. After nine months she bore a son, and nursed him for a year without knowing who his father was.\n\n## The child chooses\n\nWhen the child was a year old and crawling, Cavillaca called all the huacas together at Anchicocha, a cold place high in the mountains, to learn who had fathered him. Each came in his finest clothes, hoping to be chosen as her husband. Cuniraya sat in his rags in the lowest place, and she hardly looked at him. When no one would confess, she set the child down, saying that he would crawl to his father. The child passed by all the others and went straight to the beggar, laughing and settling at his feet.\n\nCavillaca was mortified that a creature so filthy had made her pregnant. Snatching up her child, she fled toward the sea. Cuniraya put on golden clothing that lit up the whole country and ran after her, calling on her to turn and see how handsome he was, but she would not look back.\n\n## Blessings and curses\n\nAs he ran, Cuniraya asked every animal he met whether it had seen her. The condor said she was close, and Cuniraya blessed it: it would live long, fly where it pleased, and eat whatever dead animals it found, and whoever killed it would die. A skunk said he would never catch her, and he cursed it to go out only at night and stink. The puma gave hopeful news and was granted honor, so that people would dance at festivals wearing its skin with the head still on. The fox, with bad news, was condemned to be hunted and despised; the falcon, with good news, was honored; the parrots, with bad news, were doomed to be betrayed by their own shrieks.\n\n## At Pachacamac\n\nCavillaca reached the coast at Pachacamac and walked into the sea with her child, and both became rocks, which people still pointed out in the seventeenth century. On the shore Cuniraya found the two daughters of Pachacamac guarding a serpent while their mother, Urpay Huachac, was away visiting Cavillaca in the sea. He slept with the elder; the younger escaped by turning into a dove. In anger that their mother was absent, he emptied the fish she kept in a pond into the sea, and so the ocean has been full of fish ever since. Urpay Huachac chased him and tried to trick him over a cliff while pretending to pick lice from his hair, but he saw through her and escaped, and went on wandering and playing tricks on towns and people.\n\n## Why it mattered\n\nThe priest Francisco de Ávila, who retold this story in 1608 in order to refute it, complained that people in his parishes still refused to kill condors, hunted foxes on sight, and wore puma skins at festivals exactly as Cuniraya had decreed.",
+    "keyExcerpts": "Cuniraya impregnates Cavillaca through a lúcuma fruit; the child crawls to the beggar before the assembled huacas; Cavillaca flees to Pachacamac and becomes stone; Cuniraya blesses the condor and puma, curses the skunk and fox, and releases the first fish into the sea.",
+    "category": "trickster",
+    "moralThemes": [
+      "appearances deceive",
+      "pride and shame",
+      "why animals are as they are"
+    ],
+    "culturalSignificance": "The best-known story of the Huarochirí corpus, explaining the rocks off Pachacamac, the origin of sea fish, and the ritual treatment of condors, pumas, and foxes that Ávila still observed in the early 1600s.",
+    "citationSources": [
+      {
+        "title": "The Huarochirí Manuscript, ch. 2",
+        "sourceId": "huarochiri-manuscript",
+        "author": "Anonymous; trans. Frank Salomon and George L. Urioste",
+        "date": "c. 1598-1608; trans. 1991",
+        "type": "primary"
+      },
+      {
+        "title": "Narrative of the Errors, False Gods, and Other Superstitions, ch. II",
+        "sourceId": "avila-tratado-huarochiri",
+        "author": "Francisco de Ávila; trans. Clements Markham",
+        "date": "1608; trans. 1873",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["cuniraya-viracocha", "pachacamac"],
+    "featuredLocations": ["pachacamac-sanctuary"],
+    "relatedStories": ["huatyacuri-and-the-false-god"],
+    "imageUrl": "/stories/cuniraya-and-cavillaca.png"
+  },
+  {
+    "id": "the-llama-and-the-flood",
+    "pantheonId": "inca-pantheon",
+    "title": "The Llama Who Foresaw the Flood",
+    "slug": "the-llama-and-the-flood",
+    "summary": "A llama refuses to graze and tells its astonished owner that the sea will rise in five days; the man follows it up the mountain Villcacoto, where the animals crowd together as the water climbs, and becomes the ancestor of everyone who lives today.",
+    "fullNarrative": "## A llama that would not eat\n\nThe Huarochirí stories tell of a time when the world nearly came to an end. A man had tethered his llama in a place with good pasture, but the llama would not graze. It lay moaning and weeping in the way llamas do, crying *yu yu*. The man, who was eating maize, threw the cob at it in irritation. \"Fool,\" he said, \"why are you moaning and not eating? Haven't I put you where the grass is good?\"\n\nThe llama answered him. It told him it was not sad without reason: within five days the sea would rise and cover the whole earth, destroying everything upon it.\n\n## Up the mountain\n\nThe man, astonished that his llama could speak, asked whether there was any way to escape. The llama told him to gather food for five days and follow it quickly to the top of a high mountain called Villcacoto, between the villages that later became San Damián and San Gerónimo de Surco. The man loaded the food on his back and led the llama up the mountain.\n\nWhen they reached the summit they found every kind of bird and animal already gathered there. The sea began to rise. The water filled the valleys and covered the hilltops, all except the peak of Villcacoto, and the animals were crowded so tightly that some could hardly find footing. The fox's tail trailed in the water, and that is why the tips of foxes' tails are black to this day.\n\n## After five days\n\nAfter five days the water began to fall and the sea went back to its place. The whole earth was empty of people except for that one man, and from him, the story says, all the people now living are descended.\n\n## The death of the sun\n\nThe manuscript follows this story with another world-ending memory. Long ago, it says, the sun disappeared and the world was dark for five days; stones knocked against each other, and the mortars and grinding stones rose up against their owners, as did the llamas. The Spanish priest who retold these stories suggested this might be a memory of the darkness at the crucifixion, then rejected the idea himself.\n\n## Reading the flood\n\nFrancisco de Ávila, who retold this story in Spanish in 1608, spent more words refuting it than telling it, insisting that no Andean could have remembered Noah's flood because the Americas were not yet peopled. Modern readers are more interested in the story's Andean features: the talking llama as a guide who understands the world better than its owner, the mountain as refuge, the five-day cycle that recurs throughout the Huarochirí stories, and the explanation of the fox's black-tipped tail.",
+    "keyExcerpts": "A llama foretells that the sea will rise in five days; its owner follows it to the summit of Villcacoto, where the animals crowd together and the fox's tail is blackened by the water; the man becomes the ancestor of all living people.",
+    "category": "myth",
+    "moralThemes": [
+      "heeding warnings",
+      "animals' knowledge of the world",
+      "the fragility of the world"
+    ],
+    "culturalSignificance": "One of several world-ending episodes in the Huarochirí corpus, reflecting the Andean idea of pachacuti, the overturning of the world, and preserved alongside a story of the sun's five-day death.",
+    "citationSources": [
+      {
+        "title": "The Huarochirí Manuscript, chs. 3-4",
+        "sourceId": "huarochiri-manuscript",
+        "author": "Anonymous; trans. Frank Salomon and George L. Urioste",
+        "date": "c. 1598-1608; trans. 1991",
+        "type": "primary"
+      },
+      {
+        "title": "Narrative of the Errors, False Gods, and Other Superstitions, chs. III-IV",
+        "sourceId": "avila-tratado-huarochiri",
+        "author": "Francisco de Ávila; trans. Clements Markham",
+        "date": "1608; trans. 1873",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": [],
+    "relatedStories": ["cuniraya-and-cavillaca"],
+    "imageUrl": "/stories/the-llama-and-the-flood.png"
+  },
+  {
+    "id": "huatyacuri-and-the-false-god",
+    "pantheonId": "inca-pantheon",
+    "title": "Huatyacuri and the Rich Man Who Called Himself God",
+    "slug": "huatyacuri-and-the-false-god",
+    "summary": "Pariacaca's poor son Huatyacuri overhears two foxes reveal why a rich lord who claims to be a god is dying; he cures him by exposing a two-headed toad and serpents in his house, wins the lord's daughter, and with his father's help defeats his jealous brother-in-law in every contest.",
+    "fullNarrative": "## The rich lord of Anchicocha\n\nAfter the flood, the Huarochirí stories say, each district was ruled by its richest and strongest man. At Anchicocha lived a great lord whose house was roofed with red and yellow feathers and whose llamas were naturally colored red, blue, and yellow, so that his wool never needed dyeing. People came from everywhere to honor him, and he began to say that he was the god and creator. Then he fell ill with a long and disgusting sickness that none of his wise men could cure, and people began to murmur that a god should be able to heal himself.\n\n## What the foxes said\n\nAt this time five eggs appeared on the mountain Condorcoto nearby, the beginning of the god Pariacaca. Pariacaca's son Huatyacuri, a poor man so called because he ate his potatoes half-cooked, was traveling and lay down to sleep on a height. He saw a fox coming up from the coast meet a fox going down. The one from above said all was well, except that the rich lord was very sick and no one knew why. The real cause, it said, was that a grain of maize had fallen from his wife's toasting pan into her lap and she had given it to a man, and afterward committed adultery with him. Because of this a serpent was waiting on the roof of his house to eat it, and a toad with two heads was waiting under his grinding stone.\n\n## The cure\n\nHuatyacuri went to the lord's house and asked the younger daughter whether anyone was ill. He promised to cure her father if she would be his. The assembled wise men laughed at the ragged stranger, but the sick man was desperate and agreed to give him his daughter. Huatyacuri told him the cause of his sickness, and asked whether he knew that there were serpents above his house and a two-headed toad under his grinding stone. They found the serpents and killed them; the wife, after denying it, confessed; and when they lifted the grinding stone a two-headed toad hopped out and went to a spring, where it still makes travelers lose their way. The lord recovered. Huatyacuri warned him that he was no god and must worship Huatyacuri's father, who would soon appear.\n\n## The contests\n\nThe husband of the lord's elder daughter was furious that his sister-in-law had been given to a beggar, and challenged Huatyacuri to contest after contest. Each time Huatyacuri went to his father, still in the egg on Condorcoto, for advice. Pariacaca told him to lie down as a dead guanaco so that two foxes bringing maize beer and a panpipe would drop them to feast; with the foxes' drum and jar Huatyacuri's wife made the very earth dance, and their jar never ran dry while the rival's friends fell drunk. Pariacaca clothed his son in snow to win the contest of finery, sent him a red puma skin with a rainbow around its head for the dance, and brought birds, snakes, and lizards by night to finish his house. Finally Huatyacuri rushed at his rival with a shout, and the man fled in terror and turned into a deer. His wife, who had urged him on, was turned to stone with her head on the ground and her feet in the air.\n\n## The storm\n\nThen the five eggs on Condorcoto hatched as five falcons that became men, the brothers of Pariacaca, and they raised a storm and flood that swept the false god, his house, and his family into the sea.",
+    "keyExcerpts": "Two foxes reveal a rich lord's secret sickness; Huatyacuri exposes the two-headed toad and serpents and wins the lord's daughter; aided by his father Pariacaca from the egg, he defeats his brother-in-law in drinking, finery, dancing, and house-building, and the rival becomes a deer.",
+    "category": "legend",
+    "moralThemes": [
+      "humility against pride",
+      "hidden knowledge",
+      "the poor man as divine"
+    ],
+    "culturalSignificance": "The story that introduces Pariacaca in the Huarochirí corpus, contrasting a merely rich man who claims divinity with a true huaca born from the mountain; the stone of the rival's wife was still receiving offerings in Ávila's time.",
+    "citationSources": [
+      {
+        "title": "The Huarochirí Manuscript, chs. 5-6",
+        "sourceId": "huarochiri-manuscript",
+        "author": "Anonymous; trans. Frank Salomon and George L. Urioste",
+        "date": "c. 1598-1608; trans. 1991",
+        "type": "primary"
+      },
+      {
+        "title": "Narrative of the Errors, False Gods, and Other Superstitions, ch. V",
+        "sourceId": "avila-tratado-huarochiri",
+        "author": "Francisco de Ávila; trans. Clements Markham",
+        "date": "1608; trans. 1873",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["pariacaca"],
+    "relatedStories": [
+      "pariacaca-and-huallallo-carhuincho",
+      "cuniraya-and-cavillaca"
+    ],
+    "imageUrl": "/stories/huatyacuri-and-the-false-god.png"
+  },
+  {
+    "id": "pariacaca-and-huallallo-carhuincho",
+    "pantheonId": "inca-pantheon",
+    "title": "Pariacaca and Huallallo Carhuincho",
+    "slug": "pariacaca-and-huallallo-carhuincho",
+    "summary": "Born from five eggs, Pariacaca drowns a village that refused a stranger drink, brings irrigation water to the fields of Cupara for the woman Choque Suso, and at last drives the child-eating lord of the old hot world, Huallallo Carhuincho, out of the highlands in a war of water against fire.",
+    "fullNarrative": "## The old world of Huallallo\n\nThe Huarochirí stories remember a time when the province was hot lowland country, when the dead came back to life on the fifth day and crops ripened in five days. Its master was Huallallo Carhuincho, who had defeated the earlier huacas Yanamca and Tutañamca. He ordered that no woman should bear more than two children, one of whom was to be given to him to eat.\n\n## Pariacaca sets out\n\nOn the mountain Condorcoto five eggs hatched as five falcons that became five men: Pariacaca and his brothers. Having destroyed the rich man who called himself a god, Pariacaca resolved to confront Huallallo. On the way he came, dressed as a poor man, to a village where a great festival was under way. He sat at the end of the row as the uninvited do, and all day no one gave him anything to drink, except one young woman who took pity on him and brought him a large gourd of maize beer. He thanked her and told her that in five days something terrible would happen to the village; she must take her children and leave, and tell no one. On the fifth day, as the village went on drinking, Pariacaca climbed a mountain above it and sent down torrents of rain and hail, with yellow and white stones, that carried the whole village into the sea.\n\n## Water for Cupara\n\nCrossing the river, Pariacaca met a beautiful young woman of the Cupara lineage, Choque Suso, weeping because her maize was drying up for lack of water. He stopped her little channel with his cloak, then offered to give her water in abundance if she would be his. When she had seen the water flow, and a new channel built from a ravine above by all the birds, snakes, pumas, and other animals he summoned, she kept her promise. The fox began to survey the line of the canal, but was startled by a partridge and let the water spill down the hill, and the break in the channel, people said, is still there. Choque Suso chose to stay at the head of the channel forever and turned to stone, and the Cupara people honored her there.\n\n## Water against fire\n\nThen Pariacaca came against Huallallo Carhuincho. In the manuscript's accounts of their struggle (chs. 8 and 16), Pariacaca fights with rain, hail, and lightning, and Huallallo with fire that blazes up toward the sky. Huallallo sends monsters against him, among them an amaru, a great serpent; Pariacaca pierces it with a golden staff and it turns to stone. Pariacaca's rains overcome the fire, and Huallallo, defeated, flees toward the Antis, the hot forested lowlands to the east. The hot world of the old age gives way to the cold highland world of the present, ruled by the snow mountain.\n\n## Reading the war\n\nThe manuscript itself notes that different peoples told these episodes differently and even argues over whether Pariacaca's five were brothers or a father and sons (ch. 16). Modern scholars read the struggle as a charter for the highland peoples who worshipped Pariacaca, set against lowland-linked groups associated with Huallallo, and connect Pariacaca's victories with the practical importance of snowmelt and irrigation in the valleys below his peak.",
+    "keyExcerpts": "Pariacaca, snubbed at a village feast, warns the one kind woman and destroys the village by storm; he waters the fields of Cupara for Choque Suso, who becomes stone at the head of the channel; and he defeats the child-eating Huallallo Carhuincho, turning his serpent to stone and driving him into the lowlands.",
+    "category": "war",
+    "moralThemes": [
+      "hospitality rewarded and refused",
+      "water as life",
+      "a new age replacing an old one"
+    ],
+    "culturalSignificance": "The foundational struggle of the Huarochirí corpus, explaining the landscape, irrigation works, and religious geography of the province, and the supremacy of Pariacaca's cult among the Checa and neighboring peoples.",
+    "citationSources": [
+      {
+        "title": "The Huarochirí Manuscript, chs. 1, 6-8, and 16",
+        "sourceId": "huarochiri-manuscript",
+        "author": "Anonymous; trans. Frank Salomon and George L. Urioste",
+        "date": "c. 1598-1608; trans. 1991",
+        "type": "primary"
+      },
+      {
+        "title": "Narrative of the Errors, False Gods, and Other Superstitions, chs. I, VI-VII",
+        "sourceId": "avila-tratado-huarochiri",
+        "author": "Francisco de Ávila; trans. Clements Markham",
+        "date": "1608; trans. 1873",
+        "type": "primary"
+      }
+    ],
+    "featuredDeities": ["pariacaca", "huallallo-carhuincho"],
+    "featuredLocations": ["nevado-pariacaca"],
+    "relatedStories": ["huatyacuri-and-the-false-god"],
+    "imageUrl": "/stories/pariacaca-and-huallallo-carhuincho.png"
   }
 ]

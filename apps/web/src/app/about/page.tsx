@@ -287,7 +287,7 @@ export default function AboutPage() {
               </p>
               <p className="text-foreground/80 leading-relaxed">
                 Mythos Atlas is an ongoing project with regular updates. The
-                encyclopedia currently spans 16 pantheons, and we continuously
+                encyclopedia currently spans 17 pantheons, and we continuously
                 expand depth, source coverage, and cross-cultural links across
                 traditions.
               </p>

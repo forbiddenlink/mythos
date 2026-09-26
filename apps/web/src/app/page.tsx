@@ -38,7 +38,7 @@ for (const d of deitiesData as { id: string; slug: string; name: string }[]) {
 export const metadata = generateBaseMetadata({
   title: "Mythos Atlas - Explore World Mythology",
   description:
-    "Explore gods, myths, and legendary worlds from 16 civilizations with family trees, quizzes, stories, and interactive mythology tools.",
+    "Explore gods, myths, and legendary worlds from 17 civilizations with family trees, quizzes, stories, and interactive mythology tools.",
   url: "/",
   keywords: [
     "mythology",

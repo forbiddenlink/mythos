@@ -1986,5 +1986,70 @@
     "relationshipType": "spouse_of",
     "confidenceLevel": "high",
     "description": "Enki and Ninhursag couple in Dilmun in the Sumerian myth that bears their names."
+  },
+  {
+    "id": "inca-inti-mama-killa",
+    "fromDeityId": "inti",
+    "toDeityId": "mama-killa",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Garcilaso calls the Moon the sister and wife of the Sun; her silver chamber in the Coricancha stood beside his (Comentarios Reales, Part I, Book 3)."
+  },
+  {
+    "id": "inca-inti-manco-capac",
+    "fromDeityId": "inti",
+    "toDeityId": "manco-capac",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "In Garcilaso's version the Sun sends his son Manco Cápac to Lake Titicaca; the Pacaritambo version of Betanzos and Sarmiento has Manco emerge from a cave instead."
+  },
+  {
+    "id": "inca-inti-mama-ocllo",
+    "fromDeityId": "inti",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "description": "Mama Ocllo is the Sun's daughter in Garcilaso's version; in the Pacaritambo version she is one of four sisters from the cave of Tambo Toco."
+  },
+  {
+    "id": "inca-mama-killa-manco-capac",
+    "fromDeityId": "mama-killa",
+    "toDeityId": "manco-capac",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "low",
+    "description": "Garcilaso calls the Moon mother of the Incas; the founding siblings' descent from her is implied rather than narrated."
+  },
+  {
+    "id": "inca-manco-capac-mama-ocllo-spouse",
+    "fromDeityId": "manco-capac",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "spouse_of",
+    "confidenceLevel": "high",
+    "description": "Brother and wife of Manco Cápac in both Garcilaso's and the Pacaritambo versions; mother of his successor Sinchi Roca."
+  },
+  {
+    "id": "inca-manco-capac-mama-ocllo-sibling",
+    "fromDeityId": "manco-capac",
+    "toDeityId": "mama-ocllo",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "description": "The founding couple are brother and sister in every major version, a model for the later royal sibling marriage."
+  },
+  {
+    "id": "inca-pariacaca-huallallo",
+    "fromDeityId": "pariacaca",
+    "toDeityId": "huallallo-carhuincho",
+    "relationshipType": "enemy_of",
+    "confidenceLevel": "high",
+    "description": "Pariacaca defeats Huallallo Carhuincho and drives him into the Antis lowlands (Huarochirí Manuscript, chs. 8 and 16)."
+  },
+  {
+    "id": "inca-cuniraya-viracocha",
+    "fromDeityId": "cuniraya-viracocha",
+    "toDeityId": "viracocha",
+    "relationshipType": "aspect_of",
+    "confidenceLevel": "medium",
+    "description": "The Huarochirí material records him invoked as 'Cuniraya Viracocha, lord of all'; whether he was a local form of the state Creator or a local deity later identified with him is debated.",
+    "isDisputed": true
   }
 ]

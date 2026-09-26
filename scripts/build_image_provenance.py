@@ -56,6 +56,7 @@ PROCEDURAL_SOURCES = [
     ("scripts/generate_creatures_locations_stories.py", "CREATURES", "creatures", "id"),
     ("scripts/generate_creatures_locations_stories.py", "LOCATIONS", "locations", "id"),
     ("scripts/generate_creatures_locations_stories.py", "STORIES", "stories", "id"),
+    ("scripts/generate_creatures_locations_stories.py", "ARTIFACTS", "artifacts", "id"),
 ]
 
 GENERATORS = {

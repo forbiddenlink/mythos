@@ -1434,5 +1434,78 @@
         "date": "colonial K'iche' text; 16th–18th century manuscript tradition"
       }
     ]
+  },
+  {
+    "id": "golden-rod-of-manco-capac",
+    "pantheonId": "inca-pantheon",
+    "name": "Golden Rod of Manco Cápac",
+    "slug": "golden-rod-of-manco-capac",
+    "ownerId": "manco-capac",
+    "ownerKind": "deity",
+    "description": "The rod of gold that the Sun gave to his children at Lake Titicaca, which would show them where to found their city by sinking into the ground at a single thrust; it vanished into the earth at Huanacauri above Cusco.",
+    "type": "staff",
+    "powers": ["Revealing fertile ground", "Choosing the site of Cusco"],
+    "origin": "Given by the Sun to Manco Cápac and Mama Ocllo when he placed them in Lake Titicaca (Garcilaso, Comentarios Reales, Part I, Book 1).",
+    "currentLocation": "Sunk into the earth at Huanacauri, in the story",
+    "imageUrl": "/artifacts/golden-rod-of-manco-capac.png",
+    "relatedStories": ["children-of-the-sun"],
+    "detailedBio": "## The test of the ground\n\nIn Garcilaso de la Vega's *Royal Commentaries* (1609), the Sun sends his son and daughter to civilize humanity with a single instrument: a rod of gold half a yard long and two fingers thick. Wherever they stopped, they were to push it into the ground, and where it sank in at one thrust they were to settle. It refused every resting place until Huanacauri, the hill above the Cusco valley, where it disappeared into the earth.\n\n## Meaning\n\nThe rod ties the Inca dynasty's claim to rule to both the Sun and the soil: the place of the capital is not chosen by conquest but revealed by the land's own depth and fertility. Sarmiento de Gamboa's rival Pacaritambo version includes a similar test of the valley soil with golden staffs, suggesting the motif was part of Cusco tradition rather than Garcilaso's invention.\n\n## Not an object in a museum\n\nNo actual rod associated with Manco Cápac is known to have survived or been displayed by the Incas; it belongs to the founding story. The Inca rulers did carry a royal staff as a sign of office, and the story's rod may reflect that regalia.",
+    "primarySources": [
+      {
+        "text": "He gave them a rod of gold, half a yard long and two fingers thick, and told them that wherever it sank into the ground at a single thrust, there they should stay; at Huanacauri it sank in and they saw it no more.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      }
+    ]
+  },
+  {
+    "id": "punchao",
+    "pantheonId": "inca-pantheon",
+    "name": "Punchao",
+    "slug": "punchao",
+    "ownerId": "inti",
+    "ownerKind": "deity",
+    "description": "The golden image of the Sun ('Day') kept in the Coricancha, the most sacred object of the Inca state cult, carried into the Vilcabamba refuge after the conquest and captured by Spanish forces in 1572.",
+    "type": "relic",
+    "powers": ["Embodying the Sun", "Legitimizing Inca rule"],
+    "origin": "Made for the Sun's cult in Cusco; its date and maker are unknown.",
+    "currentLocation": "Lost after its capture at Vilcabamba in 1572",
+    "imageUrl": "/artifacts/punchao.png",
+    "relatedStories": ["children-of-the-sun"],
+    "detailedBio": "## The Day\n\n*Punchao* means 'day' or 'daylight'. Chroniclers describe it as a golden image of the Sun kept in the Coricancha and brought out into the main square of Cusco for major ceremonies; some later accounts describe it as a figure of a seated boy with rays, and say that a cavity in it held the powdered hearts of past Inca rulers. The descriptions differ and were written by people who had not all seen it.\n\n## Flight and capture\n\nAfter the Spanish seizure of Cusco, the Inca rulers who resisted in the forested refuge of Vilcabamba kept the Punchao with them as the focus of their continuing cult. When Viceroy Francisco de Toledo's expedition overran Vilcabamba in 1572 and captured Túpac Amaru, the Punchao was also taken. Toledo proposed sending it to Spain, to the king or to the pope, and after that its trail is lost.\n\n## Why it matters\n\nThe Punchao was the Sun in visible form and the emblem of Inca legitimacy; its capture, together with Túpac Amaru's execution, marked the end of the independent Inca state. Its disappearance also means that everything said about its appearance rests on colonial description.",
+    "primarySources": [
+      {
+        "text": "The golden image of the Sun, the Punchao, which the Incas had kept in Vilcabamba, was taken by the Spanish expedition that captured Túpac Amaru in 1572.",
+        "source": "Documents on the 1572 Vilcabamba campaign, in Brian S. Bauer, Madeleine Halac-Higashimori, and Gabriel E. Cantarutti, Voices from Vilcabamba (2016) (paraphrase)",
+        "date": "events of 1572; documents late 16th-early 17th c."
+      }
+    ]
+  },
+  {
+    "id": "sling-of-illapa",
+    "pantheonId": "inca-pantheon",
+    "name": "Sling of Illapa",
+    "slug": "sling-of-illapa",
+    "ownerId": "illapa",
+    "ownerKind": "deity",
+    "description": "The sling of the Thunder god: its crack was the thunderclap, and with it Illapa drew water from the river of the sky to pour down as rain and hail.",
+    "type": "weapon",
+    "powers": ["Thunder", "Summoning rain and hail"],
+    "origin": "Part of Illapa's image as described by Bernabé Cobo from earlier reports (Historia del Nuevo Mundo, Book 13).",
+    "currentLocation": "In the sky, in the hand of the Thunder",
+    "imageUrl": "/artifacts/sling-of-illapa.png",
+    "relatedStories": [],
+    "detailedBio": "## A herder's weapon in the sky\n\nThe sling (*warak'a*) was an everyday Andean tool, used by herders to guide flocks and by soldiers in war. Bernabé Cobo (1653), drawing on reports from the sixteenth century, says the Andeans pictured the Thunder as a man in the sky holding a club and a sling: when he whirled the sling it cracked like a whip, and that was the thunder, while the flash of his clothing was the lightning. With it he governed rain, hail, and storms, taking water from the river of the sky, the Milky Way, and letting it fall on the earth.\n\n## Slings and thunder elsewhere in the sources\n\nIn the Pacaritambo origin story, the strongest of the Ayar brothers, Ayar Cachi, splits hills with his sling, a detail that links the sling with superhuman power. After the conquest, the thunder's identification with Saint James (Santiago), whose image showed him charging on horseback, gave the old sky-warrior a new form; the crack of the sling and the saint's gunfire could be heard in the same storm.\n\n## Evidence\n\nNo sacred sling of Illapa is known as a physical object. The sling belongs to the god's image as colonial writers recorded it.",
+    "primarySources": [
+      {
+        "text": "They pictured the Thunder as a man in the sky with a club in one hand and a sling in the other; the crack of his sling was the thunder, and he took water from the river of the sky to send down as rain.",
+        "source": "Bernabé Cobo, Historia del Nuevo Mundo, Book 13 (paraphrase)",
+        "sourceId": "cobo-inca-religion",
+        "locator": "Book 13",
+        "date": "written 1653"
+      }
+    ]
   }
 ]

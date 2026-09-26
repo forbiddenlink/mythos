@@ -158,6 +158,13 @@ describe("relationships", () => {
       "triglav",
       "chernobog",
       "purusha",
+      // Inca/Andean: attested in lists of powers and offerings, not in kinship
+      // with other deities in this catalog (Pachacamac's wife and daughters in
+      // the Huarochirí material have no entries of their own).
+      "pachamama",
+      "mama-qucha",
+      "illapa",
+      "pachacamac",
     ]);
     const inGraph = new Set(
       relationshipList.flatMap((r) => [r.fromDeityId, r.toDeityId]),

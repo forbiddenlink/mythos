@@ -12725,5 +12725,637 @@
       "practices": "Invoked as the divine midwife and 'mother of the gods'; kings of Lagash and other cities claimed to have been nourished by her milk."
     },
     "imageUrl": "/deities/ninhursag.png"
+  },
+  {
+    "id": "viracocha",
+    "pantheonId": "inca-pantheon",
+    "name": "Viracocha",
+    "slug": "viracocha",
+    "originalLanguageName": {
+      "text": "Wiraqucha",
+      "language": "Quechua",
+      "transliteration": "Wiraqucha (Spanish spellings Viracocha, Uiracocha)",
+      "meaning": "Etymology disputed; often glossed 'sea foam' or 'lake of fat', neither securely established. Chroniclers also give titles such as Con Tici Viracocha and Pachayachachic ('teacher of the world')."
+    },
+    "alternateNames": [
+      "Con Tici Viracocha",
+      "Tici Viracocha",
+      "Pachayachachic",
+      "Wiraqucha"
+    ],
+    "gender": "male",
+    "traditionRole": "Creator",
+    "domain": ["creation", "the ordering of peoples", "civilization"],
+    "symbols": [
+      "Lake Titicaca",
+      "a staff",
+      "stone figures of the first people"
+    ],
+    "description": "The creator of the Inca state cult, who in Betanzos's account rises from Lake Titicaca, makes the sun, moon, and stars at Tiwanaku, shapes each nation from stone, and finally walks away across the western sea.",
+    "detailedBio": "## Attestation\n\nThe fullest early account is Juan de Betanzos's *Suma y narración de los Incas* (1551), which opens with Con Tici Viracocha emerging from Lake Titicaca into a world without light. He makes a first people who displease him and turns them to stone; he then goes to Tiwanaku, makes the sun, moon, and stars, and shapes the nations of the Andes in stone, painting on each its dress and giving it a language, before sending them underground to emerge from their own springs, caves, and hills. Cristóbal de Molina (c. 1575) and Pedro Sarmiento de Gamboa (1572) tell related versions; Sarmiento adds that the Creator destroyed an earlier world by a flood.\n\n## The departing maker\n\nViracocha then travels northwest through the highlands with two helpers who take the coast and the forest edge. At Cacha, where the Incas later built the great temple now called Raqchi, people attack him and he calls fire down on a hill before relenting. He passes through Cusco and at the coast near Puerto Viejo (Manta, in modern Ecuador) walks away over the sea.\n\n## A god seen through Spanish eyes\n\nViracocha's image in the chronicles is especially exposed to colonial reshaping. Betanzos describes him as a tall man in a long white robe carrying a staff, details that invited comparison with Christian apostles; Andeans also called the Spaniards *viracochas*, a usage Francisco de Ávila notes and that later writers sometimes misread as proof that the invaders were taken for gods. Garcilaso, keen to present an Andean monotheism, gives the role of invisible supreme god to Pachacamac instead. Scholars continue to debate how far the Creator's pre-eminence reflects Inca state theology and how far it reflects Spanish expectations.",
+    "originStory": "Viracocha is uncreated in the chronicles: he emerges from Lake Titicaca before there is light, and everything else, including the sun and moon, is his work.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "quetzalcoatl",
+        "note": "Both are creator and culture-hero figures remembered as departing over the sea (Viracocha from the Ecuadorian coast in Betanzos, Quetzalcoatl eastward from Tollan), and in both cases colonial writers reshaped the departure into a prophecy of Spanish arrival. The comparison is typological; there is no evidence of contact between the two traditions."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "In ancient times the land was in darkness; out of a lake in the Collao came a lord called Con Tici Viracocha, who made the sun, the day, the moon and the stars at Tiahuanaco, and then shaped the peoples of the land in stone.",
+        "source": "Juan de Betanzos, Suma y narración de los Incas, Part 1, ch. 1 (paraphrase)",
+        "sourceId": "betanzos-suma-y-narracion",
+        "locator": "Part 1, ch. 1",
+        "date": "written 1551"
+      },
+      {
+        "text": "When the Indians worshipped it they said, \"Coniraya Uiracocha [...] thou art Lord of all: thine are the crops, and thine are all the people.\"",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. I (trans. Markham 1873), on the invocation of Viracocha's name in Huarochirí",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. I",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The temple at Cacha (the archaeological site of Raqchi, Cusco region), which Betanzos says the Incas built where Viracocha called down fire; its great central wall still stands.",
+        "In Cusco the Creator was honored in the state cult beside the Sun and Thunder; the Andean chronicler Juan de Santa Cruz Pachacuti Yamqui (c. 1613) drew an oval gold plate representing the Creator above the altar of the Coricancha."
+      ],
+      "festivals": [],
+      "practices": "Molina records Quechua prayers addressed to the Creator by Cusco priests and nobles, recited during the great state ceremonies rather than at a festival of Viracocha's own. No calendrical festival devoted solely to him is securely attested."
+    },
+    "pronunciation": {
+      "ipa": "/wiɾaˈqotʃa/",
+      "phonetic": "wee-rah-KOH-chah"
+    },
+    "imageUrl": "/deities/viracocha.png"
+  },
+  {
+    "id": "inti",
+    "pantheonId": "inca-pantheon",
+    "name": "Inti",
+    "slug": "inti",
+    "originalLanguageName": {
+      "text": "Inti",
+      "language": "Quechua",
+      "meaning": "\"Sun\""
+    },
+    "alternateNames": ["Punchao", "Apu Inti"],
+    "gender": "male",
+    "traditionRole": "Dynastic Ancestor",
+    "domain": ["the sun", "kingship", "harvest"],
+    "symbols": ["a golden disk", "the Punchao image", "gold"],
+    "description": "The Sun, divine ancestor of the Inca kings and center of the state cult, worshipped in the gold-sheathed Coricancha of Cusco and at the June solstice festival of Inti Raymi.",
+    "detailedBio": "## The Sun as royal ancestor\n\nThe Inca kings called themselves children of the Sun (*intip churin*), and Garcilaso de la Vega's version of the dynasty's origin has the Sun himself send his son Manco Cápac and daughter Mama Ocllo to Lake Titicaca to teach humanity. Sun worship was the most visible part of the imperial cult: the Sun owned lands and herds in every conquered province, and communities of chosen women (*acllacuna*) wove cloth and brewed maize beer for him.\n\n## The Coricancha and the Punchao\n\nIn Cusco the Sun's chief temple, the Coricancha, had walls plated with gold, which Spanish agents stripped in 1533 to pay Atahualpa's ransom. Its most sacred image was the Punchao ('day'), a golden figure of the Sun that later chroniclers describe as containing the powdered hearts of past kings. The Punchao was carried into the Vilcabamba refuge after the conquest and captured by Viceroy Toledo's forces in 1572; its later fate is unknown.\n\n## Inti Raymi\n\nGarcilaso describes Inti Raymi, the Sun's festival at the June solstice (midwinter in the southern Andes), as the greatest ceremony of the year, when the ruler and nobles greeted the rising sun in Cusco's main square. The modern Inti Raymi performed at Sacsayhuamán each 24 June since 1944 is a reconstruction based largely on Garcilaso, not a continuous survival.",
+    "originStory": "In Betanzos's account the Sun is made by Viracocha at Tiwanaku, rising from the Island of the Sun in Lake Titicaca; in Inca royal ideology he is the father of the first Inca, Manco Cápac.",
+    "importanceRank": 1,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "japanese-pantheon",
+        "deityId": "amaterasu",
+        "note": "Both are sun deities claimed as the direct ancestor of a ruling dynasty (the Sapa Inca as 'son of the Sun'; the Japanese imperial line as descendants of Amaterasu), with the ruler serving as the sun's chief priest."
+      },
+      {
+        "pantheonId": "aztec-pantheon",
+        "deityId": "tonatiuh",
+        "note": "Both are sun gods at the center of an expanding American state's official cult, though Inti's role as royal ancestor has no close Mexica equivalent."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "Our father the Sun, seeing men living like wild beasts, took pity on them and sent from heaven to earth a son and a daughter of his to teach them to know him as their god, and to live by reason and law.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase of the origin speech)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      },
+      {
+        "text": "The temple of the Sun in Cusco had its walls covered from top to bottom with plates of gold, and its great image of the Sun was of gold, with rays and flames.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase of the Coricancha description)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The Coricancha in Cusco, the chief temple of the Sun, whose curved Inca masonry survives beneath the Dominican church and convent of Santo Domingo.",
+        "Sun temples built by the Incas across the empire, including one at Pachacamac beside the older coastal sanctuary and another on the Island of the Sun in Lake Titicaca."
+      ],
+      "festivals": [
+        "Inti Raymi, at the June solstice, described by Garcilaso (Part I, Book 6); re-staged at Sacsayhuamán since 1944 as a reconstructed civic pageant."
+      ],
+      "practices": "The Sun held lands and herds in every province; chosen women (acllacuna) in walled compounds wove fine cloth and prepared maize beer for his cult; llamas and cloth were burned as offerings in Cusco."
+    },
+    "pronunciation": {
+      "ipa": "/ˈinti/",
+      "phonetic": "IN-tee"
+    },
+    "imageUrl": "/deities/inti.png"
+  },
+  {
+    "id": "mama-killa",
+    "pantheonId": "inca-pantheon",
+    "name": "Mama Killa",
+    "slug": "mama-killa",
+    "originalLanguageName": {
+      "text": "Mama Killa",
+      "language": "Quechua",
+      "meaning": "\"Mother Moon\""
+    },
+    "alternateNames": ["Mama Quilla"],
+    "gender": "female",
+    "domain": ["the moon", "the calendar", "the queen (coya)"],
+    "symbols": ["silver", "the crescent", "a woman's face in silver"],
+    "description": "The Moon, sister and wife of the Sun in the Inca state cult, honored in a silver-lined chamber of the Coricancha and associated with the queen and with the reckoning of months and festivals.",
+    "detailedBio": "## Wife of the Sun\n\nGarcilaso de la Vega calls the Moon *Mama Quilla*, 'Mother Moon', and describes her as the sister and wife of the Sun and the mother of the Incas. In the Coricancha her chamber was lined with silver and held a silver image with a woman's face, and the bodies of dead queens (*coyas*) were set there, much as the kings' bodies sat before the Sun. The pairing mirrors the royal marriage of the Inca ruler to his sister-queen, and the queen was the Moon's earthly counterpart.\n\n## Months and eclipses\n\nThe Inca calendar combined solar observations with lunar months (*killa* means both 'moon' and 'month'), and many festivals were timed by the moon. Guaman Poma's calendar names the September month *Coya Raymi*, the feast of the queen, the season of the Citua purification ceremonies that Molina describes. Garcilaso reports that during a lunar eclipse people believed the Moon was falling sick and might die, and shouted, blew horns, and beat dogs to make them howl so that she would wake.\n\n## Evidence\n\nMama Killa is attested almost entirely through descriptions of the Cusco state cult; no extended myth about her survives comparable to those of Viracocha or the Huarochirí huacas.",
+    "originStory": "Made by Viracocha at Tiwanaku together with the Sun and the stars, in Betanzos's account; in royal ideology she is the Sun's sister-wife and mother of the Inca lineage.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "The chamber of the Moon, wife of the Sun, was lined entirely with silver, and her image had a woman's face; they called her Mama Quilla, Mother Moon, and placed before her the bodies of the dead queens.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      },
+      {
+        "text": "When the moon was eclipsed they said she was sick and would die and fall from the sky; they raised a great noise and beat their dogs to make them howl and call her back.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 2 (paraphrase of the eclipse custom)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 2",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A silver-lined chamber of the Coricancha in Cusco dedicated to the Moon, according to Garcilaso."
+      ],
+      "festivals": [
+        "Coya Raymi (September), the queen's month in Guaman Poma's calendar, when the Citua purification was held in Cusco."
+      ],
+      "practices": "Noise-making, horn-blowing, and beating dogs to make them howl during lunar eclipses, as reported by Garcilaso; the queen (coya) was regarded as the Moon's counterpart."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmama ˈkiʎa/",
+      "phonetic": "MAH-mah KEE-lyah"
+    },
+    "imageUrl": "/deities/mama-killa.png"
+  },
+  {
+    "id": "pachamama",
+    "pantheonId": "inca-pantheon",
+    "name": "Pachamama",
+    "slug": "pachamama",
+    "originalLanguageName": {
+      "text": "Pachamama",
+      "language": "Quechua and Aymara",
+      "meaning": "\"Earth Mother\" or \"World Mother\" (pacha: earth, world, time)"
+    },
+    "alternateNames": ["Mama Pacha"],
+    "gender": "female",
+    "domain": ["the earth", "fertility", "agriculture"],
+    "symbols": [
+      "the planted field",
+      "maize beer poured on the ground",
+      "coca leaves"
+    ],
+    "description": "The Earth Mother of the Andes, recorded by colonial writers as receiving offerings of maize beer and coca in the fields, and still honored by Quechua and Aymara communities today.",
+    "detailedBio": "## Colonial attestation\n\nPachamama is named in the Jesuit José de Acosta's *Natural and Moral History of the Indies* (1590), which lists among the objects of Andean worship the earth, called Pachamama, and the sea, called Mamacocha, following the jurist Polo de Ondegardo's earlier inquiries. The extirpation literature of the early seventeenth century, such as Pablo José de Arriaga's *Extirpación de la idolatría del Pirú* (1621), describes offerings of maize beer and coca made to the earth in agricultural rites. She belonged less to the imperial theology of Cusco than to everyday agricultural practice, which is one reason her cult survived the destruction of the state religion.\n\n## A living tradition\n\nOfferings to Pachamama continue across the Andes: the *ch'alla*, sprinkling alcohol or maize beer on the ground before drinking, and the burned or buried *despacho* bundles prepared by ritual specialists, especially in August, the month considered hers in much of highland Peru, Bolivia, and northwest Argentina. In colonial art she was sometimes merged with the Virgin Mary; the anonymous painting *La Virgen del Cerro* (c. 1720) in Potosí shows Mary as the silver mountain itself.\n\n## Cautions\n\nMuch popular writing today presents Pachamama as an ancient goddess with elaborate myths. The colonial sources attest her name and offerings, not a detailed mythology; modern ritual practice is her richest record.",
+    "originStory": "No origin narrative survives in the colonial sources; she is the earth itself, addressed as mother.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "gaia",
+        "note": "Both personify the earth as a mother, though Gaia has a developed genealogy and mythology in Hesiod while Pachamama is attested chiefly through agricultural offerings."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "They worshipped the earth, which they called Pachamama, and the sea, which they called Mamacocha.",
+        "source": "José de Acosta, Historia natural y moral de las Indias, Book 5 (paraphrase)",
+        "sourceId": "acosta-natural-moral-history",
+        "locator": "Book 5",
+        "date": "published 1590"
+      },
+      {
+        "text": "In their sowing and harvest rites they make offerings of chicha and coca to the earth, which they call Mama Pacha.",
+        "source": "Pablo José de Arriaga, Extirpación de la idolatría del Pirú (paraphrase)",
+        "date": "published 1621"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [
+        "August offerings to Pachamama, widely observed today in highland Peru, Bolivia, and northwest Argentina (a living practice, documented ethnographically rather than in pre-conquest sources)."
+      ],
+      "practices": "Libations of maize beer (chicha) and offerings of coca to the earth before plowing and at harvest, recorded by colonial writers; today the ch'alla libation and despacho offering bundles."
+    },
+    "pronunciation": {
+      "ipa": "/pat͡ʃaˈmama/",
+      "phonetic": "pah-chah-MAH-mah"
+    },
+    "imageUrl": "/deities/pachamama.png"
+  },
+  {
+    "id": "mama-qucha",
+    "pantheonId": "inca-pantheon",
+    "name": "Mama Qucha",
+    "slug": "mama-qucha",
+    "originalLanguageName": {
+      "text": "Mama Qucha",
+      "language": "Quechua",
+      "meaning": "\"Mother Lake\" or \"Mother Sea\""
+    },
+    "alternateNames": ["Mamacocha", "Mama Cocha"],
+    "gender": "female",
+    "domain": ["the sea", "lakes and waters", "fishing"],
+    "symbols": ["the sea", "shells (mullu)", "lakes"],
+    "description": "The Sea Mother, named by colonial writers alongside Pachamama as the mother of waters, especially important to coastal fishing peoples and connected in highland thought to the lakes and springs that fed the fields.",
+    "detailedBio": "## Attestation\n\nJosé de Acosta (1590), following Polo de Ondegardo, lists the sea, called Mamacocha, among the principal objects of Andean worship, and the seventeenth-century extirpators report coastal fishing communities making offerings to the sea. The word *qucha* means lake as well as sea, and highland people also addressed lakes, springs, and lagoons as sources of the water that became rain and irrigation.\n\n## Water in Andean thought\n\nThe Huarochirí Manuscript describes a cosmos in which water circulates: the celestial llama Yacana drinks from the sea at night so that the ocean does not flood the world, and the Milky Way is a river in the sky. Spondylus shell (*mullu*), traded up from the warm waters off Ecuador, was among the most valued offerings throughout the Andes, a material link between the sea and highland rites for water.\n\n## Limits of the record\n\nNo narrative myth about Mama Qucha herself survives in the major sources; she is known from lists of worshipped powers and from offering practices. This entry keeps to that evidence.",
+    "originStory": "No origin story survives; she is the sea itself, addressed as mother.",
+    "importanceRank": 4,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They worshipped the sea, which they called Mamacocha, and the earth, which they called Pachamama.",
+        "source": "José de Acosta, Historia natural y moral de las Indias, Book 5 (paraphrase)",
+        "sourceId": "acosta-natural-moral-history",
+        "locator": "Book 5",
+        "date": "published 1590"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Offerings to the sea by coastal fishing communities, and offerings to lakes and springs as sources of irrigation water, reported by colonial extirpators; spondylus shell (mullu) was a prized offering throughout the Andes."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmama ˈqot͡ʃa/",
+      "phonetic": "MAH-mah KOH-chah"
+    },
+    "imageUrl": "/deities/mama-qucha.png"
+  },
+  {
+    "id": "illapa",
+    "pantheonId": "inca-pantheon",
+    "name": "Illapa",
+    "slug": "illapa",
+    "originalLanguageName": {
+      "text": "Illapa",
+      "language": "Quechua",
+      "meaning": "\"Thunder, lightning\"; also called Chuquilla ('golden light') and Catuilla"
+    },
+    "alternateNames": ["Chuquilla", "Catuilla"],
+    "gender": "male",
+    "domain": ["thunder", "lightning", "rain", "hail"],
+    "symbols": ["a sling", "a club", "the flash of lightning"],
+    "description": "The Thunder of the Inca state cult, imagined as a man in the sky with a sling and club who draws rain from the heavenly river; after the conquest he was widely identified with Saint James (Santiago).",
+    "detailedBio": "## The Thunder in Cusco\n\nIllapa was one of the principal powers of the Cusco state cult, with his own chamber in the Coricancha according to Garcilaso and his own image, lands, and servants according to Molina and Cobo. Bernabé Cobo (1653), summarizing earlier reports, says the Andeans imagined him as a man in the sky with a club in one hand and a sling in the other: the crack of the sling was the thunder, the flash of his clothing the lightning, and he drew water from the river of the sky, the Milky Way, and poured it down as rain.\n\n## Rain, hail, and the mountains\n\nBecause he controlled rain and hail, Illapa was petitioned in times of drought, often on mountaintops. Colonial extirpators report that people struck by lightning and survived were thought chosen for ritual office, and that twins, and children born feet-first, were considered children of the lightning.\n\n## Santiago\n\nThe Spanish battle cry to Saint James and the saint's thundering horse made an easy identification: in colonial and modern Andean usage *Santiago* became a name for the thunder itself. This fusion is a post-conquest development, well documented in the extirpation literature, and not evidence about pre-conquest belief.",
+    "originStory": "No birth narrative survives; the Thunder appears in the chronicles as one of the great powers of the sky, ranked after the Creator and the Sun.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "mesoamerican-pantheon",
+        "deityId": "tlaloc",
+        "note": "Both are storm and rain gods of American states, petitioned on mountains in time of drought; Illapa wields a sling, Tlaloc the lightning serpent. The resemblance is typological, not historical."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "They imagined the Thunder as a man in the sky, with a club in his left hand and a sling in his right; the thunder was the crack of his sling, and he took water from a river in the sky and poured it on the earth as rain.",
+        "source": "Bernabé Cobo, Historia del Nuevo Mundo, Book 13 (paraphrase)",
+        "sourceId": "cobo-inca-religion",
+        "locator": "Book 13",
+        "date": "written 1653"
+      },
+      {
+        "text": "One chamber of the temple of the Sun was dedicated to the thunder and lightning, which they called Illapa.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 3 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 3",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "A chamber of the Coricancha in Cusco dedicated to thunder and lightning, according to Garcilaso."
+      ],
+      "festivals": [],
+      "practices": "Prayers and offerings for rain and against hail, often made on mountaintops; people who survived lightning strikes were thought chosen for ritual office, and twins were regarded as children of the lightning, according to seventeenth-century extirpation reports."
+    },
+    "pronunciation": {
+      "ipa": "/iˈʎapa/",
+      "phonetic": "ee-LYAH-pah"
+    },
+    "imageUrl": "/deities/illapa.png"
+  },
+  {
+    "id": "pachacamac",
+    "pantheonId": "inca-pantheon",
+    "name": "Pachacamac",
+    "slug": "pachacamac",
+    "originalLanguageName": {
+      "text": "Pachakamaq",
+      "language": "Quechua",
+      "meaning": "\"Animator (or maker) of the world\""
+    },
+    "alternateNames": ["Pachakamaq", "Pacha Camac"],
+    "gender": "male",
+    "domain": ["the earth and its tremors", "oracles", "the coast"],
+    "symbols": [
+      "a carved wooden staff-idol",
+      "the sanctuary on the Lurín coast"
+    ],
+    "description": "The great oracle god of the central Peruvian coast, whose sanctuary south of Lima drew pilgrims for centuries before the Incas, and who kept his shrine even after the Incas built a Temple of the Sun beside it.",
+    "detailedBio": "## The oracle of the coast\n\nPachacamac's sanctuary near the mouth of the Lurín River, south of modern Lima, was a pilgrimage and oracle center for well over a thousand years. When the Incas conquered the coast in the fifteenth century they did not suppress it; they built a Temple of the Sun and a house of chosen women on the same site, and consulted the oracle themselves. Hernando Pizarro reached the sanctuary in January 1533 in search of its gold, forced his way into the inner chamber, and had the idol broken before the assembled people, an episode described in his own letter and in Miguel de Estete's account.\n\n## Garcilaso's invisible god\n\nGarcilaso de la Vega argued that the Incas worshipped Pachacamac inwardly as the unseen sustainer of the world, a supreme god like the Christian one, and that the coastal idol was a corruption. This interpretation served Garcilaso's apologetic purpose and is not accepted at face value by historians, who treat Pachacamac first as a powerful regional huaca with a far-reaching oracle network.\n\n## In the Huarochirí stories\n\nThe Huarochirí material gives Pachacamac a wife, Urpay Huachac, and two daughters, whom Cuniraya encounters on the shore at Pachacamac after Cavillaca disappears into the sea there. A carved wooden figure recovered at the site in 1938, now in the site museum, has been radiocarbon-dated to the eighth or ninth century CE and may be an image of the god.",
+    "originStory": "No surviving account describes Pachacamac's origin; later coastal traditions recorded by the Augustinian Antonio de la Calancha (1638) make him a son of the Sun, but that version is late and heavily reworked.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "greek-pantheon",
+        "deityId": "apollo",
+        "note": "Both presided over pan-regional oracle sanctuaries (Pachacamac, Delphi) consulted by rulers from far beyond their home territory, and both shrines were taken over rather than abolished by later powers. The comparison concerns the institution of the oracle, not the gods' characters."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "When he reached the sea-shore he found that Cavillaca and her child were turned into stone; and as he walked along the beach he met two beautiful young daughters of Pachacamac, who guarded a great serpent, because their mother was absent, visiting the recently arrived Cavillaca in the sea.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. II (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. II",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "The Incas held in their hearts that Pachacamac was the one who gave life to the universe and sustained it, and did not dare to take his name on their lips or build him temples, because they had not seen him.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 2 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 2",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The sanctuary of Pachacamac on the Lurín coast south of Lima, including the Painted Temple and, from the Inca period, a Temple of the Sun and a house of chosen women (acllahuasi)."
+      ],
+      "festivals": [],
+      "practices": "Pilgrims and rulers consulted the oracle through its priests, bringing offerings of cloth, gold, and other goods; branch shrines of Pachacamac elsewhere on the coast were regarded as his 'children'."
+    },
+    "pronunciation": {
+      "ipa": "/pat͡ʃaˈkamak/",
+      "phonetic": "pah-chah-KAH-mahk"
+    },
+    "imageUrl": "/deities/pachacamac.png"
+  },
+  {
+    "id": "pariacaca",
+    "pantheonId": "inca-pantheon",
+    "name": "Pariacaca",
+    "slug": "pariacaca",
+    "originalLanguageName": {
+      "text": "Paria Caca",
+      "language": "Quechua",
+      "meaning": "A snow mountain and the god who is that mountain; caca (qaqa) means 'crag'"
+    },
+    "alternateNames": ["Paria Caca"],
+    "gender": "male",
+    "domain": ["rain and storm", "irrigation water", "the snow mountain"],
+    "symbols": ["five eggs", "five falcons", "the snow peak", "a golden staff"],
+    "description": "The snow-mountain god of the Huarochirí Manuscript, born from five eggs on Mount Condorcoto, who drowns a village that refused him drink, brings irrigation water to the fields of Cupara, and drives the fire-eating Huallallo Carhuincho out of the highlands.",
+    "detailedBio": "## Born from five eggs\n\nThe Quechua Huarochirí Manuscript (c. 1598-1608) makes Pariacaca the central huaca of the Checa and other peoples of Huarochirí province, in the mountains east of Lima. He appears on the mountain Condorcoto as five eggs; the eggs hatch as five falcons that become five persons, and the manuscript itself debates whether these were five brothers or Pariacaca and his children (ch. 16). His son Huatyacuri, a poor man who eats only half-cooked potatoes, prepares his coming by humbling a rich lord who claimed to be a god.\n\n## Storm, flood, and water\n\nPariacaca's power is the power of water: rain, hail, flood, and irrigation. When the people of a village feasting below Huarochirí ignore him, disguised as a poor stranger, except for one woman who offers him maize beer, he warns her to flee and destroys the village with a storm five days later. When the young woman Choque Suso weeps over her dry maize, he opens the channels that still water the fields of Cupara. And he drives out Huallallo Carhuincho, the earlier god of a hot lowland world, in a contest of water against fire.\n\n## A mountain and a cult\n\nPariacaca is also the glaciated peak of that name on the border of Lima and Junín regions, crossed by an Inca road from Jauja to the coast. The manuscript describes the annual gatherings in which his worshippers climbed toward him, and the priests and offerings of his cult, in the chapters the compiler titled on how he 'began to ordain his own cult' (ch. 9).",
+    "originStory": "Pariacaca appears on the mountain Condorcoto as five eggs, which hatch into five falcons and then five men (Huarochirí Manuscript, chs. 5-6).",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "They say that in those days there appeared five large eggs on a mountain between Huarochiri and Chorrillo, towards the south, (and this is the origin of Pariacaca) called Condorcoto.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. V (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. V",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "They say that those five eggs in Condorcoto, one of which contained Pariacaca, opened, and five falcons issued from them, who were presently turned into five men, who went about performing wonderful miracles.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. V (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. V",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "Pariacaca mountain itself, on the watershed between the Lima and Junín regions of Peru, and shrines to his children and companions throughout Huarochirí province."
+      ],
+      "festivals": [
+        "An annual festival of Pariacaca in which the Checa and other ayllus gathered with offerings, described in the Huarochirí Manuscript (ch. 9)."
+      ],
+      "practices": "Offerings of llamas, coca, and maize beer; the stone forms of figures in his stories, such as Choque Suso at the head of the Cupara irrigation channel, received their own offerings into the seventeenth century, as Ávila complains."
+    },
+    "pronunciation": {
+      "ipa": "/paɾjaˈkaka/",
+      "phonetic": "pah-ree-ah-KAH-kah"
+    },
+    "imageUrl": "/deities/pariacaca.png"
+  },
+  {
+    "id": "cuniraya-viracocha",
+    "pantheonId": "inca-pantheon",
+    "name": "Cuniraya Viracocha",
+    "slug": "cuniraya-viracocha",
+    "originalLanguageName": {
+      "text": "Cuni Raya Vira Cocha",
+      "language": "Quechua",
+      "meaning": "Name of uncertain etymology; the Huarochirí material links him with the creator's name Viracocha"
+    },
+    "alternateNames": ["Coniraya", "Cuni Raya"],
+    "gender": "male",
+    "traditionRole": "Trickster Creator",
+    "domain": [
+      "irrigation and terraces",
+      "trickery",
+      "the ordering of animals"
+    ],
+    "symbols": ["beggar's rags", "a lúcuma fruit", "a hollow cane"],
+    "description": "The ragged trickster-creator of the Huarochirí stories, who makes terraces and canals with a word, fathers a child on the proud huaca Cavillaca through a fruit, and blesses or curses each animal he meets as he chases her to the sea.",
+    "detailedBio": "## A creator in rags\n\nThe Huarochirí Manuscript (ch. 2) and Francisco de Ávila's Spanish retelling (1608) describe Cuniraya wandering the land as a lice-ridden beggar whom people mock. Yet with a word he makes terraces rise on the ravine sides and, by throwing a cane, sets irrigation channels flowing. In the most famous story he fathers a child on the beautiful and aloof huaca Cavillaca by placing his seed in a ripe lúcuma fruit, then pursues her to the sea at Pachacamac, rewarding the condor, puma, and falcon that give him hopeful news and cursing the skunk, fox, and parrots that do not.\n\n## Cuniraya and Viracocha\n\nThe manuscript and Ávila both report that people invoked him as 'Cuniraya Viracocha' and called him lord of all, and Ávila, who was trying to prove the invocation older than the Spaniards, insists it was used 'long before there were any tidings of Spaniards'. Whether Cuniraya was originally a local deity later identified with the Inca state's Creator, or a local form of the same Creator, is debated; Ávila's retelling admits it is not certain whether he came before or after Pariacaca. This site links the two through an 'aspect of' relationship marked as disputed.\n\n## Explaining the world\n\nMany of Cuniraya's acts explain features of the world: why condors eat carrion unharmed, why the puma's skin is worn with its head in festival dances, why foxes stink and are hunted, and why there are fish in the sea (he tips them out of Urpay Huachac's pond in revenge). Ávila records that people in his parishes still acted on these blessings and curses in the early 1600s.",
+    "originStory": "No birth is told; he simply 'appeared in the form and dress of a very poor Indian' in the most ancient times (Ávila, ch. II).",
+    "importanceRank": 3,
+    "crossPantheonParallels": [
+      {
+        "pantheonId": "tlingit-haida-pantheon",
+        "deityId": "raven",
+        "note": "Both are trickster-transformers whose travels and appetites account for features of the world and the habits of animals, creating by redistributing things as much as by making them."
+      }
+    ],
+    "primarySources": [
+      {
+        "text": "They say that in most ancient times the Coniraya Uiracocha appeared in the form and dress of a very poor Indian clothed in rags, insomuch that those who knew not who he was reviled him and called him a lousy wretch.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. II (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. II",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "In commencing any arduous or difficult undertaking, they threw a piece of coca [...] on the ground, as an oblation, and said, \"Tell me, O Lord Coniraya Uiracocha, how I am to do this?\"",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. I (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. I",
+        "date": "written 1608; trans. 1873"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Invoked before difficult work, especially by weavers, with a leaf of coca thrown on the ground as an offering, according to Ávila; Ávila also reports a stone into which Cuniraya was said to have been turned, above the Cupara irrigation channel."
+    },
+    "pronunciation": {
+      "ipa": "/kuniˈɾaja/",
+      "phonetic": "koo-nee-RAH-yah"
+    },
+    "imageUrl": "/deities/cuniraya-viracocha.png"
+  },
+  {
+    "id": "huallallo-carhuincho",
+    "pantheonId": "inca-pantheon",
+    "name": "Huallallo Carhuincho",
+    "slug": "huallallo-carhuincho",
+    "originalLanguageName": {
+      "text": "Huallallo Caruincho",
+      "language": "Quechua",
+      "meaning": "Name of uncertain meaning"
+    },
+    "alternateNames": ["Huallallo Caruincho", "Caruyuchu Huayallo"],
+    "gender": "male",
+    "domain": ["fire", "the hot lowland (yunca) world", "an earlier age"],
+    "symbols": ["fire", "the eaten child", "the Amaru serpent"],
+    "description": "The fearsome earlier god of the Huarochirí stories, who ruled a hot lowland world and demanded one of every two children as food, until Pariacaca's storms drove him east into the Antis lowlands.",
+    "detailedBio": "## Lord of the earlier world\n\nThe Huarochirí material opens with a world before the present one, when the province was hot lowland (*yunca*) country, the dead returned to life on the fifth day, and crops ripened in five days. Its lord was Huallallo Carhuincho, who had defeated the still earlier huacas Yanamca and Tutañamca. Ávila's retelling (1608) says he ordered that no woman should bear more than two children, one of whom was to be given him to eat.\n\n## Defeated by Pariacaca\n\nPariacaca, born from five eggs on Condorcoto, sets out to confront him. In the manuscript's chapters on their contest (chs. 8 and 16), Huallallo is associated with fire and Pariacaca with rain and hail; Huallallo sends monstrous creatures against his enemy, including a serpent (amaru), and is finally driven out toward the eastern lowlands, the Antis. The contest has been read as a charter for the dominance of the highland peoples who worshipped Pariacaca over lowland-associated groups, and as a mythic memory of changing climate or ecology; neither reading is stated by the manuscript itself.\n\n## Why he is here\n\nHuallallo Carhuincho is included because he is a named huaca in the source, not merely a monster: the manuscript associates him with the Huanca people of the Jauja valley, among whom he was remembered as a god.",
+    "originStory": "No origin is told; he is simply lord of the land after defeating the huacas Yanamca and Tutañamca (Huarochirí Manuscript, ch. 1).",
+    "importanceRank": 5,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "He ordered that no woman should bring forth more than two children, of which one was to be sacrificed for him to eat, and the other [...] might be brought up.",
+        "source": "Francisco de Ávila, Tratado de los errores, ch. I (trans. Markham 1873)",
+        "sourceId": "avila-tratado-huarochiri",
+        "locator": "ch. I",
+        "date": "written 1608; trans. 1873"
+      },
+      {
+        "text": "Huallallo Carhuincho, lord of the hot early world, fought Pariacaca, who came against him with rain and hail; defeated, Huallallo fled toward the Antis lowlands.",
+        "source": "Huarochirí Manuscript, chs. 8 and 16 (paraphrase)",
+        "sourceId": "huarochiri-manuscript",
+        "locator": "chs. 8 and 16",
+        "date": "compiled c. 1598-1608"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "The Huarochirí Manuscript associates him with the Huanca people of the Jauja valley; it gives no details of rites performed for him."
+    },
+    "pronunciation": {
+      "ipa": "/waˈʎaʎo kaɾˈwint͡ʃo/",
+      "phonetic": "wah-LYAH-lyoh kar-WEEN-choh"
+    },
+    "imageUrl": "/deities/huallallo-carhuincho.png"
+  },
+  {
+    "id": "manco-capac",
+    "pantheonId": "inca-pantheon",
+    "name": "Manco Cápac",
+    "slug": "manco-capac",
+    "originalLanguageName": {
+      "text": "Manqu Qhapaq",
+      "language": "Quechua",
+      "meaning": "Qhapaq means 'powerful, royal'; Manqu is of uncertain meaning"
+    },
+    "alternateNames": ["Manco Capac", "Ayar Manco", "Manqu Qhapaq"],
+    "gender": "male",
+    "traditionRole": "Founding Ancestor",
+    "domain": ["the founding of Cusco", "kingship", "agriculture"],
+    "symbols": ["a golden rod", "the hill of Huanacauri"],
+    "description": "The first Inca, founder of Cusco, presented by Garcilaso as a son of the Sun sent to Lake Titicaca with his sister-wife Mama Ocllo, and by Betanzos and Sarmiento as the leader of four brothers and four sisters who emerged from a cave at Pacaritambo.",
+    "detailedBio": "## Two origin traditions\n\nThe chroniclers preserve two main accounts of Manco Cápac. Garcilaso de la Vega (1609) says the Sun, pitying humanity's savage state, placed his son and daughter in Lake Titicaca with a golden rod; they were to settle where it sank into the ground at a single thrust, which happened at Huanacauri above the valley of Cusco. Juan de Betanzos (1551) and Pedro Sarmiento de Gamboa (1572) instead tell of four brothers, the Ayars, and four sisters who emerged from a cave called Tambo Toco at Pacaritambo, south of Cusco. On the journey one brother, Ayar Cachi, is tricked back into the cave and sealed in; another, Ayar Uchu, turns to stone on Huanacauri; and Manco, the survivor, founds Cusco.\n\n## Ancestor and huaca\n\nWhatever his historicity, Manco Cápac functioned as the dynasty's founding ancestor, and the Inca kings traced their right to rule to him and through him to the Sun. The ruling lineages of Cusco each claimed descent from a particular king, beginning with Manco's. His stone at Huanacauri and the sites of the Pacaritambo journey were huacas visited in the initiation rites of young Inca nobles, which Molina describes.\n\n## Historicity\n\nModern historians generally treat the first Inca rulers in the king lists, Manco Cápac among them, as legendary or semi-legendary; firmer chronology begins with Pachacuti in the fifteenth century.",
+    "originStory": "Son of the Sun and brother-husband of Mama Ocllo in Garcilaso's version; the leader of the Ayar siblings who emerged from the cave of Tambo Toco at Pacaritambo in Betanzos's and Sarmiento's.",
+    "importanceRank": 2,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "Our father the Sun placed these two children of his in the lake Titicaca and gave them a rod of gold, half a yard long and two fingers thick, saying that wherever it sank into the earth at a single thrust, there they should settle.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1, ch. 15 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1, ch. 15",
+        "date": "published 1609"
+      },
+      {
+        "text": "From the window of a cave called Capac Toco at Tambo Toco came four brothers and four sisters, and the eldest was called Manco Capac.",
+        "source": "Pedro Sarmiento de Gamboa, Historia de los Incas (paraphrase)",
+        "sourceId": "sarmiento-history-of-the-incas",
+        "date": "written 1572"
+      }
+    ],
+    "worship": {
+      "temples": [
+        "The huaca of Huanacauri above Cusco, and the cave of Tambo Toco at Pacaritambo, both visited in Inca state rituals connected with the founding journey."
+      ],
+      "festivals": [
+        "The initiation of young Inca nobles (huarachicoy) during Capac Raymi, which included pilgrimages to Huanacauri, as described by Molina."
+      ],
+      "practices": "Veneration of the founding ancestor through his lineage and the huacas of the founding journey; the royal mummies of later kings, not a mummy of Manco, were the focus of ancestor cult in Cusco."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmaŋko ˈqʰapaq/",
+      "phonetic": "MAHN-koh KAH-pahk"
+    },
+    "imageUrl": "/deities/manco-capac.png"
+  },
+  {
+    "id": "mama-ocllo",
+    "pantheonId": "inca-pantheon",
+    "name": "Mama Ocllo",
+    "slug": "mama-ocllo",
+    "originalLanguageName": {
+      "text": "Mama Uqllu",
+      "language": "Quechua",
+      "meaning": "Name of uncertain meaning"
+    },
+    "alternateNames": ["Mama Ocllo Huaco", "Mama Uqllu"],
+    "gender": "female",
+    "traditionRole": "Founding Ancestress",
+    "domain": [
+      "the founding of Cusco",
+      "spinning and weaving",
+      "the household"
+    ],
+    "symbols": ["the spindle", "cloth"],
+    "description": "The founding ancestress of the Incas, sister and wife of Manco Cápac, who in Garcilaso's account taught the women of Cusco to spin, weave, and keep house while her brother taught the men to farm.",
+    "detailedBio": "## In Garcilaso\n\nIn Garcilaso de la Vega's *Royal Commentaries* (1609), Mama Ocllo is the Sun's daughter, sent with her brother Manco Cápac from Lake Titicaca to civilize humanity. When their golden rod sinks at Huanacauri, the pair separate to call the people together, he to the north of the valley and she to the south, and while Manco teaches the men agriculture and irrigation, Mama Ocllo teaches the women to spin, weave, and sew clothing. The division reflects the gendered order of Inca society, in which fine cloth was among the most valuable of all goods.\n\n## In the Pacaritambo version\n\nIn Betanzos and Sarmiento, Mama Ocllo is one of the four sisters who emerge from the cave at Pacaritambo, and she becomes Manco's wife and the mother of the next ruler, Sinchi Roca. Sarmiento gives a more warlike role to another sister, Mama Huaco, who in his hostile account kills one of the valley's earlier inhabitants; this version has been read as reflecting both real conflict over the valley and Toledo's wish to depict the Incas as usurpers.\n\n## Legacy\n\nLike Manco, Mama Ocllo is a legendary ancestor rather than a securely historical figure. The Inca queen (*coya*) inherited her role as the Moon's earthly counterpart.",
+    "originStory": "Daughter of the Sun and the Moon in Garcilaso's version; one of the four sisters from the cave at Pacaritambo in Betanzos's and Sarmiento's.",
+    "importanceRank": 3,
+    "crossPantheonParallels": [],
+    "primarySources": [
+      {
+        "text": "The Inca taught the men to till the soil and bring water in channels, and the queen taught the women to spin and weave cotton and wool and to make clothing for themselves, their husbands, and their children.",
+        "source": "Garcilaso de la Vega, Comentarios Reales, Part I, Book 1 (paraphrase)",
+        "sourceId": "garcilaso-royal-commentaries",
+        "locator": "Part I, Book 1",
+        "date": "published 1609"
+      }
+    ],
+    "worship": {
+      "temples": [],
+      "festivals": [],
+      "practices": "Honored as founding ancestress of the royal lineage; her role as the first coya passed to each Inca queen, who was regarded as the Moon's counterpart on earth."
+    },
+    "pronunciation": {
+      "ipa": "/ˈmama ˈoqʎo/",
+      "phonetic": "MAH-mah OHK-lyoh"
+    },
+    "imageUrl": "/deities/mama-ocllo.png"
   }
 ]
