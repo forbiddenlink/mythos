@@ -127,9 +127,10 @@ const nextConfig: NextConfig = {
             key: "Cross-Origin-Opener-Policy",
             value: "same-origin",
           },
-          // Content-Security-Policy is set per-request in middleware.ts so it
-          // can carry a per-request script nonce (with 'strict-dynamic' in
-          // production). Reporting-Endpoints stays here since it is static.
+          // Content-Security-Policy is set per request in src/proxy.ts: build-time
+          // SHA-256 hashes for prerendered pages plus a per-request nonce for
+          // dynamic ones (see src/lib/csp.ts). Reporting-Endpoints stays here
+          // since it is static.
           {
             key: "Reporting-Endpoints",
             value: 'csp-endpoint="/api/csp-report"',

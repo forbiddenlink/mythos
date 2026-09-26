@@ -116,6 +116,11 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return collections.map((collection) => ({
     slug: collection.slug,

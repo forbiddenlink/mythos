@@ -1,19 +1,19 @@
-import { getRequestConfig } from 'next-intl/server';
-import { cookies } from 'next/headers';
-import { defaultLocale, isValidLocale } from './config';
+import { getRequestConfig } from "next-intl/server";
+import { defaultLocale } from "./config";
+import defaultMessages from "../../messages/en.json";
 
-export default getRequestConfig(async () => {
-  const cookieStore = await cookies();
-  const localeCookie = cookieStore.get('locale')?.value;
-
-  // Use cookie value if valid, otherwise fall back to default
-  const locale = localeCookie && isValidLocale(localeCookie)
-    ? localeCookie
-    : defaultLocale;
-
-  return {
-    locale,
-    messages: (await import(`../../messages/${locale}.json`)).default,
-    timeZone: 'UTC',
-  };
-});
+/**
+ * Server-side i18n config: always the default locale.
+ *
+ * Reading the `locale` cookie here (as this file used to) makes every route
+ * dynamic, which disabled static generation for the whole site. Pages are now
+ * prerendered in the default locale, and `IntlProvider` (a client component in
+ * the root layout) swaps in the reader's saved locale after hydration. The
+ * cookie is still set by `proxy.ts` from Accept-Language and by the language
+ * switcher, so a reader's choice persists across visits.
+ */
+export default getRequestConfig(async () => ({
+  locale: defaultLocale,
+  messages: defaultMessages,
+  timeZone: "UTC",
+}));

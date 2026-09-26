@@ -22,8 +22,6 @@ import { matchesSource } from "@/lib/source-matching";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { SourceExcerpt } from "@/components/sources/SourceExcerpt";
 
-export const revalidate = 604800;
-
 interface SourceCharacter {
   id: string;
   kind: "deity" | "hero";
@@ -94,6 +92,11 @@ interface PageProps {
 function resolveSource(slug: string): Source | undefined {
   return (sources as Source[]).find((s) => s.id === slug);
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return (sources as Source[]).map((source) => ({ slug: source.id }));

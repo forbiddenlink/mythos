@@ -3,7 +3,11 @@ import { notFound, redirect } from "next/navigation";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import { canonicalLocationSlug } from "@/lib/location-aliases";
-import { generateBaseMetadata, generateNotFoundMetadata, shortPantheonName } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { LocationPageClient } from "./LocationPageClient";
 
 interface LocationData {
@@ -20,6 +24,11 @@ interface LocationData {
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 // Generate static params for all locations
 export async function generateStaticParams() {

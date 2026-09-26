@@ -23,6 +23,11 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
+
 // Generate static params for all journeys
 export async function generateStaticParams() {
   return journeys.map((journey) => ({
@@ -36,8 +41,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const journey = journeys.find((j) => j.slug === slug) as
-    | JourneyData
-    | undefined;
+    JourneyData | undefined;
 
   if (!journey) {
     return generateNotFoundMetadata(

@@ -20,6 +20,11 @@ interface PageProps {
   params: Promise<{ pair: string }>;
 }
 
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return getDeityComparisons().map((comparison) => ({
     pair: comparison.slug,

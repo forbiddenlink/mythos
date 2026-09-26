@@ -15,9 +15,6 @@ import locations from "@/data/locations.json";
 import { MuseumObjects } from "@/components/stories/MuseumObjects";
 import { getMythVersions } from "@/lib/myth-versions";
 
-// ISR: Revalidate every week (604800 seconds)
-export const revalidate = 604800;
-
 interface StoryData {
   id: string;
   pantheonId: string;
@@ -32,6 +29,11 @@ interface StoryData {
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 // Generate static params for all stories
 export async function generateStaticParams() {

@@ -12,9 +12,8 @@ import { QueryProvider } from "@/providers/query-provider";
 import { ReviewProvider } from "@/providers/review-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata, Viewport } from "next";
-import { NextIntlClientProvider } from "next-intl";
+import { IntlProvider } from "@/components/i18n/IntlProvider";
 import { getLocale, getMessages } from "next-intl/server";
-import { headers } from "next/headers";
 import { cinzel, crimsonPro, sourceSans } from "./fonts";
 import "./globals.css";
 
@@ -54,7 +53,9 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  // No request APIs here (headers/cookies): they would opt every route out of
+  // static generation. Locale switching happens client-side in IntlProvider;
+  // CSP for static pages is hash-based (see src/proxy.ts).
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -68,13 +69,12 @@ export default async function RootLayout({
       >
         <WebSiteJsonLd />
         <OrganizationJsonLd />
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <IntlProvider messages={messages} locale={locale}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-            nonce={nonce}
           >
             <QueryProvider>
               <BookmarksProvider>
@@ -102,7 +102,7 @@ export default async function RootLayout({
               </BookmarksProvider>
             </QueryProvider>
           </ThemeProvider>
-        </NextIntlClientProvider>
+        </IntlProvider>
       </body>
     </html>
   );

@@ -5,11 +5,12 @@ import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
 import { canonicalArtifactSlug } from "@/lib/artifact-aliases";
-import { generateBaseMetadata, generateNotFoundMetadata, shortPantheonName } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  shortPantheonName,
+} from "@/lib/metadata";
 import { ArtifactPageClient } from "./ArtifactPageClient";
-
-// ISR: Revalidate every week (604800 seconds)
-export const revalidate = 604800;
 
 interface ArtifactData {
   id: string;
@@ -26,6 +27,11 @@ interface ArtifactData {
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.)
+export const dynamicParams = false;
 
 // Generate static params for all artifacts
 export async function generateStaticParams() {

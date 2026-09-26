@@ -4,9 +4,6 @@ import pantheons from "@/data/pantheons.json";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { PantheonPageClient } from "./PantheonPageClient";
 
-// ISR: Revalidate every week (604800 seconds)
-export const revalidate = 604800;
-
 interface PantheonData {
   id: string;
   name: string;
@@ -19,6 +16,12 @@ interface PantheonData {
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+// Every valid param is prerendered by generateStaticParams; anything else is a
+// 404 served from the static not-found page. (On-demand rendering of unknown
+// params would cache HTML carrying one request's CSP nonce.) Alias URLs (ids,
+// alternate names, other casings) are redirected by src/proxy.ts.
+export const dynamicParams = false;
 
 // Generate static params for all pantheons
 export async function generateStaticParams() {
@@ -33,8 +36,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const pantheon = pantheons.find((p) => p.slug === slug || p.id === slug) as
-    | PantheonData
-    | undefined;
+    PantheonData | undefined;
 
   if (!pantheon) {
     return generateNotFoundMetadata(
