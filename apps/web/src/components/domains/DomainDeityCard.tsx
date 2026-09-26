@@ -121,6 +121,7 @@ export function DomainDeityCard({
   return (
     <TransitionLink href={`/deities/${deity.slug}`} className="group block">
       <Card
+        interactive
         asArticle
         className={cn(
           "h-full cursor-pointer card-elevated bg-card hover:scale-[1.01] transition-all duration-300",

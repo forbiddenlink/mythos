@@ -62,7 +62,11 @@ export default async function QuizResultPage({
 
   const { score, total } = parsed;
   const quizHref =
-    parsed.quizId === "relationships" ? "/quiz/relationships" : "/quiz";
+    parsed.quizId === "relationships"
+      ? "/quiz/relationships"
+      : parsed.quizId === "daily"
+        ? "/#todays-myth"
+        : "/quiz";
   const percent = Math.round((score / total) * 100);
   const verdict = quizResultVerdict(score, total);
 

@@ -234,14 +234,8 @@ export interface JourneySummary {
   slug: string;
   pantheonId: string;
   imageUrl?: string;
-}
-
-export interface Tour {
-  id: string;
-  name: string;
-  description: string;
-  pantheonId: string;
-  locations: string[];
+  /** "otherworld" routes cross realms with no coordinates (no map). */
+  setting?: "earthly" | "otherworld";
 }
 
 export interface Pantheon extends BaseEntity {

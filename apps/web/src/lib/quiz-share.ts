@@ -16,6 +16,7 @@ export const MAX_QUIZ_LENGTH = 100;
  */
 export const QUIZ_LABELS = {
   relationships: "Divine Relationships Quiz",
+  daily: "Today’s Myth",
 } as const;
 
 export type QuizId = keyof typeof QUIZ_LABELS;

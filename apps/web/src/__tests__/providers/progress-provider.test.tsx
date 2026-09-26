@@ -72,6 +72,7 @@ describe("ProgressProvider", () => {
         quizScores: { "quiz-1": 80 },
         achievements: [],
         dailyStreak: 5,
+        longestStreak: 5,
         lastVisit: "2024-01-15", // Today - no streak change
         totalXP: 500,
         streakFreezes: 2,
@@ -113,6 +114,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 3,
+        longestStreak: 3,
         lastVisit: "2024-01-15", // Today
         totalXP: 100,
         // Missing: streakFreezes
@@ -258,6 +260,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 5,
+        longestStreak: 5,
         lastVisit: "2024-01-14", // Yesterday
         totalXP: 0,
         streakFreezes: 2,
@@ -298,6 +301,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 5,
+        longestStreak: 5,
         lastVisit: "2024-01-10", // 5 days ago
         totalXP: 0,
         streakFreezes: 0, // No freezes available
@@ -337,6 +341,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 5,
+        longestStreak: 5,
         lastVisit: "2024-01-10", // 5 days ago
         totalXP: 0,
         streakFreezes: 2, // Has freezes
@@ -378,6 +383,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 5,
+        longestStreak: 5,
         lastVisit: "2024-01-15", // Today
         totalXP: 0,
         streakFreezes: 2,
@@ -418,6 +424,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 5,
+        longestStreak: 5,
         lastVisit: "2024-01-15",
         totalXP: 0,
         streakFreezes: 2,
@@ -463,6 +470,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 0, // No streak to protect
+        longestStreak: 0,
         lastVisit: "2024-01-15",
         totalXP: 0,
         streakFreezes: 0,
@@ -507,6 +515,7 @@ describe("ProgressProvider", () => {
         quizScores: {},
         achievements: [],
         dailyStreak: 0,
+        longestStreak: 0,
         lastVisit: "2024-01-15",
         totalXP: 0,
         streakFreezes: 5,
@@ -647,6 +656,7 @@ describe("ProgressProvider", () => {
         quizScores: { "quiz-1": 80, "quiz-2": 90 },
         achievements: ["first-deity", "story-reader"],
         dailyStreak: 5,
+        longestStreak: 5,
         lastVisit: "2024-01-15",
         totalXP: 500,
         streakFreezes: 2,
@@ -694,6 +704,61 @@ describe("ProgressProvider", () => {
       const stats = result.current.getStats();
       expect(stats.totalDeitiesViewed).toBe(0);
       expect(stats.averageQuizScore).toBe(0);
+    });
+  });
+
+  describe("best streak", () => {
+    it("carries the best streak over from the retired stats store", async () => {
+      vi.setSystemTime(new Date("2024-01-15"));
+      localStorageData["mythos-atlas-user-id"] = "user_1";
+      localStorageData["mythos-atlas-leaderboard"] = JSON.stringify([
+        { id: "someone-else", longestStreak: 99 },
+        { id: "user_1", longestStreak: 12 },
+      ]);
+      localStorageData["mythos-atlas-progress"] = JSON.stringify({
+        dailyStreak: 3,
+        lastVisit: "2024-01-15",
+      });
+
+      const { result } = renderHook(() => useProgress(), { wrapper });
+      await act(async () => {
+        vi.runAllTimers();
+      });
+
+      expect(result.current.progress.longestStreak).toBe(12);
+      expect(result.current.getStats().longestStreak).toBe(12);
+      // The legacy keys are left in place.
+      expect(localStorageData["mythos-atlas-leaderboard"]).toBeDefined();
+    });
+
+    it("ignores a malformed legacy store", async () => {
+      vi.setSystemTime(new Date("2024-01-15"));
+      localStorageData["mythos-atlas-user-id"] = "user_1";
+      localStorageData["mythos-atlas-leaderboard"] = "{not json";
+
+      const { result } = renderHook(() => useProgress(), { wrapper });
+      await act(async () => {
+        vi.runAllTimers();
+      });
+
+      expect(result.current.progress.longestStreak).toBe(1);
+    });
+
+    it("raises the best streak as the daily streak grows", async () => {
+      vi.setSystemTime(new Date("2024-01-15"));
+      localStorageData["mythos-atlas-progress"] = JSON.stringify({
+        dailyStreak: 4,
+        longestStreak: 4,
+        lastVisit: "2024-01-14",
+      });
+
+      const { result } = renderHook(() => useProgress(), { wrapper });
+      await act(async () => {
+        vi.runAllTimers();
+      });
+
+      expect(result.current.progress.dailyStreak).toBe(5);
+      expect(result.current.progress.longestStreak).toBe(5);
     });
   });
 

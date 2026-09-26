@@ -3,12 +3,10 @@
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import achievements from "@/data/achievements.json";
 import {
   ProgressContext,
   type ProgressContextValue,
 } from "@/providers/progress-provider";
-import { Lock } from "lucide-react";
 import { HeroMark } from "@/components/icons/hero-mark";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import {
@@ -29,132 +27,6 @@ function useProgress(): ProgressContextValue {
   return context;
 }
 
-// Map achievement icon keys → Mythos marks
-const iconMap: Record<string, MythosMarkId> = {
-  eye: "owl",
-  "book-open": "scroll",
-  "map-pin": "peak",
-  crown: "scepter",
-  axe: "blade",
-  pyramid: "chronos",
-  compass: "compass",
-  library: "codex",
-  book: "scroll",
-  globe: "temple",
-  pencil: "scroll",
-  trophy: "laurel",
-  "graduation-cap": "torch",
-  flame: "torch",
-  sword: "blade",
-  star: "constellation",
-  sparkles: "constellation",
-  "git-branch": "tree",
-  calendar: "chronos",
-  "book-marked": "favor",
-  "paw-print": "serpent",
-  link: "scales",
-  target: "lyre",
-};
-
-interface Achievement {
-  id: string;
-  name: string;
-  description: string;
-  xp: number;
-  icon: string;
-  category: string;
-  tier?: "bronze" | "silver" | "gold" | "mythic";
-}
-
-const progressTierBadgeClasses: Record<string, string> = {
-  mythic:
-    "bg-midnight/10 text-midnight dark:bg-gold/15 dark:text-gold border-gold/40",
-  gold: "bg-gold/15 text-gold-dark dark:text-gold border-gold/35",
-  silver: "bg-muted text-foreground border-border",
-  bronze: "bg-bronze/15 text-bronze border-bronze/35",
-};
-
-function inferAchievementTier(
-  achievement: Achievement,
-): keyof typeof progressTierBadgeClasses {
-  if (achievement.tier) return achievement.tier;
-  if (achievement.xp >= 200) return "mythic";
-  if (achievement.xp >= 100) return "gold";
-  if (achievement.xp >= 50) return "silver";
-  return "bronze";
-}
-
-interface AchievementCardProps {
-  achievement: Achievement;
-  unlocked: boolean;
-}
-
-function AchievementCard({
-  achievement,
-  unlocked,
-}: Readonly<AchievementCardProps>) {
-  const markId = iconMap[achievement.icon] ?? "laurel";
-  const tier = inferAchievementTier(achievement);
-  const tierBadgeClass = progressTierBadgeClasses[tier];
-
-  return (
-    <div
-      className={`relative p-4 rounded-xl border transition-all duration-300 ${
-        unlocked
-          ? "bg-linear-to-br from-gold/12 via-card to-card border-gold/30 shadow-lg shadow-gold/10"
-          : "bg-card/70 border-border/60"
-      }`}
-    >
-      {/* Glow effect for unlocked achievements */}
-      {unlocked && (
-        <div className="absolute inset-0 rounded-xl bg-linear-to-br from-gold/5 to-transparent pointer-events-none" />
-      )}
-
-      <div className="relative flex items-start gap-3">
-        <div
-          className={`relative flex h-12 w-12 shrink-0 items-center justify-center border ${
-            unlocked
-              ? "border-gold/40 bg-gold/10 text-gold"
-              : "border-border/60 bg-muted text-foreground/70"
-          }`}
-        >
-          <span className="absolute left-0 top-0 h-2 w-2 border-l border-t border-current opacity-40" />
-          <span className="absolute right-0 top-0 h-2 w-2 border-r border-t border-current opacity-40" />
-          <span className="absolute bottom-0 left-0 h-2 w-2 border-b border-l border-current opacity-40" />
-          <span className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-current opacity-40" />
-          {unlocked ? (
-            <MythosMark id={markId} className="relative h-6 w-6" />
-          ) : (
-            <Lock className="relative h-5 w-5" />
-          )}
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-            <h3 className="font-semibold text-sm text-foreground">
-              {achievement.name}
-            </h3>
-            <span
-              className={`text-[10px] px-2 py-0.5 rounded-full border ${tierBadgeClass}`}
-            >
-              {tier}
-            </span>
-          </div>
-          <p className="text-xs text-safe-muted mt-0.5 line-clamp-2">
-            {achievement.description}
-          </p>
-          <div
-            className={`flex items-center gap-1 mt-2 text-xs ${unlocked ? "text-gold" : "text-safe-subtle"}`}
-          >
-            <MythosMark id="constellation" className="h-3 w-3" />
-            <span>{achievement.xp} XP</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 interface ProgressBarProps {
   label: string;
   current: number;
@@ -168,7 +40,8 @@ function ProgressBar({
   total,
   mark,
 }: Readonly<ProgressBarProps>) {
-  const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
+  const shown = Math.min(current, total);
+  const percentage = total > 0 ? Math.round((shown / total) * 100) : 0;
 
   return (
     <div className="space-y-2">
@@ -178,16 +51,42 @@ function ProgressBar({
           <span className="text-sm font-medium text-foreground">{label}</span>
         </div>
         <span className="text-sm text-muted-foreground">
-          {current} / {total}
+          {shown} / {total}
         </span>
       </div>
       <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted/50">
         <Progress
           value={percentage}
           className="h-3 bg-muted/50"
-          aria-label={`${label} progress: ${current} of ${total}`}
+          aria-label={`${label} progress: ${shown} of ${total}`}
         />
       </div>
+    </div>
+  );
+}
+
+/** A figure in the stats strip. Static: it does not look or act clickable. */
+function StatFigure({
+  label,
+  value,
+  detail,
+  mark,
+}: Readonly<{
+  label: string;
+  value: string | number;
+  detail?: string;
+  mark: MythosMarkId;
+}>) {
+  return (
+    <div className="flex flex-col gap-1 border-l border-gold/30 pl-4">
+      <dt className="flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-parchment/70">
+        <MythosMark id={mark} className="h-3.5 w-3.5 text-gold" />
+        {label}
+      </dt>
+      <dd className="font-serif text-3xl font-semibold tabular-nums text-parchment">
+        {value}
+      </dd>
+      {detail ? <dd className="text-xs text-parchment/70">{detail}</dd> : null}
     </div>
   );
 }
@@ -197,50 +96,21 @@ export interface CatalogTotals {
   stories: number;
   locations: number;
   pantheons: number;
+  /** Achievements defined in the catalog (src/data/achievements.ts). */
+  achievements: number;
 }
 
 export function ProgressPageClient({
   totals,
   catalog,
 }: Readonly<{ totals: CatalogTotals; catalog: ExplorationCatalog }>) {
-  const { progress, getStats } = useProgress();
+  const { getStats } = useProgress();
   const stats = getStats();
 
   // Calculate level from XP (Level = XP / 100, rounded down)
   const level = Math.floor(stats.totalXP / 100);
   const xpInCurrentLevel = stats.totalXP % 100;
   const xpToNextLevel = 100;
-
-  // Get unlocked achievement IDs
-  const unlockedAchievements = new Set(progress.achievements);
-
-  // Group achievements by category
-  const achievementsByCategory = (achievements as Achievement[]).reduce(
-    (acc, achievement) => {
-      if (!acc[achievement.category]) {
-        acc[achievement.category] = [];
-      }
-      acc[achievement.category].push(achievement);
-      return acc;
-    },
-    {} as Record<string, Achievement[]>,
-  );
-
-  const categoryLabels: Record<string, string> = {
-    discovery: "Discovery",
-    exploration: "Exploration",
-    mastery: "Mastery",
-    streak: "Dedication",
-    special: "Special",
-  };
-
-  const categoryOrder = [
-    "discovery",
-    "exploration",
-    "mastery",
-    "streak",
-    "special",
-  ];
 
   const hasActivity =
     stats.totalXP > 0 ||
@@ -255,7 +125,7 @@ export function ProgressPageClient({
     return (
       <div className="page-shell max-w-4xl min-h-screen">
         <Breadcrumbs />
-        <h1 className="page-title text-foreground">Your Journey</h1>
+        <h1 className="page-title text-foreground">Your Stats</h1>
         <section
           className="mt-8 max-w-2xl"
           aria-labelledby="progress-start-title"
@@ -299,130 +169,76 @@ export function ProgressPageClient({
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-linear-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-24">
-        {/* Background decorations */}
+      <div className="relative overflow-hidden bg-linear-to-b from-midnight via-midnight/95 to-mythic py-16 md:py-20">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-bronze/5 rounded-full blur-3xl" />
         </div>
 
-        <div className="container mx-auto max-w-7xl px-4 relative z-10">
-          {/* Title */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-6">
-              <HeroMark mark="laurel" tone="gold" size="lg" />
+        <div className="container mx-auto max-w-5xl px-4 relative z-10">
+          <div className="flex items-center gap-4">
+            <HeroMark mark="laurel" tone="gold" size="md" />
+            <div>
+              <span className="block text-gold/80 text-sm tracking-[0.25em] uppercase font-medium">
+                Progress
+              </span>
+              <h1 className="page-title text-parchment">Your Stats</h1>
             </div>
-            <span className="inline-block text-gold/80 text-sm tracking-[0.25em] uppercase mb-4 font-medium">
-              Your Progress
-            </span>
-            <h1 className="page-title text-parchment mb-6">Your Journey</h1>
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-px bg-linear-to-r from-transparent to-gold/40" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-              <div className="w-12 h-px bg-linear-to-l from-transparent to-gold/40" />
-            </div>
-            {stats.totalXP === 0 ? (
-              <div className="mx-auto max-w-lg rounded-xl border border-gold/20 bg-midnight/40 px-6 py-5 text-left backdrop-blur-sm">
-                <p className="font-serif text-lg text-parchment">
-                  Start earning XP
-                </p>
-                <p className="mt-2 text-sm text-parchment/70">
-                  Explore deities, read a story, or take a quiz — progress
-                  unlocks here as you go.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <NextLink
-                    href="/quiz"
-                    className="inline-flex min-h-11 items-center rounded-md bg-gold px-4 text-sm font-medium text-midnight hover:bg-gold-light"
-                  >
-                    Take a quiz
-                  </NextLink>
-                  <NextLink
-                    href="/deities"
-                    className="inline-flex min-h-11 items-center rounded-md border border-gold/30 px-4 text-sm font-medium text-parchment hover:bg-gold/10"
-                  >
-                    Browse deities
-                  </NextLink>
-                </div>
-              </div>
-            ) : null}
           </div>
+          <p className="mt-4 max-w-2xl text-parchment/75">
+            A record of your own reading, review and quizzes in this browser.
+            Nothing here is compared with other readers.
+          </p>
 
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {/* Level & XP Card */}
-            <Card className="bg-card/80 backdrop-blur-sm border-gold/20">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-4">
-                  <div className="relative flex h-16 w-16 shrink-0 items-center justify-center border border-gold/35 bg-midnight/40">
-                    <span className="absolute left-0 top-0 h-2.5 w-2.5 border-l border-t border-gold/40" />
-                    <span className="absolute right-0 top-0 h-2.5 w-2.5 border-r border-t border-gold/40" />
-                    <span className="absolute bottom-0 left-0 h-2.5 w-2.5 border-b border-l border-gold/40" />
-                    <span className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b border-r border-gold/40" />
-                    <span className="relative text-2xl font-serif font-semibold text-gold">
-                      {level}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-muted-foreground">Level</p>
-                    <p className="text-lg font-semibold text-foreground">
-                      {stats.totalXP} XP Total
-                    </p>
-                    <div className="mt-2">
-                      <Progress
-                        value={(xpInCurrentLevel / xpToNextLevel) * 100}
-                        className="h-2 bg-muted/50"
-                        aria-label={`Level progress: ${xpInCurrentLevel} of ${xpToNextLevel} XP`}
-                      />
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {xpInCurrentLevel} / {xpToNextLevel} XP to next level
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Daily Streak Card */}
-            <Card className="bg-card/80 backdrop-blur-sm border-gold/20">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-4">
-                  <HeroMark mark="torch" tone="bronze" size="lg" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      Daily Streak
-                    </p>
-                    <p className="text-3xl font-bold text-foreground">
-                      {stats.dailyStreak}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {stats.dailyStreak === 1 ? "day" : "days"} in a row
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Achievements Card */}
-            <Card className="bg-card/80 backdrop-blur-sm border-gold/20">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-4">
-                  <HeroMark mark="laurel" tone="gold" size="lg" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      Achievements
-                    </p>
-                    <p className="text-3xl font-bold text-foreground">
-                      {stats.totalAchievements}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      of {achievements.length} unlocked
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <dl className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
+            <StatFigure
+              label={`Level ${level}`}
+              value={`${stats.totalXP} XP`}
+              detail={`${xpInCurrentLevel} / ${xpToNextLevel} XP to level ${level + 1}`}
+              mark="constellation"
+            />
+            <StatFigure
+              label="Daily streak"
+              value={stats.dailyStreak}
+              detail={`Best: ${stats.longestStreak} ${stats.longestStreak === 1 ? "day" : "days"}`}
+              mark="torch"
+            />
+            <StatFigure
+              label="Quick quiz best"
+              value={stats.quickQuizHighScore}
+              detail={
+                stats.totalQuizzesTaken > 0
+                  ? `Average quiz score ${stats.averageQuizScore}%`
+                  : "No scored quizzes yet"
+              }
+              mark="lyre"
+            />
+            <StatFigure
+              label="Achievements"
+              value={`${stats.totalAchievements} / ${totals.achievements}`}
+              detail={
+                stats.dailyChallengeStreak > 0
+                  ? `Daily myth streak: ${stats.dailyChallengeStreak}`
+                  : undefined
+              }
+              mark="laurel"
+            />
+          </dl>
+          <div className="mt-3 max-w-xs">
+            <Progress
+              value={(xpInCurrentLevel / xpToNextLevel) * 100}
+              className="h-1.5 bg-parchment/15"
+              aria-label={`Level progress: ${xpInCurrentLevel} of ${xpToNextLevel} XP`}
+            />
           </div>
+          <p className="mt-6">
+            <NextLink
+              href="/achievements"
+              className="inline-flex min-h-11 items-center text-sm font-medium text-gold underline-offset-4 hover:underline"
+            >
+              See every achievement →
+            </NextLink>
+          </p>
         </div>
       </div>
 
@@ -435,45 +251,11 @@ export function ProgressPageClient({
           <RetentionPulse />
         </div>
 
-        <div className="mt-6 rounded-lg border border-border/60 bg-card/60 p-4">
-          <p className="text-sm text-muted-foreground">
-            Your progress and stats are currently stored on this device and
-            browser.
-          </p>
-        </div>
-
-        <section className="mt-6" aria-label="Learning backup and restore">
-          <LearningBackup />
-        </section>
-
-        <section className="mt-6 rounded-2xl border border-border/60 bg-card/60 p-6">
-          <h2 className="font-serif text-2xl font-semibold mb-3">
-            Measure Breadth, Depth, and Consistency
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            The progress page tracks more than simple page views. It shows how
-            broadly you are exploring across pantheons, how consistently you
-            return to study, and where your strongest momentum is building
-            through stories, quizzes, milestones, and unlocked achievements.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Use these totals to spot gaps in your learning path. If one
-            tradition dominates your history, the progress charts make that
-            obvious and give you a reason to branch into unfamiliar cultures,
-            themes, and connected myths on the next session.
-          </p>
-          <p className="mt-3 text-muted-foreground leading-relaxed">
-            Because achievements, quiz results, and reading activity are shown
-            together, this page also works as a weekly review dashboard for
-            deciding what to revisit and what to study next.
-          </p>
-        </section>
-
         {/* Discovery Progress Section */}
         <section className="mt-8">
           <Card className="bg-card/80 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle as="h2" className="flex items-center gap-2">
                 <MythosMark id="compass" className="h-5 w-5 text-gold" />
                 Discovery Progress
               </CardTitle>
@@ -507,74 +289,13 @@ export function ProgressPageClient({
           </Card>
         </section>
 
-        {/* Achievements Gallery */}
-        <section className="mt-12 rounded-3xl border border-gold/15 bg-linear-to-br from-card via-card to-gold/5 p-6 md:p-8">
-          <h2 className="font-serif text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
-            <MythosMark id="laurel" className="h-6 w-6 text-gold" />
-            Achievements Gallery
-          </h2>
-          <p className="text-safe-muted mb-8 max-w-2xl">
-            Milestones, streaks, and mastery rewards are shown here using the
-            same tier language as the full achievements experience.
+        <section className="mt-8" aria-label="Learning backup and restore">
+          <p className="mb-3 text-sm text-muted-foreground">
+            Your stats are stored on this device and browser only. Download a
+            backup to keep them or move them to another browser.
           </p>
-
-          {categoryOrder.map((category) => {
-            const categoryAchievements = achievementsByCategory[category];
-            if (!categoryAchievements) return null;
-
-            return (
-              <div key={category} className="mb-8">
-                <h3 className="text-lg font-medium text-muted-foreground mb-4 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gold" />
-                  {categoryLabels[category]}
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {categoryAchievements.map((achievement) => (
-                    <AchievementCard
-                      key={achievement.id}
-                      achievement={achievement}
-                      unlocked={unlockedAchievements.has(achievement.id)}
-                    />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          <LearningBackup />
         </section>
-
-        {/* Quiz Stats (if any quizzes taken) */}
-        {stats.totalQuizzesTaken > 0 && (
-          <section className="mt-12">
-            <Card className="bg-card/80 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MythosMark id="lyre" className="h-5 w-5 text-gold" />
-                  Quiz Performance
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      Quizzes Completed
-                    </p>
-                    <p className="text-2xl font-bold text-foreground">
-                      {stats.totalQuizzesTaken}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">
-                      Average Score
-                    </p>
-                    <p className="text-2xl font-bold text-foreground">
-                      {stats.averageQuizScore}%
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-        )}
       </div>
     </div>
   );

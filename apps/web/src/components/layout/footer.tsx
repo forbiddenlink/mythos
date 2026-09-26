@@ -4,7 +4,10 @@ import { CookieSettingsButton } from "@/components/privacy/CookieSettingsButton"
 import Link from "next/link";
 import { Github } from "@/components/icons/brand";
 import { CorrectionLink } from "@/components/layout/CorrectionLink";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
+// Secondary destinations live here; the header carries the primary IA
+// (components/layout/nav-config.ts).
 const footerLinks = {
   explore: [
     { label: "All Pantheons", href: "/pantheons" },
@@ -16,24 +19,23 @@ const footerLinks = {
     { label: "Locations", href: "/locations" },
   ],
   discover: [
-    { label: "Divine Domains", href: "/divine-domains" },
     { label: "Compare Deities", href: "/compare" },
     { label: "Compare Myths", href: "/compare/myths" },
-    { label: "Knowledge Graph", href: "/knowledge-graph" },
-    { label: "Family Tree", href: "/family-tree" },
-    { label: "Timeline", href: "/timeline" },
-    { label: "Story Timeline", href: "/story-timeline" },
+    { label: "Cross-Pantheon Parallels", href: "/compare/parallels" },
+    { label: "Divine Domains", href: "/divine-domains" },
+    { label: "Cosmologies", href: "/cosmology" },
+    { label: "Interactive Stories", href: "/stories/interactive" },
+    { label: "Mythology Facts", href: "/facts" },
   ],
   learn: [
-    { label: "Study Guides", href: "/study" },
+    { label: "Paths", href: "/paths" },
+    { label: "Journeys", href: "/journeys" },
     { label: "Quiz", href: "/quiz" },
     { label: "Symbol Memory", href: "/games/memory" },
-    { label: "Learning Paths", href: "/learning-paths" },
-    { label: "Guided Tours", href: "/tours" },
     { label: "Daily Review", href: "/review" },
     { label: "Achievements", href: "/achievements" },
-    { label: "Your Stats", href: "/leaderboard" },
-    { label: "Your Progress", href: "/progress" },
+    { label: "Your Stats", href: "/progress" },
+    { label: "Bookmarks", href: "/bookmarks" },
   ],
   info: [
     { label: "About Mythos Atlas", href: "/about" },
@@ -91,6 +93,7 @@ export function Footer() {
               </a>
               <CorrectionLink />
             </div>
+            <NewsletterSignup placement="footer" className="mt-8" />
           </div>
 
           {/* Explore links */}

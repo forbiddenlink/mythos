@@ -56,3 +56,41 @@ export function isIllustrativeImage(
     image?.kind === "illustration-procedural"
   );
 }
+
+/** How many catalog images were made each way, e.g. for the About page. */
+export function countImagesByKind(): Record<ImageProvenanceKind, number> {
+  const counts: Record<ImageProvenanceKind, number> = {
+    "illustration-ai": 0,
+    "illustration-procedural": 0,
+    "public-domain": 0,
+    licensed: 0,
+    unverified: 0,
+  };
+  for (const byId of Object.values(provenance.entities)) {
+    for (const generator of Object.values(byId ?? {})) {
+      const kind = provenance.generators[generator]?.kind;
+      if (kind) counts[kind] += 1;
+    }
+  }
+  return counts;
+}
+
+/** The slim provenance a page passes to an image caption. */
+export interface ImageNote {
+  kind: ImageProvenanceKind;
+  label: string;
+}
+
+/**
+ * Caption data for an entity's illustrative image, or undefined when the
+ * image is sourced artwork (credited elsewhere) or has no record. Call on
+ * the server and pass the result down as a prop.
+ */
+export function getIllustrativeImageNote(
+  entityType: ImageEntityType,
+  id: string,
+): ImageNote | undefined {
+  const image = getImageProvenance(entityType, id);
+  if (!image || !isIllustrativeImage(image)) return undefined;
+  return { kind: image.kind, label: image.label };
+}

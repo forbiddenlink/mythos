@@ -11,8 +11,7 @@ const pagesToTest = [
   { path: "/quiz", name: "Quiz Hub" },
   { path: "/achievements", name: "Achievements" },
   { path: "/compare", name: "Compare" },
-  { path: "/learning-paths", name: "Learning Paths" },
-  { path: "/collections", name: "Collections" },
+  { path: "/paths", name: "Paths" },
   { path: "/facts", name: "Facts" },
 ];
 

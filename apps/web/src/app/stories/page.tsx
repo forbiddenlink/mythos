@@ -1,4 +1,8 @@
-import { getBranchingStories, getStories } from "@/lib/data/catalog";
+import {
+  getBranchingStories,
+  getStories,
+  getTraditionCount,
+} from "@/lib/data/catalog";
 import { pick } from "@/lib/data/project";
 import {
   StoriesPageClient,
@@ -37,6 +41,7 @@ export default function StoriesPage() {
     <StoriesPageClient
       stories={stories}
       interactiveStories={interactiveStories}
+      traditionCount={getTraditionCount()}
     />
   );
 }

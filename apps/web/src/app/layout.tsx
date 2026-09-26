@@ -6,7 +6,6 @@ import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { generateBaseMetadata, googleSiteVerification } from "@/lib/metadata";
 import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
-import { LeaderboardProvider } from "@/providers/leaderboard-provider";
 import { ProgressProvider } from "@/providers/progress-provider";
 import { ReviewProvider } from "@/providers/review-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -78,23 +77,21 @@ export default async function RootLayout({
             <BookmarksProvider>
               <ProgressProvider>
                 <ReviewProvider>
-                  <LeaderboardProvider>
-                    <AchievementNotificationProvider>
-                      <SkipToContent />
-                      <div className="flex min-h-screen flex-col">
-                        <Header />
-                        <main
-                          id="main-content"
-                          className="flex-1 scroll-mt-16"
-                          tabIndex={-1}
-                        >
-                          {children}
-                        </main>
-                        <Footer />
-                      </div>
-                      <GlobalClientAddons />
-                    </AchievementNotificationProvider>
-                  </LeaderboardProvider>
+                  <AchievementNotificationProvider>
+                    <SkipToContent />
+                    <div className="flex min-h-screen flex-col">
+                      <Header />
+                      <main
+                        id="main-content"
+                        className="flex-1 scroll-mt-16"
+                        tabIndex={-1}
+                      >
+                        {children}
+                      </main>
+                      <Footer />
+                    </div>
+                    <GlobalClientAddons />
+                  </AchievementNotificationProvider>
                 </ReviewProvider>
               </ProgressProvider>
             </BookmarksProvider>

@@ -58,7 +58,12 @@ const RECOMMENDED_DEITIES = [
 
 export function DeitiesPageClient({
   deities: allDeities,
-}: Readonly<{ deities: Deity[] }>) {
+  traditionCount,
+}: Readonly<{
+  deities: Deity[];
+  /** Traditions in the atlas (collections excluded), counted on the server. */
+  traditionCount: number;
+}>) {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [filteredDeities, setFilteredDeities] = useState<Deity[]>(allDeities);
   const [filtersVersion, setFiltersVersion] = useState(0);
@@ -106,7 +111,7 @@ export function DeitiesPageClient({
         mark="laurel"
         tagline="Divine Beings"
         title="Deities"
-        description="Gods and goddesses from 26 pantheons, with family trees, domains, and stories"
+        description={`Gods and goddesses from ${traditionCount} traditions, with family trees, domains, and stories`}
         backgroundImage="/deities-list-hero.jpg"
         backgroundAlt="A dramatic collage of deities from ancient mythology"
         colorScheme="gold"
@@ -205,6 +210,7 @@ function PaginatedDeityGrid({ deities }: Readonly<{ deities: Deity[] }>) {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {pagination.paginatedData.map((deity, index) => (
           <Card
+            interactive
             key={deity.id}
             asArticle
             className="parchment-card group relative h-full bg-card transition-transform duration-300 hover:-translate-y-1"

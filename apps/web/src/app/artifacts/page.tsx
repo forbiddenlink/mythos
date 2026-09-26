@@ -180,6 +180,7 @@ export default function ArtifactsPage() {
                 className="group pantheon-reveal"
               >
                 <Card
+                  interactive
                   asArticle
                   className="h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 hover:border-bronze/40 transition-all duration-300"
                 >

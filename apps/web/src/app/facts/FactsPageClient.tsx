@@ -22,6 +22,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AntiquityCalendar } from "@/components/calendar/AntiquityCalendar";
+import { FESTIVALS } from "@/lib/antiquity-festivals";
+
+const FESTIVAL_TRADITION_COUNT = new Set(FESTIVALS.map((f) => f.pantheonId))
+  .size;
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import facts from "@/data/mythology-facts.json";
 
@@ -209,7 +213,7 @@ export function FactsPageClient({
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Curated discoveries, historical insights, and seasonal liturgical
-            calendars from 13 world traditions.
+            calendars from {FESTIVAL_TRADITION_COUNT} ancient traditions.
           </p>
 
           {/* View Switcher */}

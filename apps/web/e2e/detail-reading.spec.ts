@@ -70,12 +70,16 @@ test.describe("Detail-page reading", () => {
           ),
         ).toBeVisible();
         await expect(
-          main.getByText("Editorial illustration of Heracles"),
+          main.getByTestId("illustrative-image-caption"),
         ).toHaveCount(0);
       } else {
+        const caption = main.getByTestId("illustrative-image-caption");
+        await expect(caption).toBeVisible();
+        await expect(caption).toContainText(`Illustration of ${name}`);
+        await expect(caption).toContainText("Illustrative image");
         await expect(
-          main.getByText(`Editorial illustration of ${name}`, { exact: true }),
-        ).toBeVisible();
+          caption.getByRole("link", { name: "About our images" }),
+        ).toHaveAttribute("href", "/about#images");
       }
       expect(
         await page.evaluate(
@@ -122,11 +126,13 @@ test.describe("Detail-page reading", () => {
   }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto("/timeline");
-    await expect(page.locator(".row-label").last()).toContainText(
-      "African Traditions",
-    );
+    // Several traditions have no shared period; the regional collection is
+    // one of them and is drawn without a date bar.
     await expect(
-      page.getByText("No shared period recorded", { exact: true }),
+      page.locator(".row-label", { hasText: "African Traditions" }),
+    ).toHaveCount(1);
+    await expect(
+      page.getByText("No shared period recorded", { exact: true }).first(),
     ).toBeVisible();
     await expect(
       page.locator(".pantheon-group").last().locator("rect"),
@@ -174,31 +180,55 @@ test.describe("Detail-page reading", () => {
   });
 });
 
-test("discovery offers a thematic route on desktop and mobile", async ({
+test("learn menu offers the Paths hub on desktop and mobile", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 800 });
   await page.goto("/heroes/heracles");
-  const discover = page.getByRole("button", { name: "Discover", exact: true });
-  await discover.focus();
-  await expect(discover).toHaveAttribute("aria-expanded", "true");
-  const collection = page.locator('header a[href="/collections"]');
-  await expect(collection).toContainText("Follow a theme across traditions");
-  await collection.click();
-  await expect(page).toHaveURL(/\/collections$/);
+  const learn = page.getByRole("button", { name: "Learn", exact: true });
+  await learn.focus();
+  await expect(learn).toHaveAttribute("aria-expanded", "true");
+  const paths = page.locator('header a[href="/paths"]');
+  await expect(paths).toContainText(
+    "Themed collections, journeys, and study guides",
+  );
+  await paths.click();
+  await expect(page).toHaveURL(/\/paths$/);
   await page.setViewportSize({ width: 320, height: 800 });
   await page.getByRole("button", { name: "Open Menu", exact: true }).click();
-  await page.getByRole("button", { name: "Discover", exact: true }).click();
-  const region = page.getByRole("region", { name: "Discover", exact: true });
+  await page.getByRole("button", { name: "Visualize", exact: true }).click();
+  const region = page.getByRole("region", { name: "Visualize", exact: true });
   await expect(region.getByRole("link").first()).toHaveAttribute(
     "href",
-    "/collections",
+    "/atlas",
   );
-  await region.locator('a[href="/journeys"]').click();
-  await expect(page).toHaveURL(/\/journeys$/);
+  await region.locator('a[href="/timeline"]').click();
+  await expect(page).toHaveURL(/\/timeline$/);
   await expect(
     page.getByRole("button", { name: "Open Menu", exact: true }),
   ).toBeVisible();
+});
+
+test("primary navigation keeps secondary pages in the footer", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+  const primary = page.getByRole("navigation", { name: "Primary" });
+  await expect(
+    primary.getByRole("button", { name: /^(Explore|Visualize|Learn)$/ }),
+  ).toHaveCount(3);
+  await expect(primary.getByRole("link", { name: "Compare" })).toHaveAttribute(
+    "href",
+    "/compare",
+  );
+  for (const retired of ["/leaderboard", "/tours", "/learning-paths"]) {
+    await expect(page.locator(`a[href="${retired}"]`)).toHaveCount(0);
+  }
+  const footer = page.locator("footer");
+  for (const secondary of ["/achievements", "/progress", "/cosmology"]) {
+    await expect(footer.locator(`a[href="${secondary}"]`)).toHaveCount(1);
+  }
 });
 
 test("desktop discovery keeps its last destination reachable on short screens", async ({
@@ -206,7 +236,7 @@ test("desktop discovery keeps its last destination reachable on short screens", 
 }) => {
   await page.setViewportSize({ width: 1280, height: 400 });
   await page.goto("/heroes/heracles");
-  await page.getByRole("button", { name: "Discover", exact: true }).focus();
+  await page.getByRole("button", { name: "Learn", exact: true }).focus();
   const oracle = page.locator('header a[href="/oracle"]');
   await oracle.focus();
   await expect(oracle).toBeInViewport({ ratio: 1 });

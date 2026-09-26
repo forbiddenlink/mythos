@@ -1,23 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import journeys from "@/data/journeys.json";
-import pantheons from "@/data/pantheons.json";
+import { getJourneys, getPantheonById } from "@/lib/data/catalog";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { JourneyPageClient } from "./JourneyPageClient";
-
-interface JourneyData {
-  id: string;
-  heroId: string;
-  heroName: string;
-  title: string;
-  slug: string;
-  description: string;
-  pantheonId: string;
-  duration: string;
-  imageUrl?: string;
-  source: string;
-  waypoints: Array<{ id: string; name: string }>;
-}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -28,9 +13,13 @@ interface PageProps {
 // params would cache HTML carrying one request's CSP nonce.)
 export const dynamicParams = false;
 
+function findJourney(slug: string) {
+  return getJourneys().find((j) => j.slug === slug);
+}
+
 // Generate static params for all journeys
 export async function generateStaticParams() {
-  return journeys.map((journey) => ({
+  return getJourneys().map((journey) => ({
     slug: journey.slug,
   }));
 }
@@ -40,8 +29,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const journey = journeys.find((j) => j.slug === slug) as
-    JourneyData | undefined;
+  const journey = findJourney(slug);
 
   if (!journey) {
     return generateNotFoundMetadata(
@@ -50,7 +38,7 @@ export async function generateMetadata({
     );
   }
 
-  const pantheon = pantheons.find((p) => p.id === journey.pantheonId);
+  const pantheon = getPantheonById(journey.pantheonId);
   const pantheonName = pantheon?.name || "Ancient";
 
   // Create a rich description
@@ -83,12 +71,18 @@ export async function generateMetadata({
 
 export default async function JourneyPage({ params }: PageProps) {
   const { slug } = await params;
-
-  // Check if journey exists (for 404)
-  const journey = journeys.find((j) => j.slug === slug);
+  const journey = findJourney(slug);
   if (!journey) {
     notFound();
   }
+  const pantheon = getPantheonById(journey.pantheonId);
 
-  return <JourneyPageClient slug={slug} />;
+  return (
+    <JourneyPageClient
+      journey={journey}
+      pantheon={
+        pantheon ? { name: pantheon.name, slug: pantheon.slug } : undefined
+      }
+    />
+  );
 }

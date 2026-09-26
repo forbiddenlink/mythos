@@ -97,8 +97,8 @@ export function ExplorationWrapped({
       </div>
       <h2 className="font-serif text-2xl text-foreground">Your atlas so far</h2>
       <p className="mt-1 text-sm text-muted-foreground">
-        A personal snapshot of what you&apos;ve opened in Mythos — not a
-        leaderboard, a trail.
+        A personal snapshot of what you&apos;ve opened in Mythos: a trail
+        through the atlas.
       </p>
 
       <dl className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">

@@ -4,11 +4,12 @@ import { DidYouKnow } from "@/components/home/DidYouKnow";
 import { AtlasOpensHero } from "@/components/home/AtlasOpensHero";
 import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
 import { PantheonShowcase } from "@/components/home/PantheonShowcase";
+import { TodaysMyth } from "@/components/home/TodaysMyth";
 import { SyncretismStrip } from "@/components/mythology/SyncretismStrip";
 import { generateBaseMetadata } from "@/lib/metadata";
+import { getTraditionCount } from "@/lib/data/catalog";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
-import pantheonsData from "@/data/pantheons.json";
 import creaturesData from "@/data/creatures.json";
 import artifactsData from "@/data/artifacts.json";
 import locationsData from "@/data/locations.json";
@@ -17,7 +18,7 @@ import locationsData from "@/data/locations.json";
 // JSON here keeps it OUT of the client bundle — only the small derived values below
 // serialize to the client components as props.
 const HERO_COUNTS = {
-  pantheons: (pantheonsData as unknown[]).length,
+  pantheons: getTraditionCount(),
   deities: (deitiesData as unknown[]).length,
   stories: (storiesData as unknown[]).length,
   creatures: (creaturesData as unknown[]).length,
@@ -37,8 +38,7 @@ for (const d of deitiesData as { id: string; slug: string; name: string }[]) {
 
 export const metadata = generateBaseMetadata({
   title: "Mythos Atlas - Explore World Mythology",
-  description:
-    "Explore gods, myths, and legendary worlds from 20 civilizations with family trees, quizzes, stories, and interactive mythology tools.",
+  description: `Explore gods, myths, and legendary worlds from ${getTraditionCount()} traditions with family trees, quizzes, stories, and interactive mythology tools.`,
   url: "/",
   keywords: [
     "mythology",
@@ -65,6 +65,7 @@ export default function Home() {
       />
       <AtlasOpensHero counts={HERO_COUNTS} />
       <PantheonShowcase />
+      <TodaysMyth />
       <CollectionsShowcase />
       <SyncretismStrip />
       <InteractiveStoriesBanner />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getIllustrativeImageNote } from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import creatures from "@/data/creatures.json";
 import deitiesData from "@/data/deities.json";
@@ -117,6 +118,7 @@ export default async function CreaturePage({ params }: PageProps) {
       slug={slug}
       samePantheonDeities={samePantheonDeities}
       museumObjects={getMuseumObjectsFor({ creature: slug })}
+      imageNote={getIllustrativeImageNote("creature", creature.id)}
     />
   );
 }

@@ -52,7 +52,7 @@ export function CollectionsShowcase() {
             size="sm"
             className="text-gold-text hover:text-gold-text/80"
           >
-            <Link href="/collections">
+            <Link href="/paths#collections">
               View all {collections.length}
               <ArrowRight className="h-4 w-4 ml-1" />
             </Link>

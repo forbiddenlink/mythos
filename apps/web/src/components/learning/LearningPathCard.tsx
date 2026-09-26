@@ -113,9 +113,7 @@ export function LearningPathCard({
   const isStarted = path.progress > 0;
 
   return (
-    <Card
-      className={`group relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${className}`}
-    >
+    <Card className={`group relative overflow-hidden ${className}`}>
       {/* Gradient accent at top */}
       <div
         className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${gradientColor}`}

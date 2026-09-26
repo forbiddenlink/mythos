@@ -21,7 +21,7 @@ const studyPaths = [
   {
     title: "Read with the sources",
     description: "Compare a myth with the texts and objects behind it.",
-    href: "/study",
+    href: "/paths#study-guides",
   },
   {
     title: "Test what you know",

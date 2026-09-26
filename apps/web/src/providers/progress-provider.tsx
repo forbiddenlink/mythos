@@ -22,6 +22,8 @@ export interface UserProgress {
   quizScores: Record<string, number>;
   achievements: string[];
   dailyStreak: number;
+  /** Best daily streak ever reached (carried over from the retired stats store). */
+  longestStreak: number;
   lastVisit: string; // ISO date
   totalXP: number;
   streakFreezes: number;
@@ -51,6 +53,9 @@ export interface ProgressStats {
   totalAchievements: number;
   totalXP: number;
   dailyStreak: number;
+  longestStreak: number;
+  quickQuizHighScore: number;
+  dailyChallengeStreak: number;
 }
 
 export interface ProgressContextValue {
@@ -82,6 +87,7 @@ const DEFAULT_PROGRESS: UserProgress = {
   quizScores: {},
   achievements: [],
   dailyStreak: 0,
+  longestStreak: 0,
   lastVisit: "",
   totalXP: 0,
   streakFreezes: 2,
@@ -110,10 +116,41 @@ function getYesterday(): string {
   return getLocalYesterday();
 }
 
+/**
+ * The retired "leaderboard" store kept the best streak per local user id.
+ * Read it once so that number survives the move into progress; the old keys
+ * are left untouched.
+ */
+const LEGACY_STATS_STORAGE_KEY = "mythos-atlas-leaderboard";
+const LEGACY_USER_ID_STORAGE_KEY = "mythos-atlas-user-id";
+
+export function readLegacyLongestStreak(): number {
+  try {
+    const userId = localStorage.getItem(LEGACY_USER_ID_STORAGE_KEY);
+    const stored = localStorage.getItem(LEGACY_STATS_STORAGE_KEY);
+    if (!userId || !stored) return 0;
+    const entries: unknown = JSON.parse(stored);
+    if (!Array.isArray(entries)) return 0;
+    const own = entries.find(
+      (entry): entry is { longestStreak: number } =>
+        entry !== null &&
+        typeof entry === "object" &&
+        (entry as { id?: unknown }).id === userId,
+    );
+    const best = own?.longestStreak;
+    return typeof best === "number" && Number.isInteger(best) && best > 0
+      ? best
+      : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function loadProgress(): UserProgress {
   if (globalThis.window === undefined) return DEFAULT_PROGRESS;
   try {
     const stored = localStorage.getItem(PROGRESS_STORAGE_KEY);
+    let progress = DEFAULT_PROGRESS;
     if (stored) {
       const parsed = JSON.parse(stored);
       // Merge with defaults to handle any missing fields from older versions
@@ -123,15 +160,22 @@ function loadProgress(): UserProgress {
           const result = schema.safeParse(parsed?.[key]);
           return [
             key,
-            result.success
+            result.success && result.data !== undefined
               ? result.data
               : DEFAULT_PROGRESS[key as keyof typeof DEFAULT_PROGRESS],
           ];
         },
       );
-      return { ...DEFAULT_PROGRESS, ...Object.fromEntries(fields) };
+      progress = { ...DEFAULT_PROGRESS, ...Object.fromEntries(fields) };
     }
-    return DEFAULT_PROGRESS;
+    const longestStreak = Math.max(
+      progress.longestStreak,
+      progress.dailyStreak,
+      readLegacyLongestStreak(),
+    );
+    return longestStreak === progress.longestStreak
+      ? progress
+      : { ...progress, longestStreak };
   } catch {
     return DEFAULT_PROGRESS;
   }
@@ -199,9 +243,11 @@ export function ProgressProvider({
 
       // Visited yesterday, increment streak
       if (prev.lastVisit === yesterday) {
+        const dailyStreak = prev.dailyStreak + 1;
         return {
           ...prev,
-          dailyStreak: prev.dailyStreak + 1,
+          dailyStreak,
+          longestStreak: Math.max(prev.longestStreak, dailyStreak),
           lastVisit: today,
         };
       }
@@ -224,6 +270,7 @@ export function ProgressProvider({
       return {
         ...prev,
         dailyStreak: 1,
+        longestStreak: Math.max(prev.longestStreak, 1),
         lastVisit: today,
       };
     });
@@ -404,6 +451,9 @@ export function ProgressProvider({
       totalAchievements: progress.achievements.length,
       totalXP: progress.totalXP,
       dailyStreak: progress.dailyStreak,
+      longestStreak: Math.max(progress.longestStreak, progress.dailyStreak),
+      quickQuizHighScore: progress.quickQuizHighScore,
+      dailyChallengeStreak: progress.dailyChallengeStreak,
     };
   }, [progress]);
 

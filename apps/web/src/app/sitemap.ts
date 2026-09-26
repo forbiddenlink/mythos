@@ -154,11 +154,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
-      url: `${BASE_URL}/story-timeline`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: `${BASE_URL}/compare`,
       changeFrequency: "monthly",
       priority: 0.7,
@@ -174,19 +169,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/learning-paths`,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/study`,
+      url: `${BASE_URL}/paths`,
       changeFrequency: "monthly",
       priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/tours`,
-      changeFrequency: "monthly",
-      priority: 0.7,
     },
     {
       url: `${BASE_URL}/achievements`,
@@ -207,16 +192,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/sources`,
       changeFrequency: "monthly",
       priority: 0.4,
-    },
-    {
-      url: `${BASE_URL}/leaderboard`,
-      changeFrequency: "daily",
-      priority: 0.5,
-    },
-    {
-      url: `${BASE_URL}/collections`,
-      changeFrequency: "monthly",
-      priority: 0.7,
     },
     {
       url: `${BASE_URL}/facts`,

@@ -61,9 +61,10 @@ test.describe("Story and source reading", () => {
       .getByRole("link", { name: "Sources and further reading", exact: true })
       .click();
     await expect(page.locator("#deity-sources")).toBeInViewport();
-    await expect(
-      page.getByText("Editorial illustration of Athena", { exact: true }),
-    ).toHaveCount(1);
+    await expect(page.getByTestId("illustrative-image-caption")).toHaveCount(1);
+    await expect(page.getByTestId("illustrative-image-caption")).toContainText(
+      "Illustration of Athena",
+    );
     await expect(
       page.getByText(/toggle to see the original language/),
     ).toHaveCount(0);

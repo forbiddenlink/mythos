@@ -5,12 +5,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MapPin, Calendar, Users, BookOpen } from "lucide-react";
+import { MapPin, Calendar, Users, BookOpen, Printer } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { EditorialByline } from "@/components/content/EditorialByline";
+import { ShareButton } from "@/components/sharing/ShareButton";
+import { hasWorksheet } from "@/lib/data/worksheets";
 import ReactMarkdown from "react-markdown";
 import pantheonsData from "@/data/pantheons.json";
 import deitiesData from "@/data/deities.json";
@@ -163,6 +165,23 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
             )}
           </nav>
           <EditorialByline className="mt-4 max-w-2xl" tone="light" />
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <ShareButton
+              surface="pantheon_page"
+              title={`${pantheon.name} - Mythos Atlas`}
+              text={`Explore the ${pantheon.name} of ${pantheon.culture} mythology on Mythos Atlas`}
+              url={`https://mythosatlas.com/pantheons/${pantheon.slug}`}
+            />
+            {hasWorksheet(pantheon.slug) ? (
+              <Link
+                href={`/pantheons/${pantheon.slug}/worksheet`}
+                className="inline-flex min-h-11 items-center gap-2 text-sm text-parchment underline underline-offset-4 hover:text-gold-light"
+              >
+                <Printer aria-hidden className="h-4 w-4" />
+                Printable worksheet
+              </Link>
+            ) : null}
+          </div>
         </RouteHero>
       </div>
 
@@ -242,7 +261,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                   href={`/deities/${deity.slug}`}
                   className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <Card className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 overflow-hidden flex flex-col">
+                  <Card
+                    interactive
+                    className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300 overflow-hidden flex flex-col"
+                  >
                     {deity.imageUrl && (
                       <div className="relative w-full aspect-16/10 bg-midnight/40 overflow-hidden border-b border-border/60">
                         <Image
@@ -309,7 +331,10 @@ export function PantheonPageClient({ slug }: PantheonPageClientProps) {
                   href={`/stories/${story.slug}`}
                   className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                 >
-                  <Card className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300">
+                  <Card
+                    interactive
+                    className="h-full border-border bg-card hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 transition-all duration-300"
+                  >
                     <CardHeader>
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                         <CardTitle className="font-serif text-xl text-foreground group-hover:text-gold transition-colors">

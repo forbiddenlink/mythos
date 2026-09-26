@@ -20,6 +20,7 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { matchesSource } from "@/lib/source-matching";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { ShareButton } from "@/components/sharing/ShareButton";
 import { SourceExcerpt } from "@/components/sources/SourceExcerpt";
 
 interface SourceCharacter {
@@ -203,7 +204,15 @@ export default async function SourcePage({ params }: PageProps) {
           </p>
           <div className="flex items-start justify-between gap-4">
             <h1 className="page-title text-foreground">{source.title}</h1>
-            <BookmarkButton type="source" id={source.id} />
+            <div className="flex shrink-0 items-center gap-2">
+              <BookmarkButton type="source" id={source.id} />
+              <ShareButton
+                surface="source_page"
+                title={`${source.title} - Mythos Atlas`}
+                text={`${source.title}${source.author ? ` by ${source.author}` : ""}: passages, characters and linked myths on Mythos Atlas`}
+                url={`https://mythosatlas.com/sources/${source.id}`}
+              />
+            </div>
           </div>
           <p className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-muted-foreground">
             {source.author && <span>{source.author}</span>}

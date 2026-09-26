@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { ShareButton } from "@/components/sharing/ShareButton";
+import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
+import type { ImageNote } from "@/lib/image-provenance";
 import Image from "next/image";
 import type { MuseumObject } from "@/lib/museum";
 import { MuseumGallery } from "@/components/museum/MuseumGallery";
@@ -84,6 +87,7 @@ export function HeroPageClient({
   pantheons,
   museumObjects = [],
   museumPortrait = null,
+  imageNote,
 }: {
   slug: string;
   /** The hero record, resolved on the server (null renders "not found"). */
@@ -94,6 +98,8 @@ export function HeroPageClient({
   pantheons: Pantheon[];
   museumObjects?: MuseumObject[];
   museumPortrait?: MuseumObject | null;
+  /** Image provenance for the caption, resolved on the server. */
+  imageNote?: ImageNote;
 }) {
   if (!hero) {
     return (
@@ -192,36 +198,43 @@ export function HeroPageClient({
                   </span>
                 )}
               </div>
-              <figcaption className="bg-midnight px-3 py-2 text-xs text-parchment/85">
-                {museumPortrait ? (
-                  <>
-                    <span className="block text-gold mb-1">
-                      {museumPortrait.context}
-                    </span>
-                    <span className="block font-serif text-sm">
-                      {museumPortrait.title}
-                    </span>
-                    <span className="block mt-1">
-                      {museumPortrait.date} · {museumPortrait.medium}
-                    </span>
-                    <a
-                      href={museumPortrait.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 block underline underline-offset-4 hover:text-parchment"
-                    >
-                      {museumPortrait.institution} ·{" "}
-                      {museumPortrait.accessionNumber}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
-                    <span className="block mt-1">
-                      {museumPortrait.imageRights}
-                    </span>
-                  </>
-                ) : (
-                  <>Editorial illustration of {hero.name}</>
-                )}
-              </figcaption>
+              {museumPortrait ? (
+                <figcaption className="bg-midnight px-3 py-2 text-xs text-parchment/85">
+                  {museumPortrait ? (
+                    <>
+                      <span className="block text-gold mb-1">
+                        {museumPortrait.context}
+                      </span>
+                      <span className="block font-serif text-sm">
+                        {museumPortrait.title}
+                      </span>
+                      <span className="block mt-1">
+                        {museumPortrait.date} · {museumPortrait.medium}
+                      </span>
+                      <a
+                        href={museumPortrait.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 block underline underline-offset-4 hover:text-parchment"
+                      >
+                        {museumPortrait.institution} ·{" "}
+                        {museumPortrait.accessionNumber}
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                      <span className="block mt-1">
+                        {museumPortrait.imageRights}
+                      </span>
+                    </>
+                  ) : null}
+                </figcaption>
+              ) : (
+                <IllustrativeImageCaption
+                  note={imageNote}
+                  subject={`Illustration of ${hero.name}`}
+                  tone="light"
+                  className="bg-midnight px-3 py-2"
+                />
+              )}
             </figure>
 
             <div>
@@ -276,6 +289,12 @@ export function HeroPageClient({
                     id={hero.id}
                     size="lg"
                     variant="light"
+                  />
+                  <ShareButton
+                    surface="hero_page"
+                    title={`${hero.name} - Mythos Atlas`}
+                    text={`Read about ${hero.name}, a hero of ${pantheonName(hero.pantheonId)} mythology, on Mythos Atlas`}
+                    url={`https://mythosatlas.com/heroes/${hero.slug}`}
                   />
                 </div>
               </div>

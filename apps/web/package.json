@@ -55,6 +55,7 @@
     "react-dom": "19.2.8",
     "react-markdown": "^10.1.0",
     "reactflow": "^11.11.4",
+    "resend": "^6.30.0",
     "server-only": "0.0.1",
     "tailwind-merge": "^3.6.0",
     "three": "^0.185.1",

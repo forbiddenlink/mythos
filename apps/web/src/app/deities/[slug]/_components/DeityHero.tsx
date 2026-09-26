@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { EditorialByline } from "@/components/content/EditorialByline";
+import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
+import type { ImageNote } from "@/lib/image-provenance";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { OriginalLanguageName } from "@/components/sources/OriginalLanguageName";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
@@ -19,11 +21,13 @@ export function DeityHero({
   traditionLabel,
   museumPortrait,
   hasSources,
+  imageNote,
 }: {
   deity: DeityRecord;
   traditionLabel?: string;
   museumPortrait: MuseumObject | null;
   hasSources: boolean;
+  imageNote?: ImageNote;
 }) {
   return (
     <div className="relative overflow-hidden bg-midnight">
@@ -199,9 +203,12 @@ export function DeityHero({
               )}
             </div>
             {deity.imageUrl && (
-              <figcaption className="bg-midnight px-3 py-2 text-xs leading-relaxed text-parchment/85">
-                Editorial illustration of {deity.name}
-              </figcaption>
+              <IllustrativeImageCaption
+                note={imageNote}
+                subject={`Illustration of ${deity.name}`}
+                tone="light"
+                className="bg-midnight px-3 py-2"
+              />
             )}
             {!deity.imageUrl && museumPortrait && (
               <figcaption className="bg-midnight/90 px-2 py-1.5 text-[0.65rem] leading-snug text-parchment/75">

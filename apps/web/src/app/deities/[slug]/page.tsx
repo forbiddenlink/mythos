@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getIllustrativeImageNote } from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import { TrackPageView } from "@/components/analytics/TrackPageView";
 import deities from "@/data/deities.json";
@@ -223,6 +224,7 @@ export default async function DeityPage({ params }: PageProps) {
           traditionLabel={pantheon?.name}
           museumPortrait={getMuseumPortrait(museumObjects)}
           hasSources={hasSources}
+          imageNote={getIllustrativeImageNote("deity", deity.id)}
         />
 
         <div className="container mx-auto max-w-4xl px-4 py-12">

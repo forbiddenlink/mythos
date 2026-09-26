@@ -13,12 +13,14 @@ import "server-only";
 import branchingStoriesJson from "@/data/branching-stories.json";
 import deitiesJson from "@/data/deities.json";
 import heroesJson from "@/data/heroes.json";
+import journeysJson from "@/data/journeys.json";
 import pantheonsJson from "@/data/pantheons.json";
 import relationshipsJson from "@/data/relationships.json";
 import sourcesJson from "@/data/sources.json";
 import storiesJson from "@/data/stories.json";
 import type { BranchingStory } from "@/lib/branching-story";
 import { createDeityLookup, type DeityLookup } from "@/lib/deity-reference";
+import type { JourneyDetail } from "@/lib/journeys";
 import type {
   DeityIndexEntry,
   DeityListItem,
@@ -49,6 +51,12 @@ export interface HeroRecord {
 }
 const heroes = heroesJson as unknown as readonly HeroRecord[];
 
+const journeys = journeysJson as unknown as readonly JourneyDetail[];
+
+export function getJourneys(): readonly JourneyDetail[] {
+  return journeys;
+}
+
 export function getDeities(): readonly DeityRecord[] {
   return deities;
 }
@@ -59,6 +67,20 @@ export function getStories(): readonly StoryRecord[] {
 
 export function getPantheons(): readonly PantheonRecord[] {
   return pantheons;
+}
+
+/**
+ * Pantheon records that are traditions in their own right. Collection
+ * records (`isCollection: true`, e.g. the African overview that groups the
+ * Yoruba and Akan entries) are navigation aids, not an additional tradition.
+ */
+export function getTraditions(): readonly PantheonRecord[] {
+  return pantheons.filter((p) => !p.isCollection);
+}
+
+/** How many traditions the atlas covers; use this in copy, never a literal. */
+export function getTraditionCount(): number {
+  return getTraditions().length;
 }
 
 export function getRelationships(): readonly RelationshipRecord[] {

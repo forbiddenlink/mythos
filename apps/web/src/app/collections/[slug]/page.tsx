@@ -249,7 +249,7 @@ export default async function CollectionPage({ params }: PageProps) {
       {/* Content */}
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <Button asChild variant="ghost" size="sm" className="mb-8">
-          <Link href="/collections">
+          <Link href="/paths#collections">
             <ArrowLeft className="h-4 w-4 mr-2" />
             All Collections
           </Link>
@@ -289,7 +289,10 @@ export default async function CollectionPage({ params }: PageProps) {
 
                 return (
                   <Link key={deity.id} href={`/deities/${deity.slug}`}>
-                    <Card className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group">
+                    <Card
+                      interactive
+                      className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group"
+                    >
                       <CardHeader className="pb-2">
                         <div className="flex items-start justify-between">
                           <div>
@@ -353,7 +356,10 @@ export default async function CollectionPage({ params }: PageProps) {
 
                 return (
                   <Link key={story.id} href={`/stories/${story.slug}`}>
-                    <Card className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group overflow-hidden">
+                    <Card
+                      interactive
+                      className="h-full hover:border-gold/50 hover:bg-gold/5 transition-all group overflow-hidden"
+                    >
                       {story.imageUrl && (
                         <div className="relative w-full h-36 overflow-hidden border-b border-border/50">
                           <Image

@@ -134,7 +134,10 @@ export default function QuizPage() {
             {OTHER_QUIZZES.map((quiz) => {
               return (
                 <Link key={quiz.href} href={quiz.href}>
-                  <Card className="h-full border-border hover:border-gold/50 transition-all duration-200 hover:shadow-lg group cursor-pointer">
+                  <Card
+                    interactive
+                    className="h-full border-border hover:border-gold/50 transition-all duration-200 hover:shadow-lg group cursor-pointer"
+                  >
                     <CardHeader className="pb-2">
                       <div className="flex items-start justify-between">
                         <div

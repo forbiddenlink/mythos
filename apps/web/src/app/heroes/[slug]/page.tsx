@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getIllustrativeImageNote } from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import heroes from "@/data/heroes.json";
 import pantheons from "@/data/pantheons.json";
@@ -108,6 +109,9 @@ export default async function HeroPage({ params }: PageProps) {
     <HeroPageClient
       slug={slug}
       hero={record ?? null}
+      imageNote={
+        record ? getIllustrativeImageNote("hero", record.id) : undefined
+      }
       deities={project(getDeityRefs(), ["id", "slug", "name"])}
       heroes={project(heroes, ["id", "slug", "name"])}
       pantheons={project(pantheons, ["id", "name"])}

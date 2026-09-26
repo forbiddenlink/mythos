@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getIllustrativeImageNote } from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import artifacts from "@/data/artifacts.json";
 import deitiesData from "@/data/deities.json";
@@ -126,6 +127,7 @@ export default async function ArtifactPage({ params }: PageProps) {
       slug={slug}
       owner={owner}
       relatedStories={relatedStories}
+      imageNote={getIllustrativeImageNote("artifact", artifact.id)}
     />
   );
 }

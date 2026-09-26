@@ -186,6 +186,7 @@ export default function CreaturesPage() {
                 className="group pantheon-reveal"
               >
                 <Card
+                  interactive
                   asArticle
                   className="parchment-card group h-full cursor-pointer parchment-card bg-card transition-transform duration-300 hover:-translate-y-1 hover:border-red-500/30 transition-all duration-300"
                 >

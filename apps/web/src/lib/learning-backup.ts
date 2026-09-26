@@ -50,6 +50,8 @@ export const progressSchema = z.strictObject({
   quizScores: z.record(z.string().min(1).max(200), z.number().finite()),
   achievements: z.array(z.string().min(1).max(200)),
   dailyStreak: z.number().int().nonnegative(),
+  // Added after v1 backups were first written; optional so older ones restore.
+  longestStreak: z.number().int().nonnegative().optional(),
   lastVisit: emptyOrDateOnlySchema,
   totalXP: z.number().finite().nonnegative(),
   streakFreezes: z.number().int().nonnegative(),
