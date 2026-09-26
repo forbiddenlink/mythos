@@ -8,10 +8,10 @@ adhering to the dark-academia classical atlas style in .impeccable.md.
 import os
 import math
 import argparse
-from PIL import Image, ImageDraw
 
 from _plate_emblems import draw_emblem
-from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+from _plate_art import pantheon_of, render_plate, write_plate
+from _repo_paths import WEB_PUBLIC
 
 DEITIES_DIR = os.path.join(WEB_PUBLIC, "deities")
 
@@ -273,20 +273,8 @@ DEITIES = [
 
 def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
     pale = (min(255, gold[0] + 50), min(255, gold[1] + 50), min(255, gold[2] + 50))
-    dark = (gold[0] // 2, gold[1] // 2, gold[2] // 2)
 
-    # Medallion outer rings
-    for r, w in [(radius, 3), (radius - 12, 1), (radius - 20, 2)]:
-        draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=w)
-
-    for i in range(24):
-        angle = i * (2 * math.pi / 24)
-        r1 = radius - 8
-        r2 = radius - 3 if i % 2 == 0 else radius - 5
-        draw.line([
-            (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
-            (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
-        ], fill=dark, width=1)
+    # The medallion rings are drawn by _plate_art.render_plate.
 
     if draw_emblem(draw, cx, cy, motif, accent, gold):
         return
@@ -402,67 +390,20 @@ def draw_deity_motif(draw, cx, cy, radius, motif, accent, gold):
         draw.line([(cx, cy - 70), (cx, cy + 70)], fill=gold, width=3)
 
 def generate_deity_plate(d):
-    os.makedirs(DEITIES_DIR, exist_ok=True)
-    img = Image.new("RGBA", (W, H), d["bg"] + (255,))
     accent = d["accent"]
     gold = (212, 175, 55)
-
-    # Ambient radial wash
-    rad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    rdraw = ImageDraw.Draw(rad)
-    cx, cy = W // 2, 440
-    for r in range(350, 50, -10):
-        alpha = int(45 * (1.0 - r / 350.0))
-        rdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    img = Image.alpha_composite(img, rad)
-    draw = ImageDraw.Draw(img)
-
-    # Classical Greek key / antique borders
-    draw.rectangle([32, 32, W - 32, H - 32], outline=gold, width=1)
-    draw.rectangle([40, 40, W - 40, H - 40], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    draw.rectangle([46, 46, W - 46, H - 46], outline=gold, width=2)
-
-    # Corner brackets
-    s = 24
-    for bx, by, dx, dy in [(32, 32, 1, 1), (W - 32, 32, -1, 1), (32, H - 32, 1, -1), (W - 32, H - 32, -1, -1)]:
-        draw.line([(bx, by), (bx + dx * s, by)], fill=gold, width=2)
-        draw.line([(bx, by), (bx, by + dy * s)], fill=gold, width=2)
-        draw.ellipse([bx + dx * 8 - 3, by + dy * 8 - 3, bx + dx * 8 + 3, by + dy * 8 + 3], fill=gold)
-
-    # Header plate rule
-    draw.line([(64, 90), (W - 64, 90)], fill=gold, width=1)
-    draw.line([(64, 94), (W - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    tag_text = f"MYTHOS ATLAS · {d['tag']}"
-    font_sm = serif_font("regular", 16)
-    font_lg = serif_font("bold", 46)
-    font_sub = serif_font("italic", 17)
-
-    draw.text((W // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
-
-    # Center Medallion
-    draw_deity_motif(draw, cx, cy, 175, d["motif"], accent, gold)
-
-    # Nameplate bottom
-    draw.line([(80, 750), (W - 80, 750)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    draw.line([(80, 754), (W - 80, 754)], fill=gold, width=2)
-    draw.line([(80, 758), (W - 80, 758)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    draw.text((W // 2, 810), d["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((W // 2, 860), d["domain"], font=font_sub, fill=gold, anchor="mm")
-
-    # Footer Archival stamp
-    draw.text((W // 2, 940), "CODEX THEOLOGICUS · FOLIO SACRUM", font=font_sm, fill=(130, 120, 100), anchor="mm")
-    draw.line([(W // 2 - 60, 965), (W // 2 + 60, 965)], fill=gold, width=1)
-
-    # Export PNG
-    png_path = os.path.join(DEITIES_DIR, f"{d['id']}.png")
-    img.convert("RGB").save(png_path, "PNG")
-
-    # Export WebP
-    webp_path = os.path.join(DEITIES_DIR, f"{d['id']}.webp")
-    write_webp(png_path, webp_path)
-    print(f"  ✓ Deity: {d['id']} -> PNG & WebP")
+    img = render_plate(
+        kind="deity",
+        key=d["id"],
+        size=(W, H),
+        accent=accent,
+        bg=d["bg"],
+        pantheon=pantheon_of("deity", d["id"]),
+        hint=d["domain"],
+        emblem=lambda draw, cx, cy: draw_deity_motif(draw, cx, cy, 175, d["motif"], accent, gold),
+    )
+    path = write_plate(img, DEITIES_DIR, d["id"])
+    print(f"  ✓ Deity: {d['id']} -> {os.path.basename(path)}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)

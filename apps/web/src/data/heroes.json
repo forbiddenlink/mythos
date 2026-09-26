@@ -21,7 +21,7 @@
     ],
     "fate": "The Iliad ends before his death. Later tradition (not Homer) has him killed at Troy by Paris, with Apollo's help; the story of a single vulnerable heel is a still later addition to the myth.",
     "relatedDeityIds": ["athena", "apollo"],
-    "imageUrl": "/heroes/achilles.png",
+    "imageUrl": "/heroes/achilles.webp",
     "pronunciation": {
       "ipa": "/əˈkɪliːz/",
       "phonetic": "uh-KIL-eez"
@@ -71,7 +71,7 @@
     ],
     "fate": "Restored to his throne and marriage on Ithaca. A separate, later tradition (the lost epic Telegony, known only through summaries) has him killed by Telegonus, a son he never knew he had by Circe.",
     "relatedDeityIds": ["athena", "poseidon"],
-    "imageUrl": "/heroes/odysseus.png",
+    "imageUrl": "/heroes/odysseus.webp",
     "pronunciation": {
       "ipa": "/əˈdɪsiəs/",
       "phonetic": "oh-DIS-ee-us"
@@ -114,7 +114,7 @@
     ],
     "fate": "Killed by Achilles in single combat outside Troy; his body is mutilated for days before Priam ransoms it, and the Iliad ends with his funeral.",
     "relatedDeityIds": ["apollo"],
-    "imageUrl": "/heroes/hector.png",
+    "imageUrl": "/heroes/hector.webp",
     "pronunciation": {
       "ipa": "/ˈhɛktər/",
       "phonetic": "HEK-tor"
@@ -157,7 +157,7 @@
     ],
     "fate": "Died in agony wearing a robe poisoned with the blood of the centaur Nessus; he built his own funeral pyre, and Zeus took him up to Olympus as a god upon his death.",
     "relatedDeityIds": ["zeus", "hera", "prometheus"],
-    "imageUrl": "/heroes/heracles.png",
+    "imageUrl": "/heroes/heracles.webp",
     "pronunciation": {
       "ipa": "/ˈhɛrəkliːz/",
       "phonetic": "HERR-uh-kleez"
@@ -207,7 +207,7 @@
     ],
     "fate": "Abandoned Medea for a political marriage, provoking her revenge. Apollodorus records that he later died when a decaying beam of the Argo fell on him as he slept in its shade.",
     "relatedDeityIds": ["hera"],
-    "imageUrl": "/heroes/jason.png",
+    "imageUrl": "/heroes/jason.webp",
     "pronunciation": {
       "ipa": "/ˈdʒeɪsən/",
       "phonetic": "JAY-sun"
@@ -250,7 +250,7 @@
     ],
     "fate": "According to Plutarch's Life of Theseus, he was exiled to the island of Skyros in his old age and killed there, thrown from a cliff by King Lycomedes.",
     "relatedDeityIds": ["poseidon"],
-    "imageUrl": "/heroes/theseus.png",
+    "imageUrl": "/heroes/theseus.webp",
     "pronunciation": {
       "ipa": "/ˈθiːsiəs/",
       "phonetic": "THEE-see-us"
@@ -292,7 +292,7 @@
     ],
     "fate": "Blinded himself upon learning the truth of his birth; spent his final years in exile, dying near Colonus outside Athens in a death Sophocles presents as strangely favored by the gods.",
     "relatedDeityIds": ["apollo"],
-    "imageUrl": "/heroes/oedipus.png",
+    "imageUrl": "/heroes/oedipus.webp",
     "pronunciation": {
       "ipa": "/ˈɛdɪpəs/",
       "phonetic": "ED-ih-pus"
@@ -327,7 +327,7 @@
     ],
     "fate": "Reunited with Odysseus after twenty years, restored as queen of Ithaca; the Odyssey closes on their reunion rather than recording a later fate.",
     "relatedDeityIds": ["athena"],
-    "imageUrl": "/heroes/penelope.png",
+    "imageUrl": "/heroes/penelope.webp",
     "pronunciation": {
       "ipa": "/pəˈnɛləpiː/",
       "phonetic": "puh-NEL-oh-pee"
@@ -363,7 +363,7 @@
     ],
     "fate": "Returned to Sparta with Menelaus after the war; the Odyssey shows them living together in apparent reconciliation. A rival tradition holds she never reached Troy at all.",
     "relatedDeityIds": ["zeus", "aphrodite"],
-    "imageUrl": "/heroes/helen.png",
+    "imageUrl": "/heroes/helen.webp",
     "pronunciation": {
       "ipa": "/ˈhɛlən/",
       "phonetic": "HEL-en"
@@ -404,7 +404,7 @@
     ],
     "fate": "Murdered in his own home upon returning from Troy by his wife Clytemnestra and her lover Aegisthus, an act later avenged by his son Orestes.",
     "relatedDeityIds": ["artemis"],
-    "imageUrl": "/heroes/agamemnon.png",
+    "imageUrl": "/heroes/agamemnon.webp",
     "pronunciation": {
       "ipa": "/ˌæɡəˈmɛmnɒn/",
       "phonetic": "ag-uh-MEM-non"
@@ -444,7 +444,7 @@
     ],
     "fate": "Killed by Hector in battle after the god Apollo stunned him and stripped away his borrowed armor; his death drives Achilles back into the war.",
     "relatedDeityIds": ["apollo"],
-    "imageUrl": "/heroes/patroclus.png",
+    "imageUrl": "/heroes/patroclus.webp",
     "pronunciation": {
       "ipa": "/pəˈtroʊkləs/",
       "phonetic": "puh-TROH-klus"
@@ -479,7 +479,7 @@
     ],
     "fate": "Fell on his own sword in shame after the madness lifted and he understood what he had done, as dramatized in Sophocles's Ajax.",
     "relatedDeityIds": ["athena"],
-    "imageUrl": "/heroes/ajax.png",
+    "imageUrl": "/heroes/ajax.webp",
     "pronunciation": {
       "ipa": "/ˈeɪdʒæks/",
       "phonetic": "AY-jaks"
@@ -520,7 +520,7 @@
     ],
     "fate": "Married Hippomenes after losing the footrace to his trick with the golden apples; some sources add that the couple later offended Aphrodite or Zeus and were transformed into lions.",
     "relatedDeityIds": ["artemis", "aphrodite"],
-    "imageUrl": "/heroes/atalanta.png",
+    "imageUrl": "/heroes/atalanta.webp",
     "pronunciation": {
       "ipa": "/ˌætəˈlæntə/",
       "phonetic": "at-uh-LAN-tuh"
@@ -561,7 +561,7 @@
     ],
     "fate": "Thrown from Pegasus by Zeus's gadfly after attempting to reach Olympus; lived out his remaining years crippled and shunned by the gods and by men.",
     "relatedDeityIds": ["athena", "poseidon", "zeus"],
-    "imageUrl": "/heroes/bellerophon.png",
+    "imageUrl": "/heroes/bellerophon.webp",
     "pronunciation": {
       "ipa": "/bəˈlɛrəfɒn/",
       "phonetic": "buh-LAIR-oh-fon"
@@ -601,7 +601,7 @@
     ],
     "fate": "Torn apart by maenads of Dionysus after retreating from human company in his grief; his severed head is said to have kept singing as it drifted downriver.",
     "relatedDeityIds": ["apollo", "hades", "persephone"],
-    "imageUrl": "/heroes/orpheus.png",
+    "imageUrl": "/heroes/orpheus.webp",
     "pronunciation": {
       "ipa": "/ˈɔːrfiəs/",
       "phonetic": "OR-fee-us"
@@ -642,7 +642,7 @@
     ],
     "fate": "Later Roman tradition (Ovid, Livy) holds that Aeneas vanished after a final battle and was deified as Jupiter Indiges, becoming an ancestor-god of the Roman people.",
     "relatedDeityIds": ["venus", "juno", "jupiter"],
-    "imageUrl": "/heroes/aeneas.png",
+    "imageUrl": "/heroes/aeneas.webp",
     "pronunciation": {
       "ipa": "/ɪˈniːəs/",
       "phonetic": "ih-NEE-us"
@@ -683,7 +683,7 @@
     ],
     "fate": "Betrayed and killed by Gudrun's brothers, who feared his claim on Brynhild after the deception surrounding her marriage came to light; accounts differ on whether he was killed in the forest or in his bed.",
     "relatedDeityIds": ["odin"],
-    "imageUrl": "/heroes/sigurd.png",
+    "imageUrl": "/heroes/sigurd.webp",
     "pronunciation": {
       "ipa": "/ˈsɪɡərd/",
       "phonetic": "SIG-urd"
@@ -733,7 +733,7 @@
     ],
     "fate": "According to the Death of Cú Chulainn, he was mortally wounded in a later battle and tied himself upright to a standing stone so he could die on his feet, facing his enemies to the end.",
     "relatedDeityIds": ["lug", "morrigan"],
-    "imageUrl": "/heroes/cu-chulainn.png",
+    "imageUrl": "/heroes/cu-chulainn.webp",
     "pronunciation": {
       "ipa": "/kuːˈxʊlɪnʲ/",
       "phonetic": "koo-KHUL-in"
@@ -782,7 +782,7 @@
     ],
     "fate": "Fenian Cycle tradition gives conflicting endings; several tales have him die in battle in old age, while a popular legend holds that he and the Fianna sleep in a hidden cave, ready to return if Ireland ever needs them.",
     "relatedDeityIds": [],
-    "imageUrl": "/heroes/fionn-mac-cumhaill.png",
+    "imageUrl": "/heroes/fionn-mac-cumhaill.webp",
     "pronunciation": {
       "ipa": "/fɪn məˈkuːl/",
       "phonetic": "fin muh-KOOL"
@@ -817,7 +817,7 @@
     ],
     "fate": "Survived the Kurukshetra war and reigned alongside his brothers, but later Mahabharata tradition (the Mahaprasthanika Parva) has him fall on the Pandavas' final journey toward heaven, a fall the text attributes to his pride in his own archery.",
     "relatedDeityIds": ["indra", "krishna"],
-    "imageUrl": "/heroes/arjuna.png",
+    "imageUrl": "/heroes/arjuna.webp",
     "pronunciation": {
       "ipa": "/ˈɑːrdʒʊnə/",
       "phonetic": "AR-juh-nuh"
@@ -890,7 +890,7 @@
         "note": "Both are their people's greatest young warrior, carry a form of supernatural protection into battle, and die before old age in a death later tradition treats as a tragedy rather than a defeat."
       }
     ],
-    "imageUrl": "/heroes/yamato-takeru.png"
+    "imageUrl": "/heroes/yamato-takeru.webp"
   },
   {
     "id": "ilya-muromets",
@@ -930,7 +930,7 @@
         "date": "field-recorded 1871; published 1873"
       }
     ],
-    "imageUrl": "/heroes/ilya-muromets.png"
+    "imageUrl": "/heroes/ilya-muromets.webp"
   },
   {
     "id": "dobrynya-nikitich",
@@ -964,7 +964,7 @@
         "date": "compiled c. 1780s-1804; first published 1804"
       }
     ],
-    "imageUrl": "/heroes/dobrynya-nikitich.png"
+    "imageUrl": "/heroes/dobrynya-nikitich.webp"
   },
   {
     "id": "hua-mulan",
@@ -998,7 +998,7 @@
         "date": "poem likely Northern and Southern Dynasties period, c. 4th-6th century CE; preserved in a 12th-century CE anthology"
       }
     ],
-    "imageUrl": "/heroes/hua-mulan.png"
+    "imageUrl": "/heroes/hua-mulan.webp"
   },
   {
     "id": "kupe",
@@ -1038,7 +1038,7 @@
         "date": "published early 20th century, from Maori oral tradition"
       }
     ],
-    "imageUrl": "/heroes/kupe.png"
+    "imageUrl": "/heroes/kupe.webp"
   },
   {
     "id": "moremi-ajasoro",
@@ -1072,7 +1072,7 @@
         "date": "compiled c. 1897 from Yoruba oral tradition; published 1921"
       }
     ],
-    "imageUrl": "/heroes/moremi-ajasoro.png"
+    "imageUrl": "/heroes/moremi-ajasoro.webp"
   },
   {
     "id": "etana",
@@ -1119,7 +1119,7 @@
         "note": "Both heroes attempt a flight to the heavens on a winged creature in pursuit of a personal goal, and both stories turn on an ambiguous or diminished outcome once the climb goes too far."
       }
     ],
-    "imageUrl": "/heroes/etana.png"
+    "imageUrl": "/heroes/etana.webp"
   },
   {
     "id": "peacemaker",
@@ -1155,7 +1155,7 @@
         "date": "accessed 2026"
       }
     ],
-    "imageUrl": "/heroes/peacemaker.png"
+    "imageUrl": "/heroes/peacemaker.webp"
   },
   {
     "id": "hiawatha",
@@ -1190,7 +1190,7 @@
         "date": "1883"
       }
     ],
-    "imageUrl": "/heroes/hiawatha.png"
+    "imageUrl": "/heroes/hiawatha.webp"
   },
   {
     "id": "jikonhsaseh",
@@ -1224,7 +1224,7 @@
         "date": "1916"
       }
     ],
-    "imageUrl": "/heroes/jikonhsaseh.png"
+    "imageUrl": "/heroes/jikonhsaseh.webp"
   },
   {
     "id": "tadodaho",
@@ -1258,7 +1258,7 @@
         "date": "1916"
       }
     ],
-    "imageUrl": "/heroes/tadodaho.png"
+    "imageUrl": "/heroes/tadodaho.webp"
   },
   {
     "id": "kats",
@@ -1287,7 +1287,7 @@
         "date": "1909"
       }
     ],
-    "imageUrl": "/heroes/kats.png"
+    "imageUrl": "/heroes/kats.webp"
   },
   {
     "id": "natsilane",
@@ -1316,7 +1316,7 @@
         "date": "1909"
       }
     ],
-    "imageUrl": "/heroes/natsilane.png"
+    "imageUrl": "/heroes/natsilane.webp"
   },
   {
     "id": "aqhat",
@@ -1338,7 +1338,7 @@
     ],
     "fate": "Killed by Anat's henchman Yatpan, who struck him in the form of a bird of prey; his remains were recovered from the mother of vultures and buried by his father. His sister Pughat sets out to avenge him, but the text breaks off.",
     "relatedDeityIds": ["anat", "kothar-wa-khasis", "el", "baal"],
-    "imageUrl": "/heroes/aqhat.png",
+    "imageUrl": "/heroes/aqhat.webp",
     "pronunciation": {
       "ipa": "/ˈɑːkhɑːt/",
       "phonetic": "AHK-haht"
@@ -1371,7 +1371,7 @@
     ],
     "fate": "Healed and restored to his throne, Kirta curses his son Yassib for trying to depose him; the surviving text ends with the curse.",
     "relatedDeityIds": ["el", "athirat", "baal"],
-    "imageUrl": "/heroes/kirta.png",
+    "imageUrl": "/heroes/kirta.webp",
     "pronunciation": {
       "ipa": "/ˈkɪərtə/",
       "phonetic": "KEER-tah"
@@ -1405,7 +1405,7 @@
     ],
     "fate": "Many tellers say Kiviuq is still alive and travelling, having lived many lifetimes, and that he will one day return.",
     "relatedDeityIds": [],
-    "imageUrl": "/heroes/kiviuq.png",
+    "imageUrl": "/heroes/kiviuq.webp",
     "pronunciation": {
       "ipa": "/kiviuq/",
       "phonetic": "KEE-vee-ook"
@@ -1449,7 +1449,7 @@
         "note": "Both heroes kill their own sons in single combat without recognizing them until too late: Rostam and Sohrab in the Shahnameh, Cú Chulainn and Connla in the Irish tale 'The Death of Aífe's Only Son'. The father-son combat is a widely noted comparative motif."
       }
     ],
-    "imageUrl": "/heroes/rostam.png",
+    "imageUrl": "/heroes/rostam.webp",
     "pronunciation": {
       "ipa": "/rosˈtæm/",
       "phonetic": "ross-TAM"

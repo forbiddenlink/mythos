@@ -2462,7 +2462,7 @@
         "date": "composed c. 1200–1216, describing the site destroyed in 1168"
       }
     ],
-    "imageUrl": "/locations/arkona.png"
+    "imageUrl": "/locations/arkona.webp"
   },
   {
     "id": "starokyivska-hill",
@@ -2490,7 +2490,7 @@
         "date": "entry for 988 CE; chronicle compiled early 12th c."
       }
     ],
-    "imageUrl": "/locations/starokyivska-hill.png"
+    "imageUrl": "/locations/starokyivska-hill.webp"
   },
   {
     "id": "szczecin-triglav-temple",
@@ -2509,7 +2509,7 @@
         "date": "c. 1158, describing events of 1124–1128"
       }
     ],
-    "imageUrl": "/locations/szczecin-triglav-temple.png"
+    "imageUrl": "/locations/szczecin-triglav-temple.webp"
   },
   {
     "id": "peryn",
@@ -2528,7 +2528,7 @@
         "date": "entry for 989 CE; earliest surviving redaction (Synodal copy) 13th–14th c."
       }
     ],
-    "imageUrl": "/locations/peryn.png"
+    "imageUrl": "/locations/peryn.webp"
   },
   {
     "id": "onondaga-lake",
@@ -2552,7 +2552,7 @@
         "date": "onondaganation.org, accessed 2026"
       }
     ],
-    "imageUrl": "/locations/onondaga-lake.png"
+    "imageUrl": "/locations/onondaga-lake.webp"
   },
   {
     "id": "haida-gwaii",
@@ -2571,7 +2571,7 @@
         "date": "1905"
       }
     ],
-    "imageUrl": "/locations/haida-gwaii.png"
+    "imageUrl": "/locations/haida-gwaii.webp"
   },
   {
     "id": "sky-world",
@@ -2583,7 +2583,7 @@
     "latitude": null,
     "longitude": null,
     "geography": "mythic",
-    "imageUrl": "/locations/sky-world.png",
+    "imageUrl": "/locations/sky-world.webp",
     "detailedBio": "## The world before this one\n\nHaudenosaunee cosmology begins not with emptiness but with another world: a Sky World above, where beings lived much as people do, in lodges, under a chief. At its centre stood a great tree whose blossoms gave light. When the tree was uprooted, whether because the chief dreamed it must be, or out of jealousy, or for reasons tellers give differently, a hole opened, and Sky Woman fell through it to the waters below.\n\n## After the fall\n\nThe Sky World does not disappear from the story. In Parker's Seneca material Sapling visits his father there, and in several tellings Sky Woman returns to it. It is, in a sense, the model of which the earth is a copy, and the place from which the seeds of the first plants came.",
     "primarySources": [
       {
@@ -2612,7 +2612,7 @@
     "longitude": -73.7086,
     "geography": "identified",
     "coordinateNote": "The Onondaga Nation's account names Cohoes Falls as the place of the test; older written versions describe a falls on the Mohawk River without naming it.",
-    "imageUrl": "/locations/cohoes-falls.png",
+    "imageUrl": "/locations/cohoes-falls.webp",
     "detailedBio": "## The test\n\nWhen the Peacemaker brought his message to the Mohawk, the easternmost of the five nations, they tested him. In the account the Onondaga Nation shares publicly, they had him climb a tree that overhung a great waterfall, now called Cohoes Falls, and then cut the tree down, so that he fell into the water. The next morning he was found alive, sitting by a fire, and the Mohawk accepted the Great Peace, becoming the first nation to do so.\n\n## The place today\n\nThe falls, about 27 metres high, lie on the Mohawk River in the city of Cohoes, New York, just above its confluence with the Hudson. The site is honoured by Haudenosaunee people as the place where the message of peace was first accepted by a nation.",
     "primarySources": [
       {
@@ -2633,7 +2633,7 @@
     "longitude": -129.53,
     "geography": "identified",
     "coordinateNote": "Pinned near the Nass estuary; the stories place the old man's house at the head of the river, which tellers do not locate precisely. The Nass is the homeland of the Nisga'a Nation.",
-    "imageUrl": "/locations/nass-river.png",
+    "imageUrl": "/locations/nass-river.webp",
     "detailedBio": "## At the head of the Nass\n\nIn the Tlingit Raven cycle, the wealthy old man who owns the stars, the moon, and daylight lives at the head of the Nass River, and his title, Naas Shaak Aankáawu, means 'Nobleman at the Head of the Nass'. The river was the centre of the eulachon (candlefish) fishery that drew Tlingit, Haida, Tsimshian, and Nisga'a traders every spring, a fitting place for the richest man in the world to live.\n\n## Made by Raven\n\nIn the same Sitka cycle, the Nass is the first of the rivers Raven makes when he spits out the water stolen from Petrel. The river itself is the homeland of the Nisga'a Nation, whose own traditions of the Nass and of Raven (Txeemsim) are separate from the Tlingit stories told about it.",
     "primarySources": [
       {
@@ -2653,7 +2653,7 @@
     "latitude": 19.4351,
     "longitude": -99.1312,
     "geography": "physical",
-    "imageUrl": "/locations/templo-mayor.png",
+    "imageUrl": "/locations/templo-mayor.webp",
     "detailedBio": "## Two shrines on one pyramid\n\nThe Huey Teocalli, the Templo Mayor, stood at the centre of the Mexica capital. Its double stairway led to two shrines: on the south side Huitzilopochtli, god of war and the sun, and on the north Tlaloc, god of rain, the two powers on which the city depended. The temple was enlarged at least seven times between the 14th century and its destruction by the Spanish in 1521.\n\n## Coatepec made visible\n\nThe Huitzilopochtli side re-created the myth of his birth on Coatepec, Serpent Mountain, told in Book 3 of the *Florentine Codex*: born fully armed, he killed his sister Coyolxauhqui and threw her body down the mountain, where it broke apart. In 1978 electrical workers uncovered the great stone disc showing Coyolxauhqui dismembered at the foot of the stairs, exactly where the myth places her, and the discovery began the modern excavation.\n\n## Today\n\nThe Museo del Templo Mayor beside the ruins holds the finds, including the Tlaltecuhtli monolith discovered in 2006.",
     "primarySources": [
       {
@@ -2680,7 +2680,7 @@
     "latitude": null,
     "longitude": null,
     "geography": "mythic",
-    "imageUrl": "/locations/omeyocan.png",
+    "imageUrl": "/locations/omeyocan.webp",
     "detailedBio": "## The top of the heavens\n\nNahua sources describe the heavens as a series of levels, most often thirteen, above the earth. At the top is Omeyocan, 'the place of two' or 'place of duality', where the creator pair dwell: Ometecuhtli and Omecihuatl, Lord and Lady of Duality, also called Tonacatecuhtli and Tonacacihuatl. The *Florentine Codex* records speeches in which a newborn child is said to have been sent from that highest place.\n\n## Sources and variation\n\nThe layered heavens are drawn and glossed in the *Codex Vaticanus A* (Codex Ríos), and the creator pair's role opens the *Historia de los mexicanos por sus pinturas*. The number and names of the heavens differ between sources, and some scholars argue the neat thirteen-level scheme owes something to its Spanish-era presentation. The idea of a dual creator at the top of the cosmos, however, runs through Nahua poetry and prayer.",
     "primarySources": [
       {
@@ -2707,7 +2707,7 @@
     "latitude": 41.8918,
     "longitude": 12.4862,
     "geography": "physical",
-    "imageUrl": "/locations/temple-of-vesta.png",
+    "imageUrl": "/locations/temple-of-vesta.webp",
     "detailedBio": "## The hearth of Rome\n\nThe Aedes Vestae was not a temple in the strict sense but a round shrine, recalling, the Romans said, the round huts of early Rome. Inside burned the fire of Vesta, the hearth of the whole city, tended day and night by the six Vestal Virgins. If it went out, the Vestal responsible was flogged and the fire rekindled by an ancient method. There was no cult statue; Ovid, in the *Fasti* (Book 6), says that Vesta is nothing other than living flame.\n\n## The storeroom\n\nAn inner space, the penus, held sacred objects that only the Vestals could see. Among them, according to tradition reported by Livy, Dionysius of Halicarnassus, and others, was the Palladium, the image of Pallas that Aeneas was said to have rescued from Troy. When the Gauls sacked Rome around 390 BCE, Livy says, the Vestals carried the sacred objects away to safety at Caere.\n\n## The ruins\n\nThe shrine burned and was rebuilt several times; the partial reconstruction seen today in the Forum dates to the rebuilding after a fire in 191 CE under Julia Domna, restored in the 1930s. The House of the Vestals stands beside it. The fire was extinguished and the order disbanded under Theodosius I at the end of the 4th century.",
     "primarySources": [
       {
@@ -2734,7 +2734,7 @@
     "latitude": 41.7155,
     "longitude": 12.7015,
     "geography": "physical",
-    "imageUrl": "/locations/lake-nemi.png",
+    "imageUrl": "/locations/lake-nemi.webp",
     "detailedBio": "## Diana of the grove\n\nOn the north shore of the small crater lake near Aricia stood the sanctuary of Diana Nemorensis, 'Diana of the woodland', a cult shared by the Latin towns and later famous across the Roman world. The lake was called Speculum Dianae, Diana's Mirror. Women whose prayers were answered came in procession by torchlight, a scene Ovid mentions in the *Fasti*.\n\n## The king of the grove\n\nAncient writers, among them Strabo (5.3.12) and Suetonius (*Caligula* 35), describe the strange rule of the priesthood: the priest, called the rex Nemorensis, was a runaway slave who won the office by killing the man who held it, and so lived always on guard, sword in hand. Strabo connects the custom with the Scythian cult of Artemis.\n\n## Frazer's golden bough\n\nJames George Frazer opened *The Golden Bough* (1890) with this priesthood and linked it to the golden bough of Virgil's *Aeneid* Book 6, building a sweeping theory of dying and reviving kings. The link between Nemi and Virgil's bough is Frazer's own, drawn from a remark by the late-antique commentator Servius, and his theory is not accepted today.\n\n## The ships\n\nTwo enormous ceremonial ships built under Caligula were raised from the lake in 1928 to 1932 and destroyed by fire in 1944.",
     "primarySources": [
       {
@@ -2759,7 +2759,7 @@
     "latitude": 40.8387,
     "longitude": 14.078,
     "geography": "physical",
-    "imageUrl": "/locations/lake-avernus.png",
+    "imageUrl": "/locations/lake-avernus.webp",
     "detailedBio": "## The gate of the underworld\n\nAvernus lies in the volcanic Phlegraean Fields west of Naples, close to the Greek colony of Cumae, home of the Sibyl. Its steep wooded crater and the sulphurous air of the area made it, for Greek and Roman writers, a natural entrance to the realm of the dead. In Book 6 of Virgil's *Aeneid*, Aeneas consults the Sibyl at Cumae, finds the golden bough, and descends with her through a deep cave by the dark lake, where no bird could fly over safely; the poem derives the name from the Greek aornos, 'birdless'.\n\n## A real lake, a working harbour\n\nThe myth did not stop practical use. In 37 BCE Agrippa connected Avernus to the Lucrine Lake and the sea to create the naval base Portus Julius, and the tunnel called the Grotta di Cocceio was cut toward Cumae. Visitors in later centuries were shown a tunnel on the shore as the 'Sibyl's cave'.\n\n## Proverbial\n\nThe Sibyl's warning that the descent to Avernus is easy, but the return is the real labour, became proverbial in Latin literature.",
     "primarySources": [
       {
@@ -2781,7 +2781,7 @@
     "latitude": 41.8894,
     "longitude": 12.4875,
     "geography": "physical",
-    "imageUrl": "/locations/palatine-hill.png",
+    "imageUrl": "/locations/palatine-hill.webp",
     "detailedBio": "## Romulus's hill\n\nIn Livy's account (Book 1), the twins Romulus and Remus, exposed by order of the usurping king Amulius, are washed ashore at the foot of the Palatine, where a she-wolf finds and nurses them in a cave, the Lupercal. Grown, they quarrel over where to found their city; Romulus takes the auspices from the Palatine, fortifies it, and kills Remus when he leaps over the new wall. Rome's oldest traditions of kingship cling to the hill, and a hut said to be Romulus's own was preserved and repaired there into imperial times.\n\n## The Lupercalia\n\nOn 15 February the Luperci, young men in goatskins, ran from the Lupercal around the Palatine, striking those they met with thongs of hide, a rite believed to bring fertility. Ovid explains it in the *Fasti* (Book 2), and Mark Antony famously offered Caesar a crown while running as a Lupercus in 44 BCE.\n\n## House of emperors\n\nAugustus chose to live on the Palatine beside Romulus's hut and the temple of Apollo, and later emperors built their palaces there, which is why the word palace comes from its name. A decorated underground chamber found in 2007 was proposed as the Lupercal; that identification is disputed.",
     "primarySources": [
       {
@@ -2808,7 +2808,7 @@
     "latitude": 54.3481,
     "longitude": -6.6977,
     "geography": "physical",
-    "imageUrl": "/locations/emain-macha.png",
+    "imageUrl": "/locations/emain-macha.webp",
     "detailedBio": "## The seat of the Ulaid\n\nIn the tales of the Ulster Cycle, Emain Macha is the court of Conchobar mac Nessa, home of the Red Branch warriors and the place from which the young Cú Chulainn sets out. Its name is explained in more than one way: as 'the twins of Macha', from the story of Macha's race, or from a Macha who marked out the fort with her brooch.\n\n## Macha's curse\n\nIn the tale *Noínden Ulad* ('The Debility of the Ulstermen'), Macha, a woman of the otherworld, lives with a farmer who boasts at the king's assembly that his wife can outrun the king's horses. Though she is heavily pregnant, she is made to race; she wins, gives birth to twins at the finish, and curses the men of Ulster to suffer the pains of childbirth for days in their time of greatest need. That curse explains why, in the *Táin Bó Cúailnge*, the Ulstermen lie helpless as Medb's army invades, and only Cú Chulainn can defend the province.\n\n## The archaeology\n\nNavan Fort is a large ringed enclosure on a drumlin west of Armagh. Excavations found a remarkable structure of about 95 CE: a circular building of rings of posts, filled with stones, then deliberately burned and covered with a mound, apparently a ritual act. A Barbary ape skull from the site shows long-distance contacts. The site was a royal and ritual centre long before the tales were written down, but it cannot be tied to any individual in them.",
     "primarySources": [
       {
@@ -2834,7 +2834,7 @@
     "latitude": 53.803,
     "longitude": -8.305,
     "geography": "physical",
-    "imageUrl": "/locations/rathcroghan.png",
+    "imageUrl": "/locations/rathcroghan.webp",
     "detailedBio": "## Medb's court\n\nCruachan is the court of Medb and Ailill, queen and king of Connacht, in the Ulster Cycle. The *Táin Bó Cúailnge* in its later recension opens here with their pillow-talk: comparing their possessions, they find them equal except that Ailill owns the great bull Finnbennach, and Medb resolves to take the Brown Bull of Cooley from Ulster to match it. The war of the Táin begins at Cruachan and its bulls finally fight across Ireland.\n\n## The cave of the cats\n\nOweynagat, 'the cave of the cats', a natural cave entered through a souterrain, was known in medieval tradition as an entrance to the otherworld. In *Echtra Nerai* ('The Adventure of Nera') a man of Ailill's court enters the síd of Cruachan at Samhain, and other tales bring monstrous creatures and the Morrígan out of it.\n\n## The landscape\n\nRathcroghan is a spread of more than 200 archaeological sites, mounds, enclosures, and linear earthworks, spanning thousands of years. It is interpreted by the Rathcroghan Visitor Centre at Tulsk; like Emain Macha and Tara, it was a real royal centre that the tales remember in their own way.",
     "primarySources": [
       {
@@ -2860,7 +2860,7 @@
     "latitude": 51.3811,
     "longitude": -2.3597,
     "geography": "physical",
-    "imageUrl": "/locations/aquae-sulis.png",
+    "imageUrl": "/locations/aquae-sulis.webp",
     "detailedBio": "## Sulis Minerva\n\nThe only natural hot springs in Britain rise at Bath. The Romans built a temple and bathing complex here from the later 1st century CE and called the town Aquae Sulis, 'the waters of Sulis', keeping the name of the local goddess. In inscriptions she is Sulis or Sulis Minerva, the British deity paired with the Roman goddess of wisdom. The gilded bronze head of the cult statue survives, as does the temple pediment with its striking moustached Gorgon-like head.\n\n## Curses in the spring\n\nMore than 130 curse tablets (defixiones), sheets of lead or pewter inscribed and thrown into the sacred spring, have been recovered. Most ask Sulis to punish the thief of a cloak, gloves, or coins, often naming suspects and demanding that the culprit suffer until the goods are returned to the temple. They are among the most direct evidence for the everyday religion of Roman Britain, and some include a few words that may be British Celtic.\n\n## A perpetual fire\n\nThe 3rd-century writer Solinus describes Minerva's temple at the hot springs, where the fire on her altar never went out and burned not to ash but to stony lumps, probably a reference to coal.",
     "primarySources": [
       {
@@ -2886,7 +2886,7 @@
     "longitude": -8.359,
     "geography": "identified",
     "coordinateNote": "The medieval texts place the first battle near Cong in County Mayo and the second near Lough Arrow in County Sligo; the Sligo townland of Moytirra preserves the name, but no battle is historically attested.",
-    "imageUrl": "/locations/moytirra.png",
+    "imageUrl": "/locations/moytirra.webp",
     "detailedBio": "## Two battles\n\nIrish mythic history, as told in the *Lebor Gabála Érenn* and in the tale *Cath Maige Tuired*, describes two battles on plains called Mag Tuired, 'the plain of towers' or 'of pillars'. In the first, the Túatha Dé Danann defeat the Fir Bolg, and their king Núadu loses his arm. In the second, they fight the Fomorians under the tyranny of Bres.\n\n## The second battle\n\n*Cath Maige Tuired*, preserved in a 16th-century manuscript of an older text, tells how Lug, master of every art, organises the Túatha Dé for war; Dian Cécht's healing well restores the wounded each night and Goibniu's forge replaces broken weapons. In the battle Balor of the baleful eye, whose gaze destroys armies, is killed by Lug's sling-stone, which drives the eye through the back of his head against his own host. The Morrígan's prophecy closes the tale.\n\n## On the map\n\nThe second battle was placed near Lough Arrow in County Sligo, where the townland of Moytirra and a landscape of cairns and megalithic tombs keep the name. The identification is medieval learned tradition attached to an ancient ritual landscape, not a record of a real battle.",
     "primarySources": [
       {
@@ -2913,7 +2913,7 @@
         "date": "1998"
       }
     ],
-    "imageUrl": "/locations/hattusa.png",
+    "imageUrl": "/locations/hattusa.webp",
     "geography": "physical"
   },
   {
@@ -2932,7 +2932,7 @@
         "date": "1952"
       }
     ],
-    "imageUrl": "/locations/yazilikaya.png",
+    "imageUrl": "/locations/yazilikaya.webp",
     "geography": "physical"
   },
   {
@@ -2951,7 +2951,7 @@
         "date": "Late Bronze Age copies"
       }
     ],
-    "imageUrl": "/locations/nerik.png",
+    "imageUrl": "/locations/nerik.webp",
     "geography": "physical"
   },
   {
@@ -2970,7 +2970,7 @@
         "date": "Hittite copies 13th c. BCE"
       }
     ],
-    "imageUrl": "/locations/urkesh.png",
+    "imageUrl": "/locations/urkesh.webp",
     "geography": "physical"
   },
   {
@@ -2989,7 +2989,7 @@
         "date": "tablets of the late 13th or early 12th c. BCE"
       }
     ],
-    "imageUrl": "/locations/ugarit.png",
+    "imageUrl": "/locations/ugarit.webp",
     "geography": "physical"
   },
   {
@@ -3008,7 +3008,7 @@
         "date": "tablets of the late 13th or early 12th c. BCE"
       }
     ],
-    "imageUrl": "/locations/mount-zaphon.png",
+    "imageUrl": "/locations/mount-zaphon.webp",
     "geography": "identified",
     "coordinateNote": "Baal's mountain Zaphon is identified with Jebel Aqra (Mount Kasios) on the Syrian–Turkish coast north of Ugarit."
   },
@@ -3028,7 +3028,7 @@
         "date": "tablets of the late 13th or early 12th c. BCE"
       }
     ],
-    "imageUrl": "/locations/source-of-the-two-rivers.png",
+    "imageUrl": "/locations/source-of-the-two-rivers.webp",
     "geography": "mythic"
   },
   {
@@ -3047,7 +3047,7 @@
         "date": "1888"
       }
     ],
-    "imageUrl": "/locations/cumberland-sound.png",
+    "imageUrl": "/locations/cumberland-sound.webp",
     "geography": "physical"
   },
   {
@@ -3066,7 +3066,7 @@
         "date": "1929"
       }
     ],
-    "imageUrl": "/locations/igloolik.png",
+    "imageUrl": "/locations/igloolik.webp",
     "geography": "physical"
   },
   {
@@ -3085,7 +3085,7 @@
         "date": "1993"
       }
     ],
-    "imageUrl": "/locations/tikigaq-point-hope.png",
+    "imageUrl": "/locations/tikigaq-point-hope.webp",
     "geography": "physical"
   },
   {
@@ -3104,7 +3104,7 @@
         "date": "1916"
       }
     ],
-    "imageUrl": "/locations/torngat-mountains.png",
+    "imageUrl": "/locations/torngat-mountains.webp",
     "geography": "physical"
   },
   {
@@ -3123,7 +3123,7 @@
         "date": "accessed 2026"
       }
     ],
-    "imageUrl": "/locations/brewarrina-fish-traps.png",
+    "imageUrl": "/locations/brewarrina-fish-traps.webp",
     "geography": "physical"
   },
   {
@@ -3142,7 +3142,7 @@
         "date": "accessed 2026"
       }
     ],
-    "imageUrl": "/locations/bunjils-shelter.png",
+    "imageUrl": "/locations/bunjils-shelter.webp",
     "geography": "physical"
   },
   {
@@ -3161,7 +3161,7 @@
         "date": "accessed 2026"
       }
     ],
-    "imageUrl": "/locations/derbarl-yerrigan.png",
+    "imageUrl": "/locations/derbarl-yerrigan.webp",
     "geography": "physical"
   },
   {
@@ -3180,7 +3180,7 @@
         "date": "accessed 2026"
       }
     ],
-    "imageUrl": "/locations/uluru.png",
+    "imageUrl": "/locations/uluru.webp",
     "geography": "physical"
   },
   {
@@ -3199,7 +3199,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/locations/blanca-peak.png",
+    "imageUrl": "/locations/blanca-peak.webp",
     "geography": "physical"
   },
   {
@@ -3218,7 +3218,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/locations/mount-taylor.png",
+    "imageUrl": "/locations/mount-taylor.webp",
     "geography": "physical"
   },
   {
@@ -3237,7 +3237,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/locations/san-francisco-peaks.png",
+    "imageUrl": "/locations/san-francisco-peaks.webp",
     "geography": "physical"
   },
   {
@@ -3256,7 +3256,7 @@
         "date": "1897"
       }
     ],
-    "imageUrl": "/locations/hesperus-mountain.png",
+    "imageUrl": "/locations/hesperus-mountain.webp",
     "geography": "physical"
   },
   {
@@ -3275,7 +3275,7 @@
         "date": "1984"
       }
     ],
-    "imageUrl": "/locations/gobernador-knob.png",
+    "imageUrl": "/locations/gobernador-knob.webp",
     "geography": "physical"
   },
   {
@@ -3298,7 +3298,7 @@
         "date": "written 1653"
       }
     ],
-    "imageUrl": "/locations/isla-del-sol.png"
+    "imageUrl": "/locations/isla-del-sol.webp"
   },
   {
     "id": "tiwanaku",
@@ -3320,7 +3320,7 @@
         "date": "written 1551"
       }
     ],
-    "imageUrl": "/locations/tiwanaku.png"
+    "imageUrl": "/locations/tiwanaku.webp"
   },
   {
     "id": "coricancha",
@@ -3342,7 +3342,7 @@
         "date": "published 1609"
       }
     ],
-    "imageUrl": "/locations/coricancha.png"
+    "imageUrl": "/locations/coricancha.webp"
   },
   {
     "id": "pachacamac-sanctuary",
@@ -3364,7 +3364,7 @@
         "date": "written 1608; trans. 1873"
       }
     ],
-    "imageUrl": "/locations/pachacamac-sanctuary.png"
+    "imageUrl": "/locations/pachacamac-sanctuary.webp"
   },
   {
     "id": "huanacauri",
@@ -3392,7 +3392,7 @@
         "date": "written c. 1575"
       }
     ],
-    "imageUrl": "/locations/huanacauri.png"
+    "imageUrl": "/locations/huanacauri.webp"
   },
   {
     "id": "nevado-pariacaca",
@@ -3414,7 +3414,7 @@
         "date": "compiled c. 1598-1608"
       }
     ],
-    "imageUrl": "/locations/nevado-pariacaca.png"
+    "imageUrl": "/locations/nevado-pariacaca.webp"
   },
   {
     "id": "persepolis",
@@ -3434,7 +3434,7 @@
         "date": "c. 515 BCE"
       }
     ],
-    "imageUrl": "/locations/persepolis.png"
+    "imageUrl": "/locations/persepolis.webp"
   },
   {
     "id": "behistun",
@@ -3456,7 +3456,7 @@
         "date": "c. 520 BCE"
       }
     ],
-    "imageUrl": "/locations/behistun.png"
+    "imageUrl": "/locations/behistun.webp"
   },
   {
     "id": "naqsh-e-rostam",
@@ -3476,7 +3476,7 @@
         "date": "c. 490 BCE"
       }
     ],
-    "imageUrl": "/locations/naqsh-e-rostam.png"
+    "imageUrl": "/locations/naqsh-e-rostam.webp"
   },
   {
     "id": "takht-e-soleyman",
@@ -3498,7 +3498,7 @@
         "date": "note published 1883"
       }
     ],
-    "imageUrl": "/locations/takht-e-soleyman.png"
+    "imageUrl": "/locations/takht-e-soleyman.webp"
   },
   {
     "id": "mount-damavand",
@@ -3527,7 +3527,7 @@
         "date": "Younger Avestan; trans. 1880"
       }
     ],
-    "imageUrl": "/locations/mount-damavand.png"
+    "imageUrl": "/locations/mount-damavand.webp"
   },
   {
     "id": "chinvat-bridge",
@@ -3549,7 +3549,7 @@
         "date": "Younger Avestan"
       }
     ],
-    "imageUrl": "/locations/chinvat-bridge.png"
+    "imageUrl": "/locations/chinvat-bridge.webp"
   },
   {
     "id": "tuonela",
@@ -3571,7 +3571,7 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ],
-    "imageUrl": "/locations/tuonela.png"
+    "imageUrl": "/locations/tuonela.webp"
   },
   {
     "id": "pohjola",
@@ -3593,7 +3593,7 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ],
-    "imageUrl": "/locations/pohjola.png"
+    "imageUrl": "/locations/pohjola.webp"
   },
   {
     "id": "vainola",
@@ -3615,7 +3615,7 @@
         "date": "Lönnrot's compilation 1849; trans. 1888"
       }
     ],
-    "imageUrl": "/locations/vainola.png"
+    "imageUrl": "/locations/vainola.webp"
   },
   {
     "id": "vuokkiniemi",
@@ -3636,7 +3636,7 @@
         "date": "recorded 1834"
       }
     ],
-    "imageUrl": "/locations/vuokkiniemi.png"
+    "imageUrl": "/locations/vuokkiniemi.webp"
   },
   {
     "id": "kalevala-town",
@@ -3657,7 +3657,7 @@
         "date": "1830s"
       }
     ],
-    "imageUrl": "/locations/kalevala-town.png"
+    "imageUrl": "/locations/kalevala-town.webp"
   },
   {
     "id": "mount-myohyang",
@@ -3680,7 +3680,7 @@
         "date": "compiled c. 1281-1289"
       }
     ],
-    "imageUrl": "/locations/mount-myohyang.png"
+    "imageUrl": "/locations/mount-myohyang.webp"
   },
   {
     "id": "chamseongdan",
@@ -3700,7 +3700,7 @@
         "date": "16th century"
       }
     ],
-    "imageUrl": "/locations/chamseongdan.png"
+    "imageUrl": "/locations/chamseongdan.webp"
   },
   {
     "id": "wunu-mountain",
@@ -3723,7 +3723,7 @@
         "date": "414 CE"
       }
     ],
-    "imageUrl": "/locations/wunu-mountain.png"
+    "imageUrl": "/locations/wunu-mountain.webp"
   },
   {
     "id": "najeong",
@@ -3745,7 +3745,7 @@
         "date": "compiled c. 1281-1289"
       }
     ],
-    "imageUrl": "/locations/najeong.png"
+    "imageUrl": "/locations/najeong.webp"
   },
   {
     "id": "daewangam",
@@ -3767,7 +3767,7 @@
         "date": "completed 1145"
       }
     ],
-    "imageUrl": "/locations/daewangam.png"
+    "imageUrl": "/locations/daewangam.webp"
   },
   {
     "id": "jeoseung",
@@ -3788,7 +3788,7 @@
         "date": "recorded 20th century"
       }
     ],
-    "imageUrl": "/locations/jeoseung.png"
+    "imageUrl": "/locations/jeoseung.webp"
   },
   {
     "id": "mount-othrys",
@@ -3799,7 +3799,7 @@
     "latitude": 39.03,
     "longitude": 22.62,
     "geography": "physical",
-    "imageUrl": "/locations/mount-othrys.png",
+    "imageUrl": "/locations/mount-othrys.webp",
     "detailedBio": "## The Titans' Side of the War\n\nIn Hesiod's *Theogony* the war between the Titans and the children of Cronus is fought between two mountains: the Titans on lofty Othrys, the Olympians on Olympus across the Thessalian plain. The fighting lasts ten full years without either side winning, until Zeus frees the Hundred-Handed ones and the Titans are driven down into Tartarus.\n\nHesiod names Othrys only as the Titans' base in that war. It is a real range in Phthiotis and Magnesia, facing Olympus from the south, and the picture of a palace of the Titans on its summit belongs to later and modern retellings rather than to the ancient poem.",
     "primarySources": [
       {

@@ -3,13 +3,13 @@ import { expect, test } from "@playwright/test";
 test("serves a hero image instead of its similarly named page", async ({
   request,
 }) => {
-  const response = await request.get("/heroes/achilles.png");
+  const response = await request.get("/heroes/achilles.webp");
 
   expect(response.ok()).toBe(true);
-  expect(response.headers()["content-type"]).toContain("image/png");
-  expect((await response.body()).subarray(0, 8)).toEqual(
-    Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
-  );
+  expect(response.headers()["content-type"]).toContain("image/webp");
+  const body = await response.body();
+  expect(body.subarray(0, 4).toString("ascii")).toBe("RIFF");
+  expect(body.subarray(8, 12).toString("ascii")).toBe("WEBP");
 });
 
 test("renders the documented Met image without the Next image optimizer", async ({

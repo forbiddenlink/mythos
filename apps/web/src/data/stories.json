@@ -2674,7 +2674,7 @@
       "The Metropolitan Museum of Art, Ibeji Twin Figure, object 1979.527.22: https://www.metmuseum.org/art/collection/search/314081",
       "Editorial correction: the previous account of Oya’s first divine twins was removed because a source for that specific episode could not be established."
     ],
-    "imageUrl": "/stories/first-twins-ibeji.png"
+    "imageUrl": "/stories/first-twins-ibeji.webp"
   },
   {
     "id": "house-of-bats",
@@ -3458,7 +3458,7 @@
       "mokosh"
     ],
     "featuredLocations": ["starokyivska-hill"],
-    "imageUrl": "/stories/vladimirs-pantheon-980.png"
+    "imageUrl": "/stories/vladimirs-pantheon-980.webp"
   },
   {
     "id": "perun-and-veles",
@@ -3483,7 +3483,7 @@
       }
     ],
     "featuredDeities": ["perun", "veles"],
-    "imageUrl": "/stories/perun-and-veles.png"
+    "imageUrl": "/stories/perun-and-veles.webp"
   },
   {
     "id": "svantevits-oracle-horse",
@@ -3509,7 +3509,7 @@
     ],
     "featuredDeities": ["svantevit"],
     "featuredLocations": ["arkona"],
-    "imageUrl": "/stories/svantevits-oracle-horse.png"
+    "imageUrl": "/stories/svantevits-oracle-horse.webp"
   },
   {
     "id": "vasilisa-the-beautiful",
@@ -3535,7 +3535,7 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/stories/vasilisa-the-beautiful.png"
+    "imageUrl": "/stories/vasilisa-the-beautiful.webp"
   },
   {
     "id": "sky-woman-and-turtle-island",
@@ -3568,7 +3568,7 @@
       }
     ],
     "featuredDeities": ["sky-woman", "turtle"],
-    "imageUrl": "/stories/sky-woman-and-turtle-island.png"
+    "imageUrl": "/stories/sky-woman-and-turtle-island.webp"
   },
   {
     "id": "the-twins-sapling-and-flint",
@@ -3601,7 +3601,7 @@
       }
     ],
     "featuredDeities": ["sky-woman", "sapling", "flint"],
-    "imageUrl": "/stories/the-twins-sapling-and-flint.png"
+    "imageUrl": "/stories/the-twins-sapling-and-flint.webp"
   },
   {
     "id": "peacemaker-great-law-of-peace",
@@ -3633,7 +3633,7 @@
       }
     ],
     "featuredLocations": ["onondaga-lake"],
-    "imageUrl": "/stories/peacemaker-great-law-of-peace.png"
+    "imageUrl": "/stories/peacemaker-great-law-of-peace.webp"
   },
   {
     "id": "raven-steals-the-light",
@@ -3658,7 +3658,7 @@
       }
     ],
     "featuredDeities": ["raven", "naas-shaak-aankawu"],
-    "imageUrl": "/stories/raven-steals-the-light.png"
+    "imageUrl": "/stories/raven-steals-the-light.webp"
   },
   {
     "id": "raven-and-the-first-men",
@@ -3691,7 +3691,7 @@
     ],
     "featuredDeities": ["raven"],
     "featuredLocations": ["haida-gwaii"],
-    "imageUrl": "/stories/raven-and-the-first-men.png"
+    "imageUrl": "/stories/raven-and-the-first-men.webp"
   },
   {
     "id": "abduction-of-persephone",
@@ -3772,7 +3772,7 @@
         "note": "A compact mythographer's summary."
       }
     ],
-    "imageUrl": "/stories/abduction-of-persephone.png"
+    "imageUrl": "/stories/abduction-of-persephone.webp"
   },
   {
     "id": "tano-and-bia-divide-the-land",
@@ -3804,7 +3804,7 @@
       }
     ],
     "featuredDeities": ["nyame", "tano", "bia"],
-    "imageUrl": "/stories/tano-and-bia-divide-the-land.png"
+    "imageUrl": "/stories/tano-and-bia-divide-the-land.webp"
   },
   {
     "id": "hinon-and-the-horned-serpent",
@@ -3830,7 +3830,7 @@
       }
     ],
     "featuredDeities": ["hinon"],
-    "imageUrl": "/stories/hinon-and-the-horned-serpent.png"
+    "imageUrl": "/stories/hinon-and-the-horned-serpent.webp"
   },
   {
     "id": "hiawatha-and-the-condolence",
@@ -3868,7 +3868,7 @@
     ],
     "featuredDeities": [],
     "featuredLocations": ["onondaga-lake"],
-    "imageUrl": "/stories/hiawatha-and-the-condolence.png"
+    "imageUrl": "/stories/hiawatha-and-the-condolence.webp"
   },
   {
     "id": "origin-of-the-three-sisters",
@@ -3908,7 +3908,7 @@
       "gaha",
       "three-sisters"
     ],
-    "imageUrl": "/stories/origin-of-the-three-sisters.png"
+    "imageUrl": "/stories/origin-of-the-three-sisters.webp"
   },
   {
     "id": "raven-and-petrel",
@@ -3935,7 +3935,7 @@
     "featuredDeities": ["raven", "petrel"],
     "featuredLocations": ["nass-river"],
     "relatedStories": ["raven-steals-the-light"],
-    "imageUrl": "/stories/raven-and-petrel.png"
+    "imageUrl": "/stories/raven-and-petrel.webp"
   },
   {
     "id": "kats-and-the-bear-wife",
@@ -3960,7 +3960,7 @@
       }
     ],
     "featuredDeities": [],
-    "imageUrl": "/stories/kats-and-the-bear-wife.png"
+    "imageUrl": "/stories/kats-and-the-bear-wife.webp"
   },
   {
     "id": "natsilane-and-the-killer-whales",
@@ -3982,7 +3982,7 @@
       }
     ],
     "featuredDeities": [],
-    "imageUrl": "/stories/natsilane-and-the-killer-whales.png"
+    "imageUrl": "/stories/natsilane-and-the-killer-whales.webp"
   },
   {
     "id": "song-of-kumarbi",
@@ -4049,7 +4049,7 @@
         "note": "The Greek succession myth for comparison"
       }
     ],
-    "imageUrl": "/stories/song-of-kumarbi.png"
+    "imageUrl": "/stories/song-of-kumarbi.webp"
   },
   {
     "id": "song-of-ullikummi",
@@ -4106,7 +4106,7 @@
         "note": "Hoffner's translation of all the surviving copies"
       }
     ],
-    "imageUrl": "/stories/song-of-ullikummi.png"
+    "imageUrl": "/stories/song-of-ullikummi.webp"
   },
   {
     "id": "storm-god-and-illuyanka",
@@ -4155,7 +4155,7 @@
         "note": "Both versions of the Illuyanka story in translation"
       }
     ],
-    "imageUrl": "/stories/storm-god-and-illuyanka.png"
+    "imageUrl": "/stories/storm-god-and-illuyanka.webp"
   },
   {
     "id": "disappearance-of-telipinu",
@@ -4210,7 +4210,7 @@
         "note": "The Telipinu text and the other vanishing-god myths"
       }
     ],
-    "imageUrl": "/stories/disappearance-of-telipinu.png"
+    "imageUrl": "/stories/disappearance-of-telipinu.webp"
   },
   {
     "id": "baal-and-yam",
@@ -4282,7 +4282,7 @@
         "note": "The Babylonian storm-god-versus-sea myth for comparison"
       }
     ],
-    "imageUrl": "/stories/baal-and-yam.png"
+    "imageUrl": "/stories/baal-and-yam.webp"
   },
   {
     "id": "palace-of-baal",
@@ -4325,7 +4325,7 @@
         "note": "KTU 1.3-1.4 in translation"
       }
     ],
-    "imageUrl": "/stories/palace-of-baal.png"
+    "imageUrl": "/stories/palace-of-baal.webp"
   },
   {
     "id": "baal-and-mot",
@@ -4389,7 +4389,7 @@
         "note": "KTU 1.5-1.6 in translation"
       }
     ],
-    "imageUrl": "/stories/baal-and-mot.png"
+    "imageUrl": "/stories/baal-and-mot.webp"
   },
   {
     "id": "legend-of-aqhat",
@@ -4440,7 +4440,7 @@
         "note": "The epic in translation"
       }
     ],
-    "imageUrl": "/stories/legend-of-aqhat.png"
+    "imageUrl": "/stories/legend-of-aqhat.webp"
   },
   {
     "id": "legend-of-kirta",
@@ -4483,7 +4483,7 @@
         "note": "The epic in translation"
       }
     ],
-    "imageUrl": "/stories/legend-of-kirta.png"
+    "imageUrl": "/stories/legend-of-kirta.webp"
   },
   {
     "id": "the-sea-woman",
@@ -4568,7 +4568,7 @@
         "note": "The Baffin Island telling"
       }
     ],
-    "imageUrl": "/stories/the-sea-woman.png"
+    "imageUrl": "/stories/the-sea-woman.webp"
   },
   {
     "id": "sun-sister-and-moon-brother",
@@ -4634,7 +4634,7 @@
         "note": "The Moon Spirit in Iglulik belief"
       }
     ],
-    "imageUrl": "/stories/sun-sister-and-moon-brother.png"
+    "imageUrl": "/stories/sun-sister-and-moon-brother.webp"
   },
   {
     "id": "kiviuq-and-the-journeys",
@@ -4677,7 +4677,7 @@
         "note": "An early recorded telling of Kiviung from Baffin Island"
       }
     ],
-    "imageUrl": "/stories/kiviuq-and-the-journeys.png"
+    "imageUrl": "/stories/kiviuq-and-the-journeys.webp"
   },
   {
     "id": "raven-harpoons-the-whale-land",
@@ -4707,7 +4707,7 @@
     "featuredLocations": ["tikigaq-point-hope"],
     "relatedStories": ["raven-steals-the-light", "raven-and-the-first-men"],
     "furtherReading": [],
-    "imageUrl": "/stories/raven-harpoons-the-whale-land.png"
+    "imageUrl": "/stories/raven-harpoons-the-whale-land.webp"
   },
   {
     "id": "bunjil-and-the-kulin-country",
@@ -4751,7 +4751,7 @@
       }
     ],
     "furtherReading": [],
-    "imageUrl": "/stories/bunjil-and-the-kulin-country.png"
+    "imageUrl": "/stories/bunjil-and-the-kulin-country.webp"
   },
   {
     "id": "the-seven-sisters-songline",
@@ -4805,7 +4805,7 @@
         "note": "The exhibition catalogue, shaped by the custodians"
       }
     ],
-    "imageUrl": "/stories/the-seven-sisters-songline.png"
+    "imageUrl": "/stories/the-seven-sisters-songline.webp"
   },
   {
     "id": "baiames-ngunnhu",
@@ -4843,7 +4843,7 @@
       }
     ],
     "furtherReading": [],
-    "imageUrl": "/stories/baiames-ngunnhu.png"
+    "imageUrl": "/stories/baiames-ngunnhu.webp"
   },
   {
     "id": "wagyl-and-derbarl-yerrigan",
@@ -4886,7 +4886,7 @@
       }
     ],
     "furtherReading": [],
-    "imageUrl": "/stories/wagyl-and-derbarl-yerrigan.png"
+    "imageUrl": "/stories/wagyl-and-derbarl-yerrigan.webp"
   },
   {
     "id": "kuniya-and-liru",
@@ -4916,7 +4916,7 @@
     "featuredLocations": ["uluru"],
     "relatedStories": ["the-seven-sisters-songline"],
     "furtherReading": [],
-    "imageUrl": "/stories/kuniya-and-liru.png"
+    "imageUrl": "/stories/kuniya-and-liru.webp"
   },
   {
     "id": "the-dine-emergence",
@@ -4984,7 +4984,7 @@
         "note": "A continuous English rendering"
       }
     ],
-    "imageUrl": "/stories/the-dine-emergence.png"
+    "imageUrl": "/stories/the-dine-emergence.webp"
   },
   {
     "id": "birth-of-changing-woman",
@@ -5053,7 +5053,7 @@
         "note": "The 1897 version"
       }
     ],
-    "imageUrl": "/stories/birth-of-changing-woman.png"
+    "imageUrl": "/stories/birth-of-changing-woman.webp"
   },
   {
     "id": "twins-journey-to-the-sun",
@@ -5118,7 +5118,7 @@
         "note": "Part Four"
       }
     ],
-    "imageUrl": "/stories/twins-journey-to-the-sun.png"
+    "imageUrl": "/stories/twins-journey-to-the-sun.webp"
   },
   {
     "id": "monster-slayer-and-the-naayee",
@@ -5170,7 +5170,7 @@
         "note": "The slaying of the alien gods"
       }
     ],
-    "imageUrl": "/stories/monster-slayer-and-the-naayee.png"
+    "imageUrl": "/stories/monster-slayer-and-the-naayee.webp"
   },
   {
     "id": "changing-woman-goes-west",
@@ -5235,7 +5235,7 @@
         "note": "Matthews's account of the growth of the nation"
       }
     ],
-    "imageUrl": "/stories/changing-woman-goes-west.png"
+    "imageUrl": "/stories/changing-woman-goes-west.webp"
   },
   {
     "id": "viracocha-creation-at-titicaca",
@@ -5294,7 +5294,7 @@
     "featuredDeities": ["viracocha", "inti", "mama-killa"],
     "featuredLocations": ["tiwanaku", "isla-del-sol"],
     "relatedStories": ["children-of-the-sun"],
-    "imageUrl": "/stories/viracocha-creation-at-titicaca.png"
+    "imageUrl": "/stories/viracocha-creation-at-titicaca.webp"
   },
   {
     "id": "children-of-the-sun",
@@ -5346,7 +5346,7 @@
     "featuredDeities": ["manco-capac", "mama-ocllo", "inti"],
     "featuredLocations": ["huanacauri", "isla-del-sol", "coricancha"],
     "relatedStories": ["viracocha-creation-at-titicaca"],
-    "imageUrl": "/stories/children-of-the-sun.png"
+    "imageUrl": "/stories/children-of-the-sun.webp"
   },
   {
     "id": "cuniraya-and-cavillaca",
@@ -5382,7 +5382,7 @@
     "featuredDeities": ["cuniraya-viracocha", "pachacamac"],
     "featuredLocations": ["pachacamac-sanctuary"],
     "relatedStories": ["huatyacuri-and-the-false-god"],
-    "imageUrl": "/stories/cuniraya-and-cavillaca.png"
+    "imageUrl": "/stories/cuniraya-and-cavillaca.webp"
   },
   {
     "id": "the-llama-and-the-flood",
@@ -5417,7 +5417,7 @@
     ],
     "featuredDeities": [],
     "relatedStories": ["cuniraya-and-cavillaca"],
-    "imageUrl": "/stories/the-llama-and-the-flood.png"
+    "imageUrl": "/stories/the-llama-and-the-flood.webp"
   },
   {
     "id": "huatyacuri-and-the-false-god",
@@ -5455,7 +5455,7 @@
       "pariacaca-and-huallallo-carhuincho",
       "cuniraya-and-cavillaca"
     ],
-    "imageUrl": "/stories/huatyacuri-and-the-false-god.png"
+    "imageUrl": "/stories/huatyacuri-and-the-false-god.webp"
   },
   {
     "id": "pariacaca-and-huallallo-carhuincho",
@@ -5491,7 +5491,7 @@
     "featuredDeities": ["pariacaca", "huallallo-carhuincho"],
     "featuredLocations": ["nevado-pariacaca"],
     "relatedStories": ["huatyacuri-and-the-false-god"],
-    "imageUrl": "/stories/pariacaca-and-huallallo-carhuincho.png"
+    "imageUrl": "/stories/pariacaca-and-huallallo-carhuincho.webp"
   },
   {
     "id": "ohrmazd-and-ahriman",
@@ -5541,7 +5541,7 @@
     ],
     "featuredDeities": ["ahura-mazda", "angra-mainyu", "zurvan"],
     "relatedStories": ["yima-and-the-var"],
-    "imageUrl": "/stories/ohrmazd-and-ahriman.png"
+    "imageUrl": "/stories/ohrmazd-and-ahriman.webp"
   },
   {
     "id": "tishtrya-and-apaosha",
@@ -5569,7 +5569,7 @@
     ],
     "featuredDeities": ["tishtrya", "ahura-mazda", "mithra"],
     "relatedStories": ["ohrmazd-and-ahriman"],
-    "imageUrl": "/stories/tishtrya-and-apaosha.png"
+    "imageUrl": "/stories/tishtrya-and-apaosha.webp"
   },
   {
     "id": "yima-and-the-var",
@@ -5620,7 +5620,7 @@
     ],
     "featuredDeities": ["yima", "ahura-mazda", "spenta-armaiti"],
     "relatedStories": ["zahhak-and-kaveh", "ohrmazd-and-ahriman"],
-    "imageUrl": "/stories/yima-and-the-var.png"
+    "imageUrl": "/stories/yima-and-the-var.webp"
   },
   {
     "id": "zahhak-and-kaveh",
@@ -5665,7 +5665,7 @@
     "featuredDeities": ["angra-mainyu", "sraosha", "yima"],
     "featuredLocations": ["mount-damavand"],
     "relatedStories": ["yima-and-the-var", "zal-and-the-simurgh"],
-    "imageUrl": "/stories/zahhak-and-kaveh.png"
+    "imageUrl": "/stories/zahhak-and-kaveh.webp"
   },
   {
     "id": "zal-and-the-simurgh",
@@ -5694,7 +5694,7 @@
     "featuredDeities": [],
     "featuredLocations": ["mount-damavand"],
     "relatedStories": ["rostam-and-sohrab", "zahhak-and-kaveh"],
-    "imageUrl": "/stories/zal-and-the-simurgh.png"
+    "imageUrl": "/stories/zal-and-the-simurgh.webp"
   },
   {
     "id": "rostam-and-sohrab",
@@ -5723,7 +5723,7 @@
     "featuredDeities": [],
     "featuredHeroes": ["rostam"],
     "relatedStories": ["zal-and-the-simurgh"],
-    "imageUrl": "/stories/rostam-and-sohrab.png"
+    "imageUrl": "/stories/rostam-and-sohrab.webp"
   },
   {
     "id": "ilmatar-and-the-world-egg",
@@ -5766,7 +5766,7 @@
     ],
     "featuredDeities": ["ilmatar", "vainamoinen", "ukko"],
     "relatedStories": ["forging-of-the-sampo"],
-    "imageUrl": "/stories/ilmatar-and-the-world-egg.png"
+    "imageUrl": "/stories/ilmatar-and-the-world-egg.webp"
   },
   {
     "id": "aino",
@@ -5794,7 +5794,7 @@
     ],
     "featuredDeities": ["vainamoinen"],
     "relatedStories": ["ilmatar-and-the-world-egg", "forging-of-the-sampo"],
-    "imageUrl": "/stories/aino.png"
+    "imageUrl": "/stories/aino.webp"
   },
   {
     "id": "forging-of-the-sampo",
@@ -5823,7 +5823,7 @@
     "featuredDeities": ["ilmarinen", "vainamoinen", "louhi"],
     "featuredLocations": ["pohjola"],
     "relatedStories": ["theft-of-the-sampo", "ilmatar-and-the-world-egg"],
-    "imageUrl": "/stories/forging-of-the-sampo.png"
+    "imageUrl": "/stories/forging-of-the-sampo.webp"
   },
   {
     "id": "lemminkainens-mother",
@@ -5859,7 +5859,7 @@
     ],
     "featuredLocations": ["tuonela"],
     "relatedStories": ["forging-of-the-sampo"],
-    "imageUrl": "/stories/lemminkainens-mother.png"
+    "imageUrl": "/stories/lemminkainens-mother.webp"
   },
   {
     "id": "theft-of-the-sampo",
@@ -5894,7 +5894,7 @@
     ],
     "featuredLocations": ["pohjola"],
     "relatedStories": ["forging-of-the-sampo"],
-    "imageUrl": "/stories/theft-of-the-sampo.png"
+    "imageUrl": "/stories/theft-of-the-sampo.webp"
   },
   {
     "id": "kullervo",
@@ -5922,7 +5922,7 @@
     ],
     "featuredDeities": ["ilmarinen", "vainamoinen"],
     "relatedStories": ["forging-of-the-sampo"],
-    "imageUrl": "/stories/kullervo.png"
+    "imageUrl": "/stories/kullervo.webp"
   },
   {
     "id": "dangun-and-the-bear-woman",
@@ -5965,7 +5965,7 @@
     "featuredDeities": ["hwanin", "hwanung", "ungnyeo", "dangun"],
     "featuredLocations": ["mount-myohyang", "chamseongdan"],
     "relatedStories": ["jumong-son-of-heaven"],
-    "imageUrl": "/stories/dangun-and-the-bear-woman.png"
+    "imageUrl": "/stories/dangun-and-the-bear-woman.webp"
   },
   {
     "id": "jumong-son-of-heaven",
@@ -6027,7 +6027,7 @@
       "dangun-and-the-bear-woman",
       "bak-hyeokgeose-and-the-egg"
     ],
-    "imageUrl": "/stories/jumong-son-of-heaven.png"
+    "imageUrl": "/stories/jumong-son-of-heaven.webp"
   },
   {
     "id": "bak-hyeokgeose-and-the-egg",
@@ -6063,7 +6063,7 @@
     "featuredDeities": ["bak-hyeokgeose"],
     "featuredLocations": ["najeong"],
     "relatedStories": ["jumong-son-of-heaven", "manpasikjeok"],
-    "imageUrl": "/stories/bak-hyeokgeose-and-the-egg.png"
+    "imageUrl": "/stories/bak-hyeokgeose-and-the-egg.webp"
   },
   {
     "id": "princess-bari",
@@ -6105,7 +6105,7 @@
     "featuredDeities": ["bari-gongju"],
     "featuredLocations": ["jeoseung"],
     "relatedStories": ["mireuk-and-seokga"],
-    "imageUrl": "/stories/princess-bari.png"
+    "imageUrl": "/stories/princess-bari.webp"
   },
   {
     "id": "mireuk-and-seokga",
@@ -6140,7 +6140,7 @@
     ],
     "featuredDeities": ["mireuk", "seokga"],
     "relatedStories": ["princess-bari", "dangun-and-the-bear-woman"],
-    "imageUrl": "/stories/mireuk-and-seokga.png"
+    "imageUrl": "/stories/mireuk-and-seokga.webp"
   },
   {
     "id": "manpasikjeok",
@@ -6176,6 +6176,6 @@
     "featuredDeities": [],
     "featuredLocations": ["daewangam"],
     "relatedStories": ["bak-hyeokgeose-and-the-egg"],
-    "imageUrl": "/stories/manpasikjeok.png"
+    "imageUrl": "/stories/manpasikjeok.webp"
   }
 ]

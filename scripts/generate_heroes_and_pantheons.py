@@ -8,10 +8,10 @@ matching the established dark-academia classical atlas aesthetic.
 import argparse
 import os
 import math
-from PIL import Image, ImageDraw, ImageFilter
 
 from _plate_emblems import draw_emblem
-from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+from _plate_art import pantheon_of, render_plate, write_plate
+from _repo_paths import WEB_PUBLIC
 
 HEROES_DIR = os.path.join(WEB_PUBLIC, "heroes")
 PANTHEONS_DIR = os.path.join(WEB_PUBLIC, "pantheons")
@@ -93,35 +93,12 @@ NEW_HEROES = [
 
 W_HERO, H_HERO = 768, 1024
 
-def draw_ornament_corners(draw, x0, y0, x1, y1, color):
-    s = 24
-    for cx, cy, dx, dy in [(x0, y0, 1, 1), (x1, y0, -1, 1), (x0, y1, 1, -1), (x1, y1, -1, -1)]:
-        draw.line([(cx, cy), (cx + dx * s, cy)], fill=color, width=2)
-        draw.line([(cx, cy), (cx, cy + dy * s)], fill=color, width=2)
-        draw.ellipse([cx + dx * 8 - 3, cy + dy * 8 - 3, cx + dx * 8 + 3, cy + dy * 8 + 3], fill=color)
-
-def draw_greek_key_border(draw, x0, y0, x1, y1, color):
-    draw.rectangle([x0, y0, x1, y1], outline=color, width=1)
-    draw.rectangle([x0 + 8, y0 + 8, x1 - 8, y1 - 8], outline=(color[0]//2, color[1]//2, color[2]//2), width=1)
-    draw.rectangle([x0 + 14, y0 + 14, x1 - 14, y1 - 14], outline=color, width=2)
-
 def draw_new_hero_motif(draw, cx, cy, radius, motif, accent):
     gold = accent
     pale_gold = (min(255, gold[0] + 50), min(255, gold[1] + 50), min(255, gold[2] + 50))
     dark_gold = (gold[0] // 2, gold[1] // 2, gold[2] // 2)
 
-    # Medallion outer rings
-    for r, w in [(radius, 3), (radius - 12, 1), (radius - 20, 2)]:
-        draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=w)
-
-    for i in range(24):
-        angle = i * (2 * math.pi / 24)
-        r1 = radius - 8
-        r2 = radius - 3 if i % 2 == 0 else radius - 5
-        draw.line([
-            (cx + r1 * math.cos(angle), cy + r1 * math.sin(angle)),
-            (cx + r2 * math.cos(angle), cy + r2 * math.sin(angle))
-        ], fill=dark_gold, width=1)
+    # The medallion rings are drawn by _plate_art.render_plate.
 
     if draw_emblem(draw, cx, cy, motif, accent, gold):
         return
@@ -217,58 +194,19 @@ def draw_new_hero_motif(draw, cx, cy, radius, motif, accent):
         draw.line([(cx, cy + 45), (cx, cy + 85)], fill=gold, width=4)
 
 def generate_hero_plate(hero):
-    img = Image.new("RGBA", (W_HERO, H_HERO), hero["bg_tone"] + (255,))
     accent = hero["accent"]
-    gold = (212, 175, 55)
-
-    # Radial ambient glow
-    rad_overlay = Image.new("RGBA", (W_HERO, H_HERO), (0, 0, 0, 0))
-    rad_draw = ImageDraw.Draw(rad_overlay)
-    cx, cy = W_HERO // 2, 440
-    for r in range(350, 50, -10):
-        alpha = int(45 * (1.0 - r / 350.0))
-        rad_draw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    img = Image.alpha_composite(img, rad_overlay)
-    draw = ImageDraw.Draw(img)
-
-    # Classical borders
-    draw_greek_key_border(draw, 32, 32, W_HERO - 32, H_HERO - 32, gold)
-    draw_ornament_corners(draw, 32, 32, W_HERO - 32, H_HERO - 32, gold)
-
-    # Header plate rule
-    draw.line([(64, 90), (W_HERO - 64, 90)], fill=gold, width=1)
-    draw.line([(64, 94), (W_HERO - 64, 94)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    tag_text = f"MYTHOS ATLAS · {hero['pantheon']} HEROIC TRADITION"
-    font_sm = serif_font("regular", 16)
-    font_lg = serif_font("bold", 44)
-    font_sub = serif_font("italic", 18)
-
-    draw.text((W_HERO // 2, 65), tag_text, font=font_sm, fill=(200, 180, 140), anchor="mm")
-
-    # Center Medallion
-    draw_new_hero_motif(draw, cx, cy, 175, hero["motif"], accent)
-
-    # Nameplate bottom
-    draw.line([(80, 750), (W_HERO - 80, 750)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    draw.line([(80, 754), (W_HERO - 80, 754)], fill=gold, width=2)
-    draw.line([(80, 758), (W_HERO - 80, 758)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    draw.text((W_HERO // 2, 810), hero["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((W_HERO // 2, 860), hero["epithet"], font=font_sub, fill=(212, 175, 55), anchor="mm")
-
-    # Footer Archival stamp
-    draw.text((W_HERO // 2, 940), "CODEX HEROUM · FOLIO ANNUUM", font=font_sm, fill=(130, 120, 100), anchor="mm")
-    draw.line([(W_HERO // 2 - 60, 965), (W_HERO // 2 + 60, 965)], fill=gold, width=1)
-
-    # Export PNG
-    png_path = os.path.join(HEROES_DIR, f"{hero['id']}.png")
-    img.convert("RGB").save(png_path, "PNG")
-
-    # Export WebP
-    webp_path = os.path.join(HEROES_DIR, f"{hero['id']}.webp")
-    write_webp(png_path, webp_path)
-    print(f"  ✓ Hero: {hero['id']} -> PNG & WebP")
+    img = render_plate(
+        kind="hero",
+        key=hero["id"],
+        size=(W_HERO, H_HERO),
+        accent=accent,
+        bg=hero["bg_tone"],
+        pantheon=pantheon_of("hero", hero["id"]),
+        hint=hero["epithet"],
+        emblem=lambda draw, cx, cy: draw_new_hero_motif(draw, cx, cy, 175, hero["motif"], accent),
+    )
+    path = write_plate(img, HEROES_DIR, hero["id"])
+    print(f"  ✓ Hero: {hero['id']} -> {os.path.basename(path)}")
 
 # ---------------------------------------------------------------------------
 # 2. Pantheon Covers (3 additions)
@@ -328,36 +266,9 @@ NEW_PANTHEONS = [
     {"slug": "korean", "name": "KOREAN TRADITION", "culture": "GOJOSEON · GOGURYEO · SILLA", "accent": (130, 185, 165), "bg_tone": (10, 14, 14), "motif": "emblem_tree_altar"},
 ]
 
-def generate_pantheon_plate(p):
-    w, h = 1024, 768
-    img = Image.new("RGBA", (w, h), p["bg_tone"] + (255,))
-    accent = p["accent"]
-    gold = (212, 175, 55)
-
-    # Ambient radial washes
-    rad = Image.new("RGBA", (w, h), (0,0,0,0))
-    rdraw = ImageDraw.Draw(rad)
-    cx, cy = w // 2, h // 2
-    for r in range(450, 50, -15):
-        alpha = int(35 * (1.0 - r / 450.0))
-        rdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    img = Image.alpha_composite(img, rad)
-    draw = ImageDraw.Draw(img)
-
-    # Double classical outer borders
-    draw.rectangle([32, 32, w - 32, h - 32], outline=gold, width=2)
-    draw.rectangle([42, 42, w - 42, h - 42], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    # Corner brackets
-    draw_ornament_corners(draw, 42, 42, w - 42, h - 42, gold)
-
-    # Center Medallion
-    med_r = 180
-    draw.ellipse([cx - med_r, cy - med_r - 20, cx + med_r, cy + med_r - 20], outline=gold, width=3)
-    draw.ellipse([cx - med_r + 14, cy - med_r - 6, cx + med_r - 14, cy + med_r - 34], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    # Medallion motifs
-    m_cy = cy - 20
+def draw_pantheon_motif(draw, cx, m_cy, p, accent, gold):
+    """Emblem for a pantheon cover, centred on (cx, m_cy)."""
+    cy = m_cy + 20
     draw_emblem(draw, cx, m_cy, p["motif"], accent, gold, p["bg_tone"])
     if p["motif"] == "slavic_sanctuary":
         # Four-faced Zbruch Idol & Sacred Oak Thunders
@@ -416,21 +327,24 @@ def generate_pantheon_plate(p):
             draw.ellipse([cx - r, m_cy - r, cx + r, m_cy + r], outline=(245, 230, 180), width=2)
         draw.ellipse([cx - 12, m_cy - 12, cx + 12, m_cy + 12], fill=accent)
 
-    # Typography
-    font_lg = serif_font("bold", 46)
-    font_sub = serif_font("regular", 20)
 
-    draw.text((cx, h - 120), p["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((cx, h - 75), f"CODEX MYTHOLOGIAE · {p['culture']}", font=font_sub, fill=gold, anchor="mm")
+def generate_pantheon_plate(p):
+    accent = p["accent"]
+    gold = (212, 175, 55)
+    img = render_plate(
+        kind="pantheon",
+        key=p["slug"],
+        size=(1024, 768),
+        accent=accent,
+        bg=p["bg_tone"],
+        pantheon=f"{p['slug']}-pantheon",
+        hint=p["culture"],
+        emblem=lambda draw, cx, cy: draw_pantheon_motif(draw, cx, cy, p, accent, gold),
+        emblem_extent=100,
+    )
+    path = write_plate(img, PANTHEONS_DIR, p["slug"])
+    print(f"  ✓ Pantheon: {p['slug']} -> {os.path.basename(path)}")
 
-    # Export JPG
-    jpg_path = os.path.join(PANTHEONS_DIR, f"{p['slug']}.jpg")
-    img.convert("RGB").save(jpg_path, "JPEG", quality=90)
-
-    # Export 640x640 PNG
-    png_path = os.path.join(PANTHEONS_DIR, f"{p['slug']}.png")
-    img.resize((640, 640), Image.Resampling.LANCZOS).convert("RGB").save(png_path, "PNG")
-    print(f"  ✓ Pantheon: {p['slug']} -> JPG & PNG")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)

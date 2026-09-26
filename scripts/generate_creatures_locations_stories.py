@@ -9,10 +9,10 @@ atlas style. Pass --only with comma-separated ids to redraw just those plates.
 import argparse
 import os
 import math
-from PIL import Image, ImageDraw
 
 from _plate_emblems import draw_emblem
-from _repo_paths import WEB_PUBLIC, serif_font, write_webp
+from _plate_art import pantheon_of, render_plate, write_plate
+from _repo_paths import WEB_PUBLIC
 
 CREATURES_DIR = os.path.join(WEB_PUBLIC, "creatures")
 LOCATIONS_DIR = os.path.join(WEB_PUBLIC, "locations")
@@ -25,26 +25,6 @@ os.makedirs(STORIES_DIR, exist_ok=True)
 os.makedirs(ARTIFACTS_DIR, exist_ok=True)
 
 SIZE = 768
-
-def draw_plate_borders(draw, w, h, gold, accent):
-    # Outer double border
-    draw.rectangle([24, 24, w - 24, h - 24], outline=gold, width=2)
-    draw.rectangle([32, 32, w - 32, h - 32], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-    
-    # Ornamental corner brackets
-    s = 20
-    for cx, cy, dx, dy in [(24, 24, 1, 1), (w - 24, 24, -1, 1), (24, h - 24, 1, -1), (w - 24, h - 24, -1, -1)]:
-        draw.line([(cx, cy), (cx + dx * s, cy)], fill=gold, width=2)
-        draw.line([(cx, cy), (cx, cy + dy * s)], fill=gold, width=2)
-        draw.ellipse([cx + dx * 8 - 2, cy + dy * 8 - 2, cx + dx * 8 + 2, cy + dy * 8 + 2], fill=gold)
-
-def draw_radial_wash(img, cx, cy, radius, accent):
-    rad = Image.new("RGBA", img.size, (0, 0, 0, 0))
-    rdraw = ImageDraw.Draw(rad)
-    for r in range(radius, 40, -10):
-        alpha = int(40 * (1.0 - r / float(radius)))
-        rdraw.ellipse([cx - r, cy - r, cx + r, cy + r], fill=accent + (alpha,))
-    return Image.alpha_composite(img, rad)
 
 # ---------------------------------------------------------------------------
 # 1. Creatures
@@ -229,9 +209,7 @@ CREATURES = [
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
-    # Outer ring
-    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
-    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
+
 
     if draw_emblem(draw, cx, cy, motif, accent, gold):
         return
@@ -515,8 +493,6 @@ LOCATIONS = [
 
 def draw_location_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
-    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
-    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
 
     if draw_emblem(draw, cx, cy, motif, accent, gold):
         return
@@ -763,8 +739,6 @@ STORIES = [
 
 def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
     pale = (min(255, gold[0]+40), min(255, gold[1]+40), min(255, gold[2]+40))
-    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
-    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
 
     if draw_emblem(draw, cx, cy, motif, accent, gold):
         return
@@ -922,40 +896,35 @@ ARTIFACTS = [
     }
 ]
 
-def generate_square_plate(item, out_dir, category_tag, motif_fn):
-    img = Image.new("RGBA", (SIZE, SIZE), item["bg"] + (255,))
+def generate_square_plate(item, out_dir, kind, motif_fn):
     accent = item["accent"]
     gold = (212, 175, 55)
+    img = render_plate(
+        kind=kind,
+        key=item["id"],
+        size=(SIZE, SIZE),
+        accent=accent,
+        bg=item["bg"],
+        pantheon=item.get("pantheon") or pantheon_of(kind, item["id"]),
+        hint=item.get("subtitle", ""),
+        emblem=lambda draw, cx, cy: motif_fn(draw, cx, cy, 145, item["motif"], accent, gold),
+        emblem_center=(SIZE // 2, SIZE // 2 - 25),
+    )
+    path = write_plate(img, out_dir, item["id"])
+    print(f"  ✓ {item['id']} -> {os.path.basename(path)}")
 
-    img = draw_radial_wash(img, SIZE // 2, SIZE // 2 - 30, 320, accent)
-    draw = ImageDraw.Draw(img)
 
-    draw_plate_borders(draw, SIZE, SIZE, gold, accent)
+# ---------------------------------------------------------------------------
+# Covers for interactive (branching) stories without an illustration. They
+# live beside the story plates; branching-stories.json points at them.
+# ---------------------------------------------------------------------------
+BRANCHING_COVERS = [
+    {"id": "thor-jotunheim", "name": "THOR IN JOTUNHEIM", "subtitle": "THUNDER AMONG THE GIANTS · FROST AND STORM",
+     "accent": (120, 165, 220), "bg": (12, 16, 26), "motif": "emblem_hammer", "pantheon": "norse-pantheon"},
+    {"id": "orpheus-underworld", "name": "ORPHEUS IN THE UNDERWORLD", "subtitle": "THE LYRE THAT MOVED THE DEAD · NIGHT",
+     "accent": (170, 130, 200), "bg": (16, 12, 22), "motif": "emblem_lyre", "pantheon": "greek-pantheon"},
+]
 
-    # Top category label
-    font_sm = serif_font("regular", 15)
-    font_lg = serif_font("bold", 36)
-    font_sub = serif_font("italic", 17)
-
-    draw.text((SIZE // 2, 55), f"MYTHOS ATLAS · {category_tag}", font=font_sm, fill=(200, 180, 140), anchor="mm")
-    draw.line([(50, 75), (SIZE - 50, 75)], fill=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
-
-    # Center motif
-    motif_fn(draw, SIZE // 2, SIZE // 2 - 25, 145, item["motif"], accent, gold)
-
-    # Bottom labels
-    draw.line([(60, SIZE - 125), (SIZE - 60, SIZE - 125)], fill=gold, width=2)
-    draw.text((SIZE // 2, SIZE - 90), item["name"], font=font_lg, fill=(245, 235, 220), anchor="mm")
-    draw.text((SIZE // 2, SIZE - 55), item["subtitle"], font=font_sub, fill=gold, anchor="mm")
-
-    # Export PNG
-    png_path = os.path.join(out_dir, f"{item['id']}.png")
-    img.convert("RGB").save(png_path, "PNG")
-
-    # Export WebP
-    webp_path = os.path.join(out_dir, f"{item['id']}.webp")
-    write_webp(png_path, webp_path)
-    print(f"  ✓ {item['id']} -> PNG & WebP")
 
 # ---------------------------------------------------------------------------
 # 5. Artifacts drawn with the tradition emblems (_plate_emblems.py)
@@ -984,8 +953,6 @@ EMBLEM_ARTIFACTS = [
 ]
 
 def draw_artifact_motif(draw, cx, cy, r, motif, accent, gold):
-    draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=gold, width=3)
-    draw.ellipse([cx - r + 10, cy - r + 10, cx + r - 10, cy + r - 10], outline=(gold[0]//2, gold[1]//2, gold[2]//2), width=1)
     draw_emblem(draw, cx, cy, motif, accent, gold)
 
 if __name__ == "__main__":
@@ -998,22 +965,23 @@ if __name__ == "__main__":
     wanted = set(args.only.split(",")) if args.only else None
 
     groups = [
-        ("Creature", CREATURES, CREATURES_DIR, "BESTIARY ARCHIVE", draw_creature_motif),
-        ("Location", LOCATIONS, LOCATIONS_DIR, "SACRED GEOGRAPHY", draw_location_motif),
-        ("Story", STORIES, STORIES_DIR, "MYTHIC TRADITION", draw_story_motif),
-        ("Artifact", ARTIFACTS, ARTIFACTS_DIR, "RELIQUARY", draw_story_motif),
-        ("Artifact", EMBLEM_ARTIFACTS, ARTIFACTS_DIR, "RELIQUARY", draw_artifact_motif),
+        ("Creature", CREATURES, CREATURES_DIR, "creature", draw_creature_motif),
+        ("Location", LOCATIONS, LOCATIONS_DIR, "location", draw_location_motif),
+        ("Story", STORIES, STORIES_DIR, "story", draw_story_motif),
+        ("Interactive story cover", BRANCHING_COVERS, STORIES_DIR, "cover", draw_story_motif),
+        ("Artifact", ARTIFACTS, ARTIFACTS_DIR, "artifact", draw_story_motif),
+        ("Artifact", EMBLEM_ARTIFACTS, ARTIFACTS_DIR, "artifact", draw_artifact_motif),
     ]
     if wanted:
         known = {item["id"] for _, items, *_ in groups for item in items}
         missing = wanted - known
         if missing:
             raise SystemExit(f"Unknown ids: {', '.join(sorted(missing))}")
-    for label, items, out_dir, tag, motif_fn in groups:
+    for label, items, out_dir, kind, motif_fn in groups:
         selected = [i for i in items if wanted is None or i["id"] in wanted]
         if not selected:
             continue
         print(f"Generating {len(selected)} {label} Plates...")
         for item in selected:
-            generate_square_plate(item, out_dir, tag, motif_fn)
+            generate_square_plate(item, out_dir, kind, motif_fn)
     print("Creatures, Locations, Stories, and Artifacts completed!")

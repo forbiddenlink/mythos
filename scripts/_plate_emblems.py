@@ -342,6 +342,28 @@ def draw_emblem(draw, cx, cy, motif, accent, gold, bg=(14, 14, 18)):
             draw.line([(cx + ox, cy - 6), (cx + ox + 6, cy + 30)], fill=bg, width=4)
         for lx in (-44, -20, 14, 36):
             draw.line([(cx + lx, cy + 46), (cx + lx, cy + 80)], fill=gold, width=6)
+    elif kind == "lyre":
+        # tortoise-shell sound box, two curved arms, crossbar and strings
+        draw.ellipse([cx - 44, cy + 26, cx + 44, cy + 78], outline=gold, fill=deep, width=4)
+        draw.arc([cx - 70, cy - 90, cx + 6, cy + 60], start=110, end=250, fill=pale, width=8)
+        draw.arc([cx - 6, cy - 90, cx + 70, cy + 60], start=290, end=70, fill=pale, width=8)
+        draw.line([(cx - 52, cy - 62), (cx + 52, cy - 62)], fill=gold, width=7)
+        for k in range(5):
+            x = cx - 22 + k * 11
+            draw.line([(x, cy - 58), (x, cy + 40)], fill=pale, width=2)
+        draw.ellipse([cx - 8, cy + 44, cx + 8, cy + 60], fill=accent)
+        for sx, sy in [(-62, -84), (62, -84)]:
+            draw.ellipse([cx + sx - 7, cy + sy - 7, cx + sx + 7, cy + sy + 7], fill=gold)
+    elif kind == "hammer":
+        # short-hafted hammer under a thunder arc
+        draw.arc([cx - 92, cy - 96, cx + 92, cy + 30], start=200, end=340, fill=accent, width=5)
+        draw.polygon([(cx - 70, cy - 46), (cx + 70, cy - 46), (cx + 62, cy + 2), (cx - 62, cy + 2)], fill=deep, outline=gold, width=4)
+        draw.line([(cx - 52, cy - 22), (cx + 52, cy - 22)], fill=pale, width=3)
+        draw.rectangle([cx - 10, cy + 2, cx + 10, cy + 76], fill=gold, outline=pale, width=2)
+        for y in (18, 34, 50):
+            draw.line([(cx - 10, cy + y), (cx + 10, cy + y + 8)], fill=dark, width=2)
+        draw.ellipse([cx - 14, cy + 72, cx + 14, cy + 94], outline=gold, fill=deep, width=4)
+        draw.line([(cx + 38, cy - 92), (cx + 22, cy - 62), (cx + 40, cy - 62), (cx + 24, cy - 50)], fill=pale, width=4)
     else:
         # Unknown emblem name: a plain rosette, so a typo is visible but harmless.
         draw.ellipse([cx - 50, cy - 50, cx + 50, cy + 50], outline=pale, fill=accent, width=3)
