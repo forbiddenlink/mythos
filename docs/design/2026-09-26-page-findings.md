@@ -159,3 +159,23 @@ Still open, as reported by the foundation agent:
 - `components/mythology/ParallelFigures.tsx` provides
   `<ParallelFigures label figures variant>`. Keep the label ending in
   "across pantheons" (an e2e test relies on it).
+
+## Index and list pages pass
+
+Done (screenshots in `docs/design/screenshots/index/`):
+
+- One card: `components/entities/EntityCard.tsx` (`EntityCard`, `EntityGrid`,
+  `EntityBadge`, `TraditionChip`, `EntityCardSkeleton`) on /deities,
+  /heroes, /creatures, /artifacts, /locations, /stories,
+  /stories/interactive, /pantheons, /sources, /gods-of/[domain],
+  /divine-domains, /guides, /journeys, /paths and /bookmarks. /facts keeps
+  quote cards but uses the same toolbar and portrait chips.
+- One filter pattern: `components/entities/FilterToolbar.tsx` under the
+  PageHeader; explainer boxes moved into `AboutThisPage`.
+- /pantheons: "Chart the Heavens" is a server-rendered SVG star chart. The
+  "Failed to fetch" console error came from drei's `<Text>` fetching its
+  default font from a CDN; the WebGL component is gone.
+- Tradition names are short everywhere (`shortTraditionName`).
+
+Still open: the procedural plates on hero, some pantheon and two journey
+covers, and the Thor/Orpheus interactive covers, wait on the images pass.
