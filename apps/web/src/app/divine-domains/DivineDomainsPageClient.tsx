@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Sparkles, Users, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -78,8 +79,11 @@ function getPantheonColor(pantheonId: string): string {
 export function DivineDomainsPageClient({
   deities: deitiesData,
   pantheonNames,
+  domainPages = {},
 }: Readonly<{
   deities: Deity[];
+  /** Lower-case catalog domain term → slug of its /gods-of page, if any. */
+  domainPages?: Record<string, string>;
   /** Pantheon id → short display name ("Greek"), computed on the server. */
   pantheonNames: Record<string, string>;
 }>) {
@@ -272,6 +276,14 @@ export function DivineDomainsPageClient({
                     {filteredDeities.length} deities across{" "}
                     {availablePantheons.length} pantheons
                   </p>
+                  {domainPages[selectedDomain.toLowerCase()] ? (
+                    <Link
+                      href={`/gods-of/${domainPages[selectedDomain.toLowerCase()]}`}
+                      className="mt-1 inline-block text-sm text-gold-text underline-offset-4 hover:underline"
+                    >
+                      Read the full {selectedDomain} page
+                    </Link>
+                  ) : null}
                 </div>
               </div>
 
