@@ -86,7 +86,7 @@ export function QuizRetentionSurvey({
   if (picked) {
     return (
       <p className="text-center text-sm text-muted-foreground">
-        Thanks — that helps decide what to deepen next.
+        Thanks, that helps decide what to deepen next.
       </p>
     );
   }

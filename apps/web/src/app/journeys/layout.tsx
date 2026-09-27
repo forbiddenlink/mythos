@@ -3,7 +3,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 export const metadata = generateBaseMetadata({
   title: "Mythological Journeys and Sacred Paths",
   description:
-    "Follow legendary journeys across mythic landscapes—pilgrimages, quests, and sacred routes from world mythology.",
+    "Follow legendary journeys across mythic landscapes: pilgrimages, quests, and sacred routes from world mythology.",
   url: "/journeys",
   keywords: [
     "mythology journeys",

@@ -76,7 +76,7 @@ export function ExplorationWrapped({
           Your atlas so far
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          View a few deities or read a story — then return here for a shareable
+          View a few deities or read a story, then return here for a shareable
           snapshot of where you&apos;ve wandered.
         </p>
         <Link

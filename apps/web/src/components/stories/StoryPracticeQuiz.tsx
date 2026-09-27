@@ -111,7 +111,7 @@ export function StoryPracticeQuiz({
         </CardTitle>
         <CardDescription className="text-parchment/70">
           Short multiple-choice questions generated from this article’s text on
-          Mythos Atlas — not general trivia. Uses the same rate limits as the
+          Mythos Atlas, not general trivia. Uses the same rate limits as the
           Oracle.{" "}
           <span className="text-parchment/55">
             Requires an Anthropic API key on the server to generate new
@@ -159,7 +159,7 @@ export function StoryPracticeQuiz({
                     Score: {score.correct} / {score.total}
                   </>
                 ) : (
-                  <>Answer each question — feedback appears after you choose.</>
+                  <>Answer each question; feedback appears after you choose.</>
                 )}
               </p>
               <Button

@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 const baseMetadata: Metadata = generateBaseMetadata({
   title: "The Oracle of Delphi",
   description:
-    "Consult the Oracle — an AI seer grounded in the Mythos Atlas's own sources. Pose a petition about the gods, myths, and their meanings, and receive a prophecy with citations.",
+    "Consult the Oracle, an AI seer grounded in the Mythos Atlas's own sources. Pose a petition about the gods, myths, and their meanings, and receive a prophecy with citations.",
   url: "/oracle",
   type: "website",
   keywords: [
@@ -56,7 +56,7 @@ export default function OraclePage() {
             In the old world, seekers climbed to Delphi to put their questions
             to the Pythia and left with a prophecy to puzzle over. Put yours to
             this Oracle: a seer that answers from the Atlas&rsquo;s own gods,
-            myths, and sources — and shows you where each answer was drawn from.
+            myths, and sources, and shows you where each answer was drawn from.
           </p>
         </header>
 

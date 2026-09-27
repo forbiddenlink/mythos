@@ -69,7 +69,7 @@ export function OracleConsult() {
           };
           throw new Error(
             data.error ||
-              "The Oracle is silent. She answers only so many petitions each day — return when the smoke has cleared.",
+              "The Oracle is silent. She answers only so many petitions each day; return when the smoke has cleared.",
           );
         }
 
