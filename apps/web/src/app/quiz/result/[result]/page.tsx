@@ -32,7 +32,7 @@ export async function generateMetadata({
   const verdict = quizResultVerdict(parsed.score, parsed.total);
 
   return generateBaseMetadata({
-    title: `${verdict.title} — ${parsed.score}/${parsed.total}`,
+    title: `${verdict.title} · ${parsed.score}/${parsed.total}`,
     description: `${verdict.blurb} Take the ${quizLabel(parsed.quizId)} on Mythos Atlas and see how you compare.`,
     url: `/quiz/result/${result}`,
     // Passed explicitly: generateBaseMetadata always sets openGraph.images,

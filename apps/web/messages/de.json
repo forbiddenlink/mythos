@@ -295,7 +295,7 @@
     "fabOpen": "Das Orakel befragen",
     "title": "Orakel von Delphi",
     "subtitle": "Verankert im Atlas, wenn Ihr Thema zu unserem Katalog passt",
-    "aiDisclosure": "Betrieben von Anthropic Claude. Antworten sind KI-generiert und können unvollständig oder falsch sein — prüfen Sie wichtige Fakten in der Enzyklopädie.",
+    "aiDisclosure": "Betrieben von Anthropic Claude. Antworten sind KI-generiert und können unvollständig oder falsch sein; prüfen Sie wichtige Fakten in der Enzyklopädie.",
     "close": "Orakel schließen",
     "greeting": "Seid gegrüßt, Sucher der Weisheit. Welche Geheimnisse der alten Welt wollt ihr ergründen?",
     "tryAsking": "Versucht zu fragen:",

@@ -123,7 +123,7 @@ export function CookieConsent() {
               >
                 Privacy Policy
               </Link>
-              {gpcActive ? " · GPC detected — analytics stay off." : null}
+              {gpcActive ? " · GPC detected: analytics stay off." : null}
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-2">

@@ -149,7 +149,7 @@ export function LocationMapInset({
     return (
       <div className="flex h-80 flex-col items-center justify-center gap-2 rounded-lg border border-border bg-muted/30 px-6 text-center">
         <p className="text-sm text-muted-foreground">
-          {location.name} has no fixed coordinates — it exists beyond physical
+          {location.name} has no fixed coordinates: it exists beyond physical
           geography in the myths of {pantheonName || "this pantheon"}.
         </p>
       </div>

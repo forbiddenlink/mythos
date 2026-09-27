@@ -18,7 +18,7 @@ const ragnarokScenes: StoryScene[] = [
   },
   {
     id: "fimbulvetr",
-    title: "Fimbulvetr — The Great Winter",
+    title: "Fimbulvetr: The Great Winter",
     text: "The first unmistakable sign would be Fimbulvetr, the Terrible Winter: three successive winters with no summer between them. Snow would fall from every direction, and the biting frost would grip the world. All bonds of kinship would dissolve as brother turned against brother.",
     mood: "tragic",
   },

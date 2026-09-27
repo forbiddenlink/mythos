@@ -101,7 +101,7 @@ const GUIDES: StudyGuide[] = [
       },
       {
         title: "Meet the flagship deities",
-        body: "Start with Zeus, then Athena, Poseidon, and Hades — domains, symbols, and linked stories.",
+        body: "Start with Zeus, then Athena, Poseidon, and Hades: domains, symbols, and linked stories.",
         href: "/deities/zeus",
       },
       {

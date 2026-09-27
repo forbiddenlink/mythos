@@ -49,7 +49,7 @@ export async function generateMetadata({
   const pantheonName = pantheon?.name || "Ancient";
 
   return generateBaseMetadata({
-    title: `${story.title} — A Reading`,
+    title: `${story.title}: A Reading`,
     description: `Read ${story.title} as a scroll-driven, cinematic ${pantheonName} myth.`,
     // The reading presents the same narrative as the story entry, so the entry
     // is canonical: signals consolidate there instead of splitting across two
