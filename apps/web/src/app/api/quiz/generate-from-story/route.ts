@@ -9,6 +9,11 @@ import {
   forbiddenUnlessSameOrigin,
   isOracleKillSwitchOn,
 } from "@/lib/oracle/request-guards";
+import {
+  estimateTokens,
+  reserveOracleTokens,
+  settleOracleTokens,
+} from "@/lib/oracle/token-budget";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -153,11 +158,7 @@ export async function POST(req: NextRequest) {
 
     const modelId = process.env.ANTHROPIC_ORACLE_MODEL?.trim() || DEFAULT_MODEL;
 
-    const { object } = await generateObject({
-      model: anthropic(modelId),
-      schema: QuizOutSchema,
-      maxOutputTokens: MAX_OUTPUT_TOKENS,
-      prompt: `You write study questions for Mythos Atlas, a mythology encyclopedia.
+    const prompt = `You write study questions for Mythos Atlas, a mythology encyclopedia.
 
 Rules:
 - Generate exactly ${count} multiple-choice questions.
@@ -168,8 +169,38 @@ Rules:
 - Wording should be clear for students; avoid trick questions.
 
 SOURCE TEXT:
-${sourceText}`,
+${sourceText}`;
+
+    // The global request cap (checkGlobalOracleBudget above) bounds request
+    // COUNT, not size: a long fullNarrative plus the 2,000-token ceiling can
+    // cost far more than a typical Oracle chat turn. Reserve against the same
+    // daily token budget so this route can't spend past it uncounted.
+    const tokens = await reserveOracleTokens(
+      estimateTokens(prompt) + MAX_OUTPUT_TOKENS,
+    );
+    if (!tokens.allowed) {
+      return NextResponse.json(
+        {
+          error:
+            tokens.reason === "misconfigured"
+              ? "Quiz generation unavailable. Rate limiting is not configured."
+              : "Daily quiz generation capacity reached. Try again tomorrow.",
+        },
+        { status: tokens.reason === "misconfigured" ? 503 : 429 },
+      );
+    }
+
+    // A thrown generateObject call leaves the up-front estimate standing
+    // (settleOracleTokens is a no-op without a real usage figure), which
+    // errs toward under-spending the budget rather than losing the reservation.
+    const result = await generateObject({
+      model: anthropic(modelId),
+      schema: QuizOutSchema,
+      maxOutputTokens: MAX_OUTPUT_TOKENS,
+      prompt,
     });
+    await settleOracleTokens(tokens.reservation, result.usage.totalTokens);
+    const object = result.object;
 
     return NextResponse.json({
       storySlug: story.slug,

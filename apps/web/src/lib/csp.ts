@@ -74,14 +74,16 @@ export function buildCsp(options: {
   nonce: string;
   hashes?: readonly string[];
 }): string {
-  // Analytics beacons + Anthropic/Oracle + optional Sentry/Upstash in prod.
+  // Analytics beacons + optional Sentry in prod. Upstash and the Oracle/quiz
+  // AI providers are called server-side only (rate-limit.ts, global-budget.ts,
+  // token-budget.ts, the /api/oracle and /api/quiz routes) and are never
+  // fetched from the browser, so they do not belong in this client policy.
   // cdn.jsdelivr.net: browser speechSynthesis voice data / unicode font resolver
   const connectSrc = [
     "'self'",
     "https://va.vercel-scripts.com",
     "https://vitals.vercel-insights.com",
     "https://*.ingest.sentry.io",
-    "https://*.upstash.io",
     "https://cdn.jsdelivr.net",
   ].join(" ");
 
