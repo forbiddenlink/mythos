@@ -295,7 +295,7 @@
     "fabOpen": "Interroger l'Oracle",
     "title": "Oracle de Delphes",
     "subtitle": "Ancré dans l'Atlas lorsque votre sujet correspond à notre catalogue",
-    "aiDisclosure": "Propulsé par Anthropic Claude. Les réponses sont générées par l'IA et peuvent être incomplètes ou incorrectes — vérifiez les faits importants dans l'encyclopédie.",
+    "aiDisclosure": "Propulsé par Anthropic Claude. Les réponses sont générées par l'IA et peuvent être incomplètes ou incorrectes ; vérifiez les faits importants dans l'encyclopédie.",
     "close": "Fermer l'Oracle",
     "greeting": "Salutations, chercheur de sagesse. Quels mystères du monde antique souhaitez-vous éclaircir ?",
     "tryAsking": "Essayez par exemple :",
