@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Line, Html, Stars } from "@react-three/drei";
@@ -10,9 +10,17 @@ import {
   prettyPantheonName,
   type AtlasNode,
 } from "@/lib/atlas-layout";
+import {
+  declutterLabels,
+  hiddenSetsDiffer,
+  type LabelBox,
+} from "@/lib/atlas-label-declutter";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { StageLoading } from "@/components/layout/tool-stage";
 import { cn } from "@/lib/utils";
+
+/** Re-run the screen-space collision check at most this often, not per frame. */
+const LABEL_DECLUTTER_INTERVAL_MS = 120;
 
 /* ----------------------------- one deity star ---------------------------- */
 
@@ -64,18 +72,93 @@ function Star({
   );
 }
 
+/**
+ * Watches every pantheon label's on-screen position and size (via
+ * `getBoundingClientRect`, which already accounts for drei's distance-based
+ * CSS scaling) and reports which ids should be hidden to avoid an unreadable
+ * overlap. Runs inside the R3F render loop but is throttled to
+ * `LABEL_DECLUTTER_INTERVAL_MS` and reuses its own refs, so it does no
+ * allocation on the frames it skips and only a small, bounded allocation
+ * (one box per pantheon) on the frames it runs.
+ */
+function useLabelDeclutter({
+  labelRefs,
+  priorityByPantheon,
+  hoveredPantheonId,
+}: {
+  labelRefs: React.RefObject<Map<string, HTMLSpanElement>>;
+  priorityByPantheon: ReadonlyMap<string, number>;
+  hoveredPantheonId: string | null;
+}) {
+  const [hiddenIds, setHiddenIds] = useState<ReadonlySet<string>>(
+    () => new Set(),
+  );
+  const elapsedSinceCheck = useRef(0);
+
+  useFrame((_state, delta) => {
+    elapsedSinceCheck.current += delta * 1000;
+    if (elapsedSinceCheck.current < LABEL_DECLUTTER_INTERVAL_MS) return;
+    elapsedSinceCheck.current = 0;
+
+    const boxes: LabelBox[] = [];
+    for (const [id, el] of labelRefs.current) {
+      const rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) continue; // not laid out yet
+      const priority =
+        id === hoveredPantheonId
+          ? Number.POSITIVE_INFINITY
+          : (priorityByPantheon.get(id) ?? 0);
+      boxes.push({
+        id,
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+        width: rect.width,
+        height: rect.height,
+        priority,
+      });
+    }
+
+    const next = declutterLabels(boxes);
+    // Functional update so this frame-loop callback never reads component
+    // state directly (only React may do that, outside of render/effects).
+    setHiddenIds((prev) => (hiddenSetsDiffer(next, prev) ? next : prev));
+  });
+
+  return hiddenIds;
+}
+
 /* ------------------------------- the scene ------------------------------- */
 
 function Scene({
   layout,
   onSelect,
+  reducedMotion,
 }: {
   layout: AtlasLayout;
   onSelect: (slug: string) => void;
+  reducedMotion: boolean;
 }) {
   const { nodes, edges, pantheons } = layout;
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const hovered = hoveredId ? nodes.find((n) => n.id === hoveredId) : undefined;
+  const hoveredPantheonId = hovered?.pantheonId ?? null;
+
+  // Bigger clusters (more figures) win a label collision by default; the
+  // hovered star's own tradition always wins regardless of size.
+  const priorityByPantheon = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const n of nodes) {
+      counts.set(n.pantheonId, (counts.get(n.pantheonId) ?? 0) + 1);
+    }
+    return counts;
+  }, [nodes]);
+
+  const labelRefs = useRef<Map<string, HTMLSpanElement>>(new Map());
+  const hiddenLabelIds = useLabelDeclutter({
+    labelRefs,
+    priorityByPantheon,
+    hoveredPantheonId,
+  });
 
   return (
     <>
@@ -117,22 +200,39 @@ function Scene({
         />
       ))}
 
-      {/* pantheon labels floating at each cluster centre */}
-      {pantheons.map((p) => (
-        <Html
-          key={p.id}
-          position={[p.center[0], p.center[1] + 6.5, p.center[2]]}
-          center
-          distanceFactor={40}
-        >
-          <span
-            className="pointer-events-none whitespace-nowrap font-serif text-lg tracking-[0.2em] uppercase"
-            style={{ color: p.color, textShadow: "0 0 12px rgba(0,0,0,0.9)" }}
+      {/* pantheon labels floating at each cluster centre. Two clusters can
+          project close enough on screen to overlap; useLabelDeclutter hides
+          the lower-priority one rather than let text collide. Every
+          tradition stays reachable by hovering one of its stars (the
+          tooltip below) or in AtlasTraditionGrid under the map. */}
+      {pantheons.map((p) => {
+        const isHidden = hiddenLabelIds.has(p.id);
+        return (
+          <Html
+            key={p.id}
+            position={[p.center[0], p.center[1] + 6.5, p.center[2]]}
+            center
+            distanceFactor={40}
           >
-            {p.name}
-          </span>
-        </Html>
-      ))}
+            <span
+              ref={(el) => {
+                if (el) labelRefs.current.set(p.id, el);
+                else labelRefs.current.delete(p.id);
+              }}
+              aria-hidden="true"
+              className="pointer-events-none block whitespace-nowrap font-serif text-lg tracking-[0.2em] uppercase"
+              style={{
+                color: p.color,
+                textShadow: "0 0 12px rgba(0,0,0,0.9)",
+                opacity: isHidden ? 0 : 1,
+                transition: reducedMotion ? "none" : "opacity 200ms ease",
+              }}
+            >
+              {p.name}
+            </span>
+          </Html>
+        );
+      })}
 
       {/* hovered star tooltip */}
       {hovered && (
@@ -188,11 +288,17 @@ const STAGE_HEIGHT = "h-[min(76vh,46rem)] min-h-[28rem]";
 export function AetherMap({ layout }: { layout: AtlasLayout }) {
   const router = useRouter();
   const [state, setState] = useState<StageState>("pending");
+  // Kept separately from `state`: "Show the star map anyway" can move state
+  // to "canvas" while the user's OS preference is still reduced motion, and
+  // the label fade transition needs to honour that preference either way.
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only gate: choose the stage after hydration
+    setPrefersReducedMotion(reduced);
     let webgl = false;
     try {
       const c = document.createElement("canvas");
@@ -204,7 +310,6 @@ export function AetherMap({ layout }: { layout: AtlasLayout }) {
     } catch {
       webgl = false;
     }
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only gate: choose the stage after hydration
     setState(!webgl ? "no-webgl" : reduced ? "reduced" : "canvas");
   }, []);
 
@@ -275,6 +380,7 @@ export function AetherMap({ layout }: { layout: AtlasLayout }) {
         <Scene
           layout={layout}
           onSelect={(slug) => router.push(`/deities/${slug}`)}
+          reducedMotion={prefersReducedMotion}
         />
       </Canvas>
 
