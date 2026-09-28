@@ -1,0 +1,42 @@
+[
+  {
+    "size": "desktop",
+    "name": "Anki failed fetch, retry, real file and card count",
+    "status": "passed"
+  },
+  {
+    "size": "desktop",
+    "name": "PDF bytes",
+    "bytes": 26569
+  },
+  {
+    "size": "desktop",
+    "name": "PDF export produces a readable file header",
+    "status": "passed"
+  },
+  {
+    "size": "desktop",
+    "name": "review a complete deck and retain the result after reload",
+    "status": "passed"
+  },
+  {
+    "size": "mobile",
+    "name": "Anki failed fetch, retry, real file and card count",
+    "status": "passed"
+  },
+  {
+    "size": "mobile",
+    "name": "PDF bytes",
+    "bytes": 26569
+  },
+  {
+    "size": "mobile",
+    "name": "PDF export produces a readable file header",
+    "status": "passed"
+  },
+  {
+    "size": "mobile",
+    "name": "review a complete deck and retain the result after reload",
+    "status": "passed"
+  }
+]

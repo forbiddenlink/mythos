@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import { Popover } from "radix-ui";
 import { Button } from "@/components/ui/button";
 import { Share2, Link2, Check } from "lucide-react";
 import { Twitter, Facebook, Linkedin } from "@/components/icons/brand";
@@ -28,6 +29,7 @@ export function ShareButton({
   surface = "unknown",
 }: ShareButtonProps) {
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [shareUrl, setShareUrl] = useState(url ?? "");
   // Defer native-share detection until mount so SSR and client HTML match
@@ -69,21 +71,40 @@ export function ShareButton({
   }, [title, text, shareUrl, surface]);
 
   const handleCopyLink = useCallback(async () => {
+    setCopied(false);
+    setCopyFailed(false);
+    let succeeded = false;
     try {
       await navigator.clipboard.writeText(shareUrl);
+      succeeded = true;
+    } catch {
+      const focused = document.activeElement;
+      const textArea = document.createElement("textarea");
+      textArea.value = shareUrl;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      // Keep fallback focus inside the popover so copying does not dismiss it.
+      const container =
+        focused instanceof HTMLElement
+          ? (focused.closest('[role="dialog"]') ?? document.body)
+          : document.body;
+      container.appendChild(textArea);
+      try {
+        textArea.select();
+        succeeded = document.execCommand("copy");
+      } catch {
+        succeeded = false;
+      } finally {
+        textArea.remove();
+        if (focused instanceof HTMLElement) focused.focus();
+      }
+    }
+    if (succeeded) {
       trackEvent("share_clicked", { surface, method: "copy_link" });
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Fallback for older browsers
-      const textArea = document.createElement("textarea");
-      textArea.value = shareUrl;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+    } else {
+      setCopyFailed(true);
     }
   }, [shareUrl, surface]);
 
@@ -135,29 +156,29 @@ export function ShareButton({
     );
   }
 
-  // On desktop or when native share fails, show dropdown with options
+  // The existing Radix primitive keeps the panel within the viewport and
+  // handles Escape, outside interaction and focus restoration.
   return (
-    <div className={cn("relative", className)}>
-      <Button
-        variant="outline"
-        size="sm"
-        onClick={() => setIsOpen(!isOpen)}
-        className="gap-2 border-gold/30 hover:bg-gold/10 hover:border-gold/50 text-foreground"
-      >
-        <Share2 className="h-4 w-4" />
-        <span>Share</span>
-      </Button>
-
-      {isOpen && (
-        <>
-          {/* Backdrop to close on click outside */}
-          <div
-            className="fixed inset-0 z-40"
-            onClick={() => setIsOpen(false)}
-          />
-
-          {/* Share menu */}
-          <div className="absolute right-0 top-full mt-2 z-50 min-w-[200px] rounded-lg border border-gold/20 bg-background/95 backdrop-blur-sm shadow-lg p-2 animate-in fade-in slide-in-from-top-2 duration-200">
+    <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
+      <div className={cn("relative", className)}>
+        <Popover.Trigger asChild>
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2 border-gold/30 hover:bg-gold/10 hover:border-gold/50 text-foreground"
+          >
+            <Share2 className="h-4 w-4" />
+            <span>Share</span>
+          </Button>
+        </Popover.Trigger>
+        <Popover.Portal>
+          <Popover.Content
+            aria-label="Share this entry"
+            align="end"
+            sideOffset={8}
+            collisionPadding={16}
+            className="z-50 w-64 max-w-[calc(100vw-2rem)] max-h-[var(--radix-popover-content-available-height)] overflow-y-auto rounded-lg border border-gold/20 bg-background/95 backdrop-blur-sm shadow-lg p-2"
+          >
             <button
               onClick={() => {
                 handleTwitterShare();
@@ -211,9 +232,21 @@ export function ShareButton({
                 </>
               )}
             </button>
-          </div>
-        </>
-      )}
-    </div>
+            {copyFailed && (
+              <div role="alert" className="px-3 py-2 text-sm">
+                <p>Copy failed. Select and copy the link below.</p>
+                <input
+                  aria-label="Link to copy manually"
+                  readOnly
+                  value={shareUrl}
+                  onFocus={(event) => event.currentTarget.select()}
+                  className="mt-2 w-full min-w-0 rounded border border-border bg-background p-2 text-foreground"
+                />
+              </div>
+            )}
+          </Popover.Content>
+        </Popover.Portal>
+      </div>
+    </Popover.Root>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { LayoutGrid, Table } from "lucide-react";
 import {
@@ -25,7 +25,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { usePagination } from "@/hooks/usePagination";
+import { useCatalogPagination } from "@/hooks/useCatalogPagination";
+import { useCatalogState } from "@/hooks/useCatalogState";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
 /** One catalog entry as the gallery needs it; projected on the server. */
@@ -81,10 +82,21 @@ export function CatalogGallery({
   columns,
   aspect = "landscape",
 }: CatalogGalleryProps) {
-  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
-  const [query, setQuery] = useState("");
-  const [pantheon, setPantheon] = useState("all");
-  const [facet, setFacet] = useState("all");
+  const [viewMode, setViewMode] = useCatalogState(
+    "view",
+    "grid",
+    ["grid", "table"],
+    false,
+  );
+  const [query, setQuery] = useCatalogState<string>("q", "");
+  const [pantheon, setPantheon] = useCatalogState("pantheon", "all", [
+    "all",
+    ...items.map((item) => item.pantheonId),
+  ]);
+  const [facet, setFacet] = useCatalogState("facet", "all", [
+    "all",
+    ...items.flatMap((item) => (item.facet ? [item.facet] : [])),
+  ]);
 
   const traditionName = (id: string) =>
     traditionNames[id] ?? id.replace(/-pantheon$/, "");
@@ -118,11 +130,7 @@ export function CatalogGallery({
     );
   }, [items, query, pantheon, facet]);
 
-  const pagination = usePagination(filtered, PAGE_SIZE);
-  const { firstPage } = pagination;
-  useEffect(() => {
-    firstPage();
-  }, [filtered.length, firstPage]);
+  const pagination = useCatalogPagination(filtered, PAGE_SIZE);
 
   const active = query.trim() !== "" || pantheon !== "all" || facet !== "all";
   const reset = () => {

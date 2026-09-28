@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { ArrowDownAZ, ArrowUpAZ, LayoutGrid, Table } from "lucide-react";
 import { DeitiesTable } from "@/components/deities/DeitiesTable";
@@ -28,7 +28,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { usePagination } from "@/hooks/usePagination";
+import { useCatalogPagination } from "@/hooks/useCatalogPagination";
+import { useCatalogState } from "@/hooks/useCatalogState";
 import type { DeityListItem } from "@/lib/data/types";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
@@ -81,13 +82,35 @@ export function DeitiesPageClient({
   /** Pantheon id → short name ("Greek"), computed on the server. */
   traditionNames: Record<string, string>;
 }>) {
-  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
-  const [nameSearch, setNameSearch] = useState("");
-  const [pantheonFilter, setPantheonFilter] = useState("all");
-  const [genderFilter, setGenderFilter] = useState("all");
-  const [domainFilter, setDomainFilter] = useState("all");
-  const [sortBy, setSortBy] = useState<"importance" | "name">("importance");
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const [viewMode, setViewMode] = useCatalogState(
+    "view",
+    "grid",
+    ["grid", "table"],
+    false,
+  );
+  const [nameSearch, setNameSearch] = useCatalogState<string>("q", "");
+  const [pantheonFilter, setPantheonFilter] = useCatalogState(
+    "pantheon",
+    "all",
+    ["all", ...allDeities.map((d) => d.pantheonId)],
+  );
+  const [genderFilter, setGenderFilter] = useCatalogState("gender", "all", [
+    "all",
+    "male",
+    "female",
+  ]);
+  const [domainFilter, setDomainFilter] = useCatalogState("domain", "all", [
+    "all",
+    ...allDeities.flatMap((d) => d.domain ?? []),
+  ]);
+  const [sortBy, setSortBy] = useCatalogState("sort", "importance", [
+    "importance",
+    "name",
+  ]);
+  const [sortOrder, setSortOrder] = useCatalogState("order", "asc", [
+    "asc",
+    "desc",
+  ]);
 
   const traditionName = (id: string) =>
     traditionNames[id] ?? capitalize(id.replace(/-pantheon$/, ""));
@@ -230,7 +253,7 @@ export function DeitiesPageClient({
               <SelectItem value="female">Female</SelectItem>
             </SelectContent>
           </Select>
-          <div className="flex items-center gap-1">
+          <div className="flex max-w-full flex-wrap items-center gap-1">
             <Select
               value={sortBy}
               onValueChange={(value) =>
@@ -317,13 +340,7 @@ function PaginatedDeityGrid({
   deities,
   traditionName,
 }: Readonly<{ deities: Deity[]; traditionName: (id: string) => string }>) {
-  const pagination = usePagination(deities, 24);
-
-  // Reset to first page when filtered data changes
-  useEffect(() => {
-    pagination.setPage(1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [deities.length]);
+  const pagination = useCatalogPagination(deities, 24);
 
   return (
     <>

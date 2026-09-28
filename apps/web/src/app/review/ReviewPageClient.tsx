@@ -24,9 +24,28 @@ export function ReviewPageClient() {
     useReview();
   const [isSessionActive, setIsSessionActive] = useState(false);
 
+  const [loadState, setLoadState] = useState<"loading" | "ready" | "error">(
+    "loading",
+  );
+  const [retry, setRetry] = useState(0);
+
   useEffect(() => {
-    void generateCardsFromProgress().catch(() => {});
-  }, [generateCardsFromProgress]);
+    let active = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reflect a new asynchronous deck load
+    setLoadState("loading");
+    async function loadCards(): Promise<void> {
+      try {
+        await generateCardsFromProgress();
+        if (active) setLoadState("ready");
+      } catch {
+        if (active) setLoadState("error");
+      }
+    }
+    void loadCards();
+    return () => {
+      active = false;
+    };
+  }, [generateCardsFromProgress, retry]);
 
   const todayStats = getTodayStats();
   const { stats } = reviewState;
@@ -65,6 +84,32 @@ export function ReviewPageClient() {
           </div>
 
           <ReviewSession onComplete={handleSessionComplete} />
+        </Container>
+      </div>
+    );
+  }
+
+  if (loadState !== "ready") {
+    return (
+      <div className="min-h-screen">
+        {header}
+        <Container className="section-space-sm">
+          {loadState === "loading" ? (
+            <p role="status">Loading your review cards…</p>
+          ) : (
+            <div role="alert">
+              <p>
+                Review cards could not be loaded. Your saved learning record has
+                not been removed.
+              </p>
+              <Button
+                className="mt-4"
+                onClick={() => setRetry((attempt) => attempt + 1)}
+              >
+                Try loading again
+              </Button>
+            </div>
+          )}
         </Container>
       </div>
     );

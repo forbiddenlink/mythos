@@ -2,7 +2,6 @@
 
 import {
   CommandDialog,
-  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
@@ -141,9 +140,11 @@ const navigationItems = [
 export function GlobalSearch({
   open,
   onOpenChange: setOpen,
+  onCloseAutoFocus,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onCloseAutoFocus?: (event: Event) => void;
 }) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
@@ -267,13 +268,28 @@ export function GlobalSearch({
     (debouncedSearch.trim() !== searchQuery.trim() || (!index && !indexError));
 
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandDialog
+      open={open}
+      onOpenChange={setOpen}
+      onCloseAutoFocus={onCloseAutoFocus}
+    >
       <CommandInput
         placeholder="Search deities, stories, creatures..."
         value={searchQuery}
         onValueChange={setSearchQuery}
       />
-      <CommandList>
+      {!showSuggestions && (
+        <p role="status" className="px-4 py-3 text-sm text-muted-foreground">
+          {showPendingResults
+            ? "Searching…"
+            : indexError
+              ? "Search is unavailable. You can still browse the atlas."
+              : groupedResults.length === 0
+                ? `No results found for "${debouncedSearch}"`
+                : `${results.length} results`}
+        </p>
+      )}
+      <CommandList aria-busy={showPendingResults}>
         {showSuggestions ? (
           <>
             {/* Recent Searches */}
@@ -341,39 +357,32 @@ export function GlobalSearch({
             </CommandGroup>
           </>
         ) : showPendingResults ? (
-          <CommandEmpty>Searching…</CommandEmpty>
+          <CommandItem disabled value="search-pending">
+            Searching…
+          </CommandItem>
         ) : (
           <>
             {/* Search Results */}
             {groupedResults.length === 0 && (
-              <CommandEmpty className="py-6 text-center">
-                <p className="text-sm text-muted-foreground mb-3">
-                  No results found for &quot;{debouncedSearch}&quot;
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 max-w-xs mx-auto">
-                  <button
-                    type="button"
-                    onClick={() => handleNavigationSelect("/pantheons")}
-                    className="text-xs px-2.5 py-1 rounded-md border border-gold/30 text-gold hover:bg-gold/10 transition-colors cursor-pointer"
+              <CommandGroup heading="Explore the atlas">
+                {[
+                  { href: "/pantheons", label: "Browse Pantheons" },
+                  { href: "/deities", label: "All Deities" },
+                  { href: "/stories", label: "Read Stories" },
+                ].map(({ href, label }) => (
+                  <CommandItem
+                    key={href}
+                    value={`browse-${href}`}
+                    onSelect={() => handleNavigationSelect(href)}
+                    onPointerDown={pointerSelect(() =>
+                      handleNavigationSelect(href),
+                    )}
+                    className="min-h-11 type-ui"
                   >
-                    Browse Pantheons
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleNavigationSelect("/deities")}
-                    className="text-xs px-2.5 py-1 rounded-md border border-gold/30 text-gold hover:bg-gold/10 transition-colors cursor-pointer"
-                  >
-                    All Deities
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleNavigationSelect("/stories")}
-                    className="text-xs px-2.5 py-1 rounded-md border border-gold/30 text-gold hover:bg-gold/10 transition-colors cursor-pointer"
-                  >
-                    Read Stories
-                  </button>
-                </div>
-              </CommandEmpty>
+                    {label}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
             )}
 
             {groupedResults.map(([type, items]) => {

@@ -12,6 +12,8 @@ import {
   SortingState,
   ColumnFiltersState,
 } from "@tanstack/react-table";
+import { useCatalogState } from "@/hooks/useCatalogState";
+import { useCatalogPagination } from "@/hooks/useCatalogPagination";
 import { Button } from "@/components/ui/button";
 import { ChevronUp, ChevronDown, ChevronsUpDown } from "lucide-react";
 import Link from "next/link";
@@ -34,7 +36,21 @@ interface DeitiesTableProps {
 }
 
 export function DeitiesTable({ deities }: DeitiesTableProps) {
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [sortColumn, setSortColumn] = useCatalogState("tableSort", "", [
+    "",
+    "name",
+    "importanceRank",
+  ]);
+  const [sortDirection, setSortDirection] = useCatalogState(
+    "tableOrder",
+    "asc",
+    ["asc", "desc"],
+  );
+  const sorting: SortingState = sortColumn
+    ? [{ id: sortColumn, desc: sortDirection === "desc" }]
+    : [];
+  const pagination = useCatalogPagination(deities, 20);
+  const tablePagination = { pageIndex: pagination.page - 1, pageSize: 20 };
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const columns = useMemo<ColumnDef<Deity>[]>(
@@ -173,8 +189,19 @@ export function DeitiesTable({ deities }: DeitiesTableProps) {
     state: {
       sorting,
       columnFilters,
+      pagination: tablePagination,
     },
-    onSortingChange: setSorting,
+    onSortingChange: (update) => {
+      const next = typeof update === "function" ? update(sorting) : update;
+      setSortColumn(next[0]?.id ?? "");
+      setSortDirection(next[0]?.desc ? "desc" : "asc");
+    },
+    onPaginationChange: (update) => {
+      const next =
+        typeof update === "function" ? update(tablePagination) : update;
+      pagination.setPage(next.pageIndex + 1);
+    },
+    autoResetPageIndex: false,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),

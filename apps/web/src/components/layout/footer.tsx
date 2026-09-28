@@ -91,7 +91,10 @@ export function Footer() {
             className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
           >
             {columns.map((column) => (
-              <div key={column.title}>
+              <div
+                key={column.title}
+                className="min-w-0 [overflow-wrap:anywhere]"
+              >
                 <h2 className="mb-2 font-sans text-[0.8125rem] font-medium uppercase tracking-[0.16em] text-foreground">
                   {column.title}
                 </h2>

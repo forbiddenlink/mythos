@@ -1,0 +1,12 @@
+
+> web@0.1.0 bundle:budget /Volumes/LizsDisk/mythos/apps/web
+> node scripts/check-bundle-budget.mjs
+
+┌─────────┬───────────────────┬────────────────────────┬─────────────────┬────────┬────────┐
+│ (index) │ route             │ first-load JS (KiB gz) │ budget (KiB gz) │ chunks │ status │
+├─────────┼───────────────────┼────────────────────────┼─────────────────┼────────┼────────┤
+│ 0       │ '/'               │ '310.6'                │ 350             │ 25     │ 'ok'   │
+│ 1       │ '/deities/[slug]' │ '355.0'                │ 445             │ 33     │ 'ok'   │
+│ 2       │ '/stories/[slug]' │ '344.6'                │ 465             │ 31     │ 'ok'   │
+└─────────┴───────────────────┴────────────────────────┴─────────────────┴────────┴────────┘
+bundle budget: all routes within budget.

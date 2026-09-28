@@ -145,12 +145,19 @@ test("today's myth runs three questions and offers a share card", async ({
 test("newsletter sign-up explains when sign-ups are not open yet", async ({
   page,
 }) => {
+  await page.route("**/api/newsletter", (route) =>
+    route.fulfill({
+      status: 501,
+      contentType: "application/json",
+      body: JSON.stringify({ subscribed: false, reason: "not_configured" }),
+    }),
+  );
   await page.goto("/about");
   const form = page.getByTestId("newsletter-footer");
   await form.scrollIntoViewIfNeeded();
   await form.getByLabel("Email address").fill("reader@example.com");
   await form.getByRole("checkbox").check();
   await form.getByRole("button", { name: "Subscribe" }).click();
-  // The e2e server runs without RESEND_API_KEY, so the route answers 501.
+  // Exercise the unavailable response without sending a real subscription.
   await expect(form.getByRole("status")).toContainText(/Sign-ups open soon/);
 });

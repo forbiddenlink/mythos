@@ -47,7 +47,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
-      <div className="layout-container layout-container-content flex h-16 items-center gap-2">
+      <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">
           <MobileNav sections={mobileNavSections} />
@@ -72,7 +72,7 @@ export function Header() {
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-1">
+        <div className="flex max-w-full flex-wrap items-center gap-1">
           {/* Quick Actions (Streak & Review Count) */}
           <QuickActions />
 

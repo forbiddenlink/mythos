@@ -46,7 +46,7 @@ test.describe("Detail-page reading", () => {
     test(`${path} offers direct reading and honest source references`, async ({
       page,
     }) => {
-      await page.goto(path);
+      await page.goto(path, { waitUntil: "domcontentloaded" });
       const main = page.locator("main");
       await expect(main.getByRole("heading", { level: 1 })).toContainText(name);
       const navigation = main.getByRole("navigation", { name: "On this page" });
@@ -164,7 +164,7 @@ test.describe("Detail-page reading", () => {
       ],
     ]) {
       for (const path of [`/${article}`, `/sources/${source}`]) {
-        await page.goto(path);
+        await page.goto(path, { waitUntil: "domcontentloaded" });
         const excerpt = page
           .locator("main figure")
           .filter({ hasText: opening });

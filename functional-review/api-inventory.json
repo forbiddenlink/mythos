@@ -1,0 +1,46 @@
+[
+  {
+    "path": "apps/web/src/app/api/analytics/events/route.ts",
+    "route": "/api/analytics/events"
+  },
+  {
+    "path": "apps/web/src/app/api/analytics/vitals/route.ts",
+    "route": "/api/analytics/vitals"
+  },
+  {
+    "path": "apps/web/src/app/api/catalog/deities/route.ts",
+    "route": "/api/catalog/deities"
+  },
+  {
+    "path": "apps/web/src/app/api/catalog/search-index/route.ts",
+    "route": "/api/catalog/search-index"
+  },
+  {
+    "path": "apps/web/src/app/api/catalog/stories/route.ts",
+    "route": "/api/catalog/stories"
+  },
+  {
+    "path": "apps/web/src/app/api/csp-report/route.ts",
+    "route": "/api/csp-report"
+  },
+  {
+    "path": "apps/web/src/app/api/daily-myth/route.ts",
+    "route": "/api/daily-myth"
+  },
+  {
+    "path": "apps/web/src/app/api/newsletter/route.ts",
+    "route": "/api/newsletter"
+  },
+  {
+    "path": "apps/web/src/app/api/oracle/route.ts",
+    "route": "/api/oracle"
+  },
+  {
+    "path": "apps/web/src/app/api/quiz/generate-from-story/route.ts",
+    "route": "/api/quiz/generate-from-story"
+  },
+  {
+    "path": "apps/web/src/app/api/search/route.ts",
+    "route": "/api/search"
+  }
+]

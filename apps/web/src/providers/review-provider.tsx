@@ -1,5 +1,7 @@
 "use client";
 
+import { saveLearningValue } from "@/lib/learning-persistence";
+
 import { loadDeityIndex, loadStoryIndex } from "@/lib/catalog-client";
 import { reviewSchema } from "@/lib/learning-backup";
 
@@ -96,11 +98,7 @@ function loadReviewState(): ReviewState {
 }
 
 function saveReviewState(state: ReviewState) {
-  try {
-    localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // localStorage might be full or unavailable
-  }
+  saveLearningValue(REVIEW_STORAGE_KEY, JSON.stringify(state));
 }
 
 // Pantheon labels for card prompts

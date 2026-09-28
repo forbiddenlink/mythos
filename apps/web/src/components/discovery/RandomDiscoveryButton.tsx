@@ -96,7 +96,7 @@ export function RandomDiscoveryButton() {
       <DialogTrigger asChild>
         <Button
           variant="ghost"
-          className="min-h-11 px-0 text-muted-foreground"
+          className="h-auto min-h-11 max-w-full whitespace-normal px-0 text-left text-muted-foreground"
           aria-label="Discover a random deity"
         >
           <MythosMark id="lot" className="size-4" /> Discover a random deity
