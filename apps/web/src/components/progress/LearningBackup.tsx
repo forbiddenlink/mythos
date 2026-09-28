@@ -1,5 +1,7 @@
 "use client";
 
+import { readLearningValue } from "@/lib/learning-persistence";
+
 import {
   serializeLearningBackup,
   LEARNING_BACKUP_MAX_BYTES,
@@ -20,7 +22,7 @@ import { AlertCircle, Check, Download, RotateCcw, Upload } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 function downloadBackup() {
-  const backup = serializeLearningBackup(localStorage);
+  const backup = serializeLearningBackup({ getItem: readLearningValue });
   const blob = new Blob([backup], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
@@ -144,7 +146,10 @@ export function LearningBackup() {
   }
 
   return (
-    <Card className="border-gold/20 bg-card/80 backdrop-blur-sm">
+    <Card
+      id="learning-backup"
+      className="scroll-mt-24 border-gold/20 bg-card/80 backdrop-blur-sm"
+    >
       <CardHeader>
         <CardTitle className="font-serif text-xl">
           Keep your learning record

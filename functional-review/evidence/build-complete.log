@@ -1,0 +1,196 @@
+
+> web@0.1.0 build:ci /Volumes/LizsDisk/mythos/apps/web
+> NEXT_PUBLIC_ORACLE_ENABLED=true next build --webpack && node scripts/csp-hashes.mjs
+
+▲ Next.js 16.3.4 (webpack)
+- Environments: .env.local
+✓ Running next.config.ts took 2.7s
+- Experiments (use with caution):
+  · optimizePackageImports
+
+⚠ The Edge Runtime is deprecated. You can use the "nodejs" runtime instead. Learn more: https://nextjs.org/docs/messages/edge-runtime-deprecated
+  Creating an optimized production build ...
+✓ Compiled successfully in 69s
+  Running TypeScript ...
+  Finished TypeScript in 12.1s ...
+  Collecting page data using 13 workers ...
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 13 workers (0/1950) ...
+  Generating static pages using 13 workers (487/1950)
+  Generating static pages using 13 workers (974/1950)
+  Generating static pages using 13 workers (1462/1950)
+✓ Generating static pages using 13 workers (1950/1950) in 12.3s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /about
+├ ○ /accessibility
+├ ○ /achievements
+├ ƒ /api/analytics/events
+├ ƒ /api/analytics/vitals
+├ ○ /api/catalog/deities
+├ ○ /api/catalog/search-index
+├ ○ /api/catalog/stories
+├ ƒ /api/csp-report
+├ ○ /api/daily-myth
+├ ƒ /api/newsletter
+├ ƒ /api/oracle
+├ ƒ /api/quiz/generate-from-story
+├ ƒ /api/search
+├ ○ /apple-icon.png
+├ ○ /artifacts
+├   /artifacts/[slug]
+│ ├ ● /artifacts/aegis
+│ ├ ● /artifacts/thunderbolt-of-zeus
+│ ├ ● /artifacts/trident-of-poseidon
+│ └ ● [+73 more paths]
+├ ƒ /artifacts/[slug]/opengraph-image
+├ ○ /atlas
+├ ○ /bookmarks
+├ ƒ /changelog
+├   /collections/[slug]
+│ ├ ● /collections/trickster-gods
+│ ├ ● /collections/underworld-rulers
+│ ├ ● /collections/sky-fathers
+│ └ ● [+9 more paths]
+├ ○ /compare
+├   /compare/[pair]
+│ ├ ● /compare/aengus-vs-dagda
+│ ├ ● /compare/aengus-vs-midir
+│ ├ ● /compare/aganju-vs-pele
+│ └ ● [+520 more paths]
+├ ƒ /compare/[pair]/opengraph-image
+├ ○ /compare/myths
+├ ○ /compare/pairs
+├ ○ /compare/parallels
+├ ○ /contact
+├ ○ /cosmology
+├ ○ /creatures
+├   /creatures/[slug]
+│ ├ ● /creatures/fenrir
+│ ├ ● /creatures/cerberus
+│ ├ ● /creatures/yamata-no-orochi
+│ └ ● [+100 more paths]
+├ ƒ /creatures/[slug]/opengraph-image
+├ ○ /deities
+├   /deities/[slug]
+│ ├ ● /deities/zeus
+│ ├ ● /deities/hera
+│ ├ ● /deities/poseidon
+│ └ ● [+356 more paths]
+├ ƒ /deities/[slug]/opengraph-image
+├ ○ /divine-domains
+├ ○ /domains
+├ ○ /facts
+├ ○ /family-tree
+├ ○ /games
+├ ○ /games/memory
+├ ○ /gods-of
+├   /gods-of/[domain]
+│ ├ ● /gods-of/fertility
+│ ├ ● /gods-of/war
+│ ├ ● /gods-of/creation
+│ └ ● [+102 more paths]
+├ ƒ /gods-of/[domain]/opengraph-image
+├ ○ /guides
+├ ○ /guides/hades-ii
+├ ○ /guides/hades-ii/opengraph-image
+├ ○ /guides/odyssey
+├ ○ /guides/odyssey/opengraph-image
+├ ○ /guides/opengraph-image
+├ ○ /guides/percy-jackson-titans-curse
+├ ○ /guides/percy-jackson-titans-curse/opengraph-image
+├ ƒ /heroes
+├   /heroes/[slug]
+│ ├ ● /heroes/achilles
+│ ├ ● /heroes/odysseus
+│ ├ ● /heroes/hector
+│ └ ● [+34 more paths]
+├ ƒ /heroes/[slug]/opengraph-image
+├ ○ /icon.svg
+├ ○ /journeys
+├   /journeys/[slug]
+│ ├ ● /journeys/odyssey
+│ ├ ● /journeys/golden-fleece
+│ ├ ● /journeys/twelve-labors
+│ └ ● [+5 more paths]
+├ ○ /knowledge-graph
+├ ƒ /locations
+├   /locations/[slug]
+│ ├ ● /locations/mount-olympus
+│ ├ ● /locations/underworld
+│ ├ ● /locations/delphi
+│ └ ● [+181 more paths]
+├ ƒ /locations/[slug]/opengraph-image
+├ ○ /oracle
+├ ○ /pantheons
+├   /pantheons/[slug]
+│ ├ ● /pantheons/greek
+│ ├ ● /pantheons/norse
+│ ├ ● /pantheons/egyptian
+│ └ ● [+24 more paths]
+├ ƒ /pantheons/[slug]/opengraph-image
+├   /pantheons/[slug]/worksheet
+│ ├ ● /pantheons/greek/worksheet
+│ ├ ● /pantheons/norse/worksheet
+│ ├ ● /pantheons/egyptian/worksheet
+│ └ ● [+23 more paths]
+├ ○ /paths
+├ ○ /privacy
+├ ○ /progress
+├ ○ /quiz
+├ ○ /quiz/personality
+├ ○ /quiz/quick
+├ ○ /quiz/relationships
+├ ƒ /quiz/relationships/opengraph-image
+├ ƒ /quiz/result/[result]
+├ ƒ /quiz/result/[result]/opengraph-image
+├ ○ /review
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /sources
+├   /sources/[slug]
+│ ├ ● /sources/iliad
+│ ├ ● /sources/odyssey
+│ ├ ● /sources/theogony
+│ └ ● [+82 more paths]
+├ ○ /stories
+├   /stories/[slug]
+│ ├ ● /stories/titanomachy
+│ ├ ● /stories/ragnarok
+│ ├ ● /stories/creation-myth-norse
+│ └ ● [+159 more paths]
+├ ƒ /stories/[slug]/opengraph-image
+├   /stories/[slug]/read
+│ ├ ● /stories/titanomachy/read
+│ ├ ● /stories/ragnarok/read
+│ ├ ● /stories/creation-myth-norse/read
+│ └ ● [+159 more paths]
+├ ○ /stories/interactive
+├   /stories/interactive/[slug]
+│ ├ ● /stories/interactive/judgment-of-paris
+│ ├ ● /stories/interactive/thor-jotunheim
+│ ├ ● /stories/interactive/orpheus-underworld
+│ └ ● [+2 more paths]
+├ ○ /stories/ragnarok/cinematic
+├ ○ /stories/titanomachy/cinematic
+├   /study/[slug]
+│ ├ ● /study/inanna-text-and-temple
+│ ├ ● /study/ibeji-objects-and-remembrance
+│ ├ ● /study/greek-gods
+│ └ ● [+2 more paths]
+├ ○ /support
+├ ○ /terms
+└ ○ /timeline
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+csp-hashes: 1927 prerendered pages, 1 common hashes, max 8 hashes per page (262 KB manifest)

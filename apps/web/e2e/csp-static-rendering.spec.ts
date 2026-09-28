@@ -62,10 +62,9 @@ test("entity pages are served from the prerender cache", async ({
 test("a saved locale cookie translates the prerendered page", async ({
   page,
   context,
+  baseURL,
 }) => {
-  await context.addCookies([
-    { name: "locale", value: "es", url: "http://localhost:3000" },
-  ]);
+  await context.addCookies([{ name: "locale", value: "es", url: baseURL! }]);
   await page.goto("/quiz");
   await expect(page.locator("html")).toHaveAttribute("lang", "es");
   await expect(

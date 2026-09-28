@@ -1,0 +1,206 @@
+apps/web/src/app/review/ReviewPageClient.tsx:32:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━
+
+  ! This hook specifies more dependencies than necessary: retry.
+
+    30 │   const [retry, setRetry] = useState(0);
+    31 │
+  > 32 │   useEffect(() => {
+       │   ^^^^^^^^^
+    33 │     let active = true;
+    34 │     // eslint-disable-next-line react-hooks/set-state-in-effect -- reflect a new asynchronous deck load
+
+  i This dependency can be removed from the list.
+
+    46 │       active = false;
+    47 │     };
+  > 48 │   }, [generateCardsFromProgress, retry]);
+       │                                  ^^^^^
+    49 │
+    50 │   const todayStats = getTodayStats();
+
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Specifying more dependencies than required can lead to unnecessary re-rendering
+    and degraded performance.
+
+  i Unsafe fix: Remove the extra dependencies from the list.
+
+    48 │ ··},·[generateCardsFromProgress,·retry]);
+       │                                -------
+
+apps/web/src/components/deities/DeitiesTable.tsx:4:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━━━
+
+  ! Some named imports are only used as types.
+
+     3 │ import { useState, useMemo } from "react";
+   > 4 │ import {
+       │        ^
+   > 5 │   useReactTable,
+        ...
+  > 13 │   ColumnFiltersState,
+  > 14 │ } from "@tanstack/react-table";
+       │ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    15 │ import { useCatalogState } from "@/hooks/useCatalogState";
+    16 │ import { useCatalogPagination } from "@/hooks/useCatalogPagination";
+
+  i This import is only used as a type.
+
+     9 │   getPaginationRowModel,
+    10 │   flexRender,
+  > 11 │   ColumnDef,
+       │   ^^^^^^^^^
+    12 │   SortingState,
+    13 │   ColumnFiltersState,
+
+  i This import is only used as a type.
+
+    10 │   flexRender,
+    11 │   ColumnDef,
+  > 12 │   SortingState,
+       │   ^^^^^^^^^^^^
+    13 │   ColumnFiltersState,
+    14 │ } from "@tanstack/react-table";
+
+  i This import is only used as a type.
+
+    11 │   ColumnDef,
+    12 │   SortingState,
+  > 13 │   ColumnFiltersState,
+       │   ^^^^^^^^^^^^^^^^^^
+    14 │ } from "@tanstack/react-table";
+    15 │ import { useCatalogState } from "@/hooks/useCatalogState";
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Add inline type keywords.
+
+      9   9 │     getPaginationRowModel,
+     10  10 │     flexRender,
+     11     │ - ··ColumnDef,
+     12     │ - ··SortingState,
+     13     │ - ··ColumnFiltersState,
+         11 │ + ··type·ColumnDef,
+         12 │ + ··type·SortingState,
+         13 │ + ··type·ColumnFiltersState,
+     14  14 │   } from "@tanstack/react-table";
+     15  15 │   import { useCatalogState } from "@/hooks/useCatalogState";
+
+
+apps/web/src/components/deities/DeitiesTable.tsx:108:25 lint/correctness/noUnusedFunctionParameters  FIXABLE  ━━━━━━━━━━
+
+  ! This parameter id is unused.
+
+    106 │           </div>
+    107 │         ),
+  > 108 │         filterFn: (row, id, value) => {
+        │                         ^^
+    109 │           return row.original.domain.some((d) =>
+    110 │             d.toLowerCase().includes(value.toLowerCase()),
+
+  i Unused parameters might be the result of an incomplete refactoring.
+
+  i Unsafe fix: If this is intentional, prepend id with an underscore.
+
+    106 106 │             </div>
+    107 107 │           ),
+    108     │ - ········filterFn:·(row,·id,·value)·=>·{
+        108 │ + ········filterFn:·(row,·_id,·value)·=>·{
+    109 109 │             return row.original.domain.some((d) =>
+    110 110 │               d.toLowerCase().includes(value.toLowerCase()),
+
+
+apps/web/src/components/ui/command.tsx:4:8 lint/style/useImportType  FIXABLE  ━━━━━━━━━━━━━━━━━━━━━━
+
+  ! All these imports are only used as types.
+
+    3 │ import * as React from "react";
+  > 4 │ import { type DialogProps } from "@radix-ui/react-dialog";
+      │        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    5 │ import { Command as CommandPrimitive } from "cmdk";
+    6 │ import { Search } from "lucide-react";
+
+  i Importing the types with import type ensures that they are removed by the compilers and avoids loading unnecessary modules.
+
+  i Safe fix: Use import type.
+
+      2   2 │
+      3   3 │   import * as React from "react";
+      4     │ - import·{·type·DialogProps·}·from·"@radix-ui/react-dialog";
+          4 │ + import·type·{·DialogProps·}·from·"@radix-ui/react-dialog";
+      5   5 │   import { Command as CommandPrimitive } from "cmdk";
+      6   6 │   import { Search } from "lucide-react";
+
+
+apps/web/src/components/ui/select.tsx:102:32 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━
+
+  ! This hook specifies more dependencies than necessary: setOpen, triggerRef.
+
+    100 │   );
+    101 │
+  > 102 │   const selectCtxValue = React.useMemo(
+        │                                ^^^^^^^
+    103 │     () => ({
+    104 │       value,
+
+  i This dependency can be removed from the list.
+
+    109 │       contentId,
+    110 │     }),
+  > 111 │     [value, handleValueChange, open, setOpen, triggerRef, contentId],
+        │                                      ^^^^^^^
+    112 │   );
+    113 │
+
+  i This dependency can be removed from the list.
+
+    109 │       contentId,
+    110 │     }),
+  > 111 │     [value, handleValueChange, open, setOpen, triggerRef, contentId],
+        │                                               ^^^^^^^^^^
+    112 │   );
+    113 │
+
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Specifying more dependencies than required can lead to unnecessary re-rendering
+    and degraded performance.
+
+  i Unsafe fix: Remove the extra dependencies from the list.
+
+    111 │ ····[value,·handleValueChange,·open,·setOpen,·triggerRef,·contentId],
+        │                                      ---------------------
+
+apps/web/src/providers/progress-provider.tsx:234:3 lint/correctness/useExhaustiveDependencies  FIXABLE  ━━━━━━━━━━
+
+  ! This hook does not specify its dependency on updateStreak.
+
+    233 │   // Update streak on mount
+  > 234 │   useEffect(() => {
+        │   ^^^^^^^^^
+    235 │     if (mounted) {
+    236 │       // eslint-disable-next-line react-hooks/immutability -- updateStreak runs once after mount; the compiler's ordering check is a false positive
+
+  i This dependency is being used here, but is not specified in the hook dependency list.
+
+    235 │     if (mounted) {
+    236 │       // eslint-disable-next-line react-hooks/immutability -- updateStreak runs once after mount; the compiler's ordering check is a false positive
+  > 237 │       updateStreak();
+        │       ^^^^^^^^^^^^
+    238 │     }
+    239 │     // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  i React relies on hook dependencies to determine when to re-compute Effects.
+    Failing to specify dependencies can result in Effects not updating correctly when state changes.
+    These "stale closures" are a common source of surprising bugs.
+
+  i Unsafe fix: Add the missing dependency updateStreak to the list.
+
+    238 238 │       }
+    239 239 │       // eslint-disable-next-line react-hooks/exhaustive-deps
+    240     │ - ··},·[mounted]);
+        240 │ + ··},·[mounted,·//·eslint-disable-next-line·react-hooks/immutability·--·updateStreak·runs·once·after·mount;·the·compiler's·ordering·check·is·a·false·positive
+        241 │ + ······updateStreak]);
+    241 242 │
+    242 243 │     // Cross-tab sync: re-read from localStorage when another tab updates it
+
+
+Checked 58 files in 126ms. No fixes applied.
+Found 6 warnings.

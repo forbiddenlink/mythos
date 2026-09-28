@@ -30,19 +30,24 @@ Command.displayName = CommandPrimitive.displayName;
 
 interface CommandDialogProps extends DialogProps {
   children?: React.ReactNode;
+  onCloseAutoFocus?: (event: Event) => void;
   title?: string;
   description?: string;
 }
 
 const CommandDialog = ({
   children,
+  onCloseAutoFocus,
   title = "Search mythology content",
   description = "Search for deities, heroes, stories, sources, creatures, artifacts, and locations.",
   ...props
 }: CommandDialogProps) => {
   return (
     <Dialog {...props}>
-      <DialogContent className="overflow-hidden p-0 shadow-lg">
+      <DialogContent
+        className="overflow-hidden p-0 shadow-lg"
+        onCloseAutoFocus={onCloseAutoFocus}
+      >
         <DialogTitle className="sr-only">{title}</DialogTitle>
         <DialogDescription className="sr-only">{description}</DialogDescription>
         <Command

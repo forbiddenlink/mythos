@@ -1,5 +1,7 @@
 "use client";
 
+import { saveLearningValue } from "@/lib/learning-persistence";
+
 import {
   createContext,
   useCallback,
@@ -95,22 +97,11 @@ function loadReadingProgress(): Record<string, ReadingProgress> {
 }
 
 function saveBookmarks(bookmarks: Bookmark[]) {
-  try {
-    localStorage.setItem(BOOKMARKS_STORAGE_KEY, JSON.stringify(bookmarks));
-  } catch {
-    // localStorage might be full or unavailable
-  }
+  saveLearningValue(BOOKMARKS_STORAGE_KEY, JSON.stringify(bookmarks));
 }
 
 function saveReadingProgress(progress: Record<string, ReadingProgress>) {
-  try {
-    localStorage.setItem(
-      READING_PROGRESS_STORAGE_KEY,
-      JSON.stringify(progress),
-    );
-  } catch {
-    // localStorage might be full or unavailable
-  }
+  saveLearningValue(READING_PROGRESS_STORAGE_KEY, JSON.stringify(progress));
 }
 
 export function BookmarksProvider({ children }: { children: ReactNode }) {

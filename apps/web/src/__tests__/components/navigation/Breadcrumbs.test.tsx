@@ -46,6 +46,17 @@ describe("Breadcrumbs", () => {
       "/deities",
     );
   });
+
+  it("links shared quiz results back to the quiz without a nonexistent parent", () => {
+    pathname.current = "/quiz/result/4-of-5";
+    render(<Breadcrumbs />);
+    expect(screen.getByRole("link", { name: "Quiz" })).toHaveAttribute(
+      "href",
+      "/quiz",
+    );
+    expect(screen.queryByRole("link", { name: "Result" })).toBeNull();
+    expect(crumbs()).toHaveLength(3);
+  });
 });
 
 describe("timeline view from the URL hash", () => {

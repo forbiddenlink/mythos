@@ -37,6 +37,8 @@ function generateBreadcrumbs(pathname: string): BreadcrumbItem[] {
   let currentPath = "";
   paths.forEach((path, index) => {
     currentPath += `/${path}`;
+    // Shared results have a detail route but no results index page.
+    if (currentPath === "/quiz/result" && index < paths.length - 1) return;
     const parent = PARENT_CRUMBS[currentPath];
     if (parent && index < paths.length - 1) {
       breadcrumbs.push(parent);

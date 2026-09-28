@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import {
   EmptyResults,
@@ -26,7 +26,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { usePagination } from "@/hooks/usePagination";
+import { useCatalogPagination } from "@/hooks/useCatalogPagination";
+import { useCatalogState } from "@/hooks/useCatalogState";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
 /** Story card and filter fields (no narrative text). */
@@ -56,9 +57,16 @@ export function StoriesPageClient({
   /** Pantheon id → short name ("Greek"), computed on the server. */
   traditionNames: Record<string, string>;
 }>) {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("all");
-  const [themeFilter, setThemeFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useCatalogState<string>("q", "");
+  const [categoryFilter, setCategoryFilter] = useCatalogState(
+    "category",
+    "all",
+    ["all", ...stories.map((s) => s.themes[0] ?? "other")],
+  );
+  const [themeFilter, setThemeFilter] = useCatalogState("theme", "all", [
+    "all",
+    ...stories.flatMap((s) => s.themes),
+  ]);
 
   const categories = useMemo(
     () =>
@@ -249,13 +257,7 @@ function PaginatedStoryGrid({
   stories: StoryListItem[];
   traditionNames: Record<string, string>;
 }>) {
-  const pagination = usePagination(stories, 24);
-  const { firstPage } = pagination;
-
-  // Reset to first page when filtered data changes
-  useEffect(() => {
-    firstPage();
-  }, [stories.length, firstPage]);
+  const pagination = useCatalogPagination(stories, 24);
 
   return (
     <>

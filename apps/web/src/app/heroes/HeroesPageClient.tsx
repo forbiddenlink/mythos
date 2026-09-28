@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import {
   ChipRow,
@@ -15,7 +15,8 @@ import { PageHero } from "@/components/layout/page-hero";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { Button } from "@/components/ui/button";
 import { PaginationControls } from "@/components/ui/pagination-controls";
-import { usePagination } from "@/hooks/usePagination";
+import { useCatalogPagination } from "@/hooks/useCatalogPagination";
+import { useCatalogState } from "@/hooks/useCatalogState";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import {
   catalogPage,
@@ -45,12 +46,22 @@ export function HeroesPageClient({
   /** Pantheon id → short name ("Greek"), computed on the server. */
   traditionNames: Record<string, string>;
 }) {
-  const [searchQuery, setSearchQuery] = useState(
+  const [searchQuery, setSearchQuery] = useCatalogState<string>(
+    "q",
+    "",
+    undefined,
+    true,
     queryValue(initialQuery, "q") ?? "",
   );
-  const [activePantheon, setActivePantheon] = useState<string | null>(
-    queryValue(initialQuery, "pantheon") ?? null,
+  const [pantheon, setPantheon] = useCatalogState(
+    "pantheon",
+    "",
+    ["", ...allHeroes.map((hero) => hero.pantheonId)],
+    true,
+    queryValue(initialQuery, "pantheon") ?? "",
   );
+  const activePantheon = pantheon || null;
+  const setActivePantheon = (id: string | null): void => setPantheon(id ?? "");
   const traditionName = (id: string) =>
     traditionNames[id] ?? id.replace(/-pantheon$/, "");
 
@@ -72,7 +83,7 @@ export function HeroesPageClient({
     });
   }, [allHeroes, activePantheon, searchQuery]);
 
-  const pagination = usePagination(
+  const pagination = useCatalogPagination(
     filteredHeroes,
     12,
     catalogPage(initialQuery),
@@ -85,11 +96,6 @@ export function HeroesPageClient({
     if (page > 1) params.set("page", String(page));
     return `/heroes${params.size ? `?${params}` : ""}`;
   };
-  const currentHref = getPageHref(pagination.page);
-  useEffect(() => {
-    window.history.replaceState(null, "", currentHref);
-  }, [currentHref]);
-
   const choosePantheon = (id: string | null) => {
     setActivePantheon(id);
     pagination.firstPage();

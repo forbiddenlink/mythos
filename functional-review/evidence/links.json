@@ -1,0 +1,20 @@
+{
+  "uniqueInternalPaths": 1319,
+  "matchedPrerenderOrPublicFile": 1317,
+  "httpChecks": [
+    {
+      "path": "/changelog",
+      "status": 200
+    },
+    {
+      "path": "/quiz/result",
+      "status": 404
+    }
+  ],
+  "failed": [
+    {
+      "path": "/quiz/result",
+      "status": 404
+    }
+  ]
+}

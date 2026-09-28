@@ -113,6 +113,9 @@ test("location filters persist through a direct load and clearing an era removes
     "/locations?era=classical-mediterranean&view=list&q=impossible-catalog-result",
     { waitUntil: "domcontentloaded" },
   );
+  await expect(
+    page.getByRole("button", { name: /Switch to (light|dark) mode/ }),
+  ).toBeVisible();
   await page
     .getByRole("button", { name: "Clear filters", exact: true })
     .click();

@@ -196,7 +196,9 @@ function checkedBackup(candidate: unknown): BackupParseResult {
   };
 }
 
-export function createLearningBackup(storage: Storage): LearningBackup {
+export function createLearningBackup(
+  storage: Pick<Storage, "getItem">,
+): LearningBackup {
   return {
     format: "mythos-atlas-learning-backup",
     version: LEARNING_BACKUP_VERSION,
@@ -207,7 +209,9 @@ export function createLearningBackup(storage: Storage): LearningBackup {
   };
 }
 
-export function serializeLearningBackup(storage: Storage): string {
+export function serializeLearningBackup(
+  storage: Pick<Storage, "getItem">,
+): string {
   const raw = JSON.stringify(createLearningBackup(storage), null, 2);
   const result = parseLearningBackup(raw);
   if (!result.success) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import dynamic from "next/dynamic";
 import { List, Map as MapIcon, MapPin } from "lucide-react";
 import {
@@ -27,7 +27,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { usePagination } from "@/hooks/usePagination";
+import { useCatalogPagination } from "@/hooks/useCatalogPagination";
+import { useCatalogState } from "@/hooks/useCatalogState";
 import {
   catalogPage,
   queryValue,
@@ -122,39 +123,86 @@ export function LocationsPageClient({
   deities: Deity[];
   stories: Story[];
 }) {
-  const initialEra =
-    MYTHIC_ERAS.find((era) => era.id === queryValue(initialQuery, "era"))?.id ??
-    null;
-  const [viewMode, setViewMode] = useState<"map" | "list">(
-    queryValue(initialQuery, "view") === "list" ||
-      (queryValue(initialQuery, "view") !== "map" &&
-        catalogPage(initialQuery) > 1)
-      ? "list"
-      : "map",
+  const [view, setViewMode] = useCatalogState(
+    "view",
+    "",
+    ["", "map", "list"],
+    false,
+    queryValue(initialQuery, "view") ?? "",
   );
-  const [searchQuery, setSearchQuery] = useState(
+  const [pageQuery] = useCatalogState<string>(
+    "page",
+    "1",
+    undefined,
+    false,
+    String(catalogPage(initialQuery)),
+  );
+  const viewMode =
+    view || (catalogPage({ page: pageQuery }) > 1 ? "list" : "map");
+  const [searchQuery, setSearchQuery] = useCatalogState<string>(
+    "q",
+    "",
+    undefined,
+    true,
     queryValue(initialQuery, "q") ?? "",
   );
-  const [activeEra, setActiveEra] = useState<string | null>(initialEra);
-  const [activePantheons, setActivePantheons] = useState<Set<string>>(() => {
-    if (initialEra) return new Set(pantheonIdsForEraId(initialEra));
-    const selected = queryValue(initialQuery, "pantheons");
-    return new Set(
-      selected === undefined
-        ? pantheons.map((p) => p.id)
-        : selected.split(",").filter(Boolean),
-    );
-  });
-  const [activeLocationTypes, setActiveLocationTypes] = useState<Set<string>>(
-    () => {
-      const selected = queryValue(initialQuery, "types");
-      return new Set(
-        selected === undefined
-          ? locations.map((l) => l.locationType)
-          : selected.split(",").filter(Boolean),
-      );
-    },
+  const [era, setEra] = useCatalogState(
+    "era",
+    "",
+    ["", ...MYTHIC_ERAS.map((item) => item.id)],
+    true,
+    queryValue(initialQuery, "era") ?? "",
   );
+  const activeEra = era || null;
+  const setActiveEra = (id: string | null): void => setEra(id ?? "");
+  const [selectedPantheons, setSelectedPantheons] = useCatalogState<string>(
+    "pantheons",
+    "all",
+    undefined,
+    true,
+    queryValue(initialQuery, "pantheons") ?? "all",
+  );
+  const [selectedTypes, setSelectedTypes] = useCatalogState<string>(
+    "types",
+    "all",
+    undefined,
+    true,
+    queryValue(initialQuery, "types") ?? "all",
+  );
+  const activePantheons = useMemo(
+    () =>
+      new Set(
+        activeEra
+          ? pantheonIdsForEraId(activeEra)
+          : selectedPantheons === "all"
+            ? pantheons.map((item) => item.id)
+            : selectedPantheons.split(",").filter(Boolean),
+      ),
+    [activeEra, selectedPantheons, pantheons],
+  );
+  const activeLocationTypes = useMemo(
+    () =>
+      new Set(
+        selectedTypes === "all"
+          ? locations.map((item) => item.locationType)
+          : selectedTypes.split(",").filter(Boolean),
+      ),
+    [selectedTypes, locations],
+  );
+  const setActivePantheons = (values: Set<string>): void => {
+    setSelectedPantheons(
+      locations.every((item) => values.has(item.pantheonId))
+        ? "all"
+        : [...values].sort().join(","),
+    );
+  };
+  const setActiveLocationTypes = (values: Set<string>): void => {
+    setSelectedTypes(
+      locations.every((item) => values.has(item.locationType))
+        ? "all"
+        : [...values].sort().join(","),
+    );
+  };
 
   // Derived filters
   const allLocationTypes = useMemo(
@@ -192,7 +240,7 @@ export function LocationsPageClient({
           loc.description.toLowerCase().includes(query)),
     );
   }, [locations, activePantheons, activeLocationTypes, searchQuery]);
-  const locationPagination = usePagination(
+  const locationPagination = useCatalogPagination(
     filteredLocations,
     24,
     catalogPage(initialQuery),
@@ -218,11 +266,6 @@ export function LocationsPageClient({
     if (view === "list" || page > 1) params.set("view", view);
     return `/locations${params.size ? `?${params}` : ""}`;
   };
-  const currentHref = getPageHref(locationPagination.page, viewMode);
-  useEffect(() => {
-    window.history.replaceState(null, "", currentHref);
-  }, [currentHref]);
-
   const selectEra = (eraId: string | null) => {
     setPage(1);
     setActiveEra(eraId);
@@ -246,13 +289,14 @@ export function LocationsPageClient({
   /** With every type shown, a chip narrows to that type; then it toggles. */
   const toggleLocationType = (type: string) => {
     setPage(1);
-    setActiveLocationTypes((prev) => {
-      if (allTypesActive) return new Set([type]);
-      const next = new Set(prev);
+    const next = allTypesActive
+      ? new Set([type])
+      : new Set(activeLocationTypes);
+    if (!allTypesActive) {
       if (next.has(type)) next.delete(type);
       else next.add(type);
-      return next.size === 0 ? new Set(allLocationTypes) : next;
-    });
+    }
+    setActiveLocationTypes(next.size === 0 ? new Set(allLocationTypes) : next);
   };
 
   const clearFilters = () => {

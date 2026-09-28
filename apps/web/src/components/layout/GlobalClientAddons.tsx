@@ -3,7 +3,7 @@
 import { ConsentGatedAnalytics } from "@/components/analytics/ConsentGatedAnalytics";
 import { ConsentGatedSentry } from "@/components/analytics/ConsentGatedSentry";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const GlobalSearch = dynamic(
   () =>
@@ -43,6 +43,7 @@ const WebVitals = dynamic(
   { ssr: false },
 );
 export function GlobalClientAddons() {
+  const searchTrigger = useRef<HTMLElement | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchRequested, setSearchRequested] = useState(false);
 
@@ -51,11 +52,14 @@ export function GlobalClientAddons() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
+        if (!searchOpen)
+          searchTrigger.current = document.activeElement as HTMLElement;
         setSearchRequested(true);
         setSearchOpen((open) => !open);
       }
     };
     const openSearch = () => {
+      searchTrigger.current = document.activeElement as HTMLElement;
       setSearchRequested(true);
       setSearchOpen(true);
     };
@@ -65,7 +69,7 @@ export function GlobalClientAddons() {
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("open-command-palette", openSearch);
     };
-  }, []);
+  }, [searchOpen]);
 
   return (
     <>
@@ -74,7 +78,14 @@ export function GlobalClientAddons() {
       <ConsentGatedSentry />
       <OfflineIndicator />
       {searchRequested ? (
-        <GlobalSearch open={searchOpen} onOpenChange={setSearchOpen} />
+        <GlobalSearch
+          open={searchOpen}
+          onOpenChange={setSearchOpen}
+          onCloseAutoFocus={(event) => {
+            event.preventDefault();
+            searchTrigger.current?.focus();
+          }}
+        />
       ) : null}
       {pwaInstallEnabled ? <InstallPrompt /> : null}
       <CookieConsent />

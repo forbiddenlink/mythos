@@ -1,5 +1,7 @@
 "use client";
 
+import { saveLearningValue } from "@/lib/learning-persistence";
+
 import { progressSchema } from "@/lib/learning-backup";
 
 import { getLocalToday, getLocalYesterday } from "@/lib/date";
@@ -183,11 +185,7 @@ function loadProgress(): UserProgress {
 }
 
 function saveProgress(progress: UserProgress) {
-  try {
-    localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
-  } catch {
-    // localStorage might be full or unavailable
-  }
+  saveLearningValue(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
 }
 
 export function ProgressProvider({

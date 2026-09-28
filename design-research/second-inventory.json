@@ -1,0 +1,332 @@
+[
+  {
+    "file": "apps/web/src/app/about/page.tsx",
+    "pattern": "/about",
+    "route": "/about"
+  },
+  {
+    "file": "apps/web/src/app/accessibility/page.tsx",
+    "pattern": "/accessibility",
+    "route": "/accessibility"
+  },
+  {
+    "file": "apps/web/src/app/achievements/page.tsx",
+    "pattern": "/achievements",
+    "route": "/achievements"
+  },
+  {
+    "file": "apps/web/src/app/artifacts/[slug]/page.tsx",
+    "pattern": "/artifacts/[slug]",
+    "route": "/artifacts/aegis"
+  },
+  {
+    "file": "apps/web/src/app/artifacts/page.tsx",
+    "pattern": "/artifacts",
+    "route": "/artifacts"
+  },
+  {
+    "file": "apps/web/src/app/atlas/page.tsx",
+    "pattern": "/atlas",
+    "route": "/atlas"
+  },
+  {
+    "file": "apps/web/src/app/bookmarks/page.tsx",
+    "pattern": "/bookmarks",
+    "route": "/bookmarks"
+  },
+  {
+    "file": "apps/web/src/app/changelog/page.tsx",
+    "pattern": "/changelog",
+    "route": "/changelog"
+  },
+  {
+    "file": "apps/web/src/app/collections/[slug]/page.tsx",
+    "pattern": "/collections/[slug]",
+    "route": "/collections/trickster-gods"
+  },
+  {
+    "file": "apps/web/src/app/compare/[pair]/page.tsx",
+    "pattern": "/compare/[pair]",
+    "route": "/compare/zeus-vs-odin"
+  },
+  {
+    "file": "apps/web/src/app/compare/myths/page.tsx",
+    "pattern": "/compare/myths",
+    "route": "/compare/myths"
+  },
+  {
+    "file": "apps/web/src/app/compare/page.tsx",
+    "pattern": "/compare",
+    "route": "/compare"
+  },
+  {
+    "file": "apps/web/src/app/compare/pairs/page.tsx",
+    "pattern": "/compare/pairs",
+    "route": "/compare/pairs"
+  },
+  {
+    "file": "apps/web/src/app/compare/parallels/page.tsx",
+    "pattern": "/compare/parallels",
+    "route": "/compare/parallels"
+  },
+  {
+    "file": "apps/web/src/app/contact/page.tsx",
+    "pattern": "/contact",
+    "route": "/contact"
+  },
+  {
+    "file": "apps/web/src/app/cosmology/page.tsx",
+    "pattern": "/cosmology",
+    "route": "/cosmology"
+  },
+  {
+    "file": "apps/web/src/app/creatures/[slug]/page.tsx",
+    "pattern": "/creatures/[slug]",
+    "route": "/creatures/fenrir"
+  },
+  {
+    "file": "apps/web/src/app/creatures/page.tsx",
+    "pattern": "/creatures",
+    "route": "/creatures"
+  },
+  {
+    "file": "apps/web/src/app/deities/[slug]/page.tsx",
+    "pattern": "/deities/[slug]",
+    "route": "/deities/zeus"
+  },
+  {
+    "file": "apps/web/src/app/deities/page.tsx",
+    "pattern": "/deities",
+    "route": "/deities"
+  },
+  {
+    "file": "apps/web/src/app/divine-domains/page.tsx",
+    "pattern": "/divine-domains",
+    "route": "/divine-domains"
+  },
+  {
+    "file": "apps/web/src/app/domains/page.tsx",
+    "pattern": "/domains",
+    "route": "/domains"
+  },
+  {
+    "file": "apps/web/src/app/facts/page.tsx",
+    "pattern": "/facts",
+    "route": "/facts"
+  },
+  {
+    "file": "apps/web/src/app/family-tree/page.tsx",
+    "pattern": "/family-tree",
+    "route": "/family-tree"
+  },
+  {
+    "file": "apps/web/src/app/games/memory/page.tsx",
+    "pattern": "/games/memory",
+    "route": "/games/memory"
+  },
+  {
+    "file": "apps/web/src/app/games/page.tsx",
+    "pattern": "/games",
+    "route": "/games"
+  },
+  {
+    "file": "apps/web/src/app/gods-of/[domain]/page.tsx",
+    "pattern": "/gods-of/[domain]",
+    "route": "/gods-of/war"
+  },
+  {
+    "file": "apps/web/src/app/gods-of/page.tsx",
+    "pattern": "/gods-of",
+    "route": "/gods-of"
+  },
+  {
+    "file": "apps/web/src/app/guides/hades-ii/page.tsx",
+    "pattern": "/guides/hades-ii",
+    "route": "/guides/hades-ii"
+  },
+  {
+    "file": "apps/web/src/app/guides/odyssey/page.tsx",
+    "pattern": "/guides/odyssey",
+    "route": "/guides/odyssey"
+  },
+  {
+    "file": "apps/web/src/app/guides/page.tsx",
+    "pattern": "/guides",
+    "route": "/guides"
+  },
+  {
+    "file": "apps/web/src/app/guides/percy-jackson-titans-curse/page.tsx",
+    "pattern": "/guides/percy-jackson-titans-curse",
+    "route": "/guides/percy-jackson-titans-curse"
+  },
+  {
+    "file": "apps/web/src/app/heroes/[slug]/page.tsx",
+    "pattern": "/heroes/[slug]",
+    "route": "/heroes/achilles"
+  },
+  {
+    "file": "apps/web/src/app/heroes/page.tsx",
+    "pattern": "/heroes",
+    "route": "/heroes"
+  },
+  {
+    "file": "apps/web/src/app/journeys/[slug]/page.tsx",
+    "pattern": "/journeys/[slug]",
+    "route": "/journeys/odyssey"
+  },
+  {
+    "file": "apps/web/src/app/journeys/page.tsx",
+    "pattern": "/journeys",
+    "route": "/journeys"
+  },
+  {
+    "file": "apps/web/src/app/knowledge-graph/page.tsx",
+    "pattern": "/knowledge-graph",
+    "route": "/knowledge-graph"
+  },
+  {
+    "file": "apps/web/src/app/locations/[slug]/page.tsx",
+    "pattern": "/locations/[slug]",
+    "route": "/locations/mount-olympus"
+  },
+  {
+    "file": "apps/web/src/app/locations/page.tsx",
+    "pattern": "/locations",
+    "route": "/locations"
+  },
+  {
+    "file": "apps/web/src/app/oracle/page.tsx",
+    "pattern": "/oracle",
+    "route": "/oracle"
+  },
+  {
+    "file": "apps/web/src/app/page.tsx",
+    "pattern": "/",
+    "route": "/"
+  },
+  {
+    "file": "apps/web/src/app/pantheons/[slug]/page.tsx",
+    "pattern": "/pantheons/[slug]",
+    "route": "/pantheons/greek"
+  },
+  {
+    "file": "apps/web/src/app/pantheons/[slug]/worksheet/page.tsx",
+    "pattern": "/pantheons/[slug]/worksheet",
+    "route": "/pantheons/greek/worksheet"
+  },
+  {
+    "file": "apps/web/src/app/pantheons/page.tsx",
+    "pattern": "/pantheons",
+    "route": "/pantheons"
+  },
+  {
+    "file": "apps/web/src/app/paths/page.tsx",
+    "pattern": "/paths",
+    "route": "/paths"
+  },
+  {
+    "file": "apps/web/src/app/privacy/page.tsx",
+    "pattern": "/privacy",
+    "route": "/privacy"
+  },
+  {
+    "file": "apps/web/src/app/progress/page.tsx",
+    "pattern": "/progress",
+    "route": "/progress"
+  },
+  {
+    "file": "apps/web/src/app/quiz/page.tsx",
+    "pattern": "/quiz",
+    "route": "/quiz"
+  },
+  {
+    "file": "apps/web/src/app/quiz/personality/page.tsx",
+    "pattern": "/quiz/personality",
+    "route": "/quiz/personality"
+  },
+  {
+    "file": "apps/web/src/app/quiz/quick/page.tsx",
+    "pattern": "/quiz/quick",
+    "route": "/quiz/quick"
+  },
+  {
+    "file": "apps/web/src/app/quiz/relationships/page.tsx",
+    "pattern": "/quiz/relationships",
+    "route": "/quiz/relationships"
+  },
+  {
+    "file": "apps/web/src/app/quiz/result/[result]/page.tsx",
+    "pattern": "/quiz/result/[result]",
+    "route": "/quiz/result/4-of-5"
+  },
+  {
+    "file": "apps/web/src/app/review/page.tsx",
+    "pattern": "/review",
+    "route": "/review"
+  },
+  {
+    "file": "apps/web/src/app/sources/[slug]/page.tsx",
+    "pattern": "/sources/[slug]",
+    "route": "/sources/iliad"
+  },
+  {
+    "file": "apps/web/src/app/sources/page.tsx",
+    "pattern": "/sources",
+    "route": "/sources"
+  },
+  {
+    "file": "apps/web/src/app/stories/[slug]/page.tsx",
+    "pattern": "/stories/[slug]",
+    "route": "/stories/titanomachy"
+  },
+  {
+    "file": "apps/web/src/app/stories/[slug]/read/page.tsx",
+    "pattern": "/stories/[slug]/read",
+    "route": "/stories/titanomachy/read"
+  },
+  {
+    "file": "apps/web/src/app/stories/interactive/[slug]/page.tsx",
+    "pattern": "/stories/interactive/[slug]",
+    "route": "/stories/interactive/judgment-of-paris"
+  },
+  {
+    "file": "apps/web/src/app/stories/interactive/page.tsx",
+    "pattern": "/stories/interactive",
+    "route": "/stories/interactive"
+  },
+  {
+    "file": "apps/web/src/app/stories/page.tsx",
+    "pattern": "/stories",
+    "route": "/stories"
+  },
+  {
+    "file": "apps/web/src/app/stories/ragnarok/cinematic/page.tsx",
+    "pattern": "/stories/ragnarok/cinematic",
+    "route": "/stories/ragnarok/cinematic"
+  },
+  {
+    "file": "apps/web/src/app/stories/titanomachy/cinematic/page.tsx",
+    "pattern": "/stories/titanomachy/cinematic",
+    "route": "/stories/titanomachy/cinematic"
+  },
+  {
+    "file": "apps/web/src/app/study/[slug]/page.tsx",
+    "pattern": "/study/[slug]",
+    "route": "/study/greek-gods"
+  },
+  {
+    "file": "apps/web/src/app/support/page.tsx",
+    "pattern": "/support",
+    "route": "/support"
+  },
+  {
+    "file": "apps/web/src/app/terms/page.tsx",
+    "pattern": "/terms",
+    "route": "/terms"
+  },
+  {
+    "file": "apps/web/src/app/timeline/page.tsx",
+    "pattern": "/timeline",
+    "route": "/timeline"
+  }
+]

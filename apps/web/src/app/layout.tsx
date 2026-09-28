@@ -1,3 +1,4 @@
+import { LearningSaveNotice } from "@/components/progress/LearningSaveNotice";
 import { SkipToContent } from "@/components/accessibility/SkipToContent";
 import { Footer } from "@/components/layout/footer";
 import { GlobalClientAddons } from "@/components/layout/GlobalClientAddons";
@@ -86,6 +87,7 @@ export default async function RootLayout({
                         className="flex-1 scroll-mt-16"
                         tabIndex={-1}
                       >
+                        <LearningSaveNotice />
                         {children}
                       </main>
                       <Footer />

@@ -120,7 +120,7 @@ function Select({
   return (
     <SelectContext.Provider value={selectCtxValue}>
       <ItemRegistryContext.Provider value={itemRegistryValue}>
-        <div data-slot="select" className="relative inline-block">
+        <div data-slot="select" className="relative inline-block max-w-full">
           {children}
         </div>
       </ItemRegistryContext.Provider>
@@ -156,7 +156,7 @@ function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
       aria-label={accessibleLabel}
       data-slot="select-trigger"
       className={cn(
-        "flex h-10 items-center justify-between gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm",
+        "flex h-10 max-w-full items-center justify-between gap-2 rounded-lg border border-border bg-background px-3 py-2 text-sm",
         "shadow-sm transition-all duration-200",
         "placeholder:text-muted-foreground",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",

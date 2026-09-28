@@ -1,0 +1,19 @@
+
+> mythos@1.6.0 lint /Volumes/LizsDisk/mythos
+> turbo lint
+
+• turbo 2.10.12
+
+   • Packages in scope: web
+   • Running lint in 1 packages
+   • Remote caching disabled
+
+web:lint: cache miss, executing 876af4f26e4492d4
+web:lint:
+web:lint: > web@0.1.0 lint /Volumes/LizsDisk/mythos/apps/web
+web:lint: > eslint
+web:lint:
+
+ Tasks:    1 successful, 1 total
+Cached:    0 cached, 1 total
+  Time:    44.001s
