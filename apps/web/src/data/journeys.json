@@ -915,7 +915,7 @@
     "pantheonId": "norse-pantheon",
     "duration": "A cosmic circuit",
     "setting": "otherworld",
-    "imageUrl": "/locations/asgard.webp",
+    "imageUrl": "/journeys/nine-realms.jpg",
     "source": "Poetic Edda and Snorri Sturluson's Prose Edda (13th century)",
     "sourceId": "poetic-edda",
     "waypoints": [
@@ -1012,7 +1012,7 @@
     "pantheonId": "egyptian-pantheon",
     "duration": "The twelve hours of night",
     "setting": "otherworld",
-    "imageUrl": "/locations/hall-of-maat.webp",
+    "imageUrl": "/journeys/duat-night-journey.jpg",
     "source": "Book of the Dead and the New Kingdom underworld books (Amduat, Book of Gates)",
     "sourceId": "book-of-the-dead",
     "waypoints": [

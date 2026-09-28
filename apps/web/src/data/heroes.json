@@ -21,7 +21,7 @@
     ],
     "fate": "The Iliad ends before his death. Later tradition (not Homer) has him killed at Troy by Paris, with Apollo's help; the story of a single vulnerable heel is a still later addition to the myth.",
     "relatedDeityIds": ["athena", "apollo"],
-    "imageUrl": "/heroes/achilles.webp",
+    "imageUrl": "/heroes/achilles.jpg",
     "pronunciation": {
       "ipa": "/əˈkɪliːz/",
       "phonetic": "uh-KIL-eez"
@@ -71,7 +71,7 @@
     ],
     "fate": "Restored to his throne and marriage on Ithaca. A separate, later tradition (the lost epic Telegony, known only through summaries) has him killed by Telegonus, a son he never knew he had by Circe.",
     "relatedDeityIds": ["athena", "poseidon"],
-    "imageUrl": "/heroes/odysseus.webp",
+    "imageUrl": "/heroes/odysseus.jpg",
     "pronunciation": {
       "ipa": "/əˈdɪsiəs/",
       "phonetic": "oh-DIS-ee-us"
@@ -157,7 +157,7 @@
     ],
     "fate": "Died in agony wearing a robe poisoned with the blood of the centaur Nessus; he built his own funeral pyre, and Zeus took him up to Olympus as a god upon his death.",
     "relatedDeityIds": ["zeus", "hera", "prometheus"],
-    "imageUrl": "/heroes/heracles.webp",
+    "imageUrl": "/heroes/heracles.jpg",
     "pronunciation": {
       "ipa": "/ˈhɛrəkliːz/",
       "phonetic": "HERR-uh-kleez"
@@ -250,7 +250,7 @@
     ],
     "fate": "According to Plutarch's Life of Theseus, he was exiled to the island of Skyros in his old age and killed there, thrown from a cliff by King Lycomedes.",
     "relatedDeityIds": ["poseidon"],
-    "imageUrl": "/heroes/theseus.webp",
+    "imageUrl": "/heroes/theseus.jpg",
     "pronunciation": {
       "ipa": "/ˈθiːsiəs/",
       "phonetic": "THEE-see-us"
@@ -363,7 +363,7 @@
     ],
     "fate": "Returned to Sparta with Menelaus after the war; the Odyssey shows them living together in apparent reconciliation. A rival tradition holds she never reached Troy at all.",
     "relatedDeityIds": ["zeus", "aphrodite"],
-    "imageUrl": "/heroes/helen.webp",
+    "imageUrl": "/heroes/helen.jpg",
     "pronunciation": {
       "ipa": "/ˈhɛlən/",
       "phonetic": "HEL-en"
@@ -683,7 +683,7 @@
     ],
     "fate": "Betrayed and killed by Gudrun's brothers, who feared his claim on Brynhild after the deception surrounding her marriage came to light; accounts differ on whether he was killed in the forest or in his bed.",
     "relatedDeityIds": ["odin"],
-    "imageUrl": "/heroes/sigurd.webp",
+    "imageUrl": "/heroes/sigurd.jpg",
     "pronunciation": {
       "ipa": "/ˈsɪɡərd/",
       "phonetic": "SIG-urd"
