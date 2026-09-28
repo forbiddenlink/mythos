@@ -84,7 +84,7 @@ const FEATURED_TRADITIONS: Array<{
 }> = [
   {
     slug: "greek",
-    image: "/deities/athena.jpg",
+    image: "/pantheons/greek.jpg",
     description:
       "The Olympian gods who ruled from Mount Olympus, shaping the fate of mortals and heroes alike.",
   },

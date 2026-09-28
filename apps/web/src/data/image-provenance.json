@@ -396,7 +396,7 @@
       "zurvan": "procedural-plate"
     },
     "hero": {
-      "achilles": "procedural-plate",
+      "achilles": "ai-illustration",
       "aeneas": "procedural-plate",
       "agamemnon": "procedural-plate",
       "ajax": "procedural-plate",
@@ -409,8 +409,8 @@
       "etana": "procedural-plate",
       "fionn-mac-cumhaill": "procedural-plate",
       "hector": "procedural-plate",
-      "helen": "procedural-plate",
-      "heracles": "procedural-plate",
+      "helen": "ai-illustration",
+      "heracles": "ai-illustration",
       "hiawatha": "procedural-plate",
       "hua-mulan": "procedural-plate",
       "ilya-muromets": "procedural-plate",
@@ -422,16 +422,16 @@
       "kupe": "procedural-plate",
       "moremi-ajasoro": "procedural-plate",
       "natsilane": "procedural-plate",
-      "odysseus": "procedural-plate",
+      "odysseus": "ai-illustration",
       "oedipus": "procedural-plate",
       "orpheus": "procedural-plate",
       "patroclus": "procedural-plate",
       "peacemaker": "procedural-plate",
       "penelope": "procedural-plate",
       "rostam": "procedural-plate",
-      "sigurd": "procedural-plate",
+      "sigurd": "ai-illustration",
       "tadodaho": "procedural-plate",
-      "theseus": "procedural-plate",
+      "theseus": "ai-illustration",
       "yamato-takeru": "procedural-plate"
     },
     "creature": {
@@ -804,7 +804,7 @@
       "yomi": "ai-illustration"
     },
     "story": {
-      "abduction-of-persephone": "procedural-plate",
+      "abduction-of-persephone": "ai-illustration",
       "aeneid": "ai-illustration",
       "aino": "procedural-plate",
       "amaterasu-cave": "ai-illustration",
@@ -978,7 +978,7 @@
       "dine-pantheon": "procedural-plate",
       "egyptian-pantheon": "ai-illustration",
       "finnish-pantheon": "procedural-plate",
-      "greek-pantheon": "unsplash-acropolis-gontzou",
+      "greek-pantheon": "ai-illustration",
       "haudenosaunee-pantheon": "procedural-plate",
       "hindu-pantheon": "ai-illustration",
       "hittite-pantheon": "procedural-plate",

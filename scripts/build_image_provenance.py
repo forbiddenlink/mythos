@@ -80,10 +80,7 @@ def tradition_pantheons() -> set[str]:
 # described as anything more specific.
 UNVERIFIED: set[tuple[str, str]] = set()
 
-# Sourced photographs, hotlinked from their host as the host's API terms ask.
-SOURCED = {
-    ("pantheon", "greek-pantheon"): "unsplash-acropolis-gontzou",
-}
+SOURCED: dict[tuple[str, str], str] = {}
 
 GENERATORS = {
     "procedural-plate": {
@@ -150,9 +147,9 @@ def build() -> dict:
             if not (WEB_PUBLIC / path).exists():
                 raise SystemExit(f"{entity_type}:{record['id']} image missing: {url}")
             stem_key = f"{path.parent.as_posix()}/{path.stem}"
-            script = plates.get(stem_key) if path.parent.as_posix() == folder else None
+            script = plates.get(stem_key) if path.parent.as_posix() == folder and path.suffix == ".webp" else None
             pantheon = record["id"] if entity_type == "pantheon" else record.get("pantheonId")
-            if pantheon in traditions:
+            if pantheon in traditions and path.suffix == ".webp":
                 script = TRADITION_SCRIPT
             if (entity_type, record["id"]) in UNVERIFIED:
                 rows[record["id"]] = "unverified"
