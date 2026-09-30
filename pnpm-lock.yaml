@@ -253,10 +253,10 @@ importers:
         specifier: 14.6.7
         version: 14.6.7(@testing-library/dom@10.4.1)
       '@types/d3':
-        specifier: ^7.4.3
+        specifier: 7.4.3
         version: 7.4.3
       '@types/howler':
-        specifier: ^2.2.13
+        specifier: 2.2.13
         version: 2.2.13
       '@types/leaflet':
         specifier: 1.9.22
@@ -271,7 +271,7 @@ importers:
         specifier: 19.2.7
         version: 19.2.7(@types/react@19.2.18)
       '@types/three':
-        specifier: ^0.185.4
+        specifier: 0.185.4
         version: 0.185.4
       '@vitejs/plugin-react':
         specifier: 6.1.1
