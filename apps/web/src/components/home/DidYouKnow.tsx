@@ -168,7 +168,7 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
           </div>
 
           {/* Fact content */}
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentFact.id}
               initial={{ opacity: 0, y: 10 }}
