@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0](https://github.com/forbiddenlink/mythos/compare/v1.6.0...v1.7.0) (2026-09-28)
+
+
+### Features
+
+* atlas overhaul with static rendering, cited Oracle, 26 traditions and a full visual redesign ([#131](https://github.com/forbiddenlink/mythos/issues/131)) ([3f45444](https://github.com/forbiddenlink/mythos/commit/3f45444630cddbff8e953b25d474c64b51b245c9))
+* **content:** replace placeholder plates with bespoke artwork and add local Greek pantheon hero ([#137](https://github.com/forbiddenlink/mythos/issues/137)) ([d6052b4](https://github.com/forbiddenlink/mythos/commit/d6052b4f8e825debec5f9a5e83b377bce7b3af7e))
+
+
+### Bug Fixes
+
+* **analytics:** keep the PostHog rewrite targets absolute ([#129](https://github.com/forbiddenlink/mythos/issues/129)) ([42ada26](https://github.com/forbiddenlink/mythos/commit/42ada2685ba563ef0a9ead081940e4a849391f66))
+* **atlas:** declutter overlapping tradition labels on the star map ([#133](https://github.com/forbiddenlink/mythos/issues/133)) ([1df31ac](https://github.com/forbiddenlink/mythos/commit/1df31ac62d47f75fb9f529e3689f0dcf45245e2a))
+* **content:** correct typo in Hachiman description ([#135](https://github.com/forbiddenlink/mythos/issues/135)) ([bb729f2](https://github.com/forbiddenlink/mythos/commit/bb729f254a86791350817040ed3ea425aab8666f))
+* **content:** remove em dashes from user-facing copy ([#136](https://github.com/forbiddenlink/mythos/issues/136)) ([0029fef](https://github.com/forbiddenlink/mythos/commit/0029fefde56901fc843fab8187e1a083e0127dcb))
+* preserve catalog navigation and recover failed learning actions ([#140](https://github.com/forbiddenlink/mythos/issues/140)) ([a3f125b](https://github.com/forbiddenlink/mythos/commit/a3f125bb41f2ffde05e7c40d2cc5364d8983b3bd))
+* **security:** close cost-abuse gap on quiz generation and narrow CSP ([#134](https://github.com/forbiddenlink/mythos/issues/134)) ([c560f18](https://github.com/forbiddenlink/mythos/commit/c560f18be270bd981f56381a60bfbd4b4f127994))
+* **sentry:** drop duplicate middleware transactions ([#132](https://github.com/forbiddenlink/mythos/issues/132)) ([9e0efeb](https://github.com/forbiddenlink/mythos/commit/9e0efeb189cd32fdaeebf7ec54471b32e0667284))
+
 ## [1.6.0](https://github.com/forbiddenlink/mythos/compare/v1.5.0...v1.6.0) (2026-09-25)
 
 
