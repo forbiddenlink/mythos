@@ -1,4 +1,41 @@
 {
+  "creature": {
+    "amaru": {
+      "path": "/creatures/amaru.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Amaru. The great serpent of Andean tradition, linked with water, the underworld, and upheaval; in the Huarochirí stories Huallallo Carhuincho sends an amaru against Pariacaca, who turns it to. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "apaosha": {
+      "path": "/creatures/apaosha.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Apaosha. The daeva of drought in the Avesta, who in the shape of a black horse 'stamped with brands of terror' fights the star Tishtrya at the edge of the cosmic sea to keep the rains from falling. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "azhi-dahaka": {
+      "path": "/creatures/azhi-dahaka.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Azhi Dahaka. The three-headed, three-mouthed, six-eyed dragon of the Avesta, created by Angra Mainyu to destroy the good world and smitten by the hero Thraetaona; retold in the Shahnameh as Zahhak, the. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "baba-yaga": {
+      "path": "/creatures/baba-yaga.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Baba Yaga. An ambiguous witch-like figure of East Slavic fairy tales who lives in a hut on chicken legs deep in the forest, and who can be either a dangerous child-eating threat or a difficult but. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "cihuateteo": {
+      "path": "/creatures/cihuateteo.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Cihuateteo. The spirits of women who died in childbirth, honoured by the Mexica as warriors who accompanied the sun from noon to sunset, and feared because on certain days of the calendar they. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Aztec, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    }
+  },
   "deity": {
     "ahti": {
       "path": "/deities/ahti.webp",
@@ -91,6 +128,13 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Athtart (Astarte). A warrior and hunting goddess who, with Anat, holds Baal back from attacking Yam's messengers and then urges him to finish Yam off; better known in later centuries as the Phoenician Astarte. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "atlas": {
+      "path": "/deities/atlas.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Atlas. The Titan son of Iapetus whom Zeus set to hold up the sky at the western edge of the world, near the garden of the Hesperides. Brother of Prometheus and father of Maia and Calypso, he. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "baal": {
       "path": "/deities/baal.webp",
       "model": "flux_2_max",
@@ -111,6 +155,27 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Bari Gongju. The seventh daughter of a king, thrown away at birth, who alone agrees to journey to the Western Heaven for the water of life when her parents are dying; she returns in time to revive them. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "bes": {
+      "path": "/deities/bes.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Bes. A dwarf-bodied, lion-maned household protector god who warded off evil spirits, nightmares, and dangers to mothers and children. Unlike most Egyptian deities, Bes was typically shown facing. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Egyptian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "bragi": {
+      "path": "/deities/bragi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Bragi. God of poetry and eloquence, husband of Idun. In Snorri Sturluson's Prose Edda, Bragi is the wise, gifted speaker who narrates several of the framing myths to the sea-giant Aegir, and. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Norse, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "chernobog": {
+      "path": "/deities/chernobog.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Chernobog. A \"black god\" of misfortune mentioned in exactly one medieval source, a Christian chronicler's brief and moralizing account of a feast toast; the paired \"white god\" Belobog appears only in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "cronus": {
       "path": "/deities/cronus.webp",
@@ -189,6 +254,13 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ganga. The sacred river Ganges as a goddess, who descended from heaven to purify the ashes of King Sagara's sons and was caught in Shiva's matted hair to break the force of her fall. Bathing in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "geb": {
+      "path": "/deities/geb.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Geb. God of the earth, son of Shu, consort of Nut, and father of Osiris, Isis, Set, and Nephthys. Geb is depicted reclining beneath the arched figure of Nut, and stands within the Ennead's line. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Egyptian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "habaek": {
       "path": "/deities/habaek.webp",
       "model": "flux_2_max",
@@ -224,6 +296,13 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Helios. The Greek sun god Helios as a radiant beardless young man with a crown of sun rays, driving a golden four-horse chariot across the sky above the sea at dawn, wearing a short chiton and a flowing crimson cloak. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "hodr": {
+      "path": "/deities/hodr.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Höðr. A blind son of Odin who, in Snorri Sturluson's telling, unknowingly kills his brother Baldr with a mistletoe dart at Loki's instigation. Saxo Grammaticus preserves a very different. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Norse, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "huallallo-carhuincho": {
       "path": "/deities/huallallo-carhuincho.webp",
       "model": "flux_2_max",
@@ -244,6 +323,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Hwanung. The son of the Lord of Heaven who descends to Mount Taebaek with three thousand followers and the ministers of wind, rain, and clouds, founds the 'City of God' beneath the sacred altar. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "idun": {
+      "path": "/deities/idun.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Iðunn. Keeper of the apples that preserve the gods' youth. Iðunn's abduction by the giant Thjazi, and Loki's mission to rescue her, form one of the pivotal episodes of Norse myth explaining how. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Norse, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "illapa": {
       "path": "/deities/illapa.webp",
@@ -300,6 +386,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Kartikeya. The god of war and commander of the gods' army, son of Shiva, born to destroy the demon Taraka. Raised by the six Krittikas (the Pleiades), he is often shown with six faces; in the Tamil. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "khors": {
+      "path": "/deities/khors.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Khors. The ancient Slavic sun god Khors as a vigorous clean-shaven warrior with short hair, in a belted linen tunic embroidered with solar discs, holding a round shield painted with a red sun and standing at dawn before a wooden pagan idol on a hill; no halo, no saintly pose. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "kothar-wa-khasis": {
       "path": "/deities/kothar-wa-khasis.webp",
@@ -378,6 +471,13 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Medb. Legendary queen of Connacht and central figure of the Táin Bó Cúailnge, whose war to seize the bull Donn Cúailnge drives the great epic of the Ulster Cycle. Medb is presented in the. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Celtic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "melinoe": {
+      "path": "/deities/melinoe.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Melinoë. A chthonic goddess known from a single ancient text, Orphic Hymn 71: a saffron-veiled daughter of Persephone, fathered by Zeus in the guise of Plouton, who sends apparitions and night. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "mictecacihuatl": {
       "path": "/deities/mictecacihuatl.webp",
       "model": "flux_2_max",
@@ -419,6 +519,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Mot. Death personified, whose throat reaches to the heavens and whose lip touches the earth, who swallows Baal and is himself destroyed by Anat and then fights Baal to a standstill. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "nemesis": {
+      "path": "/deities/nemesis.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Nemesis. The daughter of Night whom Hesiod calls a bane to mortals: the indignation that answers excess and undeserved good fortune. She had a Classical temple at Rhamnous in Attica, and a lost. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "ninhursag": {
       "path": "/deities/ninhursag.webp",
@@ -476,6 +583,20 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Perun. The thunder god of the Kievan Rus', sworn by in treaties and installed at the head of Prince Vladimir's official pantheon in 980 before Vladimir himself had his idol destroyed in 988. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "plutus": {
+      "path": "/deities/plutus.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Plutus. The god of wealth, son of Demeter and the hero Iasion, born in a thrice-plowed field on Crete. Originally the wealth of the harvest, he became the personification of riches in general, most. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "ptah": {
+      "path": "/deities/ptah.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ptah. Creator god and patron of craftsmen, head of the Memphite Triad. The Memphite Theology credits Ptah with creating the world and the other gods through the thought of his heart and the. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Egyptian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "purusha": {
       "path": "/deities/purusha.webp",
       "model": "flux_2_max",
@@ -518,6 +639,20 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Šauška. Hurrian goddess of love and war and sister of the storm-god Teššub, who in the Kumarbi cycle tries to overcome her brother's monstrous enemies by seduction. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "shu": {
+      "path": "/deities/shu.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Shu. God of the air and dry space, a member of the Ennead. Shu was produced by Atum and, with his twin sister and consort Tefnut, fathered Geb (Earth) and Nut (Sky), whom he is famously depicted. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Egyptian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "simargl": {
+      "path": "/deities/simargl.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Simargl. The most obscure of Vladimir's 980 idols; his name almost certainly derives from the Iranian mythic bird-dog Simurgh, but no medieval Slavic source explains what function, if any, he served. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "sita": {
       "path": "/deities/sita.webp",
       "model": "flux_2_max",
@@ -546,6 +681,13 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Sraosha. The yazata of 'hearkening' to the divine word, who guards the world by night against the demons, protects the soul for three nights after death, and judges it at the Chinvat Bridge with. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "stribog": {
+      "path": "/deities/stribog.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Stribog. A wind god among Vladimir's 980 idols, remembered in the Tale of Igor's Campaign as the ancestor of the winds that blow arrows against the poem's defeated Rus' army. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "sun-goddess-of-arinna": {
       "path": "/deities/sun-goddess-of-arinna.webp",
       "model": "flux_2_max",
@@ -560,12 +702,26 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Sun-goddess of the Earth. The Hittite ruler of the underworld, the 'Dark Earth', identified with the Hurrian Allani and the Mesopotamian Ereškigal: the sun as it travels beneath the earth at night. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "svantevit": {
+      "path": "/deities/svantevit.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Svantevit. The four-faced war and oracle god of the Rani on the island of Rügen, whose temple at Cape Arkona was the last great pagan shrine on the Baltic coast until the Danes destroyed it in 1168. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "svarog": {
       "path": "/deities/svarog.webp",
       "model": "flux_2_max",
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Svarog. A sky and fire god known only from a single learned chronicle gloss that equates him with the Greek smith-god Hephaestus and calls the sun-god Dazhbog his son. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands. Ancient Slavic smith-sky god Svarog as a stocky, broad-shouldered, middle-aged man with short dark hair and a heavy dark beard, leather smith apron over a embroidered linen tunic, holding a hammer and tongs beside a blazing forge, with a carved wooden idol behind him. Not saintly, no halo, no long flowing hair."
+    },
+    "svarozhich": {
+      "path": "/deities/svarozhich.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Svarozhich. The chief god of the West Slavic Redarii, worshipped at a temple in Riedegost and consulted before war through the movements of a sacred horse and lots, known from a German bishop's. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "tapio": {
       "path": "/deities/tapio.webp",
@@ -588,12 +744,33 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Telipinu. A Hattian god of farming and growth, son of the Storm-god, whose angry departure makes the whole land barren until a bee finds him asleep and a ritual soothes his rage. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "tethys": {
+      "path": "/deities/tethys.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Tethys. A Titaness, daughter of Gaia and Uranus and wife of her brother Oceanus. Hesiod makes her mother of the world's rivers and of the three thousand Oceanid nymphs; in the Iliad Hera calls her. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "thanatos": {
+      "path": "/deities/thanatos.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Thanatos. Death personified, son of Night and twin brother of Sleep (Hypnos). Hesiod gives him a heart of iron, hated even by the gods; in the Iliad the twins carry the fallen Sarpedon home to Lycia. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "tishtrya": {
       "path": "/deities/tishtrya.webp",
       "model": "flux_2_max",
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Tishtrya. The star Sirius as a rain-bringing yazata, who in the Tir Yasht descends to the cosmic sea as a white horse, is at first overcome by the black horse of the drought demon Apaosha, and then. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "triglav": {
+      "path": "/deities/triglav.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Triglav. The three-headed chief god of pagan Szczecin, whose temple and golden idol were destroyed during Bishop Otto of Bamberg's Christianizing mission of 1124-1128. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "tuoni": {
       "path": "/deities/tuoni.webp",
