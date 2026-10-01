@@ -40,7 +40,7 @@
       "ahura-mazda": "ai-illustration",
       "aine": "ai-illustration",
       "aje": "ai-illustration",
-      "alalu": "procedural-plate",
+      "alalu": "ai-illustration",
       "amaterasu": "ai-illustration",
       "ame-no-uzume": "ai-illustration",
       "amun": "ai-illustration",
@@ -58,13 +58,13 @@
       "ares": "ai-illustration",
       "artemis": "ai-illustration",
       "asase-yaa": "procedural-plate",
-      "asclepius": "procedural-plate",
+      "asclepius": "ai-illustration",
       "ashvins": "procedural-plate",
-      "atar": "procedural-plate",
+      "atar": "ai-illustration",
       "athena": "ai-illustration",
       "athirat": "ai-illustration",
-      "athtar": "procedural-plate",
-      "athtart": "procedural-plate",
+      "athtar": "ai-illustration",
+      "athtart": "ai-illustration",
       "atlas": "procedural-plate",
       "baal": "ai-illustration",
       "bacchus": "ai-illustration",
@@ -95,7 +95,7 @@
       "coyolxauhqui": "ai-illustration",
       "coyote": "procedural-plate",
       "cronus": "ai-illustration",
-      "cuniraya-viracocha": "procedural-plate",
+      "cuniraya-viracocha": "ai-illustration",
       "dagda": "ai-illustration",
       "daikokuten": "ai-illustration",
       "dangun": "ai-illustration",
@@ -108,7 +108,7 @@
       "dionysus": "ai-illustration",
       "dioscuri": "procedural-plate",
       "djilaqons": "procedural-plate",
-      "dumuzi": "procedural-plate",
+      "dumuzi": "ai-illustration",
       "durga": "ai-illustration",
       "earth-holder": "procedural-plate",
       "ebisu": "ai-illustration",
@@ -140,10 +140,10 @@
       "goibniu": "ai-illustration",
       "guan-yu": "ai-illustration",
       "guanyin": "ai-illustration",
-      "habaek": "procedural-plate",
+      "habaek": "ai-illustration",
       "hachiman": "ai-illustration",
       "hades": "ai-illustration",
-      "haemosu": "procedural-plate",
+      "haemosu": "ai-illustration",
       "hannahanna": "ai-illustration",
       "hanuman": "ai-illustration",
       "hathor": "ai-illustration",
@@ -170,7 +170,7 @@
       "hwanung": "ai-illustration",
       "ibeji": "ai-illustration",
       "idun": "procedural-plate",
-      "illapa": "procedural-plate",
+      "illapa": "ai-illustration",
       "ilmarinen": "ai-illustration",
       "ilmatar": "ai-illustration",
       "inanna": "ai-illustration",
@@ -191,7 +191,7 @@
       "jupiter": "ai-illustration",
       "kagutsuchi": "ai-illustration",
       "kali": "ai-illustration",
-      "kamrusepa": "procedural-plate",
+      "kamrusepa": "ai-illustration",
       "kartikeya": "ai-illustration",
       "khors": "procedural-plate",
       "kinich-ahau": "ai-illustration",
@@ -202,19 +202,19 @@
       "kuniya": "procedural-plate",
       "lakshmi": "ai-illustration",
       "lei-gong": "ai-illustration",
-      "lemminkainen": "procedural-plate",
+      "lemminkainen": "ai-illustration",
       "liru": "procedural-plate",
       "loki": "ai-illustration",
-      "longwang": "procedural-plate",
+      "longwang": "ai-illustration",
       "louhi": "ai-illustration",
       "lug": "ai-illustration",
       "maat": "ai-illustration",
       "malina": "procedural-plate",
       "mama-killa": "ai-illustration",
-      "mama-ocllo": "procedural-plate",
+      "mama-ocllo": "ai-illustration",
       "mama-qucha": "procedural-plate",
       "manannan-mac-lir": "ai-illustration",
-      "manco-capac": "procedural-plate",
+      "manco-capac": "ai-illustration",
       "marduk": "ai-illustration",
       "mars": "ai-illustration",
       "master-carpenter": "procedural-plate",
@@ -231,7 +231,7 @@
       "minerva": "ai-illustration",
       "mireuk": "ai-illustration",
       "mithra": "ai-illustration",
-      "mokosh": "procedural-plate",
+      "mokosh": "ai-illustration",
       "monster-slayer": "procedural-plate",
       "morrigan": "ai-illustration",
       "mot": "ai-illustration",
@@ -291,7 +291,7 @@
       "rainbow-serpent": "procedural-plate",
       "rama": "ai-illustration",
       "rangi": "ai-illustration",
-      "ravana": "procedural-plate",
+      "ravana": "ai-illustration",
       "raven": "procedural-plate",
       "rongo": "ai-illustration",
       "ryujin": "ai-illustration",
@@ -306,7 +306,7 @@
       "shamash": "ai-illustration",
       "shango": "ai-illustration",
       "shapash": "ai-illustration",
-      "shaushka": "procedural-plate",
+      "shaushka": "ai-illustration",
       "shiva": "ai-illustration",
       "shopona": "ai-illustration",
       "shu": "procedural-plate",
@@ -324,7 +324,7 @@
       "sraosha": "procedural-plate",
       "stribog": "procedural-plate",
       "sun-goddess-of-arinna": "ai-illustration",
-      "sun-goddess-of-the-earth": "procedural-plate",
+      "sun-goddess-of-the-earth": "ai-illustration",
       "sun-wukong": "ai-illustration",
       "susanoo": "ai-illustration",
       "svantevit": "procedural-plate",
@@ -334,7 +334,7 @@
       "tane": "ai-illustration",
       "tangaroa": "ai-illustration",
       "tano": "procedural-plate",
-      "tapio": "procedural-plate",
+      "tapio": "ai-illustration",
       "tarhunna": "ai-illustration",
       "tawhirimatea": "ai-illustration",
       "telipinu": "ai-illustration",
@@ -345,7 +345,7 @@
       "thoth": "ai-illustration",
       "three-sisters": "procedural-plate",
       "tiamat": "ai-illustration",
-      "tishtrya": "procedural-plate",
+      "tishtrya": "ai-illustration",
       "tlaloc": "ai-illustration",
       "tlaltecuhtli": "ai-illustration",
       "tlazolteotl": "ai-illustration",
@@ -355,7 +355,7 @@
       "tsukuyomi": "ai-illustration",
       "tu": "ai-illustration",
       "tulunigraq": "procedural-plate",
-      "tuoni": "procedural-plate",
+      "tuoni": "ai-illustration",
       "turtle": "procedural-plate",
       "tyr": "ai-illustration",
       "ukko": "ai-illustration",
@@ -385,8 +385,8 @@
       "yama": "procedural-plate",
       "yemoja": "ai-illustration",
       "yima": "procedural-plate",
-      "ymir": "procedural-plate",
-      "yuhwa": "procedural-plate",
+      "ymir": "ai-illustration",
+      "yuhwa": "ai-illustration",
       "yum-kaax": "ai-illustration",
       "zao-jun": "ai-illustration",
       "zeus": "ai-illustration",
@@ -1010,6 +1010,10 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "alalu": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "amun": {
         "model": "flux_2_max",
         "date": "2026-10-01"
@@ -1026,7 +1030,23 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "asclepius": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "atar": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "athirat": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "athtar": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "athtart": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1046,7 +1066,15 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "cuniraya-viracocha": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "dangun": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "dumuzi": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1063,6 +1091,14 @@
         "date": "2026-10-01"
       },
       "ganga": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "habaek": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "haemosu": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1086,6 +1122,10 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "illapa": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "ilmarinen": {
         "model": "flux_2_max",
         "date": "2026-10-01"
@@ -1106,6 +1146,10 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "kamrusepa": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "kartikeya": {
         "model": "flux_2_max",
         "date": "2026-10-01"
@@ -1118,7 +1162,15 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "lemminkainen": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "loki": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "longwang": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1127,6 +1179,14 @@
         "date": "2026-10-01"
       },
       "mama-killa": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mama-ocllo": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "manco-capac": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1143,6 +1203,10 @@
         "date": "2026-10-01"
       },
       "mithra": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mokosh": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1174,7 +1238,15 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "ravana": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "shapash": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "shaushka": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1186,11 +1258,27 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "sun-goddess-of-the-earth": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "tapio": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "tarhunna": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
       "telipinu": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "tishtrya": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "tuoni": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1215,6 +1303,14 @@
         "date": "2026-10-01"
       },
       "yam": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ymir": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "yuhwa": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
