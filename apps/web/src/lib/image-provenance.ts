@@ -95,10 +95,39 @@ export function getIllustrativeImageNote(
   return { kind: image.kind, label: image.label };
 }
 
+/** "a deity", "an island": picks the article from the noun's first letter. */
+function withArticle(noun: string): string {
+  return `${/^[aeiou]/i.test(noun) ? "an" : "a"} ${noun}`;
+}
+
+/** "Greek Pantheon" reads better as "the Greek Pantheon"; a bare culture name does not. */
+function withThe(tradition: string): string {
+  return /^the\s/i.test(tradition) ||
+    !/(pantheon|tradition|traditions|mythology)\b/i.test(tradition)
+    ? tradition
+    : `the ${tradition}`;
+}
+
+/** Lowercase noun for an entity type or catalog subtype ("sacred_site" -> "sacred site"). */
+function nounFor(type: string | undefined, fallback: string): string {
+  const noun = (type ?? "").replace(/[_-]/g, " ").trim().toLowerCase();
+  // "other" and "tradition" describe the catalog row, not the thing pictured.
+  return noun && noun !== "other" ? noun : fallback;
+}
+
 /**
  * Generate accessible descriptive alt text for an entity image.
- * Uses "Illustration of {name}, {tradition} {type}" for AI images
- * and "Name plate for {name}" for procedural plates.
+ *
+ * Procedural plates read "Name plate for {name}". AI illustrations are
+ * phrased per entity type so each reads as a sentence fragment:
+ *   deity      "Illustration of Zeus, a deity of the Greek Pantheon"
+ *   hero       "Illustration of Hector, a hero of the Greek Pantheon"
+ *   creature   "Illustration of Cerberus, a creature of the Greek Pantheon"
+ *   location   "Illustration of Delphi, a sacred site of the Greek Pantheon"
+ *   artifact   "Illustration of Mjolnir, a weapon of the Norse Pantheon"
+ *   story      "Illustration of the myth "Title" from the Norse Pantheon"
+ *   pantheon   "Illustration for Greek Pantheon" (its own name is the tradition)
+ * The tradition is optional and its clause is left out when absent.
  */
 export function generateEntityAlt({
   name,
@@ -115,14 +144,18 @@ export function generateEntityAlt({
 }): string {
   const prov =
     entityType && slug ? getImageProvenance(entityType, slug) : undefined;
-  const isProcedural = prov?.kind === "illustration-procedural";
-  if (isProcedural) {
+  if (prov?.kind === "illustration-procedural") {
     return `Name plate for ${name}`;
   }
-  const entityNoun =
-    type || (entityType ? entityType.replace(/_/g, " ") : "figure");
-  if (tradition) {
-    return `Illustration of ${name}, ${tradition} ${entityNoun}`;
+  if (entityType === "pantheon") {
+    return `Illustration for ${name}`;
   }
-  return `Illustration of ${name}, ${entityNoun}`;
+  const origin = tradition ? ` of ${withThe(tradition)}` : "";
+  if (entityType === "story") {
+    return tradition
+      ? `Illustration of the ${nounFor(type, "myth")} "${name}" from ${withThe(tradition)}`
+      : `Illustration of the ${nounFor(type, "myth")} "${name}"`;
+  }
+  const noun = nounFor(type, entityType?.replace(/_/g, " ") ?? "figure");
+  return `Illustration of ${name}, ${withArticle(noun)}${origin}`;
 }
