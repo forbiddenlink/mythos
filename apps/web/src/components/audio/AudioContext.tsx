@@ -36,10 +36,10 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "inuit-pantheon": "/audio/ambient/default.mp3",
   "aboriginal-australian-pantheon": "/audio/ambient/default.mp3",
   "dine-pantheon": "/audio/ambient/default.mp3",
-  "inca-pantheon": "/audio/ambient/aztec-ambiance.mp3",
-  "persian-pantheon": "/audio/ambient/egyptian-ambiance.mp3",
-  "finnish-pantheon": "/audio/ambient/norse-ambiance.mp3",
-  "korean-pantheon": "/audio/ambient/chinese-ambiance.mp3",
+  "inca-pantheon": "/audio/ambient/default.mp3",
+  "persian-pantheon": "/audio/ambient/default.mp3",
+  "finnish-pantheon": "/audio/ambient/default.mp3",
+  "korean-pantheon": "/audio/ambient/default.mp3",
   default: "/audio/ambient/default.mp3",
 };
 

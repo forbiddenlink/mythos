@@ -28,37 +28,37 @@ Background music that loops based on current pantheon. All tracks should be:
 
 ### Tradition Audio Mapping
 
-The catalog covers 26 traditions (plus broader regional categories). Traditions without bespoke compositions map to the closest regional audio track or the neutral fallback:
+The catalog covers 26 traditions (plus broader regional categories). Traditions without a bespoke composition use the neutral fallback. A tradition is never given another culture's music. Mesopotamian and Mesoamerican keep their older regional pairings:
 
-| Tradition                                                | Ambient Track           | Mapping Notes                   |
-| :------------------------------------------------------- | :---------------------- | :------------------------------ |
-| Greek (`greek-pantheon`)                                 | `greek-ambiance.mp3`    | Dedicated track                 |
-| Roman (`roman-pantheon`)                                 | `roman-ambiance.mp3`    | Dedicated track                 |
-| Norse (`norse-pantheon`)                                 | `norse-ambiance.mp3`    | Dedicated track                 |
-| Egyptian (`egyptian-pantheon`)                           | `egyptian-ambiance.mp3` | Dedicated track                 |
-| Hindu (`hindu-pantheon`)                                 | `hindu-ambiance.mp3`    | Dedicated track                 |
-| Japanese (`japanese-pantheon`)                           | `japanese-ambiance.mp3` | Dedicated track                 |
-| Celtic (`celtic-pantheon`)                               | `celtic-ambiance.mp3`   | Dedicated track                 |
-| Aztec (`aztec-pantheon`)                                 | `aztec-ambiance.mp3`    | Dedicated track                 |
-| Chinese (`chinese-pantheon`)                             | `chinese-ambiance.mp3`  | Dedicated track                 |
-| Mesopotamian (`mesopotamian-pantheon`)                   | `egyptian-ambiance.mp3` | Regional Near Eastern pairing   |
-| Mesoamerican (`mesoamerican-pantheon`)                   | `aztec-ambiance.mp3`    | Regional Mesoamerican pairing   |
-| Inca (`inca-pantheon`)                                   | `aztec-ambiance.mp3`    | Andean/Americas pairing         |
-| Persian (`persian-pantheon`)                             | `egyptian-ambiance.mp3` | Ancient Near Eastern pairing    |
-| Finnish (`finnish-pantheon`)                             | `norse-ambiance.mp3`    | Fenno-Scandian regional pairing |
-| Korean (`korean-pantheon`)                               | `chinese-ambiance.mp3`  | East Asian regional pairing     |
-| African (`african-pantheon`)                             | `default.mp3`           | Standard neutral atmosphere     |
-| Yoruba (`yoruba-pantheon`)                               | `default.mp3`           | Standard neutral atmosphere     |
-| Akan (`akan-pantheon`)                                   | `default.mp3`           | Standard neutral atmosphere     |
-| Polynesian (`polynesian-pantheon`)                       | `default.mp3`           | Standard neutral atmosphere     |
-| Slavic (`slavic-pantheon`)                               | `default.mp3`           | Standard neutral atmosphere     |
-| Haudenosaunee (`haudenosaunee-pantheon`)                 | `default.mp3`           | Standard neutral atmosphere     |
-| Tlingit and Haida (`tlingit-haida-pantheon`)             | `default.mp3`           | Standard neutral atmosphere     |
-| Hittite (`hittite-pantheon`)                             | `default.mp3`           | Standard neutral atmosphere     |
-| Canaanite (`canaanite-pantheon`)                         | `default.mp3`           | Standard neutral atmosphere     |
-| Inuit (`inuit-pantheon`)                                 | `default.mp3`           | Standard neutral atmosphere     |
-| Aboriginal Australian (`aboriginal-australian-pantheon`) | `default.mp3`           | Standard neutral atmosphere     |
-| Dine (`dine-pantheon`)                                   | `default.mp3`           | Standard neutral atmosphere     |
+| Tradition                                                | Ambient Track           | Mapping Notes                 |
+| :------------------------------------------------------- | :---------------------- | :---------------------------- |
+| Greek (`greek-pantheon`)                                 | `greek-ambiance.mp3`    | Dedicated track               |
+| Roman (`roman-pantheon`)                                 | `roman-ambiance.mp3`    | Dedicated track               |
+| Norse (`norse-pantheon`)                                 | `norse-ambiance.mp3`    | Dedicated track               |
+| Egyptian (`egyptian-pantheon`)                           | `egyptian-ambiance.mp3` | Dedicated track               |
+| Hindu (`hindu-pantheon`)                                 | `hindu-ambiance.mp3`    | Dedicated track               |
+| Japanese (`japanese-pantheon`)                           | `japanese-ambiance.mp3` | Dedicated track               |
+| Celtic (`celtic-pantheon`)                               | `celtic-ambiance.mp3`   | Dedicated track               |
+| Aztec (`aztec-pantheon`)                                 | `aztec-ambiance.mp3`    | Dedicated track               |
+| Chinese (`chinese-pantheon`)                             | `chinese-ambiance.mp3`  | Dedicated track               |
+| Mesopotamian (`mesopotamian-pantheon`)                   | `egyptian-ambiance.mp3` | Regional Near Eastern pairing |
+| Mesoamerican (`mesoamerican-pantheon`)                   | `aztec-ambiance.mp3`    | Regional Mesoamerican pairing |
+| Inca (`inca-pantheon`)                                   | `default.mp3`           | Neutral fallback              |
+| Persian (`persian-pantheon`)                             | `default.mp3`           | Neutral fallback              |
+| Finnish (`finnish-pantheon`)                             | `default.mp3`           | Neutral fallback              |
+| Korean (`korean-pantheon`)                               | `default.mp3`           | Neutral fallback              |
+| African (`african-pantheon`)                             | `default.mp3`           | Standard neutral atmosphere   |
+| Yoruba (`yoruba-pantheon`)                               | `default.mp3`           | Standard neutral atmosphere   |
+| Akan (`akan-pantheon`)                                   | `default.mp3`           | Standard neutral atmosphere   |
+| Polynesian (`polynesian-pantheon`)                       | `default.mp3`           | Standard neutral atmosphere   |
+| Slavic (`slavic-pantheon`)                               | `default.mp3`           | Standard neutral atmosphere   |
+| Haudenosaunee (`haudenosaunee-pantheon`)                 | `default.mp3`           | Standard neutral atmosphere   |
+| Tlingit and Haida (`tlingit-haida-pantheon`)             | `default.mp3`           | Standard neutral atmosphere   |
+| Hittite (`hittite-pantheon`)                             | `default.mp3`           | Standard neutral atmosphere   |
+| Canaanite (`canaanite-pantheon`)                         | `default.mp3`           | Standard neutral atmosphere   |
+| Inuit (`inuit-pantheon`)                                 | `default.mp3`           | Standard neutral atmosphere   |
+| Aboriginal Australian (`aboriginal-australian-pantheon`) | `default.mp3`           | Standard neutral atmosphere   |
+| Dine (`dine-pantheon`)                                   | `default.mp3`           | Standard neutral atmosphere   |
 
 ### Deity Effects (`/effects/`)
 
