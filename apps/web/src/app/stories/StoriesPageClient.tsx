@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import {
   EmptyResults,
@@ -212,6 +213,7 @@ export function StoriesPageClient({
         </FilterToolbar>
 
         <div className="pt-8">
+          <CatalogImageNotice className="mb-4" />
           {displayStories.length > 0 ? (
             <PaginatedStoryGrid
               stories={displayStories}

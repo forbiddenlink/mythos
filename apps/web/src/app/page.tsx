@@ -23,6 +23,7 @@ import storiesData from "@/data/stories.json";
 import creaturesData from "@/data/creatures.json";
 import artifactsData from "@/data/artifacts.json";
 import locationsData from "@/data/locations.json";
+import { getImageProvenance } from "@/lib/image-provenance";
 
 // Computed on the server (this is a Server Component). Reading the catalog
 // here keeps it OUT of the client bundle: only the small derived values below
@@ -54,6 +55,7 @@ const pantheonShortName = (pantheonId: string) =>
     ?.name.replace(/ Pantheon$/, "") ?? pantheonId.replace(/-pantheon$/, "");
 
 // Portraits for the hero mosaic: well-known figures from six traditions.
+// Strictly enforce illustration-ai provenance so procedural plates never appear.
 const HERO_FIGURES: HeroFigure[] = [
   "zeus",
   "isis",
@@ -63,16 +65,17 @@ const HERO_FIGURES: HeroFigure[] = [
   "amaterasu",
 ].flatMap((slug) => {
   const deity = deities.find((d) => d.slug === slug);
-  return deity?.imageUrl
-    ? [
-        {
-          name: deity.name,
-          slug: deity.slug,
-          imageUrl: deity.imageUrl,
-          tradition: pantheonShortName(deity.pantheonId),
-        },
-      ]
-    : [];
+  if (!deity?.imageUrl) return [];
+  const prov = getImageProvenance("deity", deity.slug);
+  if (prov?.kind !== "illustration-ai") return [];
+  return [
+    {
+      name: deity.name,
+      slug: deity.slug,
+      imageUrl: deity.imageUrl,
+      tradition: pantheonShortName(deity.pantheonId),
+    },
+  ];
 });
 
 // Featured traditions, each with a curated one-line pitch and a local image
@@ -118,6 +121,8 @@ const TRADITIONS: FeaturedTradition[] = FEATURED_TRADITIONS.flatMap(
   (featured) => {
     const pantheon = getPantheons().find((p) => p.slug === featured.slug);
     if (!pantheon) return [];
+    const prov = getImageProvenance("pantheon", pantheon.slug);
+    if (prov?.kind !== "illustration-ai") return [];
     return [
       {
         name: pantheon.name,

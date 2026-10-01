@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import {
   ChipRow,
@@ -160,6 +161,7 @@ export function HeroesPageClient({
       </Container>
 
       <Container className="pt-6 pb-12">
+        <CatalogImageNotice className="mb-4" />
         {filteredHeroes.length === 0 ? (
           <EmptyResults
             title="No heroes found"

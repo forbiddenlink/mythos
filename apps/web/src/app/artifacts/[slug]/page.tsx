@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getIllustrativeImageNote } from "@/lib/image-provenance";
+import {
+  generateEntityAlt,
+  getIllustrativeImageNote,
+} from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import artifacts from "@/data/artifacts.json";
 import deitiesData from "@/data/deities.json";
@@ -247,7 +250,16 @@ export default async function ArtifactPage({ params }: PageProps) {
             imageAspect="square"
             image={
               artifact.imageUrl
-                ? { src: artifact.imageUrl, alt: artifact.name }
+                ? {
+                    src: artifact.imageUrl,
+                    alt: generateEntityAlt({
+                      name: artifact.name,
+                      tradition: pantheon?.name,
+                      type: artifact.type || "artifact",
+                      entityType: "artifact",
+                      slug: artifact.slug,
+                    }),
+                  }
                 : null
             }
             imageCaption={

@@ -47,7 +47,10 @@ import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import stories from "@/data/stories.json";
 import { formatPantheonLabel } from "@/lib/deity-page";
-import { getIllustrativeImageNote } from "@/lib/image-provenance";
+import {
+  generateEntityAlt,
+  getIllustrativeImageNote,
+} from "@/lib/image-provenance";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
@@ -315,7 +318,13 @@ export default async function StoryPage({ params }: PageProps) {
               story.imageUrl
                 ? {
                     src: story.imageUrl,
-                    alt: `Illustration for ${story.title}`,
+                    alt: generateEntityAlt({
+                      name: story.title,
+                      tradition: pantheon?.name,
+                      type: "myth",
+                      entityType: "story",
+                      slug: story.slug,
+                    }),
                   }
                 : null
             }

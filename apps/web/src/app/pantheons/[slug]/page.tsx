@@ -36,6 +36,7 @@ import pantheons from "@/data/pantheons.json";
 import { resolveCosmology } from "@/lib/cosmology";
 import { getDeities, getStories } from "@/lib/data/catalog";
 import { hasWorksheet } from "@/lib/data/worksheets";
+import { generateEntityAlt } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
@@ -129,7 +130,7 @@ function catalogPeriod(pantheon: PantheonData): string {
   const { timePeriodStart: start, timePeriodEnd: end } = pantheon;
   if (start !== null) {
     if (end === null) return `From ${era(start)}; end date not recorded`;
-    return `${era(start)} – ${era(end)}`;
+    return `${era(start)} to ${era(end)}`;
   }
   return end !== null ? `Until ${era(end)}` : "Dates not recorded";
 }
@@ -230,7 +231,20 @@ export default async function PantheonPage({ params }: PageProps) {
           <DetailHero
             accentColor={accent}
             imageAspect="landscape"
-            image={cover ? { src: cover, alt: "" } : null}
+            image={
+              cover
+                ? {
+                    src: cover,
+                    alt: generateEntityAlt({
+                      name: pantheon.name,
+                      tradition: pantheon.culture,
+                      type: "tradition",
+                      entityType: "pantheon",
+                      slug: pantheon.slug,
+                    }),
+                  }
+                : null
+            }
             imageFallback={
               <span
                 className="font-serif text-7xl text-gold/70"

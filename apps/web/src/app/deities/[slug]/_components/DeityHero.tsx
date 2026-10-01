@@ -1,6 +1,6 @@
 import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
 import { DetailHero } from "@/components/layout/detail-layout";
-import type { ImageNote } from "@/lib/image-provenance";
+import { generateEntityAlt, type ImageNote } from "@/lib/image-provenance";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { OriginalLanguageName } from "@/components/sources/OriginalLanguageName";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
@@ -24,7 +24,16 @@ export function DeityHero({
   imageNote?: ImageNote;
 }) {
   const image = deity.imageUrl
-    ? { src: deity.imageUrl, alt: deity.name }
+    ? {
+        src: deity.imageUrl,
+        alt: generateEntityAlt({
+          name: deity.name,
+          tradition: traditionLabel,
+          type: "deity",
+          entityType: "deity",
+          slug: deity.slug,
+        }),
+      }
     : museumPortrait?.imageUrl
       ? {
           src: museumPortrait.imageUrl,

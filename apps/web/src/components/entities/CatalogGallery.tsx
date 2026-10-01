@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import Link from "next/link";
 import { LayoutGrid, Table } from "lucide-react";
+import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import {
   EntityBadge,
   EntityCard,
@@ -203,6 +204,7 @@ export function CatalogGallery({
       </FilterToolbar>
 
       <div className="pt-8">
+        <CatalogImageNotice className="mb-4" />
         {filtered.length === 0 ? (
           <EmptyResults
             title={`No ${noun} found`}

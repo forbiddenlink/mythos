@@ -94,3 +94,35 @@ export function getIllustrativeImageNote(
   if (!image || !isIllustrativeImage(image)) return undefined;
   return { kind: image.kind, label: image.label };
 }
+
+/**
+ * Generate accessible descriptive alt text for an entity image.
+ * Uses "Illustration of {name}, {tradition} {type}" for AI images
+ * and "Name plate for {name}" for procedural plates.
+ */
+export function generateEntityAlt({
+  name,
+  tradition,
+  type,
+  entityType,
+  slug,
+}: {
+  name: string;
+  tradition?: string;
+  type?: string;
+  entityType?: ImageEntityType;
+  slug?: string;
+}): string {
+  const prov =
+    entityType && slug ? getImageProvenance(entityType, slug) : undefined;
+  const isProcedural = prov?.kind === "illustration-procedural";
+  if (isProcedural) {
+    return `Name plate for ${name}`;
+  }
+  const entityNoun =
+    type || (entityType ? entityType.replace(/_/g, " ") : "figure");
+  if (tradition) {
+    return `Illustration of ${name}, ${tradition} ${entityNoun}`;
+  }
+  return `Illustration of ${name}, ${entityNoun}`;
+}

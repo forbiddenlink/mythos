@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
@@ -12,17 +13,25 @@ import {
   getStories,
   getTraditionCount,
 } from "@/lib/data/catalog";
+import { getImageProvenance } from "@/lib/image-provenance";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { shortRegionName } from "@/lib/tradition-name";
 
 const STAR_CHART_SLUGS = ["zeus", "odin", "ra", "athena", "thor"];
 
-/** The catalog cover, or the tradition's leading portrait when there is none. */
+/** The catalog cover, or the tradition's leading portrait when there is none. Prefers illustrated deities. */
 function coverImage(pantheonId: string, imageUrl?: string | null) {
   if (imageUrl) return imageUrl;
   const lead = getDeities()
     .filter((d) => d.pantheonId === pantheonId && d.imageUrl)
-    .sort((a, b) => (a.importanceRank ?? 99) - (b.importanceRank ?? 99))[0];
+    .sort((a, b) => {
+      const kindA =
+        getImageProvenance("deity", a.slug)?.kind === "illustration-ai" ? 0 : 1;
+      const kindB =
+        getImageProvenance("deity", b.slug)?.kind === "illustration-ai" ? 0 : 1;
+      if (kindA !== kindB) return kindA - kindB;
+      return (a.importanceRank ?? 99) - (b.importanceRank ?? 99);
+    })[0];
   return lead?.imageUrl ?? null;
 }
 
@@ -72,6 +81,7 @@ export default function PantheonsPage() {
       />
 
       <Container className="pt-8 pb-12 md:pt-10">
+        <CatalogImageNotice className="mb-4" />
         <EntityGrid>
           {pantheons.map((pantheon, index) => {
             const deities = deityCounts.get(pantheon.id) ?? 0;

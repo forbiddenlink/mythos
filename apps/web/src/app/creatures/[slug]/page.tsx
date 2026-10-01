@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getIllustrativeImageNote } from "@/lib/image-provenance";
+import {
+  generateEntityAlt,
+  getIllustrativeImageNote,
+} from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import creatures from "@/data/creatures.json";
 import deitiesData from "@/data/deities.json";
@@ -233,7 +236,16 @@ export default async function CreaturePage({ params }: PageProps) {
             imageAspect="square"
             image={
               creature.imageUrl
-                ? { src: creature.imageUrl, alt: creature.name }
+                ? {
+                    src: creature.imageUrl,
+                    alt: generateEntityAlt({
+                      name: creature.name,
+                      tradition: pantheon?.name,
+                      type: "creature",
+                      entityType: "creature",
+                      slug: creature.slug,
+                    }),
+                  }
                 : null
             }
             imageCaption={

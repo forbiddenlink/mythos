@@ -117,7 +117,12 @@ export function AtlasOpensHero({ counts, figures }: AtlasOpensHeroProps) {
               {counts.pantheons} traditions imagined their world.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild variant="gold" size="lg">
+              <Button
+                asChild
+                variant="gold"
+                size="lg"
+                className="h-auto whitespace-normal px-4 py-3 text-center sm:px-8"
+              >
                 <Link href="/pantheons">
                   Explore the pantheons <ArrowRight />
                 </Link>
@@ -149,29 +154,40 @@ export function AtlasOpensHero({ counts, figures }: AtlasOpensHeroProps) {
           </div>
 
           {a && b && c ? (
-            <div
-              className="grid grid-cols-3 gap-3 sm:gap-4"
-              aria-label="Featured figures"
-              role="group"
-            >
-              <div className="space-y-3 pt-8 sm:space-y-4 sm:pt-12">
-                <MosaicTile figure={a} priority />
-                {d ? (
-                  <MosaicTile figure={d} className="hidden lg:block" />
-                ) : null}
+            <div>
+              <div
+                className="grid grid-cols-3 gap-3 sm:gap-4"
+                aria-label="Featured figures"
+                role="group"
+              >
+                <div className="space-y-3 pt-8 sm:space-y-4 sm:pt-12">
+                  <MosaicTile figure={a} priority />
+                  {d ? (
+                    <MosaicTile figure={d} className="hidden lg:block" />
+                  ) : null}
+                </div>
+                <div className="space-y-3 sm:space-y-4">
+                  <MosaicTile figure={b} priority />
+                  {e ? (
+                    <MosaicTile figure={e} className="hidden lg:block" />
+                  ) : null}
+                </div>
+                <div className="space-y-3 pt-4 sm:space-y-4 sm:pt-6">
+                  <MosaicTile figure={c} priority />
+                  {f ? (
+                    <MosaicTile figure={f} className="hidden lg:block" />
+                  ) : null}
+                </div>
               </div>
-              <div className="space-y-3 sm:space-y-4">
-                <MosaicTile figure={b} priority />
-                {e ? (
-                  <MosaicTile figure={e} className="hidden lg:block" />
-                ) : null}
-              </div>
-              <div className="space-y-3 pt-4 sm:space-y-4 sm:pt-6">
-                <MosaicTile figure={c} priority />
-                {f ? (
-                  <MosaicTile figure={f} className="hidden lg:block" />
-                ) : null}
-              </div>
+              <p className="mt-3 text-right text-xs text-parchment/65">
+                Catalog pictures are illustrations, not historical artworks.{" "}
+                <Link
+                  href="/about#images"
+                  className="underline underline-offset-2 hover:text-parchment"
+                >
+                  About our images
+                </Link>
+              </p>
             </div>
           ) : null}
         </div>
