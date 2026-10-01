@@ -48,6 +48,18 @@ const MARGIN = { top: 40, right: 40, bottom: 40, left: 220 };
 function marginFor(width: number) {
   return width < 640 ? { ...MARGIN, left: 150, right: 16 } : MARGIN;
 }
+/**
+ * Short row label for phone widths: drops a trailing "Pantheon"/"Tradition(s)"
+ * and any parenthetical, so "Persian (Iranian) Tradition" reads "Persian".
+ */
+export function compactPantheonName(name: string): string {
+  const short = name
+    .replace(/\s*\([^)]*\)/g, "")
+    .replace(/\s+(Pantheon|Traditions?)$/i, "")
+    .trim();
+  return short || name;
+}
+
 const TIMELINE_START = -3500;
 const TIMELINE_END = 2025;
 
@@ -374,7 +386,7 @@ export function TimelineVisualizationD3({
 
         if (d.timePeriodStart === null && d.timePeriodEnd === null) {
           g.append("text")
-            .attr("x", margin.left)
+            .attr("x", 8)
             .attr("y", barHeight / 2)
             .attr("dominant-baseline", "middle")
             .attr("fill", "currentColor")
@@ -513,8 +525,14 @@ export function TimelineVisualizationD3({
 
           g.select(".label-dot").attr("fill", PANTHEON_COLORS[d.id] || "#ccc");
 
+          const compact = width < 640;
+          g.selectAll("title")
+            .data([d.name])
+            .join("title")
+            .text((name) => name);
+
           g.select(".label-text")
-            .text(d.name)
+            .text(compact ? compactPantheonName(d.name) : d.name)
             .attr("fill", "currentColor")
             .attr(
               "class",
@@ -525,6 +543,18 @@ export function TimelineVisualizationD3({
                   : "text-muted-foreground",
               ),
             );
+
+          // Ellipsize whatever still overflows the label column so it never
+          // runs under the bars.
+          const node = g.select<SVGTextElement>(".label-text").node();
+          if (compact && node) {
+            const room = margin.left - 35 - 8;
+            let label = node.textContent ?? "";
+            while (label.length > 1 && node.getComputedTextLength() > room) {
+              label = label.slice(0, -1).trimEnd();
+              node.textContent = `${label}…`;
+            }
+          }
         });
     }
 
