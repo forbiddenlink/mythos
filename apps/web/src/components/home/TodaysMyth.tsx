@@ -219,7 +219,12 @@ export function TodaysMyth() {
                   {myth.summary}
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-4">
-                  <Button variant="gold" size="lg" onClick={start}>
+                  <Button
+                    variant="gold"
+                    size="lg"
+                    onClick={start}
+                    className="h-auto max-w-full whitespace-normal py-3 text-left"
+                  >
                     Answer three questions
                   </Button>
                   <Link
