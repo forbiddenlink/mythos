@@ -74,7 +74,8 @@ RULES = (
     "with breathing room at the edges. Dress, architecture, weapons and iconography must be "
     "historically and culturally grounded in {culture}, not generic fantasy and not borrowed "
     "from another culture, and true to the ancient or mythic era of the source (no later-era "
-    "religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, "
+    "religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), "
+    "and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, "
     "and no logos or brands."
 )
 FRAMING = {
