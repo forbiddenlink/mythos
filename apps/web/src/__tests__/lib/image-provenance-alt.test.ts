@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { generateEntityAlt } from "@/lib/image-provenance";
 
-// "zeus" is an AI illustration and "ahura-mazda" a procedural plate in
+// "zeus" is an AI illustration and "sedna" (Inuit, never generated) a procedural plate in
 // src/data/image-provenance.json, so these exercise both branches.
 describe("generateEntityAlt", () => {
   it("describes a deity as a deity of its tradition", () => {
@@ -100,13 +100,13 @@ describe("generateEntityAlt", () => {
   it("keeps the plate wording for procedural plates", () => {
     expect(
       generateEntityAlt({
-        name: "Ahura Mazda",
-        tradition: "Persian",
+        name: "Sedna",
+        tradition: "Inuit",
         type: "deity",
         entityType: "deity",
-        slug: "ahura-mazda",
+        slug: "sedna",
       }),
-    ).toBe("Name plate for Ahura Mazda");
+    ).toBe("Name plate for Sedna");
   });
 
   it("defaults to a figure when nothing describes the type", () => {
