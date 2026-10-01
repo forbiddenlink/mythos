@@ -225,9 +225,13 @@ export function JourneyMap({
         journey.pantheonId,
       );
 
+      // Consecutive stops sit close together, so the pins can overlap. Every
+      // stop is also a numbered button in the strip below the map (WCAG 2.5.8
+      // equivalent control), so the pins are not separate tab stops.
       const marker = L.marker(waypoint.coordinates, {
         icon,
         title: `Stop ${waypoint.order}: ${waypoint.name}`,
+        keyboard: false,
       }).on("click", () => {
         setCurrentWaypointIndex(index);
         setVisitedWaypoints((prev) => new Set([...prev, index]));

@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   formatCoordinate,
+  MIN_PIN_SPACING,
   SYMBOLIC_LOCATION_TYPES,
+  spreadPins,
 } from "@/components/locations/LocationMapInset";
 
 describe("formatCoordinate", () => {
@@ -29,5 +31,29 @@ describe("SYMBOLIC_LOCATION_TYPES", () => {
     expect(SYMBOLIC_LOCATION_TYPES.has("mountain")).toBe(false);
     expect(SYMBOLIC_LOCATION_TYPES.has("city")).toBe(false);
     expect(SYMBOLIC_LOCATION_TYPES.has("temple")).toBe(false);
+  });
+});
+
+describe("spreadPins", () => {
+  const primary = { x: 0, y: 0 };
+
+  it("drops pins closer than the minimum spacing to the primary or each other", () => {
+    const near = { id: "near", x: 10, y: 5 };
+    const a = { id: "a", x: 100, y: 0 };
+    const b = { id: "b", x: 110, y: 10 };
+    expect(spreadPins(primary, [near, a, b]).map((p) => p.id)).toEqual(["a"]);
+  });
+
+  it("keeps pins that sit exactly at the minimum spacing", () => {
+    const edge = { id: "edge", x: MIN_PIN_SPACING, y: 0 };
+    expect(spreadPins(primary, [edge])).toEqual([edge]);
+  });
+
+  it("keeps the first of a crowded group so the result is stable", () => {
+    const pins = [
+      { id: "first", x: 200, y: 200 },
+      { id: "second", x: 205, y: 200 },
+    ];
+    expect(spreadPins(primary, pins).map((p) => p.id)).toEqual(["first"]);
   });
 });

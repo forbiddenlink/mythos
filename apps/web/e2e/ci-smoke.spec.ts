@@ -55,12 +55,8 @@ for (const route of routes) {
 
       await page.goto(route);
       await settle(page);
-      // Leaflet pins on the location map overlap each other and fail axe
-      // target-size (WCAG 2.5.8). Known gap, tracked outside this smoke, so
-      // the pin overlay is excluded rather than the rule disabled.
       const result = await new AxeBuilder({ page })
         .withTags(WCAG_TAGS)
-        .exclude(".leaflet-marker-icon")
         .analyze();
       expect(result.violations).toEqual([]);
       expect(errors).toEqual([]);

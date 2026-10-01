@@ -11,6 +11,7 @@ const leaflet = vi.hoisted(() => {
     stop: vi.fn(),
     remove: vi.fn(),
     getZoom: vi.fn(() => 3),
+    project: vi.fn(([lat, lng]: number[]) => ({ x: lng * 100, y: lat * 100 })),
     flyTo: vi.fn(),
   };
   return {
