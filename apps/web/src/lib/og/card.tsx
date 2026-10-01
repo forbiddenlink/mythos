@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
@@ -8,6 +10,13 @@ import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
  * restated here as literal colours: midnight grounds, parchment text and a
  * gold accent, tinted per tradition the same way the deity and story cards are.
  */
+
+// Satori renders only fonts passed in explicitly; a CSS font-family name alone
+// falls back to its default sans. Static 700-weight instance of the site's
+// Cinzel (OFL), read once per server process. Node runtime only.
+const CINZEL_700 = readFileSync(
+  join(process.cwd(), "src/app/fonts/cinzel-og-700.ttf"),
+);
 
 export const OG_SIZE = { width: 1200, height: 630 } as const;
 
@@ -127,6 +136,7 @@ export function renderOgCard({
         <div
           style={{
             display: "flex",
+            fontFamily: "Cinzel, serif",
             fontSize: titleSize,
             fontWeight: 700,
             color: PARCHMENT,
@@ -169,6 +179,7 @@ export function renderOgCard({
         style={{
           display: "flex",
           justifyContent: "center",
+          fontFamily: "Cinzel, serif",
           padding: "18px 60px 34px",
           fontSize: 20,
           letterSpacing: "0.2em",
@@ -178,6 +189,11 @@ export function renderOgCard({
         MYTHOS ATLAS
       </div>
     </div>,
-    { ...OG_SIZE },
+    {
+      ...OG_SIZE,
+      fonts: [
+        { name: "Cinzel", data: CINZEL_700, weight: 700, style: "normal" },
+      ],
+    },
   );
 }

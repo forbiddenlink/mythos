@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     "Explore ancient mythology through interactive deity family trees, cultural maps, and epic story timelines from civilizations around the world.",
   url: "https://mythosatlas.com",
-  ogImage: "/og-image.png",
+  ogImage: "/opengraph-image",
   creator: "Elizabeth Stein",
   links: {
     twitter: "https://twitter.com/mythosatlas",
