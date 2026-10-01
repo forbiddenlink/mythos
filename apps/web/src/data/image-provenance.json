@@ -37,17 +37,17 @@
       "agni": "ai-illustration",
       "ah-puch": "ai-illustration",
       "ahti": "procedural-plate",
-      "ahura-mazda": "procedural-plate",
+      "ahura-mazda": "ai-illustration",
       "aine": "ai-illustration",
       "aje": "ai-illustration",
       "alalu": "procedural-plate",
       "amaterasu": "ai-illustration",
       "ame-no-uzume": "ai-illustration",
-      "amun": "procedural-plate",
-      "anahita": "procedural-plate",
+      "amun": "ai-illustration",
+      "anahita": "ai-illustration",
       "anansi": "ai-illustration",
-      "anat": "procedural-plate",
-      "angra-mainyu": "procedural-plate",
+      "anat": "ai-illustration",
+      "angra-mainyu": "ai-illustration",
       "anguta": "procedural-plate",
       "anningan": "procedural-plate",
       "anu": "ai-illustration",
@@ -62,16 +62,16 @@
       "ashvins": "procedural-plate",
       "atar": "procedural-plate",
       "athena": "ai-illustration",
-      "athirat": "procedural-plate",
+      "athirat": "ai-illustration",
       "athtar": "procedural-plate",
       "athtart": "procedural-plate",
       "atlas": "procedural-plate",
       "baal": "ai-illustration",
       "bacchus": "ai-illustration",
       "baiame": "procedural-plate",
-      "bak-hyeokgeose": "procedural-plate",
+      "bak-hyeokgeose": "ai-illustration",
       "baldur": "ai-illustration",
-      "bari-gongju": "procedural-plate",
+      "bari-gongju": "ai-illustration",
       "bastet": "ai-illustration",
       "benzaiten": "ai-illustration",
       "bes": "procedural-plate",
@@ -98,7 +98,7 @@
       "cuniraya-viracocha": "procedural-plate",
       "dagda": "ai-illustration",
       "daikokuten": "ai-illustration",
-      "dangun": "procedural-plate",
+      "dangun": "ai-illustration",
       "danu": "ai-illustration",
       "dazhbog": "procedural-plate",
       "demeter": "ai-illustration",
@@ -113,7 +113,7 @@
       "earth-holder": "procedural-plate",
       "ebisu": "ai-illustration",
       "ek-chuaj": "ai-illustration",
-      "el": "procedural-plate",
+      "el": "ai-illustration",
       "enki": "ai-illustration",
       "enkidu": "ai-illustration",
       "enlil": "ai-illustration",
@@ -130,11 +130,11 @@
       "freyr": "ai-illustration",
       "frigg": "ai-illustration",
       "fujin": "ai-illustration",
-      "fuxi": "procedural-plate",
+      "fuxi": "ai-illustration",
       "gaha": "procedural-plate",
       "gaia": "ai-illustration",
       "ganesha": "ai-illustration",
-      "ganga": "procedural-plate",
+      "ganga": "ai-illustration",
       "geb": "procedural-plate",
       "gilgamesh": "ai-illustration",
       "goibniu": "ai-illustration",
@@ -144,14 +144,14 @@
       "hachiman": "ai-illustration",
       "hades": "ai-illustration",
       "haemosu": "procedural-plate",
-      "hannahanna": "procedural-plate",
+      "hannahanna": "ai-illustration",
       "hanuman": "ai-illustration",
       "hathor": "ai-illustration",
       "haumea": "ai-illustration",
-      "hecate": "procedural-plate",
+      "hecate": "ai-illustration",
       "heimdall": "ai-illustration",
       "hel": "ai-illustration",
-      "helios": "procedural-plate",
+      "helios": "ai-illustration",
       "hephaestus": "ai-illustration",
       "hera": "ai-illustration",
       "hermes": "ai-illustration",
@@ -166,7 +166,7 @@
       "huallallo-carhuincho": "procedural-plate",
       "huitzilopochtli": "ai-illustration",
       "hun-hunahpu": "ai-illustration",
-      "hwanin": "procedural-plate",
+      "hwanin": "ai-illustration",
       "hwanung": "procedural-plate",
       "ibeji": "ai-illustration",
       "idun": "procedural-plate",
@@ -177,7 +177,7 @@
       "inara": "procedural-plate",
       "inari": "ai-illustration",
       "indra": "ai-illustration",
-      "inti": "procedural-plate",
+      "inti": "ai-illustration",
       "isis": "ai-illustration",
       "itzamna": "ai-illustration",
       "ix-chel": "ai-illustration",
@@ -186,7 +186,7 @@
       "jade-emperor": "ai-illustration",
       "janus": "ai-illustration",
       "johonaaei": "procedural-plate",
-      "jumong": "procedural-plate",
+      "jumong": "ai-illustration",
       "juno": "ai-illustration",
       "jupiter": "ai-illustration",
       "kagutsuchi": "ai-illustration",
@@ -198,7 +198,7 @@
       "kothar-wa-khasis": "procedural-plate",
       "krishna": "ai-illustration",
       "kukulkan": "ai-illustration",
-      "kumarbi": "procedural-plate",
+      "kumarbi": "ai-illustration",
       "kuniya": "procedural-plate",
       "lakshmi": "ai-illustration",
       "lei-gong": "ai-illustration",
@@ -276,7 +276,7 @@
       "pele": "ai-illustration",
       "persephone": "ai-illustration",
       "perseus": "ai-illustration",
-      "perun": "procedural-plate",
+      "perun": "ai-illustration",
       "petrel": "procedural-plate",
       "pinga": "procedural-plate",
       "plutus": "procedural-plate",
@@ -323,7 +323,7 @@
       "spider-woman": "procedural-plate",
       "sraosha": "procedural-plate",
       "stribog": "procedural-plate",
-      "sun-goddess-of-arinna": "procedural-plate",
+      "sun-goddess-of-arinna": "ai-illustration",
       "sun-goddess-of-the-earth": "procedural-plate",
       "sun-wukong": "ai-illustration",
       "susanoo": "ai-illustration",
@@ -335,9 +335,9 @@
       "tangaroa": "ai-illustration",
       "tano": "procedural-plate",
       "tapio": "procedural-plate",
-      "tarhunna": "procedural-plate",
+      "tarhunna": "ai-illustration",
       "tawhirimatea": "ai-illustration",
-      "telipinu": "procedural-plate",
+      "telipinu": "ai-illustration",
       "tethys": "procedural-plate",
       "tezcatlipoca": "ai-illustration",
       "thanatos": "procedural-plate",
@@ -363,13 +363,13 @@
       "uranus": "procedural-plate",
       "usha": "procedural-plate",
       "utnapishtim": "procedural-plate",
-      "vainamoinen": "procedural-plate",
+      "vainamoinen": "ai-illustration",
       "veles": "procedural-plate",
       "vellamo": "procedural-plate",
       "venus": "ai-illustration",
       "verethragna": "procedural-plate",
       "vesta": "ai-illustration",
-      "viracocha": "procedural-plate",
+      "viracocha": "ai-illustration",
       "vishnu": "ai-illustration",
       "vulcan": "ai-illustration",
       "wagyl": "procedural-plate",
@@ -1006,7 +1006,39 @@
   },
   "generated": {
     "deity": {
+      "ahura-mazda": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "amun": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "anahita": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "anat": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "angra-mainyu": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "athirat": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "baal": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "bak-hyeokgeose": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "bari-gongju": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1014,11 +1046,79 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "dangun": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "el": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "fuxi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "gaia": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "ganga": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hannahanna": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hecate": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "helios": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hwanin": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "inti": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "jumong": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "kumarbi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "loki": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "perun": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "sun-goddess-of-arinna": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "tarhunna": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "telipinu": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "vainamoinen": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "viracocha": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }

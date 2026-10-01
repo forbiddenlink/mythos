@@ -1,11 +1,67 @@
 {
   "deity": {
+    "ahura-mazda": {
+      "path": "/deities/ahura-mazda.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ahura Mazda. Ahura Mazda, the supreme god of Zoroastrianism, who is never shown in human form: depict only the winged-disk Faravahar emblem in glowing gold, blazing above a sacred fire altar in an ancient Achaemenid fire temple, with white-robed priests tending the flame. No human figure for the god. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "amun": {
+      "path": "/deities/amun.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Amun. Originally a primordial member of the Hermopolitan Ogdoad, Amun rose to become the state god of Thebes and, fused with the sun god Ra as Amun-Ra, the supreme deity of Egypt's New Kingdom. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Egyptian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "anahita": {
+      "path": "/deities/anahita.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Anahita. The yazata of the waters, the heavenly river that flows from Mount Hukairya into the sea Vouru-Kasha and feeds every stream on earth, invoked for fertility, safe childbirth, and victory. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "anat": {
+      "path": "/deities/anat.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Anat. The young warrior goddess of Ugarit, Baal's sister and fiercest ally, who wades through battle, bullies El into granting Baal a palace, finds Baal's body, and destroys Mot. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "angra-mainyu": {
+      "path": "/deities/angra-mainyu.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Angra Mainyu. Angra Mainyu, the destructive spirit of Zoroastrian myth, shown abstractly with no human face: a roiling column of black smoke and a coiled dark serpent rising over a cracked, withered plain under a sickly sky, opposed by a distant glow of sacred fire. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "athirat": {
+      "path": "/deities/athirat.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Athirat (Asherah). El's consort, 'Lady Athirat of the Sea' and 'Creatress of the Gods', mother of the seventy sons of El, who can persuade El when no one else can. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "baal": {
       "path": "/deities/baal.webp",
       "model": "flux_2_max",
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Baal (Baʿlu Haddu). The Canaanite storm god Baal Hadad of Ugarit, a bearded young warrior-king in an Ugaritic kilt and conical headdress with horns, raising a club in one hand and a stylized lightning spear in the other, standing before storm clouds on Mount Zaphon. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "bak-hyeokgeose": {
+      "path": "/deities/bak-hyeokgeose.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Bak Hyeokgeose. The egg-born founder of Silla, found by the six village chiefs beside the Najeong well where a white horse knelt and then rose into heaven; crowned at thirteen with his queen Aryeong, born. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "bari-gongju": {
+      "path": "/deities/bari-gongju.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Bari Gongju. The seventh daughter of a king, thrown away at birth, who alone agrees to journey to the Western Heaven for the water of life when her parents are dying; she returns in time to revive them. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "cronus": {
       "path": "/deities/cronus.webp",
@@ -14,6 +70,27 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Cronus. Youngest of the twelve Titans, son of Uranus and Gaia. Cronus castrated his father to seize the sky's rule, presided over the mythical Golden Age, and was in turn overthrown by his own son. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "dangun": {
+      "path": "/deities/dangun.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Dangun. The son of the heavenly Hwanung and the bear-woman Ungnyeo, who in the Samguk Yusa founds the kingdom of Joseon (Gojoseon), rules for fifteen hundred years, and at last becomes a mountain. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "el": {
+      "path": "/deities/el.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity El (Ilu). The aged king and father of the gods at Ugarit, 'Bull El', 'Father of Years', who presides over the divine assembly from his dwelling at the source of the two rivers and whose permission. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "fuxi": {
+      "path": "/deities/fuxi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Fuxi. Legendary first of the Three Sovereigns and culture hero credited with devising the Eight Trigrams, inventing fishing nets, and teaching humanity domestication. Paired with his sister (and. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Chinese, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "gaia": {
       "path": "/deities/gaia.webp",
       "model": "flux_2_max",
@@ -21,12 +98,110 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Gaia. Primordial goddess of the Earth, one of the first beings to emerge from Chaos. Gaia is the mother of the sky (Uranus), the sea (Pontus), the Titans, the Cyclopes, and, through the blood of. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "ganga": {
+      "path": "/deities/ganga.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ganga. The sacred river Ganges as a goddess, who descended from heaven to purify the ashes of King Sagara's sons and was caught in Shiva's matted hair to break the force of her fall. Bathing in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "hannahanna": {
+      "path": "/deities/hannahanna.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Hannahanna. The Hittite mother goddess, 'the Grandmother', who when every other god has failed sends a bee to find the missing Telipinu. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "hecate": {
+      "path": "/deities/hecate.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Hecate. A Titan-descended goddess uniquely honored by Hesiod with power over earth, sea, and sky. In later Classical and Hellenistic tradition, Hecate's role narrowed and darkened into a chthonic. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "helios": {
+      "path": "/deities/helios.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Helios. The Greek sun god Helios as a radiant beardless young man with a crown of sun rays, driving a golden four-horse chariot across the sky above the sea at dawn, wearing a short chiton and a flowing crimson cloak. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "hwanin": {
+      "path": "/deities/hwanin.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Hwanin. The Lord of Heaven in the Dangun myth, who sees that his son Hwanung longs for the human world, looks down on Mount Taebaek as a place where he could 'widely benefit humanity', and sends. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "inti": {
+      "path": "/deities/inti.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Inti. The Sun, divine ancestor of the Inca kings and center of the state cult, worshipped in the gold-sheathed Coricancha of Cusco and at the June solstice festival of Inti Raymi. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "jumong": {
+      "path": "/deities/jumong.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Jumong. The egg-born son of Heaven and of the River Earl's daughter, a peerless archer who flees East Buyeo when fish and turtles rise to bridge a river for him, founds Goguryeo at Jolbon, and in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "kumarbi": {
+      "path": "/deities/kumarbi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Kumarbi. Hurrian father of the gods who seizes kingship in heaven by biting off the sky-god Anu's loins, unwittingly conceives the storm-god Teššub, and spends the rest of the Kumarbi cycle. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "loki": {
       "path": "/deities/loki.webp",
       "model": "flux_2_max",
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Loki. A complex figure, blood brother to Odin but frequently causing trouble for the gods. A shape-shifter and trickster who fathers monstrous children including Fenrir, Jormungandr, and Hel. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Norse, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "perun": {
+      "path": "/deities/perun.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Perun. The thunder god of the Kievan Rus', sworn by in treaties and installed at the head of Prince Vladimir's official pantheon in 980 before Vladimir himself had his idol destroyed in 988. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "sun-goddess-of-arinna": {
+      "path": "/deities/sun-goddess-of-arinna.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Sun-goddess of Arinna. The Hattian sun-goddess of the holy city of Arinna, queen of the land of Hatti and, with the Storm-god, the highest deity of the Hittite state cult; Queen Puduhepa's prayer equates her with. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "tarhunna": {
+      "path": "/deities/tarhunna.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Tarhunna (the Storm-god of Hatti). The chief god of the Hittite state: a storm-god of rain and thunder who gives the land its fertility, fights the serpent Illuyanka, and, under his Hurrian name Teššub, wins kingship in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands. Hittite storm god in Hittite-style kilt and conical horned helm, with a lightning bolt and axe."
+    },
+    "telipinu": {
+      "path": "/deities/telipinu.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Telipinu. A Hattian god of farming and growth, son of the Storm-god, whose angry departure makes the whole land barren until a bee finds him asleep and a ritual soothes his rage. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "vainamoinen": {
+      "path": "/deities/vainamoinen.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Väinämöinen. The 'steady old' singer and sage of Finnish runo-song, named by Agricola in 1551 as the maker of songs, who in the Kalevala is born of Ilmatar, sings his rival into a bog, builds the first. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "viracocha": {
+      "path": "/deities/viracocha.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Viracocha. The Andean creator god Viracocha as a bearded wanderer in a long Inca tocapu-patterned tunic and cloak, holding a staff, rising from the waters of Lake Titicaca beneath a golden sun disc; Inca stonework and Andean peaks behind. No feathered war bonnet, no Plains Native American dress. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     }
   },
   "hero": {
