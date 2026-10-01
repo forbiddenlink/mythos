@@ -5,7 +5,9 @@ Generates the complete suite of bespoke, production-ready visual branding assets
 for Mythos Atlas adhering to .impeccable.md design specifications:
 - Classical, scholarly, luminous dark-academia atlas of antiquity
 - OKLCH gold, midnight, and parchment color harmony
-- Genuine multi-resolution ICO, high-DPI PNGs, standalone SVGs, OpenGraph card, and placeholder
+- Genuine multi-resolution ICO, high-DPI PNGs, standalone SVGs, and a maskable PWA icon
+(The OpenGraph image is rendered by the app route and there is no placeholder.png: this
+script no longer writes og-image.png or placeholder.png.)
 """
 
 import os
@@ -509,209 +511,21 @@ def create_multires_ico(filepath):
     print(f"  ✓ Saved multi-resolution ICO -> {filepath}")
 
 
-def create_opengraph_card(filepath):
+def create_maskable_icon(size):
     """
-    Generates 1200x630 master OpenGraph card for Twitter, LinkedIn, Facebook, Slack, iMessage.
+    Renders a maskable icon: a flat brand-background square with the emblem
+    inside the safe zone (the inner 80% circle every platform mask keeps).
+    No border or corner detail, because masks crop to circles or squircles.
     """
-    w, h = 1200, 630
-    scale = 2
-    cw, ch = w * scale, h * scale
-
-    img = Image.new("RGBA", (cw, ch), (12, 14, 24, 255))
+    target = size
+    scale = 4
+    canvas = target * scale
+    img = Image.new("RGBA", (canvas, canvas), RGBA_MIDNIGHT)
     draw = ImageDraw.Draw(img)
+    # 0.75: emblem tips reach ~1.03x the radius, so this stays inside the 0.4 safe-zone radius
+    draw_temple_emblem(draw, canvas // 2, canvas // 2, (canvas // 2) * 0.75)
+    return img.resize((target, target), Image.Resampling.LANCZOS)
 
-    # 1. Atmospheric Deep Midnight & Starfield Gradient
-    cx, cy = cw // 2, ch // 2
-    # Radial gold-bronze wash behind central area
-    for r_step in range(int(cw * 0.7), 0, -12):
-        alpha = int(22 * (1 - r_step / (cw * 0.7)))
-        draw.ellipse([cx - r_step - int(cw*0.15), cy - r_step, cx + r_step - int(cw*0.15), cy + r_step],
-                     fill=(212, 175, 55, alpha))
-
-    # Constellation starfield particles
-    import random
-    rng = random.Random(42)
-    for _ in range(120):
-        sx = rng.randint(40, cw - 40)
-        sy = rng.randint(40, ch - 40)
-        s_radius = rng.uniform(0.8, 2.8) * scale
-        s_alpha = rng.randint(40, 180)
-        draw.ellipse([sx - s_radius, sy - s_radius, sx + s_radius, sy + s_radius],
-                     fill=(246, 231, 184, s_alpha))
-
-    # Classical Greek Key / Meander & Double Inset Border
-    border_outer = int(28 * scale)
-    draw.rectangle([border_outer, border_outer, cw - border_outer, ch - border_outer],
-                   outline=(212, 175, 55, 160), width=int(2 * scale))
-
-    border_inner = int(36 * scale)
-    draw.rectangle([border_inner, border_inner, cw - border_inner, ch - border_inner],
-                   outline=(212, 175, 55, 80), width=int(1 * scale))
-
-    # Greek Corner Brackets / Flourishes
-    bracket_len = int(32 * scale)
-    for corner_x, corner_y, dir_x, dir_y in [
-        (border_outer, border_outer, 1, 1),
-        (cw - border_outer, border_outer, -1, 1),
-        (border_outer, ch - border_outer, 1, -1),
-        (cw - border_outer, ch - border_outer, -1, -1),
-    ]:
-        draw.line([corner_x, corner_y, corner_x + dir_x * bracket_len, corner_y], fill=(246, 231, 184, 230), width=int(3 * scale))
-        draw.line([corner_x, corner_y, corner_x, corner_y + dir_y * bracket_len], fill=(246, 231, 184, 230), width=int(3 * scale))
-        # Small corner diamond
-        draw.polygon([
-            (corner_x + dir_x * 8 * scale, corner_y + dir_y * 8 * scale),
-            (corner_x + dir_x * 12 * scale, corner_y + dir_y * 8 * scale),
-            (corner_x + dir_x * 8 * scale, corner_y + dir_y * 12 * scale),
-        ], fill=(212, 175, 55, 200))
-
-    # 2. Render Emblem on Left
-    emblem_cx = int(240 * scale)
-    emblem_cy = ch // 2
-    emblem_r = int(170 * scale)
-    draw_temple_emblem(draw, emblem_cx, emblem_cy, emblem_r)
-
-    # 3. Typography on Right
-    # Load fonts
-    font_bold = None
-    font_reg = None
-    font_italic = None
-
-    font_candidates = [
-        "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf",
-        "/System/Library/Fonts/Supplemental/Georgia Bold.ttf",
-        "/System/Library/Fonts/Palatino.ttc",
-        "/System/Library/Fonts/Times.ttc"
-    ]
-    for fc in font_candidates:
-        if os.path.exists(fc):
-            try:
-                font_bold = ImageFont.truetype(fc, int(64 * scale))
-                font_title_sub = ImageFont.truetype(fc, int(22 * scale))
-                font_body = ImageFont.truetype(fc, int(19 * scale))
-                font_italic = ImageFont.truetype(fc.replace("Bold", "Italic") if "Bold" in fc else fc, int(20 * scale))
-                break
-            except Exception:
-                continue
-
-    if font_bold is None:
-        font_bold = font_title_sub = font_body = font_italic = ImageFont.load_default()
-
-    text_x = int(480 * scale)
-    
-    # Eyebrow
-    eyebrow = "E N C Y C L O P E D I A   O F   A N T I Q U I T Y"
-    draw.text((text_x, int(150 * scale)), eyebrow, font=font_title_sub, fill=(212, 175, 55, 230))
-
-    # Title line
-    draw.text((text_x, int(190 * scale)), "MYTHOS ATLAS", font=font_bold, fill=(246, 231, 184, 255))
-
-    # Golden accent rule
-    rule_y = int(285 * scale)
-    draw.line([text_x, rule_y, text_x + int(560 * scale), rule_y], fill=(212, 175, 55, 140), width=int(1.5 * scale))
-    draw.polygon([
-        (text_x + int(280 * scale), rule_y - int(4 * scale)),
-        (text_x + int(284 * scale), rule_y),
-        (text_x + int(280 * scale), rule_y + int(4 * scale)),
-        (text_x + int(276 * scale), rule_y),
-    ], fill=(246, 231, 184, 255))
-
-    # Tagline
-    tagline = "Explore Gods, Heroes, and Sacred Worlds Across Civilizations"
-    draw.text((text_x, int(310 * scale)), tagline, font=font_italic, fill=(244, 239, 226, 230))
-
-    # Feature tags (Pill-shaped badges)
-    badge_items = [
-        "13 Pantheons",
-        "Genealogies",
-        "Epic Tales",
-        "Mythic Maps",
-        "Aether Seer",
-    ]
-    badge_x = text_x
-    badge_y = int(370 * scale)
-    for badge in badge_items:
-        # Measure text width
-        bbox = draw.textbbox((badge_x, badge_y), badge, font=font_body)
-        bw = (bbox[2] - bbox[0]) + int(24 * scale)
-        bh = int(32 * scale)
-        draw.rounded_rectangle([badge_x, badge_y, badge_x + bw, badge_y + bh],
-                               radius=int(6 * scale),
-                               fill=(20, 23, 40, 220),
-                               outline=(212, 175, 55, 110),
-                               width=int(1 * scale))
-        draw.text((badge_x + int(12 * scale), badge_y + int(6 * scale)), badge, font=font_body, fill=(212, 175, 55, 230))
-        badge_x += bw + int(14 * scale)
-
-    # Footer attribution
-    footer_text = "mythosatlas.com  ·  Classical · Scholarly · Luminous"
-    draw.text((text_x, int(455 * scale)), footer_text, font=font_body, fill=(153, 122, 21, 230))
-
-    # Downsample
-    final_img = img.resize((w, h), Image.Resampling.LANCZOS)
-    final_img.save(filepath, format="PNG", optimize=True)
-    print(f"  ✓ Saved OpenGraph Card (1200x630) -> {filepath}")
-
-
-def create_placeholder_plate(filepath):
-    """
-    Generates 640x640 dark-academia fallback plate for deities/stories/creatures.
-    """
-    size = (640, 640)
-    scale = 2
-    cw, ch = size[0] * scale, size[1] * scale
-
-    img = Image.new("RGBA", (cw, ch), (14, 16, 26, 255))
-    draw = ImageDraw.Draw(img)
-
-    # Subtle stone radial texture
-    cx, cy = cw // 2, ch // 2
-    for r_step in range(int(cw * 0.6), 0, -8):
-        alpha = int(18 * (1 - r_step / (cw * 0.6)))
-        draw.ellipse([cx - r_step, cy - r_step, cx + r_step, cy + r_step],
-                     fill=(212, 175, 55, alpha))
-
-    # Ornate classical border
-    inset = int(32 * scale)
-    draw.rectangle([inset, inset, cw - inset, ch - inset],
-                   outline=(212, 175, 55, 120), width=int(1.5 * scale))
-    inset2 = int(40 * scale)
-    draw.rectangle([inset2, inset2, cw - inset2, ch - inset2],
-                   outline=(212, 175, 55, 60), width=int(1 * scale))
-
-    # Corner ticks
-    blen = int(24 * scale)
-    for cor_x, cor_y, dx, dy in [
-        (inset, inset, 1, 1),
-        (cw - inset, inset, -1, 1),
-        (inset, ch - inset, 1, -1),
-        (cw - inset, ch - inset, -1, -1),
-    ]:
-        draw.line([cor_x, cor_y, cor_x + dx * blen, cor_y], fill=(246, 231, 184, 180), width=int(2 * scale))
-        draw.line([cor_x, cor_y, cor_x, cor_y + dy * blen], fill=(246, 231, 184, 180), width=int(2 * scale))
-
-    # Draw Central Temple Medallion
-    draw_temple_emblem(draw, cx, cy - int(30 * scale), int(160 * scale))
-
-    # Typography at bottom
-    font_bold = None
-    try:
-        font_bold = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf", int(26 * scale))
-        font_sub = ImageFont.truetype("/System/Library/Fonts/Supplemental/Times New Roman.ttf", int(14 * scale))
-    except Exception:
-        font_bold = font_sub = ImageFont.load_default()
-
-    label1 = "MYTHOS ATLAS"
-    bbox1 = draw.textbbox((0, 0), label1, font=font_bold)
-    draw.text((cx - (bbox1[2] - bbox1[0]) // 2, cy + int(180 * scale)), label1, font=font_bold, fill=(212, 175, 55, 230))
-
-    label2 = "RECORD OF ANTIQUITY"
-    bbox2 = draw.textbbox((0, 0), label2, font=font_sub)
-    draw.text((cx - (bbox2[2] - bbox2[0]) // 2, cy + int(216 * scale)), label2, font=font_sub, fill=(153, 122, 21, 200))
-
-    final_img = img.resize(size, Image.Resampling.LANCZOS)
-    final_img.save(filepath, format="PNG", optimize=True)
-    print(f"  ✓ Saved Placeholder Card (640x640) -> {filepath}")
 
 
 # ---------------------------------------------------------------------------
@@ -774,13 +588,10 @@ def main():
         im_apple.save(dest, format="PNG", optimize=True)
         print(f"  ✓ Saved Apple Touch Icon (180x180) -> {dest}")
 
-    # 8. OpenGraph Card (1200x630)
-    og_card_path = os.path.join(PUBLIC_DIR, "og-image.png")
-    create_opengraph_card(og_card_path)
-
-    # 9. Fallback Placeholder Image (640x640)
-    placeholder_path = os.path.join(PUBLIC_DIR, "placeholder.png")
-    create_placeholder_plate(placeholder_path)
+    # 8. Maskable PWA icon (512x512): safe-zone emblem on the brand background
+    maskable_path = os.path.join(PUBLIC_DIR, "icons/icon-maskable-512x512.png")
+    create_maskable_icon(512).save(maskable_path, format="PNG", optimize=True)
+    print(f"  ✓ Saved Maskable Icon (512x512) -> {maskable_path}")
 
     print("\nAll brand assets successfully generated!")
 
