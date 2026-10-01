@@ -6,6 +6,7 @@ import time
 import urllib.request
 import urllib.error
 
+from _dng_guard import FILE_TO_ETYPE, DoNotGenerate, assert_generatable, dng_keys
 from _repo_paths import DATA_DIR, WEB_PUBLIC
 
 data_dir = str(DATA_DIR)
@@ -70,7 +71,6 @@ placeholders = {
 
 files_to_check = ["locations.json", "stories.json", "branching-stories.json", "journeys.json", "creatures.json", "artifacts.json"]
 
-queue = []
 
 def get_hash(url):
     clean_url = url.lstrip("/")
@@ -80,49 +80,68 @@ def get_hash(url):
     with open(full_path, "rb") as f:
         return hashlib.md5(f.read()).hexdigest()
 
+
 def needs_generation(url):
     h = get_hash(url)
     if h is None or h in placeholders:
         return True
     return False
 
-# Recheck all types
-for file_name in files_to_check:
-    file_path = os.path.join(data_dir, file_name)
-    if not os.path.exists(file_path):
-        continue
-    with open(file_path) as f:
-        data = json.load(f)
-    for item in data:
-        if "imageUrl" in item and needs_generation(item["imageUrl"]):
+
+def build_queue():
+    """Items whose image is missing or a placeholder. Do-not-generate rows
+    (living Indigenous traditions) are never queued."""
+    queue = []
+    refused = dng_keys()
+    for file_name in files_to_check:
+        file_path = os.path.join(data_dir, file_name)
+        if not os.path.exists(file_path):
+            continue
+        with open(file_path) as f:
+            data = json.load(f)
+        kind = file_name.replace(".json", "")
+        etype = FILE_TO_ETYPE.get(kind)
+        for item in data:
+            if "imageUrl" not in item or not needs_generation(item["imageUrl"]):
+                continue
+            if etype and (etype, item["id"]) in refused:
+                print(f"SKIP {etype}:{item['id']} is DO NOT GENERATE")
+                continue
             name = item.get("name", item.get("title", item["id"]))
             desc = item.get("shortDescription", item.get("description", item.get("summary", item.get("content", ""))))
-            kind = file_name.replace(".json", "")
-            
             prompt = f"Professional, beautiful, and dramatic illustration of the mythological {kind} {name}. {desc[:200]}. Epic scene, highly detailed, dark mode friendly, dynamic lighting, no text."
             queue.append({"type": kind, "id": item["id"], "url": item["imageUrl"], "prompt": prompt})
+    return queue
 
-print(f"Total remaining: {len(queue)}")
-for item in queue[:5]:
-    print(f"Next: {item['id']}")
-    print(item['prompt'].replace('\n', ' '))
-    print("---")
 
-with open("/tmp/queue_phase2.txt", "w") as f:
-    for item in queue:
-        f.write(f"{item['type']}|{item['id']}|{item['url']}|{item['prompt'].replace(chr(10), ' ')}\n")
+def main(argv=None):
+    argv = sys.argv if argv is None else argv
+    queue = build_queue()
+    print(f"Total remaining: {len(queue)}")
+    for item in queue[:5]:
+        print(f"Next: {item['id']}")
+        print(item['prompt'].replace('\n', ' '))
+        print("---")
 
-# Pass --generate to actually create the missing images via Magica.
-# Each image is saved to a UNIQUE canonical path /{type}/{id}.png (many items share the
-# generic /placeholder.png as their imageUrl, so we must not write back to item["url"] or
-# they'd collide). The item's imageUrl in the source JSON is then patched to the new path.
-# Idempotent: needs_generation() skips items whose real image is already in place.
-if "--generate" in sys.argv:
+    with open("/tmp/queue_phase2.txt", "w") as f:
+        for item in queue:
+            f.write(f"{item['type']}|{item['id']}|{item['url']}|{item['prompt'].replace(chr(10), ' ')}\n")
+
+    # Pass --generate to actually create the missing images via Magica.
+    # Each image is saved to a UNIQUE canonical path /{type}/{id}.png (many items share the
+    # generic /placeholder.png as their imageUrl, so we must not write back to item["url"] or
+    # they'd collide). The item's imageUrl in the source JSON is then patched to the new path.
+    # Idempotent: needs_generation() skips items whose real image is already in place.
+    if "--generate" not in argv:
+        return 0
     if not os.environ.get("MAGICA_KEY"):
         sys.exit("MAGICA_KEY not set in env. Aborting generation.")
     ok = 0
     generated = {}  # kind -> {id: "/kind/id.png"}
     for i, item in enumerate(queue, 1):
+        etype = FILE_TO_ETYPE.get(item["type"])
+        if etype:
+            assert_generatable(etype, item["id"])
         rel = f"/{item['type']}/{item['id']}.png"
         out_path = os.path.join(public_dir, rel.lstrip("/"))
         print(f"[{i}/{len(queue)}] {item['type']}/{item['id']} -> {rel}", flush=True)
@@ -151,3 +170,8 @@ if "--generate" in sys.argv:
             print(f"  patched {kind}.json", flush=True)
 
     print(f"Generated {ok}/{len(queue)} images.", flush=True)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

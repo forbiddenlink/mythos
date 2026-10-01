@@ -14,11 +14,14 @@ Two stages, so every image is looked at before it ships:
     python3 scripts/generate_backlog_images.py status
 
 `gen` writes review images to a staging folder (STAGE, outside the repo and
-off the internal SSD) and records nothing. `apply` copies approved images to
-the path the data JSON already uses (converted to webp), patches imageUrl
-when the extension changes, and appends the prompt, model and date to
-apps/web/src/data/image-generations.json, which
-scripts/build_image_provenance.py reads to mark the image ai-illustration.
+off the internal SSD) and records nothing. It skips ids already staged (so a
+rerun does not pay twice) unless --force. `apply` validates every id first
+(DO NOT GENERATE, staged file present, target inside public/), then copies the
+approved images to the path the data JSON already uses (converted to webp),
+patches imageUrl when the extension changes, appends the prompt, model and
+date to apps/web/src/data/image-generations.json and rebuilds
+image-provenance.json, all as one transaction that rolls back on any error.
+`status` counts applied, staged and ungenerated rows separately.
 
 Requires MAGICA_KEY in the environment (never printed). Figures are 4:5
 portraits, places/stories/artifacts/pantheons 3:2 landscapes, matching how
@@ -41,6 +44,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from _dng_guard import DoNotGenerate, assert_generatable
 from _repo_paths import DATA_DIR, REPO_ROOT, WEB_PUBLIC
 
 BACKLOG = REPO_ROOT / "docs/design/image-backlog.md"
@@ -218,16 +222,29 @@ def key_of(r: dict) -> str:
     return f"{r['etype']}:{r['slug']}"
 
 
+def staged_path(etype: str, slug: str) -> Path:
+    return STAGE / f"{etype}__{slug}.webp"
+
+
 def cmd_gen(args) -> int:
     if not os.environ.get("MAGICA_KEY"):
         sys.exit("MAGICA_KEY not set")
     cat, log = catalogs(), load_log()
-    todo = pending(rows(), cat, log, force=bool(args.force and args.ids))
+    force = bool(args.force and args.ids)
+    todo = pending(rows(), cat, log, force=force)
     if args.ids:
         want = set(args.ids.split(","))
         todo = [r for r in todo if key_of(r) in want]
     else:
         todo = todo[: args.count]
+    for r in todo:
+        assert_generatable(r["etype"], r["rec"]["id"])
+    if not force:
+        # A staged candidate is already paid for and waiting for review.
+        kept = [r for r in todo if staged_path(r["etype"], r["slug"]).exists()]
+        for r in kept:
+            print(f"SKIP {key_of(r)} already staged (use --force --ids to regenerate)")
+        todo = [r for r in todo if r not in kept]
     STAGE.mkdir(parents=True, exist_ok=True)
     notes = json.loads(args.notes) if args.notes else {}
 
@@ -253,7 +270,7 @@ def cmd_gen(args) -> int:
                 time.sleep(20 * (attempt + 1))
         if not png:
             return key_of(r), None, prompt
-        out = STAGE / f"{r['etype']}__{r['slug']}.webp"
+        out = staged_path(r["etype"], r["slug"])
         fit(png, portrait).save(out, "WEBP", quality=82, method=6)
         (STAGE / f"{r['etype']}__{r['slug']}.prompt.txt").write_text(prompt, encoding="utf-8")
         return key_of(r), out, prompt
@@ -267,50 +284,125 @@ def cmd_gen(args) -> int:
     return 0
 
 
+class Transaction:
+    """Atomic file writes with rollback. Every write goes to a temp file next
+    to its target and is renamed into place; `rollback` restores the bytes each
+    target had before this transaction touched it."""
+
+    def __init__(self) -> None:
+        self._backup: dict[Path, bytes | None] = {}
+
+    def write(self, dest: Path, data: bytes) -> None:
+        if dest not in self._backup:
+            self._backup[dest] = dest.read_bytes() if dest.exists() else None
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        tmp = dest.with_name(f".{dest.name}.tmp")
+        tmp.write_bytes(data)
+        os.replace(tmp, dest)
+
+    def rollback(self) -> None:
+        for dest, old in self._backup.items():
+            if old is None:
+                dest.unlink(missing_ok=True)
+            else:
+                dest.write_bytes(old)
+
+
+def rebuild_provenance(tx: Transaction) -> None:
+    """Regenerate image-provenance.json from the catalog and generation log,
+    which must already be written. Skipped when the log has no AI images."""
+    import build_image_provenance as bip
+
+    text = json.dumps(bip.build(), indent=2, ensure_ascii=False) + "\n"
+    tx.write(bip.OUTPUT, text.encode("utf-8"))
+
+
+def plan_apply(ids: list[str], cat: dict, by_key: dict) -> list[dict]:
+    """Validate every id before anything is written. Raises SystemExit naming
+    the first problem, so a bad id late in the list cannot leave earlier
+    images half-applied."""
+    plan = []
+    for k in ids:
+        if ":" not in k:
+            sys.exit(f"{k}: expected type:slug")
+        etype, slug = k.split(":", 1)
+        row = by_key.get(k)
+        if row is None:
+            sys.exit(f"{k}: no backlog row")
+        rec = find_record(cat, etype, slug)
+        if rec is None:
+            sys.exit(f"{k}: no catalog record")
+        try:
+            assert_generatable(etype, rec["id"])
+        except DoNotGenerate as e:
+            sys.exit(str(e))
+        if row["dng"]:
+            sys.exit(f"{k} is DO NOT GENERATE")
+        src = staged_path(etype, slug)
+        prompt_file = STAGE / f"{etype}__{slug}.prompt.txt"
+        if not src.exists() or not prompt_file.exists():
+            sys.exit(f"{k}: nothing staged (run gen first)")
+        new, old = target_path(rec, etype)
+        dest = (WEB_PUBLIC / new.lstrip("/")).resolve()
+        if not dest.is_relative_to(WEB_PUBLIC.resolve()):
+            sys.exit(f"{k}: target {new} escapes the public folder")
+        plan.append({"k": k, "etype": etype, "rec": rec, "src": src, "prompt_file": prompt_file, "dest": dest, "new": new, "old": old})
+    return plan
+
+
 def cmd_apply(args) -> int:
     cat, log = catalogs(), load_log()
     today = datetime.date.today().isoformat()
     by_key = {key_of({"etype": CATALOG[r["type"]][0], "slug": r["slug"]}): r for r in rows()}
-    changed: dict[str, dict[str, str]] = {}
-    for k in args.ids.split(","):
-        etype, slug = k.split(":", 1)
-        row = by_key[k]
-        if row["dng"]:
-            sys.exit(f"{k} is DO NOT GENERATE")
-        rec = find_record(cat, etype, slug)
-        src = STAGE / f"{etype}__{slug}.webp"
-        new, old = target_path(rec, etype)
-        dest = WEB_PUBLIC / new.lstrip("/")
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_bytes(src.read_bytes())
-        if new != old:
-            changed.setdefault(etype, {})[rec["id"]] = new
-        prompt = (STAGE / f"{etype}__{slug}.prompt.txt").read_text(encoding="utf-8")
-        log.setdefault(etype, {})[rec["id"]] = {
-            "path": new,
-            "model": MODEL,
-            "date": today,
-            "aspect": "4:5" if etype in PORTRAIT else "3:2",
-            "prompt": prompt,
-        }
-    for etype, m in changed.items():
-        fname = next(f for _, (t, f, _k) in CATALOG.items() if t == etype)
-        data = json.loads((DATA_DIR / fname).read_text(encoding="utf-8"))
-        for r in data:
-            if r["id"] in m:
-                r["imageUrl"] = m[r["id"]]
-        (DATA_DIR / fname).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    ordered = {t: dict(sorted(v.items())) for t, v in sorted(log.items())}
-    LOG.write_text(json.dumps(ordered, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"applied {len(args.ids.split(','))}; imageUrl changed for {sum(len(v) for v in changed.values())}")
+    plan = plan_apply(args.ids.split(","), cat, by_key)
+    tx = Transaction()
+    try:
+        changed: dict[str, dict[str, str]] = {}
+        for item in plan:
+            etype, rec = item["etype"], item["rec"]
+            tx.write(item["dest"], item["src"].read_bytes())
+            if item["new"] != item["old"]:
+                changed.setdefault(etype, {})[rec["id"]] = item["new"]
+            log.setdefault(etype, {})[rec["id"]] = {
+                "path": item["new"],
+                "model": MODEL,
+                "date": today,
+                "aspect": "4:5" if etype in PORTRAIT else "3:2",
+                "prompt": item["prompt_file"].read_text(encoding="utf-8"),
+            }
+        for etype, m in changed.items():
+            fname = next(f for _, (t, f, _k) in CATALOG.items() if t == etype)
+            data = json.loads((DATA_DIR / fname).read_text(encoding="utf-8"))
+            for r in data:
+                if r["id"] in m:
+                    r["imageUrl"] = m[r["id"]]
+            tx.write(DATA_DIR / fname, (json.dumps(data, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
+        ordered = {t: dict(sorted(v.items())) for t, v in sorted(log.items())}
+        tx.write(LOG, (json.dumps(ordered, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
+        rebuild_provenance(tx)
+    except BaseException:
+        tx.rollback()
+        raise
+    print(f"applied {len(plan)}; imageUrl changed for {sum(len(v) for v in changed.values())}; provenance rebuilt")
     return 0
 
 
 def cmd_status(_args) -> int:
     cat, log = catalogs(), load_log()
     rs = rows()
-    todo = pending(rs, cat, log)
-    print(f"backlog rows {len(rs)}; DO NOT GENERATE {sum(r['dng'] for r in rs)}; generated {sum(len(v) for v in log.values())}; remaining {len(todo)}")
+    applied = staged = ungenerated = 0
+    for r in pending(rs, cat, log, force=True):
+        etype = r["etype"]
+        if r["rec"]["id"] in log.get(etype, {}):
+            applied += 1
+        elif staged_path(etype, r["slug"]).exists():
+            staged += 1
+        else:
+            ungenerated += 1
+    print(
+        f"backlog rows {len(rs)}; DO NOT GENERATE {sum(r['dng'] for r in rs)}; "
+        f"applied {applied}; staged (awaiting apply) {staged}; ungenerated {ungenerated}"
+    )
     return 0
 
 
