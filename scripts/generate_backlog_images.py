@@ -239,11 +239,14 @@ def cmd_gen(args) -> int:
         elif note:
             prompt += " " + note
         portrait = r["etype"] in PORTRAIT
-        try:
-            png = generate(prompt, API_SIZE[portrait])
-        except Exception as e:  # one bad run must not sink the batch
-            print(f"  ! {key_of(r)}: {type(e).__name__} {e}")
-            png = None
+        png = None
+        for attempt in range(3):  # 403/429 show up under parallel load; back off and retry
+            try:
+                png = generate(prompt, API_SIZE[portrait])
+                break
+            except Exception as e:  # one bad run must not sink the batch
+                print(f"  ! {key_of(r)} try {attempt + 1}: {type(e).__name__} {e}")
+                time.sleep(20 * (attempt + 1))
         if not png:
             return key_of(r), None, prompt
         out = STAGE / f"{r['etype']}__{r['slug']}.webp"
@@ -252,7 +255,7 @@ def cmd_gen(args) -> int:
         return key_of(r), out, prompt
 
     ok = 0
-    with cf.ThreadPoolExecutor(max_workers=6) as ex:
+    with cf.ThreadPoolExecutor(max_workers=5) as ex:
         for k, out, _ in ex.map(work, todo):
             print(("OK  " if out else "FAIL"), k, out or "")
             ok += bool(out)
