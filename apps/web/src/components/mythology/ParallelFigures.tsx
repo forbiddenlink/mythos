@@ -132,7 +132,7 @@ export function ParallelFigures({
 
   return (
     <section aria-label={label} className={className}>
-      <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         {members.map((figure) => {
           const head = (
             <>

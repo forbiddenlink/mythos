@@ -121,7 +121,7 @@ export function AtlasOpensHero({ counts, figures }: AtlasOpensHeroProps) {
                 asChild
                 variant="gold"
                 size="lg"
-                className="h-auto whitespace-normal px-4 py-3 text-center sm:px-8"
+                className="h-auto max-w-full whitespace-normal px-4 py-3 text-center sm:px-8"
               >
                 <Link href="/pantheons">
                   Explore the pantheons <ArrowRight />

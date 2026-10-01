@@ -91,7 +91,12 @@ export function InteractiveStoriesBanner({
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button asChild variant="gold" size="lg">
+              <Button
+                asChild
+                variant="gold"
+                size="lg"
+                className="h-auto max-w-full whitespace-normal py-3 text-left"
+              >
                 <Link href={`/stories/interactive/${featured.slug}`}>
                   Play {featured.title} <ArrowRight />
                 </Link>
