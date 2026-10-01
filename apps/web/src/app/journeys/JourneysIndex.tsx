@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import {
   EntityBadge,
   EntityCard,
@@ -55,6 +56,7 @@ export function JourneysIndex({
       />
 
       <Container className="pt-8 pb-12 md:pt-10">
+        <CatalogImageNotice className="mb-4" />
         <EntityGrid>
           {journeys.map((journey, index) => (
             <EntityCard

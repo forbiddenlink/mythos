@@ -3,6 +3,7 @@ import "server-only";
 import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
 import { getDeityComparisons } from "@/lib/comparisons";
+import { getImageProvenance } from "@/lib/image-provenance";
 import { shortTraditionName } from "@/lib/tradition-name";
 
 /**
@@ -159,11 +160,21 @@ export function getGodsOfDomains(): GodsOfDomain[] {
         name: shortTradition(pantheonId),
         deities: members
           .filter((d) => d.pantheonId === pantheonId)
-          .sort(
-            (x, y) =>
+          .sort((x, y) => {
+            const kindX =
+              getImageProvenance("deity", x.slug)?.kind === "illustration-ai"
+                ? 0
+                : 1;
+            const kindY =
+              getImageProvenance("deity", y.slug)?.kind === "illustration-ai"
+                ? 0
+                : 1;
+            if (kindX !== kindY) return kindX - kindY;
+            return (
               (x.importanceRank ?? 99) - (y.importanceRank ?? 99) ||
-              x.name.localeCompare(y.name),
-          )
+              x.name.localeCompare(y.name)
+            );
+          })
           .map((d) => ({
             id: d.id,
             name: d.name,

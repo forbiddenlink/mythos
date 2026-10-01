@@ -161,7 +161,7 @@ export function EntityCard({
       ) : null}
       <Heading
         className={cn(
-          "font-serif font-semibold leading-snug text-foreground transition-colors group-hover/entity:text-gold-text",
+          "font-serif font-semibold leading-snug text-foreground transition-colors group-hover/entity:text-gold-text break-words [overflow-wrap:anywhere]",
           list ? "text-lg" : "text-[1.1875rem] sm:text-xl",
         )}
       >

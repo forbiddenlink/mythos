@@ -55,7 +55,7 @@ export async function generateMetadata({
     // is canonical: signals consolidate there instead of splitting across two
     // URLs with identical text.
     url: `/stories/${story.slug}`,
-    image: story.imageUrl || "/og-image.png",
+    image: story.imageUrl || "/opengraph-image",
     type: "article",
   });
 }

@@ -23,6 +23,7 @@ import collections from "@/data/collections.json";
 import pantheons from "@/data/pantheons.json";
 import { getDeities, getStories } from "@/lib/data/catalog";
 import { formatPantheonLabel } from "@/lib/deity-page";
+import { getImageProvenance } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 
 interface PageProps {
@@ -78,13 +79,25 @@ function firstSentence(text: string | null | undefined): string | undefined {
   return (match?.[0] ?? text).trim();
 }
 
-/** Four portraits of the collection's figures, for the hero. */
+/** Four portraits of the collection's figures, for the hero. Prefers illustrated entities. */
 function PortraitMosaic({
   figures,
 }: {
-  figures: Array<{ name: string; imageUrl?: string | null }>;
+  figures: Array<{ name: string; slug?: string; imageUrl?: string | null }>;
 }) {
-  const shown = figures.filter((f) => f.imageUrl).slice(0, 4);
+  const withImages = figures.filter((f) => f.imageUrl);
+  const sorted = [...withImages].sort((a, b) => {
+    const kindA =
+      a.slug && getImageProvenance("deity", a.slug)?.kind === "illustration-ai"
+        ? 0
+        : 1;
+    const kindB =
+      b.slug && getImageProvenance("deity", b.slug)?.kind === "illustration-ai"
+        ? 0
+        : 1;
+    return kindA - kindB;
+  });
+  const shown = sorted.slice(0, 4);
   if (shown.length === 0) return null;
   return (
     <div

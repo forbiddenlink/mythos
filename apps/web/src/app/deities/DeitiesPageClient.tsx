@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { ArrowDownAZ, ArrowUpAZ, LayoutGrid, Table } from "lucide-react";
 import { DeitiesTable } from "@/components/deities/DeitiesTable";
+import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import {
   EntityBadge,
   EntityCard,
@@ -288,6 +289,7 @@ export function DeitiesPageClient({
       </Container>
 
       <Container className="pt-6 pb-12">
+        <CatalogImageNotice className="mb-4" />
         {displayDeities.length === 0 ? (
           <EmptyResults
             title="No deities found"

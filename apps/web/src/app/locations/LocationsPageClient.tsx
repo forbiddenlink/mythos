@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import dynamic from "next/dynamic";
 import { List, Map as MapIcon, MapPin } from "lucide-react";
+import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import {
   EntityBadge,
   EntityCard,
@@ -513,6 +514,7 @@ export function LocationsPageClient({
       </Container>
 
       <Container className="pt-6 pb-12">
+        <CatalogImageNotice className="mb-4" />
         {viewMode === "list" ? (
           <div>
             {filteredLocations.length === 0 ? (

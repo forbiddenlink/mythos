@@ -42,6 +42,14 @@ jobs:
       - name: Check for unused files, dependencies and exports (knip)
         run: pnpm knip
 
+      - name: Check image provenance is current
+        run: python3 scripts/build_image_provenance.py --check
+
+      - name: Test image generation guards
+        run: |
+          python3 -m pip install --quiet pytest pillow
+          python3 -m pytest scripts/tests
+
   unit-tests:
     name: Unit & Integration Tests
     runs-on: ubuntu-latest

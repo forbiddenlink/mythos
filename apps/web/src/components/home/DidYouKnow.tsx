@@ -111,7 +111,7 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
       <div className="relative overflow-hidden rounded-lg bg-card ring-1 ring-border/70">
         <div className="relative p-6 md:p-10">
           {/* Header */}
-          <div className="flex items-start justify-between mb-4">
+          <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div className="flex items-center gap-3">
               <MythosMark id="torch" className="h-5 w-5 text-gold-text" />
               <div>

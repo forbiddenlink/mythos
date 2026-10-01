@@ -21,8 +21,9 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "celtic-pantheon": "/audio/ambient/celtic-ambiance.mp3",
   "aztec-pantheon": "/audio/ambient/aztec-ambiance.mp3",
   "chinese-pantheon": "/audio/ambient/chinese-ambiance.mp3",
-  // Mapped to closest available audio until dedicated tracks are produced
-  "mesopotamian-pantheon": "/audio/ambient/egyptian-ambiance.mp3",
+  // Mesoamerican keeps the Aztec track (Aztec is a Mesoamerican tradition).
+  // Everything else without a bespoke track uses the neutral default.
+  "mesopotamian-pantheon": "/audio/ambient/default.mp3",
   "mesoamerican-pantheon": "/audio/ambient/aztec-ambiance.mp3",
   "african-pantheon": "/audio/ambient/default.mp3",
   "yoruba-pantheon": "/audio/ambient/default.mp3",
@@ -36,6 +37,10 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "inuit-pantheon": "/audio/ambient/default.mp3",
   "aboriginal-australian-pantheon": "/audio/ambient/default.mp3",
   "dine-pantheon": "/audio/ambient/default.mp3",
+  "inca-pantheon": "/audio/ambient/default.mp3",
+  "persian-pantheon": "/audio/ambient/default.mp3",
+  "finnish-pantheon": "/audio/ambient/default.mp3",
+  "korean-pantheon": "/audio/ambient/default.mp3",
   default: "/audio/ambient/default.mp3",
 };
 

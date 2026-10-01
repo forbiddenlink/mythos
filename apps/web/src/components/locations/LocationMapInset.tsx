@@ -35,6 +35,32 @@ export const SYMBOLIC_LOCATION_TYPES = new Set([
   "mythical_realm",
 ]);
 
+/**
+ * Smallest pixel distance between two pins. Pins are at least 25px wide, so
+ * 36px keeps every pin a clear 24x24 CSS px target (WCAG 2.5.8): crowded
+ * context pins are left off the map until zooming separates them, and each
+ * still has a link in the page's related-places list.
+ */
+export const MIN_PIN_SPACING = 36;
+
+export function spreadPins<T extends { x: number; y: number }>(
+  primary: { x: number; y: number },
+  pins: T[],
+  minDistance = MIN_PIN_SPACING,
+): T[] {
+  const placed = [primary];
+  const kept: T[] = [];
+  for (const pin of pins) {
+    if (
+      placed.every((p) => Math.hypot(p.x - pin.x, p.y - pin.y) >= minDistance)
+    ) {
+      placed.push(pin);
+      kept.push(pin);
+    }
+  }
+  return kept;
+}
+
 export function formatCoordinate(latitude: number, longitude: number): string {
   const lat = `${Math.abs(latitude)}°${latitude >= 0 ? "N" : "S"}`;
   const lon = `${Math.abs(longitude)}°${longitude >= 0 ? "E" : "W"}`;
@@ -115,7 +141,7 @@ export function LocationMapInset({
     primaryMarker.addTo(map);
 
     // Faint, smaller markers for other locations in the same pantheon.
-    nearby.forEach((loc) => {
+    const context = nearby.map((loc) => {
       const icon = createMarkerIcon(loc.pantheonId, loc.locationType, {
         opacity: 0.45,
         scale: 0.7,
@@ -134,8 +160,28 @@ export function LocationMapInset({
           .getElement()
           ?.setAttribute("aria-label", `${loc.name}: view location`);
       });
-      marker.addTo(map);
+      return { loc, marker };
     });
+
+    // Show only context pins that keep clear of each other and the primary.
+    const layoutPins = () => {
+      const zoom = map.getZoom();
+      const at = (lat: number, lng: number) => map.project([lat, lng], zoom);
+      const pinPoints = context.map((c) => ({
+        ...c,
+        ...at(c.loc.latitude!, c.loc.longitude!),
+      }));
+      const visible = new Set(
+        spreadPins(at(location.latitude!, location.longitude!), pinPoints),
+      );
+      for (const pin of pinPoints) {
+        const shown = map.hasLayer(pin.marker);
+        if (visible.has(pin) && !shown) pin.marker.addTo(map);
+        if (!visible.has(pin) && shown) pin.marker.remove();
+      }
+    };
+    layoutPins();
+    map.on("zoomend", layoutPins);
 
     return () => {
       // Cancel any in-flight animation before teardown (see MapVisualization

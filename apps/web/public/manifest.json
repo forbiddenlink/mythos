@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "description": "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from civilizations around the world.",
   "start_url": "/",
-  "display": "browser",
+  "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#d4af37",
   "orientation": "portrait-primary",
+  "icons": [
     {
       "src": "/icon.svg",
       "sizes": "any",
@@ -18,13 +19,19 @@
       "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "/icon.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "categories": ["education", "entertainment", "books"],

@@ -396,7 +396,7 @@ export function FactList({
   return (
     <section aria-label={title}>
       <AsideHeading>{title}</AsideHeading>
-      <dl className="grid grid-cols-[minmax(0,7rem)_minmax(0,1fr)] gap-x-4 border-t border-border/70 text-[0.9375rem] leading-snug sm:grid-cols-[minmax(0,8rem)_minmax(0,1fr)] lg:grid-cols-1">
+      <dl className="grid grid-cols-[minmax(0,min(7rem,35%))_minmax(0,1fr)] gap-x-4 border-t border-border/70 text-[0.9375rem] leading-snug sm:grid-cols-[minmax(0,8rem)_minmax(0,1fr)] lg:grid-cols-1">
         {rows.map((fact) => (
           <div
             key={fact.label}

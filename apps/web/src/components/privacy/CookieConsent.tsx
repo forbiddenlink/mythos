@@ -14,6 +14,10 @@ export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
   const [gpcActive, setGpcActive] = useState(false);
   const hasConsentedRef = useRef<boolean | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  // Set only when the reader reopens preferences, so focus moves into the
+  // banner for them and returns to Cookie Settings afterwards.
+  const openerRef = useRef<HTMLElement | null>(null);
 
   const showBanner = useCallback(() => {
     setIsVisible(true);
@@ -24,6 +28,10 @@ export function CookieConsent() {
     setGpcActive(hasGlobalPrivacyControl());
 
     const openHandler = () => {
+      openerRef.current =
+        document.activeElement instanceof HTMLElement
+          ? document.activeElement
+          : null;
       showBanner();
     };
     window.addEventListener("mythos-cookie-consent-open", openHandler);
@@ -47,6 +55,18 @@ export function CookieConsent() {
       window.removeEventListener("mythos-cookie-consent-open", openHandler);
     };
   }, [showBanner]);
+
+  useEffect(() => {
+    if (!isVisible) {
+      const opener = openerRef.current;
+      openerRef.current = null;
+      if (opener?.isConnected) opener.focus();
+      return;
+    }
+    if (openerRef.current) {
+      dialogRef.current?.querySelector<HTMLElement>("button")?.focus();
+    }
+  }, [isVisible]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("cookie-banner-open", isVisible);
@@ -89,7 +109,12 @@ export function CookieConsent() {
 
   return (
     <div
+      ref={dialogRef}
       role="dialog"
+      onKeyDown={(event) => {
+        // Escape is the same explicit "keep analytics off" choice as the X.
+        if (event.key === "Escape") handleDismiss();
+      }}
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-description"
       className="fixed bottom-0 left-0 right-0 z-[60] p-3 md:p-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pointer-events-none"

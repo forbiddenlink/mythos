@@ -225,9 +225,13 @@ export function JourneyMap({
         journey.pantheonId,
       );
 
+      // Consecutive stops sit close together, so the pins can overlap. Every
+      // stop is also a numbered button in the strip below the map (WCAG 2.5.8
+      // equivalent control), so the pins are not separate tab stops.
       const marker = L.marker(waypoint.coordinates, {
         icon,
         title: `Stop ${waypoint.order}: ${waypoint.name}`,
+        keyboard: false,
       }).on("click", () => {
         setCurrentWaypointIndex(index);
         setVisitedWaypoints((prev) => new Set([...prev, index]));
@@ -235,12 +239,9 @@ export function JourneyMap({
       });
 
       marker.on("add", () => {
-        marker
-          .getElement()
-          ?.setAttribute(
-            "aria-label",
-            `Stop ${waypoint.order}: ${waypoint.name}`,
-          );
+        // Not a tab stop or button, so it gets no name; assistive tech uses
+        // the stop buttons ("Go to stop N: name") instead.
+        marker.getElement()?.setAttribute("aria-hidden", "true");
       });
       marker.addTo(map);
 

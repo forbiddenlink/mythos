@@ -72,7 +72,7 @@ export async function generateMetadata({
     title: `${journey.title} - ${journey.heroName}'s Journey`,
     description: description,
     url: `/journeys/${journey.slug}`,
-    image: journey.imageUrl || "/og-image.png",
+    image: journey.imageUrl || "/opengraph-image",
     type: "article",
     keywords: [
       journey.title,

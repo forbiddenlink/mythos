@@ -10,8 +10,8 @@ test.describe("Story and source reading", () => {
     page,
   }) => {
     for (const [slug, period] of [
-      ["aztec", "1300 CE – 1521 CE"],
-      ["slavic", "500 CE – 1250 CE"],
+      ["aztec", "1300 CE to 1521 CE"],
+      ["slavic", "500 CE to 1250 CE"],
       ["hindu", "From 1500 BCE; end date not recorded"],
     ]) {
       await page.goto(`/pantheons/${slug}`);
@@ -43,7 +43,7 @@ test.describe("Story and source reading", () => {
       exact: true,
     });
     await expect(title).toBeInViewport();
-    const portrait = page.getByRole("img", { name: "Athena", exact: true });
+    const portrait = page.getByRole("img", { name: /^Illustration of Athena/ });
     const titleBox = await title.boundingBox();
     const portraitBox = await portrait.boundingBox();
     expect(titleBox).not.toBeNull();

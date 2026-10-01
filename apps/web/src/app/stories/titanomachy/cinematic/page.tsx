@@ -52,7 +52,7 @@ const titanomachyScenes: StoryScene[] = [
     title: "The Divine Weapons",
     text: "Zeus descended to Tartarus and freed the Hundred-Handed Ones and the Cyclopes. The Cyclopes forged terrible weapons for the Olympians: the thunderbolt for Zeus, the trident for Poseidon, and the helm of invisibility for Hades.",
     mood: "triumphant",
-    imageUrl: "/deities/hephaestus.jpg",
+    imageUrl: "/deities/hephaestus.webp",
   },
   {
     id: "final-battle",

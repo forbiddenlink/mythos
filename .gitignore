@@ -10,6 +10,9 @@ build/
 # Turborepo
 .turbo/
 
+# Rust build output (apps/api)
+apps/api/target/
+
 # Environment variables
 .env
 .env.*
@@ -67,6 +70,12 @@ test-results/
 
 # Local visual QA screenshots
 apps/web/.qa-shots/
+design-research/asset-audit/
+design-research/shots/
+design-research/prototypes/
+auth-review/shots/
+auth-review/browser-evidence.*
+functional-review/evidence/
 
 # Claude Code
 .claude/

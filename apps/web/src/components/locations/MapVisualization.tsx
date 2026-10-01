@@ -8,6 +8,7 @@ import {
   createMarkerIcon,
   getLocationTypeLabel,
 } from "@/components/locations/map-marker-icons";
+import { mergeCrowdedGroups } from "@/components/locations/cluster-spacing";
 import { MAP_TILE_OPTIONS, MAP_TILE_URL } from "@/lib/map-tiles";
 
 // ─── Types ──────────────────────────────────────────────────────────────
@@ -221,7 +222,7 @@ export function MapVisualization({
       center: { lat: number; lng: number };
     }
 
-    const createClusters = (
+    const groupLocations = (
       locs: typeof mappableLocations,
       zoomLevel: number,
     ): ClusterGroup[] => {
@@ -268,6 +269,20 @@ export function MapVisualization({
       });
 
       return Array.from(clusters.values());
+    };
+
+    // Grid groups can still leave pins touching across cell edges, so merge any
+    // groups that end up closer on screen than a marker is wide.
+    const createClusters = (
+      locs: typeof mappableLocations,
+      zoomLevel: number,
+    ): ClusterGroup[] => {
+      const groups = groupLocations(locs, zoomLevel);
+      return enableClustering
+        ? mergeCrowdedGroups(groups, (c) =>
+            map.project([c.lat, c.lng], zoomLevel),
+          )
+        : groups;
     };
 
     // Function to render markers based on current zoom

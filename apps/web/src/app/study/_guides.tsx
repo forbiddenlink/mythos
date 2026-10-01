@@ -299,7 +299,7 @@ export function StudyGuidePage({ slug }: { slug: string }) {
                 <li key={d.id}>
                   <Link
                     href={`/deities/${d.slug}`}
-                    className="border border-border/60 bg-background/50 px-3 py-1.5 text-sm hover:border-gold/40 hover:text-gold"
+                    className="border border-border/60 bg-background/50 px-3 py-1.5 text-sm hover:border-gold/40 hover:text-gold-text"
                   >
                     {d.name}
                   </Link>

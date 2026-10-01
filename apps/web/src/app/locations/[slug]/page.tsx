@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getIllustrativeImageNote } from "@/lib/image-provenance";
+import {
+  generateEntityAlt,
+  getIllustrativeImageNote,
+} from "@/lib/image-provenance";
 import { notFound, redirect } from "next/navigation";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
@@ -210,7 +213,16 @@ export default async function LocationPage({ params }: PageProps) {
             imageAspect="square"
             image={
               location.imageUrl
-                ? { src: location.imageUrl, alt: location.name }
+                ? {
+                    src: location.imageUrl,
+                    alt: generateEntityAlt({
+                      name: location.name,
+                      tradition: pantheon?.name,
+                      type: location.locationType || "place",
+                      entityType: "location",
+                      slug: location.id,
+                    }),
+                  }
                 : null
             }
             imageCaption={

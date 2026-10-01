@@ -115,7 +115,7 @@ export function ParallelFigures({
                   className="size-14 sm:aspect-4/5 sm:size-auto sm:w-full"
                 />
                 <span className="min-w-0 sm:mt-3 sm:block">
-                  <span className="block font-serif text-lg leading-tight text-foreground group-hover:text-gold-text">
+                  <span className="block font-serif text-lg leading-tight text-foreground [overflow-wrap:anywhere] group-hover:text-gold-text">
                     {figure.name}
                   </span>
                   <span className="mt-1 block">
@@ -132,7 +132,7 @@ export function ParallelFigures({
 
   return (
     <section aria-label={label} className={className}>
-      <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         {members.map((figure) => {
           const head = (
             <>
@@ -145,7 +145,7 @@ export function ParallelFigures({
                 <Tradition figure={figure} />
                 <span
                   className={cn(
-                    "mt-0.5 block font-serif text-xl leading-tight text-foreground",
+                    "mt-0.5 block font-serif text-xl leading-tight text-foreground [overflow-wrap:anywhere]",
                     figure.href &&
                       "underline-offset-4 group-hover:text-gold-text group-hover:underline",
                   )}

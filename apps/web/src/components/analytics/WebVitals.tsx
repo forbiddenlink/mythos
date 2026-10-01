@@ -5,7 +5,20 @@ import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 import { useEffect } from "react";
 import { onCLS, onFCP, onINP, onLCP, onTTFB, type Metric } from "web-vitals";
 
+/**
+ * The vitals route answers 501 when PostHog is not configured, and the browser
+ * logs that as a console error. The client already depends on the public key
+ * (it reads the PostHog distinct id), so skip the POST when it is absent.
+ */
+export function isVitalsReportingConfigured(): boolean {
+  return Boolean(process.env.NEXT_PUBLIC_POSTHOG_KEY);
+}
+
 function sendToAnalytics(metric: Metric) {
+  if (!isVitalsReportingConfigured()) {
+    return;
+  }
+
   // Respect explicit cookie choice. If not accepted, do not transmit metrics.
   if (!hasAnalyticsConsent()) {
     return;

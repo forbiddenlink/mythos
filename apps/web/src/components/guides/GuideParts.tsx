@@ -160,7 +160,7 @@ export function EntityRoster({
   notes?: Record<string, string>;
 }>) {
   return (
-    <ul className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+    <ul className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       {entities.map((entity) => (
         <li key={entity.href} className="flex gap-4">
           {entity.imageUrl ? (

@@ -71,8 +71,9 @@ describe("image provenance", () => {
     }
   });
 
+  // sedna is Inuit (a do-not-generate tradition), so it stays a plate for good.
   it("resolves a procedural plate and an AI illustration", () => {
-    const plate = getImageProvenance("deity", "helios");
+    const plate = getImageProvenance("deity", "sedna");
     expect(plate?.kind).toBe("illustration-procedural");
     expect(plate?.scripts).toContain("scripts/generate_deity_plates.py");
 

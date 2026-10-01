@@ -39,8 +39,11 @@ import { getDeities, getHeroes } from "@/lib/data/catalog";
 import { normalizeDeityReference } from "@/lib/deity-reference";
 import { formatPantheonLabel, formatSlugAsTitle } from "@/lib/deity-page";
 import { guidesFeaturing } from "@/lib/guides";
+import {
+  generateEntityAlt,
+  getIllustrativeImageNote,
+} from "@/lib/image-provenance";
 import { findHeroByReference } from "@/lib/heroes";
-import { getIllustrativeImageNote } from "@/lib/image-provenance";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
@@ -251,7 +254,16 @@ export default async function HeroPage({ params }: PageProps) {
         fit: "contain" as const,
       }
     : hero.imageUrl
-      ? { src: hero.imageUrl, alt: hero.name }
+      ? {
+          src: hero.imageUrl,
+          alt: generateEntityAlt({
+            name: hero.name,
+            tradition: pantheon?.name,
+            type: "hero",
+            entityType: "hero",
+            slug: hero.slug,
+          }),
+        }
       : null;
 
   const parentage = hero.parentage;

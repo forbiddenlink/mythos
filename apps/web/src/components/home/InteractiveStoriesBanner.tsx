@@ -35,7 +35,7 @@ export function InteractiveStoriesBanner({
       className="section-space"
     >
       <Container>
-        <div className="dark relative isolate grid overflow-hidden rounded-xl bg-midnight text-foreground ring-1 ring-gold/20 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+        <div className="dark relative isolate grid overflow-hidden rounded-xl bg-midnight text-foreground ring-1 ring-gold/20 grid-cols-1 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
           <Link
             href={`/stories/interactive/${featured.slug}`}
             className="group relative block min-h-72 overflow-hidden sm:min-h-96 focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-gold"
@@ -91,7 +91,12 @@ export function InteractiveStoriesBanner({
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button asChild variant="gold" size="lg">
+              <Button
+                asChild
+                variant="gold"
+                size="lg"
+                className="h-auto max-w-full whitespace-normal py-3 text-left"
+              >
                 <Link href={`/stories/interactive/${featured.slug}`}>
                   Play {featured.title} <ArrowRight />
                 </Link>

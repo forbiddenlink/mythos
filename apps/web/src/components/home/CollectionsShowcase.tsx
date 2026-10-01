@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section, SectionHeading } from "@/components/layout/section";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
+import { getImageProvenance } from "@/lib/image-provenance";
 
 const featuredIds = [
   "trickster-gods",
@@ -43,7 +44,13 @@ export function CollectionsShowcase() {
       <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
         {featured.map((collection) => {
           const members = membersOf(collection.deities);
-          const portraits = members.filter((d) => d.imageUrl).slice(0, 4);
+          const portraits = members
+            .filter(
+              (d) =>
+                d.imageUrl &&
+                getImageProvenance("deity", d.slug)?.kind === "illustration-ai",
+            )
+            .slice(0, 4);
           return (
             <li key={collection.id}>
               <Link
@@ -79,10 +86,7 @@ export function CollectionsShowcase() {
                   {collection.description}
                 </span>
                 <span className="mt-2 block text-[0.8125rem] text-muted-foreground">
-                  {members
-                    .slice(0, 4)
-                    .map((d) => d.name)
-                    .join(" · ")}
+                  {portraits.map((d) => d.name).join(" · ")}
                 </span>
               </Link>
             </li>
