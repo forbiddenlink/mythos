@@ -9,6 +9,7 @@ Two stages, so every image is looked at before it ships:
 
     python3 scripts/generate_backlog_images.py gen --count 25     # next 25 pending rows
     python3 scripts/generate_backlog_images.py gen --ids hero:aeneas,pantheon:slavic
+    python3 scripts/generate_backlog_images.py gen --force --ids deity:viracocha  # redo a rejected one
     python3 scripts/generate_backlog_images.py apply --ids hero:aeneas,...   # approved only
     python3 scripts/generate_backlog_images.py status
 
@@ -198,14 +199,16 @@ def fit(png: bytes, portrait: bool) -> Image.Image:
     return im.resize((tw, th), Image.Resampling.LANCZOS)
 
 
-def pending(rs: list[dict], cat: dict, log: dict) -> list[dict]:
+def pending(rs: list[dict], cat: dict, log: dict, force: bool = False) -> list[dict]:
+    """Backlog rows still to generate. `force` keeps rows already in the log,
+    for regenerating an image that review rejected."""
     todo = []
     for r in rs:
         if r["dng"]:
             continue
         etype = CATALOG[r["type"]][0]
         rec = find_record(cat, etype, r["slug"])
-        if not rec or rec["id"] in log.get(etype, {}):
+        if not rec or (rec["id"] in log.get(etype, {}) and not force):
             continue
         todo.append({**r, "etype": etype, "rec": rec})
     return todo
@@ -219,7 +222,7 @@ def cmd_gen(args) -> int:
     if not os.environ.get("MAGICA_KEY"):
         sys.exit("MAGICA_KEY not set")
     cat, log = catalogs(), load_log()
-    todo = pending(rows(), cat, log)
+    todo = pending(rows(), cat, log, force=bool(args.force and args.ids))
     if args.ids:
         want = set(args.ids.split(","))
         todo = [r for r in todo if key_of(r) in want]
@@ -317,6 +320,7 @@ def main() -> int:
     g = sub.add_parser("gen")
     g.add_argument("--count", type=int, default=25)
     g.add_argument("--ids")
+    g.add_argument("--force", action="store_true", help="with --ids: regenerate rows already in the log")
     g.add_argument("--notes", help='JSON {"type:slug": "extra prompt text"}')
     a = sub.add_parser("apply")
     a.add_argument("--ids", required=True)
