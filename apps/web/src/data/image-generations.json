@@ -1,5 +1,12 @@
 {
   "deity": {
+    "ahti": {
+      "path": "/deities/ahti.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ahti. The god of waters and fish, named by Agricola in 1551 as the one who brought fish from the water, called king of the waves in the runo-songs, husband of Vellamo and lord of the underwater. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "ahura-mazda": {
       "path": "/deities/ahura-mazda.webp",
       "model": "flux_2_max",
@@ -48,6 +55,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Asclepius. The healer god, son of Apollo and the mortal Coronis, trained in medicine by the centaur Chiron. His skill grew so great that he raised the dead, and Zeus struck him with a thunderbolt; he. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "ashvins": {
+      "path": "/deities/ashvins.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity The Ashvins. The divine twin horsemen of the Rigveda, physicians of the gods who arrive in their chariot at dawn to heal the sick, rescue the shipwrecked, and restore youth to the old. More than fifty. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "atar": {
       "path": "/deities/atar.webp",
@@ -119,6 +133,20 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Dangun. The son of the heavenly Hwanung and the bear-woman Ungnyeo, who in the Samguk Yusa founds the kingdom of Joseon (Gojoseon), rules for fifteen hundred years, and at last becomes a mountain. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "dazhbog": {
+      "path": "/deities/dazhbog.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Dazhbog. A sun-and-fortune god among Vladimir's 980 idols, called \"son of Svarog\" in a separate chronicle gloss and invoked as ancestor of the Rus' people in the medieval epic poem the Tale of. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "dioscuri": {
+      "path": "/deities/dioscuri.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity The Dioscuri (Castor and Polydeuces). The divine twins Castor, tamer of horses, and Polydeuces (Pollux), the boxer, sons of Leda and brothers of Helen. Sailors prayed to them in storms, and after Castor's death the brothers. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "dumuzi": {
       "path": "/deities/dumuzi.webp",
       "model": "flux_2_max",
@@ -132,6 +160,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity El (Ilu). The aged king and father of the gods at Ugarit, 'Bull El', 'Father of Years', who presides over the divine assembly from his dwelling at the source of the two rivers and whose permission. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "eos": {
+      "path": "/deities/eos.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Eos. The goddess of dawn, sister of Helios and Selene, who rises each morning from the bed of her mortal consort Tithonus to bring light to gods and men. Homer's formula 'rosy-fingered Dawn'. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "fuxi": {
       "path": "/deities/fuxi.webp",
@@ -188,6 +223,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Helios. The Greek sun god Helios as a radiant beardless young man with a crown of sun rays, driving a golden four-horse chariot across the sky above the sea at dawn, wearing a short chiton and a flowing crimson cloak. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "huallallo-carhuincho": {
+      "path": "/deities/huallallo-carhuincho.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Huallallo Carhuincho. The fearsome earlier god of the Huarochirí stories, who ruled a hot lowland world and demanded one of every two children as food, until Pariacaca's storms drove him east into the Antis. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "hwanin": {
       "path": "/deities/hwanin.webp",
@@ -315,6 +357,13 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Mama Ocllo. The founding ancestress of the Incas, sister and wife of Manco Cápac, who in Garcilaso's account taught the women of Cusco to spin, weave, and keep house while her brother taught the men to. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "mama-qucha": {
+      "path": "/deities/mama-qucha.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Mama Qucha. The Sea Mother, named by colonial writers alongside Pachamama as the mother of waters, especially important to coastal fishing peoples and connected in highland thought to the lakes and. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "manco-capac": {
       "path": "/deities/manco-capac.webp",
       "model": "flux_2_max",
@@ -335,6 +384,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Mictecacihuatl. Queen of Mictlan, the Aztec underworld, ruling alongside her husband Mictlantecuhtli over the ninth and deepest level of the land of the dead. Mictecacihuatl presided over the bones of the. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Aztec, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "mielikki": {
+      "path": "/deities/mielikki.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Mielikki. The mistress of the forest and wife of Tapio, who holds the keys to the forest's storehouse of game and whom hunters and herders, and Lemminkäinen in the Kalevala, entreat for luck and. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "mireuk": {
       "path": "/deities/mireuk.webp",
@@ -371,6 +427,20 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ninhursag. The great Sumerian mother goddess, 'Lady of the Mountain', who presides over birth and the shaping of humankind. Under names such as Ninmah, Nintu, and Aruru, she fashions people from clay. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Mesopotamian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "nut": {
+      "path": "/deities/nut.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Nut. The Egyptian sky goddess Nut, shown upright as a serene tall woman with a calm face looking forward, in a long dark-blue gown covered in gold stars, wearing a vessel-shaped crown, both arms raised above her head, her gown flowing outward and upward to become the star-filled night sky above the Nile and temple pylons; fully clothed, natural proportions, standing on the horizon. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Egyptian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "nyx": {
+      "path": "/deities/nyx.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Nyx. Night, one of the first powers in Hesiod's account of creation: born from Chaos, she bears Day and Aether and, on her own, a long brood of forces that trouble mortals, among them Death. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "ometeotl": {
       "path": "/deities/ometeotl.webp",
       "model": "flux_2_max",
@@ -406,12 +476,33 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Perun. The thunder god of the Kievan Rus', sworn by in treaties and installed at the head of Prince Vladimir's official pantheon in 980 before Vladimir himself had his idol destroyed in 988. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "purusha": {
+      "path": "/deities/purusha.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Purusha. The primordial cosmic being of Rigveda 10.90, the Purusha Sukta, whom the gods sacrificed so that the world could be made from his body: the sun from his eye, the moon from his mind, the. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "ravana": {
       "path": "/deities/ravana.webp",
       "model": "flux_2_max",
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ravana. The ten-headed rakshasa king of Lanka and principal antagonist of the Ramayana. A grandson of the sage Pulastya and devout worshipper of Shiva who won great boons through austerity. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "selene": {
+      "path": "/deities/selene.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Selene. The Titan-born goddess of the moon, daughter of Hyperion and Theia and sister of Helios and Eos. She drives her team across the night sky, and poets tell of her love for the sleeping. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "seokga": {
+      "path": "/deities/seokga.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Seokga. The rival of Mireuk in the Korean shamanic Song of Creation, who wins rule of the world by stealing the flower that blossomed on Mireuk's knee while they slept, bringing about the imperfect. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "shapash": {
       "path": "/deities/shapash.webp",
@@ -434,6 +525,27 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Sita. Wife of Rama and central heroine of the Ramayana. Found by King Janaka in a ploughed furrow, Sita is abducted by the demon king Ravana, endures captivity with unwavering fidelity, and is. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "skadi": {
+      "path": "/deities/skadi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Skadi. A giantess who came armed to Asgard to avenge her father Thjazi and was offered a husband in compensation, choosing Njord by his feet alone. She is the huntress of the snowy mountains who. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Norse, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "spenta-armaiti": {
+      "path": "/deities/spenta-armaiti.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Spenta Armaiti. One of the Amesha Spentas, the Beneficent Immortals: devotion personified, called Ahura Mazda's daughter in the Gathas, and in later tradition the guardian of the earth, whom Yima asks to. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "sraosha": {
+      "path": "/deities/sraosha.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Sraosha. The yazata of 'hearkening' to the divine word, who guards the world by night against the demons, protects the soul for three nights after death, and judges it at the Chinvat Bridge with. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "sun-goddess-of-arinna": {
       "path": "/deities/sun-goddess-of-arinna.webp",
       "model": "flux_2_max",
@@ -447,6 +559,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Sun-goddess of the Earth. The Hittite ruler of the underworld, the 'Dark Earth', identified with the Hurrian Allani and the Mesopotamian Ereškigal: the sun as it travels beneath the earth at night. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "svarog": {
+      "path": "/deities/svarog.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Svarog. A sky and fire god known only from a single learned chronicle gloss that equates him with the Greek smith-god Hephaestus and calls the sun-god Dazhbog his son. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands. Ancient Slavic smith-sky god Svarog as a stocky, broad-shouldered, middle-aged man with short dark hair and a heavy dark beard, leather smith apron over a embroidered linen tunic, holding a hammer and tongs beside a blazing forge, with a carved wooden idol behind him. Not saintly, no halo, no long flowing hair."
     },
     "tapio": {
       "path": "/deities/tapio.webp",
@@ -497,6 +616,27 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Ungnyeo. The bear who, with a tiger, begs Hwanung to become human, endures twenty-one days in darkness eating only mugwort and garlic, becomes a woman, and by Hwanung bears Dangun, founder of the. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "uranus": {
+      "path": "/deities/uranus.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Uranus. Primordial personification of the Sky, born from and united with Gaia (Earth). Father of the Titans, Cyclopes, and Hecatoncheires, Uranus was castrated by his son Cronus, an act whose. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "usha": {
+      "path": "/deities/usha.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Usha. The Vedic goddess of dawn, praised in some twenty hymns of the Rigveda as a radiant young woman who drives away darkness, wakes every living creature, and returns each morning ever young. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "utnapishtim": {
+      "path": "/deities/utnapishtim.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Utnapishtim. A mortal king of Shuruppak, not a god, who survived the great Mesopotamian flood by building a boat on the god Ea's secret warning. Utnapishtim and his wife were granted immortality as a. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Mesopotamian, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "vainamoinen": {
       "path": "/deities/vainamoinen.webp",
       "model": "flux_2_max",
@@ -510,6 +650,20 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Veles. The \"cattle god\" (skotii bog) of the treaty oaths, sworn by beside Perun in 907 and 945, and left off Vladimir's 980 hilltop pantheon in a way scholars have long puzzled over. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "vellamo": {
+      "path": "/deities/vellamo.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Vellamo. The mistress of the waters and wife of Ahti in Finnish runo-song, whose water-maidens appear in the Kalevala and who was asked for good fishing and calm seas. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "verethragna": {
+      "path": "/deities/verethragna.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Verethragna. The yazata of victory, 'best-armed of the heavenly gods', who comes to Zarathushtra in ten shapes, from a strong wind and a golden-horned bull to a boar and a raven-like bird, and who gives. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
     "viracocha": {
       "path": "/deities/viracocha.webp",
@@ -525,6 +679,20 @@
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Yam (Yammu). The Sea as a god, 'Prince Sea, Judge River', El's favourite, who demands that Baal be handed over as his captive and is struck down by Baal's clubs. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "yama": {
+      "path": "/deities/yama.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Yama. God of death and, in later tradition, the formal judge of the dead. The Rigveda names Yama as the first mortal to die, who found the path to the afterlife that all who follow him must. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "yima": {
+      "path": "/deities/yima.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Yima. The first king, son of Vivahvant, under whose rule there was neither cold nor heat, age nor death; in the Vendidad he builds an enclosure to preserve life from devastating winters, and in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "ymir": {
       "path": "/deities/ymir.webp",
       "model": "flux_2_max",
@@ -538,6 +706,13 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Yuhwa. The daughter of Habaek, the River Earl, who is seduced and abandoned by Haemosu, banished by her parents, sheltered by King Geumwa of East Buyeo, and there lays the egg from which Jumong. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "zurvan": {
+      "path": "/deities/zurvan.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Majestic three-quarter-length portrait of the deity Zurvan. Infinite Time, whom a Sasanian-era current of Zoroastrian thought made the father of both Ohrmazd and Ahriman, born as twins from his sacrifice and his doubt; known mainly from hostile. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
     }
   },
   "hero": {
