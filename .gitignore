@@ -67,6 +67,7 @@ test-results/
 
 # Local visual QA screenshots
 apps/web/.qa-shots/
+design-research/asset-audit/
 
 # Claude Code
 .claude/
