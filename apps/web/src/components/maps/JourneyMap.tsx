@@ -239,12 +239,9 @@ export function JourneyMap({
       });
 
       marker.on("add", () => {
-        marker
-          .getElement()
-          ?.setAttribute(
-            "aria-label",
-            `Stop ${waypoint.order}: ${waypoint.name}`,
-          );
+        // Not a tab stop or button, so it gets no name; assistive tech uses
+        // the stop buttons ("Go to stop N: name") instead.
+        marker.getElement()?.setAttribute("aria-hidden", "true");
       });
       marker.addTo(map);
 
