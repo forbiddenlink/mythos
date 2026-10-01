@@ -13,10 +13,15 @@ import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // Satori renders only fonts passed in explicitly; a CSS font-family name alone
 // falls back to its default sans. Static 700-weight instance of the site's
-// Cinzel (OFL), read once per server process. Node runtime only.
-const CINZEL_700 = readFileSync(
-  join(process.cwd(), "src/app/fonts/cinzel-og-700.ttf"),
-);
+// Cinzel (OFL), read on first use and cached per server process. Node runtime only.
+// Read lazily, not at import: Next bundles metadata-image modules into ordinary
+// page bundles, so a read at module load crashed whole pages (/changelog) when the
+// file was missing from a function, not just the OG route.
+let cinzel700: Buffer | undefined;
+function cinzelFont(): Buffer {
+  cinzel700 ??= readFileSync(join(process.cwd(), "src/app/fonts/cinzel-og-700.ttf"));
+  return cinzel700;
+}
 
 export const OG_SIZE = { width: 1200, height: 630 } as const;
 
@@ -192,7 +197,7 @@ export function renderOgCard({
     {
       ...OG_SIZE,
       fonts: [
-        { name: "Cinzel", data: CINZEL_700, weight: 700, style: "normal" },
+        { name: "Cinzel", data: cinzelFont(), weight: 700, style: "normal" },
       ],
     },
   );
