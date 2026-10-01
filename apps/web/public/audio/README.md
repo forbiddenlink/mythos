@@ -28,7 +28,7 @@ Background music that loops based on current pantheon. All tracks should be:
 
 ### Tradition Audio Mapping
 
-The catalog covers 26 traditions (plus broader regional categories). Traditions without a bespoke composition use the neutral fallback. A tradition is never given another culture's music. Mesopotamian and Mesoamerican keep their older regional pairings:
+The catalog covers 26 traditions (plus broader regional categories). Traditions without a bespoke composition use the neutral fallback. A tradition is never given another culture's music. Mesoamerican keeps the Aztec track because Aztec is a Mesoamerican tradition:
 
 | Tradition                                                | Ambient Track           | Mapping Notes                 |
 | :------------------------------------------------------- | :---------------------- | :---------------------------- |
@@ -41,7 +41,7 @@ The catalog covers 26 traditions (plus broader regional categories). Traditions 
 | Celtic (`celtic-pantheon`)                               | `celtic-ambiance.mp3`   | Dedicated track               |
 | Aztec (`aztec-pantheon`)                                 | `aztec-ambiance.mp3`    | Dedicated track               |
 | Chinese (`chinese-pantheon`)                             | `chinese-ambiance.mp3`  | Dedicated track               |
-| Mesopotamian (`mesopotamian-pantheon`)                   | `egyptian-ambiance.mp3` | Regional Near Eastern pairing |
+| Mesopotamian (`mesopotamian-pantheon`)                   | `default.mp3`           | Neutral fallback              |
 | Mesoamerican (`mesoamerican-pantheon`)                   | `aztec-ambiance.mp3`    | Regional Mesoamerican pairing |
 | Inca (`inca-pantheon`)                                   | `default.mp3`           | Neutral fallback              |
 | Persian (`persian-pantheon`)                             | `default.mp3`           | Neutral fallback              |
