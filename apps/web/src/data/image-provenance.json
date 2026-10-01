@@ -618,15 +618,15 @@
       "abydos": "ai-illustration",
       "aeolus-island": "ai-illustration",
       "alfheim": "ai-illustration",
-      "aquae-sulis": "procedural-plate",
-      "arkona": "procedural-plate",
+      "aquae-sulis": "ai-illustration",
+      "arkona": "ai-illustration",
       "asgard": "ai-illustration",
       "augean-stables": "ai-illustration",
       "ayodhya": "ai-illustration",
       "aztlan": "ai-illustration",
       "babylon": "ai-illustration",
       "bebryces": "ai-illustration",
-      "behistun": "procedural-plate",
+      "behistun": "ai-illustration",
       "bifrost": "ai-illustration",
       "blanca-peak": "procedural-plate",
       "brewarrina-fish-traps": "procedural-plate",
@@ -636,21 +636,21 @@
       "capitoline-hill": "ai-illustration",
       "cedar-forest": "ai-illustration",
       "ceryneia": "ai-illustration",
-      "chamseongdan": "procedural-plate",
+      "chamseongdan": "ai-illustration",
       "chichen-itza": "ai-illustration",
-      "chinvat-bridge": "procedural-plate",
+      "chinvat-bridge": "ai-illustration",
       "cicones-coast": "ai-illustration",
       "circe-island": "ai-illustration",
       "coatepec": "ai-illustration",
       "cohoes-falls": "procedural-plate",
       "colchis": "ai-illustration",
-      "coricancha": "procedural-plate",
+      "coricancha": "ai-illustration",
       "crete": "ai-illustration",
       "crossroads-eshu": "ai-illustration",
       "cumberland-sound": "procedural-plate",
       "cyclops-cave": "ai-illustration",
       "cyzicus": "ai-illustration",
-      "daewangam": "procedural-plate",
+      "daewangam": "ai-illustration",
       "delos": "ai-illustration",
       "delphi": "ai-illustration",
       "derbarl-yerrigan": "procedural-plate",
@@ -658,7 +658,7 @@
       "duat": "ai-illustration",
       "eastern-sea-dragon-palace": "ai-illustration",
       "elysian-fields": "ai-illustration",
-      "emain-macha": "procedural-plate",
+      "emain-macha": "ai-illustration",
       "eridu": "ai-illustration",
       "erymanthus": "ai-illustration",
       "erytheia": "ai-illustration",
@@ -674,23 +674,23 @@
       "haida-gwaii": "procedural-plate",
       "haleakala": "ai-illustration",
       "hall-of-maat": "ai-illustration",
-      "hattusa": "procedural-plate",
+      "hattusa": "ai-illustration",
       "hawaiki": "ai-illustration",
       "heavenly-palace": "ai-illustration",
       "helheim": "ai-illustration",
       "heliopolis": "ai-illustration",
       "hesperus-mountain": "procedural-plate",
-      "huanacauri": "procedural-plate",
+      "huanacauri": "ai-illustration",
       "igbo-orun": "ai-illustration",
       "igloolik": "procedural-plate",
       "ile-ife": "ai-illustration",
       "iolcos": "ai-illustration",
       "ise-grand-shrine": "ai-illustration",
-      "isla-del-sol": "procedural-plate",
+      "isla-del-sol": "ai-illustration",
       "ithaca": "ai-illustration",
       "izumo": "ai-illustration",
       "izumo-taisha": "ai-illustration",
-      "jeoseung": "procedural-plate",
+      "jeoseung": "ai-illustration",
       "jotunheim": "ai-illustration",
       "kalevala-town": "procedural-plate",
       "karnak": "ai-illustration",
@@ -899,13 +899,13 @@
       "orpheus-eurydice": "ai-illustration",
       "oshun-saves-world": "ai-illustration",
       "osiris-myth": "ai-illustration",
-      "palace-of-baal": "procedural-plate",
+      "palace-of-baal": "ai-illustration",
       "pangu-creation": "ai-illustration",
       "pariacaca-and-huallallo-carhuincho": "ai-illustration",
       "peacemaker-great-law-of-peace": "procedural-plate",
       "pele-and-hiiaka": "ai-illustration",
       "perseus-medusa": "ai-illustration",
-      "perun-and-veles": "procedural-plate",
+      "perun-and-veles": "ai-illustration",
       "princess-bari": "ai-illustration",
       "prometheus-fire": "ai-illustration",
       "pygmalion-galatea": "ai-illustration",
@@ -928,10 +928,10 @@
       "shango-becomes-orisha": "ai-illustration",
       "shiva-parvati-marriage": "ai-illustration",
       "sky-woman-and-turtle-island": "procedural-plate",
-      "song-of-kumarbi": "procedural-plate",
-      "song-of-ullikummi": "procedural-plate",
+      "song-of-kumarbi": "ai-illustration",
+      "song-of-ullikummi": "ai-illustration",
       "sons-of-tuireann": "ai-illustration",
-      "storm-god-and-illuyanka": "procedural-plate",
+      "storm-god-and-illuyanka": "ai-illustration",
       "sun-sister-and-moon-brother": "procedural-plate",
       "susanoo-banishment": "ai-illustration",
       "svantevits-oracle-horse": "ai-illustration",
@@ -942,16 +942,16 @@
       "the-sea-woman": "procedural-plate",
       "the-seven-sisters-songline": "procedural-plate",
       "the-twins-sapling-and-flint": "procedural-plate",
-      "theft-of-the-sampo": "procedural-plate",
+      "theft-of-the-sampo": "ai-illustration",
       "theseus-minotaur": "ai-illustration",
       "thors-journey-utgard": "ai-illustration",
-      "tishtrya-and-apaosha": "procedural-plate",
+      "tishtrya-and-apaosha": "ai-illustration",
       "titanomachy": "ai-illustration",
       "trojan-war": "ai-illustration",
       "twins-journey-to-the-sun": "procedural-plate",
-      "vasilisa-the-beautiful": "procedural-plate",
-      "viracocha-creation-at-titicaca": "procedural-plate",
-      "vladimirs-pantheon-980": "procedural-plate",
+      "vasilisa-the-beautiful": "ai-illustration",
+      "viracocha-creation-at-titicaca": "ai-illustration",
+      "vladimirs-pantheon-980": "ai-illustration",
       "voyage-of-bran": "ai-illustration",
       "wagyl-and-derbarl-yerrigan": "procedural-plate",
       "weighing-heart": "ai-illustration",
@@ -959,10 +959,10 @@
       "xochiquetzal-forbidden": "ai-illustration",
       "yamata-no-orochi": "ai-illustration",
       "yggdrasil": "ai-illustration",
-      "yima-and-the-var": "procedural-plate",
+      "yima-and-the-var": "ai-illustration",
       "yoruba-creation": "ai-illustration",
-      "zahhak-and-kaveh": "procedural-plate",
-      "zal-and-the-simurgh": "procedural-plate"
+      "zahhak-and-kaveh": "ai-illustration",
+      "zal-and-the-simurgh": "ai-illustration"
     },
     "pantheon": {
       "aboriginal-australian-pantheon": "procedural-plate",
@@ -1707,6 +1707,56 @@
         "date": "2026-10-01"
       }
     },
+    "location": {
+      "aquae-sulis": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "arkona": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "behistun": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "chamseongdan": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "chinvat-bridge": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "coricancha": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "daewangam": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "emain-macha": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hattusa": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "huanacauri": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "isla-del-sol": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "jeoseung": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      }
+    },
     "pantheon": {
       "canaanite-pantheon": {
         "model": "flux_2_max",
@@ -1814,7 +1864,15 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "palace-of-baal": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "pariacaca-and-huallallo-carhuincho": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "perun-and-veles": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1826,11 +1884,55 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "song-of-kumarbi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "song-of-ullikummi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "storm-god-and-illuyanka": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "svantevits-oracle-horse": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
       "the-llama-and-the-flood": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "theft-of-the-sampo": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "tishtrya-and-apaosha": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "vasilisa-the-beautiful": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "viracocha-creation-at-titicaca": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "vladimirs-pantheon-980": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "yima-and-the-var": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "zahhak-and-kaveh": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "zal-and-the-simurgh": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
