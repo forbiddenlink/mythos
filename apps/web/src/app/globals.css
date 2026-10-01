@@ -1429,6 +1429,13 @@ html.cookie-banner-open {
     saturate(0.35);
 }
 
+/* The container colour shows wherever a tile is missing or still loading. The
+   inverted tiles are dark, so match their ocean colour instead of Leaflet's
+   default light grey, which read as bands across the dark map. */
+.dark .leaflet-container {
+  background: #2c363b;
+}
+
 /* Printable worksheets (/pantheons/[slug]/worksheet): print only the sheet,
    in black on white, with the answer key starting on its own page. */
 @media print {
