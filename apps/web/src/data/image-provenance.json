@@ -18,7 +18,11 @@
       "kind": "illustration-ai",
       "label": "AI-generated illustration",
       "description": "Generated with a text-to-image model (scripts/generate_missing.py via Magica flux_2_max, or renders imported by scripts/move_and_update.py). Illustrative only; not historical artwork and not evidence of how the tradition depicted the subject. Inferred per image: the pipelines did not record the model or prompt for each file.",
-      "scripts": ["scripts/generate_missing.py", "scripts/move_and_update.py"]
+      "scripts": [
+        "scripts/generate_missing.py",
+        "scripts/generate_backlog_images.py",
+        "scripts/move_and_update.py"
+      ]
     },
     "unverified": {
       "kind": "unverified",
@@ -390,12 +394,12 @@
     },
     "hero": {
       "achilles": "ai-illustration",
-      "aeneas": "procedural-plate",
+      "aeneas": "ai-illustration",
       "agamemnon": "procedural-plate",
       "ajax": "procedural-plate",
       "aqhat": "procedural-plate",
-      "arjuna": "procedural-plate",
-      "atalanta": "procedural-plate",
+      "arjuna": "ai-illustration",
+      "atalanta": "ai-illustration",
       "bellerophon": "procedural-plate",
       "cu-chulainn": "procedural-plate",
       "dobrynya-nikitich": "procedural-plate",
@@ -405,7 +409,7 @@
       "helen": "ai-illustration",
       "heracles": "ai-illustration",
       "hiawatha": "procedural-plate",
-      "hua-mulan": "procedural-plate",
+      "hua-mulan": "ai-illustration",
       "ilya-muromets": "procedural-plate",
       "jason": "procedural-plate",
       "jikonhsaseh": "procedural-plate",
@@ -965,7 +969,7 @@
       "african-pantheon": "ai-illustration",
       "akan-pantheon": "procedural-plate",
       "aztec-pantheon": "ai-illustration",
-      "canaanite-pantheon": "procedural-plate",
+      "canaanite-pantheon": "ai-illustration",
       "celtic-pantheon": "ai-illustration",
       "chinese-pantheon": "ai-illustration",
       "dine-pantheon": "procedural-plate",
@@ -978,14 +982,14 @@
       "inca-pantheon": "procedural-plate",
       "inuit-pantheon": "procedural-plate",
       "japanese-pantheon": "ai-illustration",
-      "korean-pantheon": "procedural-plate",
+      "korean-pantheon": "ai-illustration",
       "mesoamerican-pantheon": "ai-illustration",
       "mesopotamian-pantheon": "ai-illustration",
       "norse-pantheon": "ai-illustration",
-      "persian-pantheon": "procedural-plate",
+      "persian-pantheon": "ai-illustration",
       "polynesian-pantheon": "ai-illustration",
       "roman-pantheon": "ai-illustration",
-      "slavic-pantheon": "procedural-plate",
+      "slavic-pantheon": "ai-illustration",
       "tlingit-haida-pantheon": "procedural-plate",
       "yoruba-pantheon": "procedural-plate"
     },
@@ -998,6 +1002,44 @@
       "nine-realms": "ai-illustration",
       "odyssey": "ai-illustration",
       "xibalba-hero-twins": "ai-illustration"
+    }
+  },
+  "generated": {
+    "hero": {
+      "aeneas": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "arjuna": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "atalanta": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hua-mulan": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      }
+    },
+    "pantheon": {
+      "canaanite-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "korean-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "persian-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "slavic-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      }
     }
   }
 }

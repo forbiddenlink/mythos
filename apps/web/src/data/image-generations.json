@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "aeneas": {
+      "path": "/heroes/aeneas.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Three-quarter-length heroic portrait of Aeneas. Trojan prince, son of the goddess Venus, who escaped the fall of Troy and, in Virgil's Aeneid, journeyed to Italy to found the line that would lead to Rome. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Roman, not generic fantasy and not borrowed from another culture. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "arjuna": {
+      "path": "/heroes/arjuna.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Three-quarter-length heroic portrait of Arjuna. Third of the five Pandava brothers and the Mahabharata's greatest archer, whose crisis of conscience on the battlefield of Kurukshetra prompts the god Krishna's teaching, the Bhagavad Gita. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hindu, not generic fantasy and not borrowed from another culture. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "atalanta": {
+      "path": "/heroes/atalanta.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Three-quarter-length heroic portrait of Atalanta. Swift-footed huntress raised in the wild, celebrated for outrunning every suitor and for drawing first blood on the Calydonian Boar. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "hua-mulan": {
+      "path": "/heroes/hua-mulan.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Three-quarter-length heroic portrait of Hua Mulan. Legendary Chinese woman warrior who disguised herself as a man to take her aged father's place in military conscription, serving undetected for years. Heroine of the short narrative poem. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Chinese, not generic fantasy and not borrowed from another culture. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    }
+  },
+  "pantheon": {
+    "canaanite-pantheon": {
+      "path": "/pantheons/canaanite.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Panoramic scene evoking the Canaanite Pantheon (Ugarit): its sacred landscape and architecture, with distant symbolic figures. The gods of the Late Bronze Age Levant as the clay tablets of Ugarit preserve them: aged El and Lady Athirat at the head of the divine family, and the storm-god Baal, who defeats the Sea. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "korean-pantheon": {
+      "path": "/pantheons/korean.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Panoramic scene evoking the Korean Tradition: its sacred landscape and architecture, with distant symbolic figures. The founders and gods of Korean tradition: Dangun, born of the Lord of Heaven's son and a bear who became a woman; the egg-born kings Jumong and Bak Hyeokgeose; and the goddesses and. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands. Early Three Kingdoms era (Gojoseon, Goguryeo, Silla): ancient Korean robes, wooden halls and a Mount Taebaek setting, not Joseon-dynasty hanok or Ming-style court robes."
+    },
+    "persian-pantheon": {
+      "path": "/pantheons/persian.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Panoramic scene evoking the Persian (Iranian) Tradition: its sacred landscape and architecture, with distant symbolic figures. The divine beings and heroes of ancient Iran in two distinct layers: the Zoroastrian scripture of the Avesta, with Ahura Mazda, Angra Mainyu, Mithra, and Anahita, and Ferdowsi's Shahnameh. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands. Zoroastrian fire temple on an Achaemenid or Sasanian terrace with carved column capitals and an open sacred flame; no mosque, no blue tiled dome."
+    },
+    "slavic-pantheon": {
+      "path": "/pantheons/slavic.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Panoramic scene evoking the Slavic Pantheon: its sacred landscape and architecture, with distant symbolic figures. The gods of the pre-Christian Slavic peoples, known almost entirely through hostile outside witnesses, a handful of chronicle entries, and the outlines that survived Christianization inside. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    }
+  }
+}
