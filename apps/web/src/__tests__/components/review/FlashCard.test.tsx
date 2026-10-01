@@ -38,7 +38,7 @@ describe("FlashCard", () => {
     question: "Who is the king of the gods?",
     answer: "Zeus",
     hint: "He wields lightning",
-    imageUrl: "/images/zeus.jpg",
+    imageUrl: "/deities/zeus.jpg",
     metadata: {
       deityId: "zeus",
       pantheonId: "greek-pantheon",
@@ -71,7 +71,7 @@ describe("FlashCard", () => {
 
       const img = screen.getByAltText("Identify this");
       expect(img).toBeInTheDocument();
-      expect(img).toHaveAttribute("src", "/images/zeus.jpg");
+      expect(img).toHaveAttribute("src", "/deities/zeus.jpg");
     });
 
     it('should display "Reveal Answer" button', () => {

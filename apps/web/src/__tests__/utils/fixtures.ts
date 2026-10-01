@@ -17,7 +17,7 @@ export function createMockDeity(overrides: Partial<Deity> = {}): Deity {
     symbols: ["lightning bolt", "eagle"],
     description: "A test deity for testing purposes",
     importanceRank: 1,
-    imageUrl: "/images/test-deity.jpg",
+    imageUrl: "/deities/zeus.jpg",
     ...overrides,
   };
 }

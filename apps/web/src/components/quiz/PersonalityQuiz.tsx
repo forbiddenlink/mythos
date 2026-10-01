@@ -295,7 +295,7 @@ const DEITY_RESULTS: Record<DeityArchetype, DeityResult> = {
       "You are a natural leader with commanding presence. Like Zeus, you take charge of situations and inspire others to follow. Your ambition drives you toward greatness.",
     whyMatch:
       "Your answers show someone who values authority, achievement, and making an impact. You are drawn to positions of influence and responsibility.",
-    imageUrl: "/deities/zeus.png",
+    imageUrl: "/deities/zeus.jpg",
     slug: "zeus",
     pantheon: "Greek",
     icon: <Zap className="h-8 w-8" />,

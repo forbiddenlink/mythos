@@ -225,9 +225,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
         });
       }
     } else {
-      const visualDeities = deities.filter(
-        (d) => d.imageUrl && !d.imageUrl.includes("unsplash"),
-      );
+      const visualDeities = deities.filter((d) => d.imageUrl);
       if (visualDeities.length > 0) {
         const target =
           visualDeities[Math.floor(Math.random() * visualDeities.length)];

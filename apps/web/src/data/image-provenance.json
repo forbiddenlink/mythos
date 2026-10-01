@@ -20,13 +20,6 @@
       "description": "Generated with a text-to-image model (scripts/generate_missing.py via Magica flux_2_max, or renders imported by scripts/move_and_update.py). Illustrative only; not historical artwork and not evidence of how the tradition depicted the subject. Inferred per image: the pipelines did not record the model or prompt for each file.",
       "scripts": ["scripts/generate_missing.py", "scripts/move_and_update.py"]
     },
-    "unsplash-acropolis-gontzou": {
-      "kind": "licensed",
-      "label": "Photograph by Stavrialena Gontzou on Unsplash",
-      "description": "The Acropolis of Athens at sunset. Used under the Unsplash License and hotlinked from Unsplash.",
-      "license": "Unsplash License (https://unsplash.com/license)",
-      "source": "https://unsplash.com/photos/G8OyUvtAxUQ"
-    },
     "unverified": {
       "kind": "unverified",
       "label": "Image source not verified",
