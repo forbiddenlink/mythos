@@ -650,7 +650,7 @@
         "note": "Herodotus explicitly identified Dionysus with Osiris; both preside over wine/vegetation, death, and ecstatic resurrection cult"
       }
     ],
-    "imageUrl": "/deities/dionysus.jpg",
+    "imageUrl": "/deities/dionysus.webp",
     "pronunciation": {
       "ipa": "/ˌdaɪəˈnaɪsəs/",
       "phonetic": "dy-uh-NY-sus"
@@ -732,7 +732,7 @@
     "description": "God of fire, metalworking, and crafts. Son of Hera (and possibly Zeus), cast from Olympus due to his lameness but later readmitted.",
     "detailedBio": "## The Smith God\n\nHephaestus is the master blacksmith of the gods, controlling fire and the forge. He is the patron of all craftsmen. Unlike the other beautiful immortals, he was born lame and was cast off Olympus by his mother Hera (or Zeus).\n\n### The Divine Artificer\n\nHe returned to Olympus and built the golden palaces of the gods. He crafted Achilles' armor, Zeus's thunderbolts, and Pandora (the first woman). He is married to Aphrodite, though she is unfaithful to him.",
     "importanceRank": 12,
-    "imageUrl": "/deities/hephaestus.jpg",
+    "imageUrl": "/deities/hephaestus.webp",
     "crossPantheonParallels": [
       {
         "pantheonId": "roman-pantheon",
@@ -2298,7 +2298,7 @@
         "note": "Both are the wife of the chief sky god and preside over marriage and the domestic sphere"
       }
     ],
-    "imageUrl": "/deities/juno.jpg",
+    "imageUrl": "/deities/juno.webp",
     "pronunciation": {
       "ipa": "/ˈdʒuːnoʊ/",
       "phonetic": "JOO-noh"
