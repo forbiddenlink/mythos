@@ -39,6 +39,13 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname, "../../"),
   },
   outputFileTracingRoot: path.join(__dirname, "../../"),
+  // lib/og/card.tsx reads the Cinzel font with readFileSync at request time. The tracer does
+  // not follow that path, so dynamic OG routes (/locations/[slug], /creatures/[slug], ...)
+  // shipped without the font and returned 500 with ENOENT. Static ones were prerendered at
+  // build time and hid the problem.
+  outputFileTracingIncludes: {
+    "/**/opengraph-image": ["./src/app/fonts/cinzel-og-700.ttf"],
+  },
   webpack: (config) => {
     config.ignoreWarnings = [
       ...(config.ignoreWarnings ?? []),
