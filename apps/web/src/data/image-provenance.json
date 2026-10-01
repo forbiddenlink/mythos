@@ -803,16 +803,16 @@
     "story": {
       "abduction-of-persephone": "ai-illustration",
       "aeneid": "ai-illustration",
-      "aino": "procedural-plate",
+      "aino": "ai-illustration",
       "amaterasu-cave": "ai-illustration",
       "anansi-bought-stories": "ai-illustration",
       "archer-yi": "ai-illustration",
       "atrahasis-flood": "ai-illustration",
       "aztec-creation-humanity": "ai-illustration",
-      "baal-and-mot": "procedural-plate",
-      "baal-and-yam": "procedural-plate",
+      "baal-and-mot": "ai-illustration",
+      "baal-and-yam": "ai-illustration",
       "baiames-ngunnhu": "procedural-plate",
-      "bak-hyeokgeose-and-the-egg": "procedural-plate",
+      "bak-hyeokgeose-and-the-egg": "ai-illustration",
       "binding-of-fenrir": "ai-illustration",
       "birth-of-changing-woman": "procedural-plate",
       "birth-of-huitzilopochtli": "ai-illustration",
@@ -823,20 +823,20 @@
       "chang-e-moon": "ai-illustration",
       "changing-woman-goes-west": "procedural-plate",
       "children-lir": "ai-illustration",
-      "children-of-the-sun": "procedural-plate",
+      "children-of-the-sun": "ai-illustration",
       "churning-ocean": "ai-illustration",
       "contendings": "ai-illustration",
       "cowherd-weaver": "ai-illustration",
       "creation-heliopolis": "ai-illustration",
       "creation-japan": "ai-illustration",
       "creation-myth-norse": "ai-illustration",
-      "cuniraya-and-cavillaca": "procedural-plate",
+      "cuniraya-and-cavillaca": "ai-illustration",
       "cupid-psyche": "ai-illustration",
-      "dangun-and-the-bear-woman": "procedural-plate",
+      "dangun-and-the-bear-woman": "ai-illustration",
       "death-of-baldur": "ai-illustration",
       "death-of-cu-chulainn": "ai-illustration",
       "dido-aeneas": "ai-illustration",
-      "disappearance-of-telipinu": "procedural-plate",
+      "disappearance-of-telipinu": "ai-illustration",
       "dream-of-aengus": "ai-illustration",
       "echo-narcissus": "ai-illustration",
       "enuma-elish": "ai-illustration",
@@ -847,7 +847,7 @@
       "five-suns": "ai-illustration",
       "flaying-xipe-totec": "ai-illustration",
       "flood-utnapishtim": "ai-illustration",
-      "forging-of-the-sampo": "procedural-plate",
+      "forging-of-the-sampo": "ai-illustration",
       "four-hundred-rabbits": "ai-illustration",
       "ganesha-creation": "ai-illustration",
       "gilgamesh-enkidu-friendship": "ai-illustration",
@@ -857,34 +857,34 @@
       "hina-maui-lengthened-day": "ai-illustration",
       "hinon-and-the-horned-serpent": "procedural-plate",
       "house-of-bats": "ai-illustration",
-      "huatyacuri-and-the-false-god": "procedural-plate",
+      "huatyacuri-and-the-false-god": "ai-illustration",
       "icarus-daedalus": "ai-illustration",
-      "ilmatar-and-the-world-egg": "procedural-plate",
+      "ilmatar-and-the-world-egg": "ai-illustration",
       "inanna-descent": "ai-illustration",
       "izanagi-yomi": "ai-illustration",
       "journey-to-mictlan": "ai-illustration",
       "journey-to-west": "ai-illustration",
       "judgment-of-paris": "ai-illustration",
-      "jumong-son-of-heaven": "procedural-plate",
+      "jumong-son-of-heaven": "ai-illustration",
       "kats-and-the-bear-wife": "procedural-plate",
       "kiviuq-and-the-journeys": "procedural-plate",
       "krishna-childhood": "ai-illustration",
-      "kullervo": "procedural-plate",
+      "kullervo": "ai-illustration",
       "kuniya-and-liru": "procedural-plate",
       "labors-of-hercules": "ai-illustration",
-      "legend-of-aqhat": "procedural-plate",
-      "legend-of-kirta": "procedural-plate",
-      "lemminkainens-mother": "procedural-plate",
+      "legend-of-aqhat": "ai-illustration",
+      "legend-of-kirta": "ai-illustration",
+      "lemminkainens-mother": "ai-illustration",
       "lucretia-fall-kings": "ai-illustration",
       "mahabharata": "ai-illustration",
       "maize-god-rebirth": "ai-illustration",
-      "manpasikjeok": "procedural-plate",
+      "manpasikjeok": "ai-illustration",
       "maui-and-hina-death": "ai-illustration",
       "maui-fishes-up-islands": "ai-illustration",
       "maui-slows-the-sun": "ai-illustration",
       "maui-steals-fire": "ai-illustration",
       "mead-of-poetry": "ai-illustration",
-      "mireuk-and-seokga": "procedural-plate",
+      "mireuk-and-seokga": "ai-illustration",
       "monster-slayer-and-the-naayee": "procedural-plate",
       "narasimha-prahlada": "ai-illustration",
       "natsilane-and-the-killer-whales": "procedural-plate",
@@ -893,7 +893,7 @@
       "odins-sacrifice": "ai-illustration",
       "oduduwa-creation-earth": "ai-illustration",
       "ogun-shango-contest": "ai-illustration",
-      "ohrmazd-and-ahriman": "procedural-plate",
+      "ohrmazd-and-ahriman": "ai-illustration",
       "okuninushi-trials": "ai-illustration",
       "origin-of-the-three-sisters": "procedural-plate",
       "orpheus-eurydice": "ai-illustration",
@@ -901,12 +901,12 @@
       "osiris-myth": "ai-illustration",
       "palace-of-baal": "procedural-plate",
       "pangu-creation": "ai-illustration",
-      "pariacaca-and-huallallo-carhuincho": "procedural-plate",
+      "pariacaca-and-huallallo-carhuincho": "ai-illustration",
       "peacemaker-great-law-of-peace": "procedural-plate",
       "pele-and-hiiaka": "ai-illustration",
       "perseus-medusa": "ai-illustration",
       "perun-and-veles": "procedural-plate",
-      "princess-bari": "procedural-plate",
+      "princess-bari": "ai-illustration",
       "prometheus-fire": "ai-illustration",
       "pygmalion-galatea": "ai-illustration",
       "quetzalcoatl-fall-exile": "ai-illustration",
@@ -920,7 +920,7 @@
       "raven-harpoons-the-whale-land": "procedural-plate",
       "raven-steals-the-light": "procedural-plate",
       "romulus-remus": "ai-illustration",
-      "rostam-and-sohrab": "procedural-plate",
+      "rostam-and-sohrab": "ai-illustration",
       "sabine-women": "ai-illustration",
       "sekhmet-rampage": "ai-illustration",
       "separation-of-rangi-and-papa": "ai-illustration",
@@ -934,11 +934,11 @@
       "storm-god-and-illuyanka": "procedural-plate",
       "sun-sister-and-moon-brother": "procedural-plate",
       "susanoo-banishment": "ai-illustration",
-      "svantevits-oracle-horse": "procedural-plate",
+      "svantevits-oracle-horse": "ai-illustration",
       "tale-of-hoori": "ai-illustration",
       "tano-and-bia-divide-the-land": "procedural-plate",
       "the-dine-emergence": "procedural-plate",
-      "the-llama-and-the-flood": "procedural-plate",
+      "the-llama-and-the-flood": "ai-illustration",
       "the-sea-woman": "procedural-plate",
       "the-seven-sisters-songline": "procedural-plate",
       "the-twins-sapling-and-flint": "procedural-plate",
@@ -1733,6 +1733,104 @@
         "date": "2026-10-01"
       },
       "slavic-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      }
+    },
+    "story": {
+      "aino": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "baal-and-mot": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "baal-and-yam": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "bak-hyeokgeose-and-the-egg": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "children-of-the-sun": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "cuniraya-and-cavillaca": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "dangun-and-the-bear-woman": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "disappearance-of-telipinu": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "forging-of-the-sampo": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "huatyacuri-and-the-false-god": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ilmatar-and-the-world-egg": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "jumong-son-of-heaven": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "kullervo": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "legend-of-aqhat": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "legend-of-kirta": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "lemminkainens-mother": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "manpasikjeok": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mireuk-and-seokga": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ohrmazd-and-ahriman": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "pariacaca-and-huallallo-carhuincho": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "princess-bari": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "rostam-and-sohrab": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "svantevits-oracle-horse": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "the-llama-and-the-flood": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
