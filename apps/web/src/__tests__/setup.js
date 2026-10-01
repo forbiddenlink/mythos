@@ -3,10 +3,43 @@ import "@testing-library/jest-dom/vitest";
 // React 18+ / 19: enable act() in test env (quiets Radix/async focus updates in jsdom)
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
-// Ensure jsdom localStorage is bound to globalThis across Node 22+
-if (typeof window !== "undefined" && window.localStorage) {
-  Object.defineProperty(globalThis, "localStorage", {
-    value: window.localStorage,
+// Ensure jsdom localStorage is bound to globalThis across Node 22+ and Node 26
+class MemoryStorage {
+  constructor() {
+    this._store = new Map();
+  }
+  getItem(key) {
+    return this._store.has(String(key)) ? this._store.get(String(key)) : null;
+  }
+  setItem(key, value) {
+    this._store.set(String(key), String(value));
+  }
+  removeItem(key) {
+    this._store.delete(String(key));
+  }
+  clear() {
+    this._store.clear();
+  }
+  key(index) {
+    const keys = Array.from(this._store.keys());
+    return keys[index] ?? null;
+  }
+  get length() {
+    return this._store.size;
+  }
+}
+
+const storageInstance =
+  (typeof window !== "undefined" && window.localStorage) || new MemoryStorage();
+
+Object.defineProperty(globalThis, "localStorage", {
+  value: storageInstance,
+  configurable: true,
+  writable: true,
+});
+if (typeof window !== "undefined") {
+  Object.defineProperty(window, "localStorage", {
+    value: storageInstance,
     configurable: true,
     writable: true,
   });
