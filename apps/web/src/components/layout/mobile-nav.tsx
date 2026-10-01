@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogDescription,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Logo } from "@/components/ui/logo";
 import { useProgress } from "@/hooks/use-progress";
@@ -138,15 +139,17 @@ export function MobileNav({ sections }: Readonly<MobileNavProps>) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <Button
-        variant="ghost"
-        size="icon"
-        className="size-10 shrink-0 lg:hidden"
-        aria-label="Open Menu"
-        onClick={() => setOpen(true)}
-      >
-        <Menu className="h-5 w-5" />
-      </Button>
+      {/* A real DialogTrigger lets Radix return focus here when the menu closes. */}
+      <DialogTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="size-10 shrink-0 lg:hidden"
+          aria-label="Open Menu"
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
+      </DialogTrigger>
       <DialogContent
         className={cn(
           "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
