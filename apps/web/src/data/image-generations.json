@@ -34,6 +34,181 @@
       "date": "2026-10-01",
       "aspect": "4:5",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Cihuateteo. The spirits of women who died in childbirth, honoured by the Mexica as warriors who accompanied the sun from noon to sunset, and feared because on certain days of the calendar they. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Aztec, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth). Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "div-e-sepid": {
+      "path": "/creatures/div-e-sepid.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Div-e Sepid. The White Div, lord of the demons of Mazandaran in the Shahnameh, who blinds King Kay Kavus and his army and is killed by Rostam in his cave at the end of the hero's Seven Trials. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "domovoi": {
+      "path": "/creatures/domovoi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Domovoi. A small, hairy household guardian spirit of East Slavic folklore, usually benevolent, who protects a family's home and livestock as long as he is shown respect. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "elk-of-hiisi": {
+      "path": "/creatures/elk-of-hiisi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Elk of Hiisi. The magical elk built by the demon Hiisi's folk from forest materials, which Louhi sets Lemminkäinen to ski down as the first of his tasks, and which he captures only after praying to Tapio. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "great-pike": {
+      "path": "/creatures/great-pike.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature The Great Pike. The gigantic pike on whose shoulders the heroes' ship runs aground on the way to steal the Sampo; Väinämöinen kills it and makes the first kantele from its jawbone. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "haetae": {
+      "path": "/creatures/haetae.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Haetae. A lion-like guardian beast that can tell right from wrong, whose stone statues guard Gyeongbokgung Palace in Seoul and were believed to protect it from fire. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "hedammu": {
+      "path": "/creatures/hedammu.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Hedammu. A voracious sea-serpent, son of Kumarbi and the daughter of the Sea, whom the goddess Šauška draws out of the water with her beauty in the fragmentary Song of Hedammu. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "iku-turso": {
+      "path": "/creatures/iku-turso.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Iku-Turso. The sea-monster of Finnish tradition whom Louhi raises from the depths to stop the heroes carrying off the Sampo; Väinämöinen lifts him out of the water by the ears and makes him swear. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "illuyanka": {
+      "path": "/creatures/illuyanka.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Illuyanka. The great serpent of Anatolian myth that defeats the Storm-god before it is tricked, bound, and killed; its name is simply the Hittite word for 'serpent' or 'dragon'. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "koschei": {
+      "path": "/creatures/koschei.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Koschei the Deathless. A villainous sorcerer of East Slavic fairy tales whose death is hidden outside his own body, split across a chain of nested objects and animals, making him near-impossible to kill until the. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "ladon": {
+      "path": "/creatures/ladon.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Ladon. The serpent that guarded the golden apples in the garden of the Hesperides. Hesiod calls it the youngest child of Ceto and Phorcys; Apollodorus gives it a hundred heads; Apollonius of. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "leshy": {
+      "path": "/creatures/leshy.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Leshy. A forest guardian spirit of East Slavic folklore who can change size and shape, lead travelers astray with echoing calls, and grant good hunting to those who show him respect. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "lotan": {
+      "path": "/creatures/lotan.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Litan (Lotan). The seven-headed 'fleeing serpent, twisting serpent' whom Baal struck down, recalled by Mot in the Baal Cycle; its Ugaritic epithets reappear almost word for word in the Hebrew Bible's. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "maquizcoatl": {
+      "path": "/creatures/maquizcoatl.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Maquizcoatl. The 'bracelet serpent' of Nahua lore, a snake with a head at each end, listed and drawn among the serpents of New Spain in the Florentine Codex; two-headed serpents were regarded as bearers. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Aztec, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "munmu-sea-dragon": {
+      "path": "/creatures/munmu-sea-dragon.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Sea Dragon of King Munmu. The great dragon of the East Sea that King Munmu of Silla vowed to become after death to protect his kingdom, and who gave his son the bamboo for the flute Manpasikjeok. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "nemean-lion": {
+      "path": "/creatures/nemean-lion.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Nemean Lion. The lion of Nemea whose hide no weapon could pierce. Killing it was the first of Heracles' labours: when his arrows glanced off, he trapped it in its cave and strangled it, and its skin. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Greek, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "rusalka": {
+      "path": "/creatures/rusalka.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Rusalka. A water spirit of East Slavic folklore, most often described as the restless soul of a drowned or unbaptized young woman, who lures men to the water with song. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "samjok-o": {
+      "path": "/creatures/samjok-o.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Samjok-o. The three-legged crow that lives in the sun, painted in a solar disk on the walls of Goguryeo tombs, usually paired with a toad or hare in the moon. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "simurgh": {
+      "path": "/creatures/simurgh.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Simurgh. The great wise bird of Persian tradition, who in the Shahnameh raises the abandoned Zal on Mount Alborz, guides the birth of Rostam, and heals him in his combat with Esfandiyar; descended. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "swan-of-tuonela": {
+      "path": "/creatures/swan-of-tuonela.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Swan of Tuonela. The swan that swims on the black river of Tuonela, the river of the dead, which Louhi orders Lemminkäinen to shoot with a single arrow; the task leads to his death. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "tunnanu": {
+      "path": "/creatures/tunnanu.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Tunnan. A sea-dragon named among the monsters that the goddess Anat boasts of having muzzled and destroyed; the Ugaritic counterpart of the biblical tannin. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "ullikummi": {
+      "path": "/creatures/ullikummi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Ullikummi. A deaf and blind giant of basalt, fathered by Kumarbi on a great rock and grown on the shoulder of the world-bearing giant Upelluri until it reaches heaven, to destroy the storm-god's city. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "urcuchillay": {
+      "path": "/creatures/urcuchillay.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Urcuchillay. The many-colored male llama of the stars, reported by colonial writers as the celestial guardian that herders prayed to for the increase and protection of their flocks. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "vodyanoy": {
+      "path": "/creatures/vodyanoy.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Vodyanoy. A water spirit of East Slavic folklore, the malicious male counterpart to the rusalka, imagined as an old man living at the bottom of mills, ponds, and rivers who drowns those who swim. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "yacana": {
+      "path": "/creatures/yacana.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Yacana. The celestial llama of the Huarochirí Manuscript, a dark shape in the Milky Way that walks down at midnight to drink from the sea; if it did not drink, the ocean would flood the world. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "zmey-gorynych": {
+      "path": "/creatures/zmey-gorynych.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "4:5",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Dramatic atmospheric portrait of the mythological creature Zmey Gorynych. A three-headed, fire-breathing dragon of East Slavic byliny (heroic epic songs) and fairy tales, the classic monstrous antagonist defeated by heroes such as the bogatyr Dobrynya Nikitich. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
     }
   },
   "deity": {

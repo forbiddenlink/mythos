@@ -454,54 +454,54 @@
       "cyclops": "ai-illustration",
       "dagwanoenyent": "procedural-plate",
       "deelgeed": "procedural-plate",
-      "div-e-sepid": "procedural-plate",
+      "div-e-sepid": "ai-illustration",
       "djogeon": "procedural-plate",
-      "domovoi": "procedural-plate",
+      "domovoi": "ai-illustration",
       "draugr": "ai-illustration",
       "each-uisge": "ai-illustration",
       "egyptian-sphinx": "ai-illustration",
-      "elk-of-hiisi": "procedural-plate",
+      "elk-of-hiisi": "ai-illustration",
       "eloko": "ai-illustration",
       "fenghuang": "ai-illustration",
       "fenrir": "ai-illustration",
       "garuda": "ai-illustration",
       "gonakadet": "procedural-plate",
-      "great-pike": "procedural-plate",
-      "haetae": "procedural-plate",
-      "hedammu": "procedural-plate",
+      "great-pike": "ai-illustration",
+      "haetae": "ai-illustration",
+      "hedammu": "ai-illustration",
       "horned-serpent": "procedural-plate",
       "humbaba": "ai-illustration",
       "hydra": "ai-illustration",
       "ijiraq": "procedural-plate",
-      "iku-turso": "procedural-plate",
-      "illuyanka": "procedural-plate",
+      "iku-turso": "ai-illustration",
+      "illuyanka": "ai-illustration",
       "itzpapalotl-obsidian-host": "ai-illustration",
       "jormungandr": "ai-illustration",
       "kappa": "ai-illustration",
       "kitsune": "ai-illustration",
       "kooshdaa-kaa": "procedural-plate",
-      "koschei": "procedural-plate",
+      "koschei": "ai-illustration",
       "kraken": "ai-illustration",
-      "ladon": "procedural-plate",
+      "ladon": "ai-illustration",
       "lamassu": "ai-illustration",
       "lares": "ai-illustration",
       "lemures": "ai-illustration",
-      "leshy": "procedural-plate",
-      "lotan": "procedural-plate",
+      "leshy": "ai-illustration",
+      "lotan": "ai-illustration",
       "makara": "ai-illustration",
       "mami-wata": "ai-illustration",
       "manes": "ai-illustration",
-      "maquizcoatl": "procedural-plate",
+      "maquizcoatl": "ai-illustration",
       "medusa": "ai-illustration",
       "mimih": "procedural-plate",
       "minotaur": "ai-illustration",
       "mmoatia": "procedural-plate",
       "moo": "ai-illustration",
-      "munmu-sea-dragon": "procedural-plate",
+      "munmu-sea-dragon": "ai-illustration",
       "mushussu": "ai-illustration",
       "naga": "ai-illustration",
       "nagual": "ai-illustration",
-      "nemean-lion": "procedural-plate",
+      "nemean-lion": "ai-illustration",
       "niagwahe": "procedural-plate",
       "nian": "ai-illustration",
       "nidhogg": "ai-illustration",
@@ -509,32 +509,32 @@
       "popobawa": "ai-illustration",
       "qalupalik": "procedural-plate",
       "qinglong": "ai-illustration",
-      "rusalka": "procedural-plate",
-      "samjok-o": "procedural-plate",
+      "rusalka": "ai-illustration",
+      "samjok-o": "ai-illustration",
       "serpopard": "ai-illustration",
-      "simurgh": "procedural-plate",
+      "simurgh": "ai-illustration",
       "sleipnir": "ai-illustration",
       "sphinx": "ai-illustration",
       "stone-giants": "procedural-plate",
       "strix": "ai-illustration",
-      "swan-of-tuonela": "procedural-plate",
+      "swan-of-tuonela": "ai-illustration",
       "taniwha": "ai-illustration",
       "teehooltsodii": "procedural-plate",
       "tengu": "ai-illustration",
       "tikoloshe": "ai-illustration",
       "tse-ninahalee": "procedural-plate",
-      "tunnanu": "procedural-plate",
+      "tunnanu": "ai-illustration",
       "tupilaq": "procedural-plate",
       "tzitzimime": "ai-illustration",
       "ugallu": "ai-illustration",
-      "ullikummi": "procedural-plate",
-      "urcuchillay": "procedural-plate",
-      "vodyanoy": "procedural-plate",
+      "ullikummi": "ai-illustration",
+      "urcuchillay": "ai-illustration",
+      "vodyanoy": "ai-illustration",
       "xiuhcoatl": "ai-illustration",
-      "yacana": "procedural-plate",
+      "yacana": "ai-illustration",
       "yamata-no-orochi": "ai-illustration",
       "yeiitsoh": "procedural-plate",
-      "zmey-gorynych": "procedural-plate"
+      "zmey-gorynych": "ai-illustration"
     },
     "artifact": {
       "aegis": "ai-illustration",
@@ -1023,6 +1023,106 @@
         "date": "2026-10-01"
       },
       "cihuateteo": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "div-e-sepid": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "domovoi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "elk-of-hiisi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "great-pike": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "haetae": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hedammu": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "iku-turso": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "illuyanka": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "koschei": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ladon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "leshy": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "lotan": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "maquizcoatl": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "munmu-sea-dragon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "nemean-lion": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "rusalka": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "samjok-o": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "simurgh": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "swan-of-tuonela": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "tunnanu": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ullikummi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "urcuchillay": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "vodyanoy": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "yacana": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "zmey-gorynych": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
