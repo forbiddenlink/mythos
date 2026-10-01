@@ -692,12 +692,12 @@
       "izumo-taisha": "ai-illustration",
       "jeoseung": "ai-illustration",
       "jotunheim": "ai-illustration",
-      "kalevala-town": "procedural-plate",
+      "kalevala-town": "ai-illustration",
       "karnak": "ai-illustration",
       "kilauea": "ai-illustration",
       "laestrygonians-harbor": "ai-illustration",
-      "lake-avernus": "procedural-plate",
-      "lake-nemi": "procedural-plate",
+      "lake-avernus": "ai-illustration",
+      "lake-nemi": "ai-illustration",
       "lake-of-fire": "ai-illustration",
       "lake-stymphalus": "ai-illustration",
       "lanka": "ai-illustration",
@@ -710,45 +710,45 @@
       "memphis": "ai-illustration",
       "mictlan": "ai-illustration",
       "midgard": "ai-illustration",
-      "mount-damavand": "procedural-plate",
+      "mount-damavand": "ai-illustration",
       "mount-fuji": "ai-illustration",
       "mount-kailash": "ai-illustration",
       "mount-kunlun": "ai-illustration",
       "mount-meru": "ai-illustration",
-      "mount-myohyang": "procedural-plate",
+      "mount-myohyang": "ai-illustration",
       "mount-olympus": "ai-illustration",
-      "mount-othrys": "procedural-plate",
+      "mount-othrys": "ai-illustration",
       "mount-taylor": "procedural-plate",
-      "mount-zaphon": "procedural-plate",
-      "moytirra": "procedural-plate",
+      "mount-zaphon": "ai-illustration",
+      "moytirra": "ai-illustration",
       "muspelheim": "ai-illustration",
-      "najeong": "procedural-plate",
-      "naqsh-e-rostam": "procedural-plate",
+      "najeong": "ai-illustration",
+      "naqsh-e-rostam": "ai-illustration",
       "nass-river": "procedural-plate",
       "naxos": "ai-illustration",
       "nemea": "ai-illustration",
-      "nerik": "procedural-plate",
-      "nevado-pariacaca": "procedural-plate",
+      "nerik": "ai-illustration",
+      "nevado-pariacaca": "ai-illustration",
       "newgrange": "ai-illustration",
       "nidavellir": "ai-illustration",
       "niflheim": "ai-illustration",
       "nippur": "ai-illustration",
       "olympia": "ai-illustration",
-      "omeyocan": "procedural-plate",
+      "omeyocan": "ai-illustration",
       "onondaga-lake": "procedural-plate",
       "orun": "ai-illustration",
       "osiris-throne": "ai-illustration",
       "osun-osogbo-grove": "ai-illustration",
       "oyo": "ai-illustration",
-      "pachacamac-sanctuary": "procedural-plate",
-      "palatine-hill": "procedural-plate",
+      "pachacamac-sanctuary": "ai-illustration",
+      "palatine-hill": "ai-illustration",
       "palenque": "ai-illustration",
-      "persepolis": "procedural-plate",
-      "peryn": "procedural-plate",
+      "persepolis": "ai-illustration",
+      "peryn": "ai-illustration",
       "phaeacia": "ai-illustration",
-      "pohjola": "procedural-plate",
+      "pohjola": "ai-illustration",
       "rangiatea": "ai-illustration",
-      "rathcroghan": "procedural-plate",
+      "rathcroghan": "ai-illustration",
       "river-styx": "ai-illustration",
       "roman-forum": "ai-illustration",
       "samothrace": "ai-illustration",
@@ -756,21 +756,21 @@
       "scylla-charybdis": "ai-illustration",
       "sirens-strait": "ai-illustration",
       "sky-world": "procedural-plate",
-      "source-of-the-two-rivers": "procedural-plate",
+      "source-of-the-two-rivers": "ai-illustration",
       "sparta": "ai-illustration",
-      "starokyivska-hill": "procedural-plate",
+      "starokyivska-hill": "ai-illustration",
       "svartalfheim": "ai-illustration",
       "symplegades": "ai-illustration",
-      "szczecin-triglav-temple": "procedural-plate",
+      "szczecin-triglav-temple": "ai-illustration",
       "takamagahara": "ai-illustration",
-      "takht-e-soleyman": "procedural-plate",
+      "takht-e-soleyman": "ai-illustration",
       "tamoanchan": "ai-illustration",
       "tara": "ai-illustration",
       "tartarus": "ai-illustration",
       "te-po": "ai-illustration",
       "te-reinga": "ai-illustration",
-      "temple-of-vesta": "procedural-plate",
-      "templo-mayor": "procedural-plate",
+      "temple-of-vesta": "ai-illustration",
+      "templo-mayor": "ai-illustration",
       "tenochtitlan": "ai-illustration",
       "teotihuacan": "ai-illustration",
       "thebes": "ai-illustration",
@@ -778,7 +778,7 @@
       "thrace": "ai-illustration",
       "thrinacia": "ai-illustration",
       "tikigaq-point-hope": "procedural-plate",
-      "tiwanaku": "procedural-plate",
+      "tiwanaku": "ai-illustration",
       "tlalocan": "ai-illustration",
       "tollan": "ai-illustration",
       "torngat-mountains": "procedural-plate",
@@ -790,7 +790,7 @@
       "urkesh": "procedural-plate",
       "uruk": "ai-illustration",
       "vaikuntha": "ai-illustration",
-      "vainola": "procedural-plate",
+      "vainola": "ai-illustration",
       "vanaheim": "ai-illustration",
       "varanasi": "ai-illustration",
       "vuokkiniemi": "procedural-plate",
@@ -1753,6 +1753,114 @@
         "date": "2026-10-01"
       },
       "jeoseung": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "kalevala-town": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "lake-avernus": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "lake-nemi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mount-damavand": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mount-myohyang": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mount-othrys": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mount-zaphon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "moytirra": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "najeong": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "naqsh-e-rostam": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "nerik": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "nevado-pariacaca": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "omeyocan": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "pachacamac-sanctuary": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "palatine-hill": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "persepolis": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "peryn": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "pohjola": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "rathcroghan": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "source-of-the-two-rivers": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "starokyivska-hill": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "szczecin-triglav-temple": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "takht-e-soleyman": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "temple-of-vesta": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "templo-mayor": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "tiwanaku": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "vainola": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
