@@ -229,10 +229,21 @@ def cmd_gen(args) -> int:
 
     def work(r):
         prompt, _ = build_prompt(r, r["rec"], cat)
-        if key_of(r) in notes:
-            prompt += " " + notes[key_of(r)]
+        note = notes.get(key_of(r), "")
+        if note.startswith("!"):
+            # Replace the catalog description (used when it trips a content filter).
+            culture = build_prompt(r, r["rec"], cat)[1]
+            etype = r["etype"]
+            nm = r["rec"]["title"] if etype == "story" else r["rec"]["name"]
+            prompt = STYLE + FRAMING[etype].format(name=nm) + " " + note[1:] + RULES.format(culture=culture)
+        elif note:
+            prompt += " " + note
         portrait = r["etype"] in PORTRAIT
-        png = generate(prompt, API_SIZE[portrait])
+        try:
+            png = generate(prompt, API_SIZE[portrait])
+        except Exception as e:  # one bad run must not sink the batch
+            print(f"  ! {key_of(r)}: {type(e).__name__} {e}")
+            png = None
         if not png:
             return key_of(r), None, prompt
         out = STAGE / f"{r['etype']}__{r['slug']}.webp"
@@ -241,7 +252,7 @@ def cmd_gen(args) -> int:
         return key_of(r), out, prompt
 
     ok = 0
-    with cf.ThreadPoolExecutor(max_workers=4) as ex:
+    with cf.ThreadPoolExecutor(max_workers=6) as ex:
         for k, out, _ in ex.map(work, todo):
             print(("OK  " if out else "FAIL"), k, out or "")
             ok += bool(out)
