@@ -1,4 +1,146 @@
 {
+  "artifact": {
+    "ancient-copper-cutter": {
+      "path": "/artifacts/ancient-copper-cutter.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact The Ancient Copper Cutter, lit like a museum relic. The primeval copper cutting tool with which heaven and earth were once separated, brought out of the ancient storehouses so that Ea can sever the stone giant Ullikummi from Upelluri's. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "bow-of-aqhat": {
+      "path": "/artifacts/bow-of-aqhat.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact The Bow of Aqhat, lit like a museum relic. The bow and arrows that Kothar-wa-Khasis brings to Danel's house and that pass to Aqhat; the goddess Anat's desire for it leads to Aqhat's death, and it is broken or lost in the killing. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "cheonbuin": {
+      "path": "/artifacts/cheonbuin.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Cheonbuin (Three Heavenly Seals), lit like a museum relic. The three heavenly seals or tokens that Hwanin gave his son Hwanung as signs of heaven's authority when he sent him down to rule the world at Mount Taebaek. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "derafsh-kaviani": {
+      "path": "/artifacts/derafsh-kaviani.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Derafsh-e Kaviani, lit like a museum relic. The banner of Kaveh: the leather apron the blacksmith raised on a spear against the tyrant Zahhak, adorned with jewels by Fereydun and carried as Iran's royal standard until, the historians. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "golden-maiden": {
+      "path": "/artifacts/golden-maiden.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Golden Maiden of Ilmarinen, lit like a museum relic. A reverent still life of the Kalevala artifact the Golden Maiden: a small seated woman figure cast in gold and silver, shown fully clothed in a long robe-like gown with a high collar, resting on a smith workbench in a dim Finnish smithy beside an anvil and tongs. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "golden-rod-of-manco-capac": {
+      "path": "/artifacts/golden-rod-of-manco-capac.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Golden Rod of Manco Cápac, lit like a museum relic. The rod of gold that the Sun gave to his children at Lake Titicaca, which would show them where to found their city by sinking into the ground at a single thrust; it vanished into the earth. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "idol-of-perun-kyiv": {
+      "path": "/artifacts/idol-of-perun-kyiv.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Idol of Perun at Kyiv, lit like a museum relic. The wooden image of Perun with a silver head and a golden moustache that Prince Vladimir set up on the hill outside his palace in 980, and had thrown into the Dnieper at his conversion in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "jam-e-jam": {
+      "path": "/artifacts/jam-e-jam.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Jam-e Jam, lit like a museum relic. The world-revealing cup of Persian legend, in which the seven regions of the world could be seen; in the Shahnameh Kay Khosrow uses it to find the captive hero Bizhan, and later poets named. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "kursa-hunting-bag": {
+      "path": "/artifacts/kursa-hunting-bag.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact The Kurša Bag on the Eya Tree, lit like a museum relic. The hunting bag of sheep's fleece hung from an evergreen eya tree before the returned Telipinu, holding fat, grain, wine, cattle, sheep, long life, and offspring: a cult object as well as a. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "manpasikjeok-flute": {
+      "path": "/artifacts/manpasikjeok-flute.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Manpasikjeok, lit like a museum relic. The bamboo flute made from a stalk that was two by day and one by night, given to Silla by the sea dragon of King Munmu; when played it drove off enemies, cured sickness, brought rain in. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "ox-headed-mace": {
+      "path": "/artifacts/ox-headed-mace.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Ox-Headed Mace of Fereydun, lit like a museum relic. The mace with the head of an ox that Fereydun had forged to fight Zahhak, in memory of the cow Barmayeh that nursed him; with it he struck down the tyrant before binding him in Mount. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Persian (Iranian), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "punchao": {
+      "path": "/artifacts/punchao.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Punchao, lit like a museum relic. The golden image of the Sun ('Day') kept in the Coricancha, the most sacred object of the Inca state cult, carried into the Vilcabamba refuge after the conquest and captured by Spanish. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "sampo": {
+      "path": "/artifacts/sampo.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Sampo, lit like a museum relic. The wonder-mill forged by Ilmarinen, with a many-colored lid, that grinds grain, salt, and money; locked in Pohjola's mountain, stolen by the Kalevala heroes, and shattered in the sea. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "sling-of-illapa": {
+      "path": "/artifacts/sling-of-illapa.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Sling of Illapa, lit like a museum relic. The sling of the Thunder god: its crack was the thunderclap, and with it Illapa drew water from the river of the sky to pour down as rain and hail. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "svantevits-horn": {
+      "path": "/artifacts/svantevits-horn.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Svantevit's Horn, lit like a museum relic. The drinking horn held in the right hand of Svantevit's four-headed statue at Arkona, filled with wine once a year; the priest read the coming harvest from how much remained. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "triglav-idol-szczecin": {
+      "path": "/artifacts/triglav-idol-szczecin.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Three-Headed Idol of Triglav, lit like a museum relic. The three-headed image of Triglav at Szczecin, described by the biographers of Bishop Otto of Bamberg, who had it broken during his mission to Pomerania in the 1120s and sent its heads away. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "vainamoinens-kantele": {
+      "path": "/artifacts/vainamoinens-kantele.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Kantele of Väinämöinen, lit like a museum relic. The first kantele, made by Väinämöinen from the jawbone of a giant pike, whose music draws every creature to listen and puts Pohjola to sleep; lost overboard in Louhi's storm and replaced. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "water-of-life": {
+      "path": "/artifacts/water-of-life.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Water of Life and Flowers of Revival, lit like a museum relic. The medicinal water of the Western Heaven and the flowers that restore bone, flesh, and breath, which Princess Bari brings back from the end of the world to revive her dead parents. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "yagrush-and-ayyamur": {
+      "path": "/artifacts/yagrush-and-ayyamur.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Yagrush and Ayyamur, lit like a museum relic. The two clubs that Kothar-wa-Khasis makes and names for Baal: Yagrush, 'Driver', which fails to fell Yam, and Ayyamur, 'Expeller', which strikes him down. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "zbruch-idol": {
+      "path": "/artifacts/zbruch-idol.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Reverent still life of the sacred artifact Zbruch Idol, lit like a museum relic. A four-sided limestone pillar about 2.6 metres tall, carved with four faces under a single cap and tiers of figures below, found in the Zbruch River in 1848 and now in the Archaeological. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Slavic, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    }
+  },
   "creature": {
     "amaru": {
       "path": "/creatures/amaru.webp",
@@ -1490,12 +1632,54 @@
       "aspect": "3:2",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Tiwanaku, with no prominent figures. The ruined ceremonial city south of Lake Titicaca, capital of an Andean civilization of about 500-1000 CE, which the Incas claimed as the place where Viracocha made the sun, moon, and. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Inca and Andean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
     },
+    "tuonela": {
+      "path": "/locations/tuonela.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Tuonela, with no prominent figures. The land of the dead in Finnish tradition, ruled by Tuoni, lying beyond a black river on which the swan of Tuonela swims and across which Tuoni's daughter ferries the dead. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "ugarit": {
+      "path": "/locations/ugarit.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Ugarit (Ras Shamra), with no prominent figures. The Late Bronze Age port city on the Syrian coast whose archives of alphabetic cuneiform tablets preserve the Baal Cycle and the epics of Aqhat and Kirta; destroyed around 1185 BCE. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Canaanite (Ugarit), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "urkesh": {
+      "path": "/locations/urkesh.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Urkeš (Tell Mozan), with no prominent figures. The ancient Hurrian city in northeastern Syria that the Kumarbi cycle names as Kumarbi's home, identified with the mound of Tell Mozan. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
     "vainola": {
       "path": "/locations/vainola.webp",
       "model": "flux_2_max",
       "date": "2026-10-01",
       "aspect": "3:2",
       "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Kalevala (Väinölä), with no prominent figures. The heroes' homeland in the Kalevala, the land of Kaleva's descendants where Väinämöinen, Ilmarinen, and Lemminkäinen live, and which Lönnrot's title names; a mythic counterpart to the dark. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "vuokkiniemi": {
+      "path": "/locations/vuokkiniemi.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Vuokkiniemi (Voknavolok), with no prominent figures. The village and parish in Viena (White Sea) Karelia, now in the Russian Republic of Karelia, whose runo-singers, above all Arhippa Perttunen of nearby Latvajärvi, sang thousands of lines to. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Finnish (Kalevala), not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "wunu-mountain": {
+      "path": "/locations/wunu-mountain.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Wunü Mountain (Jolbon), with no prominent figures. The flat-topped mountain fortress near Huanren, Liaoning, China, widely identified as Holbon or Jolbon, where the Gwanggaeto Stele and the Samguk Sagi say Jumong founded Goguryeo's first. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Korean, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
+    },
+    "yazilikaya": {
+      "path": "/locations/yazilikaya.webp",
+      "model": "flux_2_max",
+      "date": "2026-10-01",
+      "aspect": "3:2",
+      "prompt": "Classical oil painting in the manner of 19th-century academic and Romantic history painting: rich chiaroscuro, deep midnight-blue and umber shadows, warm gold highlights, dramatic directional light, visible painterly brushwork, museum quality. Atmospheric wide landscape or architectural view of Yazılıkaya, with no prominent figures. An open-air rock sanctuary just outside Hattusa whose carved procession of gods and goddesses, labelled in Hieroglyphic Luwian, shows the Hurrian-influenced pantheon of the thirteenth. Absolutely no text, lettering, inscriptions, captions, signature or watermark anywhere. No frame or border. Correct human anatomy with natural hands. One clear focal subject with breathing room at the edges. Dress, architecture, weapons and iconography must be historically and culturally grounded in Hittite, not generic fantasy and not borrowed from another culture, and true to the ancient or mythic era of the source (no later-era religious buildings or dress, such as mosques, churches or Joseon-period styles for ancient myth), and no Christian saint iconography (no halo or Byzantine pose) for pre-Christian figures. Invented figures only, never a portrait of a real living person, and no logos or brands."
     }
   },
   "pantheon": {

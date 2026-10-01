@@ -540,79 +540,79 @@
       "aegis": "ai-illustration",
       "aegis-of-jupiter": "ai-illustration",
       "ame-no-nuboko": "ai-illustration",
-      "ancient-copper-cutter": "procedural-plate",
+      "ancient-copper-cutter": "ai-illustration",
       "ankh": "ai-illustration",
       "bow-of-apollo": "ai-illustration",
-      "bow-of-aqhat": "procedural-plate",
+      "bow-of-aqhat": "ai-illustration",
       "brisingamen": "ai-illustration",
       "caduceus": "ai-illustration",
-      "cheonbuin": "procedural-plate",
+      "cheonbuin": "ai-illustration",
       "cornucopia": "ai-illustration",
       "coyolxauhqui-stone": "ai-illustration",
       "crook-and-flail": "ai-illustration",
-      "derafsh-kaviani": "procedural-plate",
+      "derafsh-kaviani": "ai-illustration",
       "draupnir": "ai-illustration",
       "excalibur": "ai-illustration",
       "eye-of-ra": "ai-illustration",
       "fasces": "ai-illustration",
       "gleipnir": "ai-illustration",
       "golden-fleece": "ai-illustration",
-      "golden-maiden": "procedural-plate",
-      "golden-rod-of-manco-capac": "procedural-plate",
+      "golden-maiden": "ai-illustration",
+      "golden-rod-of-manco-capac": "ai-illustration",
       "gungnir": "ai-illustration",
       "helm-of-darkness": "ai-illustration",
       "hero-twins-blowgun": "ai-illustration",
       "hofud": "ai-illustration",
       "holy-grail": "ai-illustration",
-      "idol-of-perun-kyiv": "procedural-plate",
+      "idol-of-perun-kyiv": "ai-illustration",
       "imhullu": "ai-illustration",
-      "jam-e-jam": "procedural-plate",
+      "jam-e-jam": "ai-illustration",
       "jawbone-of-muri-ranga-whenua": "procedural-plate",
-      "kursa-hunting-bag": "procedural-plate",
+      "kursa-hunting-bag": "ai-illustration",
       "kusanagi": "ai-illustration",
       "lightning-arrows-of-the-twins": "procedural-plate",
       "macuahuitl-of-huitzilopochtli": "ai-illustration",
       "manaiakalani": "ai-illustration",
-      "manpasikjeok-flute": "procedural-plate",
+      "manpasikjeok-flute": "ai-illustration",
       "matahourua": "procedural-plate",
       "megingjord": "ai-illustration",
       "mjolnir": "ai-illustration",
       "nga-kete-o-te-wananga": "procedural-plate",
       "oguns-iron": "ai-illustration",
       "oshe-of-shango": "ai-illustration",
-      "ox-headed-mace": "procedural-plate",
+      "ox-headed-mace": "ai-illustration",
       "pakal-sarcophagus-lid": "ai-illustration",
       "palladium": "ai-illustration",
       "pandoras-box": "ai-illustration",
       "pashupatastra": "ai-illustration",
       "peach-of-immortality": "ai-illustration",
-      "punchao": "procedural-plate",
+      "punchao": "ai-illustration",
       "ruyi-jingu-bang": "ai-illustration",
-      "sampo": "procedural-plate",
+      "sampo": "ai-illustration",
       "shield-of-achilles": "ai-illustration",
       "skidbladnir": "ai-illustration",
-      "sling-of-illapa": "procedural-plate",
+      "sling-of-illapa": "ai-illustration",
       "smoking-mirror": "ai-illustration",
       "spear-of-lugh": "ai-illustration",
       "sudarshana-chakra": "ai-illustration",
-      "svantevits-horn": "procedural-plate",
+      "svantevits-horn": "ai-illustration",
       "sword-of-damocles": "ai-illustration",
       "tablet-of-destinies": "ai-illustration",
       "the-me": "ai-illustration",
       "thunderbolt-of-zeus": "ai-illustration",
       "trident-of-poseidon": "ai-illustration",
-      "triglav-idol-szczecin": "procedural-plate",
+      "triglav-idol-szczecin": "ai-illustration",
       "trishula": "ai-illustration",
-      "vainamoinens-kantele": "procedural-plate",
+      "vainamoinens-kantele": "ai-illustration",
       "vajra": "ai-illustration",
       "was-scepter": "ai-illustration",
-      "water-of-life": "procedural-plate",
+      "water-of-life": "ai-illustration",
       "wind-jewel": "ai-illustration",
       "xiuhcoatl": "ai-illustration",
-      "yagrush-and-ayyamur": "procedural-plate",
+      "yagrush-and-ayyamur": "ai-illustration",
       "yasakani-no-magatama": "ai-illustration",
       "yata-no-kagami": "ai-illustration",
-      "zbruch-idol": "procedural-plate"
+      "zbruch-idol": "ai-illustration"
     },
     "location": {
       "abydos": "ai-illustration",
@@ -783,21 +783,21 @@
       "tollan": "ai-illustration",
       "torngat-mountains": "procedural-plate",
       "troy": "ai-illustration",
-      "tuonela": "procedural-plate",
-      "ugarit": "procedural-plate",
+      "tuonela": "ai-illustration",
+      "ugarit": "ai-illustration",
       "uluru": "procedural-plate",
       "underworld": "ai-illustration",
-      "urkesh": "procedural-plate",
+      "urkesh": "ai-illustration",
       "uruk": "ai-illustration",
       "vaikuntha": "ai-illustration",
       "vainola": "ai-illustration",
       "vanaheim": "ai-illustration",
       "varanasi": "ai-illustration",
-      "vuokkiniemi": "procedural-plate",
+      "vuokkiniemi": "ai-illustration",
       "western-horizon": "ai-illustration",
-      "wunu-mountain": "procedural-plate",
+      "wunu-mountain": "ai-illustration",
       "xibalba": "ai-illustration",
-      "yazilikaya": "procedural-plate",
+      "yazilikaya": "ai-illustration",
       "yomi": "ai-illustration"
     },
     "story": {
@@ -1005,6 +1005,88 @@
     }
   },
   "generated": {
+    "artifact": {
+      "ancient-copper-cutter": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "bow-of-aqhat": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "cheonbuin": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "derafsh-kaviani": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "golden-maiden": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "golden-rod-of-manco-capac": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "idol-of-perun-kyiv": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "jam-e-jam": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "kursa-hunting-bag": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "manpasikjeok-flute": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ox-headed-mace": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "punchao": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "sampo": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "sling-of-illapa": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "svantevits-horn": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "triglav-idol-szczecin": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "vainamoinens-kantele": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "water-of-life": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "yagrush-and-ayyamur": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "zbruch-idol": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      }
+    },
     "creature": {
       "amaru": {
         "model": "flux_2_max",
@@ -1860,7 +1942,31 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "tuonela": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ugarit": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "urkesh": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "vainola": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "vuokkiniemi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "wunu-mountain": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "yazilikaya": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
