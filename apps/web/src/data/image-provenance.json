@@ -167,14 +167,14 @@
       "huitzilopochtli": "ai-illustration",
       "hun-hunahpu": "ai-illustration",
       "hwanin": "ai-illustration",
-      "hwanung": "procedural-plate",
+      "hwanung": "ai-illustration",
       "ibeji": "ai-illustration",
       "idun": "procedural-plate",
       "illapa": "procedural-plate",
-      "ilmarinen": "procedural-plate",
-      "ilmatar": "procedural-plate",
+      "ilmarinen": "ai-illustration",
+      "ilmatar": "ai-illustration",
       "inanna": "ai-illustration",
-      "inara": "procedural-plate",
+      "inara": "ai-illustration",
       "inari": "ai-illustration",
       "indra": "ai-illustration",
       "inti": "ai-illustration",
@@ -192,10 +192,10 @@
       "kagutsuchi": "ai-illustration",
       "kali": "ai-illustration",
       "kamrusepa": "procedural-plate",
-      "kartikeya": "procedural-plate",
+      "kartikeya": "ai-illustration",
       "khors": "procedural-plate",
       "kinich-ahau": "ai-illustration",
-      "kothar-wa-khasis": "procedural-plate",
+      "kothar-wa-khasis": "ai-illustration",
       "krishna": "ai-illustration",
       "kukulkan": "ai-illustration",
       "kumarbi": "ai-illustration",
@@ -206,11 +206,11 @@
       "liru": "procedural-plate",
       "loki": "ai-illustration",
       "longwang": "procedural-plate",
-      "louhi": "procedural-plate",
+      "louhi": "ai-illustration",
       "lug": "ai-illustration",
       "maat": "ai-illustration",
       "malina": "procedural-plate",
-      "mama-killa": "procedural-plate",
+      "mama-killa": "ai-illustration",
       "mama-ocllo": "procedural-plate",
       "mama-qucha": "procedural-plate",
       "manannan-mac-lir": "ai-illustration",
@@ -221,20 +221,20 @@
       "maui": "ai-illustration",
       "mayahuel": "ai-illustration",
       "mazu": "ai-illustration",
-      "medb": "procedural-plate",
+      "medb": "ai-illustration",
       "melinoe": "procedural-plate",
       "mercury": "ai-illustration",
-      "mictecacihuatl": "procedural-plate",
+      "mictecacihuatl": "ai-illustration",
       "mictlantecuhtli": "ai-illustration",
       "midir": "ai-illustration",
       "mielikki": "procedural-plate",
       "minerva": "ai-illustration",
-      "mireuk": "procedural-plate",
-      "mithra": "procedural-plate",
+      "mireuk": "ai-illustration",
+      "mithra": "ai-illustration",
       "mokosh": "procedural-plate",
       "monster-slayer": "procedural-plate",
       "morrigan": "ai-illustration",
-      "mot": "procedural-plate",
+      "mot": "ai-illustration",
       "naas-shaak-aankawu": "procedural-plate",
       "namaka": "ai-illustration",
       "nana-buruku": "ai-illustration",
@@ -243,7 +243,7 @@
       "neptune": "ai-illustration",
       "nergal": "ai-illustration",
       "nezha": "ai-illustration",
-      "ninhursag": "procedural-plate",
+      "ninhursag": "ai-illustration",
       "njord": "ai-illustration",
       "nuada": "ai-illustration",
       "nut": "procedural-plate",
@@ -259,19 +259,19 @@
       "old-woman-underneath": "procedural-plate",
       "olodumare": "ai-illustration",
       "olokun": "ai-illustration",
-      "ometeotl": "procedural-plate",
+      "ometeotl": "ai-illustration",
       "ori": "ai-illustration",
       "orunmila": "ai-illustration",
       "osanyin": "ai-illustration",
       "oshun": "ai-illustration",
       "osiris": "ai-illustration",
       "oya": "ai-illustration",
-      "pachacamac": "procedural-plate",
-      "pachamama": "procedural-plate",
+      "pachacamac": "ai-illustration",
+      "pachamama": "ai-illustration",
       "pallian": "procedural-plate",
       "pangu": "ai-illustration",
       "papa-polynesian": "ai-illustration",
-      "pariacaca": "procedural-plate",
+      "pariacaca": "ai-illustration",
       "parvati": "ai-illustration",
       "pele": "ai-illustration",
       "persephone": "ai-illustration",
@@ -305,7 +305,7 @@
       "seven-sisters": "procedural-plate",
       "shamash": "ai-illustration",
       "shango": "ai-illustration",
-      "shapash": "procedural-plate",
+      "shapash": "ai-illustration",
       "shaushka": "procedural-plate",
       "shiva": "ai-illustration",
       "shopona": "ai-illustration",
@@ -314,7 +314,7 @@
       "sila": "procedural-plate",
       "simargl": "procedural-plate",
       "sin-nanna": "ai-illustration",
-      "sita": "procedural-plate",
+      "sita": "ai-illustration",
       "skadi": "procedural-plate",
       "sky-woman": "procedural-plate",
       "sky-womans-daughter": "procedural-plate",
@@ -358,13 +358,13 @@
       "tuoni": "procedural-plate",
       "turtle": "procedural-plate",
       "tyr": "ai-illustration",
-      "ukko": "procedural-plate",
-      "ungnyeo": "procedural-plate",
+      "ukko": "ai-illustration",
+      "ungnyeo": "ai-illustration",
       "uranus": "procedural-plate",
       "usha": "procedural-plate",
       "utnapishtim": "procedural-plate",
       "vainamoinen": "ai-illustration",
-      "veles": "procedural-plate",
+      "veles": "ai-illustration",
       "vellamo": "procedural-plate",
       "venus": "ai-illustration",
       "verethragna": "procedural-plate",
@@ -381,7 +381,7 @@
       "xochipilli": "ai-illustration",
       "xochiquetzal": "ai-illustration",
       "xolotl": "ai-illustration",
-      "yam": "procedural-plate",
+      "yam": "ai-illustration",
       "yama": "procedural-plate",
       "yemoja": "ai-illustration",
       "yima": "procedural-plate",
@@ -1082,11 +1082,35 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "hwanung": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ilmarinen": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ilmatar": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "inara": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "inti": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
       "jumong": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "kartikeya": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "kothar-wa-khasis": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1098,7 +1122,63 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "louhi": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mama-killa": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "medb": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mictecacihuatl": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mireuk": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mithra": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "mot": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ninhursag": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ometeotl": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "pachacamac": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "pachamama": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "pariacaca": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "perun": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "shapash": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "sita": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1114,11 +1194,27 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "ukko": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ungnyeo": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "vainamoinen": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "veles": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "viracocha": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "yam": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
