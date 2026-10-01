@@ -66,7 +66,7 @@
       "athtar": "procedural-plate",
       "athtart": "procedural-plate",
       "atlas": "procedural-plate",
-      "baal": "procedural-plate",
+      "baal": "ai-illustration",
       "bacchus": "ai-illustration",
       "baiame": "procedural-plate",
       "bak-hyeokgeose": "procedural-plate",
@@ -94,7 +94,7 @@
       "coatlicue": "ai-illustration",
       "coyolxauhqui": "ai-illustration",
       "coyote": "procedural-plate",
-      "cronus": "procedural-plate",
+      "cronus": "ai-illustration",
       "cuniraya-viracocha": "procedural-plate",
       "dagda": "ai-illustration",
       "daikokuten": "ai-illustration",
@@ -132,7 +132,7 @@
       "fujin": "ai-illustration",
       "fuxi": "procedural-plate",
       "gaha": "procedural-plate",
-      "gaia": "procedural-plate",
+      "gaia": "ai-illustration",
       "ganesha": "ai-illustration",
       "ganga": "procedural-plate",
       "geb": "procedural-plate",
@@ -204,7 +204,7 @@
       "lei-gong": "ai-illustration",
       "lemminkainen": "procedural-plate",
       "liru": "procedural-plate",
-      "loki": "procedural-plate",
+      "loki": "ai-illustration",
       "longwang": "procedural-plate",
       "louhi": "procedural-plate",
       "lug": "ai-illustration",
@@ -395,41 +395,41 @@
     "hero": {
       "achilles": "ai-illustration",
       "aeneas": "ai-illustration",
-      "agamemnon": "procedural-plate",
-      "ajax": "procedural-plate",
-      "aqhat": "procedural-plate",
+      "agamemnon": "ai-illustration",
+      "ajax": "ai-illustration",
+      "aqhat": "ai-illustration",
       "arjuna": "ai-illustration",
       "atalanta": "ai-illustration",
-      "bellerophon": "procedural-plate",
-      "cu-chulainn": "procedural-plate",
-      "dobrynya-nikitich": "procedural-plate",
-      "etana": "procedural-plate",
-      "fionn-mac-cumhaill": "procedural-plate",
-      "hector": "procedural-plate",
+      "bellerophon": "ai-illustration",
+      "cu-chulainn": "ai-illustration",
+      "dobrynya-nikitich": "ai-illustration",
+      "etana": "ai-illustration",
+      "fionn-mac-cumhaill": "ai-illustration",
+      "hector": "ai-illustration",
       "helen": "ai-illustration",
       "heracles": "ai-illustration",
       "hiawatha": "procedural-plate",
       "hua-mulan": "ai-illustration",
-      "ilya-muromets": "procedural-plate",
-      "jason": "procedural-plate",
+      "ilya-muromets": "ai-illustration",
+      "jason": "ai-illustration",
       "jikonhsaseh": "procedural-plate",
       "kats": "procedural-plate",
-      "kirta": "procedural-plate",
+      "kirta": "ai-illustration",
       "kiviuq": "procedural-plate",
       "kupe": "procedural-plate",
       "moremi-ajasoro": "procedural-plate",
       "natsilane": "procedural-plate",
       "odysseus": "ai-illustration",
-      "oedipus": "procedural-plate",
-      "orpheus": "procedural-plate",
-      "patroclus": "procedural-plate",
+      "oedipus": "ai-illustration",
+      "orpheus": "ai-illustration",
+      "patroclus": "ai-illustration",
       "peacemaker": "procedural-plate",
-      "penelope": "procedural-plate",
-      "rostam": "procedural-plate",
+      "penelope": "ai-illustration",
+      "rostam": "ai-illustration",
       "sigurd": "ai-illustration",
       "tadodaho": "procedural-plate",
       "theseus": "ai-illustration",
-      "yamato-takeru": "procedural-plate"
+      "yamato-takeru": "ai-illustration"
     },
     "creature": {
       "adze": "ai-illustration",
@@ -974,12 +974,12 @@
       "chinese-pantheon": "ai-illustration",
       "dine-pantheon": "procedural-plate",
       "egyptian-pantheon": "ai-illustration",
-      "finnish-pantheon": "procedural-plate",
+      "finnish-pantheon": "ai-illustration",
       "greek-pantheon": "ai-illustration",
       "haudenosaunee-pantheon": "procedural-plate",
       "hindu-pantheon": "ai-illustration",
-      "hittite-pantheon": "procedural-plate",
-      "inca-pantheon": "procedural-plate",
+      "hittite-pantheon": "ai-illustration",
+      "inca-pantheon": "ai-illustration",
       "inuit-pantheon": "procedural-plate",
       "japanese-pantheon": "ai-illustration",
       "korean-pantheon": "ai-illustration",
@@ -1005,8 +1005,38 @@
     }
   },
   "generated": {
+    "deity": {
+      "baal": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "cronus": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "gaia": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "loki": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      }
+    },
     "hero": {
       "aeneas": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "agamemnon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ajax": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "aqhat": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
@@ -1018,13 +1048,85 @@
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
+      "bellerophon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "cu-chulainn": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "dobrynya-nikitich": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "etana": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "fionn-mac-cumhaill": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hector": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
       "hua-mulan": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "ilya-muromets": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "jason": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "kirta": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "oedipus": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "orpheus": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "patroclus": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "penelope": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "rostam": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "yamato-takeru": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       }
     },
     "pantheon": {
       "canaanite-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "finnish-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "hittite-pantheon": {
+        "model": "flux_2_max",
+        "date": "2026-10-01"
+      },
+      "inca-pantheon": {
         "model": "flux_2_max",
         "date": "2026-10-01"
       },
