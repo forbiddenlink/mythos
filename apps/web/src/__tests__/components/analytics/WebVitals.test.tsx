@@ -37,14 +37,14 @@ describe("WebVitals", () => {
   it("does not POST when PostHog is not configured", () => {
     vi.stubEnv("NEXT_PUBLIC_POSTHOG_KEY", "");
     render(<WebVitals />);
-    handlers.forEach((h) => h(metric));
+    for (const h of handlers) h(metric);
     expect(beacon).not.toHaveBeenCalled();
   });
 
   it("POSTs to the vitals route when configured and consented", () => {
     vi.stubEnv("NEXT_PUBLIC_POSTHOG_KEY", "phc_test");
     render(<WebVitals />);
-    handlers.forEach((h) => h(metric));
+    for (const h of handlers) h(metric);
     expect(beacon).toHaveBeenCalledWith(
       "/api/analytics/vitals",
       expect.any(String),
