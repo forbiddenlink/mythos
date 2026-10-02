@@ -69,7 +69,7 @@
   /* Container widths (max-w-reading / max-w-content / max-w-wide). One grid:
      reading for long prose, content for pages, wide for galleries and
      visualizations. Use the <Container> primitive rather than raw classes. */
-  --container-reading: 68ch;
+  --container-reading: 41rem;
   --container-content: 75rem;
   --container-wide: 85rem;
 
@@ -1561,7 +1561,8 @@ html.cookie-banner-open {
   /* Running head: the line a book prints above every sheet. */
   .runhead {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.15rem 1rem;
     align-items: baseline;
     justify-content: space-between;
     padding: 0.4rem 0;
@@ -1595,8 +1596,9 @@ html.cookie-banner-open {
   }
 }
 
-/* Hung Roman section numerals: every H2 section title in <main> counts up
-   from I. Pure CSS (no markup), hidden from assistive tech with the empty
+/* Roman section numerals: every H2 section title in <main> counts up from I,
+   set in gold before the title (hung in the margin at 1440px and wider).
+   Pure CSS (no markup), hidden from assistive tech with the empty
    alternative text. */
 main {
   counter-reset: atlas-section;
@@ -1604,22 +1606,16 @@ main {
 main .page-section-title::before {
   counter-increment: atlas-section;
   content: counter(atlas-section, upper-roman) "." / "";
-  display: block;
-  margin-bottom: 0.25rem;
-  font-family: var(--font-cinzel), ui-serif, Georgia, serif;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  margin-right: 0.55em;
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
   color: var(--gold-text);
 }
 @media (min-width: 1440px) {
   main .page-section-title:not(.text-center)::before {
     position: absolute;
-    display: inline;
     margin: 0;
     transform: translateX(calc(-100% - 0.9rem));
-    font-size: 1rem;
-    letter-spacing: 0.08em;
   }
   main .page-section-title {
     position: relative;

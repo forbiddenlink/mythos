@@ -59,7 +59,7 @@ export function DetailLayout({
             facts and contents above the article and the extras after it;
             desktop keeps a right-hand aside whose contents list sticks once
             the other aside blocks have scrolled by. */}
-        <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-x-14 xl:grid-cols-[minmax(0,1fr)_22rem] xl:gap-x-20">
+        <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-x-14 xl:grid-cols-[minmax(0,1fr)_26rem] xl:gap-x-16">
           <div className="order-3 min-w-0 lg:order-none">{children}</div>
           <aside
             aria-label={asideLabel}
@@ -288,10 +288,12 @@ export function DetailHero({
                     </div>
                   )}
                 </div>
-                <div className="plate-caption" aria-hidden="true">
-                  <span>Plate</span>
-                  <i>{title}</i>
-                </div>
+                {imageCaption ? null : (
+                  <div className="plate-caption" aria-hidden="true">
+                    <span>Plate</span>
+                    <i>{title}</i>
+                  </div>
+                )}
               </div>
               {imageCaption ? <div className="mt-2">{imageCaption}</div> : null}
             </figure>

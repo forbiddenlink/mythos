@@ -171,7 +171,9 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
                         style={{ backgroundColor: entry.color }}
                         aria-hidden="true"
                       />
-                      {entry.name.replace(/\s+(Pantheon|Tradition|Traditions)\b/g, "")}
+                      {entry.name
+                          .replace(/\s+(Pantheon|Tradition|Traditions)\b/g, "")
+                          .replace(/\s*\([^)]*\)/g, "")}
                     </span>
                     <span className="tabular-nums text-parchment/70">
                       {entry.deities}

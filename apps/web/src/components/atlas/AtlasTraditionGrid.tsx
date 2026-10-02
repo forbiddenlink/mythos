@@ -84,7 +84,7 @@ export function AtlasTraditionGrid({
                       href={`/deities/${figure.slug}`}
                       className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
                     >
-                      <span className="relative block aspect-4/5 overflow-hidden rounded-md bg-muted ring-1 ring-border/70">
+                      <span className="relative block aspect-4/5 overflow-hidden plate-flat bg-midnight">
                         <Image
                           src={figure.imageUrl as string}
                           alt=""

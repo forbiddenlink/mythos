@@ -38,11 +38,18 @@ for (const file of walk(srcRoot, [".tsx", ".ts"])) {
 }
 
 describe("CSS background-image assets exist in public/", () => {
-  it("finds at least the known references", () => {
-    expect(refs.length).toBeGreaterThanOrEqual(1); // hero-columns
+  // The home hero used to be the only bg-[url()] user (its LCP image); it is a
+  // real <Image> now, so zero references is a valid state. Keep the guard for
+  // any future one.
+  it("recognises the Tailwind bg-[url('/x')] syntax", () => {
+    const sample = `className="bg-[url('/hero-columns.webp')] bg-cover"`;
+    expect([...sample.matchAll(/bg-\[url\('(\/[^']+)'\)\]/g)]).toHaveLength(1);
   });
 
-  it.each(refs)("$asset (in $file) exists in public/", ({ asset }) => {
-    expect(existsSync(join(publicRoot, asset))).toBe(true);
+  it("every referenced asset exists in public/", () => {
+    const missing = refs.filter(
+      ({ asset }) => !existsSync(join(publicRoot, asset)),
+    );
+    expect(missing).toEqual([]);
   });
 });
