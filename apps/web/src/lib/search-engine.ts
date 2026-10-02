@@ -9,6 +9,7 @@
 
 // Content type definitions
 import type { ContentType, SearchResult } from "./search-result";
+import { foldForSearch } from "./search-fold";
 export type { ContentType, SearchResult } from "./search-result";
 export { getResultUrl } from "./search-result";
 
@@ -203,12 +204,12 @@ function calculateMatchScore(
   query: string,
   fields: { value: string; weight: number }[],
 ): number {
-  const normalizedQuery = query.toLowerCase().trim();
+  const normalizedQuery = foldForSearch(query).trim();
   let totalScore = 0;
 
   for (const field of fields) {
     if (!field.value) continue;
-    const normalizedValue = field.value.toLowerCase();
+    const normalizedValue = foldForSearch(field.value);
 
     // Exact match gets highest score
     if (normalizedValue === normalizedQuery) {
@@ -243,6 +244,9 @@ function getPantheonLabel(
   return name ? `${name} ${typeName}` : typeName;
 }
 
+/** Larger than any combination of field scores, so an exact title always leads. */
+const EXACT_TITLE_BONUS = 1000;
+
 /** Generic scored search over a typed collection */
 function searchItems<T extends { id: string }>(
   items: T[],
@@ -256,8 +260,15 @@ function searchItems<T extends { id: string }>(
   },
 ): SearchResult[] {
   const results: SearchResult[] = [];
+  const foldedQuery = foldForSearch(query).trim();
   for (const item of items) {
-    const score = calculateMatchScore(query, config.getSearchFields(item));
+    let score = calculateMatchScore(query, config.getSearchFields(item));
+    // A title that IS the query must beat any entry that merely starts with it
+    // plus a matching summary ("Hera" over "Heracles", "Prometheus" over
+    // "Prometheus Steals Fire"). Field weights alone let those outscore it.
+    if (score > 0 && foldForSearch(config.getTitle(item)) === foldedQuery) {
+      score += EXACT_TITLE_BONUS;
+    }
     if (score > 0) {
       results.push({
         type: config.type,
@@ -284,7 +295,7 @@ export function searchIndex(
     return [];
   }
 
-  const normalizedQuery = query.toLowerCase().trim();
+  const normalizedQuery = foldForSearch(query).trim();
 
   const results: SearchResult[] = [
     ...searchItems(index.heroes, normalizedQuery, {

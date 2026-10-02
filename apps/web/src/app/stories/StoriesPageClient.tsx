@@ -1,5 +1,6 @@
 "use client";
 
+import { foldForSearch } from "@/lib/search-fold";
 import { useMemo } from "react";
 import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
@@ -85,15 +86,15 @@ export function StoriesPageClient({
   );
 
   const displayStories = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
+    const query = foldForSearch(searchQuery.trim());
     return stories.filter(
       (s) =>
         (categoryFilter === "all" ||
           (s.themes[0] ?? "other") === categoryFilter) &&
         (themeFilter === "all" || s.themes.includes(themeFilter)) &&
         (!query ||
-          s.title.toLowerCase().includes(query) ||
-          s.summary?.toLowerCase().includes(query)),
+          foldForSearch(s.title).includes(query) ||
+          (s.summary ? foldForSearch(s.summary).includes(query) : false)),
     );
   }, [stories, searchQuery, categoryFilter, themeFilter]);
 

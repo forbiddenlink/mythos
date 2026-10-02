@@ -1,5 +1,6 @@
 "use client";
 
+import { foldForSearch } from "@/lib/search-fold";
 import { useState, useMemo } from "react";
 import { Search, Plus, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -44,13 +45,13 @@ export function ComparisonSelector({
 
       // Filter by search query
       if (searchQuery) {
-        const query = searchQuery.toLowerCase();
-        const matchesName = deity.name.toLowerCase().includes(query);
+        const query = foldForSearch(searchQuery);
+        const matchesName = foldForSearch(deity.name).includes(query);
         const matchesAltNames = deity.alternateNames?.some((n) =>
-          n.toLowerCase().includes(query),
+          foldForSearch(n).includes(query),
         );
         const matchesDomain = deity.domain?.some((d) =>
-          d.toLowerCase().includes(query),
+          foldForSearch(d).includes(query),
         );
         return matchesName || matchesAltNames || matchesDomain;
       }

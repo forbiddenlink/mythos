@@ -1,5 +1,6 @@
 "use client";
 
+import { foldForSearch } from "@/lib/search-fold";
 import { useMemo } from "react";
 import Link from "next/link";
 import { ArrowDownAZ, ArrowUpAZ, LayoutGrid, Table } from "lucide-react";
@@ -132,12 +133,12 @@ export function DeitiesPageClient({
   );
 
   const displayDeities = useMemo(() => {
-    const query = nameSearch.trim().toLowerCase();
+    const query = foldForSearch(nameSearch.trim());
     const filtered = allDeities.filter(
       (d) =>
         (!query ||
-          d.name.toLowerCase().includes(query) ||
-          d.alternateNames?.some((n) => n.toLowerCase().includes(query))) &&
+          foldForSearch(d.name).includes(query) ||
+          d.alternateNames?.some((n) => foldForSearch(n).includes(query))) &&
         (genderFilter === "all" || d.gender === genderFilter) &&
         (domainFilter === "all" || d.domain?.includes(domainFilter)) &&
         (pantheonFilter === "all" || d.pantheonId === pantheonFilter),

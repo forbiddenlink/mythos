@@ -1,5 +1,6 @@
 "use client";
 
+import { foldForSearch } from "@/lib/search-fold";
 import { useMemo } from "react";
 import Link from "next/link";
 import { LayoutGrid, Table } from "lucide-react";
@@ -119,15 +120,15 @@ export function CatalogGallery({
   }, [items, facetOrder]);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = foldForSearch(query.trim());
     return items.filter(
       (item) =>
         (pantheon === "all" || item.pantheonId === pantheon) &&
         (facet === "all" || item.facet === facet) &&
         (!q ||
-          item.name.toLowerCase().includes(q) ||
-          item.description.toLowerCase().includes(q) ||
-          (item.subtitle ?? "").toLowerCase().includes(q)),
+          foldForSearch(item.name).includes(q) ||
+          foldForSearch(item.description).includes(q) ||
+          foldForSearch(item.subtitle ?? "").includes(q)),
     );
   }, [items, query, pantheon, facet]);
 
