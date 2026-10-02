@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { RefreshCw, ChevronRight, Copy, Check } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { Button } from "@/components/ui/button";
@@ -156,12 +156,12 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
                 disabled={isSpinning}
                 className="text-muted-foreground hover:text-foreground"
               >
-                <motion.div
+                <m.div
                   animate={{ rotate: isSpinning ? 360 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
                   <RefreshCw className="h-4 w-4" />
-                </motion.div>
+                </m.div>
                 <span className="ml-2 hidden sm:inline">Another</span>
               </Button>
             </div>
@@ -169,7 +169,7 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
 
           {/* Fact content */}
           <AnimatePresence mode="wait" initial={false}>
-            <motion.div
+            <m.div
               key={currentFact.id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -179,7 +179,7 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
               <p className="mb-6 max-w-4xl font-body text-xl leading-relaxed text-foreground md:text-2xl md:leading-snug">
                 {currentFact.fact}
               </p>
-            </motion.div>
+            </m.div>
           </AnimatePresence>
 
           {/* Related deities and view all link */}

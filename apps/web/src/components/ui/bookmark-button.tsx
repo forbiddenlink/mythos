@@ -1,7 +1,7 @@
 'use client';
 
 import { Heart } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useBookmarks } from '@/hooks/useBookmarks';
 import type { BookmarkType } from '@/providers/bookmarks-provider';
 import { cn } from '@/lib/utils';
@@ -44,7 +44,7 @@ export function BookmarkButton({
   };
 
   return (
-    <motion.button
+    <m.button
       onClick={handleClick}
       whileTap={{ scale: 0.85 }}
       className={cn(
@@ -58,7 +58,7 @@ export function BookmarkButton({
       aria-label={bookmarked ? `Remove ${type} from bookmarks` : `Add ${type} to bookmarks`}
       aria-pressed={bookmarked}
     >
-      <motion.div
+      <m.div
         initial={false}
         animate={
           bookmarked
@@ -79,17 +79,17 @@ export function BookmarkButton({
           )}
           strokeWidth={bookmarked ? 2 : 1.5}
         />
-      </motion.div>
+      </m.div>
 
       {/* Subtle glow behind when bookmarked */}
       {bookmarked && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           className="absolute inset-0 rounded-full bg-gold/10 -z-10"
         />
       )}
-    </motion.button>
+    </m.button>
   );
 }
