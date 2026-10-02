@@ -32,12 +32,10 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "any" },
         { url: "/icon.svg", type: "image/svg+xml" },
         { url: "/icon.png", type: "image/png", sizes: "512x512" },
       ],
       apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
-      other: [{ rel: "apple-touch-icon", url: "/apple-icon.png" }],
     },
   };
 }
@@ -59,11 +57,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-      </head>
       <body
         className={`${sourceSans.variable} ${cinzel.variable} ${crimsonPro.variable} font-sans antialiased`}
       >
