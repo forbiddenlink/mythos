@@ -11,7 +11,16 @@ import {
 import Image from "next/image";
 import Tree, { type RawNodeDatum, type TreeNodeDatum } from "react-d3-tree";
 import { Button } from "@/components/ui/button";
-import { ZoomIn, ZoomOut, Maximize2, Users } from "lucide-react";
+import Link from "next/link";
+import {
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
+  Maximize2,
+  ZoomIn,
+  ZoomOut,
+} from "lucide-react";
 
 interface Deity {
   id: string;
@@ -39,6 +48,8 @@ interface EnhancedFamilyTreeProps {
 interface CustomNodeDatum extends RawNodeDatum {
   deity: Deity;
   relationshipType?: string;
+  /** Set when this figure was already drawn, with its line, under this parent. */
+  alsoUnder?: string;
 }
 
 // Custom node rendering with HTML
@@ -52,6 +63,7 @@ const renderForeignObjectNode = ({
   const customNode = nodeDatum as TreeNodeDatum & {
     deity?: Deity;
     relationshipType?: string;
+    alsoUnder?: string;
   };
   const deity = customNode.deity;
 
@@ -79,12 +91,12 @@ const renderForeignObjectNode = ({
 
   return (
     <g>
-      <foreignObject width={232} height={112} x={-116} y={-56}>
-        <div className="flex flex-col items-center">
+      <foreignObject width={264} height={104} x={-132} y={-52}>
+        <div className="flex h-full flex-col items-center justify-center">
           <button
             type="button"
             aria-label={ariaLabel}
-            className="relative flex w-[13.5rem] cursor-pointer appearance-none items-center gap-3 overflow-hidden rounded-lg border border-border bg-card p-2.5 pr-3 text-left shadow-md transition-shadow hover:border-gold/60 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+            className={`relative flex w-[16rem] cursor-pointer appearance-none items-center gap-3 overflow-hidden rounded-lg border border-border bg-card p-2.5 pr-3 text-left shadow-md transition-shadow hover:border-gold/60 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${customNode.alsoUnder ? "border-dashed border-gold/70" : ""}`}
             onClick={toggleNode}
           >
             <span
@@ -107,27 +119,22 @@ const renderForeignObjectNode = ({
               )}
             </span>
             <span className="min-w-0 flex-1">
-              <span className="block truncate font-serif text-[0.95rem] font-semibold leading-tight text-foreground">
+              <span className="block truncate font-serif text-[1.125rem] font-semibold leading-tight text-foreground">
                 {deity.name}
               </span>
-              {domains ? (
-                <span className="mt-0.5 block truncate text-xs capitalize text-muted-foreground">
-                  {domains}
-                </span>
-              ) : null}
-              {hasChildren ? (
-                <span className="mt-1 flex items-center gap-1 text-xs font-medium text-gold-text">
-                  <Users className="size-3" aria-hidden />
-                  {childLabel}
-                </span>
-              ) : null}
+              <span className="mt-0.5 block truncate text-base font-medium text-gold-text">
+                {customNode.alsoUnder
+                  ? `Also under ${customNode.alsoUnder}`
+                  : customNode.relationshipType === "Spouse"
+                    ? "Spouse"
+                    : hasChildren
+                      ? childLabel
+                      : (deity.domain?.[0] ?? "").replace(/^./, (c) =>
+                          c.toUpperCase(),
+                        )}
+              </span>
             </span>
           </button>
-          {customNode.relationshipType && (
-            <div className="mt-1 rounded-full border border-border bg-background px-2 py-0.5 text-[0.7rem] font-medium text-muted-foreground">
-              {customNode.relationshipType}
-            </div>
-          )}
         </div>
       </foreignObject>
     </g>
@@ -135,7 +142,7 @@ const renderForeignObjectNode = ({
 };
 
 // Build hierarchical tree structure
-function buildTreeData(
+export function buildTreeData(
   deities: Deity[],
   relationships: Relationship[],
   rootDeityId?: string,
@@ -182,6 +189,12 @@ function buildTreeData(
 
   if (!rootId || !deityMap.has(rootId)) return null;
 
+  // First parent each figure was drawn under. A figure with two parents (a
+  // DAG, not a tree) is drawn in full once; later appearances are a stub that
+  // points back, so branches are not repeated.
+  const placed = new Map<string, string>();
+  if (rootId) placed.set(rootId, "");
+
   const buildNode = (
     deityId: string,
     visited = new Set<string>(),
@@ -202,6 +215,20 @@ function buildTreeData(
     );
 
     for (const rel of childRelationships) {
+      const again = placed.get(rel.toDeityId);
+      const childDeity = deityMap.get(rel.toDeityId);
+      if (again !== undefined && childDeity) {
+        if (!visited.has(rel.toDeityId)) {
+          children.push({
+            name: childDeity.name,
+            deity: childDeity,
+            relationshipType: "Child",
+            alsoUnder: again,
+          });
+        }
+        continue;
+      }
+      placed.set(rel.toDeityId, deity.name);
       const childNode = buildNode(rel.toDeityId, new Set(visited));
       if (childNode) {
         childNode.relationshipType = "Child";
@@ -219,7 +246,12 @@ function buildTreeData(
     for (const rel of spouseRelationships) {
       const spouseId =
         rel.fromDeityId === deityId ? rel.toDeityId : rel.fromDeityId;
-      if (!visited.has(spouseId)) {
+      // A figure already listed as this node's child is not listed again as
+      // its spouse (Gaia and Uranus are linked both ways in the data).
+      if (
+        !visited.has(spouseId) &&
+        !children.some((child) => child.deity.id === spouseId)
+      ) {
         const spouseDeity = deityMap.get(spouseId);
         if (spouseDeity) {
           children.push({
@@ -242,6 +274,50 @@ function buildTreeData(
   return buildNode(rootId);
 }
 
+/** Rendered text must stay at least 14px: 18px names times this floor stay above 14px. */
+const READABLE_ZOOM = 0.85;
+const PAN_STEP = 160;
+
+function TreeOutline({ node }: Readonly<{ node: CustomNodeDatum }>) {
+  const kids = (node.children ?? []) as CustomNodeDatum[];
+  return (
+    <li>
+      <Link
+        href={`/deities/${node.deity.slug}`}
+        className="inline-flex min-h-11 flex-wrap items-baseline gap-x-2 rounded-md py-1 font-serif text-lg font-semibold text-foreground hover:text-gold-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+      >
+        <span
+          className={
+            node.alsoUnder || node.relationshipType === "Spouse"
+              ? "italic text-foreground/75"
+              : undefined
+          }
+        >
+          {node.deity.name}
+        </span>
+        {node.relationshipType ? (
+          <span className="font-sans text-base font-medium text-foreground/80">
+            (
+            {node.alsoUnder
+              ? `see ${node.alsoUnder}`
+              : node.relationshipType.toLowerCase()}
+            )
+          </span>
+        ) : null}
+      </Link>
+      {kids.length > 0 ? (
+        <ul className="ml-3 border-l border-gold/30 pl-4">
+          {kids.map((kid, index) => (
+            <TreeOutline key={`${kid.deity.id}-${index}`} node={kid} />
+          ))}
+        </ul>
+      ) : null}
+    </li>
+  );
+}
+
+const controlClass = "size-11 bg-card p-0";
+
 export function EnhancedFamilyTree({
   deities,
   relationships,
@@ -249,77 +325,86 @@ export function EnhancedFamilyTree({
 }: Readonly<EnhancedFamilyTreeProps>) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
-  const [zoom, setZoom] = useState(0.8);
+  const [zoom, setZoom] = useState(1);
   const [measured, setMeasured] = useState(false);
+  const measuredRef = useRef(false);
   const [frameHeight, setFrameHeight] = useState<number | null>(null);
 
-  // react-d3-tree places the root at (translate.x, translate.y); start it
-  // centred horizontally near the top, scaled to the frame's width.
+  const treeData = useMemo(
+    () => buildTreeData(deities, relationships, focusDeityId),
+    [deities, relationships, focusDeityId],
+  );
+
+  // react-d3-tree places the root at (translate.x, translate.y). The tree
+  // grows rightwards, so start with the root at the left, vertically centred.
   const centre = useCallback(() => {
-    const width = containerRef.current?.clientWidth ?? 0;
-    if (!width) return;
-    const nextZoom = width < 640 ? 0.6 : 0.8;
-    setZoom(nextZoom);
-    setTranslate({ x: width / 2, y: 90 });
+    const frame = containerRef.current;
+    if (!frame || !frame.clientWidth) return;
+    setZoom(1);
+    setTranslate({ x: 160, y: frame.clientHeight / 2 });
+    measuredRef.current = true;
     setMeasured(true);
   }, []);
 
-  // Once the tree has drawn, scale and centre it on its real bounding box so
-  // every visible branch fits the frame (wide pantheons would otherwise run
-  // off the right-hand edge).
-  const fit = useCallback(() => {
+  // Fit to the drawn tree. `all` shows every branch (zoom may fall below the
+  // readable floor); otherwise the tree is shown at a readable size, top-left
+  // aligned when it is larger than the frame.
+  const fit = useCallback((all = false) => {
     const frame = containerRef.current;
     const group = frame?.querySelector<SVGGElement>("g.rd3t-g");
     if (!frame || !group) return;
     const box = group.getBBox();
     if (!box.width || !box.height) return;
-    const pad = 48;
-    // Fit when possible, but never shrink the cards below a readable size;
-    // wider trees stay centred and pan sideways.
-    const minZoom = frame.clientWidth < 640 ? 0.45 : 0.5;
-    const nextZoom = Math.max(
-      minZoom,
-      Math.min(0.9, (frame.clientWidth - pad) / box.width),
+    const pad = 32;
+    const toFit = Math.min(
+      (frame.clientWidth - pad * 2) / box.width,
+      (960 - pad * 2) / box.height,
     );
-    // Size the frame to the tree (not the other way round) so a shallow
-    // tree does not float in a mostly empty canvas.
+    const nextZoom = all
+      ? Math.min(1, Math.max(0.3, toFit))
+      : Math.min(1, Math.max(READABLE_ZOOM, toFit));
     const wanted = Math.ceil(box.height * nextZoom + pad * 2);
-    const maxHeight = Math.min(window.innerHeight * 0.72, 736);
-    setFrameHeight(Math.max(384, Math.min(wanted, maxHeight)));
+    const height = Math.max(360, Math.min(wanted, 960));
+    setFrameHeight(height);
     setZoom(nextZoom);
+    const fitsX = box.width * nextZoom + pad * 2 <= frame.clientWidth;
+    const fitsY = box.height * nextZoom + pad * 2 <= height;
     setTranslate({
-      x: frame.clientWidth / 2 - (box.x + box.width / 2) * nextZoom,
-      y: pad - box.y * nextZoom,
+      x: fitsX
+        ? frame.clientWidth / 2 - (box.x + box.width / 2) * nextZoom
+        : pad - box.x * nextZoom,
+      y: fitsY
+        ? height / 2 - (box.y + box.height / 2) * nextZoom
+        : pad - box.y * nextZoom,
     });
   }, []);
 
+  // The canvas is hidden below md, so it has no width until the viewport
+  // grows; measure as soon as it has one.
   useLayoutEffect(() => {
     centre();
+    const frame = containerRef.current;
+    if (!frame || typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(() => {
+      if (frame.clientWidth && !measuredRef.current) centre();
+    });
+    observer.observe(frame);
+    return () => observer.disconnect();
   }, [centre]);
 
   useEffect(() => {
     if (!measured) return;
     // After the first layout (and its enter transition) has settled.
-    const timer = setTimeout(fit, 650);
+    const timer = setTimeout(() => fit(), 650);
     return () => clearTimeout(timer);
   }, [measured, fit]);
 
-  const treeData = useMemo(() => {
-    const data = buildTreeData(deities, relationships, focusDeityId);
-    return data;
-  }, [deities, relationships, focusDeityId]);
-
-  const handleZoomIn = useCallback(() => {
-    setZoom((prev) => Math.min(prev + 0.2, 2));
+  const zoomBy = useCallback((delta: number) => {
+    setZoom((prev) => Math.min(Math.max(prev + delta, 0.3), 2));
   }, []);
-
-  const handleZoomOut = useCallback(() => {
-    setZoom((prev) => Math.max(prev - 0.2, 0.2));
+  const panBy = useCallback((dx: number, dy: number) => {
+    setTranslate((prev) => ({ x: prev.x + dx, y: prev.y + dy }));
   }, []);
-
-  const handleReset = useCallback(() => {
-    fit();
-  }, [fit]);
 
   if (!treeData) {
     return (
@@ -330,93 +415,140 @@ export function EnhancedFamilyTree({
   }
 
   return (
-    <div className="relative">
-      {/* Controls */}
-      <div className="absolute top-3 right-3 z-10 flex gap-1.5">
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={handleZoomIn}
-          className="bg-card"
-          aria-label="Zoom in"
-        >
-          <ZoomIn className="h-4 w-4" />
-        </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={handleZoomOut}
-          className="bg-card"
-          aria-label="Zoom out"
-        >
-          <ZoomOut className="h-4 w-4" />
-        </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={handleReset}
-          className="bg-card"
-          aria-label="Reset view"
-        >
-          <Maximize2 className="h-4 w-4" />
-        </Button>
-      </div>
-
-      {/* Tree Container */}
-      <div
-        ref={containerRef}
-        style={frameHeight ? { height: frameHeight } : undefined}
-        className="h-[min(72vh,46rem)] min-h-96 w-full overflow-hidden rounded-lg border border-border bg-muted/30 bg-[radial-gradient(circle,color-mix(in_oklch,var(--foreground)_9%,transparent)_1px,transparent_1.5px)] bg-size-[24px_24px]"
+    <div>
+      {/* Phones get the same tree as an outline instead of a tiny canvas. */}
+      <nav
+        aria-label="Family tree outline"
+        className="md:hidden rounded-lg border border-border bg-card p-4"
       >
-        {measured ? (
-          <Tree
-            data={treeData}
-            translate={translate}
-            zoom={zoom}
-            onUpdate={(state) => {
-              setTranslate(state.translate);
-              setZoom(state.zoom);
-            }}
-            orientation="vertical"
-            pathFunc="step"
-            separation={{ siblings: 1.1, nonSiblings: 1.35 }}
-            nodeSize={{ x: 240, y: 180 }}
-            renderCustomNodeElement={renderForeignObjectNode}
-            collapsible={true}
-            initialDepth={2}
-            enableLegacyTransitions={true}
-            transitionDuration={500}
-            depthFactor={200}
-            pathClassFunc={() => "custom-link"}
-          />
-        ) : null}
-      </div>
+        <ul>
+          <TreeOutline node={treeData} />
+        </ul>
+      </nav>
 
-      {/* Legend */}
-      <ul
-        aria-label="Legend"
-        className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 type-meta text-muted-foreground"
-      >
-        <li className="flex items-center gap-2">
-          <span className="h-3 w-1 rounded-full bg-[oklch(0.62_0.09_245)]" />
-          Male
-        </li>
-        <li className="flex items-center gap-2">
-          <span className="h-3 w-1 rounded-full bg-[oklch(0.62_0.12_350)]" />
-          Female
-        </li>
-        <li className="flex items-center gap-2">
-          <span className="h-3 w-1 rounded-full bg-gold" />
-          Other or unknown
-        </li>
-        <li className="flex items-center gap-2">
-          <span className="h-0.5 w-6 bg-patina" />
-          Parent to child
-        </li>
-        <li className="sm:ml-auto">
-          Click a figure to open or close its branch
-        </li>
-      </ul>
+      <div className="hidden md:block">
+        <div
+          role="toolbar"
+          aria-label="Family tree view controls"
+          className="mb-3 flex flex-wrap items-center gap-x-6 gap-y-2"
+        >
+          <div className="flex items-center gap-1.5">
+            <span className="mr-1 type-meta text-muted-foreground">Zoom</span>
+            <Button
+              variant="outline"
+              className={controlClass}
+              onClick={() => zoomBy(-0.15)}
+              aria-label="Zoom out"
+            >
+              <ZoomOut className="size-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className={controlClass}
+              onClick={() => zoomBy(0.15)}
+              aria-label="Zoom in"
+            >
+              <ZoomIn className="size-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className={controlClass}
+              onClick={() => fit(true)}
+              aria-label="Fit the whole tree"
+            >
+              <Maximize2 className="size-5" />
+            </Button>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="mr-1 type-meta text-muted-foreground">Pan</span>
+            <Button
+              variant="outline"
+              className={controlClass}
+              onClick={() => panBy(PAN_STEP, 0)}
+              aria-label="Pan left"
+            >
+              <ArrowLeft className="size-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className={controlClass}
+              onClick={() => panBy(0, PAN_STEP)}
+              aria-label="Pan up"
+            >
+              <ArrowUp className="size-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className={controlClass}
+              onClick={() => panBy(0, -PAN_STEP)}
+              aria-label="Pan down"
+            >
+              <ArrowDown className="size-5" />
+            </Button>
+            <Button
+              variant="outline"
+              className={controlClass}
+              onClick={() => panBy(-PAN_STEP, 0)}
+              aria-label="Pan right"
+            >
+              <ArrowRight className="size-5" />
+            </Button>
+          </div>
+          <p className="type-meta text-muted-foreground sm:ml-auto">
+            Click a figure to open or close its branch. Drag to pan.
+          </p>
+        </div>
+
+        <div
+          ref={containerRef}
+          style={frameHeight ? { height: frameHeight } : undefined}
+          className="h-[34rem] w-full overflow-hidden [&_.rd3t-link]:stroke-gold/60! [&_.rd3t-link]:stroke-[1.5px]! rounded-lg border border-border bg-muted/30 bg-[radial-gradient(circle,color-mix(in_oklch,var(--foreground)_9%,transparent)_1px,transparent_1.5px)] bg-size-[24px_24px]"
+        >
+          {measured ? (
+            <Tree
+              data={treeData}
+              translate={translate}
+              zoom={zoom}
+              onUpdate={(state) => {
+                setTranslate(state.translate);
+                setZoom(state.zoom);
+              }}
+              orientation="horizontal"
+              pathFunc="step"
+              separation={{ siblings: 1, nonSiblings: 1 }}
+              nodeSize={{ x: 320, y: 104 }}
+              renderCustomNodeElement={renderForeignObjectNode}
+              collapsible={true}
+              initialDepth={3}
+              enableLegacyTransitions={true}
+              transitionDuration={500}
+              pathClassFunc={() => "custom-link"}
+            />
+          ) : null}
+        </div>
+
+        <ul
+          aria-label="Legend"
+          className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 type-meta text-muted-foreground"
+        >
+          <li className="flex items-center gap-2">
+            <span className="h-3 w-1 rounded-full bg-[oklch(0.62_0.09_245)]" />
+            Male
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="h-3 w-1 rounded-full bg-[oklch(0.62_0.12_350)]" />
+            Female
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="h-3 w-1 rounded-full bg-gold" />
+            Other or unknown
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="h-0.5 w-6 bg-gold/60" />
+            Parent to child
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
