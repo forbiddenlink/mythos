@@ -69,7 +69,7 @@
   /* Container widths (max-w-reading / max-w-content / max-w-wide). One grid:
      reading for long prose, content for pages, wide for galleries and
      visualizations. Use the <Container> primitive rather than raw classes. */
-  --container-reading: 68ch;
+  --container-reading: 41rem;
   --container-content: 75rem;
   --container-wide: 85rem;
 
@@ -1472,5 +1472,157 @@ html.cookie-banner-open {
   }
   100% {
     transform: translateX(300%);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ATLAS SIGNATURE MOVES (v2). Three printed-atlas devices that repeat on
+   every page: PLATES (a painting is a mounted plate), RUNNING HEADS plus
+   hung Roman section numerals, and LEADER-DOT INDEX lines. They draw on
+   the book object itself and carry no tradition's motifs: only the plate's
+   top tab takes the tradition colour (lib/pantheon-colors.ts).
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  --plate-mat: oklch(0.955 0.02 85);
+  --plate-keyline: oklch(0.6 0.12 65 / 0.6);
+  --plate-shadow: oklch(0.25 0.04 265 / 0.28);
+  --plate-ink: oklch(0.34 0.03 265);
+}
+.dark {
+  --plate-mat: oklch(0.22 0.035 265);
+  --plate-keyline: oklch(0.78 0.14 70 / 0.5);
+  --plate-shadow: oklch(0 0 0 / 0.5);
+  --plate-ink: oklch(0.82 0.02 85);
+}
+
+@layer components {
+  /* A mounted plate: mat, gilt keyline just inside the mat edge, a tab of
+     the tradition colour on top. Children: .plate-art (the picture). */
+  .plate {
+    position: relative;
+    padding: 0.5rem;
+    background: var(--plate-mat);
+    border-top: 3px solid var(--plate-accent, var(--gold));
+    box-shadow: 0 10px 22px -14px var(--plate-shadow);
+  }
+  .plate::after {
+    content: "";
+    position: absolute;
+    inset: 0.2rem;
+    border: 1px solid var(--plate-keyline);
+    pointer-events: none;
+  }
+  .plate-art {
+    position: relative;
+    overflow: hidden;
+    background: var(--midnight);
+  }
+  /* Single-element plate: the mat is a border, so a fill image sits inside it. */
+  .plate-flat {
+    border: 0.45rem solid var(--plate-mat);
+    border-top: 3px solid var(--plate-accent, var(--gold));
+    border-top-width: 3px;
+    padding-top: 0;
+    outline: 1px solid var(--plate-keyline);
+    outline-offset: -0.25rem;
+    box-shadow: 0 10px 22px -14px var(--plate-shadow);
+  }
+  /* Always-parchment mat, for plates set on a midnight band. */
+  .plate-paper {
+    --plate-mat: oklch(0.94 0.022 85);
+    --plate-keyline: oklch(0.55 0.12 62 / 0.6);
+    --plate-ink: oklch(0.3 0.03 265);
+    --plate-shadow: oklch(0 0 0 / 0.6);
+    padding: 0.75rem;
+  }
+  .plate-paper::after {
+    inset: 0.3rem;
+  }
+  .plate-caption {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0.5rem 0.25rem 0;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--plate-ink);
+  }
+  .plate-caption i {
+    font-style: normal;
+    font-family: var(--font-crimson), ui-serif, Georgia, serif;
+    font-size: 0.9375rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* Running head: the line a book prints above every sheet. */
+  .runhead {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 1rem;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-top: 3px double color-mix(in oklch, var(--gold) 70%, transparent);
+    border-bottom: 1px solid color-mix(in oklch, var(--gold) 28%, transparent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Leader-dot index line: "Tradition ......... Greek". */
+  .index-line {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+  .index-line::before {
+    content: "";
+    order: 1;
+    flex: 1 1 1rem;
+    min-width: 1rem;
+    border-bottom: 2px dotted color-mix(in oklch, currentColor 35%, transparent);
+    transform: translateY(-0.2em);
+  }
+  .index-line > :first-child {
+    order: 0;
+  }
+  .index-line > :last-child {
+    order: 2;
+  }
+}
+
+/* Roman section numerals: on entity pages and the home page every H2 section
+   title in <main> counts up from I (other pages have too few sections for a
+   numbered sequence to read as anything but decoration),
+   set in gold before the title (hung in the margin at 1440px and wider).
+   Pure CSS (no markup), hidden from assistive tech with the empty
+   alternative text. */
+main {
+  counter-reset: atlas-section;
+}
+main:has(.detail-title) .page-section-title::before,
+main:has(#atlas-title) .page-section-title::before {
+  counter-increment: atlas-section;
+  /* A real space after the numeral lets the title wrap at 200% text size. */
+  content: counter(atlas-section, upper-roman) ". " / "";
+  margin-right: 0.1em;
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  color: var(--gold-text);
+}
+@media (min-width: 1440px) {
+  main:has(.detail-title) .page-section-title:not(.text-center)::before,
+  main:has(#atlas-title) .page-section-title:not(.text-center)::before {
+    position: absolute;
+    margin: 0;
+    transform: translateX(calc(-100% - 0.9rem));
+  }
+  main .page-section-title {
+    position: relative;
   }
 }

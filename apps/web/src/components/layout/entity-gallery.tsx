@@ -1,3 +1,4 @@
+import type * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getPantheonColor } from "@/lib/pantheon-colors";
@@ -31,19 +32,16 @@ function Thumb({
   sizes,
   className,
   initialClassName = "text-2xl",
+  plate = false,
 }: {
   item: EntityLinkItem;
   sizes: string;
   className?: string;
   initialClassName?: string;
+  plate?: boolean;
 }) {
-  return (
-    <span
-      className={cn(
-        "relative block shrink-0 overflow-hidden rounded-md bg-muted ring-1 ring-border/80",
-        className,
-      )}
-    >
+  const art = (
+    <>
       {item.imageUrl ? (
         <Image
           src={item.imageUrl}
@@ -64,6 +62,32 @@ function Thumb({
           {item.name.charAt(0)}
         </span>
       )}
+    </>
+  );
+  if (plate) {
+    return (
+      <span
+        className="plate block"
+        style={
+          {
+            "--plate-accent": item.pantheonId
+              ? getPantheonColor(item.pantheonId)
+              : "var(--gold)",
+          } as React.CSSProperties
+        }
+      >
+        <span className={cn("plate-art block", className)}>{art}</span>
+      </span>
+    );
+  }
+  return (
+    <span
+      className={cn(
+        "relative block shrink-0 overflow-hidden rounded-md bg-muted ring-1 ring-border/80",
+        className,
+      )}
+    >
+      {art}
     </span>
   );
 }
@@ -133,6 +157,7 @@ export function EntityGallery({
               sizes="(min-width: 1024px) 14rem, (min-width: 640px) 30vw, 45vw"
               className={cn("w-full", ratio)}
               initialClassName="text-4xl"
+              plate
             />
             <span className="mt-3 block font-serif text-[1.0625rem] font-semibold leading-snug text-foreground group-hover:text-gold-text">
               {item.name}

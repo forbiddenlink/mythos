@@ -1,8 +1,17 @@
+import type * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+
+export interface IndexEntry {
+  name: string;
+  slug: string;
+  deities: number;
+  /** Tradition colour (lib/pantheon-colors.ts), used for the index tab. */
+  color: string;
+}
 
 interface AtlasCounts {
   pantheons: number;
@@ -19,8 +28,10 @@ export interface HeroFigure {
 
 interface AtlasOpensHeroProps {
   counts: AtlasCounts;
-  /** Six portraits for the mosaic, chosen on the server. */
-  figures: HeroFigure[];
+  /** The frontispiece plate, chosen on the server. */
+  figure?: HeroFigure;
+  /** Every tradition, for the printed index under the title. */
+  index: IndexEntry[];
 }
 
 const studyPaths = [
@@ -41,53 +52,13 @@ const studyPaths = [
   },
 ] as const;
 
-function MosaicTile({
-  figure,
-  priority,
-  className,
-}: {
-  figure: HeroFigure;
-  priority?: boolean;
-  className?: string;
-}) {
-  return (
-    <Link
-      href={`/deities/${figure.slug}`}
-      className={`group relative block overflow-hidden rounded-md bg-midnight-light shadow-xl shadow-black/40 ring-1 ring-gold/20 transition-shadow hover:ring-gold/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${className ?? ""}`}
-    >
-      <span className="relative block aspect-4/5">
-        <Image
-          src={figure.imageUrl}
-          alt=""
-          fill
-          priority={priority}
-          sizes="(min-width: 1280px) 13rem, (min-width: 1024px) 11rem, 30vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        />
-        <span
-          className="absolute inset-0 bg-linear-to-t from-midnight/90 via-midnight/10 to-transparent"
-          aria-hidden="true"
-        />
-      </span>
-      <span className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3">
-        <span className="block font-serif text-sm font-semibold text-parchment sm:text-base">
-          {figure.name}
-        </span>
-        <span className="hidden text-xs text-parchment/75 sm:block">
-          {figure.tradition}
-        </span>
-      </span>
-    </Link>
-  );
-}
-
 /**
- * "The Atlas Opens": one server-rendered composition in normal document flow.
- * The brand is the headline; a mosaic of portraits from the catalog shows at
- * a glance that this is a place of faces and stories.
+ * "The Atlas Opens", set as a title page: the brand as the headline, one
+ * mounted plate as the frontispiece, and an index of every tradition with
+ * leader dots, the way a printed atlas opens. One server-rendered
+ * composition; the plate is the only image, and it is the LCP element.
  */
-export function AtlasOpensHero({ counts, figures }: AtlasOpensHeroProps) {
-  const [a, b, c, d, e, f] = figures;
+export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
   return (
     <section
       aria-labelledby="atlas-title"
@@ -97,20 +68,25 @@ export function AtlasOpensHero({ counts, figures }: AtlasOpensHeroProps) {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-[url('/hero-columns.webp')] bg-cover bg-center opacity-30" />
-        <div className="absolute inset-0 bg-linear-to-r from-midnight via-midnight/90 to-midnight/55" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_80%_40%,color-mix(in_oklch,var(--gold)_16%,transparent),transparent_70%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-midnight to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_82%_30%,color-mix(in_oklch,var(--gold)_14%,transparent),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent_0,transparent_calc(8.333%-1px),color-mix(in_oklch,var(--gold)_7%,transparent)_calc(8.333%-1px),color-mix(in_oklch,var(--gold)_7%,transparent)_8.333%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-midnight to-transparent" />
       </div>
 
-      <Container className="pt-12 pb-10 sm:pt-16 lg:pt-20 lg:pb-14">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,34rem)] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_minmax(0,38rem)]">
-          <div className="max-w-2xl">
-            <p className="type-eyebrow mb-5 text-gold-light">
-              An atlas of world mythology
-            </p>
+      <Container className="pt-8 pb-10 sm:pt-12 lg:pt-14 lg:pb-14">
+        <p className="runhead mb-8 text-gold-light lg:mb-12">
+          <span>An atlas of world mythology</span>
+          <span className="hidden text-parchment/70 sm:inline">
+            {counts.deities} deities, {counts.stories} stories
+          </span>
+        </p>
+
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_minmax(0,28rem)]">
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
             <h1 id="atlas-title" className="type-display text-parchment">
-              Mythos Atlas
+              Mythos
+              <br />
+              Atlas
             </h1>
             <p className="mt-6 max-w-xl font-body text-xl leading-relaxed text-parchment/90 md:text-[1.5rem] md:leading-snug">
               Meet the gods. Follow their stories. Discover how people across{" "}
@@ -134,52 +110,38 @@ export function AtlasOpensHero({ counts, figures }: AtlasOpensHeroProps) {
                 Read a myth <ArrowRight className="size-4" />
               </Link>
             </div>
-            <ul className="mt-10 flex flex-wrap items-baseline gap-x-8 gap-y-3 border-t border-parchment/15 pt-5 text-sm text-parchment/70">
-              {(
-                [
-                  [counts.deities, "deities"],
-                  [counts.stories, "stories"],
-                  [counts.pantheons, "traditions"],
-                ] as const
-              ).map(([value, label]) => (
-                <li key={label}>
-                  <span className="mr-1.5 font-serif text-2xl font-semibold text-parchment">
-                    {value}
-                  </span>
-                  {label}
-                </li>
-              ))}
-              <li>Free to explore</li>
-            </ul>
           </div>
 
-          {a && b && c ? (
-            <div>
-              <div
-                className="grid grid-cols-3 gap-3 sm:gap-4"
-                aria-label="Featured figures"
-                role="group"
+          {figure ? (
+            <figure className="mx-auto w-full max-w-[19rem] sm:max-w-[22rem] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mx-0 lg:max-w-none lg:pt-2">
+              <Link
+                href={`/deities/${figure.slug}`}
+                className="plate plate-paper block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+                style={
+                  {
+                    "--plate-accent": "var(--gold)",
+                  } as React.CSSProperties
+                }
               >
-                <div className="space-y-3 pt-8 sm:space-y-4 sm:pt-12">
-                  <MosaicTile figure={a} priority />
-                  {d ? (
-                    <MosaicTile figure={d} className="hidden lg:block" />
-                  ) : null}
-                </div>
-                <div className="space-y-3 sm:space-y-4">
-                  <MosaicTile figure={b} priority />
-                  {e ? (
-                    <MosaicTile figure={e} className="hidden lg:block" />
-                  ) : null}
-                </div>
-                <div className="space-y-3 pt-4 sm:space-y-4 sm:pt-6">
-                  <MosaicTile figure={c} priority />
-                  {f ? (
-                    <MosaicTile figure={f} className="hidden lg:block" />
-                  ) : null}
-                </div>
-              </div>
-              <p className="mt-3 text-right text-xs text-parchment/65">
+                <span className="plate-art block aspect-4/5">
+                  <Image
+                    src={figure.imageUrl}
+                    alt={`${figure.name}, ${figure.tradition}`}
+                    fill
+                    priority
+                    fetchPriority="high"
+                    sizes="(min-width: 1280px) 28rem, (min-width: 1024px) 25rem, 22rem"
+                    className="object-cover object-top"
+                  />
+                </span>
+                <span className="plate-caption">
+                  <span>Frontispiece</span>
+                  <i>
+                    {figure.name}, {figure.tradition}
+                  </i>
+                </span>
+              </Link>
+              <figcaption className="mt-3 text-xs text-parchment/65">
                 Catalog pictures are illustrations, not historical artworks.{" "}
                 <Link
                   href="/about#images"
@@ -187,9 +149,40 @@ export function AtlasOpensHero({ counts, figures }: AtlasOpensHeroProps) {
                 >
                   About our images
                 </Link>
-              </p>
-            </div>
+              </figcaption>
+            </figure>
           ) : null}
+
+          <nav aria-label="Index of traditions" className="min-w-0 lg:col-start-1 lg:row-start-2">
+            <h2 className="runhead mb-1 text-parchment/80">
+              <span>Index of traditions</span>
+              <span>Deities</span>
+            </h2>
+            <ol className="columns-2 gap-x-6 sm:gap-x-10 xl:columns-3 [&>li]:break-inside-avoid">
+              {index.map((entry) => (
+                <li key={entry.slug}>
+                  <Link
+                    href={`/pantheons/${entry.slug}`}
+                    className="index-line group min-h-11 items-center text-[0.9375rem] text-parchment/85 transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span
+                        className="h-3.5 w-1 shrink-0 rounded-[1px]"
+                        style={{ backgroundColor: entry.color }}
+                        aria-hidden="true"
+                      />
+                      {entry.name
+                          .replace(/\s+(Pantheon|Tradition|Traditions)\b/g, "")
+                          .replace(/\s*\([^)]*\)/g, "")}
+                    </span>
+                    <span className="tabular-nums text-parchment/70">
+                      {entry.deities}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </nav>
         </div>
 
         <nav

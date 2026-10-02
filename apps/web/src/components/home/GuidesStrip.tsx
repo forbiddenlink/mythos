@@ -33,7 +33,7 @@ export function GuidesStrip() {
                 className="group block rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
                 {image ? (
-                  <span className="relative block aspect-[3/2] overflow-hidden rounded-md bg-muted ring-1 ring-border/70">
+                  <span className="relative block aspect-[3/2] overflow-hidden plate-flat bg-midnight">
                     <Image
                       src={image}
                       alt=""

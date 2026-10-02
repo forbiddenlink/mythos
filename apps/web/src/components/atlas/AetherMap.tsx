@@ -15,7 +15,6 @@ import {
   hiddenSetsDiffer,
   type LabelBox,
 } from "@/lib/atlas-label-declutter";
-import { MythosMark } from "@/components/icons/mythos-marks";
 import { StageLoading } from "@/components/layout/tool-stage";
 import { cn } from "@/lib/utils";
 
@@ -273,6 +272,145 @@ function Scene({
   );
 }
 
+/* ------------------------- static sky (no motion) ------------------------ */
+
+/**
+ * The resting state: the same sky as a still, composed plate. Stars are
+ * plotted top-down from the deterministic layout, one cluster per tradition,
+ * inside a keyline frame with a printed caption, beside an index of every
+ * tradition (colour tab and figure count).
+ */
+function StaticSky({
+  layout,
+  reason,
+  onShow,
+}: {
+  layout: AtlasLayout;
+  reason: "reduced" | "no-webgl";
+  onShow?: () => void;
+}) {
+  const { nodes, edges, pantheons } = layout;
+  const view = useMemo(() => {
+    const xs = nodes.map((n) => n.position[0]);
+    const zs = nodes.map((n) => n.position[2]);
+    const pad = 3;
+    const minX = Math.min(...xs) - pad;
+    const minZ = Math.min(...zs) - pad;
+    return {
+      minX,
+      minZ,
+      width: Math.max(...xs) + pad - minX,
+      height: Math.max(...zs) + pad - minZ,
+    };
+  }, [nodes]);
+  const counts = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const n of nodes)
+      map.set(n.pantheonId, (map.get(n.pantheonId) ?? 0) + 1);
+    return map;
+  }, [nodes]);
+  const index = [...pantheons].sort(
+    (a, b) => (counts.get(b.id) ?? 0) - (counts.get(a.id) ?? 0),
+  );
+
+  return (
+    <div className="dark grid gap-8 rounded-lg bg-midnight p-5 text-foreground md:p-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:gap-12">
+      <figure className="min-w-0">
+        <div
+          className="plate"
+          style={{ "--plate-accent": "var(--gold)" } as React.CSSProperties}
+        >
+          <div className="plate-art">
+            <svg
+              viewBox={`${view.minX} ${view.minZ} ${view.width} ${view.height}`}
+              role="img"
+              aria-label={`Still chart of ${nodes.length} stars in ${pantheons.length} tradition clusters. Every figure is listed below.`}
+              className="mx-auto block h-auto max-h-[34rem] w-full bg-[radial-gradient(ellipse_at_50%_40%,color-mix(in_oklch,var(--gold)_10%,transparent),transparent_70%)]"
+            >
+              {edges.map((e) => (
+                <line
+                  key={e.id}
+                  x1={e.from[0]}
+                  y1={e.from[2]}
+                  x2={e.to[0]}
+                  y2={e.to[2]}
+                  stroke="oklch(0.85 0.05 85)"
+                  strokeOpacity={0.11}
+                  strokeWidth={0.06}
+                />
+              ))}
+              {nodes.map((n) => (
+                <circle
+                  key={n.id}
+                  cx={n.position[0]}
+                  cy={n.position[2]}
+                  r={Math.max(0.3, n.size * 1.1)}
+                  fill={n.color}
+                  fillOpacity={0.92}
+                />
+              ))}
+            </svg>
+          </div>
+          <figcaption className="plate-caption">
+            <span>Plate</span>
+            <i>
+              {nodes.length} stars, {pantheons.length} traditions
+            </i>
+          </figcaption>
+        </div>
+        <p className="mt-4 max-w-xl type-ui text-parchment/90">
+          {reason === "reduced"
+            ? "Your device asks for reduced motion, so the orbiting 3D map is off. This is the same sky, held still."
+            : "This browser cannot draw the 3D map. This is the same sky, held still."}
+        </p>
+        {onShow ? (
+          <button
+            type="button"
+            onClick={onShow}
+            className="mt-3 inline-flex min-h-11 items-center justify-center rounded-md border border-gold/50 px-4 type-ui font-medium text-gold-light transition-colors hover:bg-gold/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          >
+            Show the star map anyway
+          </button>
+        ) : null}
+      </figure>
+
+      <div className="min-w-0 lg:self-center">
+        <p className="runhead text-gold-light">
+          <span>Index of constellations</span>
+          <span className="text-parchment/90">Figures</span>
+        </p>
+        <ol className="columns-1 gap-x-5 min-[380px]:columns-2 sm:gap-x-8 lg:columns-1 xl:columns-2 [&>li]:break-inside-avoid">
+          {index.map((p) => (
+            <li
+              key={p.id}
+              className="index-line min-h-9 items-center text-[0.9375rem] text-parchment/90"
+            >
+              <a
+                href={`#atlas-${p.id}`}
+                className="flex min-h-9 items-center gap-2 hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+              >
+                <span
+                  aria-hidden="true"
+                  className="h-3.5 w-1 shrink-0 rounded-[1px]"
+                  style={{ backgroundColor: p.color }}
+                />
+                {prettyPantheonName(p.id)}
+              </a>
+              <span className="tabular-nums text-parchment/90">
+                {counts.get(p.id) ?? 0}
+              </span>
+            </li>
+          ))}
+        </ol>
+        <p className="runhead mt-4 text-gold-light">
+          <span>Total</span>
+          <span className="tabular-nums text-parchment/90">{nodes.length}</span>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ------------------------------- wrapper --------------------------------- */
 
 type StageState = "pending" | "canvas" | "reduced" | "no-webgl";
@@ -326,39 +464,11 @@ export function AetherMap({ layout }: { layout: AtlasLayout }) {
 
   if (state !== "canvas") {
     return (
-      <div className="dark relative isolate flex flex-col gap-4 overflow-hidden rounded-lg bg-midnight px-6 py-6 text-foreground sm:flex-row sm:items-center sm:justify-between md:px-8">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[radial-gradient(circle,color-mix(in_oklch,var(--parchment)_40%,transparent)_1px,transparent_1.5px)] bg-size-[26px_26px] opacity-20"
-        />
-        <div className="flex items-start gap-4">
-          <MythosMark
-            id="constellation"
-            className="mt-0.5 size-7 shrink-0 text-gold-light"
-          />
-          <div>
-            <p className="font-serif text-lg font-semibold text-parchment">
-              {state === "reduced"
-                ? "The star map is resting"
-                : "The star map needs 3D graphics"}
-            </p>
-            <p className="mt-1 max-w-2xl type-ui text-parchment/80">
-              {state === "reduced"
-                ? "Your device asks for reduced motion, so the orbiting 3D map is off. Every figure is listed below by tradition."
-                : "This browser cannot draw the 3D map. Every figure is listed below by tradition."}
-            </p>
-          </div>
-        </div>
-        {state === "reduced" ? (
-          <button
-            type="button"
-            onClick={() => setState("canvas")}
-            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-md border border-gold/50 px-4 type-ui font-medium text-gold-light transition-colors hover:bg-gold/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-          >
-            Show the star map anyway
-          </button>
-        ) : null}
-      </div>
+      <StaticSky
+        layout={layout}
+        reason={state === "reduced" ? "reduced" : "no-webgl"}
+        onShow={state === "reduced" ? () => setState("canvas") : undefined}
+      />
     );
   }
 
@@ -384,7 +494,7 @@ export function AetherMap({ layout }: { layout: AtlasLayout }) {
         />
       </Canvas>
 
-      <p className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-[#0a0a19] to-transparent px-4 pt-10 pb-4 text-center type-meta uppercase tracking-[0.2em] text-parchment/75">
+      <p className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-[#0a0a19] to-transparent px-4 pt-10 pb-4 text-center type-meta uppercase tracking-[0.2em] text-parchment/90">
         Drag to orbit · scroll to zoom · click a star
       </p>
     </div>

@@ -1,48 +1,90 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-// Scan all component source for Tailwind CSS bg-[url('/...')] refs and assert the
-// referenced asset exists in public/. Guards against regressions like the live
-// cta-ruins.webp 404 (data references an asset that was never generated).
+// The home hero is the LCP element. As a CSS background it was discovered late
+// (after CSS parsed) at low priority: LCP 4.84s on main vs 2.12s once it became
+// a real priority image. These tests fail if a CSS-background hero comes back.
 
-function walk(dir: string, exts: string[]): string[] {
-  const out: string[] = [];
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (
-        entry.name === "node_modules" ||
-        entry.name === ".next" ||
-        entry.name === "__tests__"
-      )
-        continue;
-      out.push(...walk(full, exts));
-    } else if (exts.some((e) => entry.name.endsWith(e))) {
-      out.push(full);
-    }
-  }
-  return out;
+const srcRoot = join(__dirname, "..", "..");
+const read = (rel: string): string => readFileSync(join(srcRoot, rel), "utf8");
+
+const HERO_FILES = [
+  "components/home/AtlasOpensHero.tsx",
+  "app/page.tsx",
+] as const;
+
+/** A hero image is a priority <Image>/<img> that is not just a CSS background. */
+function heroImageProblems(source: string): string[] {
+  const problems: string[] = [];
+  const tags = [...source.matchAll(/<(Image|img)\b[\s\S]*?\/>/g)].map(
+    (m) => m[0],
+  );
+  const priority = tags.filter(
+    (tag) =>
+      /\bpriority\b/.test(tag) || /fetchPriority\s*=\s*["']high["']/.test(tag),
+  );
+  if (priority.length === 0) problems.push("no priority <Image>/<img>");
+  if (/bg-\[url\(/.test(source)) problems.push("Tailwind bg-[url()] in hero");
+  if (/background(-image)?\s*:\s*[^;]*url\(/.test(source))
+    problems.push("inline background url() in hero");
+  if (/backgroundImage\s*:/.test(source))
+    problems.push("inline backgroundImage style in hero");
+  return problems;
 }
 
-const srcRoot = join(__dirname, "..", ".."); // apps/web/src
-const webRoot = join(srcRoot, ".."); // apps/web
-const publicRoot = join(webRoot, "public");
-
-const refs: { file: string; asset: string }[] = [];
-for (const file of walk(srcRoot, [".tsx", ".ts"])) {
-  const src = readFileSync(file, "utf8");
-  for (const m of src.matchAll(/bg-\[url\('(\/[^']+)'\)\]/g)) {
-    refs.push({ file: file.replace(webRoot + "/", ""), asset: m[1] });
-  }
-}
-
-describe("CSS background-image assets exist in public/", () => {
-  it("finds at least the known references", () => {
-    expect(refs.length).toBeGreaterThanOrEqual(1); // hero-columns
+describe("home hero is a priority image, not a CSS background", () => {
+  it("AtlasOpensHero renders a priority next/image", () => {
+    const src = read("components/home/AtlasOpensHero.tsx");
+    expect(src).toMatch(/import Image from "next\/image"/);
+    expect(heroImageProblems(src)).toEqual([]);
   });
 
-  it.each(refs)("$asset (in $file) exists in public/", ({ asset }) => {
-    expect(existsSync(join(publicRoot, asset))).toBe(true);
+  it("no hero file uses a CSS background image", () => {
+    for (const file of HERO_FILES) {
+      const src = read(file);
+      expect(src, file).not.toMatch(/bg-\[url\(/);
+      expect(src, file).not.toMatch(/backgroundImage\s*:/);
+    }
+  });
+
+  it("globals.css has no hero rule with a background url()", () => {
+    const css = read("app/globals.css");
+    const heroRules = [...css.matchAll(/([^{}]*hero[^{}]*)\{([^}]*)\}/gi)];
+    const offenders = heroRules
+      .filter(([, , body]) => /url\(/.test(body))
+      .map(([, selector]) => selector.trim());
+    expect(offenders).toEqual([]);
+  });
+
+  describe("detector catches regressions", () => {
+    it("flags a Tailwind CSS-background hero", () => {
+      const bad = `<section className="bg-[url('/hero-columns.webp')] bg-cover"><h1>x</h1></section>`;
+      expect(heroImageProblems(bad)).toEqual(
+        expect.arrayContaining([
+          "no priority <Image>/<img>",
+          "Tailwind bg-[url()] in hero",
+        ]),
+      );
+    });
+
+    it("flags an inline backgroundImage hero", () => {
+      const bad = `<div style={{ backgroundImage: "url(/h.webp)" }} />`;
+      expect(heroImageProblems(bad)).toContain(
+        "inline backgroundImage style in hero",
+      );
+    });
+
+    it("flags a non-priority image", () => {
+      expect(
+        heroImageProblems(`<Image src="/h.webp" alt="" fill />`),
+      ).toContain("no priority <Image>/<img>");
+    });
+
+    it("accepts a priority next/image", () => {
+      expect(
+        heroImageProblems(`<Image src="/h.webp" alt="" fill priority />`),
+      ).toEqual([]);
+    });
   });
 });

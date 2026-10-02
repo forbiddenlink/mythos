@@ -109,37 +109,46 @@ export function EntityCard({
   const mediaBlock = media ? (
     <div
       className={cn(
-        "relative shrink-0 overflow-hidden rounded-md bg-midnight ring-1 ring-border/70",
+        "plate shrink-0",
         list ? (aspect === "portrait" ? "w-20 sm:w-24" : "w-28 sm:w-32") : "",
-        ASPECT_CLASS[aspect],
+        list && "p-1",
       )}
-      style={viewTransitionName ? { viewTransitionName } : undefined}
+      style={
+        {
+          "--plate-accent": traditionColor ?? "var(--gold)",
+          ...(viewTransitionName ? { viewTransitionName } : {}),
+        } as React.CSSProperties
+      }
     >
-      {image ? (
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          priority={priority}
-          unoptimized={imageUnoptimized}
-          sizes={list ? "8rem" : (sizes ?? DEFAULT_SIZES[aspect])}
-          className="object-cover transition-transform duration-700 ease-out group-hover/entity:scale-[1.04]"
-          style={imagePosition ? { objectPosition: imagePosition } : undefined}
-        />
-      ) : (
-        <EntityInitial title={title} color={traditionColor} small={list} />
-      )}
-      {!list && (badges || action) ? (
-        <span
-          className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-linear-to-b from-midnight/45 to-transparent"
-          aria-hidden="true"
-        />
-      ) : null}
-      {!list && badges ? (
-        <div className="absolute left-2.5 top-2.5 flex flex-wrap gap-1.5">
-          {badges}
-        </div>
-      ) : null}
+      <div className={cn("plate-art", ASPECT_CLASS[aspect])}>
+        {image ? (
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            priority={priority}
+            unoptimized={imageUnoptimized}
+            sizes={list ? "8rem" : (sizes ?? DEFAULT_SIZES[aspect])}
+            className="object-cover transition-transform duration-700 ease-out group-hover/entity:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover/entity:scale-100"
+            style={
+              imagePosition ? { objectPosition: imagePosition } : undefined
+            }
+          />
+        ) : (
+          <EntityInitial title={title} color={traditionColor} small={list} />
+        )}
+        {!list && (badges || action) ? (
+          <span
+            className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-linear-to-b from-midnight/45 to-transparent"
+            aria-hidden="true"
+          />
+        ) : null}
+        {!list && badges ? (
+          <div className="absolute left-2.5 top-2.5 flex flex-wrap gap-1.5">
+            {badges}
+          </div>
+        ) : null}
+      </div>
     </div>
   ) : null;
 
@@ -147,7 +156,7 @@ export function EntityCard({
     <div
       className={cn(
         "min-w-0",
-        list ? "flex-1" : media ? "mt-3.5" : "",
+        list ? "flex-1" : media ? "mt-3" : "",
         action && (list || !media) && "pr-10",
       )}
     >
@@ -210,7 +219,7 @@ export function EntityCard({
         <div
           className={cn(
             "absolute z-10",
-            list || !media ? "right-0 top-3" : "right-2 top-2",
+            list || !media ? "right-0 top-3" : "right-4 top-5",
             !list &&
               media &&
               "rounded-full bg-midnight/55 text-parchment backdrop-blur-sm",

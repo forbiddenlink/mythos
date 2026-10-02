@@ -43,11 +43,11 @@ export function InfoColumns({
 }>) {
   const hasToc = Boolean(toc && toc.length > 1);
   return (
-    <div className="grid gap-12 lg:grid-cols-[minmax(0,68ch)_minmax(0,1fr)] lg:gap-16 xl:gap-24">
-      <div className={infoProseClass}>{children}</div>
+    <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_26rem] xl:gap-16">
+      <div className={cn(infoProseClass, "max-w-[41rem]")}>{children}</div>
       {hasToc || aside ? (
-        <div className="min-w-0">
-          <div className="space-y-10 lg:sticky lg:top-24 lg:max-w-xs">
+        <div className="min-w-0 lg:border-l lg:border-gold/25 lg:pl-8">
+          <div className="space-y-10 lg:sticky lg:top-24">
             {hasToc && toc ? (
               <div className="hidden lg:block">
                 <OnThisPage items={toc} />

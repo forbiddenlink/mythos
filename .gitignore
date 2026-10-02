@@ -115,3 +115,6 @@ dist/
 
 # Local hq CLI catalog metadata (developer tooling, not project code)
 .hq/
+
+# Design research screenshots (large, regenerable)
+design-research/screens/
