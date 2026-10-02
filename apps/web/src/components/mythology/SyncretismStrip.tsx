@@ -46,7 +46,7 @@ export function SyncretismStrip() {
                       href={`/deities/${member.slug}`}
                       className="group block rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                     >
-                      <span className="relative block aspect-4/5 overflow-hidden rounded-md bg-muted ring-1 ring-border/60">
+                      <span className="relative block aspect-4/5 overflow-hidden plate-flat bg-midnight">
                         {image ? (
                           <Image
                             src={image}

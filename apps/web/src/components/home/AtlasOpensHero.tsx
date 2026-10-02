@@ -82,7 +82,7 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
         </p>
 
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,25rem)] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_minmax(0,28rem)]">
-          <div className="min-w-0">
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
             <h1 id="atlas-title" className="type-display text-parchment">
               Mythos
               <br />
@@ -110,39 +110,10 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
                 Read a myth <ArrowRight className="size-4" />
               </Link>
             </div>
-
-            <nav aria-label="Index of traditions" className="mt-12 lg:mt-14">
-              <h2 className="runhead mb-1 text-parchment/80">
-                <span>Index of traditions</span>
-                <span>Deities</span>
-              </h2>
-              <ol className="columns-1 gap-x-10 sm:columns-2 xl:columns-3 [&>li]:break-inside-avoid">
-                {index.map((entry) => (
-                  <li key={entry.slug}>
-                    <Link
-                      href={`/pantheons/${entry.slug}`}
-                      className="index-line group min-h-11 items-center text-[0.9375rem] text-parchment/85 transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-                    >
-                      <span className="flex items-center gap-2">
-                        <span
-                          className="h-3.5 w-1 shrink-0 rounded-[1px]"
-                          style={{ backgroundColor: entry.color }}
-                          aria-hidden="true"
-                        />
-                        {entry.name.replace(/\s+(Pantheon|Tradition|Traditions)\b/g, "")}
-                      </span>
-                      <span className="tabular-nums text-parchment/70">
-                        {entry.deities}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ol>
-            </nav>
           </div>
 
           {figure ? (
-            <figure className="mx-auto w-full max-w-[19rem] sm:max-w-[22rem] lg:mx-0 lg:max-w-none lg:pt-2">
+            <figure className="mx-auto w-full max-w-[19rem] sm:max-w-[22rem] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mx-0 lg:max-w-none lg:pt-2">
               <Link
                 href={`/deities/${figure.slug}`}
                 className="plate plate-paper block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
@@ -181,6 +152,35 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
               </figcaption>
             </figure>
           ) : null}
+
+          <nav aria-label="Index of traditions" className="min-w-0 lg:col-start-1 lg:row-start-2">
+            <h2 className="runhead mb-1 text-parchment/80">
+              <span>Index of traditions</span>
+              <span>Deities</span>
+            </h2>
+            <ol className="columns-2 gap-x-6 sm:gap-x-10 xl:columns-3 [&>li]:break-inside-avoid">
+              {index.map((entry) => (
+                <li key={entry.slug}>
+                  <Link
+                    href={`/pantheons/${entry.slug}`}
+                    className="index-line group min-h-11 items-center text-[0.9375rem] text-parchment/85 transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span
+                        className="h-3.5 w-1 shrink-0 rounded-[1px]"
+                        style={{ backgroundColor: entry.color }}
+                        aria-hidden="true"
+                      />
+                      {entry.name.replace(/\s+(Pantheon|Tradition|Traditions)\b/g, "")}
+                    </span>
+                    <span className="tabular-nums text-parchment/70">
+                      {entry.deities}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </nav>
         </div>
 
         <nav

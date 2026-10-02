@@ -1517,6 +1517,16 @@ html.cookie-banner-open {
     overflow: hidden;
     background: var(--midnight);
   }
+  /* Single-element plate: the mat is a border, so a fill image sits inside it. */
+  .plate-flat {
+    border: 0.45rem solid var(--plate-mat);
+    border-top: 3px solid var(--plate-accent, var(--gold));
+    border-top-width: 3px;
+    padding-top: 0;
+    outline: 1px solid var(--plate-keyline);
+    outline-offset: -0.25rem;
+    box-shadow: 0 10px 22px -14px var(--plate-shadow);
+  }
   /* Always-parchment mat, for plates set on a midnight band. */
   .plate-paper {
     --plate-mat: oklch(0.94 0.022 85);
@@ -1541,6 +1551,7 @@ html.cookie-banner-open {
     color: var(--plate-ink);
   }
   .plate-caption i {
+    font-style: normal;
     font-family: var(--font-crimson), ui-serif, Georgia, serif;
     font-size: 0.9375rem;
     letter-spacing: 0;

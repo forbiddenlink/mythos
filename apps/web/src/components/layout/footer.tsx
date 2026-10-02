@@ -64,6 +64,12 @@ export function Footer() {
   return (
     <footer className="border-t border-border/70 bg-muted/40 pb-[max(env(safe-area-inset-bottom),var(--cookie-banner-offset))]">
       <div className="layout-container layout-container-content pt-10 pb-8 md:pt-14">
+        <p className="runhead mb-10 text-gold-text md:mb-12">
+          <span>Colophon</span>
+          <span className="text-right text-muted-foreground normal-case tracking-normal">
+            Catalog pictures are illustrations, not historical artworks.
+          </span>
+        </p>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)] lg:gap-16">
           {/* Brand + newsletter */}
           <div>
@@ -95,7 +101,7 @@ export function Footer() {
                 key={column.title}
                 className="min-w-0 [overflow-wrap:anywhere]"
               >
-                <h2 className="mb-2 font-sans text-[0.8125rem] font-medium uppercase tracking-[0.16em] text-foreground">
+                <h2 className="mb-2 border-b border-gold/30 pb-2 font-sans text-[0.8125rem] font-medium uppercase tracking-[0.16em] text-foreground">
                   {column.title}
                 </h2>
                 <ul>
