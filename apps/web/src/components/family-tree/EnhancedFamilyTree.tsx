@@ -246,12 +246,17 @@ export function buildTreeData(
     for (const rel of spouseRelationships) {
       const spouseId =
         rel.fromDeityId === deityId ? rel.toDeityId : rel.fromDeityId;
-      // A figure already listed as this node's child is not listed again as
-      // its spouse (Gaia and Uranus are linked both ways in the data).
-      if (
-        !visited.has(spouseId) &&
-        !children.some((child) => child.deity.id === spouseId)
-      ) {
+      // A figure already listed as this node's child is not listed twice; the
+      // one entry carries both relationships (Gaia and Uranus are linked both
+      // ways in the data).
+      const asChild = children.find((child) => child.deity.id === spouseId);
+      if (asChild) {
+        if (asChild.relationshipType === "Child") {
+          asChild.relationshipType = "Child and spouse";
+        }
+        continue;
+      }
+      if (!visited.has(spouseId)) {
         const spouseDeity = deityMap.get(spouseId);
         if (spouseDeity) {
           children.push({

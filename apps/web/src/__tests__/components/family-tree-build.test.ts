@@ -34,6 +34,13 @@ describe("buildTreeData", () => {
     const ids = idsOf(tree?.children);
     expect(ids.filter((id) => id === "uranus")).toHaveLength(1);
     expect(ids).toContain("kronos");
+    // The single entry keeps both relationships rather than dropping the marriage.
+    const uranus = (
+      tree?.children as
+        | { deity: { id: string }; relationshipType?: string }[]
+        | undefined
+    )?.find((c) => c.deity.id === "uranus");
+    expect(uranus?.relationshipType).toBe("Child and spouse");
   });
 
   it("still lists a spouse who is not also a child", () => {
