@@ -100,19 +100,33 @@ export function PageHeader({
           />
         ) : null}
 
+        {eyebrow || count ? (
+          <p
+            className={cn(
+              "runhead mb-6 md:mb-8",
+              onDark ? ACCENT_ON_DARK[accent] : "text-gold-text",
+            )}
+          >
+            <span className="flex min-w-0 items-center gap-2">
+              {mark ? (
+                <MythosMark id={mark} className="size-4 shrink-0" />
+              ) : null}
+              {eyebrow}
+            </span>
+            {count ? (
+              <span
+                className={
+                  onDark ? "text-parchment/75" : "text-muted-foreground"
+                }
+              >
+                {count}
+              </span>
+            ) : null}
+          </p>
+        ) : null}
+
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-10">
           <div className="min-w-0 max-w-3xl">
-            {eyebrow ? (
-              <p
-                className={cn(
-                  "type-eyebrow mb-3 flex items-center gap-2",
-                  onDark && ACCENT_ON_DARK[accent],
-                )}
-              >
-                {mark ? <MythosMark id={mark} className="size-4" /> : null}
-                {eyebrow}
-              </p>
-            ) : null}
             <h1 className="page-title text-foreground">{title}</h1>
             {lede ? (
               <p
@@ -122,16 +136,6 @@ export function PageHeader({
                 )}
               >
                 {lede}
-              </p>
-            ) : null}
-            {count ? (
-              <p
-                className={cn(
-                  "type-meta mt-4 font-medium uppercase tracking-[0.14em]",
-                  onDark ? "text-parchment/75" : "text-muted-foreground",
-                )}
-              >
-                {count}
               </p>
             ) : null}
           </div>

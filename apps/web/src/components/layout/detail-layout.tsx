@@ -59,11 +59,11 @@ export function DetailLayout({
             facts and contents above the article and the extras after it;
             desktop keeps a right-hand aside whose contents list sticks once
             the other aside blocks have scrolled by. */}
-        <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-x-14 xl:grid-cols-[minmax(0,1fr)_20rem] xl:gap-x-20">
+        <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-x-14 xl:grid-cols-[minmax(0,1fr)_22rem] xl:gap-x-20">
           <div className="order-3 min-w-0 lg:order-none">{children}</div>
           <aside
             aria-label={asideLabel}
-            className="contents lg:flex lg:flex-col lg:gap-10"
+            className="contents lg:flex lg:flex-col lg:gap-10 lg:border-l lg:border-gold/25 lg:pl-8"
           >
             {facts ? <div className="order-1 lg:order-1">{facts}</div> : null}
             {aside ? (
@@ -245,40 +245,53 @@ export function DetailHero({
               }
             >
               <div
-                className={cn(
-                  "relative overflow-hidden rounded-md bg-midnight-light shadow-2xl shadow-black/50 ring-1 ring-gold/25",
-                  imageAspect === "portrait"
-                    ? "aspect-4/5"
-                    : imageAspect === "landscape"
-                      ? "aspect-4/3"
-                      : "aspect-square",
-                )}
+                className="plate plate-paper"
+                style={
+                  {
+                    "--plate-accent": accentColor ?? "var(--gold)",
+                  } as React.CSSProperties
+                }
               >
-                {image ? (
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    priority
-                    unoptimized={image.unoptimized}
-                    sizes={
-                      imageAspect === "landscape"
-                        ? "(min-width: 1024px) 30rem, (min-width: 768px) 19rem, 22rem"
-                        : "(min-width: 1024px) 24rem, (min-width: 768px) 17rem, 22rem"
-                    }
-                    className={cn(
-                      image.fit === "contain"
-                        ? "object-contain p-3"
-                        : imageAspect === "portrait"
-                          ? "object-cover object-top"
-                          : "object-cover",
-                    )}
-                  />
-                ) : (
-                  <div className="flex h-full items-center justify-center">
-                    {imageFallback}
-                  </div>
-                )}
+                <div
+                  className={cn(
+                    "plate-art",
+                    imageAspect === "portrait"
+                      ? "aspect-4/5"
+                      : imageAspect === "landscape"
+                        ? "aspect-4/3"
+                        : "aspect-square",
+                  )}
+                >
+                  {image ? (
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      priority
+                      unoptimized={image.unoptimized}
+                      sizes={
+                        imageAspect === "landscape"
+                          ? "(min-width: 1024px) 30rem, (min-width: 768px) 19rem, 22rem"
+                          : "(min-width: 1024px) 24rem, (min-width: 768px) 17rem, 22rem"
+                      }
+                      className={cn(
+                        image.fit === "contain"
+                          ? "object-contain p-3"
+                          : imageAspect === "portrait"
+                            ? "object-cover object-top"
+                            : "object-cover",
+                      )}
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center">
+                      {imageFallback}
+                    </div>
+                  )}
+                </div>
+                <div className="plate-caption" aria-hidden="true">
+                  <span>Plate</span>
+                  <i>{title}</i>
+                </div>
               </div>
               {imageCaption ? <div className="mt-2">{imageCaption}</div> : null}
             </figure>

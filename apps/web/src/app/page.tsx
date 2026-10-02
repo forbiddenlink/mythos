@@ -4,6 +4,7 @@ import { GuidesStrip } from "@/components/home/GuidesStrip";
 import {
   AtlasOpensHero,
   type HeroFigure,
+  type IndexEntry,
 } from "@/components/home/AtlasOpensHero";
 import { InteractiveStoriesBanner } from "@/components/home/InteractiveStoriesBanner";
 import {
@@ -18,7 +19,9 @@ import {
   getDeities,
   getPantheons,
   getTraditionCount,
+  getTraditions,
 } from "@/lib/data/catalog";
+import { getPantheonColor } from "@/lib/pantheon-colors";
 import storiesData from "@/data/stories.json";
 import creaturesData from "@/data/creatures.json";
 import artifactsData from "@/data/artifacts.json";
@@ -54,7 +57,17 @@ const pantheonShortName = (pantheonId: string) =>
     .find((p) => p.id === pantheonId)
     ?.name.replace(/ Pantheon$/, "") ?? pantheonId.replace(/-pantheon$/, "");
 
-// Portraits for the hero mosaic: well-known figures from six traditions.
+// The printed index under the title: every tradition, largest first.
+const TRADITION_INDEX: IndexEntry[] = getTraditions()
+  .map((p) => ({
+    name: p.name,
+    slug: p.slug,
+    deities: deities.filter((d) => d.pantheonId === p.id).length,
+    color: getPantheonColor(p.id),
+  }))
+  .sort((a, b) => b.deities - a.deities || a.name.localeCompare(b.name));
+
+// Portraits for the hero frontispiece: well-known figures from six traditions.
 // Strictly enforce illustration-ai provenance so procedural plates never appear.
 const HERO_FIGURES: HeroFigure[] = [
   "zeus",
@@ -167,7 +180,11 @@ export const metadata = generateBaseMetadata({
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <AtlasOpensHero counts={HERO_COUNTS} figures={HERO_FIGURES} />
+      <AtlasOpensHero
+        counts={HERO_COUNTS}
+        figure={HERO_FIGURES[0]}
+        index={TRADITION_INDEX}
+      />
       <PantheonShowcase
         traditions={TRADITIONS}
         totalTraditions={HERO_COUNTS.pantheons}
