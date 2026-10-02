@@ -6,6 +6,9 @@ import { Github } from "@/components/icons/brand";
 import { CorrectionLink } from "@/components/layout/CorrectionLink";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
+// `asset: true` marks a static file (served from public/), not an app route.
+// next/link would prefetch its RSC payload, get a 404 and log a console error
+// on every page, so those render as a plain anchor.
 // Secondary destinations live here; the header carries the primary IA
 // (components/layout/nav-config.ts).
 const footerLinks = {
@@ -42,7 +45,7 @@ const footerLinks = {
     { label: "Support Mythos Atlas", href: "/support" },
     { label: "Contact Mythos Atlas", href: "/contact" },
     { label: "Accessibility", href: "/accessibility" },
-    { label: "AI / llms.txt", href: "/llms.txt" },
+    { label: "AI / llms.txt", href: "/llms.txt", asset: true },
     { label: "Sources", href: "/sources" },
     { label: "Changelog", href: "/changelog" },
     { label: "Privacy Policy", href: "/privacy" },
@@ -101,9 +104,15 @@ export function Footer() {
                 <ul>
                   {column.links.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className={footerLinkClass}>
-                        {link.label}
-                      </Link>
+                      {"asset" in link ? (
+                        <a href={link.href} className={footerLinkClass}>
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link href={link.href} className={footerLinkClass}>
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                   {column.title === "Info" ? (
