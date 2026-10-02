@@ -189,6 +189,7 @@ export function HeroesPageClient({
               {pagination.paginatedData.map((hero, index) => (
                 <EntityCard
                   key={hero.id}
+                  headingLevel="h2"
                   href={`/heroes/${hero.slug}`}
                   linkLabel={`View ${hero.name}`}
                   title={hero.name}

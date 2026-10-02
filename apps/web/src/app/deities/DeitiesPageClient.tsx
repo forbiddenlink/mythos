@@ -351,6 +351,7 @@ function PaginatedDeityGrid({
         {pagination.paginatedData.map((deity, index) => (
           <EntityCard
             key={deity.id}
+            headingLevel="h2"
             href={`/deities/${deity.slug}`}
             title={deity.name}
             image={deity.imageUrl}
