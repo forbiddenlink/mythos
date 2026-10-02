@@ -5,7 +5,7 @@ import { MythosMark } from "@/components/icons/mythos-marks";
 import { useProgress } from "@/hooks/use-progress";
 import { useReview } from "@/providers/review-provider";
 import { useEffect, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function StreakBadge() {
@@ -29,7 +29,7 @@ export function StreakBadge() {
       className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm font-medium rounded-lg bg-gold/10 text-gold-text border border-gold/20 hover:bg-gold/20 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
       aria-label={`${progress.dailyStreak} day streak`}
     >
-      <motion.div
+      <m.div
         initial={{ scale: 1 }}
         animate={shouldReduceMotion ? undefined : { scale: [1, 1.2, 1] }}
         transition={
@@ -39,7 +39,7 @@ export function StreakBadge() {
         }
       >
         <MythosMark id="torch" className="h-4 w-4" />
-      </motion.div>
+      </m.div>
       <span className="font-semibold tabular-nums">{progress.dailyStreak}</span>
     </Link>
   );

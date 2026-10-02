@@ -8,6 +8,7 @@ import { generateBaseMetadata, googleSiteVerification } from "@/lib/metadata";
 import { AchievementNotificationProvider } from "@/providers/achievement-notification-provider";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
 import { ProgressProvider } from "@/providers/progress-provider";
+import { MotionProvider } from "@/providers/motion-provider";
 import { ReviewProvider } from "@/providers/review-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata, Viewport } from "next";
@@ -75,28 +76,30 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <BookmarksProvider>
-              <ProgressProvider>
-                <ReviewProvider>
-                  <AchievementNotificationProvider>
-                    <SkipToContent />
-                    <div className="flex min-h-screen flex-col">
-                      <Header />
-                      <main
-                        id="main-content"
-                        className="flex-1 scroll-mt-16"
-                        tabIndex={-1}
-                      >
-                        <LearningSaveNotice />
-                        {children}
-                      </main>
-                      <Footer />
-                    </div>
-                    <GlobalClientAddons />
-                  </AchievementNotificationProvider>
-                </ReviewProvider>
-              </ProgressProvider>
-            </BookmarksProvider>
+            <MotionProvider>
+              <BookmarksProvider>
+                <ProgressProvider>
+                  <ReviewProvider>
+                    <AchievementNotificationProvider>
+                      <SkipToContent />
+                      <div className="flex min-h-screen flex-col">
+                        <Header />
+                        <main
+                          id="main-content"
+                          className="flex-1 scroll-mt-16"
+                          tabIndex={-1}
+                        >
+                          <LearningSaveNotice />
+                          {children}
+                        </main>
+                        <Footer />
+                      </div>
+                      <GlobalClientAddons />
+                    </AchievementNotificationProvider>
+                  </ReviewProvider>
+                </ProgressProvider>
+              </BookmarksProvider>
+            </MotionProvider>
           </ThemeProvider>
         </IntlProvider>
       </body>

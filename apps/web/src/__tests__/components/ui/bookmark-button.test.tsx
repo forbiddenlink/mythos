@@ -10,7 +10,7 @@ import {
 
 // Mock framer-motion to avoid animation issues in tests (strip animation props so they are not passed to the DOM)
 vi.mock("framer-motion", () => ({
-  motion: {
+  m: {
     button: ({
       children,
       whileTap: _whileTap,

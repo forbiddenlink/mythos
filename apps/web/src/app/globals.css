@@ -274,12 +274,29 @@ html.cookie-banner-open {
   --sidebar-ring: oklch(0.72 0.14 70);
 }
 
+/* Metric-matched stand-in for Source Sans 3 while its subsets load, so text does
+   not shift when the real font arrives (values from next/font's Arial fallback). */
+@font-face {
+  font-family: "Source Sans Fallback";
+  src: local("Arial");
+  ascent-override: 114.52%;
+  descent-override: 44.74%;
+  line-gap-override: 0%;
+  size-adjust: 89.41%;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    /* One family per unicode-range subset (src/app/fonts.ts); a subset is
+       fetched only when a page has one of its characters. */
+    --font-source-sans:
+      var(--ss-latin), var(--ss-latin-ext), var(--ss-vietnamese),
+      var(--ss-cyrillic), var(--ss-cyrillic-ext), var(--ss-greek),
+      var(--ss-greek-ext), var(--ss-misc), "Source Sans Fallback";
   }
   h1,
   h2,
