@@ -83,3 +83,11 @@ achievement-toast, bookmark-button, export-button, logo, pronunciation, theme-to
 ## Deep references
 - apps/web/src/app/globals.css — canonical OKLCH tokens
 - .impeccable.md — philosophy + 5 principles + anti-patterns
+
+
+## Atlas signature moves (v2, globals.css "ATLAS SIGNATURE MOVES")
+- Plates: .plate > .plate-art (mat, gilt keyline, 3px tab = --plate-accent, set from lib/pantheon-colors.ts); .plate-flat for a single element with a fill image; .plate-paper = always-parchment mat on midnight bands; .plate-caption = small-caps caption. Tokens --plate-mat --plate-keyline --plate-shadow --plate-ink. Every catalog painting uses one (EntityCard, EntityGallery, DetailHero).
+- Running head: .runhead (double rule, caps eyebrow left, count right). PageHeader renders it from eyebrow + count.
+- Section numerals: automatic. Every .page-section-title in <main> gets a Roman numeral through a CSS counter (inline gold; hung in the margin at >=1440px). Never type numerals by hand.
+- Leader-dot index: .index-line (first child label, last child value, dotted leader between).
+- Reading width: --container-reading is 41rem. DetailLayout: 1fr + 21rem aside (26rem at xl) with a gilt column rule.
