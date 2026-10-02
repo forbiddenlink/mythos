@@ -251,6 +251,7 @@ export function EnhancedFamilyTree({
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(0.8);
   const [measured, setMeasured] = useState(false);
+  const [frameHeight, setFrameHeight] = useState<number | null>(null);
 
   // react-d3-tree places the root at (translate.x, translate.y); start it
   // centred horizontally near the top, scaled to the frame's width.
@@ -275,19 +276,20 @@ export function EnhancedFamilyTree({
     const pad = 48;
     // Fit when possible, but never shrink the cards below a readable size;
     // wider trees stay centred and pan sideways.
-    const minZoom = frame.clientWidth < 640 ? 0.45 : 0.62;
+    const minZoom = frame.clientWidth < 640 ? 0.45 : 0.5;
     const nextZoom = Math.max(
       minZoom,
-      Math.min(
-        0.9,
-        (frame.clientWidth - pad) / box.width,
-        (frame.clientHeight - pad) / box.height,
-      ),
+      Math.min(0.9, (frame.clientWidth - pad) / box.width),
     );
+    // Size the frame to the tree (not the other way round) so a shallow
+    // tree does not float in a mostly empty canvas.
+    const wanted = Math.ceil(box.height * nextZoom + pad * 2);
+    const maxHeight = Math.min(window.innerHeight * 0.72, 736);
+    setFrameHeight(Math.max(384, Math.min(wanted, maxHeight)));
     setZoom(nextZoom);
     setTranslate({
       x: frame.clientWidth / 2 - (box.x + box.width / 2) * nextZoom,
-      y: pad / 2 - box.y * nextZoom,
+      y: pad - box.y * nextZoom,
     });
   }, []);
 
@@ -363,6 +365,7 @@ export function EnhancedFamilyTree({
       {/* Tree Container */}
       <div
         ref={containerRef}
+        style={frameHeight ? { height: frameHeight } : undefined}
         className="h-[min(72vh,46rem)] min-h-96 w-full overflow-hidden rounded-lg border border-border bg-muted/30 bg-[radial-gradient(circle,color-mix(in_oklch,var(--foreground)_9%,transparent)_1px,transparent_1.5px)] bg-size-[24px_24px]"
       >
         {measured ? (

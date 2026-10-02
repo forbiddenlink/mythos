@@ -1596,14 +1596,17 @@ html.cookie-banner-open {
   }
 }
 
-/* Roman section numerals: every H2 section title in <main> counts up from I,
+/* Roman section numerals: on entity pages and the home page every H2 section
+   title in <main> counts up from I (other pages have too few sections for a
+   numbered sequence to read as anything but decoration),
    set in gold before the title (hung in the margin at 1440px and wider).
    Pure CSS (no markup), hidden from assistive tech with the empty
    alternative text. */
 main {
   counter-reset: atlas-section;
 }
-main .page-section-title::before {
+main:has(.detail-title) .page-section-title::before,
+main:has(#atlas-title) .page-section-title::before {
   counter-increment: atlas-section;
   /* A real space after the numeral lets the title wrap at 200% text size. */
   content: counter(atlas-section, upper-roman) ". " / "";
@@ -1613,7 +1616,8 @@ main .page-section-title::before {
   color: var(--gold-text);
 }
 @media (min-width: 1440px) {
-  main .page-section-title:not(.text-center)::before {
+  main:has(.detail-title) .page-section-title:not(.text-center)::before,
+  main:has(#atlas-title) .page-section-title:not(.text-center)::before {
     position: absolute;
     margin: 0;
     transform: translateX(calc(-100% - 0.9rem));
