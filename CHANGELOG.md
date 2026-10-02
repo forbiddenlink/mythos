@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.3](https://github.com/forbiddenlink/mythos/compare/v1.7.2...v1.7.3) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** apply override fix plan ([#160](https://github.com/forbiddenlink/mythos/issues/160)) ([a4bb05a](https://github.com/forbiddenlink/mythos/commit/a4bb05a65c20aa79d945ad48001a32d67868c2c4))
+* emit each icon link once instead of up to three times ([#158](https://github.com/forbiddenlink/mythos/issues/158)) ([a38606e](https://github.com/forbiddenlink/mythos/commit/a38606ea4a23dc86913c0d2bb4fb6bd697b85bdb))
+
 ## [1.7.2](https://github.com/forbiddenlink/mythos/compare/v1.7.1...v1.7.2) (2026-10-02)
 
 
