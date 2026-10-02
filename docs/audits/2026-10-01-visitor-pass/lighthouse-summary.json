@@ -1,0 +1,117 @@
+{
+ "prod_2026-10-01_before": {
+  "before-home": {
+   "perf": 80,
+   "a11y": 100,
+   "best-practices": 96,
+   "seo": 100,
+   "LCP": "5.1\u00a0s",
+   "TBT": "90\u00a0ms",
+   "CLS": "0"
+  },
+  "before-homedeities_zeus": {
+   "perf": 82,
+   "a11y": 100,
+   "best-practices": 96,
+   "seo": 100,
+   "LCP": "4.7\u00a0s",
+   "TBT": "30\u00a0ms",
+   "CLS": "0"
+  },
+  "before-p-atlas": {
+   "perf": 49,
+   "a11y": 100,
+   "best-practices": 96,
+   "seo": 100,
+   "LCP": "6.0\u00a0s",
+   "TBT": "1,600\u00a0ms",
+   "CLS": "0"
+  },
+  "before-p-compare": {
+   "perf": 86,
+   "a11y": 100,
+   "best-practices": 96,
+   "seo": 100,
+   "LCP": "4.1\u00a0s",
+   "TBT": "90\u00a0ms",
+   "CLS": "0"
+  },
+  "before-p-creatures_minotaur": {
+   "perf": 87,
+   "a11y": 100,
+   "best-practices": 77,
+   "seo": 100,
+   "LCP": "4.0\u00a0s",
+   "TBT": "80\u00a0ms",
+   "CLS": "0"
+  },
+  "before-p-deities": {
+   "perf": 81,
+   "a11y": 99,
+   "best-practices": 96,
+   "seo": 100,
+   "LCP": "4.9\u00a0s",
+   "TBT": "70\u00a0ms",
+   "CLS": "0"
+  },
+  "before-p-quiz": {
+   "perf": 81,
+   "a11y": 100,
+   "best-practices": 96,
+   "seo": 100,
+   "LCP": "4.9\u00a0s",
+   "TBT": "20\u00a0ms",
+   "CLS": "0"
+  }
+ },
+ "local_AB_home_mobile_same_machine_alternating": {
+  "home-base-1": {
+   "perf": 75,
+   "best-practices": 96,
+   "LCP": "6.9\u00a0s",
+   "inspector-issues-pass": false
+  },
+  "home-base-2": {
+   "perf": 77,
+   "best-practices": 96,
+   "LCP": "6.3\u00a0s",
+   "inspector-issues-pass": false
+  },
+  "home-base-3": {
+   "perf": 76,
+   "best-practices": 96,
+   "LCP": "6.4\u00a0s",
+   "inspector-issues-pass": false
+  },
+  "home-base-4": {
+   "perf": 76,
+   "best-practices": 96,
+   "LCP": "6.3\u00a0s",
+   "inspector-issues-pass": false
+  },
+  "home-fix-1": {
+   "perf": 77,
+   "best-practices": 100,
+   "LCP": "6.2\u00a0s",
+   "inspector-issues-pass": true
+  },
+  "home-fix-2": {
+   "perf": 76,
+   "best-practices": 100,
+   "LCP": "6.4\u00a0s",
+   "inspector-issues-pass": true
+  },
+  "home-fix-3": {
+   "perf": 76,
+   "best-practices": 100,
+   "LCP": "6.3\u00a0s",
+   "inspector-issues-pass": true
+  },
+  "home-fix-4": {
+   "perf": 76,
+   "best-practices": 100,
+   "LCP": "6.5\u00a0s",
+   "inspector-issues-pass": true
+  }
+ }
+}
