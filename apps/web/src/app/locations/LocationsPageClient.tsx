@@ -1,5 +1,6 @@
 "use client";
 
+import { foldForSearch } from "@/lib/search-fold";
 import { useMemo } from "react";
 import dynamic from "next/dynamic";
 import { List, Map as MapIcon, MapPin } from "lucide-react";
@@ -231,14 +232,14 @@ export function LocationsPageClient({
 
   // Filtering Logic
   const filteredLocations = useMemo(() => {
-    const query = searchQuery.toLowerCase();
+    const query = foldForSearch(searchQuery);
     return locations.filter(
       (loc) =>
         activePantheons.has(loc.pantheonId) &&
         activeLocationTypes.has(loc.locationType) &&
         (query === "" ||
-          loc.name.toLowerCase().includes(query) ||
-          loc.description.toLowerCase().includes(query)),
+          foldForSearch(loc.name).includes(query) ||
+          foldForSearch(loc.description).includes(query)),
     );
   }, [locations, activePantheons, activeLocationTypes, searchQuery]);
   const locationPagination = useCatalogPagination(

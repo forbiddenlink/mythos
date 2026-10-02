@@ -1,5 +1,6 @@
 "use client";
 
+import { foldForSearch } from "@/lib/search-fold";
 import { useMemo } from "react";
 import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
@@ -72,14 +73,14 @@ export function HeroesPageClient({
   );
 
   const filteredHeroes = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
+    const query = foldForSearch(searchQuery.trim());
     return allHeroes.filter((h) => {
       if (activePantheon && h.pantheonId !== activePantheon) return false;
       if (!query) return true;
       return (
-        h.name.toLowerCase().includes(query) ||
-        h.description.toLowerCase().includes(query) ||
-        h.alternateNames.some((alt) => alt.toLowerCase().includes(query))
+        foldForSearch(h.name).includes(query) ||
+        foldForSearch(h.description).includes(query) ||
+        h.alternateNames.some((alt) => foldForSearch(alt).includes(query))
       );
     });
   }, [allHeroes, activePantheon, searchQuery]);
@@ -188,6 +189,7 @@ export function HeroesPageClient({
               {pagination.paginatedData.map((hero, index) => (
                 <EntityCard
                   key={hero.id}
+                  headingLevel="h2"
                   href={`/heroes/${hero.slug}`}
                   linkLabel={`View ${hero.name}`}
                   title={hero.name}

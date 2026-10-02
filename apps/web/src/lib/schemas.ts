@@ -5,6 +5,7 @@
  * catching malformed data early and providing type safety.
  */
 
+import "@/lib/zod-jitless";
 import { z } from "zod";
 
 const JsonObjectSchema = z.record(z.string(), z.unknown());
