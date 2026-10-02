@@ -1,5 +1,5 @@
 import { CollectionsShowcase } from "@/components/home/CollectionsShowcase";
-import { DidYouKnow } from "@/components/home/DidYouKnow";
+import { LazyDidYouKnow } from "@/components/home/LazyDidYouKnow";
 import { GuidesStrip } from "@/components/home/GuidesStrip";
 import {
   AtlasOpensHero,
@@ -194,7 +194,7 @@ export default function Home() {
       <SyncretismStrip />
       <InteractiveStoriesBanner stories={INTERACTIVE_STORIES} />
       <GuidesStrip />
-      <DidYouKnow deityLookup={DEITY_LOOKUP} />
+      <LazyDidYouKnow deityLookup={DEITY_LOOKUP} />
     </div>
   );
 }

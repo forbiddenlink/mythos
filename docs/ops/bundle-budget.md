@@ -27,11 +27,19 @@ match), 845.1 KiB for `/deities/zeus` (manifest: 895.9) and 401.7 KiB for
 
 ## Budgets
 
-| Route             | Measured 2026-09-26 (KiB gz) | Budget (KiB gz) |
+| Route             | Measured 2026-10-02 (KiB gz) | Budget (KiB gz) |
 | ----------------- | ---------------------------- | --------------- |
-| `/`               | 320.3                        | 350             |
-| `/deities/[slug]` | 401.9                        | 445             |
-| `/stories/[slug]` | 421.4                        | 465             |
+| `/`               | 281.3                        | 310             |
+| `/deities/[slug]` | 327.7                        | 360             |
+| `/stories/[slug]` | 316.7                        | 350             |
+
+The 2026-10-02 drop (317.0, 363.0 and 352.3 KiB the same day before the change)
+came from three things: the layout components use framer-motion's slim `m`
+component with features loaded after hydration (`MotionProvider`), the home
+page's Did-you-know card loads when the reader nears it, and the deity family
+tree loads when its section nears the viewport (`RenderWhenVisible`). The zod
+bundle (about 24 KiB) is still in every route's first load because the progress
+and review providers validate saved state with it synchronously on mount.
 
 Budgets are the measurement plus about 10%. The detail routes are heavy
 because several client components import whole JSON catalogs; when that

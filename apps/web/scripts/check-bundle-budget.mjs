@@ -23,13 +23,13 @@ import { fileURLToPath } from "node:url";
 import vm from "node:vm";
 import { gzipSync } from "node:zlib";
 
-// First-load JS budgets in KiB (gzip). Measured 2026-09-26 + ~10% headroom:
-// / 319.0, /deities/[slug] 895.9, /stories/[slug] 592.9. Lower these when a
+// First-load JS budgets in KiB (gzip). Measured 2026-10-02 + ~10% headroom:
+// / 281.3, /deities/[slug] 327.7, /stories/[slug] 316.7. Lower these when a
 // bundle reduction lands so the gain is locked in.
 const BUDGETS_KIB = {
-  "/": 350,
-  "/deities/[slug]": 445,
-  "/stories/[slug]": 465,
+  "/": 310,
+  "/deities/[slug]": 360,
+  "/stories/[slug]": 350,
 };
 
 const webRoot = join(dirname(fileURLToPath(import.meta.url)), "..");

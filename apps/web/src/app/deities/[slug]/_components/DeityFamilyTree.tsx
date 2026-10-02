@@ -3,6 +3,20 @@
 import dynamic from "next/dynamic";
 import { Loader2 } from "lucide-react";
 import { SectionHeading } from "@/components/layout/section";
+import { RenderWhenVisible } from "@/components/ui/render-when-visible";
+
+// Same box while the chunk loads and before the card nears the viewport, so the
+// section does not change height when the tree appears.
+function FamilyTreeFallback() {
+  return (
+    <div
+      data-testid="family-tree-fallback"
+      className="h-100 flex items-center justify-center"
+    >
+      <Loader2 className="h-8 w-8 animate-spin text-primary" />
+    </div>
+  );
+}
 
 // Lazy load heavy ReactFlow-based family tree
 const FamilyTreeVisualization = dynamic(
@@ -11,11 +25,7 @@ const FamilyTreeVisualization = dynamic(
       default: mod.FamilyTreeVisualization,
     })),
   {
-    loading: () => (
-      <div className="h-100 flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    ),
+    loading: () => <FamilyTreeFallback />,
     ssr: false,
   },
 );
@@ -66,11 +76,13 @@ export function DeityFamilyTree({
         action={{ href: "/family-tree", label: "Open the full tree" }}
       />
       <div className="overflow-hidden rounded-lg bg-card ring-1 ring-border/70">
-        <FamilyTreeVisualization
-          deities={deities}
-          relationships={relationships}
-          focusDeityId={deityId}
-        />
+        <RenderWhenVisible fallback={<FamilyTreeFallback />}>
+          <FamilyTreeVisualization
+            deities={deities}
+            relationships={relationships}
+            focusDeityId={deityId}
+          />
+        </RenderWhenVisible>
       </div>
     </section>
   );
