@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.2](https://github.com/forbiddenlink/mythos/compare/v1.7.1...v1.7.2) (2026-10-02)
+
+
+### Bug Fixes
+
+* **deps:** raise brace-expansion override floors per major without crossing majors ([#147](https://github.com/forbiddenlink/mythos/issues/147)) ([48a5d72](https://github.com/forbiddenlink/mythos/commit/48a5d72532634f28b02a1652b83fc3ab13070736))
+* **deps:** update dependency next to v16.3.6 [security] ([#149](https://github.com/forbiddenlink/mythos/issues/149)) ([6c315aa](https://github.com/forbiddenlink/mythos/commit/6c315aae706ea5d4052510b778e53977372c3623))
+* **og:** load the OG font lazily and ship it with every route ([#153](https://github.com/forbiddenlink/mythos/issues/153)) ([7e7c63b](https://github.com/forbiddenlink/mythos/commit/7e7c63b9f03e4163fbbfb80aa9b811c7ab559392))
+* **og:** ship the Cinzel font with dynamic OG image routes ([#152](https://github.com/forbiddenlink/mythos/issues/152)) ([ab7ade5](https://github.com/forbiddenlink/mythos/commit/ab7ade5b83c7f8902d3a1a88adbe40d9db28990d))
+* visitor pass (llms.txt 404, CSP eval, search ranking and diacritics, heading order) ([#154](https://github.com/forbiddenlink/mythos/issues/154)) ([b8f7a84](https://github.com/forbiddenlink/mythos/commit/b8f7a843f62d444327492edf96b4834a9a77c2ad))
+
+
+### Performance Improvements
+
+* split Source Sans 3 by unicode-range and defer below-the-fold client code ([#156](https://github.com/forbiddenlink/mythos/issues/156)) ([7dde125](https://github.com/forbiddenlink/mythos/commit/7dde125a28ae8a31b92457c6c71a33f82509ac9d))
+
 ## [1.7.1](https://github.com/forbiddenlink/mythos/compare/v1.7.0...v1.7.1) (2026-09-30)
 
 
