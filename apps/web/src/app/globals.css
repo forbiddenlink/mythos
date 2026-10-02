@@ -1605,8 +1605,9 @@ main {
 }
 main .page-section-title::before {
   counter-increment: atlas-section;
-  content: counter(atlas-section, upper-roman) "." / "";
-  margin-right: 0.55em;
+  /* A real space after the numeral lets the title wrap at 200% text size. */
+  content: counter(atlas-section, upper-roman) ". " / "";
+  margin-right: 0.1em;
   font-size: 0.72em;
   letter-spacing: 0.08em;
   color: var(--gold-text);
