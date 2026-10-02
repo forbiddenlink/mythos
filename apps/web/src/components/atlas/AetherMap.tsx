@@ -335,7 +335,7 @@ function StaticSky({
                   x2={e.to[0]}
                   y2={e.to[2]}
                   stroke="oklch(0.85 0.05 85)"
-                  strokeOpacity={0.07}
+                  strokeOpacity={0.11}
                   strokeWidth={0.06}
                 />
               ))}
@@ -344,7 +344,7 @@ function StaticSky({
                   key={n.id}
                   cx={n.position[0]}
                   cy={n.position[2]}
-                  r={Math.max(0.18, n.size * 1.1)}
+                  r={Math.max(0.3, n.size * 1.1)}
                   fill={n.color}
                   fillOpacity={0.92}
                 />
@@ -374,12 +374,12 @@ function StaticSky({
         ) : null}
       </figure>
 
-      <div className="min-w-0 lg:self-start">
+      <div className="min-w-0 lg:self-center">
         <p className="runhead text-gold-light">
           <span>Index of constellations</span>
           <span className="text-parchment/90">Figures</span>
         </p>
-        <ol className="columns-1 gap-x-8 sm:columns-2 lg:columns-1 xl:columns-2 [&>li]:break-inside-avoid">
+        <ol className="columns-1 gap-x-5 min-[380px]:columns-2 sm:gap-x-8 lg:columns-1 xl:columns-2 [&>li]:break-inside-avoid">
           {index.map((p) => (
             <li
               key={p.id}
