@@ -392,8 +392,9 @@ test.describe("Phase 8: Homepage Integration", () => {
     await page.goto("/");
     await waitForPage(page);
 
-    // Should have the Did You Know section (scroll down if needed)
+    // The card loads when the reader nears it, so scroll to the bottom first
     const didYouKnow = page.locator('h2:has-text("Did You Know?")');
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
     await didYouKnow.scrollIntoViewIfNeeded();
     await expect(didYouKnow).toBeVisible({ timeout: 10000 });
   });
