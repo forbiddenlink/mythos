@@ -4,6 +4,7 @@
  * Server-side only in practice (it reads secrets), but free of Next imports
  * so it can be unit-tested with a fake client.
  */
+import "@/lib/zod-jitless";
 import { z } from "zod";
 
 /** The Resend segment the digest is sent to. Not a secret. */

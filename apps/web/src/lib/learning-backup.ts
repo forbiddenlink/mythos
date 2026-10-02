@@ -1,3 +1,4 @@
+import "@/lib/zod-jitless";
 import { z } from "zod";
 
 export const LEARNING_BACKUP_VERSION = 1;
