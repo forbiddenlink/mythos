@@ -39,7 +39,7 @@ export function ConsentGatedSentry() {
               /Failed to read the 'localStorage' property from 'Window'/,
             ],
             replaysOnErrorSampleRate: replayEnabled ? 1 : 0,
-            replaysSessionSampleRate: replayEnabled ? 0.1 : 0,
+            replaysSessionSampleRate: 0,
             integrations: replayEnabled
               ? [
                   Sentry.replayIntegration({
