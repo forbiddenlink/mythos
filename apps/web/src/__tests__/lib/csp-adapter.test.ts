@@ -18,8 +18,9 @@ import { generateCspManifest, sha256 } from "../../../scripts/csp-hashes.mjs";
 const fixtures: string[] = [];
 
 function fixture(scoped: boolean) {
-  const projectDir = mkdtempSync(path.join(tmpdir(), "mythos-csp-"));
-  fixtures.push(projectDir);
+  const repoRoot = mkdtempSync(path.join(tmpdir(), "mythos-csp-"));
+  const projectDir = path.join(repoRoot, "apps/web");
+  fixtures.push(repoRoot);
   const distDir = path.join(projectDir, ".next");
   mkdirSync(path.join(projectDir, "public"), { recursive: true });
   mkdirSync(distDir, { recursive: true });
@@ -54,6 +55,7 @@ function fixture(scoped: boolean) {
     return { pathname, fallback: { filePath } };
   });
   return {
+    repoRoot,
     projectDir,
     distDir,
     outputs: { prerenders, staticFiles: [] },
@@ -101,10 +103,20 @@ describe("CSP build lifecycle", () => {
 
   it("delegates native configuration and packages fresh hashes before its build hook", () => {
     const context = fixture(true);
+    const existingAsset = path.join(context.repoRoot, "existing.txt");
+    writeFileSync(existingAsset, "preserve this asset");
+    Object.assign(context.outputs, {
+      middleware: {
+        runtime: "nodejs",
+        assets: { "existing.txt": existingAsset },
+        assetsHashes: { "existing.txt": "existing-hash" },
+      },
+    });
     const nativePath = path.join(context.projectDir, "native.mjs");
     writeFileSync(
       nativePath,
-      `import { copyFileSync, readFileSync } from 'node:fs';
+      `import { copyFileSync, mkdirSync, readFileSync } from 'node:fs';
+      import { createHash } from 'node:crypto';
       import path from 'node:path';
       export default {
         async modifyConfig(config) { return { ...config, nativeMarker: true, adapterPath: 'native' }; },
@@ -114,6 +126,17 @@ describe("CSP build lifecycle", () => {
           const manifest = JSON.parse(readFileSync(output.filePath, 'utf8'));
           if (manifest.buildId !== 'new-build') throw new Error('stale manifest');
           copyFileSync(output.filePath, path.join(context.projectDir, 'packaged-manifest.json'));
+          const diskKey = 'apps/web/.next/csp-manifest.json';
+          const middleware = context.outputs.middleware;
+          const diskSource = middleware.assets[diskKey];
+          if (!diskSource) throw new Error('manifest missing from proxy assets');
+          const bytes = readFileSync(diskSource);
+          if (middleware.assetsHashes[diskKey] !== createHash('sha256').update(bytes).digest('hex')) throw new Error('wrong asset hash');
+          for (const [relPath, filePath] of Object.entries(middleware.assets)) {
+            const target = path.join(context.projectDir, 'packaged-function', relPath);
+            mkdirSync(path.dirname(target), { recursive: true });
+            copyFileSync(filePath, target);
+          }
         }
       };`,
     );
@@ -158,6 +181,21 @@ describe("CSP build lifecycle", () => {
     expect(packaged).toBe(
       readFileSync(path.join(context.distDir, "csp-manifest.json"), "utf8"),
     );
+    expect(
+      readFileSync(
+        path.join(
+          context.projectDir,
+          "packaged-function/apps/web/.next/csp-manifest.json",
+        ),
+        "utf8",
+      ),
+    ).toBe(packaged);
+    expect(
+      readFileSync(
+        path.join(context.projectDir, "packaged-function/existing.txt"),
+        "utf8",
+      ),
+    ).toBe("preserve this asset");
   });
 
   it("refuses a recursive native adapter path", async () => {

@@ -1,4 +1,6 @@
 import { createRequire } from "node:module";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { generateCspManifest } from "./csp-hashes.mjs";
@@ -32,6 +34,22 @@ const cspAdapter = {
       throw new Error("csp-adapter: native adapter has no build-complete hook");
     }
     generateCspManifest(context);
+    // The Node proxy reads this relative to the app's launcher directory.
+    // Tracing ran before generation, so explicitly include the fresh file;
+    // protected previews cannot rely on an unauthenticated public self-fetch.
+    const middleware = context.outputs.middleware;
+    if (middleware?.runtime === "nodejs") {
+      const manifestPath = path.join(context.distDir, "csp-manifest.json");
+      const assetPath = path
+        .relative(context.repoRoot, manifestPath)
+        .split(path.sep)
+        .join("/");
+      middleware.assets[assetPath] = manifestPath;
+      middleware.assetsHashes ??= {};
+      middleware.assetsHashes[assetPath] = createHash("sha256")
+        .update(readFileSync(manifestPath))
+        .digest("hex");
+    }
     // Output enumeration precedes this hook. Add the newly generated public
     // manifest explicitly so a clean checkout packages it with the same build.
     const pathname = `${context.config.basePath ?? ""}/csp-manifest.json`;
