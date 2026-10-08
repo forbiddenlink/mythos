@@ -21,6 +21,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 const withPWA = (config: NextConfig) => config;
 
 const nextConfig: NextConfig = {
+  ...(process.env.NEXT_ADAPTER_PATH
+    ? { adapterPath: path.join(__dirname, "scripts/csp-adapter.mjs") }
+    : {}),
   devIndicators: false,
   poweredByHeader: false,
   // Required by the /ingest PostHog proxy below: its API paths end in a slash

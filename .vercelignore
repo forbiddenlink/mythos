@@ -31,6 +31,7 @@ temp
 design-research
 functional-review
 apps/api
+apps/web/public/csp-manifest.json
 /*.png
 /*.jpg
 /*.jpeg

@@ -24,7 +24,6 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const webRoot = path.resolve(here, "..");
-const nextDir = path.join(webRoot, ".next");
 
 const EXECUTABLE_TYPES = new Set([
   "",
@@ -53,28 +52,69 @@ export function sha256(source) {
   return `sha256-${createHash("sha256").update(source, "utf8").digest("base64")}`;
 }
 
-function htmlFileFor(route) {
-  const rel = route === "/" ? "/index" : route;
-  return path.join(nextDir, "server", "app", `${rel}.html`);
+function htmlFileFor(route, nextDir, sourceRoute, appPaths) {
+  const rel =
+    route === "/"
+      ? "/index"
+      : /^\/index(?:\/|$)/.test(route)
+        ? `/index${route}`
+        : route;
+  const classic = path.join(nextDir, "server", "app", `${rel}.html`);
+  if (existsSync(classic)) return classic;
+  // Next 16.3 adapter builds scope cached HTML by its source module.
+  for (const [module, pathname] of Object.entries(appPaths)) {
+    if (pathname !== sourceRoute || !module.endsWith("/page")) continue;
+    const owner = createHash("sha256").update(module).digest("hex");
+    const scoped = path.join(
+      nextDir,
+      "server",
+      "route-cache",
+      "APP_PAGE",
+      owner,
+      `$${rel}.html`,
+    );
+    if (existsSync(scoped)) return scoped;
+  }
+  return classic;
 }
 
-function main() {
+export function generateCspManifest({
+  projectDir = webRoot,
+  distDir = path.join(projectDir, ".next"),
+  outputs,
+} = {}) {
+  const nextDir = distDir;
   const prerender = JSON.parse(
     readFileSync(path.join(nextDir, "prerender-manifest.json"), "utf8"),
   );
   const buildId = readFileSync(path.join(nextDir, "BUILD_ID"), "utf8").trim();
 
+  const appPathsFile = path.join(nextDir, "app-path-routes-manifest.json");
+  const appPaths = existsSync(appPathsFile)
+    ? JSON.parse(readFileSync(appPathsFile, "utf8"))
+    : {};
+  const adapterHtml = new Map(
+    (outputs?.prerenders ?? [])
+      .filter((output) => output.fallback?.filePath?.endsWith(".html"))
+      .map((output) => [output.pathname, output.fallback.filePath]),
+  );
   const perRoute = new Map();
   for (const [route, info] of Object.entries(prerender.routes)) {
     if (info.routeType && info.routeType !== "page") continue;
-    const file = htmlFileFor(route);
+    const file =
+      adapterHtml.get(route) ??
+      htmlFileFor(route, nextDir, info.srcRoute ?? route, appPaths);
     if (!existsSync(file)) continue;
-    const hashes = [...new Set(inlineScripts(readFileSync(file, "utf8")).map(sha256))];
+    const hashes = [
+      ...new Set(inlineScripts(readFileSync(file, "utf8")).map(sha256)),
+    ];
     perRoute.set(route, hashes);
   }
   // Pages Next may serve for unmatched URLs.
   for (const special of ["/_not-found", "/_global-error"]) {
-    const file = htmlFileFor(special);
+    const file =
+      adapterHtml.get(special) ??
+      htmlFileFor(special, nextDir, special, appPaths);
     if (!perRoute.has(special) && existsSync(file)) {
       perRoute.set(special, [
         ...new Set(inlineScripts(readFileSync(file, "utf8")).map(sha256)),
@@ -82,11 +122,15 @@ function main() {
     }
   }
   if (perRoute.size === 0) {
-    throw new Error("csp-hashes: no prerendered HTML found; run next build first");
+    throw new Error(
+      "csp-hashes: no prerendered HTML found; run next build first",
+    );
   }
 
   const lists = [...perRoute.values()];
-  const common = lists[0].filter((h) => lists.every((list) => list.includes(h)));
+  const common = lists[0].filter((h) =>
+    lists.every((list) => list.includes(h)),
+  );
   const commonSet = new Set(common);
   const routes = {};
   let maxHashes = 0;
@@ -99,12 +143,16 @@ function main() {
   const manifest = { version: 1, buildId, common, routes };
   const json = JSON.stringify(manifest);
   writeFileSync(path.join(nextDir, "csp-manifest.json"), json);
-  writeFileSync(path.join(webRoot, "public", "csp-manifest.json"), json);
+  writeFileSync(path.join(projectDir, "public", "csp-manifest.json"), json);
   console.log(
     `csp-hashes: ${perRoute.size} prerendered pages, ${common.length} common hashes, max ${maxHashes} hashes per page (${(json.length / 1024).toFixed(0)} KB manifest)`,
   );
+  return manifest;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
-  main();
+if (
+  process.argv[1] &&
+  fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
+) {
+  generateCspManifest();
 }
