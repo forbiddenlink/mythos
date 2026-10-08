@@ -30,6 +30,7 @@ temp
 .audit-report.md
 design-research
 functional-review
+apps/api
 /*.png
 /*.jpg
 /*.jpeg
