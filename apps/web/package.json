@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=22.22.2 <23"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack && node scripts/csp-hashes.mjs",
