@@ -49,3 +49,30 @@ The kill switch disables both Oracle and story-quiz generation. Production reque
 ## Branch and release cleanup
 
 Validate an integration branch and its protected preview before merging into `main`. Main is the production deployment branch. When consolidating PRs, preserve their commits in the replacement branch and link the replacement before closing the old PRs. Remove a worktree only after verifying it has no tracked or untracked work; delete its branch only once its commits remain reachable. Keep unrelated local edits intact.
+
+## Weekly digest verification
+
+Contact creation is not evidence that a digest was delivered. The dedicated
+Mythos Atlas segment exists (metadata checked 2026-10-08); delivery and
+unsubscribe behavior still require an authorized test destination.
+
+Before enabling recurring sends:
+
+1. Use only the dedicated Mythos Atlas segment. Confirm the sending domain is
+   verified and the sender address belongs to it.
+2. Prepare a source-backed myth with links to its entry and cited passage.
+   Include the provider-managed unsubscribe link and sender identity.
+3. Send a test to an explicitly authorized address. Check received rendering,
+   links, unsubscribe, and that the unsubscribed contact is excluded from a
+   subsequent test. Keep recipient details outside repository notes.
+4. Record provider delivery status and the test date, then schedule the weekly
+   broadcast through Resend. Do not infer delivery from an accepted signup.
+5. Review aggregate delivered/bounced/unsubscribed totals and useful return
+   visits after each send; pause scheduling when delivery or unsubscribe fails.
+
+## Reader validation
+
+Use `docs/audits/2026-09-23-reader-test-kit.md` with three unfamiliar readers,
+including mobile. No sessions have been run. Capture anonymous observations,
+then prioritize repeated obstacles to finding, reading, checking evidence, or
+returning to saved material. Automated browser tests do not replace this study.

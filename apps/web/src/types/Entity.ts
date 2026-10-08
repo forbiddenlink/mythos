@@ -210,6 +210,14 @@ export type RelationshipType =
   | "enemy_of"
   | "aspect_of";
 
+/** Passage evidence for a relationship; it verifies the claim, not every biography. */
+export interface RelationshipEvidence extends SourceReference {
+  sourceId: string;
+  locator: string;
+  sourceUrl: string;
+  edition: string;
+}
+
 export interface Relationship {
   id: string;
   fromDeityId: string;
@@ -219,6 +227,7 @@ export interface Relationship {
   description?: string;
   storyContext?: string;
   isDisputed?: boolean;
+  evidence?: RelationshipEvidence[];
 }
 
 /** Which catalog a journey's `heroId` points into. */

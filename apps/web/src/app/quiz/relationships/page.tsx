@@ -43,6 +43,8 @@ export default function Page() {
               "fromDeityId",
               "toDeityId",
               "relationshipType",
+              "confidenceLevel",
+              "isDisputed",
             ])}
           />
         </Suspense>

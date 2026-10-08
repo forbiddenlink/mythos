@@ -10,7 +10,7 @@ An interactive mythology and folklore explorer built with Next.js.
 ## Features
 
 - Browse mythology from world cultures (Greek, Norse, Egyptian, Japanese, Celtic, Yoruba, and more)
-- Explore 359 deities, 37 heroes, 162 stories, 103 creatures, 76 artifacts, and 184 locations
+- Explore 360 deities, 37 heroes, 162 stories, 103 creatures, 76 artifacts, and 184 locations
 - Interactive family trees and relationship visualizations
 - Optional Oracle mythology Q&A (requires configuration and production rate limits)
 - Quiz games and achievement tracking

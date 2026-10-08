@@ -1,8 +1,7 @@
 diff --git a/dist/server/image-optimizer.js b/dist/server/image-optimizer.js
-index b25880a32c763d0e0ac84e58c254ba601100e8c7..d24eb58e18f52e6ef2199c4ca08ec0653142186f 100644
 --- a/dist/server/image-optimizer.js
 +++ b/dist/server/image-optimizer.js
-@@ -1035,12 +1035,22 @@ async function fetchInternalImage(href, _req, _res, maximumResponseBody, handleR
+@@ -1247,12 +1247,19 @@
      try {
          // Coerce HEAD to GET to avoid issues with the image optimizer
          const method = !_req.method || _req.method === 'HEAD' ? 'GET' : _req.method;
@@ -12,11 +11,8 @@ index b25880a32c763d0e0ac84e58c254ba601100e8c7..d24eb58e18f52e6ef2199c4ca08ec065
 -            socket: _req.socket,
 -            maximumResponseBody
 -        });
-+        // Backport of the upstream fix (next 16.4 canary): only the mocked request
-+        // keeps the requester's socket. If the mocked response shared it, `send`
-+        // (serveStatic) would see a disconnected requester as a finished response,
-+        // tear down the file stream without ending the mock, and leave this cache
-+        // key pending for every later requester until the server restarts.
++        // Keep the requester socket off the mocked response: an aborted browser
++        // must not strand the internal image fetch or its shared cache entry.
 +        const mocked = {
 +            req: new _mockrequest.MockedRequest({
 +                url: href,

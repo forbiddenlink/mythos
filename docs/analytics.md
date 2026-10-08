@@ -1,6 +1,6 @@
 # Analytics and observability
 
-Snapshot as of 2026-09-24.
+Snapshot as of 2026-10-08.
 
 ## What the site measures and why
 
@@ -31,7 +31,10 @@ Three rules follow from that.
 Analytics loads only after an explicit cookie choice and never when Global
 Privacy Control is set (`src/lib/privacy-consent.ts`). Before consent,
 `trackEvent` has no registered sink and drops events rather than buffering them,
-so nothing recorded pre-consent can be replayed afterwards.
+so nothing recorded pre-consent can be replayed afterwards. Withdrawing consent
+removes the sink and opts the SDK out. Accepting again reconnects the cached SDK
+without replaying earlier interactions; each product capture also checks current
+consent so a change cannot leak an event while React updates.
 
 ## The ingest proxy
 
@@ -47,23 +50,54 @@ Two reasons:
 
 ## Event taxonomy
 
-| Event                             | Fires when                                        | Answers                                          |
-| --------------------------------- | ------------------------------------------------- | ------------------------------------------------ |
-| `entry_viewed`                    | A deity or story detail page mounts               | Which pantheons earn attention                   |
-| `search_performed`                | Debounced search resolves                         | Which searches return nothing — the content gaps |
-| `share_clicked`                   | Any share surface is used                         | Whether the viral loop exists                    |
-| `quiz_started` / `quiz_completed` | Quiz lifecycle                                    | Quiz drop-off                                    |
-| `oracle_asked`                    | An Oracle reply streams, tagged grounded or not   | Whether the Oracle cites sources                 |
-| `story_read_progress`             | Reader passes a depth marker                      | Whether stories are read or bounced              |
-| `study_session_completed`         | A spaced-repetition session ends                  | Whether the study loop retains                   |
-| `bookmark_added`                  | A bookmark is saved                               | Intent to return                                 |
-| `export_generated`                | PDF or Anki export succeeds                       | Which artifacts people keep                      |
-| `achievement_unlocked`            | An achievement fires                              | Whether gamification lands                       |
-| `pmf_survey_answered`             | The retention survey is answered                  | Product-market fit                               |
-| `web_vital`                       | Each Core Web Vital reports                       | Field performance per route                      |
-| `support_page_viewed`             | The support page or a nudge renders               | Top of the conversion funnel                     |
-| `support_click`                   | Any route to Stripe checkout                      | The only conversion the site has                 |
-| `newsletter_signup`               | The digest sign-up is accepted by /api/newsletter | Whether readers want a weekly return path        |
+| Event                             | Fires when                                             | Answers                                                 |
+| --------------------------------- | ------------------------------------------------------ | ------------------------------------------------------- |
+| `entry_viewed`                    | A deity or story detail page mounts                    | Which pantheons earn attention                          |
+| `search_performed`                | Debounced search resolves                              | Which searches return nothing — the content gaps        |
+| `share_clicked`                   | Any share surface is used                              | Whether the viral loop exists                           |
+| `quiz_started` / `quiz_completed` | Quiz lifecycle                                         | Quiz drop-off                                           |
+| `oracle_asked`                    | An Oracle reply streams, tagged grounded or not        | Whether the Oracle cites sources                        |
+| `story_read_progress`             | Reader passes a depth marker                           | Whether stories are read or bounced                     |
+| `study_session_completed`         | A spaced-repetition session ends                       | Whether the study loop retains                          |
+| `journey_stop_selected`           | A reader explicitly selects a map/otherworld stop      | Where journey exploration stops; not reading completion |
+| `learning_path_step_selected`     | A reader clicks a reading-path step or its main action | Which paths lead to reading or optional practice        |
+| `bookmark_added`                  | A bookmark is saved                                    | Intent to return                                        |
+| `export_generated`                | PDF or Anki export succeeds                            | Which artifacts people keep                             |
+| `achievement_unlocked`            | An achievement fires                                   | Whether gamification lands                              |
+| `pmf_survey_answered`             | The retention survey is answered                       | Product-market fit                                      |
+| `web_vital`                       | Each Core Web Vital reports                            | Field performance per route                             |
+| `support_page_viewed`             | The support page or a nudge renders                    | Top of the conversion funnel                            |
+| `support_click`                   | Any route to Stripe checkout                           | The only conversion the site has                        |
+| `newsletter_signup`               | The digest sign-up is accepted by /api/newsletter      | Whether readers want a weekly return path               |
+
+## A useful-session funnel and return
+
+For consenting readers, define a useful session as `entry_viewed` followed within
+that session by `bookmark_added`, `quiz_completed`, or `study_session_completed`.
+For stories, use `story_read_progress` at the final depth marker as an additional
+reading signal, not proof of understanding. Compare the share of sessions that
+reach a follow-on action and the seven-day return of those readers. Report only
+aggregate cohorts; analytics cannot describe visitors who decline consent.
+
+Use `learning_path_step_selected` as an entry point to that funnel. Its action
+is `start`, `continue`, `review`, `step`, or `practice`, and its properties contain
+only a fixed goal, an entity type, and the public destination slug. Personalized
+path names, viewed-history lists, preferences and free text are never sent.
+`journey_stop_selected` contains only the public journey slug and a one-based
+stop index/count. The initially displayed stop does not emit a selection.
+Both contracts reject malformed values and extra properties in browser and
+server capture paths. Slugs are limited to 100 characters; stop indices/counts
+are safe integers bounded to 1,000. The server also verifies destinations against
+the actual catalog and checks the journey's true stop count before configuration
+or delivery checks.
+
+Neither event claims a route was completed: opening the last map stop, following
+a link, or seeing a locally completed path does not establish that the reader
+finished a learning session. Journey abandonment can be explored from selected
+stop distributions, but map visitors can browse out of order. Do not interpret
+this as a sequential completion funnel. Verify real delivery in the configured
+Mythos project before using these signals to choose work; tests verify capture
+calls and consent behavior, not cloud ingestion or actual retention.
 
 ## The support ask
 
@@ -103,7 +137,16 @@ is traffic, not interest.
 ## Configuration
 
 See `apps/web/.env.example`. With no key set, the app runs normally and records
-nothing.
+nothing. Set `NEXT_PUBLIC_POSTHOG_KEY` for browser and server events in the same
+project; `POSTHOG_KEY` is only a fallback when the public key is absent. A second
+server key no longer overrides the browser's project.
+
+`POSTHOG_INGEST_ORIGIN` is the absolute upstream origin shared by the browser
+rewrite and server capture. The server retains `POSTHOG_HOST` as a legacy fallback;
+keep it aligned or migrate to the shared origin. `NEXT_PUBLIC_POSTHOG_HOST` does
+not control the browser rewrite. This removes code-level split-project precedence,
+but delivery still needs verification against the deployed configuration and
+actual ingest responses; stored dashboard counts alone do not verify it.
 
 ## A 404 that answers 200
 

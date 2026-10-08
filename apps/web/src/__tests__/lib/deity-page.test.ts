@@ -10,9 +10,11 @@ import {
   hasLineage,
   interactiveStoriesFeaturing,
   relationshipsFor,
+  relationshipCitations,
   resolveParallels,
   selectRelatedDeities,
 } from "@/lib/deity-page";
+import { familyFaq } from "@/lib/deity-faq";
 import { createDeityLookup } from "@/lib/deity-reference";
 
 const deities = [
@@ -249,5 +251,129 @@ describe("against the catalog", () => {
         >[1],
       ).every((s) => !("nodes" in s)),
     ).toBe(true);
+  });
+});
+
+describe("relationship claim citations", () => {
+  const evidence = {
+    sourceId: "theogony",
+    locator: "Theogony 921–923",
+    edition: "Evelyn-White (1914)",
+    sourceUrl: "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+  };
+  const works = [{ id: "theogony", title: "Theogony", author: "Hesiod" }];
+  const edge = {
+    fromDeityId: "zeus",
+    toDeityId: "ares",
+    relationshipType: "parent_of",
+    evidence: [evidence],
+  };
+
+  it("shows the specific claim, source title, edition, passage and direct source URL", () => {
+    expect(relationshipCitations("ares", [edge], deities, works)).toEqual([
+      {
+        title: "Theogony — Zeus parent of Ares",
+        author: "Hesiod",
+        url: evidence.sourceUrl,
+        lines: evidence.locator,
+        book: evidence.edition,
+      },
+    ]);
+  });
+
+  it("deduplicates only identical claim/source passages, preserving other claims and editions", () => {
+    const citations = relationshipCitations(
+      "zeus",
+      [
+        edge,
+        edge,
+        { ...edge, toDeityId: "hera", relationshipType: "spouse_of" },
+        {
+          ...edge,
+          description: "A variant claim",
+          evidence: [evidence, { ...evidence, edition: "Another edition" }],
+        },
+      ],
+      deities,
+      works,
+    );
+    expect(citations).toHaveLength(4);
+    expect(citations.map((citation) => citation.title)).toContain(
+      "Theogony — Zeus spouse of Hera",
+    );
+    expect(citations.map((citation) => citation.title)).toContain(
+      "Theogony — Zeus parent of Ares: A variant claim",
+    );
+  });
+
+  it("does not manufacture citations for unreviewed, unrelated or unresolved records", () => {
+    expect(
+      relationshipCitations(
+        "zeus",
+        [
+          { ...edge, evidence: undefined },
+          { ...edge, evidence: [{ ...evidence, sourceId: "unknown-work" }] },
+          { ...edge, toDeityId: "unknown-figure" },
+          { ...edge, fromDeityId: "hera" },
+        ],
+        deities,
+        works,
+      ),
+    ).toEqual([]);
+  });
+
+  it("makes the reviewed Zeus/Rhea parentage evidence available on both entries", () => {
+    const works = [{ id: "theogony", title: "Theogony", author: "Hesiod" }];
+    for (const id of ["zeus", "rhea"]) {
+      expect(
+        relationshipCitations(id, relationshipsData, deitiesData, works),
+      ).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            title: "Theogony — Rhea parent of Zeus",
+            lines: expect.stringContaining("453"),
+          }),
+        ]),
+      );
+    }
+  });
+});
+
+describe("canonical bloodline and disputed parentage", () => {
+  it("names Hera alone for Hephaestus while preserving the Zeus variant in graph relationships", () => {
+    const bloodline = buildBloodline(
+      "hephaestus",
+      relationshipsData,
+      deitiesData,
+    );
+    expect(bloodline.parents.map((parent) => parent.name)).toEqual(["Hera"]);
+    const answer = familyFaq("Hephaestus", bloodline).find((item) =>
+      item.question.includes("parents"),
+    );
+    expect(answer?.answer).toContain("one parent of Hephaestus: Hera");
+    expect(answer?.answer).not.toContain("Zeus");
+    expect(relationshipsFor("hephaestus", relationshipsData)).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          fromDeityId: "zeus",
+          toDeityId: "hephaestus",
+          isDisputed: true,
+          description: expect.stringContaining("Some traditions"),
+        }),
+      ]),
+    );
+  });
+
+  it("keeps both Cronus and Rhea in Zeus's undisputed parentage", () => {
+    const bloodline = buildBloodline("zeus", relationshipsData, deitiesData);
+    expect(bloodline.parents.map((parent) => parent.name)).toEqual([
+      "Cronus",
+      "Rhea",
+    ]);
+    expect(
+      familyFaq("Zeus", bloodline).find((item) =>
+        item.question.includes("parents"),
+      )?.answer,
+    ).toContain("Cronus and Rhea");
   });
 });

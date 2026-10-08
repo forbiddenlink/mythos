@@ -4,7 +4,7 @@
 
 ## Overview
 
-Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **26 pantheons** (plus a regional collection), **359 deities**, **37 heroes**, **162 stories**, **103 creatures**, **76 artifacts**, and **184 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
+Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology featuring **26 pantheons** (plus a regional collection), **360 deities**, **37 heroes**, **162 stories**, **103 creatures**, **76 artifacts**, and **184 mythological locations** — plus quizzes, interactive family trees, branching stories, and spaced-repetition review.
 
 **Built by Elizabeth Stein** using Next.js 16, React 19, TypeScript 5, and modern web technologies.
 
@@ -118,7 +118,7 @@ src/
 │   └── ...               # animations, audio, i18n, pwa, seo, etc.
 ├── data/                 # JSON data files
 │   ├── pantheons.json    # 26 pantheons + 1 regional collection
-│   ├── deities.json      # 359 deities
+│   ├── deities.json      # 360 deities
 │   ├── heroes.json       # 37 heroes
 │   ├── stories.json      # 162 stories
 │   ├── creatures.json    # 103 creatures

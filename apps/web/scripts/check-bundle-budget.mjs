@@ -30,6 +30,7 @@ const BUDGETS_KIB = {
   "/": 310,
   "/deities/[slug]": 360,
   "/stories/[slug]": 350,
+  "/atlas": 315,
 };
 
 const webRoot = join(dirname(fileURLToPath(import.meta.url)), "..");

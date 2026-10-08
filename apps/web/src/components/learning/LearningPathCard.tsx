@@ -22,6 +22,7 @@ import {
   Play,
   Clock,
 } from "lucide-react";
+import { trackEvent, type AnalyticsEventMap } from "@/lib/analytics/events";
 import { normalizeDeityReference } from "@/lib/deity-reference";
 import { isRequiredLearningPathStep } from "@/lib/recommendations";
 import type {
@@ -112,6 +113,23 @@ export function LearningPathCard({
   const isComplete = path.progress === 100;
   const isStarted = path.progress > 0;
 
+  function trackStep(
+    step: LearningPathStep,
+    action: AnalyticsEventMap["learning_path_step_selected"]["action"],
+  ): void {
+    trackEvent("learning_path_step_selected", {
+      goal: path.goal,
+      entityType: step.type,
+      slug:
+        step.type === "quiz"
+          ? "quiz"
+          : step.type === "deity"
+            ? (step.slug ?? normalizeDeityReference(step.itemId))
+            : step.itemId,
+      action,
+    });
+  }
+
   return (
     <Card className={`group relative overflow-hidden ${className}`}>
       {/* Gradient accent at top */}
@@ -178,6 +196,7 @@ export function LearningPathCard({
                 <li key={`${step.type}-${step.itemId}-${index}`}>
                   <Link
                     href={getStepLink(step)}
+                    onClick={() => trackStep(step, "step")}
                     className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors group/step"
                   >
                     <StepIcon step={step} />
@@ -197,6 +216,7 @@ export function LearningPathCard({
         {optionalPractice && (
           <Link
             href={getStepLink(optionalPractice)}
+            onClick={() => trackStep(optionalPractice, "practice")}
             className="flex items-center gap-2 border-t border-border pt-3 text-sm text-muted-foreground transition-colors hover:text-gold"
           >
             <Play className="h-3.5 w-3.5 shrink-0" />
@@ -208,6 +228,14 @@ export function LearningPathCard({
       <CardFooter className="pt-3 border-t">
         <Link
           href={continueLink}
+          onClick={() => {
+            const step = nextStep ?? reviewStep;
+            if (step)
+              trackStep(
+                step,
+                isComplete ? "review" : isStarted ? "continue" : "start",
+              );
+          }}
           className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all duration-200 ${
             isComplete
               ? "bg-muted text-muted-foreground hover:bg-muted/80"

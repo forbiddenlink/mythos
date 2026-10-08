@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   ANALYTICS_EVENTS,
   isAnalyticsEventName,
+  hasValidLearningEventProperties,
   resetAnalyticsSink,
   setAnalyticsSink,
   trackEvent,
@@ -73,5 +74,69 @@ describe("analytics event taxonomy", () => {
     });
 
     expect(sink).toHaveBeenCalledWith("oracle_asked", { grounded: true });
+  });
+});
+
+describe("learning click event contracts", () => {
+  it("accepts a real selected stop, including the last stop without claiming completion", () => {
+    expect(
+      hasValidLearningEventProperties("journey_stop_selected", {
+        journeySlug: "odysseus-journey",
+        stopIndex: 8,
+        stopCount: 8,
+      }),
+    ).toBe(true);
+  });
+  it.each([
+    { journeySlug: "odysseus-journey", stopIndex: 0, stopCount: 8 },
+    { journeySlug: "odysseus-journey", stopIndex: 9, stopCount: 8 },
+    { journeySlug: "odysseus-journey", stopIndex: 1.5, stopCount: 8 },
+    { journeySlug: "reader typed text", stopIndex: 1, stopCount: 8 },
+    { journeySlug: "a".repeat(101), stopIndex: 1, stopCount: 8 },
+    { journeySlug: "odysseus", stopIndex: 1e100, stopCount: 1e100 },
+    { journeySlug: "odysseus", stopIndex: 1, stopCount: 1001 },
+    {
+      journeySlug: "odysseus-journey",
+      stopIndex: 1,
+      stopCount: 8,
+      raw: "private",
+    },
+  ])("rejects an invalid or extra stop payload %j", (properties) => {
+    expect(
+      hasValidLearningEventProperties("journey_stop_selected", properties),
+    ).toBe(false);
+  });
+  it("drops invalid learning events before sending them to a browser sink", () => {
+    const sink = vi.fn();
+    setAnalyticsSink(sink);
+    trackEvent("journey_stop_selected", {
+      journeySlug: "odysseus",
+      stopIndex: 3,
+      stopCount: 2,
+    });
+    expect(sink).not.toHaveBeenCalled();
+    resetAnalyticsSink();
+  });
+  it("validates goal and action without sending personalized preferences or path names", () => {
+    const valid = {
+      goal: "pantheon-mastery",
+      entityType: "deity",
+      slug: "odin",
+      action: "continue",
+    };
+    expect(
+      hasValidLearningEventProperties("learning_path_step_selected", valid),
+    ).toBe(true);
+    for (const invalid of [
+      { ...valid, goal: "raw text" },
+      { ...valid, action: "completed" },
+      { ...valid, entityType: "unknown" },
+      { ...valid, slug: "a".repeat(101) },
+      { ...valid, preferences: "private" },
+    ]) {
+      expect(
+        hasValidLearningEventProperties("learning_path_step_selected", invalid),
+      ).toBe(false);
+    }
   });
 });

@@ -17,6 +17,8 @@ interface CitationSourcesListProps {
   /** Kept for callers; both variants share one style now. */
   variant?: "story" | "deity";
   title?: string;
+  /** Distinct label target when more than one citation list is rendered. */
+  headingId?: string;
   className?: string;
 }
 
@@ -29,13 +31,14 @@ function formatLocation(c: CitationSourceItem): string | null {
 export function CitationSourcesList({
   sources,
   title = "Works cited",
+  headingId = "works-cited-heading",
   className,
 }: CitationSourcesListProps) {
   if (!sources?.length) return null;
 
   return (
-    <section className={cn(className)} aria-labelledby="works-cited-heading">
-      <h3 id="works-cited-heading" className="type-h3 text-foreground">
+    <section className={cn(className)} aria-labelledby={headingId}>
+      <h3 id={headingId} className="type-h3 text-foreground">
         {title}
       </h3>
       <ol className="mt-4 divide-y divide-border/70 border-y border-border/70">

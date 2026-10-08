@@ -3,6 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics/events";
 import { OtherworldRoute } from "@/components/maps/OtherworldRoute";
 import {
   isOtherworldJourney,
@@ -58,8 +59,18 @@ export function JourneyExplorer({
   const index = current ? stops.indexOf(current) : -1;
 
   const select = useCallback(
-    (waypoint: JourneyWaypoint | null) => setSelectedId(waypoint?.id ?? null),
-    [],
+    (waypoint: JourneyWaypoint | null) => {
+      setSelectedId(waypoint?.id ?? null);
+      const stopIndex = stops.findIndex((stop) => stop.id === waypoint?.id);
+      if (stopIndex >= 0) {
+        trackEvent("journey_stop_selected", {
+          journeySlug: journey.slug,
+          stopIndex: stopIndex + 1,
+          stopCount: stops.length,
+        });
+      }
+    },
+    [journey.slug, stops],
   );
 
   return (

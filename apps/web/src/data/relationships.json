@@ -4,7 +4,15 @@
     "fromDeityId": "zeus",
     "toDeityId": "hera",
     "relationshipType": "spouse_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 921–923",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r2",
@@ -46,63 +54,129 @@
     "fromDeityId": "zeus",
     "toDeityId": "ares",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 921–923",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r8",
     "fromDeityId": "zeus",
     "toDeityId": "athena",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 886–900; 924–929",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r9",
     "fromDeityId": "zeus",
     "toDeityId": "apollo",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 918–920",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r10",
     "fromDeityId": "zeus",
     "toDeityId": "artemis",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 918–920",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r11",
     "fromDeityId": "zeus",
     "toDeityId": "hermes",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 938–939",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r12",
     "fromDeityId": "zeus",
     "toDeityId": "dionysus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 940–942",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r13",
     "fromDeityId": "zeus",
     "toDeityId": "hephaestus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "medium"
+    "confidenceLevel": "medium",
+    "isDisputed": true,
+    "description": "Some traditions name Zeus as father; Hesiod instead says Hera bore Hephaestus without union with Zeus (Theogony 924–929)."
   },
   {
     "id": "r14",
     "fromDeityId": "hera",
     "toDeityId": "ares",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 921–923",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r15",
     "fromDeityId": "hera",
     "toDeityId": "hephaestus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 924–929",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r16",
@@ -110,7 +184,15 @@
     "toDeityId": "artemis",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Twin siblings"
+    "description": "Twin siblings",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 918–920",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r17",
@@ -1096,7 +1178,15 @@
     "toDeityId": "persephone",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Persephone is the daughter of Zeus and Demeter"
+    "description": "Persephone is the daughter of Zeus and Demeter",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 912–914",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r175",
@@ -1104,7 +1194,15 @@
     "toDeityId": "persephone",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Demeter is Persephone's mother"
+    "description": "Demeter is Persephone's mother",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 912–914",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r176",
@@ -1423,42 +1521,90 @@
     "fromDeityId": "cronus",
     "toDeityId": "zeus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r216",
     "fromDeityId": "cronus",
     "toDeityId": "hera",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r217",
     "fromDeityId": "cronus",
     "toDeityId": "poseidon",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r218",
     "fromDeityId": "cronus",
     "toDeityId": "hades",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r219",
     "fromDeityId": "cronus",
     "toDeityId": "demeter",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r220",
     "fromDeityId": "cronus",
     "toDeityId": "hestia",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r221",
@@ -1472,21 +1618,45 @@
     "fromDeityId": "gaia",
     "toDeityId": "uranus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 126–128",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r223",
     "fromDeityId": "gaia",
     "toDeityId": "cronus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 132–138",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r224",
     "fromDeityId": "uranus",
     "toDeityId": "cronus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 132–138",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r225",
@@ -1857,7 +2027,15 @@
     "toDeityId": "tethys",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Tethys is among the Titans Gaia bore to Uranus (Theogony 132-136)."
+    "description": "Tethys is among the Titans Gaia bore to Uranus (Theogony 132-136).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 132–138",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "greek-uranus-tethys",
@@ -1865,7 +2043,15 @@
     "toDeityId": "tethys",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Tethys is among the Titans born to Uranus and Gaia (Theogony 132-136)."
+    "description": "Tethys is among the Titans born to Uranus and Gaia (Theogony 132-136).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 132–138",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "greek-cronus-tethys",
@@ -2745,5 +2931,155 @@
     "confidenceLevel": "medium",
     "description": "Only source: Orphic Hymn 71, where Zeus fathers Melinoë in the guise of Plouton (Hades).",
     "isDisputed": true
+  },
+  {
+    "id": "greek-rhea-zeus",
+    "fromDeityId": "rhea",
+    "toDeityId": "zeus",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-rhea-hera",
+    "fromDeityId": "rhea",
+    "toDeityId": "hera",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-rhea-poseidon",
+    "fromDeityId": "rhea",
+    "toDeityId": "poseidon",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-rhea-hades",
+    "fromDeityId": "rhea",
+    "toDeityId": "hades",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-rhea-demeter",
+    "fromDeityId": "rhea",
+    "toDeityId": "demeter",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-rhea-hestia",
+    "fromDeityId": "rhea",
+    "toDeityId": "hestia",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-gaia-rhea",
+    "fromDeityId": "gaia",
+    "toDeityId": "rhea",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 132–138",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-uranus-rhea",
+    "fromDeityId": "uranus",
+    "toDeityId": "rhea",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 132–138",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-cronus-rhea",
+    "fromDeityId": "cronus",
+    "toDeityId": "rhea",
+    "relationshipType": "lover_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–491",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-aphrodite-ares",
+    "fromDeityId": "aphrodite",
+    "toDeityId": "ares",
+    "relationshipType": "lover_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 933–937",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   }
 ]

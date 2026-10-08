@@ -39,3 +39,6 @@ jobs:
       # so it cannot be affected by the very install it is policing.
       - name: Verify every declared override is in force
         run: bash .github/scripts/verify-overrides.sh .
+
+      - name: Verify the framework pin reaches the web lockfile
+        run: node apps/web/scripts/verify-framework.mjs . --lockfile-only

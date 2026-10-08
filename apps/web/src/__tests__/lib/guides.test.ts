@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import sitemap from "@/app/sitemap";
 import branchingStories from "@/data/branching-stories.json";
 import { familyFaq, joinNames } from "@/lib/deity-faq";
-import { buildBloodline } from "@/lib/deity-page";
+import { buildBloodline, relationshipsFor } from "@/lib/deity-page";
 import deities from "@/data/deities.json";
 import relationships from "@/data/relationships.json";
 import { guideEntity, routeStop } from "@/lib/guide-entities";
@@ -119,15 +119,23 @@ describe("deity family answers", () => {
     expect(joinNames(["A", "B", "C"])).toBe("A, B, and C");
   });
 
-  it("records Melinoë's single-source parentage", () => {
+  it("separates Melinoë's canonical parentage from the disputed Zeus variant", () => {
     const answers = familyFaq(
       "Melinoë",
       buildBloodline("melinoe", relationships, deities),
     );
-    expect(answers[0].kin.map((k) => k.name).sort()).toEqual([
-      "Persephone",
-      "Zeus",
-    ]);
+    expect(answers[0].kin.map((k) => k.name)).toEqual(["Persephone"]);
+    expect(answers[0].answer).toMatch(/do not always agree/);
+    expect(relationshipsFor("melinoe", relationships)).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          fromDeityId: "zeus",
+          toDeityId: "melinoe",
+          isDisputed: true,
+          description: expect.stringContaining("Orphic Hymn 71"),
+        }),
+      ]),
+    );
   });
 });
 

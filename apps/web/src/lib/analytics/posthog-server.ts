@@ -1,5 +1,7 @@
+import { getDeities, getJourneys, getStories } from "@/lib/data/catalog";
 import {
   isAnalyticsEventName,
+  hasValidLearningEventProperties,
   sanitizeProperties,
   type AnalyticsProperties,
 } from "@/lib/analytics/events";
@@ -15,6 +17,7 @@ export type CaptureResult =
   | { ok: true }
   | { ok: false; reason: "not_configured" }
   | { ok: false; reason: "unknown_event" }
+  | { ok: false; reason: "invalid_properties" }
   | { ok: false; reason: "upstream_error"; status: number }
   | { ok: false; reason: "network_error" };
 
@@ -25,10 +28,18 @@ export type CaptureResult =
  * because nobody ever notices the data is missing.
  */
 export function resolveServerAnalyticsConfig(): ServerAnalyticsConfig | null {
-  const key = process.env.POSTHOG_KEY ?? process.env.NEXT_PUBLIC_POSTHOG_KEY;
+  // One project for browser events and server beacons; a private override must
+  // not silently split the learning funnel across projects.
+  const key = process.env.NEXT_PUBLIC_POSTHOG_KEY || process.env.POSTHOG_KEY;
   if (!key) return null;
 
-  const host = (process.env.POSTHOG_HOST ?? DEFAULT_HOST).replace(/\/+$/, "");
+  const configuredHost =
+    process.env.POSTHOG_INGEST_ORIGIN ?? process.env.POSTHOG_HOST;
+  const host = (
+    configuredHost && /^https?:\/\//.test(configuredHost)
+      ? configuredHost
+      : DEFAULT_HOST
+  ).replace(/\/+$/, "");
 
   return { key, host };
 }
@@ -46,14 +57,34 @@ export async function captureServerEvent({
   distinctId: string;
   properties: Record<string, unknown>;
 }): Promise<CaptureResult> {
-  const config = resolveServerAnalyticsConfig();
-  if (!config) {
-    return { ok: false, reason: "not_configured" };
-  }
-
   if (!isAnalyticsEventName(event)) {
     return { ok: false, reason: "unknown_event" };
   }
+
+  if (!hasValidLearningEventProperties(event, properties)) {
+    return { ok: false, reason: "invalid_properties" };
+  }
+
+  if (event === "journey_stop_selected") {
+    const journey = getJourneys().find(
+      (item) => item.slug === properties.journeySlug,
+    );
+    if (!journey || properties.stopCount !== journey.waypoints.length) {
+      return { ok: false, reason: "invalid_properties" };
+    }
+  }
+  if (event === "learning_path_step_selected") {
+    const known =
+      properties.entityType === "quiz"
+        ? properties.slug === "quiz"
+        : properties.entityType === "deity"
+          ? getDeities().some((item) => item.slug === properties.slug)
+          : getStories().some((item) => item.slug === properties.slug);
+    if (!known) return { ok: false, reason: "invalid_properties" };
+  }
+
+  const config = resolveServerAnalyticsConfig();
+  if (!config) return { ok: false, reason: "not_configured" };
 
   const clean: AnalyticsProperties = sanitizeProperties(properties);
 
@@ -68,7 +99,7 @@ export async function captureServerEvent({
         timestamp: new Date().toISOString(),
         properties: {
           ...clean,
-          // PostHog project 325061 is shared by every personal app. The browser SDK stamps
+          // Keep server events identifiable in the configured project. The browser SDK stamps
           // `app` via posthog.register(); this path posts to the capture API directly, so
           // without this line every server event from mythos is unattributable.
           app: "mythos",

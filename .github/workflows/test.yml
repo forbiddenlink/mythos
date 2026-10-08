@@ -30,6 +30,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Verify the installed framework matches its security pin
+        run: |
+          node --test apps/web/scripts/verify-framework.test.mjs
+          node apps/web/scripts/verify-framework.mjs
+
       - name: Run ESLint
         run: pnpm lint
 

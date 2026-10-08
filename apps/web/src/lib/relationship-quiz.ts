@@ -34,6 +34,7 @@ export interface Relationship {
   relationshipType: string;
   confidenceLevel?: string;
   description?: string;
+  isDisputed?: boolean;
 }
 
 // XP rewards by difficulty
@@ -107,17 +108,56 @@ function generateWrongDeityOptions(
   answerDeity: Deity,
   subjectDeity: Deity,
   allDeities: Deity[],
+  relationships: Relationship[],
+  questionType: QuestionType,
 ): string[] {
-  const samePantheonDeities = allDeities.filter(
-    (d) => d.id !== answerDeity.id && d.pantheonId === subjectDeity.pantheonId,
+  // Even low-confidence or disputed relatives are ambiguous distractors.
+  const excludedIds = new Set([answerDeity.id, subjectDeity.id]);
+  for (const relationship of relationships) {
+    const fromSubject = relationship.fromDeityId === subjectDeity.id;
+    const toSubject = relationship.toDeityId === subjectDeity.id;
+    const type = relationship.relationshipType;
+    if (questionType === "parent" && type === "parent_of" && toSubject) {
+      excludedIds.add(relationship.fromDeityId);
+    } else if (
+      questionType === "child" &&
+      type === "parent_of" &&
+      fromSubject
+    ) {
+      excludedIds.add(relationship.toDeityId);
+    } else if (
+      (fromSubject || toSubject) &&
+      ((questionType === "sibling" && type === "sibling_of") ||
+        (questionType === "spouse" &&
+          (type === "spouse_of" || type === "lover_of")))
+    ) {
+      excludedIds.add(
+        fromSubject ? relationship.toDeityId : relationship.fromDeityId,
+      );
+    }
+  }
+  const excludedNames = new Set(
+    allDeities
+      .filter((deity) => excludedIds.has(deity.id))
+      .map((deity) => deity.name),
+  );
+  const seenNames = new Set<string>();
+  const candidates = allDeities.filter((deity) => {
+    if (excludedNames.has(deity.name) || seenNames.has(deity.name))
+      return false;
+    seenNames.add(deity.name);
+    return true;
+  });
+  const samePantheonDeities = candidates.filter(
+    (d) => d.pantheonId === subjectDeity.pantheonId,
   );
   const wrongOptions = getRandomItems(samePantheonDeities, 3).map(
     (d) => d.name,
   );
 
   if (wrongOptions.length < 3) {
-    const otherDeities = allDeities.filter(
-      (d) => d.id !== answerDeity.id && !samePantheonDeities.includes(d),
+    const otherDeities = candidates.filter(
+      (d) => d.pantheonId !== subjectDeity.pantheonId,
     );
     wrongOptions.push(
       ...getRandomItems(otherDeities, 3 - wrongOptions.length).map(
@@ -136,6 +176,7 @@ interface RelQuestionParams {
   askAboutTo: boolean;
   usedCombinations: Set<string>;
   allDeities: Deity[];
+  relationships: Relationship[];
   questionIndex: number;
   difficulty: Difficulty;
 }
@@ -147,6 +188,7 @@ function generateRelationshipQuestion({
   askAboutTo,
   usedCombinations,
   allDeities,
+  relationships,
   questionIndex,
   difficulty,
 }: RelQuestionParams): RelationshipQuestion | null {
@@ -162,9 +204,15 @@ function generateRelationshipQuestion({
     ? `${subject.id}-${questionType}`
     : `${subject.id}-${questionType}-${answer.id}`;
   if (usedCombinations.has(comboKey)) return null;
+  const wrongOptions = generateWrongDeityOptions(
+    answer,
+    subject,
+    allDeities,
+    relationships,
+    questionType,
+  );
+  if (wrongOptions.length < 3) return null;
   usedCombinations.add(comboKey);
-
-  const wrongOptions = generateWrongDeityOptions(answer, subject, allDeities);
 
   return {
     id: `rel-${questionIndex}-${Date.now()}`,
@@ -249,6 +297,7 @@ export function generateRelationshipQuiz(
   const validRelTypes = new Set(["parent_of", "sibling_of", "spouse_of"]);
   const validRelationships = relationships.filter(
     (r) =>
+      !r.isDisputed &&
       validRelTypes.has(r.relationshipType) &&
       (r.confidenceLevel === "high" || r.confidenceLevel === "medium"),
   );
@@ -274,6 +323,7 @@ export function generateRelationshipQuiz(
       askAboutTo,
       usedCombinations,
       allDeities: deities,
+      relationships,
       questionIndex: questions.length,
       difficulty,
     });

@@ -7,6 +7,8 @@ import {
   type DeityLookup,
   type DeityLookupEntry,
 } from "@/lib/deity-reference";
+import type { RelationshipEvidence } from "@/types/Entity";
+import type { CitationSourceItem } from "@/components/sources/CitationSourcesList";
 import { readableParallelNote } from "@/lib/parallel-notes";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
@@ -85,6 +87,7 @@ export function resolveParallels(
 }
 
 interface RelationshipInput {
+  isDisputed?: boolean;
   fromDeityId: string;
   toDeityId: string;
   relationshipType: string;
@@ -157,7 +160,7 @@ function toKin(id: string, byId: ReadonlyMap<string, KinDeity>): Kin {
   };
 }
 
-/** Group a deity's genealogy into the tiers of the bloodline plate. */
+/** Group undisputed genealogy into the bloodline plate; variants stay in the graph. */
 export function buildBloodline(
   deityId: string,
   relationships: readonly RelationshipInput[],
@@ -182,6 +185,7 @@ export function buildBloodline(
   };
 
   for (const r of relationships) {
+    if (r.isDisputed) continue;
     const involvesFrom = r.fromDeityId === deityId;
     const involvesTo = r.toDeityId === deityId;
     if (!involvesFrom && !involvesTo) continue;
@@ -319,4 +323,51 @@ export function interactiveStoriesFeaturing(
       estimatedTime,
       totalEndings,
     }));
+}
+
+/** Passages attached to specific relationship claims, not to the biography. */
+export function relationshipCitations(
+  deityId: string,
+  relationships: readonly (RelationshipInput & {
+    description?: string | null;
+    evidence?: readonly RelationshipEvidence[];
+  })[],
+  figures: readonly Pick<FigureRef, "id" | "name">[],
+  sources: readonly { id: string; title: string; author?: string }[],
+): CitationSourceItem[] {
+  const names = new Map(figures.map((figure) => [figure.id, figure.name]));
+  const works = new Map(sources.map((source) => [source.id, source]));
+  const seen = new Set<string>();
+  const citations: CitationSourceItem[] = [];
+
+  for (const relationship of relationshipsFor(deityId, relationships)) {
+    const from = names.get(relationship.fromDeityId);
+    const to = names.get(relationship.toDeityId);
+    if (!from || !to) continue;
+    const claim = `${from} ${relationship.relationshipType.replaceAll("_", " ")} ${to}${relationship.description ? `: ${relationship.description}` : ""}`;
+    for (const evidence of relationship.evidence ?? []) {
+      const source = works.get(evidence.sourceId);
+      if (!source) continue;
+      const key = JSON.stringify([
+        relationship.fromDeityId,
+        relationship.toDeityId,
+        relationship.relationshipType,
+        relationship.description,
+        evidence.sourceId,
+        evidence.locator,
+        evidence.edition,
+        evidence.sourceUrl,
+      ]);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      citations.push({
+        title: `${source.title} — ${claim}`,
+        url: evidence.sourceUrl,
+        author: source.author,
+        lines: evidence.locator,
+        book: evidence.edition,
+      });
+    }
+  }
+  return citations;
 }

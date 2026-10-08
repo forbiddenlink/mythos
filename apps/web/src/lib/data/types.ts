@@ -6,7 +6,7 @@
 import type { PrimarySourceExcerpt } from "@/components/sources/SourceExcerpt";
 import type { FurtherReadingReference } from "@/components/sources/ReferencesList";
 import type { OriginalLanguageNameData } from "@/components/sources/OriginalLanguageName";
-import type { Pantheon, Story } from "@/types/Entity";
+import type { Pantheon, RelationshipEvidence, Story } from "@/types/Entity";
 
 export interface DeityRecord {
   id: string;
@@ -59,6 +59,8 @@ export interface RelationshipRecord {
   relationshipType: string;
   description?: string | null;
   confidenceLevel?: string;
+  isDisputed?: boolean;
+  evidence?: RelationshipEvidence[];
 }
 
 /** Minimal deity reference for links and labels. */

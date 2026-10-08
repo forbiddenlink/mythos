@@ -90,4 +90,31 @@ describe("POST /api/analytics/events", () => {
 
     expect(response.status).toBe(502);
   });
+  it("rejects malformed learning signals before any upstream request", async () => {
+    process.env.POSTHOG_KEY = "phc_server";
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const response = await POST(
+      postEvent({
+        type: "journey_stop_selected",
+        journeySlug: "odysseus",
+        stopIndex: 9,
+        stopCount: 8,
+        raw: "private",
+      }),
+    );
+    expect(response.status).toBe(400);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+  it("answers 400 for an invented learning destination even when unconfigured", async () => {
+    const response = await POST(
+      postEvent({
+        type: "learning_path_step_selected",
+        goal: "story-scholar",
+        entityType: "story",
+        slug: "invented-story",
+        action: "start",
+      }),
+    );
+    expect(response.status).toBe(400);
+  });
 });

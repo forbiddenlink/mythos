@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-08",
+  "method": "Official Lighthouse 13.5.0 CLI; isolated headless Chrome154; default mobile412x823, simulated Slow4G1638.4Kbps/150ms RTT,4xCPU; storage reset; default consent.",
+  "limitations": [
+    "Lab measurements, not real-user field vitals.",
+    "Shared host load43–75 during baseline runs; compare medians cautiously.",
+    "Public deployment baseline differs from working-tree data and dependencies; local measurements are validation, not isolated before/after timing proof.",
+    "Cloud cost, throughput and P95 field latency unavailable; no claims made.",
+    "Final local measurements also ran on a heavily contended host, with load average reaching111; results are route validation and remaining-work signals, not a controlled speed comparison."
+  ],
+  "command": "CHROME_PATH='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' pnpm dlx lighthouse@13.5.0 <url> --chrome-flags='--headless --no-sandbox' --only-categories=performance --output=json --output-path=<report.json> --no-enable-error-reporting --quiet",
+  "runs": [
+    {
+      "name": "live-home",
+      "url": "https://mythosatlas.com/",
+      "fetchTime": "2026-10-08T11:11:36.964Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 92,
+      "lcpMs": 3374,
+      "tbtMs": 57,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 892800,
+      "benchmarkIndex": 3901,
+      "runWarnings": []
+    },
+    {
+      "name": "live-zeus",
+      "url": "https://mythosatlas.com/deities/zeus",
+      "fetchTime": "2026-10-08T11:12:07.440Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 91,
+      "lcpMs": 3485,
+      "tbtMs": 35,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 869974,
+      "benchmarkIndex": 3759,
+      "runWarnings": []
+    },
+    {
+      "name": "live-story",
+      "url": "https://mythosatlas.com/stories/titanomachy",
+      "fetchTime": "2026-10-08T11:12:29.666Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 85,
+      "lcpMs": 4237,
+      "tbtMs": 90,
+      "cls": 0.0003684374920581467,
+      "transferredBytes": 831122,
+      "benchmarkIndex": 3773.5,
+      "runWarnings": []
+    },
+    {
+      "name": "live-atlas",
+      "url": "https://mythosatlas.com/atlas",
+      "fetchTime": "2026-10-08T11:11:10.836Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 57.99999999999999,
+      "lcpMs": 4870,
+      "tbtMs": 1097,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 1152891,
+      "benchmarkIndex": 3843.5,
+      "runWarnings": []
+    },
+    {
+      "name": "live-atlas-2",
+      "url": "https://mythosatlas.com/atlas",
+      "fetchTime": "2026-10-08T11:12:46.045Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 75,
+      "lcpMs": 4845,
+      "tbtMs": 302,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 1143368,
+      "benchmarkIndex": 3902.5,
+      "runWarnings": []
+    },
+    {
+      "name": "live-atlas-3",
+      "url": "https://mythosatlas.com/atlas",
+      "fetchTime": "2026-10-08T11:15:49.680Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 70,
+      "lcpMs": 4703,
+      "tbtMs": 467,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 1143352,
+      "benchmarkIndex": 3825.5,
+      "runWarnings": []
+    },
+    {
+      "name": "local-home",
+      "url": "http://localhost:3108/",
+      "fetchTime": "2026-10-08T11:20:41.236Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 81,
+      "lcpMs": 4741,
+      "tbtMs": 20,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 946974,
+      "benchmarkIndex": 3697.5,
+      "runWarnings": []
+    },
+    {
+      "name": "local-zeus",
+      "url": "http://localhost:3108/deities/zeus",
+      "fetchTime": "2026-10-08T11:21:03.742Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 77,
+      "lcpMs": 5272,
+      "tbtMs": 31,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 916842,
+      "benchmarkIndex": 3899.5,
+      "runWarnings": []
+    },
+    {
+      "name": "local-story",
+      "url": "http://localhost:3108/stories/titanomachy",
+      "fetchTime": "2026-10-08T11:21:16.776Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 75,
+      "lcpMs": 6116,
+      "tbtMs": 40,
+      "cls": 0.0003684374920581467,
+      "transferredBytes": 875651,
+      "benchmarkIndex": 3874.5,
+      "runWarnings": []
+    },
+    {
+      "name": "local-atlas",
+      "url": "http://localhost:3108/atlas",
+      "fetchTime": "2026-10-08T11:19:27.330Z",
+      "lighthouseVersion": "13.5.0",
+      "score": 82,
+      "lcpMs": 4128,
+      "tbtMs": 201,
+      "cls": 0.0003560530385435872,
+      "transferredBytes": 1191044,
+      "benchmarkIndex": 3636.5,
+      "runWarnings": []
+    }
+  ],
+  "localAtlasChunkVerification": {
+    "method": "Playwright Chromium isolated fresh contexts at 390x844; observe script responses after ready + 1500ms; reduced-motion, normal3D, reduced-motion opt-in, forced no-WebGL.",
+    "initialDecodedJavascriptBytes": {
+      "reducedMotion": 1051224,
+      "normal3D": 1995653,
+      "noWebGL": 1051224
+    },
+    "sceneChunks": [
+      {
+        "url": "/_next/static/chunks/2142-171ce172da3943ce.js",
+        "bytes": 13155
+      },
+      {
+        "url": "/_next/static/chunks/1291.2fbe972374281ad7.js",
+        "bytes": 3961
+      },
+      {
+        "url": "/_next/static/chunks/6705.06b44151371641d4.js",
+        "bytes": 45020
+      },
+      {
+        "url": "/_next/static/chunks/330c0ac2-7e3e0c519978ca84.js",
+        "bytes": 146822
+      },
+      {
+        "url": "/_next/static/chunks/4e77bd5d-b822dd6fc4c3cf37.js",
+        "bytes": 359308
+      },
+      {
+        "url": "/_next/static/chunks/aaa38339-9dadc60693d8e0d4.js",
+        "bytes": 376163
+      }
+    ],
+    "sceneDecodedBytes": 944429,
+    "sceneGzipBytes": 255008,
+    "verified": [
+      "Normal state renders canvas.",
+      "Reduced-motion and no-WebGL state render still chart without scene chunk requests.",
+      "Explicit reduced-motion opt-in loads scene chunks and renders canvas."
+    ],
+    "initialClientManifestGzipBytes": 290889
+  }
+}

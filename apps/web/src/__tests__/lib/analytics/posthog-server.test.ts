@@ -1,3 +1,4 @@
+import { getDeities, getJourneys, getStories } from "@/lib/data/catalog";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   captureServerEvent,
@@ -14,6 +15,7 @@ describe("server analytics sink", () => {
     delete process.env.POSTHOG_KEY;
     delete process.env.NEXT_PUBLIC_POSTHOG_KEY;
     delete process.env.POSTHOG_HOST;
+    delete process.env.POSTHOG_INGEST_ORIGIN;
   });
 
   afterEach(() => {
@@ -130,5 +132,129 @@ describe("server analytics sink", () => {
     });
 
     expect(result).toEqual({ ok: false, reason: "network_error" });
+  });
+  it("keeps server beacons in the browser project and shared ingest origin", () => {
+    process.env.NEXT_PUBLIC_POSTHOG_KEY = "phc_browser";
+    process.env.POSTHOG_KEY = "phc_other_project";
+    process.env.POSTHOG_INGEST_ORIGIN = "https://eu.i.posthog.com/";
+    process.env.POSTHOG_HOST = "https://legacy.example.com";
+    expect(resolveServerAnalyticsConfig()).toEqual({
+      key: "phc_browser",
+      host: "https://eu.i.posthog.com",
+    });
+  });
+  it.each([
+    {
+      event: "journey_stop_selected",
+      properties: {
+        journeySlug: "unknown-journey",
+        stopIndex: 1,
+        stopCount: 2,
+      },
+    },
+    {
+      event: "learning_path_step_selected",
+      properties: {
+        goal: "pantheon-mastery",
+        entityType: "deity",
+        slug: "unknown-deity",
+        action: "start",
+      },
+    },
+    {
+      event: "learning_path_step_selected",
+      properties: {
+        goal: "story-scholar",
+        entityType: "story",
+        slug: "unknown-story",
+        action: "step",
+      },
+    },
+    {
+      event: "learning_path_step_selected",
+      properties: {
+        goal: "completionist",
+        entityType: "quiz",
+        slug: "unknown-quiz",
+        action: "practice",
+      },
+    },
+  ])(
+    "rejects invented catalog destinations even without configuration: $event",
+    async ({ event, properties }) => {
+      const fetchSpy = vi.spyOn(globalThis, "fetch");
+      expect(
+        await captureServerEvent({
+          event,
+          distinctId: "anonymous",
+          properties,
+        }),
+      ).toEqual({ ok: false, reason: "invalid_properties" });
+      expect(fetchSpy).not.toHaveBeenCalled();
+    },
+  );
+  it("validates learning properties before checking configuration", async () => {
+    expect(
+      await captureServerEvent({
+        event: "journey_stop_selected",
+        distinctId: "anonymous",
+        properties: {
+          journeySlug: "odysseus",
+          stopIndex: 1e100,
+          stopCount: 1e100,
+        },
+      }),
+    ).toEqual({ ok: false, reason: "invalid_properties" });
+  });
+  it("accepts actual catalog destinations and checks a journey's true stop count", async () => {
+    process.env.POSTHOG_KEY = "phc_server";
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("ok", { status: 200 }),
+    );
+    const journey = getJourneys()[0];
+    const stop = {
+      journeySlug: journey.slug,
+      stopIndex: 1,
+      stopCount: journey.waypoints.length,
+    };
+    expect(
+      await captureServerEvent({
+        event: "journey_stop_selected",
+        distinctId: "anonymous",
+        properties: stop,
+      }),
+    ).toEqual({ ok: true });
+    expect(
+      await captureServerEvent({
+        event: "journey_stop_selected",
+        distinctId: "anonymous",
+        properties: { ...stop, stopCount: stop.stopCount + 1 },
+      }),
+    ).toEqual({ ok: false, reason: "invalid_properties" });
+    for (const [entityType, slug] of [
+      ["deity", getDeities()[0].slug],
+      ["story", getStories()[0].slug],
+      ["quiz", "quiz"],
+    ]) {
+      expect(
+        await captureServerEvent({
+          event: "learning_path_step_selected",
+          distinctId: "anonymous",
+          properties: {
+            goal: "pantheon-mastery",
+            entityType,
+            slug,
+            action: "step",
+          },
+        }),
+      ).toEqual({ ok: true });
+    }
+  });
+  it("does not send server captures into a relative ingest rewrite", () => {
+    process.env.NEXT_PUBLIC_POSTHOG_KEY = "phc_browser";
+    process.env.POSTHOG_INGEST_ORIGIN = "/ingest";
+    expect(resolveServerAnalyticsConfig()?.host).toBe(
+      "https://us.i.posthog.com",
+    );
   });
 });

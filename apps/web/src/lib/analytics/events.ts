@@ -23,6 +23,8 @@ export const ANALYTICS_EVENTS = [
   "story_read_progress",
   "study_session_completed",
   "bookmark_added",
+  "journey_stop_selected",
+  "learning_path_step_selected",
   // Value proof
   "export_generated",
   "achievement_unlocked",
@@ -53,6 +55,18 @@ export interface AnalyticsEventMap {
   story_read_progress: { slug: string; percent: number };
   study_session_completed: { cards: number; correct: number };
   bookmark_added: { entityType: string };
+  journey_stop_selected: {
+    journeySlug: string;
+    stopIndex: number;
+    stopCount: number;
+  };
+  learning_path_step_selected: {
+    goal:
+      "pantheon-mastery" | "domain-expert" | "story-scholar" | "completionist";
+    entityType: "deity" | "story" | "quiz";
+    slug: string;
+    action: "start" | "continue" | "review" | "step" | "practice";
+  };
   export_generated: { format: string; kind: string };
   achievement_unlocked: { achievementId: string };
   pmf_survey_answered: { quizId: string; rating: string };
@@ -115,6 +129,52 @@ export function sanitizeProperties(
   return clean;
 }
 
+/** Runtime contracts for learning clicks: never accept text or extra fields. */
+export function hasValidLearningEventProperties(
+  name: AnalyticsEventName,
+  properties: Record<string, unknown>,
+): boolean {
+  if (name === "journey_stop_selected") {
+    return (
+      Object.keys(properties).every((key) =>
+        ["journeySlug", "stopIndex", "stopCount"].includes(key),
+      ) &&
+      typeof properties.journeySlug === "string" &&
+      properties.journeySlug.length <= 100 &&
+      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(properties.journeySlug) &&
+      Number.isSafeInteger(properties.stopIndex) &&
+      Number.isSafeInteger(properties.stopCount) &&
+      Number(properties.stopCount) <= 1000 &&
+      Number(properties.stopIndex) >= 1 &&
+      Number(properties.stopIndex) <= Number(properties.stopCount)
+    );
+  }
+  if (name === "learning_path_step_selected") {
+    return (
+      Object.keys(properties).every((key) =>
+        ["goal", "entityType", "slug", "action"].includes(key),
+      ) &&
+      typeof properties.goal === "string" &&
+      [
+        "pantheon-mastery",
+        "domain-expert",
+        "story-scholar",
+        "completionist",
+      ].includes(properties.goal) &&
+      typeof properties.entityType === "string" &&
+      ["deity", "story", "quiz"].includes(properties.entityType) &&
+      typeof properties.slug === "string" &&
+      properties.slug.length <= 100 &&
+      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(properties.slug) &&
+      typeof properties.action === "string" &&
+      ["start", "continue", "review", "step", "practice"].includes(
+        properties.action,
+      )
+    );
+  }
+  return true;
+}
+
 /**
  * Emit a product-analytics event. Safe to call anywhere: it never throws, and
  * it no-ops when no sink is registered (no consent, or analytics unconfigured).
@@ -125,6 +185,13 @@ export function trackEvent<Name extends AnalyticsEventName>(
 ): void {
   if (!sink) return;
   if (!isAnalyticsEventName(name)) return;
+  if (
+    !hasValidLearningEventProperties(
+      name,
+      properties as Record<string, unknown>,
+    )
+  )
+    return;
 
   try {
     sink(name, sanitizeProperties(properties as Record<string, unknown>));

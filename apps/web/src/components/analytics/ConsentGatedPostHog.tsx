@@ -1,13 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import {
-  resetAnalyticsSink,
-  setAnalyticsSink,
-  type AnalyticsProperties,
-  type AnalyticsEventName,
-} from "@/lib/analytics/events";
+import { useEffect, useState } from "react";
+import { resetAnalyticsSink, setAnalyticsSink } from "@/lib/analytics/events";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 
 type PostHogClient = {
@@ -15,6 +10,7 @@ type PostHogClient = {
   capture: (event: string, properties?: Record<string, unknown>) => void;
   get_distinct_id?: () => string;
   opt_out_capturing?: () => void;
+  opt_in_capturing?: (options: { captureEventName: false }) => void;
 };
 
 let cached: PostHogClient | null = null;
@@ -40,7 +36,6 @@ export function getPostHogDistinctId(): string | undefined {
 export function ConsentGatedPostHog() {
   const [allowed, setAllowed] = useState(false);
   const pathname = usePathname();
-  const started = useRef(false);
 
   useEffect(() => {
     const sync = () => setAllowed(hasAnalyticsConsent());
@@ -55,14 +50,25 @@ export function ConsentGatedPostHog() {
 
   useEffect(() => {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-    if (!allowed || !key || started.current) return;
-    started.current = true;
+    if (!allowed || !key) return;
+
+    const connect = (client: PostHogClient): void => {
+      client.opt_in_capturing?.({ captureEventName: false });
+      setAnalyticsSink((name, props) => {
+        if (hasAnalyticsConsent()) client.capture(name, props);
+      });
+    };
+
+    if (cached) {
+      connect(cached);
+      return () => resetAnalyticsSink();
+    }
 
     let cancelled = false;
 
     void import("posthog-js")
       .then(({ default: posthog }) => {
-        if (cancelled) return;
+        if (cancelled || !hasAnalyticsConsent()) return;
 
         posthog.init(key, {
           api_host: "/ingest",
@@ -75,7 +81,7 @@ export function ConsentGatedPostHog() {
           disable_session_recording: true,
           person_profiles: "identified_only",
         });
-        // Identifies this app in the shared PostHog project every personal app reports into.
+        // Identifies this app in its configured PostHog project.
         posthog.register({
           app: "mythos",
           environment: process.env.NEXT_PUBLIC_VERCEL_ENV || "development",
@@ -86,18 +92,15 @@ export function ConsentGatedPostHog() {
 
         cached = posthog as unknown as PostHogClient;
 
-        setAnalyticsSink(
-          (name: AnalyticsEventName, props: AnalyticsProperties) => {
-            posthog.capture(name, props);
-          },
-        );
+        connect(cached);
       })
       .catch(() => {
-        started.current = false;
+        // A later consent change or mount can retry loading the SDK.
       });
 
     return () => {
       cancelled = true;
+      resetAnalyticsSink();
     };
   }, [allowed]);
 

@@ -32,6 +32,11 @@ match), 845.1 KiB for `/deities/zeus` (manifest: 895.9) and 401.7 KiB for
 | `/`               | 281.3                        | 310             |
 | `/deities/[slug]` | 327.7                        | 360             |
 | `/stories/[slug]` | 316.7                        | 350             |
+| `/atlas`          | 284.1 (2026-10-08)           | 315             |
+
+The atlas budget covers its initial shell. The 3D scene loads separately only
+when the canvas is activated; reduced-motion and unsupported-WebGL readers
+keep the linked static alternative without downloading that scene.
 
 The 2026-10-02 drop (317.0, 363.0 and 352.3 KiB the same day before the change)
 came from three things: the layout components use framer-motion's slim `m`

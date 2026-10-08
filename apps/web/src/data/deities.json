@@ -344,9 +344,10 @@
       },
       {
         "text": "For I am here to stay your fury, if you will obey—sent from the white-armed goddess Hera, who loves both of you in her heart and cares for you both alike. Come, cease from strife, and let not your hand draw the sword.",
-        "source": "Homer, Odyssey",
-        "sourceId": "odyssey",
-        "date": "c. 725 BCE"
+        "source": "Homer, Iliad (translation wording unverified)",
+        "sourceId": "iliad",
+        "date": "c. 750 BCE",
+        "locator": "Book 1, lines 207–211"
       }
     ],
     "crossPantheonParallels": [
@@ -18101,5 +18102,27 @@
       "phonetic": "muh-LIN-oh-ee"
     },
     "imageUrl": "/deities/melinoe.webp"
+  },
+  {
+    "id": "rhea",
+    "pantheonId": "greek-pantheon",
+    "name": "Rhea",
+    "slug": "rhea",
+    "alternateNames": [],
+    "gender": "female",
+    "domain": ["motherhood"],
+    "symbols": [],
+    "description": "Titan daughter of Gaia and Uranus. With Cronus, she is the mother of Hestia, Demeter, Hera, Hades, Poseidon, and Zeus in Hesiod’s Theogony.",
+    "detailedBio": "Hesiod’s Theogony names Rhea as a daughter of Gaia and Uranus. With Cronus she bears Hestia, Demeter, Hera, Hades, Poseidon, and Zeus. Cronus swallows the children to prevent a son from replacing him. Before Zeus is born, Rhea asks her parents to help conceal his birth. They send her to Crete, where Gaia receives Zeus to raise him. A stone wrapped in swaddling clothes is given to Cronus in the child’s place (Theogony 132–138; 453–491).",
+    "importanceRank": 3,
+    "primarySources": [
+      {
+        "text": "Hesiod names Rhea among the children of Gaia and Uranus and identifies her as the mother of six children by Cronus.",
+        "source": "Hesiod, Theogony (editorial paraphrase)",
+        "sourceId": "theogony",
+        "locator": "132–138; 453–491",
+        "date": "c. 700 BCE"
+      }
+    ]
   }
 ]

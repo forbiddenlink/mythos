@@ -305,6 +305,14 @@ export const RelationshipTypeSchema = z.enum(RELATIONSHIP_TYPES);
 
 export type RelationshipType = z.infer<typeof RelationshipTypeSchema>;
 
+export const RelationshipEvidenceSchema = z.looseObject({
+  ...SourceReferenceFields,
+  sourceId: z.string().min(1),
+  locator: z.string().min(1),
+  sourceUrl: z.url({ protocol: /^https?$/ }),
+  edition: z.string().min(1),
+});
+
 export const RelationshipSchema = z.looseObject({
   id: z.string(),
   fromDeityId: z.string(),
@@ -314,6 +322,7 @@ export const RelationshipSchema = z.looseObject({
   description: z.string().optional(),
   storyContext: z.string().optional(),
   isDisputed: z.boolean().optional(),
+  evidence: z.array(RelationshipEvidenceSchema).min(1).optional(),
 });
 
 export type Relationship = z.infer<typeof RelationshipSchema>;

@@ -55,6 +55,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ received: true }, { status: 202 });
   }
 
+  if (result.reason === "invalid_properties") {
+    return NextResponse.json(
+      { error: "Invalid event properties" },
+      { status: 400 },
+    );
+  }
+
   if (result.reason === "not_configured") {
     return NextResponse.json(
       { received: false, reason: "not_configured" },

@@ -1,5 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const port = Number(process.env.E2E_PORT ?? "3000");
+if (!Number.isInteger(port) || port < 1 || port > 65535) {
+  throw new Error("E2E_PORT must be a port number between 1 and 65535");
+}
+const baseURL = `http://localhost:${port}`;
+
 /**
  * Playwright configuration for Mythos Atlas E2E tests
  * @see https://playwright.dev/docs/test-configuration
@@ -19,7 +25,7 @@ export default defineConfig({
   /* Shared settings for all the projects below */
   use: {
     /* Base URL to use in actions like `await page.goto('/')` */
-    baseURL: "http://localhost:3000",
+    baseURL,
     /* Collect trace when retrying the failed test */
     trace: "on-first-retry",
     /* Take screenshot on failure */
@@ -29,7 +35,7 @@ export default defineConfig({
       cookies: [],
       origins: [
         {
-          origin: "http://localhost:3000",
+          origin: baseURL,
           localStorage: [{ name: "mythos-cookie-consent", value: "accepted" }],
         },
       ],
@@ -42,10 +48,12 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
-    ...(process.env.QA_ALL_BROWSERS === "true" ? [
-      { name: "firefox", use: { ...devices["Desktop Firefox"] } },
-      { name: "webkit", use: { ...devices["Desktop Safari"] } },
-    ] : []),
+    ...(process.env.QA_ALL_BROWSERS === "true"
+      ? [
+          { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+          { name: "webkit", use: { ...devices["Desktop Safari"] } },
+        ]
+      : []),
   ],
 
   /* Run your local dev server before starting the tests */
@@ -53,10 +61,11 @@ export default defineConfig({
     // SKIP_BUILD: CI builds separately to set NEXT_PUBLIC_* env vars at build time
     // The suite exercises Oracle UI, so enable it for local builds too.
     command: process.env.SKIP_BUILD
-      ? "pnpm start"
-      : "pnpm build:ci && pnpm start",
-    url: "http://localhost:3000",
-    reuseExistingServer: !process.env.CI,
+      ? `pnpm start --port ${port}`
+      : `pnpm build:ci && pnpm start --port ${port}`,
+    url: baseURL,
+    reuseExistingServer:
+      !process.env.CI && process.env.REUSE_E2E_SERVER === "true",
     timeout: 240000,
   },
 });

@@ -39,6 +39,7 @@ import {
   EntitySources,
   hasEntitySources,
 } from "@/components/sources/EntitySources";
+import { CitationSourcesList } from "@/components/sources/CitationSourcesList";
 import { citedWorksFor } from "@/lib/seo/cited-works";
 import {
   getBranchingStories,
@@ -47,6 +48,7 @@ import {
   getDeityLookup,
   getPantheonById,
   getRelationships,
+  getSourceWorks,
 } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
 import {
@@ -57,6 +59,7 @@ import {
   type Kin,
   interactiveStoriesFeaturing,
   relationshipsFor,
+  relationshipCitations,
   resolveParallels,
   selectRelatedDeities,
 } from "@/lib/deity-page";
@@ -214,6 +217,12 @@ export default async function DeityPage({ params }: PageProps) {
   const domainPages = godsOfLinksForDomains(deity.domain ?? []);
 
   const ownRelationships = relationshipsFor(deity.id, relationships);
+  const relationshipSources = relationshipCitations(
+    deity.id,
+    ownRelationships,
+    allDeities,
+    getSourceWorks(),
+  );
   const familyTreeDeities = project(
     deitiesInRelationships(ownRelationships, allDeities),
     ["id", "name", "slug", "domain", "gender"],
@@ -464,6 +473,13 @@ export default async function DeityPage({ params }: PageProps) {
                   pantheonId={deity.pantheonId}
                   bloodline={bloodline}
                 />
+                {relationshipSources.length > 0 ? (
+                  <CitationSourcesList
+                    sources={relationshipSources}
+                    title="Relationship sources"
+                    headingId="relationship-sources-heading"
+                  />
+                ) : null}
                 <DeityFamilyFaq
                   deityName={deity.name}
                   answers={familyAnswers}
