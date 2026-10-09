@@ -3,7 +3,7 @@
   "version": "1.7.2",
   "private": true,
   "description": "Mythology & Folklore Encyclopedia - Research-backed interactive database",
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@10.34.6",
   "engines": {
     "node": ">=22.22.2 <23"
   },
