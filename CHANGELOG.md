@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0](https://github.com/forbiddenlink/mythos/compare/v1.7.2...v1.8.0) (2026-10-09)
+
+
+### Features
+
+* **assets:** elevate section visual hierarchy and optimize media weight ([5457a19](https://github.com/forbiddenlink/mythos/commit/5457a197ee11d8d78c6dbe478b896bc04857f9be))
+
+
+### Bug Fixes
+
+* bundle current CSP manifest with the Node proxy ([03064d0](https://github.com/forbiddenlink/mythos/commit/03064d084f82a2ffb6a417f6cfdfe3ea6bd1e7f0))
+* **deps:** apply override fix plan ([#160](https://github.com/forbiddenlink/mythos/issues/160)) ([a4bb05a](https://github.com/forbiddenlink/mythos/commit/a4bb05a65c20aa79d945ad48001a32d67868c2c4))
+* **deps:** update dependency next to v16.3.8 [security] ([#164](https://github.com/forbiddenlink/mythos/issues/164)) ([8d776cc](https://github.com/forbiddenlink/mythos/commit/8d776cc859f1bf033a9cb4b210cd81757e8d7860))
+* emit each icon link once instead of up to three times ([#158](https://github.com/forbiddenlink/mythos/issues/158)) ([a38606e](https://github.com/forbiddenlink/mythos/commit/a38606ea4a23dc86913c0d2bb4fb6bd697b85bdb))
+* exclude retired backend artifacts from preview uploads ([d3a76f4](https://github.com/forbiddenlink/mythos/commit/d3a76f427cb0d7bf7df77b70c07029213a50f847))
+* generate CSP hashes before deployment adapter packaging ([24464a8](https://github.com/forbiddenlink/mythos/commit/24464a8d0467490c8b152238c02eb019551af2e2))
+* keep deployment runtime aligned with verified builds ([872036e](https://github.com/forbiddenlink/mythos/commit/872036e1e534c066a4249192bcbd4a080b7b839f))
+* make learning evidence and release checks trustworthy ([47f3be5](https://github.com/forbiddenlink/mythos/commit/47f3be51183d5c903d4e9c8b4a877f186f9cdfc4))
+
 ## [1.7.2](https://github.com/forbiddenlink/mythos/compare/v1.7.1...v1.7.2) (2026-10-02)
 
 
