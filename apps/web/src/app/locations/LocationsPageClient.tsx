@@ -407,8 +407,8 @@ export function LocationsPageClient({
         tagline="Sacred Geography"
         title="Locations"
         description="Temples, realms and sacred sites, on the map and by tradition, type or era."
-        backgroundImage="/hero-columns.webp"
-        backgroundAlt="Classical temple columns and ancient sacred landscape"
+        backgroundImage="/locations-hero.webp"
+        backgroundAlt="Ancient celestial cartography, astrolabe rings, and sacred mythical landscape"
       />
 
       <Container className="pt-6 pb-4 md:pt-8">

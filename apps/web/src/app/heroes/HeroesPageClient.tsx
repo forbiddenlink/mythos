@@ -110,8 +110,8 @@ export function HeroesPageClient({
         tagline="Mortal Champions"
         title="Heroes"
         description="Warriors, wanderers, and doomed champions from the world's great epics."
-        backgroundImage="/hero-columns.webp"
-        backgroundAlt="Ancient columns evoking the age of legendary heroes"
+        backgroundImage="/heroes-hero.webp"
+        backgroundAlt="Monumental statues and banners commemorating legendary heroes across ancient mountain passes"
         colorScheme="gold"
       />
 

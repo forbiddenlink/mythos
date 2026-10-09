@@ -25,7 +25,7 @@ function heroImageProblems(source: string): string[] {
       /\bpriority\b/.test(tag) || /fetchPriority\s*=\s*["']high["']/.test(tag),
   );
   if (priority.length === 0) problems.push("no priority <Image>/<img>");
-  if (/bg-\[url\(/.test(source)) problems.push("Tailwind bg-[url()] in hero");
+  if (/bg-\[url\(/.test(source)) problems.push("Tailwind bg-url-class in hero");
   if (/background(-image)?\s*:\s*[^;]*url\(/.test(source))
     problems.push("inline background url() in hero");
   if (/backgroundImage\s*:/.test(source))
@@ -63,7 +63,7 @@ describe("home hero is a priority image, not a CSS background", () => {
       expect(heroImageProblems(bad)).toEqual(
         expect.arrayContaining([
           "no priority <Image>/<img>",
-          "Tailwind bg-[url()] in hero",
+          "Tailwind bg-url-class in hero",
         ]),
       );
     });

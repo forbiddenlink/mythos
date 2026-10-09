@@ -51,8 +51,8 @@ export function JourneysIndex({
         title="Journeys"
         description="Follow heroes and gods along legendary routes, from the wine-dark sea to the realms beyond the world."
         count={`${journeys.length} routes · ${stops} stops · ${pantheonCount} traditions`}
-        backgroundImage="/family-tree-hero.jpg"
-        backgroundAlt="Ancient celestial cartography and mythical voyages"
+        backgroundImage="/journeys-hero.webp"
+        backgroundAlt="Ancient mythic sea voyage beneath a radiant celestial constellation astrolabe"
       />
 
       <Container className="pt-8 pb-12 md:pt-10">

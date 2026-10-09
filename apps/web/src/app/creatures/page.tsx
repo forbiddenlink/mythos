@@ -54,7 +54,7 @@ export default function CreaturesPage() {
         title="Creatures & Monsters"
         description="Guardians, monsters and shape-shifters from the underworld to the mountain peaks."
         colorScheme="red"
-        backgroundImage="/stories-hero.jpg"
+        backgroundImage="/creatures-hero.webp"
         backgroundAlt="Mythic creatures and legendary beasts"
       />
       <Container className="pt-6 pb-12 md:pt-8">

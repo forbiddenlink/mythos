@@ -72,7 +72,7 @@ export default function ArtifactsPage() {
         title="Legendary Artifacts"
         description="Weapons, shields and objects of power wielded by the gods and heroes of old."
         colorScheme="purple"
-        backgroundImage="/deities-list-hero.jpg"
+        backgroundImage="/artifacts-hero.webp"
         backgroundAlt="Relics and divine artifacts of ancient myth"
       />
       <Container className="pt-6 pb-12 md:pt-8">
