@@ -2,7 +2,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
 import { DetailLayout } from "@/components/layout/detail-layout";
 import { EntryCloser } from "@/components/layout/EntryCloser";
-import { NEWSLETTER_PLACEMENTS } from "@/lib/newsletter";
 import { BookmarksProvider } from "@/providers/bookmarks-provider";
 
 function renderCloser(props: Parameters<typeof EntryCloser>[0]) {
@@ -31,7 +30,9 @@ describe("EntryCloser", () => {
     expect(
       screen.getByRole("link", { name: "Suggest a correction" }),
     ).toHaveAttribute("href", "/contact");
-    expect(screen.getByTestId("newsletter-entry")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /One myth a week/ }),
+    ).toHaveAttribute("href", "/newsletter");
     expect(
       screen.getByRole("link", { name: "Optional support." }),
     ).toHaveAttribute("href", "/support");
@@ -70,8 +71,12 @@ describe("EntryCloser", () => {
     expect(screen.queryByRole("link", { name: /Walk a journey/ })).toBeNull();
   });
 
-  it("registers the entry newsletter placement", () => {
-    expect(NEWSLETTER_PLACEMENTS).toContain("entry");
+  it("invites to the weekly myth without repeating the footer sign-up form", () => {
+    renderCloser({ entityType: "creature", id: "hydra", name: "Hydra" });
+    expect(
+      screen.getByRole("link", { name: /One myth a week/ }),
+    ).toHaveAttribute("href", "/newsletter");
+    expect(screen.queryByTestId("newsletter-entry")).toBeNull();
   });
 });
 

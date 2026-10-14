@@ -65,8 +65,8 @@ export default function NewsletterPage() {
           </p>
         )}
         <p className="mt-10 type-ui text-muted-foreground">
-          The sign-up form is in the footer of every page. Your address is
-          stored with our email provider, Resend; see the{" "}
+          To get the next issue, use the sign-up form just below. Your address
+          is stored with our email provider, Resend; see the{" "}
           <Link href="/privacy#newsletter" className={linkClass}>
             privacy policy
           </Link>
