@@ -34,6 +34,7 @@ export const ANALYTICS_EVENTS = [
   "web_vital",
   // Conversion
   "support_page_viewed",
+  "support_nudge_shown",
   "support_click",
   "newsletter_signup",
 ] as const;
@@ -72,6 +73,7 @@ export interface AnalyticsEventMap {
   pmf_survey_answered: { quizId: string; rating: string };
   web_vital: { metric: string; value: number; rating: string; path?: string };
   support_page_viewed: { from: string };
+  support_nudge_shown: { from: string };
   support_click: { placement: string };
   newsletter_signup: { placement: string };
 }

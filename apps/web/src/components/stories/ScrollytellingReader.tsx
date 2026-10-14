@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { ReadingProse } from "@/components/content/reading-prose";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { ReadingProgress } from "./ReadingProgress";
+import { StoryEndNudge } from "./StoryEndNudge";
 
 interface Plate {
   heading?: string;
@@ -188,6 +189,7 @@ export function ScrollytellingReader({
         >
           Sources and context for this myth
         </Link>
+        <StoryEndNudge />
       </footer>
     </div>
   );

@@ -2,7 +2,7 @@
  * Decides when the site may ask for support.
  *
  * The rule is earned attention: the ask appears only after the visitor has
- * finished several things that took real work to build, then goes quiet for
+ * finished a couple of things that took real work to build, then goes quiet for
  * two weeks, and disappears for a year the moment they decline. A tip request
  * on the first page view converts worse than no request at all, because it
  * reads as a toll rather than a thank-you.
@@ -15,7 +15,7 @@ const DISMISSED_KEY = "mythos_support_nudge_dismissed_at";
 const DAY = 86_400_000;
 
 /** Value moments required before the first ask. */
-export const MIN_VALUE_MOMENTS = 3;
+export const MIN_VALUE_MOMENTS = 2;
 /** Quiet period after an ask is shown. */
 export const NUDGE_COOLDOWN_DAYS = 14;
 /** Quiet period after the visitor dismisses the ask. */

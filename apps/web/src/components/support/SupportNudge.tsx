@@ -21,7 +21,7 @@ export function SupportNudge({
   moment,
   placement,
   headline = "Enjoying the atlas?",
-  body = "Mythos Atlas is one person researching, writing and building it. A one-time $5 keeps the sources checked and the hosting paid.",
+  body = "Mythos Atlas is one person researching, writing and building it. A one-time contribution, $5 suggested and any amount from $1, keeps the sources checked and the hosting paid.",
 }: {
   moment: ValueMoment;
   placement: string;
@@ -37,7 +37,7 @@ export function SupportNudge({
 
     markSupportNudgeShown();
     setVisible(true);
-    trackEvent("support_page_viewed", { from: placement });
+    trackEvent("support_nudge_shown", { from: placement });
   }, [moment, placement]);
 
   if (!visible) return null;
@@ -59,7 +59,7 @@ export function SupportNudge({
       <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row">
         <SupportButton
           placement={placement}
-          label="Chip in $5"
+          label="Chip in"
           size="sm"
           variant="gold"
         />
