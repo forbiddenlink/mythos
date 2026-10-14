@@ -32,9 +32,10 @@ export interface DigestCitation {
 export interface DigestStory {
   slug: string;
   title: string;
-  summary: string;
-  keyExcerpts: string;
-  moralThemes: readonly string[];
+  /** Optional in practice: a few catalog stories lack an excerpt. */
+  summary?: string;
+  keyExcerpts?: string;
+  moralThemes?: readonly string[];
   pantheonId: string;
   citationSources?: readonly DigestCitation[];
 }
@@ -96,9 +97,9 @@ function weekNumber(date: Date): number {
 /** Stories with everything the email shows: summary, excerpt, source, theme. */
 export function isDigestEligible(story: DigestStory): boolean {
   return (
-    story.summary.trim() !== "" &&
-    story.keyExcerpts.trim() !== "" &&
-    story.moralThemes.length > 0 &&
+    Boolean(story.summary?.trim()) &&
+    Boolean(story.keyExcerpts?.trim()) &&
+    (story.moralThemes?.length ?? 0) > 0 &&
     formatCitation(story.citationSources) !== null
   );
 }
@@ -173,7 +174,10 @@ export function buildWeeklyDigest(
 
   const citation = formatCitation(story.citationSources) as string;
   const journey = findJourneyForPantheon(journeys, story.pantheonId);
-  const prompt = reflectionPrompt(story.moralThemes);
+  // Eligibility (pickStoryOfTheWeek) guarantees these are present.
+  const summary = story.summary ?? "";
+  const excerpt = story.keyExcerpts ?? "";
+  const prompt = reflectionPrompt(story.moralThemes ?? []);
   const storyPath = `/stories/${story.slug}`;
   const journeyPath = journey ? `/journeys/${journey.slug}` : null;
   const storyUrl = `${DIGEST_BASE_URL}${storyPath}`;
@@ -184,8 +188,8 @@ export function buildWeeklyDigest(
     '<div style="font-family:Georgia,serif;max-width:36rem;margin:0 auto;line-height:1.6;color:#1c1917">',
     `<p style="font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:#78350f">Mythos Atlas · The weekly myth</p>`,
     `<h1 style="font-size:1.6rem;margin:0.25rem 0 1rem">${escapeHtml(story.title)}</h1>`,
-    `<p>${escapeHtml(story.summary)}</p>`,
-    `<blockquote style="margin:1.25rem 0;padding-left:1rem;border-left:3px solid #b45309">${escapeHtml(story.keyExcerpts)}<br><span style="font-size:0.85rem;color:#57534e">Source: ${escapeHtml(citation)}</span></blockquote>`,
+    `<p>${escapeHtml(summary)}</p>`,
+    `<blockquote style="margin:1.25rem 0;padding-left:1rem;border-left:3px solid #b45309">${escapeHtml(excerpt)}<br><span style="font-size:0.85rem;color:#57534e">Source: ${escapeHtml(citation)}</span></blockquote>`,
     `<p><strong>To think about:</strong> ${escapeHtml(prompt)}</p>`,
     `<p><a href="${storyUrl}">Read the full story and its sources</a></p>`,
     journey && journeyUrl
@@ -203,9 +207,9 @@ export function buildWeeklyDigest(
     "",
     story.title,
     "",
-    story.summary,
+    summary,
     "",
-    `"${story.keyExcerpts}"`,
+    `"${excerpt}"`,
     `Source: ${citation}`,
     "",
     `To think about: ${prompt}`,
@@ -224,14 +228,14 @@ export function buildWeeklyDigest(
   return {
     weekKey: isoWeekKey(date),
     subject,
-    previewText: story.summary,
+    previewText: summary,
     html,
     text,
     storySlug: story.slug,
     parts: {
       title: story.title,
-      summary: story.summary,
-      excerpt: story.keyExcerpts,
+      summary,
+      excerpt,
       citation,
       prompt,
       storyPath,

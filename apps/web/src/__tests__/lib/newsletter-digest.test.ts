@@ -72,6 +72,9 @@ describe("pickStoryOfTheWeek", () => {
       story("no-source", { citationSources: [] }),
       story("no-themes", { moralThemes: [] }),
       story("no-excerpt", { keyExcerpts: " " }),
+      // A few catalog stories have no excerpt field at all.
+      { ...story("undefined-excerpt"), keyExcerpts: undefined },
+      { ...story("undefined-themes"), moralThemes: undefined },
     ];
     expect(pickStoryOfTheWeek(incomplete, new Date())).toBeNull();
     expect(buildWeeklyDigest(incomplete, JOURNEYS, new Date())).toBeNull();
@@ -139,5 +142,21 @@ describe("buildWeeklyDigest", () => {
     );
     expect(digest?.html).toContain("A &lt;b&gt;&amp;&lt;/b&gt; B");
     expect(digest?.html).not.toContain("<b>&</b>");
+  });
+});
+
+describe("buildWeeklyDigest with the real catalog", () => {
+  it("builds an issue for every week of a year without throwing", async () => {
+    const { getJourneys, getStories } = await import("@/lib/data/catalog");
+    const start = new Date("2026-01-05T08:00:00Z").getTime();
+    for (let week = 0; week < 52; week += 1) {
+      const digest = buildWeeklyDigest(
+        getStories() as unknown as DigestStory[],
+        getJourneys(),
+        new Date(start + week * 7 * 86_400_000),
+      );
+      expect(digest).not.toBeNull();
+      expect(digest?.parts.citation).not.toBe("");
+    }
   });
 });
