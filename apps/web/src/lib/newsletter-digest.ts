@@ -144,12 +144,14 @@ export function formatCitation(
     .join(", ");
 }
 
-/** A reflection question built from the story's own themes. */
+/**
+ * A reflection question built from the story's own themes. Catalog themes are
+ * short phrases ("justice", "promises should be kept"), so they are quoted
+ * rather than slotted into a sentence.
+ */
 export function reflectionPrompt(themes: readonly string[]): string {
-  const [first, second] = themes;
-  return second
-    ? `What does this story say about ${first} and ${second}?`
-    : `What does this story say about ${first}?`;
+  const quoted = themes.slice(0, 2).map((theme) => `"${theme}"`);
+  return `The themes of this story include ${quoted.join(" and ")}. Which do you see most clearly in the telling, and why?`;
 }
 
 function escapeHtml(value: string): string {

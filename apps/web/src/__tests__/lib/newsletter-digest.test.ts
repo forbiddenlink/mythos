@@ -95,12 +95,10 @@ describe("formatCitation", () => {
 
 describe("reflectionPrompt", () => {
   it("uses the story's own themes", () => {
-    expect(reflectionPrompt(["justice", "power"])).toBe(
-      "What does this story say about justice and power?",
+    expect(reflectionPrompt(["justice", "power", "fate"])).toBe(
+      'The themes of this story include "justice" and "power". Which do you see most clearly in the telling, and why?',
     );
-    expect(reflectionPrompt(["fate"])).toBe(
-      "What does this story say about fate?",
-    );
+    expect(reflectionPrompt(["fate"])).toContain('include "fate".');
   });
 });
 
@@ -118,10 +116,13 @@ describe("buildWeeklyDigest", () => {
       expect(body).toContain(`https://mythosatlas.com/stories/${storySlug}`);
       expect(body).toContain("https://mythosatlas.com/journeys/odyssey");
       expect(body).toContain("Hesiod, Theogony, lines 617-735");
-      expect(body).toContain(
-        "What does this story say about justice and power?",
-      );
     }
+    expect(text).toContain(
+      'The themes of this story include "justice" and "power".',
+    );
+    expect(html).toContain(
+      "The themes of this story include &quot;justice&quot; and &quot;power&quot;.",
+    );
   });
 
   it("omits the journey when the tradition has none", () => {
