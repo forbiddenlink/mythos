@@ -19,11 +19,14 @@ import {
  */
 export function SupportNudge({
   moment,
+  momentKey,
   placement,
   headline = "Enjoying the atlas?",
   body = "Mythos Atlas is one person researching, writing and building it. A one-time contribution, $5 suggested and any amount from $1, keeps the sources checked and the hosting paid.",
 }: {
   moment: ValueMoment;
+  /** Counts the moment once per key, e.g. once per story. */
+  momentKey?: string;
   placement: string;
   headline?: string;
   body?: string;
@@ -31,14 +34,14 @@ export function SupportNudge({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    recordValueMoment(moment);
+    recordValueMoment(moment, momentKey);
 
     if (!shouldShowSupportNudge()) return;
 
     markSupportNudgeShown();
     setVisible(true);
     trackEvent("support_nudge_shown", { from: placement });
-  }, [moment, placement]);
+  }, [moment, momentKey, placement]);
 
   if (!visible) return null;
 

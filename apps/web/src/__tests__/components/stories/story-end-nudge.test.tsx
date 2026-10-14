@@ -30,7 +30,7 @@ afterEach(() => vi.unstubAllGlobals());
 
 describe("StoryEndNudge", () => {
   it("does nothing until the reader reaches the end", () => {
-    render(<StoryEndNudge />);
+    render(<StoryEndNudge storySlug="titanomachy" />);
     expect(countValueMoments()).toBe(0);
     act(() => trigger(false));
     expect(countValueMoments()).toBe(0);
@@ -38,16 +38,35 @@ describe("StoryEndNudge", () => {
   });
 
   it("counts the finished story as one value moment without asking yet", () => {
-    render(<StoryEndNudge />);
+    render(<StoryEndNudge storySlug="titanomachy" />);
     act(() => trigger(true));
     expect(countValueMoments()).toBe(1);
     expect(screen.queryByRole("complementary")).toBeNull();
     expect(track).not.toHaveBeenCalled();
   });
 
+  it("counts re-reading the same story only once", () => {
+    const first = render(<StoryEndNudge storySlug="titanomachy" />);
+    act(() => trigger(true));
+    first.unmount();
+    render(<StoryEndNudge storySlug="titanomachy" />);
+    act(() => trigger(true));
+    expect(countValueMoments()).toBe(1);
+    expect(screen.queryByRole("complementary")).toBeNull();
+  });
+
+  it("counts finishing a different story", () => {
+    const first = render(<StoryEndNudge storySlug="titanomachy" />);
+    act(() => trigger(true));
+    first.unmount();
+    render(<StoryEndNudge storySlug="ragnarok" />);
+    act(() => trigger(true));
+    expect(countValueMoments()).toBe(2);
+  });
+
   it("shows the nudge on the second value moment and reports the impression", () => {
     recordValueMoment("quiz_completed");
-    render(<StoryEndNudge />);
+    render(<StoryEndNudge storySlug="titanomachy" />);
     act(() => trigger(true));
     expect(screen.getByRole("complementary")).toHaveTextContent(
       "$5 suggested and any amount from $1",
@@ -65,7 +84,7 @@ describe("StoryEndNudge", () => {
     recordValueMoment("quiz_completed");
     recordValueMoment("quiz_completed");
     localStorage.setItem("mythos_support_nudge_shown_at", String(Date.now()));
-    render(<StoryEndNudge />);
+    render(<StoryEndNudge storySlug="titanomachy" />);
     act(() => trigger(true));
     expect(screen.queryByRole("complementary")).toBeNull();
   });

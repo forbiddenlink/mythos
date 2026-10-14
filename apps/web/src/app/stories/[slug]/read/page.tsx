@@ -78,6 +78,7 @@ export default async function StoryReadPage({ params }: PageProps) {
   return (
     <ScrollytellingReader
       title={story.title}
+      slug={story.slug}
       narrative={story.fullNarrative}
       pantheonId={story.pantheonId}
       pantheonName={pantheon?.name}

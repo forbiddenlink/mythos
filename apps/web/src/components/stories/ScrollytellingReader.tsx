@@ -59,6 +59,8 @@ export function splitIntoPlates(markdown: string): Plate[] {
 
 interface ScrollytellingReaderProps {
   title: string;
+  /** Story slug; finishing the same story twice counts once. */
+  slug: string;
   narrative: string;
   pantheonId: string;
   pantheonName?: string;
@@ -74,6 +76,7 @@ interface ScrollytellingReaderProps {
  */
 export function ScrollytellingReader({
   title,
+  slug,
   narrative,
   pantheonId,
   pantheonName,
@@ -189,7 +192,7 @@ export function ScrollytellingReader({
         >
           Sources and context for this myth
         </Link>
-        <StoryEndNudge />
+        <StoryEndNudge storySlug={slug} />
       </footer>
     </div>
   );

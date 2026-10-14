@@ -11,6 +11,9 @@
 const MOMENTS_KEY = "mythos_value_moments_v1";
 const SHOWN_KEY = "mythos_support_nudge_shown_at";
 const DISMISSED_KEY = "mythos_support_nudge_dismissed_at";
+const COUNTED_KEY = "mythos_value_moments_counted_v1";
+/** Oldest counted keys are forgotten past this, so storage stays small. */
+const MAX_COUNTED_KEYS = 200;
 
 const DAY = 86_400_000;
 
@@ -52,7 +55,38 @@ export function countValueMoments(): number {
   return readNumber(MOMENTS_KEY);
 }
 
-export function recordValueMoment(_moment: ValueMoment): void {
+function readCountedKeys(): string[] {
+  try {
+    const parsed: unknown = JSON.parse(
+      localStorage.getItem(COUNTED_KEY) ?? "[]",
+    );
+    return Array.isArray(parsed)
+      ? parsed.filter((key): key is string => typeof key === "string")
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Count one value moment. With a `key` (for example a story slug), the same
+ * key counts only once, so re-reading one story cannot earn the ask by itself.
+ */
+export function recordValueMoment(moment: ValueMoment, key?: string): void {
+  if (globalThis.window === undefined) return;
+  if (key) {
+    const counted = readCountedKeys();
+    const id = `${moment}:${key}`;
+    if (counted.includes(id)) return;
+    try {
+      localStorage.setItem(
+        COUNTED_KEY,
+        JSON.stringify([...counted, id].slice(-MAX_COUNTED_KEYS)),
+      );
+    } catch {
+      // Without storage the moment is still counted below, as before.
+    }
+  }
   writeNumber(MOMENTS_KEY, countValueMoments() + 1);
 }
 
