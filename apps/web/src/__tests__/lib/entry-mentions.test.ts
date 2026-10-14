@@ -58,6 +58,16 @@ describe("findEntryMentions", () => {
     ).toEqual(["set"]);
   });
 
+  it("ignores markdown headings, where capitalised ordinary words read as names", () => {
+    const targets = [...TARGETS, target("deity", "sin", "Sin")];
+    expect(
+      findEntryMentions(
+        ["## The Sin of Athens\n\nTheseus sailed to Crete."],
+        targets,
+      ).map((m) => m.id),
+    ).toEqual(["theseus"]);
+  });
+
   it("ignores names shorter than three characters", () => {
     expect(findEntryMentions(["Ra and Set"], TARGETS).map((m) => m.id)).toEqual(
       ["set"],

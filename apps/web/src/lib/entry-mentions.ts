@@ -121,7 +121,12 @@ export function findEntryMentions(
 
   const found: EntryMention[] = [];
   const seen = new Set<string>();
-  const haystack = texts.filter(Boolean).join("\n");
+  // Headings are excluded: a title like "The Sin of Athens" capitalises an
+  // ordinary word, which would otherwise link a same-named figure.
+  const haystack = texts
+    .filter(Boolean)
+    .join("\n")
+    .replace(/^ {0,3}#{1,6}[ \t].*$/gm, "");
   const isOrdinaryWord = new Map<string, boolean>();
   for (const match of haystack.matchAll(matcher.regex)) {
     const target = matcher.byName.get(match[0]);
