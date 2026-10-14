@@ -10,7 +10,7 @@ import { z } from "zod";
 /** The Resend segment the digest is sent to. Not a secret. */
 export const DEFAULT_RESEND_SEGMENT_ID = "ef4d9db5-a6ff-4f30-adf3-be3576e3fe42";
 
-export const NEWSLETTER_PLACEMENTS = ["footer", "daily_myth"] as const;
+export const NEWSLETTER_PLACEMENTS = ["footer", "daily_myth", "entry"] as const;
 export type NewsletterPlacement = (typeof NEWSLETTER_PLACEMENTS)[number];
 
 export const newsletterRequestSchema = z.strictObject({

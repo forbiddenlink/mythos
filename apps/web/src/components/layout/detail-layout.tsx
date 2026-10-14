@@ -2,6 +2,10 @@ import type * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
+import {
+  EntryCloser,
+  type EntryCloserProps,
+} from "@/components/layout/EntryCloser";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { cn } from "@/lib/utils";
 
@@ -38,6 +42,11 @@ interface DetailLayoutProps {
   after?: React.ReactNode;
   /** Accessible name for the aside landmark. */
   asideLabel?: string;
+  /**
+   * Entity info for the closing block under the article. Omit it on pages
+   * where the closer does not fit (journeys, collections, sources).
+   */
+  closer?: EntryCloserProps;
   children: React.ReactNode;
 }
 
@@ -48,6 +57,7 @@ export function DetailLayout({
   aside,
   after,
   asideLabel = "Entry details",
+  closer,
   children,
 }: DetailLayoutProps) {
   const hasToc = Boolean(toc && toc.length > 1);
@@ -60,7 +70,10 @@ export function DetailLayout({
             desktop keeps a right-hand aside whose contents list sticks once
             the other aside blocks have scrolled by. */}
         <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-x-14 xl:grid-cols-[minmax(0,1fr)_26rem] xl:gap-x-16">
-          <div className="order-3 min-w-0 lg:order-none">{children}</div>
+          <div className="order-3 min-w-0 lg:order-none">
+            {children}
+            {closer ? <EntryCloser {...closer} /> : null}
+          </div>
           <aside
             aria-label={asideLabel}
             className="contents lg:flex lg:flex-col lg:gap-10 lg:border-l lg:border-gold/25 lg:pl-8"

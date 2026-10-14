@@ -397,6 +397,12 @@ export default async function StoryPage({ params }: PageProps) {
         }
         facts={facts}
         toc={toc}
+        closer={{
+          entityType: "story",
+          id: story.id,
+          name: story.title,
+          pantheonId: story.pantheonId,
+        }}
         asideLabel={`${story.title}: people and places`}
         aside={
           characters.length + places.length + relatedStories.length > 0 ? (

@@ -266,6 +266,12 @@ export default async function LocationPage({ params }: PageProps) {
         }
         facts={facts}
         toc={toc}
+        closer={{
+          entityType: "location",
+          id: location.id,
+          name: location.name,
+          pantheonId: location.pantheonId,
+        }}
         asideLabel={`${location.name} at a glance`}
         aside={
           <>

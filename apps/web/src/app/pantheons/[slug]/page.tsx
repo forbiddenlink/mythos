@@ -280,6 +280,12 @@ export default async function PantheonPage({ params }: PageProps) {
         }
         facts={facts}
         toc={toc}
+        closer={{
+          entityType: "pantheon",
+          id: pantheon.id,
+          name: pantheon.name,
+          pantheonId: pantheon.id,
+        }}
         asideLabel={`${pantheon.name} at a glance`}
         aside={
           <>
