@@ -2,7 +2,7 @@
  * Decides when the site may ask for support.
  *
  * The rule is earned attention: the ask appears only after the visitor has
- * finished several things that took real work to build, then goes quiet for
+ * finished a couple of things that took real work to build, then goes quiet for
  * two weeks, and disappears for a year the moment they decline. A tip request
  * on the first page view converts worse than no request at all, because it
  * reads as a toll rather than a thank-you.
@@ -11,11 +11,14 @@
 const MOMENTS_KEY = "mythos_value_moments_v1";
 const SHOWN_KEY = "mythos_support_nudge_shown_at";
 const DISMISSED_KEY = "mythos_support_nudge_dismissed_at";
+const COUNTED_KEY = "mythos_value_moments_counted_v1";
+/** Oldest counted keys are forgotten past this, so storage stays small. */
+const MAX_COUNTED_KEYS = 200;
 
 const DAY = 86_400_000;
 
 /** Value moments required before the first ask. */
-export const MIN_VALUE_MOMENTS = 3;
+export const MIN_VALUE_MOMENTS = 2;
 /** Quiet period after an ask is shown. */
 export const NUDGE_COOLDOWN_DAYS = 14;
 /** Quiet period after the visitor dismisses the ask. */
@@ -52,7 +55,38 @@ export function countValueMoments(): number {
   return readNumber(MOMENTS_KEY);
 }
 
-export function recordValueMoment(_moment: ValueMoment): void {
+function readCountedKeys(): string[] {
+  try {
+    const parsed: unknown = JSON.parse(
+      localStorage.getItem(COUNTED_KEY) ?? "[]",
+    );
+    return Array.isArray(parsed)
+      ? parsed.filter((key): key is string => typeof key === "string")
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Count one value moment. With a `key` (for example a story slug), the same
+ * key counts only once, so re-reading one story cannot earn the ask by itself.
+ */
+export function recordValueMoment(moment: ValueMoment, key?: string): void {
+  if (globalThis.window === undefined) return;
+  if (key) {
+    const counted = readCountedKeys();
+    const id = `${moment}:${key}`;
+    if (counted.includes(id)) return;
+    try {
+      localStorage.setItem(
+        COUNTED_KEY,
+        JSON.stringify([...counted, id].slice(-MAX_COUNTED_KEYS)),
+      );
+    } catch {
+      // Without storage the moment is still counted below, as before.
+    }
+  }
   writeNumber(MOMENTS_KEY, countValueMoments() + 1);
 }
 

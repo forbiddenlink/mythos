@@ -423,6 +423,12 @@ export default async function DeityPage({ params }: PageProps) {
         facts={facts}
         toc={toc}
         aside={aside}
+        closer={{
+          entityType: "deity",
+          id: deity.id,
+          name: deity.name,
+          pantheonId: deity.pantheonId,
+        }}
         asideLabel={`${deity.name} at a glance`}
         after={
           familyTreeRelationships.length > 0 ? (

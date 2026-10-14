@@ -316,6 +316,12 @@ export default async function ArtifactPage({ params }: PageProps) {
         }
         facts={facts}
         toc={toc}
+        closer={{
+          entityType: "artifact",
+          id: artifact.id,
+          name: artifact.name,
+          pantheonId: artifact.pantheonId,
+        }}
         asideLabel={`${artifact.name} at a glance`}
         aside={
           <>

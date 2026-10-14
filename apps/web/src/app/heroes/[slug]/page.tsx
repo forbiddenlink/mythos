@@ -376,6 +376,12 @@ export default async function HeroPage({ params }: PageProps) {
         }
         facts={facts}
         toc={toc}
+        closer={{
+          entityType: "hero",
+          id: hero.id,
+          name: hero.name,
+          pantheonId: hero.pantheonId,
+        }}
         asideLabel={`${hero.name} at a glance`}
         aside={
           <>

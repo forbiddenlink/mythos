@@ -18,7 +18,8 @@ type Status =
   | "error";
 
 const MESSAGES: Partial<Record<Status, string>> = {
-  subscribed: "You're on the list. The next digest arrives this week.",
+  subscribed:
+    "You're on the list. The digest is one email a week, and every email has an unsubscribe link.",
   unavailable:
     "Sign-ups open soon. Thank you for your interest; nothing was stored.",
   rate_limited: "Too many attempts from this connection. Try again later.",
@@ -42,7 +43,7 @@ export function NewsletterSignup({
   placement,
   className,
   title = "The weekly myth",
-  description = "One myth, its sources and a question to think about, each week by email.",
+  description = "One myth, its sources and a question to think about, in one email a week. Unsubscribe any time.",
 }: Readonly<NewsletterSignupProps>) {
   const id = useId();
   const [email, setEmail] = useState("");
@@ -94,7 +95,11 @@ export function NewsletterSignup({
         {title}
       </h2>
       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-        {description}
+        {description}{" "}
+        <Link href="/newsletter" className="underline">
+          See a sample issue
+        </Link>
+        .
       </p>
       {done ? null : (
         <form onSubmit={onSubmit} className="mt-3 space-y-3" noValidate>

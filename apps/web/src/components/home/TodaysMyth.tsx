@@ -375,7 +375,7 @@ function ResultView({
         placement="daily_myth"
         className="mt-10 border-t border-border pt-6"
         title="Get a myth every week"
-        description="Enjoyed today's myth? The weekly digest brings one myth, its sources and a question to think about."
+        description="Enjoyed today's myth? The weekly digest is one email a week: one myth, its sources and a question to think about. Unsubscribe any time."
       />
     </div>
   );

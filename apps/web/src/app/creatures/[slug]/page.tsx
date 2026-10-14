@@ -304,6 +304,12 @@ export default async function CreaturePage({ params }: PageProps) {
         }
         facts={facts}
         toc={toc}
+        closer={{
+          entityType: "creature",
+          id: creature.id,
+          name: creature.name,
+          pantheonId: creature.pantheonId,
+        }}
         asideLabel={`${creature.name} at a glance`}
         aside={
           <>

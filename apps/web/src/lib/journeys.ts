@@ -62,3 +62,12 @@ export function mappedWaypoints<
     ),
   );
 }
+
+/** The first journey set in a tradition, or undefined when it has none. */
+export function findJourneyForPantheon<T extends { pantheonId: string }>(
+  journeys: readonly T[],
+  pantheonId: string | undefined,
+): T | undefined {
+  if (!pantheonId) return undefined;
+  return journeys.find((journey) => journey.pantheonId === pantheonId);
+}
