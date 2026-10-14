@@ -11,6 +11,8 @@
  * primitives so an object can never smuggle a payload through by accident.
  */
 
+import { hasAnalyticsConsent } from "@/lib/privacy-consent";
+
 export const ANALYTICS_EVENTS = [
   // Discovery
   "entry_viewed",
@@ -85,6 +87,14 @@ const eventNames: ReadonlySet<string> = new Set(ANALYTICS_EVENTS);
 
 let sink: AnalyticsSink | null = null;
 
+/**
+ * Events from a visitor who has ALREADY consented, tracked in the moment
+ * between page load and the PostHog SDK finishing its dynamic import. Without
+ * this, every view event fired on mount of a hard-loaded page is lost.
+ */
+const MAX_PENDING_EVENTS = 20;
+let pending: Array<[AnalyticsEventName, AnalyticsProperties]> = [];
+
 export function isAnalyticsEventName(
   value: string,
 ): value is AnalyticsEventName {
@@ -93,15 +103,26 @@ export function isAnalyticsEventName(
 
 /**
  * Register the destination for tracked events. The PostHog provider calls this
- * once consent is granted; until then events are dropped rather than queued, so
- * nothing recorded before consent can be replayed afterwards.
+ * once consent is granted; events tracked before consent are dropped rather
+ * than queued, so nothing recorded before consent can be replayed afterwards.
+ * Only events held while an already-consented SDK loads are delivered here.
  */
 export function setAnalyticsSink(next: AnalyticsSink): void {
   sink = next;
+  const held = pending;
+  pending = [];
+  for (const [name, properties] of held) {
+    try {
+      next(name, properties);
+    } catch {
+      // Analytics must never break a page render or an interaction.
+    }
+  }
 }
 
 export function resetAnalyticsSink(): void {
   sink = null;
+  pending = [];
 }
 
 function isPrimitive(value: unknown): value is AnalyticsPropertyValue {
@@ -183,7 +204,6 @@ export function trackEvent<Name extends AnalyticsEventName>(
   name: Name,
   properties: AnalyticsEventMap[Name],
 ): void {
-  if (!sink) return;
   if (!isAnalyticsEventName(name)) return;
   if (
     !hasValidLearningEventProperties(
@@ -193,8 +213,16 @@ export function trackEvent<Name extends AnalyticsEventName>(
   )
     return;
 
+  const clean = sanitizeProperties(properties as Record<string, unknown>);
+  if (!sink) {
+    if (hasAnalyticsConsent() && pending.length < MAX_PENDING_EVENTS) {
+      pending.push([name, clean]);
+    }
+    return;
+  }
+
   try {
-    sink(name, sanitizeProperties(properties as Record<string, unknown>));
+    sink(name, clean);
   } catch {
     // Analytics must never break a page render or an interaction.
   }

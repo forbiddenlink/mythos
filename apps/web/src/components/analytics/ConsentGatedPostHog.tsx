@@ -27,7 +27,9 @@ export function getPostHogDistinctId(): string | undefined {
 /**
  * Loads PostHog only after explicit cookie consent, and only when a project key
  * is configured. Until then `trackEvent` has no sink and silently drops every
- * event, so nothing is buffered and replayed after the fact.
+ * event from a visitor without consent, so nothing recorded before consent is
+ * replayed after the fact. A consenting visitor's events wait in a small
+ * buffer only while this component loads the SDK.
  *
  * Requests go through the same-origin `/ingest` rewrite (see next.config.ts) so
  * a content blocker does not quietly delete the traffic that decides what gets

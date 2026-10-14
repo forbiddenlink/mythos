@@ -35,6 +35,51 @@ describe("analytics event taxonomy", () => {
     ).not.toThrow();
   });
 
+  it("drops events without consent instead of holding them for later", () => {
+    trackEvent("support_click", { placement: "before-consent" });
+    localStorage.setItem("mythos-cookie-consent", "accepted");
+    const sink = vi.fn();
+    setAnalyticsSink(sink);
+
+    expect(sink).not.toHaveBeenCalled();
+  });
+
+  it("delivers events tracked by a consenting visitor while the SDK is still loading", () => {
+    localStorage.setItem("mythos-cookie-consent", "accepted");
+    trackEvent("support_page_viewed", { from: "support_page" });
+    const sink = vi.fn();
+    setAnalyticsSink(sink);
+
+    expect(sink).toHaveBeenCalledTimes(1);
+    expect(sink).toHaveBeenCalledWith("support_page_viewed", {
+      from: "support_page",
+    });
+    sink.mockClear();
+    setAnalyticsSink(sink);
+    expect(sink).not.toHaveBeenCalled();
+  });
+
+  it("discards held events when consent is withdrawn before the SDK loads", () => {
+    localStorage.setItem("mythos-cookie-consent", "accepted");
+    trackEvent("support_click", { placement: "footer" });
+    resetAnalyticsSink();
+    const sink = vi.fn();
+    setAnalyticsSink(sink);
+
+    expect(sink).not.toHaveBeenCalled();
+  });
+
+  it("holds at most a small number of events while the SDK loads", () => {
+    localStorage.setItem("mythos-cookie-consent", "accepted");
+    for (let i = 0; i < 50; i += 1) {
+      trackEvent("support_click", { placement: `p${i}` });
+    }
+    const sink = vi.fn();
+    setAnalyticsSink(sink);
+
+    expect(sink).toHaveBeenCalledTimes(20);
+  });
+
   it("forwards name and properties to the registered sink", () => {
     const sink = vi.fn();
     setAnalyticsSink(sink);
