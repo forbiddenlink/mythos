@@ -38,7 +38,10 @@ function fakeClient(
         data: { data: existing, has_more: false },
         error: null,
       })),
-      create: vi.fn(async () => ({ data: { id: "bc_new" }, error: null })),
+      create: vi.fn(async (_payload: Record<string, unknown>) => ({
+        data: { id: "bc_new" },
+        error: null,
+      })),
       send: vi.fn(async (id: string) => ({ data: { id }, error: null })),
     },
   } satisfies BroadcastClient;
