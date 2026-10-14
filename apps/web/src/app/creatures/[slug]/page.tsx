@@ -14,6 +14,7 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
+import { creatureTitle } from "@/lib/seo/entry-titles";
 import { getMuseumObjectsFor } from "@/lib/museum";
 import { CreatureJsonLd } from "@/components/seo/JsonLd";
 import { citedWorksFor } from "@/lib/seo/cited-works";
@@ -105,7 +106,7 @@ export async function generateMetadata({
   );
 
   return generateBaseMetadata({
-    title: `${creature.name} - ${pantheonName} Creature`,
+    title: creatureTitle(creature, pantheonName),
     description: description,
     url: `/creatures/${creature.slug}`,
     // The generated opengraph-image card for this route supplies og:image.
