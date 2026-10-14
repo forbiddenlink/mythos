@@ -23,6 +23,7 @@ import {
 } from "@/components/layout/detail-layout";
 import { EntityList } from "@/components/layout/entity-gallery";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
 import { matchesSource } from "@/lib/source-matching";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ShareButton } from "@/components/sharing/ShareButton";
@@ -126,7 +127,7 @@ export async function generateMetadata({
 
   return generateBaseMetadata({
     title: `${source.title} - Source & Reference`,
-    description: source.description.slice(0, 160),
+    description: truncateDescription(source.description),
     url: `/sources/${source.id}`,
     keywords: [source.title, source.author ?? "", "mythology source"].filter(
       Boolean,

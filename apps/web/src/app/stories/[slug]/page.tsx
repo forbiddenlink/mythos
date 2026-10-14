@@ -56,6 +56,7 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
 import { getMuseumObjectsForStory } from "@/lib/museum";
 import { getMythVersions } from "@/lib/myth-versions";
 import { getPantheonColor } from "@/lib/pantheon-colors";
@@ -126,9 +127,10 @@ export async function generateMetadata({
   const pantheonName = shortPantheonName(pantheon);
 
   const themes = story.moralThemes?.slice(0, 3).join(", ") || "";
-  const description =
-    story.summary?.slice(0, 160) ||
-    `Read ${story.title}, a ${story.category} from ${pantheonName} mythology. Themes: ${themes}.`;
+  const description = truncateDescription(
+    story.summary ||
+      `Read ${story.title}, a ${story.category} from ${pantheonName} mythology. Themes: ${themes}.`,
+  );
 
   return generateBaseMetadata({
     title: `${story.title} - ${pantheonName} Mythology`,

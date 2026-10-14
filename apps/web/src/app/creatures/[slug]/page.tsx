@@ -13,6 +13,7 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
 import { getMuseumObjectsFor } from "@/lib/museum";
 import { CreatureJsonLd } from "@/components/seo/JsonLd";
 import { citedWorksFor } from "@/lib/seo/cited-works";
@@ -98,9 +99,10 @@ export async function generateMetadata({
 
   // Create a rich description
   const abilities = creature.abilities?.slice(0, 3).join(", ") || "";
-  const description =
-    creature.description?.slice(0, 160) ||
-    `Learn about ${creature.name}, a mythological creature from ${pantheonName} mythology. Habitat: ${creature.habitat}. Abilities: ${abilities}.`;
+  const description = truncateDescription(
+    creature.description ||
+      `Learn about ${creature.name}, a mythological creature from ${pantheonName} mythology. Habitat: ${creature.habitat}. Abilities: ${abilities}.`,
+  );
 
   return generateBaseMetadata({
     title: `${creature.name} - ${pantheonName} Creature`,

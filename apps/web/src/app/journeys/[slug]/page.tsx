@@ -25,6 +25,7 @@ import { getDeities, getJourneys, getPantheonById } from "@/lib/data/catalog";
 import { formatPantheonLabel } from "@/lib/deity-page";
 import { isOtherworldJourney, sortWaypoints } from "@/lib/journeys";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { JourneyExplorer } from "./JourneyExplorer";
 
@@ -64,9 +65,10 @@ export async function generateMetadata({
   const pantheonName = pantheon?.name || "Ancient";
 
   const waypointCount = journey.waypoints?.length || 0;
-  const description =
-    journey.description?.slice(0, 160) ||
-    `Follow ${journey.heroName}'s epic ${journey.duration} journey through ${waypointCount} legendary locations in ${pantheonName} mythology.`;
+  const description = truncateDescription(
+    journey.description ||
+      `Follow ${journey.heroName}'s epic ${journey.duration} journey through ${waypointCount} legendary locations in ${pantheonName} mythology.`,
+  );
 
   return generateBaseMetadata({
     title: `${journey.title} - ${journey.heroName}'s Journey`,
