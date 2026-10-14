@@ -17,6 +17,7 @@ import { CosmologyDiagram } from "@/components/cosmology/CosmologyDiagram";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import {
   ArticleSection,
+  AsideLinks,
   DetailHero,
   DetailLayout,
   FactList,
@@ -39,6 +40,7 @@ import { hasWorksheet } from "@/lib/data/worksheets";
 import { generateEntityAlt } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { getCreatureHub, getGoddessHub } from "@/lib/pantheon-hubs";
 
 interface PantheonData {
   id: string;
@@ -177,6 +179,26 @@ export default async function PantheonPage({ params }: PageProps) {
   const creatures = (creaturesData as Array<Figure & { habitat?: string }>)
     .filter((creature) => creature.pantheonId === pantheon.id)
     .slice(0, 6);
+  const creatureHub = getCreatureHub(pantheon.slug);
+  const goddessHub = getGoddessHub(pantheon.slug);
+  const hubLinks = [
+    ...(creatureHub
+      ? [
+          {
+            href: `/pantheons/${pantheon.slug}/creatures`,
+            label: `All ${creatureHub.creatures.length} creatures`,
+          },
+        ]
+      : []),
+    ...(goddessHub
+      ? [
+          {
+            href: `/pantheons/${pantheon.slug}/goddesses`,
+            label: `All ${goddessHub.goddesses.length} goddesses`,
+          },
+        ]
+      : []),
+  ];
   const cosmology = resolveCosmology(pantheon.id);
   const accent = getPantheonColor(pantheon.id);
   const cover = coverImage(pantheon);
@@ -283,6 +305,7 @@ export default async function PantheonPage({ params }: PageProps) {
         asideLabel={`${pantheon.name} at a glance`}
         aside={
           <>
+            <AsideLinks title="Browse this tradition" links={hubLinks} />
             <RelatedFigures
               title="Heroes"
               figures={heroes.slice(0, 6).map((hero) => ({

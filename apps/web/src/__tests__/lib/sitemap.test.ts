@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import sitemap from "@/app/sitemap";
 import robots from "@/app/robots";
+import { getCreatureHubs, getGoddessHubs } from "@/lib/pantheon-hubs";
 
 afterEach(() => vi.useRealTimers());
 
@@ -15,6 +16,20 @@ describe("sitemap", () => {
     expect(first.every((entry) => entry.lastModified === undefined)).toBe(true);
     expect(sitemap()).toEqual(first);
   });
+});
+
+it("lists every tradition creature and goddess hub", () => {
+  const urls = new Set(sitemap().map((entry) => entry.url));
+  for (const hub of getCreatureHubs()) {
+    expect(urls).toContain(
+      `https://mythosatlas.com/pantheons/${hub.tradition.slug}/creatures`,
+    );
+  }
+  for (const hub of getGoddessHubs()) {
+    expect(urls).toContain(
+      `https://mythosatlas.com/pantheons/${hub.tradition.slug}/goddesses`,
+    );
+  }
 });
 
 it("allows crawlers to fetch the resources required to render public pages", () => {

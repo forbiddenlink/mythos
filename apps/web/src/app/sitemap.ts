@@ -12,6 +12,7 @@ import sources from "@/data/sources.json";
 import branchingStories from "@/data/branching-stories.json";
 import { getDeityComparisons } from "@/lib/comparisons";
 import { getGodsOfDomains } from "@/lib/gods-of";
+import { getCreatureHubs, getGoddessHubs } from "@/lib/pantheon-hubs";
 import { GUIDES } from "@/lib/guides";
 import { isOracleEnabled } from "@/lib/oracle/availability";
 
@@ -331,11 +332,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
+  const traditionHubPages: MetadataRoute.Sitemap = [
+    ...getCreatureHubs().map((hub) => ({
+      url: `${BASE_URL}/pantheons/${hub.tradition.slug}/creatures`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...getGoddessHubs().map((hub) => ({
+      url: `${BASE_URL}/pantheons/${hub.tradition.slug}/goddesses`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
     ...staticPages,
     ...exploratoryPages,
     ...guidePages,
     ...domainPages,
+    ...traditionHubPages,
     ...studyPages,
     ...comparisonPages,
     ...deityPages,
