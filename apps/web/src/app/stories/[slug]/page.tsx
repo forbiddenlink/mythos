@@ -56,6 +56,11 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
+import { storyFaq } from "@/lib/entry-faq";
+import { getEntryMentions } from "@/lib/entry-mentions";
+import { EntryFaq } from "@/components/content/EntryFaq";
+import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { getMuseumObjectsForStory } from "@/lib/museum";
 import { getMythVersions } from "@/lib/myth-versions";
 import { getPantheonColor } from "@/lib/pantheon-colors";
@@ -126,9 +131,10 @@ export async function generateMetadata({
   const pantheonName = shortPantheonName(pantheon);
 
   const themes = story.moralThemes?.slice(0, 3).join(", ") || "";
-  const description =
-    story.summary?.slice(0, 160) ||
-    `Read ${story.title}, a ${story.category} from ${pantheonName} mythology. Themes: ${themes}.`;
+  const description = truncateDescription(
+    story.summary ||
+      `Read ${story.title}, a ${story.category} from ${pantheonName} mythology. Themes: ${themes}.`,
+  );
 
   return generateBaseMetadata({
     title: `${story.title} - ${pantheonName} Mythology`,
@@ -229,6 +235,14 @@ export default async function StoryPage({ params }: PageProps) {
         ]
       : [];
   });
+  // Entries named in the text that the cast and places above do not already list.
+  const listedHrefs = new Set(
+    [...characters, ...places].map((item) => item.href),
+  );
+  const mentioned = getEntryMentions(
+    { kind: "story", id: story.id, name: story.title },
+    [story.summary, story.fullNarrative, story.culturalSignificance],
+  ).filter((mention) => !listedHrefs.has(mention.href));
   const relatedStories = (story.relatedStories ?? []).flatMap((id) => {
     const entry = allStories.find((related) => related.id === id);
     return entry
@@ -243,6 +257,7 @@ export default async function StoryPage({ params }: PageProps) {
       : [];
   });
 
+  const faq = storyFaq(story);
   const versions = getMythVersions(slug);
   const museumObjects = getMuseumObjectsForStory(story.id);
   const variants = story.variants ?? [];
@@ -254,6 +269,7 @@ export default async function StoryPage({ params }: PageProps) {
     ...(story.culturalSignificance
       ? [{ id: "significance", label: "Why it matters" }]
       : []),
+    ...(faq.length > 0 ? [{ id: "faq", label: "Quick answers" }] : []),
     ...(versions ? [{ id: "versions", label: "Compare tellings" }] : []),
     ...(variants.length > 0
       ? [{ id: "variants", label: "Other versions" }]
@@ -399,10 +415,15 @@ export default async function StoryPage({ params }: PageProps) {
         toc={toc}
         asideLabel={`${story.title}: people and places`}
         aside={
-          characters.length + places.length + relatedStories.length > 0 ? (
+          characters.length +
+            places.length +
+            mentioned.length +
+            relatedStories.length >
+          0 ? (
             <>
               <RelatedFigures title="Characters" figures={characters} />
               <RelatedFigures title="Places" figures={places} />
+              <EntryMentionsAside mentions={mentioned} />
               <RelatedFigures
                 title="Related stories"
                 figures={relatedStories}
@@ -469,6 +490,12 @@ export default async function StoryPage({ params }: PageProps) {
           {story.culturalSignificance ? (
             <ArticleSection id="significance" title="Why it matters">
               <ReadingParagraph>{story.culturalSignificance}</ReadingParagraph>
+            </ArticleSection>
+          ) : null}
+
+          {faq.length > 0 ? (
+            <ArticleSection id="faq" title="Quick answers">
+              <EntryFaq id="story-faq" items={faq} />
             </ArticleSection>
           ) : null}
 

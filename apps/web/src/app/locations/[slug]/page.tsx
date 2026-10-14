@@ -12,6 +12,9 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
+import { getEntryMentions } from "@/lib/entry-mentions";
+import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { PlaceJsonLd } from "@/components/seo/JsonLd";
 import { citedWorksFor } from "@/lib/seo/cited-works";
 import { EditorialByline } from "@/components/content/EditorialByline";
@@ -104,9 +107,10 @@ export async function generateMetadata({
   const locationType =
     location.locationType?.replaceAll("_", " ") || "location";
 
-  const description =
-    location.description?.slice(0, 160) ||
-    `Explore ${location.name}, a mythological ${locationType} from ${pantheonName} traditions.`;
+  const description = truncateDescription(
+    location.description ||
+      `Explore ${location.name}, a mythological ${locationType} from ${pantheonName} traditions.`,
+  );
 
   return generateBaseMetadata({
     title: `${location.name} - ${pantheonName} Location`,
@@ -153,6 +157,10 @@ export default async function LocationPage({ params }: PageProps) {
     (l) => l.pantheonId === location.pantheonId && l.id !== location.id,
   );
   const guides = guidesFeaturing("location", location.id);
+  const mentions = getEntryMentions(
+    { kind: "location", id: location.id, name: location.name },
+    [location.description, location.detailedBio],
+  );
 
   const sourceFields = { primarySources: location.primarySources };
   const hasSources = hasEntitySources(sourceFields);
@@ -276,6 +284,7 @@ export default async function LocationPage({ params }: PageProps) {
                 label: guide.title,
               }))}
             />
+            <EntryMentionsAside mentions={mentions} />
             <RelatedFigures
               title={`More ${shortPantheonName(pantheon)} places`}
               figures={sameTradition.slice(0, 5).map((related) => ({

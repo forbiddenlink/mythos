@@ -1,9 +1,11 @@
+import Link from "next/link";
 import { CatalogGallery } from "@/components/entities/CatalogGallery";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { getPantheonShortNames } from "@/lib/data/catalog";
+import { getCreatureHubs } from "@/lib/pantheon-hubs";
 import creaturesData from "@/data/creatures.json";
 
 interface CreatureRecord {
@@ -68,6 +70,28 @@ export default function CreaturesPage() {
           facetOrder={["Catastrophic", "Deadly", "Perilous"]}
           columns={["Habitat", "Danger"]}
         />
+      </Container>
+      <Container className="pb-12">
+        <nav aria-labelledby="creatures-by-tradition">
+          <h2 id="creatures-by-tradition" className="page-section-title">
+            Creatures by tradition
+          </h2>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {getCreatureHubs().map((hub) => (
+              <li key={hub.tradition.slug}>
+                <Link
+                  href={`/pantheons/${hub.tradition.slug}/creatures`}
+                  className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border bg-background px-4 type-ui text-foreground transition-colors hover:border-gold/60 hover:text-gold-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                >
+                  {hub.tradition.shortName}
+                  <span className="text-muted-foreground tabular-nums">
+                    {hub.creatures.length}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </Container>
       <AboutThisPage title="About the bestiary">
         <p>
