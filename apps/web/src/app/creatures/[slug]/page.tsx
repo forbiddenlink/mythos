@@ -14,7 +14,9 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
+import { creatureFaq } from "@/lib/entry-faq";
 import { getEntryMentions } from "@/lib/entry-mentions";
+import { EntryFaq } from "@/components/content/EntryFaq";
 import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { creatureTitle } from "@/lib/seo/entry-titles";
 import { getMuseumObjectsFor } from "@/lib/museum";
@@ -181,11 +183,13 @@ export default async function CreaturePage({ params }: PageProps) {
     [creature.description, creature.detailedBio],
   );
 
+  const faq = creatureFaq(creature);
   const sourceFields = { primarySources: creature.primarySources };
   const hasSources = hasEntitySources(sourceFields);
 
   const toc: TocItem[] = [
     { id: "about", label: `About ${creature.name}` },
+    ...(faq.length > 0 ? [{ id: "faq", label: "Quick answers" }] : []),
     ...(museumObjects.length > 0 ? [{ id: "in-art", label: "In art" }] : []),
     ...(hasSources
       ? [{ id: "sources", label: "Sources and further reading" }]
@@ -330,6 +334,15 @@ export default async function CreaturePage({ params }: PageProps) {
               <ReadingParagraph>{creature.description}</ReadingParagraph>
             )}
           </ArticleSection>
+
+          {faq.length > 0 ? (
+            <ArticleSection
+              id="faq"
+              title={`Quick answers about ${creature.name}`}
+            >
+              <EntryFaq id="creature-faq" items={faq} />
+            </ArticleSection>
+          ) : null}
 
           {museumObjects.length > 0 ? (
             <ArticleSection

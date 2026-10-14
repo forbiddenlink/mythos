@@ -57,7 +57,9 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
+import { storyFaq } from "@/lib/entry-faq";
 import { getEntryMentions } from "@/lib/entry-mentions";
+import { EntryFaq } from "@/components/content/EntryFaq";
 import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { getMuseumObjectsForStory } from "@/lib/museum";
 import { getMythVersions } from "@/lib/myth-versions";
@@ -255,6 +257,7 @@ export default async function StoryPage({ params }: PageProps) {
       : [];
   });
 
+  const faq = storyFaq(story);
   const versions = getMythVersions(slug);
   const museumObjects = getMuseumObjectsForStory(story.id);
   const variants = story.variants ?? [];
@@ -266,6 +269,7 @@ export default async function StoryPage({ params }: PageProps) {
     ...(story.culturalSignificance
       ? [{ id: "significance", label: "Why it matters" }]
       : []),
+    ...(faq.length > 0 ? [{ id: "faq", label: "Quick answers" }] : []),
     ...(versions ? [{ id: "versions", label: "Compare tellings" }] : []),
     ...(variants.length > 0
       ? [{ id: "variants", label: "Other versions" }]
@@ -486,6 +490,12 @@ export default async function StoryPage({ params }: PageProps) {
           {story.culturalSignificance ? (
             <ArticleSection id="significance" title="Why it matters">
               <ReadingParagraph>{story.culturalSignificance}</ReadingParagraph>
+            </ArticleSection>
+          ) : null}
+
+          {faq.length > 0 ? (
+            <ArticleSection id="faq" title="Quick answers">
+              <EntryFaq id="story-faq" items={faq} />
             </ArticleSection>
           ) : null}
 
