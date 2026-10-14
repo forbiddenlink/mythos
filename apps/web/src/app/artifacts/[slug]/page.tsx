@@ -15,6 +15,8 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
+import { getEntryMentions } from "@/lib/entry-mentions";
+import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { ArtifactJsonLd } from "@/components/seo/JsonLd";
 import { citedWorksFor } from "@/lib/seo/cited-works";
 import heroesData from "@/data/heroes.json";
@@ -158,6 +160,11 @@ export default async function ArtifactPage({ params }: PageProps) {
   const ownerHref = owner
     ? `/${artifact.ownerKind === "hero" ? "heroes" : "deities"}/${owner.slug}`
     : null;
+  // The wielder already has its own aside block.
+  const mentions = getEntryMentions(
+    { kind: "artifact", id: artifact.id, name: artifact.name },
+    [artifact.description, artifact.detailedBio, artifact.origin],
+  ).filter((mention) => mention.href !== ownerHref);
 
   const relatedStories = (artifact.relatedStories ?? []).flatMap((id) => {
     const story = (
@@ -325,6 +332,7 @@ export default async function ArtifactPage({ params }: PageProps) {
                 ]}
               />
             ) : null}
+            <EntryMentionsAside mentions={mentions} />
             <RelatedFigures title="In the myths" figures={relatedStories} />
             <RelatedFigures
               title="More from this tradition"

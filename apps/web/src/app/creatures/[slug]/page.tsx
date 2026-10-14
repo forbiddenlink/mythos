@@ -14,6 +14,8 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
+import { getEntryMentions } from "@/lib/entry-mentions";
+import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { creatureTitle } from "@/lib/seo/entry-titles";
 import { getMuseumObjectsFor } from "@/lib/museum";
 import { CreatureJsonLd } from "@/components/seo/JsonLd";
@@ -174,6 +176,10 @@ export default async function CreaturePage({ params }: PageProps) {
       meta: d.domain?.slice(0, 2).join(", "),
     }));
   const guides = guidesFeaturing("creature", creature.id);
+  const mentions = getEntryMentions(
+    { kind: "creature", id: creature.id, name: creature.name },
+    [creature.description, creature.detailedBio],
+  );
 
   const sourceFields = { primarySources: creature.primarySources };
   const hasSources = hasEntitySources(sourceFields);
@@ -304,6 +310,7 @@ export default async function CreaturePage({ params }: PageProps) {
                 label: guide.title,
               }))}
             />
+            <EntryMentionsAside mentions={mentions} />
             <RelatedFigures
               title="More from this tradition"
               figures={sameTraditionCreatures}

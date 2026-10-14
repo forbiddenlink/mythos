@@ -57,6 +57,8 @@ import {
   shortPantheonName,
 } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
+import { getEntryMentions } from "@/lib/entry-mentions";
+import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { getMuseumObjectsForStory } from "@/lib/museum";
 import { getMythVersions } from "@/lib/myth-versions";
 import { getPantheonColor } from "@/lib/pantheon-colors";
@@ -231,6 +233,14 @@ export default async function StoryPage({ params }: PageProps) {
         ]
       : [];
   });
+  // Entries named in the text that the cast and places above do not already list.
+  const listedHrefs = new Set(
+    [...characters, ...places].map((item) => item.href),
+  );
+  const mentioned = getEntryMentions(
+    { kind: "story", id: story.id, name: story.title },
+    [story.summary, story.fullNarrative, story.culturalSignificance],
+  ).filter((mention) => !listedHrefs.has(mention.href));
   const relatedStories = (story.relatedStories ?? []).flatMap((id) => {
     const entry = allStories.find((related) => related.id === id);
     return entry
@@ -401,10 +411,15 @@ export default async function StoryPage({ params }: PageProps) {
         toc={toc}
         asideLabel={`${story.title}: people and places`}
         aside={
-          characters.length + places.length + relatedStories.length > 0 ? (
+          characters.length +
+            places.length +
+            mentioned.length +
+            relatedStories.length >
+          0 ? (
             <>
               <RelatedFigures title="Characters" figures={characters} />
               <RelatedFigures title="Places" figures={places} />
+              <EntryMentionsAside mentions={mentioned} />
               <RelatedFigures
                 title="Related stories"
                 figures={relatedStories}
