@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Volume2, VolumeX, Copy, Check, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import nameAudio from "@/data/name-audio.json";
 import {
   HoverCard,
   HoverCardTrigger,
@@ -15,25 +16,44 @@ export interface Pronunciation {
   audioUrl?: string;
 }
 
+/** Slugs that have a recorded clip under /audio/names/ (written by scripts/generate-name-audio.py). */
+const NAME_CLIPS: ReadonlySet<string> = new Set(nameAudio as string[]);
+
 interface PronunciationDisplayProps {
   pronunciation: Pronunciation;
+  /** Deity slug. When a recorded clip exists for it, that plays instead of browser speech. */
+  audioSlug?: string;
   className?: string;
 }
 
 export function PronunciationDisplay({
   pronunciation,
+  audioSlug,
   className,
 }: Readonly<PronunciationDisplayProps>) {
   const [copied, setCopied] = React.useState(false);
   const [audioSupported, setAudioSupported] = React.useState(false);
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const clipRef = React.useRef<HTMLAudioElement | null>(null);
+  const clipUrl =
+    audioSlug && NAME_CLIPS.has(audioSlug)
+      ? `/audio/names/${audioSlug}.mp3`
+      : null;
 
   React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- feature-detect speechSynthesis on client mount
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- feature-detect audio on client mount
     setAudioSupported(
-      globalThis.window !== undefined && "speechSynthesis" in globalThis,
+      clipUrl !== null ||
+        (globalThis.window !== undefined && "speechSynthesis" in globalThis),
     );
-  }, []);
+  }, [clipUrl]);
+
+  React.useEffect(
+    () => () => {
+      clipRef.current?.pause();
+    },
+    [],
+  );
 
   const handleCopyIPA = async () => {
     try {
@@ -45,8 +65,11 @@ export function PronunciationDisplay({
     }
   };
 
-  const handlePlayAudio = () => {
-    if (!audioSupported) return;
+  const speakWithBrowser = () => {
+    if (!("speechSynthesis" in globalThis)) {
+      setIsPlaying(false);
+      return;
+    }
 
     // Cancel any ongoing speech
     globalThis.speechSynthesis.cancel();
@@ -60,6 +83,30 @@ export function PronunciationDisplay({
     utterance.onerror = () => setIsPlaying(false);
 
     globalThis.speechSynthesis.speak(utterance);
+  };
+
+  const handlePlayAudio = () => {
+    if (!audioSupported) return;
+
+    if (clipUrl) {
+      clipRef.current?.pause();
+      const clip = new Audio(clipUrl);
+      clipRef.current = clip;
+      clip.onplaying = () => setIsPlaying(true);
+      clip.onended = () => setIsPlaying(false);
+      // A failed load or blocked playback falls back to browser speech, once.
+      let fellBack = false;
+      const fallBack = () => {
+        if (fellBack) return;
+        fellBack = true;
+        speakWithBrowser();
+      };
+      clip.onerror = fallBack;
+      clip.play().catch(fallBack);
+      return;
+    }
+
+    speakWithBrowser();
   };
 
   let audioAriaLabel = "Audio not available";
