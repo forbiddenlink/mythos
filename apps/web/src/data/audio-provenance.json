@@ -1,0 +1,95 @@
+{
+  "$comment": "Written by scripts/generate-pantheon-ambience.py, scripts/generate-name-audio.py and scripts/generate-story-narration.py. Prompts and models for every AI-generated audio file.",
+  "ambience": {
+    "mesopotamian": {
+      "file": "/audio/ambient/mesopotamian-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Ancient Mesopotamia, third millennium BCE. Plucked bull-headed lyre in the style of the Lyres of Ur, a soft frame drum, a low reed pipe, and a quiet sustained drone suggesting river reeds and clay-walled temples. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1047972
+    },
+    "hittite": {
+      "file": "/audio/ambient/hittite-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Bronze Age Anatolia (Hittite). A long-necked lute plucked sparsely, a frame drum, small bronze cymbals touched lightly, and a double reed pipe over a low sustained drone, with wind across a high plateau. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1080886
+    },
+    "canaanite": {
+      "file": "/audio/ambient/canaanite-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Late Bronze Age Ugarit on the Levantine coast. A lyre plucked in simple modal phrases, a hand frame drum, soft double pipes, and distant sea wind. Evoke the Hurrian-era musical world without quoting any melody. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1020073
+    },
+    "slavic": {
+      "file": "/audio/ambient/slavic-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Early Slavic forest country. A gusli (psaltery) with sparse plucked notes, a low wooden flute or svirel, a soft frame drum, and a deep drone, over birch and pine forest air with distant river sounds. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1017879
+    },
+    "inca": {
+      "file": "/audio/ambient/inca-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Andean highlands before the Spanish conquest. A quena (end-blown notched flute), soft siku panpipes in slow interlocking phrases, a low tinya drum, and thin high-altitude wind. Pre-Columbian instruments only: no charango, no guitar, no cliched condor-pass melody. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1049539
+    },
+    "persian": {
+      "file": "/audio/ambient/persian-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Ancient and classical Iranian plateau. A santur with slow dulcimer arpeggios, a ney (end-blown reed flute) breathing long tones, a soft daf frame drum, and a low sustained drone, like firelight in a stone hall. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1038568
+    },
+    "finnish": {
+      "file": "/audio/ambient/finnish-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Kalevala country, Finland and Karelia. A five-string kantele with slow repeating plucked patterns, a bowed jouhikko drone, a faint birch-bark whistle, and still northern forest and lake air. No singing; the runo-singing tradition is left out on purpose. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1030104
+    },
+    "korean": {
+      "file": "/audio/ambient/korean-ambiance.mp3",
+      "model": "lyria-3.5",
+      "prompt": "Korean court and mountain-temple atmosphere. A gayageum with slow plucked, bending notes, a daegeum (large bamboo transverse flute) with long breathy tones, a haegeum bowed lightly, and a soft janggu hourglass drum touched sparingly. Quiet, with space between phrases. Instrumental only, no vocals, no spoken word, no chanting. Slow, spacious, meditative ambient bed that sits quietly under reading. Steady dynamics, no drops, no big climax, gentle fade structure so it can loop seamlessly. Approximately 90 seconds. Respectful, documentary tone; avoid cinematic cliches and pastiche.",
+      "generatedAt": "2026-10-15",
+      "bytes": 1015684
+    }
+  },
+  "names": {
+    "model": "elevenlabs-v3-tts",
+    "voiceId": "FxZjRiAEBESrb7srpme7",
+    "textSource": "name",
+    "encoding": "mp3 48kbps mono",
+    "count": 278,
+    "generatedAt": "2026-10-15",
+    "excludedPantheons": [
+      "aboriginal-australian-pantheon",
+      "akan-pantheon",
+      "dine-pantheon",
+      "haudenosaunee-pantheon",
+      "inuit-pantheon",
+      "polynesian-pantheon",
+      "tlingit-haida-pantheon",
+      "yoruba-pantheon"
+    ],
+    "note": "Text sent to the model is the deity name (speak_text in scripts/generate-name-audio.py)."
+  },
+  "narration": {
+    "model": "gemini-pro-tts",
+    "voice": "Charon",
+    "styleGuide": "Read as a calm, measured storyteller. Unhurried pace, clear diction, natural pauses between paragraphs, no theatrics.",
+    "encoding": "mp3 48kbps mono 32kHz",
+    "stories": [
+      "aeneid",
+      "cath-maige-tuired",
+      "epic-of-gilgamesh",
+      "mahabharata",
+      "ramayana"
+    ],
+    "selection": "top 5 by inbound catalog references, outside living-tradition exclusions",
+    "generatedAt": "2026-10-15"
+  }
+}
