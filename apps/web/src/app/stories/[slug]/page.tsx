@@ -38,6 +38,7 @@ import {
   type MythVariant,
 } from "@/components/stories/MythVariants";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
+import { StoryRecording } from "@/components/stories/StoryRecording";
 import { VersionMatrix } from "@/components/stories/VersionMatrix";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ExportIconButton } from "@/components/ui/export-button";
@@ -459,6 +460,7 @@ export default async function StoryPage({ params }: PageProps) {
                 Listen or change reading mode
               </summary>
               <div className="space-y-4 pb-3 pt-2">
+                <StoryRecording slug={story.slug} />
                 <StoryNarrator
                   text={story.fullNarrative || story.summary}
                   defaultCompact

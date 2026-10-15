@@ -1,0 +1,22 @@
+{
+  "aeneid": {
+    "bytes": 1247876,
+    "seconds": 208
+  },
+  "cath-maige-tuired": {
+    "bytes": 862964,
+    "seconds": 144
+  },
+  "epic-of-gilgamesh": {
+    "bytes": 3820436,
+    "seconds": 637
+  },
+  "mahabharata": {
+    "bytes": 1059740,
+    "seconds": 177
+  },
+  "ramayana": {
+    "bytes": 1294316,
+    "seconds": 216
+  }
+}
