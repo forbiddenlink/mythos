@@ -22,25 +22,28 @@ const PANTHEON_TRACKS: Record<string, string> = {
   "aztec-pantheon": "/audio/ambient/aztec-ambiance.mp3",
   "chinese-pantheon": "/audio/ambient/chinese-ambiance.mp3",
   // Mesoamerican keeps the Aztec track (Aztec is a Mesoamerican tradition).
-  // Everything else without a bespoke track uses the neutral default.
-  "mesopotamian-pantheon": "/audio/ambient/default.mp3",
+  "mesopotamian-pantheon": "/audio/ambient/mesopotamian-ambiance.mp3",
   "mesoamerican-pantheon": "/audio/ambient/aztec-ambiance.mp3",
+  // The living-tradition pantheons (Yoruba, Akan, Polynesian, Haudenosaunee,
+  // Tlingit and Haida, Inuit, Aboriginal Australian, Diné) and the pan-African
+  // umbrella keep the neutral default on purpose: no AI-made imitations of
+  // their music (see scripts/generate-pantheon-ambience.py).
   "african-pantheon": "/audio/ambient/default.mp3",
   "yoruba-pantheon": "/audio/ambient/default.mp3",
   "akan-pantheon": "/audio/ambient/default.mp3",
   "polynesian-pantheon": "/audio/ambient/default.mp3",
-  "slavic-pantheon": "/audio/ambient/default.mp3",
+  "slavic-pantheon": "/audio/ambient/slavic-ambiance.mp3",
   "haudenosaunee-pantheon": "/audio/ambient/default.mp3",
   "tlingit-haida-pantheon": "/audio/ambient/default.mp3",
-  "hittite-pantheon": "/audio/ambient/default.mp3",
-  "canaanite-pantheon": "/audio/ambient/default.mp3",
+  "hittite-pantheon": "/audio/ambient/hittite-ambiance.mp3",
+  "canaanite-pantheon": "/audio/ambient/canaanite-ambiance.mp3",
   "inuit-pantheon": "/audio/ambient/default.mp3",
   "aboriginal-australian-pantheon": "/audio/ambient/default.mp3",
   "dine-pantheon": "/audio/ambient/default.mp3",
-  "inca-pantheon": "/audio/ambient/default.mp3",
-  "persian-pantheon": "/audio/ambient/default.mp3",
-  "finnish-pantheon": "/audio/ambient/default.mp3",
-  "korean-pantheon": "/audio/ambient/default.mp3",
+  "inca-pantheon": "/audio/ambient/inca-ambiance.mp3",
+  "persian-pantheon": "/audio/ambient/persian-ambiance.mp3",
+  "finnish-pantheon": "/audio/ambient/finnish-ambiance.mp3",
+  "korean-pantheon": "/audio/ambient/korean-ambiance.mp3",
   default: "/audio/ambient/default.mp3",
 };
 

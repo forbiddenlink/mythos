@@ -1,10 +1,10 @@
 /**
  * Optional semantic retrieval using OpenAI embeddings + precomputed vectors.
  *
- * Inert by default: `src/data/oracle-embeddings.json` ships with an empty
- * `vectors` array, and every entry point checks
- * {@link isSemanticGroundingAvailable} first, so no embedding request (and no
- * scoring work) happens until the file is populated. Generate it with
+ * Every entry point checks {@link isSemanticGroundingAvailable} first, so no
+ * embedding request (and no scoring work) happens unless the bundled
+ * `src/data/oracle-embeddings.json` has vectors AND a key is configured at
+ * runtime. Regenerate the vectors after catalog changes with
  * `pnpm --filter web generate:embeddings` (needs OPENAI_EMBEDDINGS_API_KEY or
  * OPENAI_API_KEY; see scripts/generate-oracle-embeddings.ts).
  */
@@ -44,6 +44,13 @@ interface Manifest {
 
 const manifest = embeddingManifest as Manifest;
 const EMBEDDING_REQUEST_TIMEOUT_MS = 2_500;
+/**
+ * Relevance floor. Measured against the shipped index (text-embedding-3-small,
+ * 512 dim): gibberish and off-topic queries top out near 0.31, real myth
+ * queries start near 0.53. Without a floor every query returns its nearest
+ * neighbours however unrelated.
+ */
+const MIN_SEMANTIC_SCORE = 0.4;
 
 function embeddingsApiKey(): string | undefined {
   return (
@@ -301,7 +308,7 @@ export async function semanticSearchResults(
       row,
       score: cosine(qv, row.v),
     }))
-    .filter((x) => x.score > 0);
+    .filter((x) => x.score >= MIN_SEMANTIC_SCORE);
 
   scored.sort((a, b) => b.score - a.score);
 

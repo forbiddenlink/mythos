@@ -3,9 +3,9 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 vi.mock("@/data/oracle-embeddings.json", () => ({
   default: {
     model: "text-embedding-3-small",
-    dim: 1,
+    dim: 2,
     generatedAt: null,
-    vectors: [{ t: "deity", s: "zeus", v: [1] }],
+    vectors: [{ t: "deity", s: "zeus", v: [1, 0] }],
   },
 }));
 
@@ -51,5 +51,23 @@ describe("semanticSearchResults", () => {
     const request = fetchMock.mock.calls[0]?.[1] as RequestInit;
     expect(request.signal).toBeInstanceOf(AbortSignal);
     expect(request.signal?.aborted).toBe(true);
+  });
+
+  it.each([
+    ["relevant", [1, 0], 1],
+    ["unrelated", [0.1, 1], 0],
+  ])("applies the relevance floor (%s query)", async (_label, embedding, hits) => {
+    process.env.OPENAI_API_KEY = "test-key";
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({ data: [{ embedding }] }),
+      }),
+    );
+
+    const { semanticSearchResults } = await import("@/lib/oracle/semantic");
+    const out = await semanticSearchResults("king of the gods", 5);
+    expect(out).toHaveLength(hits);
   });
 });

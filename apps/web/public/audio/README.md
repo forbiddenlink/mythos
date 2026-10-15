@@ -28,7 +28,7 @@ Background music that loops based on current pantheon. All tracks should be:
 
 ### Tradition Audio Mapping
 
-The catalog covers 26 traditions (plus broader regional categories). Traditions without a bespoke composition use the neutral fallback. A tradition is never given another culture's music. Mesoamerican keeps the Aztec track because Aztec is a Mesoamerican tradition:
+The catalog covers 26 traditions (plus broader regional categories). Traditions without a bespoke composition use the neutral fallback. The living-tradition pantheons (Yoruba, Akan, Polynesian, Haudenosaunee, Tlingit and Haida, Inuit, Aboriginal Australian, Dine) and the pan-African umbrella stay on it deliberately: no AI-made imitations of their music. A tradition is never given another culture's music. Mesoamerican keeps the Aztec track because Aztec is a Mesoamerican tradition:
 
 | Tradition                                                | Ambient Track           | Mapping Notes                 |
 | :------------------------------------------------------- | :---------------------- | :---------------------------- |
@@ -41,21 +41,21 @@ The catalog covers 26 traditions (plus broader regional categories). Traditions 
 | Celtic (`celtic-pantheon`)                               | `celtic-ambiance.mp3`   | Dedicated track               |
 | Aztec (`aztec-pantheon`)                                 | `aztec-ambiance.mp3`    | Dedicated track               |
 | Chinese (`chinese-pantheon`)                             | `chinese-ambiance.mp3`  | Dedicated track               |
-| Mesopotamian (`mesopotamian-pantheon`)                   | `default.mp3`           | Neutral fallback              |
+| Mesopotamian (`mesopotamian-pantheon`)                   | `mesopotamian-ambiance.mp3` | AI-generated, see provenance |
 | Mesoamerican (`mesoamerican-pantheon`)                   | `aztec-ambiance.mp3`    | Regional Mesoamerican pairing |
-| Inca (`inca-pantheon`)                                   | `default.mp3`           | Neutral fallback              |
-| Persian (`persian-pantheon`)                             | `default.mp3`           | Neutral fallback              |
-| Finnish (`finnish-pantheon`)                             | `default.mp3`           | Neutral fallback              |
-| Korean (`korean-pantheon`)                               | `default.mp3`           | Neutral fallback              |
+| Inca (`inca-pantheon`)                                   | `inca-ambiance.mp3`     | AI-generated, see provenance |
+| Persian (`persian-pantheon`)                             | `persian-ambiance.mp3`  | AI-generated, see provenance |
+| Finnish (`finnish-pantheon`)                             | `finnish-ambiance.mp3`  | AI-generated, see provenance |
+| Korean (`korean-pantheon`)                               | `korean-ambiance.mp3`   | AI-generated, see provenance |
 | African (`african-pantheon`)                             | `default.mp3`           | Standard neutral atmosphere   |
 | Yoruba (`yoruba-pantheon`)                               | `default.mp3`           | Standard neutral atmosphere   |
 | Akan (`akan-pantheon`)                                   | `default.mp3`           | Standard neutral atmosphere   |
 | Polynesian (`polynesian-pantheon`)                       | `default.mp3`           | Standard neutral atmosphere   |
-| Slavic (`slavic-pantheon`)                               | `default.mp3`           | Standard neutral atmosphere   |
+| Slavic (`slavic-pantheon`)                               | `slavic-ambiance.mp3`   | AI-generated, see provenance |
 | Haudenosaunee (`haudenosaunee-pantheon`)                 | `default.mp3`           | Standard neutral atmosphere   |
 | Tlingit and Haida (`tlingit-haida-pantheon`)             | `default.mp3`           | Standard neutral atmosphere   |
-| Hittite (`hittite-pantheon`)                             | `default.mp3`           | Standard neutral atmosphere   |
-| Canaanite (`canaanite-pantheon`)                         | `default.mp3`           | Standard neutral atmosphere   |
+| Hittite (`hittite-pantheon`)                             | `hittite-ambiance.mp3`  | AI-generated, see provenance |
+| Canaanite (`canaanite-pantheon`)                         | `canaanite-ambiance.mp3` | AI-generated, see provenance |
 | Inuit (`inuit-pantheon`)                                 | `default.mp3`           | Standard neutral atmosphere   |
 | Aboriginal Australian (`aboriginal-australian-pantheon`) | `default.mp3`           | Standard neutral atmosphere   |
 | Dine (`dine-pantheon`)                                   | `default.mp3`           | Standard neutral atmosphere   |
@@ -160,3 +160,7 @@ Ambient Tracks: various CC0 artists:
 
 - All tracks trimmed to 25-60 seconds for web-optimized looping
 - All audio CC0 licensed (public domain): no attribution required
+
+### Generated audio
+
+`/ambient/<tradition>-ambiance.mp3` (eight newest), `/names/<deity-slug>.mp3` and `/stories/<story-slug>.mp3` were generated with Magica by `scripts/generate-pantheon-ambience.py`, `scripts/generate-name-audio.py` and `scripts/generate-story-narration.py`. Prompts, models and voices are recorded in `src/data/audio-provenance.json`. Name clips are about -16 LUFS mono 48 kbps; the new ambience beds are about -23 LUFS and loop seamlessly. The nine older ambience tracks were not re-levelled (they range from -46 to -13 LUFS).
