@@ -1,10 +1,10 @@
 /**
  * Optional semantic retrieval using OpenAI embeddings + precomputed vectors.
  *
- * Inert by default: `src/data/oracle-embeddings.json` ships with an empty
- * `vectors` array, and every entry point checks
- * {@link isSemanticGroundingAvailable} first, so no embedding request (and no
- * scoring work) happens until the file is populated. Generate it with
+ * Every entry point checks {@link isSemanticGroundingAvailable} first, so no
+ * embedding request (and no scoring work) happens unless the bundled
+ * `src/data/oracle-embeddings.json` has vectors AND a key is configured at
+ * runtime. Regenerate the vectors after catalog changes with
  * `pnpm --filter web generate:embeddings` (needs OPENAI_EMBEDDINGS_API_KEY or
  * OPENAI_API_KEY; see scripts/generate-oracle-embeddings.ts).
  */
