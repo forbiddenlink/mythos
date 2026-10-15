@@ -44,6 +44,13 @@ interface Manifest {
 
 const manifest = embeddingManifest as Manifest;
 const EMBEDDING_REQUEST_TIMEOUT_MS = 2_500;
+/**
+ * Relevance floor. Measured against the shipped index (text-embedding-3-small,
+ * 512 dim): gibberish and off-topic queries top out near 0.31, real myth
+ * queries start near 0.53. Without a floor every query returns its nearest
+ * neighbours however unrelated.
+ */
+const MIN_SEMANTIC_SCORE = 0.4;
 
 function embeddingsApiKey(): string | undefined {
   return (
@@ -301,7 +308,7 @@ export async function semanticSearchResults(
       row,
       score: cosine(qv, row.v),
     }))
-    .filter((x) => x.score > 0);
+    .filter((x) => x.score >= MIN_SEMANTIC_SCORE);
 
   scored.sort((a, b) => b.score - a.score);
 
