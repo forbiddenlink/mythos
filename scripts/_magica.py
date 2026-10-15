@@ -80,3 +80,34 @@ def run_node(node: str, inp: dict, out_path: str, tries: int = 90, wait: float =
         return True
     print(f"  ! run {run_id} timed out")
     return False
+
+
+def audio_seconds(path) -> float:
+    """Duration in seconds via ffprobe, or 0.0 when the file is unreadable."""
+    import subprocess
+    try:
+        return float(subprocess.check_output(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", str(path)], text=True).strip())
+    except (subprocess.CalledProcessError, ValueError):
+        return 0.0
+
+
+def write_audio_atomically(dst, build) -> None:
+    """Call build(tmp_path) to write an mp3, validate it, then replace dst.
+
+    The temp file sits beside dst so os.replace is atomic. A failed or
+    interrupted encode leaves dst untouched, so a later run cannot skip a
+    truncated asset.
+    """
+    from pathlib import Path
+    dst = Path(dst)
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    tmp = dst.with_name(f".{dst.name}.tmp.mp3")
+    try:
+        build(tmp)
+        if audio_seconds(tmp) <= 0:
+            raise RuntimeError(f"encode produced an unreadable file for {dst.name}")
+        os.replace(tmp, dst)
+    finally:
+        tmp.unlink(missing_ok=True)

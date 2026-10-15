@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from _magica import run_node  # noqa: E402
+from _magica import run_node, write_audio_atomically  # noqa: E402
 from _repo_paths import DATA_DIR, WEB_PUBLIC  # noqa: E402
 
 MODEL = "lyria_3_5"
@@ -107,21 +107,23 @@ def encode(src: Path, dst: Path) -> None:
     the end of the remainder, so the last sample flows into the first sample
     of the result instead of fading out and restarting.
     """
-    dst.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as td:
         norm = Path(td) / "norm.wav"
         subprocess.run(
             ["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-af",
              "loudnorm=I=-23:TP=-2:LRA=11", "-ar", "44100", str(norm)], check=True)
         t = LOOP_XFADE_S
-        subprocess.run(
-            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(norm), "-i", str(norm),
-             "-filter_complex",
-             f"[0:a]atrim=start={t},asetpts=PTS-STARTPTS[body];"
-             f"[1:a]atrim=end={t},asetpts=PTS-STARTPTS[head];"
-             f"[body][head]acrossfade=d={t}:c1=qsin:c2=qsin[out]",
-             "-map", "[out]", "-map_metadata", "-1", "-c:a", "libmp3lame",
-             "-b:a", "96k", str(dst)], check=True)
+        def build(tmp: Path) -> None:
+            subprocess.run(
+                ["ffmpeg", "-y", "-loglevel", "error", "-i", str(norm), "-i", str(norm),
+                 "-filter_complex",
+                 f"[0:a]atrim=start={t},asetpts=PTS-STARTPTS[body];"
+                 f"[1:a]atrim=end={t},asetpts=PTS-STARTPTS[head];"
+                 f"[body][head]acrossfade=d={t}:c1=qsin:c2=qsin[out]",
+                 "-map", "[out]", "-map_metadata", "-1", "-f", "mp3", "-c:a", "libmp3lame",
+                 "-b:a", "96k", str(tmp)], check=True)
+
+        write_audio_atomically(dst, build)
 
 
 def load_manifest() -> dict:
@@ -143,6 +145,7 @@ def main() -> int:
     manifest = load_manifest()
     todo = args.only or list(PROMPTS)
     spent = 0.0
+    failed: list[str] = []
     for pid in todo:
         if pid in RESTRICTED and not args.include_restricted:
             print(f"SKIP {pid}: living-tradition exclusion (see docstring)")
@@ -160,9 +163,15 @@ def main() -> int:
             raw = Path(td) / "raw.mp3"
             ok = run_node(MODEL, {"prompt": prompt}, str(raw))
             spent += COST_PER_RUN_USD
+            if ok:
+                try:
+                    encode(raw, out)
+                except (RuntimeError, subprocess.CalledProcessError) as exc:
+                    print(f"  ! encode failed for {pid}: {exc}")
+                    ok = False
             if not ok:
+                failed.append(pid)
                 continue
-            encode(raw, out)
         manifest["ambience"][pid] = {
             "file": f"/audio/ambient/{pid}-ambiance.mp3",
             "model": "lyria-3.5", "prompt": prompt,
@@ -171,6 +180,9 @@ def main() -> int:
         }
         MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
     print(f"est. spend ${spent:.2f}")
+    if failed:
+        print(f"FAILED: {failed}")
+        return 1
     return 0
 
 
