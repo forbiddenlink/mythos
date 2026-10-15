@@ -70,4 +70,38 @@ describe("PronunciationDisplay audio", () => {
     await openAndClickListen("zeus");
     await vi.waitFor(() => expect(speak).toHaveBeenCalledTimes(1));
   });
+
+  it("does not start speech when play() is aborted by a replaced attempt", async () => {
+    let rejectFirst: (e: unknown) => void = () => {};
+    play.mockImplementationOnce(
+      () => new Promise((_, reject) => (rejectFirst = reject)),
+    );
+    await openAndClickListen("zeus");
+    // Button is disabled while the clip loads, so a second click is ignored.
+    expect(
+      screen.getByRole("button", { name: /^Listen/i }),
+    ).toBeDisabled();
+    rejectFirst(new DOMException("interrupted", "AbortError"));
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(speak).not.toHaveBeenCalled();
+  });
+
+  it("ignores a late rejection after unmount", async () => {
+    let rejectFirst: (e: unknown) => void = () => {};
+    play.mockImplementationOnce(
+      () => new Promise((_, reject) => (rejectFirst = reject)),
+    );
+    const user = userEvent.setup();
+    const { unmount } = render(
+      <PronunciationDisplay pronunciation={pron} audioSlug="zeus" />,
+    );
+    await user.hover(screen.getByText("[ZYOOS]"));
+    fireEvent.click(await screen.findByRole("button", { name: /^Listen/i }));
+    unmount();
+    rejectFirst(new Error("failed after unmount"));
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(speak).not.toHaveBeenCalled();
+  });
 });
