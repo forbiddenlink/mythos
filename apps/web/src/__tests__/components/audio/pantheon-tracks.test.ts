@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -32,7 +32,43 @@ describe("PANTHEON_TRACKS", () => {
     }
   });
 
-  it("uses the neutral default for Mesopotamian", () => {
-    expect(tracks.get("mesopotamian-pantheon")).toBe("default.mp3");
+  it("gives each generated pantheon its own bespoke track", () => {
+    for (const id of [
+      "mesopotamian",
+      "slavic",
+      "hittite",
+      "canaanite",
+      "inca",
+      "persian",
+      "finnish",
+      "korean",
+    ]) {
+      expect(tracks.get(`${id}-pantheon`)).toBe(`${id}-ambiance.mp3`);
+    }
+  });
+
+  it("keeps the neutral default for living-tradition pantheons", () => {
+    for (const id of [
+      "african",
+      "yoruba",
+      "akan",
+      "polynesian",
+      "haudenosaunee",
+      "tlingit-haida",
+      "inuit",
+      "aboriginal-australian",
+      "dine",
+    ]) {
+      expect(tracks.get(`${id}-pantheon`)).toBe("default.mp3");
+    }
+  });
+
+  it("references only files that exist on disk", () => {
+    for (const file of new Set(tracks.values())) {
+      expect(
+        existsSync(resolve(process.cwd(), "public/audio/ambient", file)),
+        file,
+      ).toBe(true);
+    }
   });
 });
