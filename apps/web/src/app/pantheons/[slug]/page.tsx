@@ -38,7 +38,12 @@ import { resolveCosmology } from "@/lib/cosmology";
 import { getDeities, getStories } from "@/lib/data/catalog";
 import { hasWorksheet } from "@/lib/data/worksheets";
 import { generateEntityAlt } from "@/lib/image-provenance";
-import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import {
+  generateBaseMetadata,
+  generateNotFoundMetadata,
+  traditionHubTitle,
+} from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getCreatureHub, getGoddessHub } from "@/lib/pantheon-hubs";
 
@@ -97,14 +102,12 @@ export async function generateMetadata({
   const baseDescription =
     pantheon.description ||
     `Explore the ${pantheon.name} from ${pantheon.culture} mythology. Discover the gods, goddesses, and myths of ${pantheon.region}.`;
-  const description =
-    `${baseDescription} See major deities, stories, and cultural context in Mythos Atlas.`.slice(
-      0,
-      158,
-    );
+  const description = truncateDescription(
+    `${baseDescription} See major deities, stories, and cultural context in Mythos Atlas.`,
+  );
 
   return generateBaseMetadata({
-    title: `${pantheon.name} Guide`,
+    title: traditionHubTitle(pantheon),
     description: description,
     url: `/pantheons/${pantheon.slug}`,
     // The generated opengraph-image card for this route supplies og:image.

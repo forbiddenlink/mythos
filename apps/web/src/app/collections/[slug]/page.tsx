@@ -25,6 +25,7 @@ import { getDeities, getStories } from "@/lib/data/catalog";
 import { formatPantheonLabel } from "@/lib/deity-page";
 import { getImageProvenance } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { truncateDescription } from "@/lib/seo/description";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 
 interface PageProps {
@@ -55,13 +56,23 @@ export async function generateMetadata({
     );
   }
 
+  // Searchers look for the figures by name ("trickster gods", "god of
+  // trickery"), not for a "collection", so the title and snippet lead with
+  // the best-known members in the collection's own order.
+  const deityNames = collection.deities
+    .map((id) => getDeities().find((d) => d.id === id || d.slug === id)?.name)
+    .filter((name): name is string => Boolean(name));
+  const leading = deityNames.slice(0, 3);
+  const title =
+    leading.length === 3
+      ? `${collection.name}: ${leading[0]}, ${leading[1]}, ${leading[2]} and More`
+      : collection.name;
+
   return generateBaseMetadata({
-    title: `${collection.name} Collection`,
-    description:
-      `${collection.description} See related deities, myths, and themes in this Mythos Atlas guide.`.slice(
-        0,
-        158,
-      ),
+    title,
+    description: truncateDescription(
+      `${deityNames.slice(0, 5).join(", ")} and more. ${collection.description}`,
+    ),
     url: `/collections/${slug}`,
     keywords: [
       collection.name,

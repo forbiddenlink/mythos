@@ -115,7 +115,9 @@ export async function generateMetadata({
   );
 
   return generateBaseMetadata({
-    title: `${location.name} - ${pantheonName} Location`,
+    // "Location" is site jargon; the reader wants to know which myths the
+    // place belongs to ("lake avernus" searchers see "in Roman Mythology").
+    title: `${location.name} in ${pantheonName} Mythology`,
     description,
     url: `/locations/${location.id}`,
     // The generated opengraph-image card for this route supplies og:image.
