@@ -1,0 +1,282 @@
+[WebServer] (node:91181) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:91210) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] [mythos] NEXT_PUBLIC_ORACLE_ENABLED is true but Upstash is unset — Oracle requests will fail closed (503).
+
+
+Running 258 tests using 2 workers
+
+(node:91386) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:91385) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Deities page should not have critical accessibility violations
+[2/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Homepage page should not have critical accessibility violations
+[3/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Pantheons page should not have critical accessibility violations
+[4/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Stories page should not have critical accessibility violations
+[5/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Quiz Hub page should not have critical accessibility violations
+[6/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Achievements page should not have critical accessibility violations
+[7/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Compare page should not have critical accessibility violations
+[8/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Paths page should not have critical accessibility violations
+[9/258] [chromium] › e2e/accessibility.spec.ts:20:9 › Accessibility › Facts page should not have critical accessibility violations
+[10/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /atlas remains accessible in light mode
+[11/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /pantheons/greek remains accessible in light mode
+[12/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /stories/osiris-myth remains accessible in light mode
+[13/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /stories/inanna-descent remains accessible in light mode
+[14/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /deities/zeus remains accessible in light mode
+[15/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /deities/hades remains accessible in light mode
+[16/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /deities/gaia remains accessible in light mode
+[17/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /stories/first-twins-ibeji remains accessible in light mode
+[18/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /sources/iliad remains accessible in light mode
+[19/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /guides/odyssey remains accessible in light mode
+[20/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /guides/percy-jackson-titans-curse remains accessible in light mode
+[21/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /guides/hades-ii remains accessible in light mode
+[22/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /gods-of/war remains accessible in light mode
+[23/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /atlas remains accessible in dark mode
+[24/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /pantheons/greek remains accessible in dark mode
+[25/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /stories/osiris-myth remains accessible in dark mode
+[26/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /stories/inanna-descent remains accessible in dark mode
+[27/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /deities/zeus remains accessible in dark mode
+[28/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /deities/hades remains accessible in dark mode
+[29/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /deities/gaia remains accessible in dark mode
+[30/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /stories/first-twins-ibeji remains accessible in dark mode
+[31/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /sources/iliad remains accessible in dark mode
+[32/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /guides/odyssey remains accessible in dark mode
+[33/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /guides/percy-jackson-titans-curse remains accessible in dark mode
+[34/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /guides/hades-ii remains accessible in dark mode
+[35/258] [chromium] › e2e/accessibility.spec.ts:83:11 › Reading pages at narrow widths › /gods-of/war remains accessible in dark mode
+[36/258] [chromium] › e2e/catalog-pagination.spec.ts:17:7 › /heroes exposes every catalog entry through real server-rendered page links
+[37/258] [chromium] › e2e/catalog-pagination.spec.ts:49:7 › /heroes survives next, reload, back, and search resets
+[38/258] [chromium] › e2e/catalog-pagination.spec.ts:17:7 › /locations exposes every catalog entry through real server-rendered page links
+[39/258] [chromium] › e2e/catalog-pagination.spec.ts:49:7 › /locations survives next, reload, back, and search resets
+[40/258] [chromium] › e2e/catalog-pagination.spec.ts:97:5 › location filters persist through a direct load and clearing an era removes it
+[41/258] [chromium] › e2e/catalog-pagination.spec.ts:125:5 › invalid page values render the first page and oversized pages render the last
+[42/258] [chromium] › e2e/catalog-pagination.spec.ts:138:5 › era filtering is applied to actual server-rendered location cards
+[43/258] [chromium] › e2e/catalog-pagination.spec.ts:157:5 › the Duat thumbnail loads when scrolled into the location list viewport
+[44/258] [chromium] › e2e/catalog-pagination.spec.ts:171:5 › an explicit map preference survives loading a later page
+[45/258] [chromium] › e2e/catalog-pagination.spec.ts:186:5 › tradition deep links survive reload for both catalogs
+[46/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › deities retains a reading journey at 1440px
+[47/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › stories retains a reading journey at 1440px
+[48/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › artifacts retains a reading journey at 1440px
+[49/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › creatures retains a reading journey at 1440px
+[50/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › heroes retains a reading journey at 1440px
+[51/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › locations retains a reading journey at 1440px
+[52/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › deities retains a reading journey at 390px
+[53/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › stories retains a reading journey at 390px
+[54/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › artifacts retains a reading journey at 390px
+[55/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › creatures retains a reading journey at 390px
+[56/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › heroes retains a reading journey at 390px
+[57/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › locations retains a reading journey at 390px
+[58/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › deities retains a reading journey at 768px
+[59/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › stories retains a reading journey at 768px
+[60/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › artifacts retains a reading journey at 768px
+[61/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › creatures retains a reading journey at 768px
+[62/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › heroes retains a reading journey at 768px
+[63/258] [chromium] › e2e/catalog-recovery.spec.ts:19:9 › locations retains a reading journey at 768px
+[64/258] [chromium] › e2e/catalog-recovery.spec.ts:65:7 › deities restores pagination and validates parameters
+[65/258] [chromium] › e2e/catalog-recovery.spec.ts:65:7 › stories restores pagination and validates parameters
+[66/258] [chromium] › e2e/catalog-recovery.spec.ts:65:7 › creatures restores pagination and validates parameters
+[67/258] [chromium] › e2e/catalog-recovery.spec.ts:65:7 › artifacts restores pagination and validates parameters
+[68/258] [chromium] › e2e/catalog-recovery.spec.ts:94:7 › search recovery supports keyboard and focus at 1440px
+[69/258] [chromium] › e2e/catalog-recovery.spec.ts:94:7 › search recovery supports keyboard and focus at 390px
+[70/258] [chromium] › e2e/catalog-recovery.spec.ts:94:7 › search recovery supports keyboard and focus at 768px
+[71/258] [chromium] › e2e/catalog-recovery.spec.ts:94:7 › search recovery supports keyboard and focus at 320px
+[72/258] [chromium] › e2e/catalog-recovery.spec.ts:135:5 › failed search data offers working browse recovery
+[73/258] [chromium] › e2e/catalog-recovery.spec.ts:156:5 › deity table retains its page and column sort through an entry visit
+[74/258] [chromium] › e2e/catalog-recovery.spec.ts:179:5 › pending search cannot activate a stale suggestion
+[75/258] [chromium] › e2e/catalog-recovery.spec.ts:207:5 › catalog controls remain reachable at 320px with doubled text size
+[76/258] [chromium] › e2e/ci-smoke.spec.ts:38:9 › smoke / › has no axe violations and no console errors
+[77/258] [chromium] › e2e/ci-smoke.spec.ts:65:9 › smoke / › reflows at 390px with 200% text
+[78/258] [chromium] › e2e/ci-smoke.spec.ts:38:9 › smoke /deities › has no axe violations and no console errors
+[79/258] [chromium] › e2e/ci-smoke.spec.ts:65:9 › smoke /deities › reflows at 390px with 200% text
+[80/258] [chromium] › e2e/ci-smoke.spec.ts:38:9 › smoke /deities/viracocha › has no axe violations and no console errors
+[81/258] [chromium] › e2e/ci-smoke.spec.ts:65:9 › smoke /deities/viracocha › reflows at 390px with 200% text
+[82/258] [chromium] › e2e/ci-smoke.spec.ts:38:9 › smoke /locations/pachacamac-sanctuary › has no axe violations and no console errors
+[83/258] [chromium] › e2e/ci-smoke.spec.ts:65:9 › smoke /locations/pachacamac-sanctuary › reflows at 390px with 200% text
+[84/258] [chromium] › e2e/ci-smoke.spec.ts:38:9 › smoke /artifacts › has no axe violations and no console errors
+[85/258] [chromium] › e2e/ci-smoke.spec.ts:65:9 › smoke /artifacts › reflows at 390px with 200% text
+[86/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /leaderboard lands on its replacement
+[87/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /tours lands on its replacement
+[88/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /tours/norse-realms lands on its replacement
+[89/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /tours/argonauts lands on its replacement
+[90/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /learning-paths lands on its replacement
+[91/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /collections lands on its replacement
+[92/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /study lands on its replacement
+[93/258] [chromium] › e2e/consolidation-engagement.spec.ts:14:9 › retired routes redirect permanently › /story-timeline lands on its replacement
+[94/258] [chromium] › e2e/consolidation-engagement.spec.ts:22:7 › retired routes redirect permanently › the story timeline opens its view from the hash
+[95/258] [chromium] › e2e/consolidation-engagement.spec.ts:32:5 › otherworld journeys show an ordered route instead of a map
+[96/258] [chromium] › e2e/consolidation-engagement.spec.ts:42:5 › Your Stats shows figures without ranks or lifting cards
+[97/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /deities/athena can be shared
+[98/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /heroes/achilles can be shared
+[99/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /stories/death-of-baldur can be shared
+[100/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /creatures/minotaur can be shared
+[101/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /artifacts/mjolnir can be shared
+[102/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /locations/mount-olympus can be shared
+[103/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /pantheons/greek can be shared
+[104/258] [chromium] › e2e/consolidation-engagement.spec.ts:82:9 › entity pages › /sources/odyssey can be shared
+[105/258] [chromium] › e2e/consolidation-engagement.spec.ts:91:7 › entity pages › detail images say they are illustrative and explain why
+[106/258] [chromium] › e2e/consolidation-engagement.spec.ts:105:5 › pantheon pages link a printable worksheet with an answer key
+[107/258] [chromium] › e2e/consolidation-engagement.spec.ts:122:5 › today's myth runs three questions and offers a share card
+[108/258] [chromium] › e2e/consolidation-engagement.spec.ts:145:5 › newsletter sign-up explains when sign-ups are not open yet
+[109/258] [chromium] › e2e/content-browsing.spec.ts:9:7 › Content Browsing › should display homepage
+[110/258] [chromium] › e2e/content-browsing.spec.ts:17:7 › Content Browsing › should navigate to pantheons list
+[111/258] [chromium] › e2e/content-browsing.spec.ts:25:7 › Content Browsing › should navigate from pantheons to deities
+[112/258] [chromium] › e2e/content-browsing.spec.ts:44:7 › Content Browsing › should display deity details page
+[113/258] [chromium] › e2e/content-browsing.spec.ts:54:7 › Content Browsing › should display stories list
+[114/258] [chromium] › e2e/content-browsing.spec.ts:62:7 › Content Browsing › should navigate to story details
+[115/258] [chromium] › e2e/content-browsing.spec.ts:77:7 › Content Browsing › should display creatures page
+[116/258] [chromium] › e2e/content-browsing.spec.ts:84:7 › Content Browsing › should display artifacts page
+[117/258] [chromium] › e2e/content-browsing.spec.ts:91:7 › Content Browsing › should display locations page
+[118/258] [chromium] › e2e/content-browsing.spec.ts:98:7 › Content Browsing › should support navigation back and forward
+[119/258] [chromium] › e2e/content-browsing.spec.ts:130:7 › Content Browsing › should have working internal links
+[120/258] [chromium] › e2e/content-browsing.spec.ts:150:7 › Content Browsing › should handle 404 pages gracefully
+[121/258] [chromium] › e2e/csp-static-rendering.spec.ts:30:7 › no inline script is blocked on /
+[122/258] [chromium] › e2e/csp-static-rendering.spec.ts:30:7 › no inline script is blocked on /deities/zeus
+[123/258] [chromium] › e2e/csp-static-rendering.spec.ts:30:7 › no inline script is blocked on /stories/titanomachy
+[124/258] [chromium] › e2e/csp-static-rendering.spec.ts:30:7 › no inline script is blocked on /heroes
+[125/258] [chromium] › e2e/csp-static-rendering.spec.ts:30:7 › no inline script is blocked on /deities/not-a-real-deity
+[WebServer] Error: Internal: NoFallbackError
+[WebServer]     at p (.next/server/chunks/8169.js:135:1229)
+[WebServer]     at responseGenerator (.next/server/chunks/8169.js:135:4599)
+
+[126/258] [chromium] › e2e/csp-static-rendering.spec.ts:54:5 › entity pages are served from the prerender cache
+[127/258] [chromium] › e2e/csp-static-rendering.spec.ts:62:5 › a saved locale cookie translates the prerendered page
+[128/258] [chromium] › e2e/detail-reading.spec.ts:6:7 › Detail-page reading › published entries contain no internal invention instructions
+[129/258] [chromium] › e2e/detail-reading.spec.ts:46:9 › Detail-page reading › /heroes/heracles offers direct reading and honest source references
+[130/258] [chromium] › e2e/detail-reading.spec.ts:46:9 › Detail-page reading › /creatures/cerberus offers direct reading and honest source references
+[131/258] [chromium] › e2e/detail-reading.spec.ts:46:9 › Detail-page reading › /artifacts/mjolnir offers direct reading and honest source references
+[132/258] [chromium] › e2e/detail-reading.spec.ts:46:9 › Detail-page reading › /locations/mount-olympus offers direct reading and honest source references
+[133/258] [chromium] › e2e/detail-reading.spec.ts:94:7 › Detail-page reading › African collection distinguishes traditions and avoids a shared origin date
+[134/258] [chromium] › e2e/detail-reading.spec.ts:126:7 › Detail-page reading › timeline separates collections without a shared period
+[135/258] [chromium] › e2e/detail-reading.spec.ts:144:7 › Detail-page reading › replacement passages identify their English editions on article and source pages
+[136/258] [chromium] › e2e/detail-reading.spec.ts:185:5 › learn menu offers the Paths hub on desktop and mobile
+[137/258] [chromium] › e2e/detail-reading.spec.ts:214:5 › primary navigation keeps secondary pages in the footer
+[138/258] [chromium] › e2e/detail-reading.spec.ts:236:5 › desktop discovery keeps its last destination reachable on short screens
+[139/258] [chromium] › e2e/home-reading-experience.spec.ts:5:9 › home scroll stays in the document at 320px in light
+[140/258] [chromium] › e2e/home-reading-experience.spec.ts:5:9 › home scroll stays in the document at 320px in dark
+[141/258] [chromium] › e2e/home-reading-experience.spec.ts:5:9 › home scroll stays in the document at 768px in light
+[142/258] [chromium] › e2e/home-reading-experience.spec.ts:5:9 › home scroll stays in the document at 768px in dark
+[143/258] [chromium] › e2e/home-reading-experience.spec.ts:5:9 › home scroll stays in the document at 1440px in light
+[144/258] [chromium] › e2e/home-reading-experience.spec.ts:5:9 › home scroll stays in the document at 1440px in dark
+[145/258] [chromium] › e2e/home-reading-experience.spec.ts:51:5 › optional tools wait for intent and discovery supports keyboard dismissal
+[146/258] [chromium] › e2e/home-reading-experience.spec.ts:81:5 › home links are available with reduced motion
+[147/258] [chromium] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions
+[148/258] [chromium] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets
+[149/258] [chromium] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles
+[150/258] [chromium] › e2e/learning-backup.spec.ts:75:7 › Learning backup › stages and restores a valid backup across reload without changing unrelated storage
+[151/258] [chromium] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session
+[152/258] [chromium] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation
+[153/258] [chromium] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px
+[154/258] [chromium] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px
+[155/258] [chromium] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px
+[156/258] [chromium] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px
+[157/258] [chromium] › e2e/phase7-features.spec.ts:11:7 › Phase 7: Oracle Chat › should display Oracle button on homepage
+[158/258] [chromium] › e2e/phase7-features.spec.ts:19:7 › Phase 7: Oracle Chat › should open Oracle modal when clicking button
+[159/258] [chromium] › e2e/phase7-features.spec.ts:36:7 › Phase 7: Oracle Chat › should display suggested questions in Oracle modal
+[160/258] [chromium] › e2e/phase7-features.spec.ts:57:7 › Phase 7: Oracle Chat › should send a suggested question without calling a live Oracle
+[161/258] [chromium] › e2e/phase7-features.spec.ts:113:7 › Phase 7: Oracle Chat › should close Oracle modal with X button
+[162/258] [chromium] › e2e/phase7-features.spec.ts:140:7 › Phase 7: Deity Editorial Layout & Details › should render deity hero artwork and title on deity page
+[163/258] [chromium] › e2e/phase7-features.spec.ts:158:7 › Phase 7: Deity Editorial Layout & Details › should render deity details across different pantheons
+[164/258] [chromium] › e2e/phase7-features.spec.ts:197:7 › Phase 7: Layout Effects › Oracle button should be present on all pages
+[165/258] [chromium] › e2e/phase7-features.spec.ts:212:7 › Phase 7: Mobile Viewport Tests › Oracle button should be visible on mobile
+[166/258] [chromium] › e2e/phase7-features.spec.ts:235:7 › Phase 7: Mobile Viewport Tests › Oracle modal should be responsive on mobile
+[167/258] [chromium] › e2e/phase7-features.spec.ts:269:7 › Phase 7: Mobile Viewport Tests › Deity page should render properly on mobile
+[168/258] [chromium] › e2e/phase7-features.spec.ts:295:7 › Phase 7: Mobile Viewport Tests › Homepage particles should respect reduced motion
+[169/258] [chromium] › e2e/phase7-features.spec.ts:309:7 › Phase 7: Tablet Viewport Tests › Oracle modal should be properly sized on tablet
+[170/258] [chromium] › e2e/phase7-features.spec.ts:343:7 › Phase 7: Tablet Viewport Tests › Deity editorial layout should render on tablet
+[171/258] [chromium] › e2e/phase7-features.spec.ts:372:7 › Phase 7: Performance › Homepage should load within acceptable time
+[172/258] [chromium] › e2e/phase7-features.spec.ts:382:7 › Phase 7: Performance › Deity page should not block interaction
+[173/258] [chromium] › e2e/phase8-discovery.spec.ts:10:7 › Phase 8: Collections › lists every collection on the Paths hub
+[174/258] [chromium] › e2e/phase8-discovery.spec.ts:32:7 › Phase 8: Collections › a collection choice is available on a narrow phone without scrolling
+[175/258] [chromium] › e2e/phase8-discovery.spec.ts:52:7 › Phase 8: Collections › should navigate to collection detail page
+[176/258] [chromium] › e2e/phase8-discovery.spec.ts:69:7 › Phase 8: Collections › should display deity and story counts for featured and listed themes
+[177/258] [chromium] › e2e/phase8-discovery.spec.ts:85:7 › Phase 8: Collections › should show related deities on collection detail page
+[178/258] [chromium] › e2e/phase8-discovery.spec.ts:98:7 › Phase 8: Collections › should show related stories on collection detail page
+[179/258] [chromium] › e2e/phase8-discovery.spec.ts:113:7 › Phase 8: Mythology Facts › should display facts page with all facts
+[180/258] [chromium] › e2e/phase8-discovery.spec.ts:128:7 › Phase 8: Mythology Facts › should display category filter buttons
+[181/258] [chromium] › e2e/phase8-discovery.spec.ts:143:7 › Phase 8: Mythology Facts › should filter facts by category
+[182/258] [chromium] › e2e/phase8-discovery.spec.ts:161:7 › Phase 8: Mythology Facts › should have shuffle button
+[183/258] [chromium] › e2e/phase8-discovery.spec.ts:177:7 › Phase 8: Mythology Facts › should link facts to related deities
+[184/258] [chromium] › e2e/phase8-discovery.spec.ts:188:7 › Phase 8: Mythology Facts › should navigate to deity from fact
+[185/258] [chromium] › e2e/phase8-discovery.spec.ts:214:7 › Phase 8: Random Discovery Button › should display optional discover button on homepage
+[186/258] [chromium] › e2e/phase8-discovery.spec.ts:227:7 › Phase 8: Random Discovery Button › should display optional discover button on other pages
+[187/258] [chromium] › e2e/phase8-discovery.spec.ts:240:7 › Phase 8: Random Discovery Button › should open discovery modal on click
+[188/258] [chromium] › e2e/phase8-discovery.spec.ts:255:7 › Phase 8: Random Discovery Button › should show deity details in modal
+[189/258] [chromium] › e2e/phase8-discovery.spec.ts:280:7 › Phase 8: Random Discovery Button › should get another random deity when clicking Another
+[190/258] [chromium] › e2e/phase8-discovery.spec.ts:312:7 › Phase 8: Random Discovery Button › should close modal when clicking Close button
+[191/258] [chromium] › e2e/phase8-discovery.spec.ts:336:7 › Phase 8: Random Discovery Button › should navigate to deity page when clicking Explore
+[192/258] [chromium] › e2e/phase8-discovery.spec.ts:364:7 › Phase 8: Random Discovery Button › should close modal when clicking overlay
+[193/258] [chromium] › e2e/phase8-discovery.spec.ts:391:7 › Phase 8: Homepage Integration › should display Did You Know widget on homepage
+[194/258] [chromium] › e2e/phase8-discovery.spec.ts:402:7 › Phase 8: Homepage Integration › should display Collections Showcase on homepage
+[195/258] [chromium] › e2e/phase8-discovery.spec.ts:414:7 › Phase 8: Homepage Integration › should have View All Collections link on homepage
+[196/258] [chromium] › e2e/phase8-discovery.spec.ts:426:7 › Phase 8: Homepage Integration › should have Explore More Facts link on homepage
+[197/258] [chromium] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage
+[198/258] [chromium] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads
+[199/258] [chromium] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads
+[200/258] [chromium] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days
+[201/258] [chromium] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date
+[202/258] [chromium] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks
+[203/258] [chromium] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit
+[204/258] [chromium] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available
+[205/258] [chromium] › e2e/public-assets.spec.ts:3:5 › serves a hero image instead of its similarly named page
+[206/258] [chromium] › e2e/public-assets.spec.ts:15:5 › renders the documented Met image without the Next image optimizer
+[207/258] [chromium] › e2e/public-assets.spec.ts:36:5 › server HTML contains unique structured data scoped to the page
+[208/258] [chromium] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially
+[209/258] [chromium] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading
+[210/258] [chromium] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer
+[211/258] [chromium] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering
+[212/258] [chromium] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions
+[213/258] [chromium] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results
+[214/258] [chromium] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion
+[215/258] [chromium] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz
+[216/258] [chromium] › e2e/reading-motion.spec.ts:9:7 › Cinematic reading with reduced motion › renders the title and narrative after hydration
+[217/258] [chromium] › e2e/reading-motion.spec.ts:41:9 › Cinematic story server content › ragnarok includes title and scenes in server HTML
+[218/258] [chromium] › e2e/reading-motion.spec.ts:41:9 › Cinematic story server content › titanomachy includes title and scenes in server HTML
+[219/258] [chromium] › e2e/reading-motion.spec.ts:54:5 › cinematic text stays visible and image motion stops when the preference changes
+[220/258] [chromium] › e2e/reading-motion.spec.ts:71:7 › ragnarok story navigation does not cover the main header
+[221/258] [chromium] › e2e/reading-motion.spec.ts:71:7 › titanomachy story navigation does not cover the main header
+[222/258] [chromium] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut
+[223/258] [chromium] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger
+[224/258] [chromium] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened
+[225/258] [chromium] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results
+[226/258] [chromium] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection
+[227/258] [chromium] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape
+[228/258] [chromium] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries
+[229/258] [chromium] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation
+[230/258] [chromium] › e2e/seo-hubs.spec.ts:30:7 › structured data in server HTML › entity pages describe mythic figures as Things, not Persons
+[231/258] [chromium] › e2e/seo-hubs.spec.ts:52:7 › structured data in server HTML › a real place carries coordinates and a mythic realm does not
+[232/258] [chromium] › e2e/seo-hubs.spec.ts:66:7 › structured data in server HTML › source pages are Books
+[233/258] [chromium] › e2e/seo-hubs.spec.ts:71:7 › structured data in server HTML › deity pages answer family questions visibly and as FAQPage
+[234/258] [chromium] › e2e/seo-hubs.spec.ts:91:7 › structured data in server HTML › the reading view defers to the story entry as canonical
+[235/258] [chromium] › e2e/seo-hubs.spec.ts:102:7 › hub pages › gods of war lists deities by tradition and links to them
+[236/258] [chromium] › e2e/seo-hubs.spec.ts:122:7 › hub pages › divine domains links every domain page
+[237/258] [chromium] › e2e/seo-hubs.spec.ts:146:9 › hub pages › /guides/percy-jackson-titans-curse renders, links the catalog and carries its FAQ
+[238/258] [chromium] › e2e/seo-hubs.spec.ts:146:9 › hub pages › /guides/odyssey renders, links the catalog and carries its FAQ
+[239/258] [chromium] › e2e/seo-hubs.spec.ts:146:9 › hub pages › /guides/hades-ii renders, links the catalog and carries its FAQ
+[240/258] [chromium] › e2e/seo-hubs.spec.ts:169:7 › hub pages › entry share cards render as PNGs
+[241/258] [chromium] › e2e/seo-hubs.spec.ts:185:7 › hub pages › guide OG images are PNGs
+[242/258] [chromium] › e2e/seo-hubs.spec.ts:191:7 › hub pages › entries link back to the guides that feature them
+[243/258] [chromium] › e2e/seo-hubs.spec.ts:200:7 › hub pages › the homepage links the guides
+[244/258] [chromium] › e2e/seo-hubs.spec.ts:207:7 › hub pages › the sitemap lists the hubs and the previously missing routes
+[245/258] [chromium] › e2e/sharing-recovery.spec.ts:4:7 › clipboard failure offers a real recovery at 1440px
+[246/258] [chromium] › e2e/sharing-recovery.spec.ts:4:7 › clipboard failure offers a real recovery at 390px
+[247/258] [chromium] › e2e/sharing-recovery.spec.ts:4:7 › clipboard failure offers a real recovery at 320px
+[248/258] [chromium] › e2e/sharing-recovery.spec.ts:58:7 › successful clipboard copying reports success
+[249/258] [chromium] › e2e/sharing-recovery.spec.ts:58:7 › successful legacy copying reports success
+[250/258] [chromium] › e2e/story-source-reading.spec.ts:9:7 › Story and source reading › keeps pantheon dates in their recorded era and offers direct browsing
+[251/258] [chromium] › e2e/story-source-reading.spec.ts:36:7 › Story and source reading › puts the deity introduction before its portrait on mobile and links to reading sections
+[252/258] [chromium] › e2e/story-source-reading.spec.ts:81:7 › Story and source reading › retains related figures, stories and museum objects after server rendering
+[253/258] [chromium] › e2e/story-source-reading.spec.ts:104:7 › Story and source reading › offers direct reading and one optional narration interface
+[254/258] [chromium] › e2e/story-source-reading.spec.ts:151:7 › Story and source reading › shows checked English passages on figures and their source records
+[255/258] [chromium] › e2e/story-source-reading.spec.ts:188:7 › Story and source reading › replaces disputed wording on both the entity and source record
+[256/258] [chromium] › e2e/story-source-reading.spec.ts:218:5 › Osiris comparison exposes editions and preserves source differences
+[257/258] [chromium] › e2e/support.spec.ts:4:7 › support is reachable and clearly describes checkout at 320px
+[258/258] [chromium] › e2e/support.spec.ts:4:7 › support is reachable and clearly describes checkout at 1440px
+  258 passed (3.0m)

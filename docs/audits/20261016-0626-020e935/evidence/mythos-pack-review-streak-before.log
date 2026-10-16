@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /Volumes/LizsDisk/mythos/apps/web
+
+ ❯ src/__tests__/providers/review-provider.test.tsx (7 tests | 1 failed) 31ms
+     × counts next-day review activity toward the visit streak 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/__tests__/providers/review-provider.test.tsx > ReviewProvider > counts next-day review activity toward the visit streak
+AssertionError: expected '2026-10-16' to be '2026-10-17' // Object.is equality
+
+Expected: "2026-10-17"
+Received: "2026-10-16"
+
+ ❯ src/__tests__/providers/review-provider.test.tsx:177:57
+    175|     vi.setSystemTime(new Date("2026-10-17T12:00:00Z"));
+    176|     act(() => result.current.review.reviewCard("domain-match:zeus", 3)…
+    177|     expect(result.current.progress?.progress.lastVisit).toBe("2026-10-…
+       |                                                         ^
+    178|     expect(result.current.progress?.progress.dailyStreak).toBe(2);
+    179|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  06:41:56
+   Duration  792ms (transform 250ms, setup 61ms, import 361ms, tests 31ms, environment 262ms)
+
+undefined
+/Volumes/LizsDisk/mythos/apps/web:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run src/__tests__/providers/review-provider.test.tsx --maxWorkers=1

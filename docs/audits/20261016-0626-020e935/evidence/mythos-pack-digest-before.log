@@ -1,0 +1,66 @@
+
+ RUN  v4.1.11 /Volumes/LizsDisk/mythos/apps/web
+
+ ❯ src/__tests__/api/weekly-digest.test.ts (15 tests | 3 failed) 13ms
+     × prevents overlapping deliveries when an existing draft is false 4ms
+     × prevents overlapping deliveries when an existing draft is true 1ms
+     × fails closed when the shared lock cannot be acquired 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/__tests__/api/weekly-digest.test.ts > weekly digest run > prevents overlapping deliveries when an existing draft is false
+ FAIL  src/__tests__/api/weekly-digest.test.ts > weekly digest run > prevents overlapping deliveries when an existing draft is true
+AssertionError: expected [ 'sent', 'sent' ] to deeply equal [ 'busy', 'sent' ]
+
+- Expected
++ Received
+
+  [
+-   "busy",
++   "sent",
+    "sent",
+  ]
+
+ ❯ src/__tests__/api/weekly-digest.test.ts:135:61
+    133|         runWeeklyDigest(options),
+    134|       ]);
+    135|       expect(results.map((result) => result.status).sort()).toEqual([
+       |                                                             ^
+    136|         "busy",
+    137|         "sent",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/__tests__/api/weekly-digest.test.ts > weekly digest run > fails closed when the shared lock cannot be acquired
+AssertionError: expected { status: 'sent', id: 'bc_new', …(1) } to deeply equal { status: 'error', step: 'lock' }
+
+- Expected
++ Received
+
+  {
+-   "status": "error",
+-   "step": "lock",
++   "id": "bc_new",
++   "name": "Weekly myth 2026-W42",
++   "status": "sent",
+  }
+
+ ❯ src/__tests__/api/weekly-digest.test.ts:159:20
+    157|       send: true,
+    158|     });
+    159|     expect(result).toEqual({ status: "error", step: "lock" });
+       |                    ^
+    160|     expect(client.broadcasts.create).not.toHaveBeenCalled();
+    161|     expect(client.broadcasts.send).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 12 passed (15)
+   Start at  06:34:31
+   Duration  1.12s (transform 53ms, setup 191ms, import 91ms, tests 13ms, environment 736ms)
+
+undefined
+/Volumes/LizsDisk/mythos/apps/web:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run src/__tests__/api/weekly-digest.test.ts --maxWorkers=1

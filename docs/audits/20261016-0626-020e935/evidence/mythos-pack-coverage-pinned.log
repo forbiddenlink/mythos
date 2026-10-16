@@ -1,0 +1,115 @@
+
+> web@0.1.0 test:coverage /Volumes/LizsDisk/mythos/apps/web
+> vitest run --coverage --maxWorkers=2
+
+
+ RUN  v4.1.11 /Volumes/LizsDisk/mythos/apps/web
+      Coverage enabled with v8
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+ Test Files  164 passed (164)
+      Tests  1599 passed (1599)
+   Start at  06:47:07
+   Duration  61.22s (transform 3.74s, setup 13.64s, import 15.65s, tests 14.19s, environment 56.61s)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   76.85 |    67.87 |   80.31 |   78.07 |                   
+ lib               |   72.39 |    65.05 |   77.17 |   73.35 |                   
+  anki-export.ts   |   58.62 |    46.15 |   71.42 |   60.71 | 18,142-157        
+  ...-festivals.ts |     100 |     90.9 |     100 |     100 | 232               
+  atlas-layout.ts  |   98.18 |    85.71 |     100 |     100 | 121-157           
+  attestation.ts   |   76.54 |    73.43 |      80 |   90.47 | 143-155           
+  ...hing-story.ts |       0 |        0 |       0 |       0 | 49-178            
+  ...log-client.ts |   71.42 |       75 |      50 |   83.33 | 32-36             
+  catalog-query.ts |     100 |    77.77 |     100 |     100 | 8-12              
+  comparisons.ts   |   93.33 |     74.5 |     100 |     100 | ...76,290,318,351 
+  cosmology.ts     |     100 |    88.88 |     100 |     100 | 68,96             
+  csp.ts           |     100 |    85.71 |     100 |     100 | 38-50             
+  ...challenges.ts |     100 |    95.23 |     100 |     100 | 139               
+  deity-faq.ts     |     100 |    93.75 |     100 |     100 | 22                
+  deity-page.ts    |   99.02 |    95.65 |     100 |   98.85 | 209               
+  ...-reference.ts |   94.73 |       75 |   88.88 |   94.44 | 61                
+  entry-faq.ts     |      96 |    86.36 |     100 |     100 | 17                
+  ...y-mentions.ts |   97.01 |    93.18 |     100 |     100 | 59,133,182        
+  gods-of.ts       |   98.88 |    82.85 |     100 |     100 | ...19,241,278-282 
+  ...e-entities.ts |   94.73 |    68.42 |     100 |   93.75 | 52                
+  heroes.ts        |       0 |        0 |       0 |       0 | 10-33             
+  ...provenance.ts |   97.05 |    90.47 |     100 |     100 | 46,70-72,155      
+  ...ing-backup.ts |   95.58 |     87.5 |     100 |   98.43 | 228               
+  ...d-mentions.ts |       0 |        0 |       0 |       0 | 57-211            
+  logger.ts        |     5.4 |        0 |       0 |    5.71 | 29-67,85-148      
+  mastery.ts       |     100 |    97.14 |     100 |     100 | 135               
+  metadata.ts      |   94.73 |    83.33 |   83.33 |   94.73 | 59                
+  museum.ts        |   77.77 |    91.66 |   71.42 |   85.71 | 69                
+  ...comparison.ts |       0 |        0 |       0 |       0 | 76-421            
+  mythic-eras.ts   |       0 |        0 |       0 |       0 | 16-150            
+  narration.ts     |    2.77 |     7.07 |    3.44 |    2.79 | 68-351            
+  ...-broadcast.ts |   81.08 |    82.45 |   63.63 |   83.87 | 90-107            
+  ...ter-digest.ts |     100 |    93.18 |     100 |     100 | 180-182           
+  newsletter.ts    |     100 |    92.85 |     100 |     100 | 95                
+  ...eon-colors.ts |     100 |       50 |     100 |     100 | 37                
+  pantheon-hubs.ts |   97.82 |    90.62 |     100 |     100 | 74,104            
+  ...on-rosters.ts |      90 |    83.33 |     100 |   88.88 | 21                
+  ...llel-notes.ts |     100 |       50 |     100 |     100 | 27                
+  pdf-export.ts    |    53.7 |    31.42 |   78.57 |   54.08 | ...19-331,354-411 
+  ...cy-consent.ts |   78.94 |       75 |     100 |   93.33 | 15                
+  quiz-share.ts    |   91.17 |    88.88 |     100 |   96.55 | 101               
+  rafThrottle.ts   |     100 |       75 |     100 |     100 | 16                
+  ...mendations.ts |   18.96 |     8.69 |   32.43 |   19.44 | ...59-410,443-531 
+  ...nship-quiz.ts |   95.79 |    94.11 |      92 |   97.19 | 84,160,164        
+  relationships.ts |     100 |    81.48 |     100 |     100 | 59,68-96          
+  ...e-pantheon.ts |     100 |    85.71 |     100 |     100 | 506,520           
+  schemas.ts       |   76.19 |        0 |       0 |   76.19 | 447-468           
+  search-engine.ts |   98.14 |    74.15 |     100 |   98.09 | 426,470           
+  search-fold.ts   |     100 |       50 |     100 |     100 | 32                
+  search-merge.ts  |     100 |       75 |     100 |     100 | 30                
+  seeded.ts        |     100 |       50 |     100 |     100 | 12                
+  ...repetition.ts |   97.05 |       90 |     100 |   96.96 | 114               
+  ...y-timeline.ts |       0 |        0 |       0 |       0 | 55-474            
+  support-nudge.ts |   90.19 |    80.64 |     100 |   97.61 | 67                
+  ...ition-name.ts |      50 |      100 |      50 |      50 | 23                
+ lib/analytics     |   95.94 |       96 |     100 |     100 |                   
+  events.ts        |   92.68 |    93.02 |     100 |     100 | 144-147,209       
+ lib/data          |   86.95 |    62.79 |   78.75 |    87.7 |                   
+  catalog.ts       |   84.09 |       25 |   74.07 |      85 | ...96,127-132,195 
+  daily-myths.ts   |   97.72 |    84.21 |     100 |     100 | 59,71,99          
+  ...ve-stories.ts |       0 |        0 |       0 |       0 | 10-13             
+  quiz-pool.ts     |       0 |        0 |       0 |       0 | 14-72             
+  worksheets.ts    |   96.62 |    84.61 |     100 |     100 | ...03-108,147,163 
+ lib/http          |    92.3 |       90 |     100 |      92 |                   
+  ...-json-body.ts |    92.3 |       90 |     100 |      92 | 18,47             
+ lib/og            |       0 |        0 |       0 |       0 |                   
+  card.tsx         |       0 |        0 |       0 |       0 | 1-93              
+ lib/oracle        |   82.32 |    70.31 |   87.75 |   84.69 |                   
+  citations.ts     |   95.23 |    93.05 |     100 |     100 | ...01,111,166,178 
+  ...t-identity.ts |     100 |    92.85 |     100 |     100 | 35                
+  coverage.ts      |     100 |    66.66 |     100 |     100 | 20-32             
+  global-budget.ts |   31.81 |    27.77 |      50 |   33.33 | 18-25,45,50-61    
+  grounding.ts     |   93.92 |    72.58 |     100 |   97.81 | ...51,646,779,799 
+  oracle-locale.ts |      70 |       60 |     100 |   66.66 | 70-74             
+  prompt.ts        |   83.33 |       50 |     100 |   83.33 | 38                
+  provider.ts      |      94 |    89.79 |      80 |   95.34 | 77,139            
+  rate-limit.ts    |   75.55 |    65.38 |   77.77 |   76.19 | ...13,124,136-146 
+  ...est-guards.ts |   91.66 |      100 |     100 |   91.66 | 26                
+  semantic.ts      |   28.03 |    20.45 |   36.84 |   30.76 | ...44-276,292-320 
+  stream-client.ts |   97.61 |    85.18 |     100 |     100 | 45,58,64-78       
+  token-budget.ts  |   96.42 |     92.5 |     100 |     100 | 136,140,150       
+ lib/seo           |     100 |    85.41 |     100 |     100 |                   
+  cited-works.ts   |     100 |       80 |     100 |     100 | 34,36,50,63       
+  entry-titles.ts  |     100 |    85.71 |     100 |     100 | 14-20             
+ providers         |    95.8 |    90.36 |   95.45 |   96.89 |                   
+  ...-provider.tsx |    95.8 |    90.36 |   95.45 |   96.89 | ...46,524,529,534 
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 76.85% ( 2975/3871 )
+Branches     : 67.87% ( 1745/2571 )
+Functions    : 80.31% ( 755/940 )
+Lines        : 78.07% ( 2689/3444 )
+================================================================================
