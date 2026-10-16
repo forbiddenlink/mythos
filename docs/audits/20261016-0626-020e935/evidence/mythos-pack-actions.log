@@ -1,0 +1,4 @@
+.github/workflows/dependabot-automerge.yml:29:9: shellcheck reported issue in this script: SC2034:warning:2:1: i appears unused. Verify use (or export if used externally) [shellcheck]
+   |
+29 |         run: |
+   |         ^~~~

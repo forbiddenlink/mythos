@@ -1,7 +1,10 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { ReactNode } from "react";
-import { ProgressProvider } from "@/providers/progress-provider";
+import { useContext, type ReactNode } from "react";
+import {
+  ProgressContext,
+  ProgressProvider,
+} from "@/providers/progress-provider";
 import { ReviewProvider, useReview } from "@/providers/review-provider";
 import { addDaysToLocalDate, getLocalYesterday } from "@/lib/date";
 
@@ -65,6 +68,8 @@ describe("ReviewProvider", () => {
   afterEach(() => {
     localStorage.clear();
     vi.restoreAllMocks();
+    vi.useRealTimers();
+    vi.unstubAllEnvs();
   });
 
   it("generates a stable deck from explored content and records a review", async () => {
@@ -130,6 +135,69 @@ describe("ReviewProvider", () => {
 
     act(() => result.current.reviewCard("pantheon-match:zeus", 3));
     expect(result.current.reviewState.stats.currentStreak).toBe(4);
+  });
+
+  it("resets daily answers when an open review session crosses midnight", () => {
+    vi.stubEnv("NODE_ENV", "development");
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date(2026, 9, 15, 23, 59));
+    const { result } = renderHook(() => useReview(), { wrapper: Providers });
+
+    act(() => result.current.reviewCard("domain-match:zeus", 3));
+    expect(result.current.getTodayStats().reviewed).toBe(1);
+
+    vi.setSystemTime(new Date(2026, 9, 16, 0, 1));
+    expect(result.current.getTodayStats()).toEqual({
+      reviewed: 0,
+      correct: 0,
+      accuracy: 0,
+    });
+    act(() => result.current.reviewCard("pantheon-match:zeus", 1));
+
+    expect(result.current.getTodayStats()).toEqual({
+      reviewed: 1,
+      correct: 0,
+      accuracy: 0,
+    });
+    expect(result.current.reviewState.todayReviewed).toEqual([
+      "pantheon-match:zeus",
+    ]);
+    expect(result.current.reviewState.stats.incorrectToday).toBe(1);
+    expect(result.current.reviewState.stats.totalReviewed).toBe(2);
+    expect(result.current.reviewState.stats.currentStreak).toBe(2);
+  });
+
+  it("counts next-day review activity toward the visit streak", () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-10-16T12:00:00Z"));
+    const { result } = renderHook(
+      () => ({ review: useReview(), progress: useContext(ProgressContext) }),
+      { wrapper: Providers },
+    );
+    expect(result.current.progress?.progress.dailyStreak).toBe(1);
+    vi.setSystemTime(new Date("2026-10-17T12:00:00Z"));
+    act(() => result.current.review.reviewCard("domain-match:zeus", 3));
+    expect(result.current.progress?.progress.lastVisit).toBe("2026-10-17");
+    expect(result.current.progress?.progress.dailyStreak).toBe(2);
+  });
+
+  it("includes yesterday's reviewed cards when they become due in an open tab", async () => {
+    vi.stubEnv("NODE_ENV", "development");
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date(2026, 9, 15, 23, 59));
+    const { result } = renderHook(() => useReview(), { wrapper: Providers });
+    await act(async () => result.current.generateCardsFromProgress());
+    act(() => result.current.reviewCard("domain-match:zeus", 1));
+    expect(result.current.dueCards.map((card) => card.id)).not.toContain(
+      "domain-match:zeus",
+    );
+
+    vi.setSystemTime(new Date(2026, 9, 16, 0, 1));
+    await act(async () => result.current.generateCardsFromProgress());
+    expect(result.current.dueCards.map((card) => card.id)).toContain(
+      "domain-match:zeus",
+    );
+    expect(result.current.dueCount).toBe(result.current.dueCards.length);
   });
 
   it("shows saved due cards and expires a missed streak without loading card sources", async () => {

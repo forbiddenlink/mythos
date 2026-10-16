@@ -33,6 +33,7 @@ describe("LazyDidYouKnow", () => {
   it("loads the real component with a fact once it nears the viewport", async () => {
     render(<LazyDidYouKnow deityLookup={{}} />);
     act(() => callback?.([{ isIntersecting: true }]));
+    await act(async () => vi.dynamicImportSettled());
     await waitFor(() =>
       expect(
         screen.getByRole("heading", { name: "Did you know?" }),

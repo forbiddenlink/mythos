@@ -277,6 +277,35 @@ describe("ProgressProvider", () => {
   });
 
   describe("updateStreak", () => {
+    it.each(["deity", "story", "pantheon", "location", "quiz"])(
+      "counts next-day %s activity without remounting or spending a freeze",
+      (activity) => {
+        vi.setSystemTime(new Date("2026-10-16T12:00:00Z"));
+        const { result } = renderHook(() => useProgress(), { wrapper });
+        expect(result.current.progress.dailyStreak).toBe(1);
+        const visit = () => {
+          if (activity === "deity") result.current.trackDeityView("athena");
+          if (activity === "story")
+            result.current.trackStoryRead("titanomachy");
+          if (activity === "pantheon")
+            result.current.trackPantheonExplore("greek-pantheon");
+          if (activity === "location")
+            result.current.trackLocationVisit("mount-olympus");
+          if (activity === "quiz") result.current.recordQuizScore("greek", 80);
+        };
+        act(visit);
+        const freezes = result.current.progress.streakFreezes;
+
+        vi.setSystemTime(new Date("2026-10-17T12:00:00Z"));
+        act(visit);
+        expect(result.current.progress.lastVisit).toBe("2026-10-17");
+        expect(result.current.progress.dailyStreak).toBe(2);
+        expect(result.current.progress.streakFreezes).toBe(freezes);
+        act(visit);
+        expect(result.current.progress.dailyStreak).toBe(2);
+      },
+    );
+
     it("should increment streak when visited yesterday", async () => {
       vi.setSystemTime(new Date("2024-01-15"));
 

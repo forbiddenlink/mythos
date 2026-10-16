@@ -1,0 +1,103 @@
+
+ RUN  v4.1.11 /Volumes/LizsDisk/mythos/apps/web
+
+ ❯ src/__tests__/providers/progress-provider.test.tsx (33 tests | 5 failed) 54ms
+       × counts next-day deity activity without remounting or spending a freeze 5ms
+       × counts next-day story activity without remounting or spending a freeze 1ms
+       × counts next-day pantheon activity without remounting or spending a freeze 1ms
+       × counts next-day location activity without remounting or spending a freeze 1ms
+       × counts next-day quiz activity without remounting or spending a freeze 1ms
+ ❯ src/__tests__/components/analytics/ConsentGatedSentry.test.tsx (3 tests | 2 failed) 2034ms
+     × does not initialize after consent is withdrawn during SDK loading 12ms
+     × resumes when consent is restored while shutdown is pending 1113ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/__tests__/providers/progress-provider.test.tsx > ProgressProvider > updateStreak > counts next-day deity activity without remounting or spending a freeze
+ FAIL  src/__tests__/providers/progress-provider.test.tsx > ProgressProvider > updateStreak > counts next-day story activity without remounting or spending a freeze
+ FAIL  src/__tests__/providers/progress-provider.test.tsx > ProgressProvider > updateStreak > counts next-day pantheon activity without remounting or spending a freeze
+ FAIL  src/__tests__/providers/progress-provider.test.tsx > ProgressProvider > updateStreak > counts next-day location activity without remounting or spending a freeze
+ FAIL  src/__tests__/providers/progress-provider.test.tsx > ProgressProvider > updateStreak > counts next-day quiz activity without remounting or spending a freeze
+AssertionError: expected '2026-10-16' to be '2026-10-17' // Object.is equality
+
+Expected: "2026-10-17"
+Received: "2026-10-16"
+
+ ❯ src/__tests__/providers/progress-provider.test.tsx:300:51
+    298|         vi.setSystemTime(new Date("2026-10-17T12:00:00Z"));
+    299|         act(visit);
+    300|         expect(result.current.progress.lastVisit).toBe("2026-10-17");
+       |                                                   ^
+    301|         expect(result.current.progress.dailyStreak).toBe(2);
+    302|         expect(result.current.progress.streakFreezes).toBe(freezes);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  src/__tests__/components/analytics/ConsentGatedSentry.test.tsx > Sentry consent lifecycle > does not initialize after consent is withdrawn during SDK loading
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "debug": false,
+        "dsn": "https://public@example.com/1",
+        "enabled": true,
+        "ignoreErrors": Array [
+          "closest is not a function",
+          /Failed to read the 'localStorage' property from 'Window'/,
+        ],
+        "integrations": Array [],
+        "replaysOnErrorSampleRate": 0,
+        "replaysSessionSampleRate": 0,
+        "tracesSampleRate": 0.15,
+      },
+    ]
+
+
+Number of calls: 1
+
+ ❯ src/__tests__/components/analytics/ConsentGatedSentry.test.tsx:38:29
+     36|     consent("rejected");
+     37|     await act(async () => vi.dynamicImportSettled());
+     38|     expect(sentry.init).not.toHaveBeenCalled();
+       |                             ^
+     39|   });
+     40|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  src/__tests__/components/analytics/ConsentGatedSentry.test.tsx > Sentry consent lifecycle > resumes when consent is restored while shutdown is pending
+AssertionError: expected "vi.fn()" to be called 2 times, but got 1 times
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+ ❯ src/__tests__/components/analytics/ConsentGatedSentry.test.tsx:53:45
+     51|     consent("accepted");
+     52|     await act(async () => finishClose());
+     53|     await waitFor(() => expect(sentry.init).toHaveBeenCalledTimes(2));
+       |                                             ^
+     54|   });
+     55|
+ ❯ runWithExpensiveErrorDiagnosticsDisabled ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback ../../node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  7 failed | 29 passed (36)
+   Start at  06:31:06
+   Duration  3.32s (transform 136ms, setup 460ms, import 254ms, tests 2.09s, environment 1.76s)
+
+undefined
+/Volumes/LizsDisk/mythos/apps/web:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run src/__tests__/components/analytics/ConsentGatedSentry.test.tsx src/__tests__/providers/progress-provider.test.tsx --maxWorkers=2

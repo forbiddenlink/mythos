@@ -1,0 +1,61 @@
+...FFFF
+======================================================================
+FAIL: test_rejects_vulnerable_bounded_range_selected_version (__main__.OverrideGateTests.test_rejects_vulnerable_bounded_range_selected_version)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 32, in test_rejects_vulnerable_bounded_range_selected_version
+    self.check({"minimatch@>=5.0.0 <5.1.8": ">=5.1.8 <6"}, ["minimatch@5.1.0", "minimatch@9.0.7"], 1)
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 23, in check
+    self.assertEqual(result.returncode, expected_status, result.stdout + result.stderr)
+AssertionError: 0 != 1 : == /var/folders/vl/1g4kyx090p34nf40rd5vyydm0000gn/T/mythos-override-y87_7mk4 (overrides declared in package.json)
+   ok   minimatch@>=5.0.0 <5.1.8 (not installed here)
+
+All declared overrides are in force.
+
+
+======================================================================
+FAIL: test_rejects_vulnerable_duplicate_in_same_major (__main__.OverrideGateTests.test_rejects_vulnerable_duplicate_in_same_major)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 26, in test_rejects_vulnerable_duplicate_in_same_major
+    self.check({"undici": ">=7.29.1 <8"}, ["undici@7.0.0", "undici@7.29.1"], 1)
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 23, in check
+    self.assertEqual(result.returncode, expected_status, result.stdout + result.stderr)
+AssertionError: 0 != 1 : == /var/folders/vl/1g4kyx090p34nf40rd5vyydm0000gn/T/mythos-override-etzs18s6 (overrides declared in package.json)
+   ok   undici >= 7.29.1 (resolved 7.0.0 7.29.1 — 7.0.0 is an older major kept by a narrower override)
+
+All declared overrides are in force.
+
+
+======================================================================
+FAIL: test_rejects_vulnerable_range_selected_version (__main__.OverrideGateTests.test_rejects_vulnerable_range_selected_version)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 29, in test_rejects_vulnerable_range_selected_version
+    self.check({"postcss-selector-parser@<7.1.6": ">=7.1.6 <8"}, ["postcss-selector-parser@7.1.0"], 1)
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 23, in check
+    self.assertEqual(result.returncode, expected_status, result.stdout + result.stderr)
+AssertionError: 0 != 1 : == /var/folders/vl/1g4kyx090p34nf40rd5vyydm0000gn/T/mythos-override-993m9nb2 (overrides declared in package.json)
+   ok   postcss-selector-parser@<7.1.6 (not installed here)
+
+All declared overrides are in force.
+
+
+======================================================================
+FAIL: test_rejects_vulnerable_scoped_package (__main__.OverrideGateTests.test_rejects_vulnerable_scoped_package)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 35, in test_rejects_vulnerable_scoped_package
+    self.check({"@babel/core": ">=7.29.1"}, ["@babel/core@7.0.0", "@babel/core@7.29.1"], 1)
+  File "/Volumes/LizsDisk/mythos/.github/scripts/test-verify-overrides.py", line 23, in check
+    self.assertEqual(result.returncode, expected_status, result.stdout + result.stderr)
+AssertionError: 0 != 1 : == /var/folders/vl/1g4kyx090p34nf40rd5vyydm0000gn/T/mythos-override-0hs8zvq6 (overrides declared in package.json)
+   ok   @babel/core >= 7.29.1 (resolved 7.0.0 7.29.1 — 7.0.0 is an older major kept by a narrower override)
+
+All declared overrides are in force.
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.314s
+
+FAILED (failures=4)

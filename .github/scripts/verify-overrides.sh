@@ -25,6 +25,29 @@ checked=0
 # semver-ish compare: is $1 >= $2 ?
 ge() { [ "$(printf '%s\n%s\n' "$2" "$1" | sort -V | head -1)" = "$2" ]; }
 
+# pnpm range selectors used by the floor overrides in this repository.
+# Unknown syntax fails the gate rather than silently skipping a declared pin.
+matches_selector() {
+  local version="$1" selector="$2" term bound
+  [ -z "$selector" ] && return 0
+  for term in $selector; do
+    case "$term" in
+      '>='*) bound="${term#>=}"; ge "$version" "$bound" || return 1 ;;
+      '<='*) bound="${term#<=}"; ge "$bound" "$version" || return 1 ;;
+      '>'*) bound="${term#>}"; ge "$version" "$bound" && [ "$version" != "$bound" ] || return 1 ;;
+      '<'*) bound="${term#<}"; ge "$bound" "$version" && [ "$version" != "$bound" ] || return 1 ;;
+      *)
+        if [[ "$term" =~ ^[0-9]+$ ]]; then
+          [ "${version%%.*}" = "$term" ] || return 1
+        elif [[ "$term" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          [ "$version" = "$term" ] || return 1
+        else
+          return 2
+        fi ;;
+    esac
+  done
+}
+
 while IFS= read -r lock; do
   dir=$(dirname "$lock")
   pj="$dir/package.json"
@@ -61,48 +84,34 @@ while IFS= read -r lock; do
     case "$want" in ">="*) ;; *) continue ;; esac   # only floors are checkable
     floor=$(printf '%s' "$want" | sed -E 's/^>=([^ ]+).*/\1/')
 
-    # strip a parent> prefix and a trailing @<major>; scoped names keep their leading @
-    pkg="${key##*>}"
-    onlymajor=$(printf '%s' "$pkg" | sed -nE 's/.*@([0-9]+)$/\1/p')
-    pkg=$(printf '%s' "$pkg" | sed -E 's/@[0-9]+$//')
+    # A parent delimiter precedes a package name, unlike the > in >= ranges.
+    pkg=$(printf '%s' "$key" | sed -E 's/^.*>(@?[a-zA-Z])/\1/')
+    selector=""
+    if [[ "$pkg" =~ ^(@[^/]+/[^@]+|[^@]+)@(.*)$ ]]; then
+      selector="${BASH_REMATCH[2]}"
+      pkg="${BASH_REMATCH[1]}"
+    fi
 
-    # scoped packages are QUOTED in the lockfile — match both forms
     vers=$(grep -oE "^  '?${pkg}@[0-9]+\.[0-9]+\.[0-9]+" "$lock" 2>/dev/null \
            | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | sort -uV)
-
-    # A per-major key (`react-router@8`) governs ONLY that major. Comparing it against a
-    # v7 install it was never meant to touch reports a break that does not exist - that
-    # false positive fired on 3 of 4 repos before this filter, and a check that cries
-    # wolf gets switched off.
-    if [ -n "$onlymajor" ]; then
-      vers=$(printf '%s\n' $vers | awk -F. -v m="$onlymajor" '$1==m')
-      [ -z "$vers" ] && { echo "   ok   $key (major $onlymajor not installed here)"; continue; }
-    fi
-
     [ -z "$vers" ] && { echo "   ok   $key (not installed here)"; continue; }
 
-    # Compare the HIGHEST resolved version, not the lowest.
-    #
-    # A tree can legitimately hold two majors of the same package while the override
-    # governs only one of them - finance-quest deliberately keeps
-    # `test-exclude>minimatch: ^3.0.4` because minimatch 9 crashes jest, so minimatch@3
-    # sits next to minimatch@10 on purpose. Requiring the LOWEST to meet the floor
-    # false-fails every repo doing that, and a check that cries wolf gets disabled.
-    #
-    # The regression this exists to catch drops EVERY copy back below the floor (the
-    # overrides block is stripped wholesale), so the max is the honest signal.
-    low=$(printf '%s\n' $vers | head -1)
-    high=$(printf '%s\n' $vers | tail -1)
-    if ge "$high" "$floor"; then
-      if [ "$low" != "$high" ] && ! ge "$low" "$floor"; then
-        echo "   ok   $key >= $floor (resolved $(printf '%s' "$vers" | tr '\n' ' ') — $low is an older major kept by a narrower override)"
-      else
-        echo "   ok   $key >= $floor (resolved $(printf '%s' "$vers" | tr '\n' ' '))"
+    for version in $vers; do
+      matches_selector "$version" "$selector"
+      applies=$?
+      if [ "$applies" = 2 ]; then
+        echo "   FAIL: $key uses an unsupported selector; cannot verify its floor."
+        status=1
+        break
       fi
-    else
-      echo "   FAIL: $key — every resolved copy ($(printf '%s' "$vers" | tr '\n' ' ')) is BELOW its floor $floor. The override is not in force."
-      status=1
-    fi
+      [ "$applies" = 0 ] || continue
+      if ! ge "$version" "$floor"; then
+        echo "   FAIL: $key resolves $version BELOW its floor $floor."
+        status=1
+      fi
+    done
+    echo "   checked $key >= $floor (resolved $(printf '%s' "$vers" | tr '\n' ' '))"
+
   done <<< "$keys"
 done < <(find "$ROOT" -name pnpm-lock.yaml -not -path '*/node_modules/*' 2>/dev/null | sort)
 
@@ -110,7 +119,7 @@ echo
 if [ "$checked" = "0" ]; then
   echo "No pnpm overrides declared anywhere — nothing to verify."
 elif [ "$status" = "0" ]; then
-  echo "All declared overrides are in force."
+  echo "All supported override floors are in force; non-floor pins are not checked here."
 else
   echo "One or more overrides are NOT in force. This repo is not patched the way it claims."
 fi

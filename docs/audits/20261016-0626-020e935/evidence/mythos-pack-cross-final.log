@@ -1,0 +1,1401 @@
+[WebServer] (node:9733) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:9961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] [mythos] NEXT_PUBLIC_ORACLE_ENABLED is true but Upstash is unset — Oracle requests will fail closed (503).
+
+
+Running 66 tests using 1 worker
+
+(node:10459) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/66] [firefox] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions
+  1) [firefox] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/interactive-reliability-fa-83037-he-graph-in-both-directions-firefox/error-context.md
+
+
+(node:10648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/66] [firefox] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets
+  2) [firefox] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/interactive-reliability-mo-ac7f6-have-separate-touch-targets-firefox/error-context.md
+
+
+(node:11101) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/66] [firefox] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles
+  3) [firefox] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/interactive-reliability-co-cd4d9-roes-to-their-hero-articles-firefox/error-context.md
+
+
+(node:11230) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/66] [firefox] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session
+  4) [firefox] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-Review-a-54e48-continuing-the-same-session-firefox/error-context.md
+
+
+(node:11249) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/66] [firefox] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation
+  5) [firefox] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-Review-a-faf79-t-through-client-navigation-firefox/error-context.md
+
+
+(node:11272) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/66] [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px
+  6) [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-failed-l-79aec-emain-recoverable-at-1440px-firefox/error-context.md
+
+
+(node:11300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[7/66] [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px
+  7) [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-review-l-8235e-re-can-be-retried-at-1440px-firefox/error-context.md
+
+
+(node:11379) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[8/66] [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px
+  8) [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-failed-l-c02ae-remain-recoverable-at-390px-firefox/error-context.md
+
+
+(node:11405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[9/66] [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px
+  9) [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-review-l-4839b-ure-can-be-retried-at-390px-firefox/error-context.md
+
+
+(node:11440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[10/66] [firefox] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage
+  10) [firefox] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-26603-deity-views-in-localStorage-firefox/error-context.md
+
+
+(node:11500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[11/66] [firefox] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads
+  11) [firefox] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-Tracking-should-track-story-reads-firefox/error-context.md
+
+
+(node:11553) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[12/66] [firefox] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads
+  12) [firefox] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-bc805-rogress-across-page-reloads-firefox/error-context.md
+
+
+(node:11655) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[13/66] [firefox] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days
+  13) [firefox] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-55b3b--streak-on-consecutive-days-firefox/error-context.md
+
+
+(node:11705) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[14/66] [firefox] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date
+  14) [firefox] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-25597-ould-update-last-visit-date-firefox/error-context.md
+
+
+(node:11792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[15/66] [firefox] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks
+  15) [firefox] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-First-re-2d10b-fter-returning-to-bookmarks-firefox/error-context.md
+
+
+(node:11839) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[16/66] [firefox] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit
+  16) [firefox] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-First-re-80cbb-fter-the-first-figure-visit-firefox/error-context.md
+
+
+(node:11889) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[17/66] [firefox] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available
+  17) [firefox] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-First-re-c6c04-ps-backup-restore-available-firefox/error-context.md
+
+
+(node:11902) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[18/66] [firefox] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially
+  18) [firefox] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially ─────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-show-loading-state-initially-firefox/error-context.md
+
+
+(node:11917) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[19/66] [firefox] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading
+  19) [firefox] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-1a274-uiz-questions-after-loading-firefox/error-context.md
+
+
+(node:11922) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[20/66] [firefox] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer
+  20) [firefox] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer ────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-allow-selecting-an-answer-firefox/error-context.md
+
+
+(node:11924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[21/66] [firefox] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering
+  21) [firefox] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-c3e5a-ct-feedback-after-answering-firefox/error-context.md
+
+
+(node:11925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[22/66] [firefox] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions
+  22) [firefox] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions ───────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-progress-through-questions-firefox/error-context.md
+
+
+(node:11954) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[23/66] [firefox] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results
+  23) [firefox] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results ───
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-complete-quiz-and-show-results-firefox/error-context.md
+
+
+(node:11960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[24/66] [firefox] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion
+  24) [firefox] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion ─────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-show-score-on-completion-firefox/error-context.md
+
+
+(node:11966) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[25/66] [firefox] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz
+  25) [firefox] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz ───────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-allow-restarting-the-quiz-firefox/error-context.md
+
+
+(node:11968) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[26/66] [firefox] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut
+  26) [firefox] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-7e704-arch-with-keyboard-shortcut-firefox/error-context.md
+
+
+(node:11969) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[27/66] [firefox] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger
+  27) [firefox] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-32b2a-ith-click-on-search-trigger-firefox/error-context.md
+
+
+(node:11970) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[28/66] [firefox] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened
+  28) [firefox] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-95501-opular-searches-when-opened-firefox/error-context.md
+
+
+(node:11972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[29/66] [firefox] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results
+  29) [firefox] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-ee475-uld-search-and-show-results-firefox/error-context.md
+
+
+(node:11973) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[30/66] [firefox] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection
+  30) [firefox] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-342cd-gate-to-result-on-selection-firefox/error-context.md
+
+
+(node:11974) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[31/66] [firefox] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape
+  31) [firefox] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-61508-ld-close-search-with-Escape-firefox/error-context.md
+
+
+(node:11975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[32/66] [firefox] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries
+  32) [firefox] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-7f3ba-sults-for-unmatched-queries-firefox/error-context.md
+
+
+(node:11976) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[33/66] [firefox] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation
+  33) [firefox] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/firefox-1555/firefox/Nightly.app/Contents/MacOS/firefox
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-31b70-support-keyboard-navigation-firefox/error-context.md
+
+
+(node:11977) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[34/66] [webkit] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions
+  34) [webkit] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/interactive-reliability-fa-83037-he-graph-in-both-directions-webkit/error-context.md
+
+
+(node:11986) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[35/66] [webkit] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets
+  35) [webkit] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/interactive-reliability-mo-ac7f6-have-separate-touch-targets-webkit/error-context.md
+
+
+(node:11993) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[36/66] [webkit] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles
+  36) [webkit] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/interactive-reliability-co-cd4d9-roes-to-their-hero-articles-webkit/error-context.md
+
+
+(node:12010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[37/66] [webkit] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session
+  37) [webkit] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-Review-a-54e48-continuing-the-same-session-webkit/error-context.md
+
+
+(node:12013) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[38/66] [webkit] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation
+  38) [webkit] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-Review-a-faf79-t-through-client-navigation-webkit/error-context.md
+
+
+(node:12068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[39/66] [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px
+  39) [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-failed-l-79aec-emain-recoverable-at-1440px-webkit/error-context.md
+
+
+(node:12086) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[40/66] [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px
+  40) [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-review-l-8235e-re-can-be-retried-at-1440px-webkit/error-context.md
+
+
+(node:12097) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[41/66] [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px
+  41) [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-failed-l-c02ae-remain-recoverable-at-390px-webkit/error-context.md
+
+
+(node:12101) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[42/66] [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px
+  42) [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/learning-recovery-review-l-4839b-ure-can-be-retried-at-390px-webkit/error-context.md
+
+
+(node:12153) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[43/66] [webkit] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage
+  43) [webkit] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-26603-deity-views-in-localStorage-webkit/error-context.md
+
+
+(node:12229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[44/66] [webkit] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads
+  44) [webkit] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads ─
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-Tracking-should-track-story-reads-webkit/error-context.md
+
+
+(node:12555) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[45/66] [webkit] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads
+  45) [webkit] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-bc805-rogress-across-page-reloads-webkit/error-context.md
+
+
+(node:12757) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[46/66] [webkit] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days
+  46) [webkit] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-55b3b--streak-on-consecutive-days-webkit/error-context.md
+
+
+(node:12883) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[47/66] [webkit] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date
+  47) [webkit] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-Progress-25597-ould-update-last-visit-date-webkit/error-context.md
+
+
+(node:12910) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[48/66] [webkit] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks
+  48) [webkit] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-First-re-2d10b-fter-returning-to-bookmarks-webkit/error-context.md
+
+
+(node:12953) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[49/66] [webkit] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit
+  49) [webkit] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-First-re-80cbb-fter-the-first-figure-visit-webkit/error-context.md
+
+
+(node:13016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[50/66] [webkit] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available
+  50) [webkit] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/progress-tracking-First-re-c6c04-ps-backup-restore-available-webkit/error-context.md
+
+
+(node:13353) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[51/66] [webkit] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially
+  51) [webkit] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially ──────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-show-loading-state-initially-webkit/error-context.md
+
+
+(node:13362) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[52/66] [webkit] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading
+  52) [webkit] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-1a274-uiz-questions-after-loading-webkit/error-context.md
+
+
+(node:13367) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[53/66] [webkit] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer
+  53) [webkit] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer ─────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-allow-selecting-an-answer-webkit/error-context.md
+
+
+(node:13473) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[54/66] [webkit] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering
+  54) [webkit] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-c3e5a-ct-feedback-after-answering-webkit/error-context.md
+
+
+(node:13533) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[55/66] [webkit] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions
+  55) [webkit] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions ────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-progress-through-questions-webkit/error-context.md
+
+
+(node:13672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[56/66] [webkit] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results
+  56) [webkit] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results ────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-complete-quiz-and-show-results-webkit/error-context.md
+
+
+(node:13751) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[57/66] [webkit] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion
+  57) [webkit] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion ──────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-show-score-on-completion-webkit/error-context.md
+
+
+(node:13855) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[58/66] [webkit] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz
+  58) [webkit] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz ────────
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/quiz-flow-Quiz-Flow-should-allow-restarting-the-quiz-webkit/error-context.md
+
+
+(node:14197) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[59/66] [webkit] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut
+  59) [webkit] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-7e704-arch-with-keyboard-shortcut-webkit/error-context.md
+
+
+(node:14256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[60/66] [webkit] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger
+  60) [webkit] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-32b2a-ith-click-on-search-trigger-webkit/error-context.md
+
+
+(node:14267) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[61/66] [webkit] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened
+  61) [webkit] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-95501-opular-searches-when-opened-webkit/error-context.md
+
+
+(node:14543) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[62/66] [webkit] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results
+  62) [webkit] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-ee475-uld-search-and-show-results-webkit/error-context.md
+
+
+(node:14616) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[63/66] [webkit] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection
+  63) [webkit] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-342cd-gate-to-result-on-selection-webkit/error-context.md
+
+
+(node:14646) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[64/66] [webkit] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape
+  64) [webkit] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-61508-ld-close-search-with-Escape-webkit/error-context.md
+
+
+(node:14648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[65/66] [webkit] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries
+  65) [webkit] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-7f3ba-sults-for-unmatched-queries-webkit/error-context.md
+
+
+(node:14650) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[66/66] [webkit] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation
+  66) [webkit] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation 
+
+    Error: browserType.launch: Executable doesn't exist at /Users/elizabethstein/Library/Caches/ms-playwright/webkit-2370/pw_run.sh
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     pnpm exec playwright install                           ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results/search-functionality-Searc-31b70-support-keyboard-navigation-webkit/error-context.md
+
+
+  66 failed
+    [firefox] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions 
+    [firefox] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets 
+    [firefox] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles 
+    [firefox] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session 
+    [firefox] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation 
+    [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px 
+    [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px 
+    [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px 
+    [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px 
+    [firefox] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage 
+    [firefox] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads ──
+    [firefox] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads 
+    [firefox] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days 
+    [firefox] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date 
+    [firefox] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks 
+    [firefox] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit 
+    [firefox] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available 
+    [firefox] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially ───────
+    [firefox] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading 
+    [firefox] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer ──────────
+    [firefox] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering 
+    [firefox] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions ─────────
+    [firefox] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results ─────
+    [firefox] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion ───────────
+    [firefox] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz ─────────
+    [firefox] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut 
+    [firefox] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger 
+    [firefox] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened 
+    [firefox] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results 
+    [firefox] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection 
+    [firefox] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape 
+    [firefox] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries 
+    [firefox] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation 
+    [webkit] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions 
+    [webkit] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets 
+    [webkit] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles 
+    [webkit] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session 
+    [webkit] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation 
+    [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px 
+    [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px 
+    [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px ─
+    [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px 
+    [webkit] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage 
+    [webkit] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads ───
+    [webkit] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads 
+    [webkit] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days 
+    [webkit] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date 
+    [webkit] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks 
+    [webkit] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit 
+    [webkit] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available 
+    [webkit] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially ────────
+    [webkit] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading 
+    [webkit] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer ───────────
+    [webkit] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering 
+    [webkit] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions ──────────
+    [webkit] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results ──────
+    [webkit] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion ────────────
+    [webkit] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz ──────────
+    [webkit] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut 
+    [webkit] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger 
+    [webkit] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened 
+    [webkit] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results 
+    [webkit] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection 
+    [webkit] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape 
+    [webkit] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries 
+    [webkit] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation 
+undefined
+/Volumes/LizsDisk/mythos/apps/web:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test e2e/search-functionality.spec.ts e2e/quiz-flow.spec.ts e2e/progress-tracking.spec.ts e2e/learning-recovery.spec.ts e2e/interactive-reliability.spec.ts --project=firefox --project=webkit --workers=1 --reporter=line

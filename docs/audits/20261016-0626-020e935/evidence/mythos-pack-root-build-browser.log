@@ -1,0 +1,225 @@
+
+> mythos@1.8.1 build /Volumes/LizsDisk/mythos
+> turbo build
+
+
+   • turbo 2.11.7
+   • Packages in scope: web
+   • Running build in 1 package
+   • Remote caching disabled
+
+web:build: cache miss, executing 68d8f4a6ff1a8355
+web:build: 
+web:build: > web@0.1.0 build /Volumes/LizsDisk/mythos/apps/web
+web:build: > next build --webpack && node scripts/csp-hashes.mjs
+web:build: 
+web:build: ▲ Next.js 16.3.8 (webpack)
+web:build: - Environments: .env.local
+web:build: ✓ Running next.config.ts took 1453ms
+web:build: - Experiments (use with caution):
+web:build:   · optimizePackageImports
+web:build: 
+web:build: ⚠ The Edge Runtime is deprecated. You can use the "nodejs" runtime instead. Learn more: https://nextjs.org/docs/messages/edge-runtime-deprecated
+web:build:   Creating an optimized production build ...
+web:build: ✓ Compiled successfully in 26.1s
+web:build:   Running TypeScript ...
+web:build:   Finished TypeScript in 5.8s ...
+web:build:   Collecting page data using 13 workers ...
+web:build: ⚠ Using edge runtime on a page currently disables static generation for that page
+web:build:   Generating static pages using 13 workers (0/1986) ...
+web:build:   Generating static pages using 13 workers (496/1986) 
+web:build:   Generating static pages using 13 workers (992/1986) 
+web:build:   Generating static pages using 13 workers (1489/1986) 
+web:build: ✓ Generating static pages using 13 workers (1986/1986) in 18.4s
+web:build:   Finalizing page optimization ...
+web:build:   Collecting build traces ...
+web:build: 
+web:build: Route (app)                                             Revalidate  Expire
+web:build: ┌ ○ /
+web:build: ├ ○ /_not-found
+web:build: ├ ○ /about
+web:build: ├ ○ /accessibility
+web:build: ├ ○ /achievements
+web:build: ├ ƒ /api/analytics/events
+web:build: ├ ƒ /api/analytics/vitals
+web:build: ├ ○ /api/catalog/deities
+web:build: ├ ○ /api/catalog/search-index
+web:build: ├ ○ /api/catalog/stories
+web:build: ├ ƒ /api/cron/weekly-digest
+web:build: ├ ƒ /api/csp-report
+web:build: ├ ○ /api/daily-myth
+web:build: ├ ƒ /api/newsletter
+web:build: ├ ƒ /api/oracle
+web:build: ├ ƒ /api/quiz/generate-from-story
+web:build: ├ ƒ /api/search
+web:build: ├ ○ /apple-icon.png
+web:build: ├ ○ /artifacts
+web:build: ├   /artifacts/[slug]
+web:build: │ ├ ● /artifacts/aegis
+web:build: │ ├ ● /artifacts/thunderbolt-of-zeus
+web:build: │ ├ ● /artifacts/trident-of-poseidon
+web:build: │ └ ● [+73 more paths]
+web:build: ├ ƒ /artifacts/[slug]/opengraph-image
+web:build: ├ ○ /atlas
+web:build: ├ ○ /bookmarks
+web:build: ├ ƒ /changelog
+web:build: ├   /collections/[slug]
+web:build: │ ├ ● /collections/trickster-gods
+web:build: │ ├ ● /collections/underworld-rulers
+web:build: │ ├ ● /collections/sky-fathers
+web:build: │ └ ● [+9 more paths]
+web:build: ├ ○ /compare
+web:build: ├   /compare/[pair]
+web:build: │ ├ ● /compare/aengus-vs-dagda
+web:build: │ ├ ● /compare/aengus-vs-midir
+web:build: │ ├ ● /compare/aganju-vs-pele
+web:build: │ └ ● [+528 more paths]
+web:build: ├ ƒ /compare/[pair]/opengraph-image
+web:build: ├ ○ /compare/myths
+web:build: ├ ○ /compare/pairs
+web:build: ├ ○ /compare/parallels
+web:build: ├ ○ /contact
+web:build: ├ ○ /cosmology
+web:build: ├ ○ /creatures
+web:build: ├   /creatures/[slug]
+web:build: │ ├ ● /creatures/fenrir
+web:build: │ ├ ● /creatures/cerberus
+web:build: │ ├ ● /creatures/yamata-no-orochi
+web:build: │ └ ● [+100 more paths]
+web:build: ├ ƒ /creatures/[slug]/opengraph-image
+web:build: ├ ○ /deities
+web:build: ├   /deities/[slug]
+web:build: │ ├ ● /deities/zeus
+web:build: │ ├ ● /deities/hera
+web:build: │ ├ ● /deities/poseidon
+web:build: │ └ ● [+357 more paths]
+web:build: ├ ƒ /deities/[slug]/opengraph-image
+web:build: ├ ○ /divine-domains
+web:build: ├ ○ /domains
+web:build: ├ ○ /facts
+web:build: ├ ○ /family-tree
+web:build: ├ ○ /games
+web:build: ├ ○ /games/memory
+web:build: ├ ○ /gods-of
+web:build: ├   /gods-of/[domain]
+web:build: │ ├ ● /gods-of/fertility
+web:build: │ ├ ● /gods-of/war
+web:build: │ ├ ● /gods-of/creation
+web:build: │ └ ● [+102 more paths]
+web:build: ├ ƒ /gods-of/[domain]/opengraph-image
+web:build: ├ ○ /guides
+web:build: ├ ○ /guides/hades-ii
+web:build: ├ ○ /guides/hades-ii/opengraph-image
+web:build: ├ ○ /guides/odyssey
+web:build: ├ ○ /guides/odyssey/opengraph-image
+web:build: ├ ○ /guides/opengraph-image
+web:build: ├ ○ /guides/percy-jackson-titans-curse
+web:build: ├ ○ /guides/percy-jackson-titans-curse/opengraph-image
+web:build: ├ ƒ /heroes
+web:build: ├   /heroes/[slug]
+web:build: │ ├ ● /heroes/achilles
+web:build: │ ├ ● /heroes/odysseus
+web:build: │ ├ ● /heroes/hector
+web:build: │ └ ● [+34 more paths]
+web:build: ├ ƒ /heroes/[slug]/opengraph-image
+web:build: ├ ○ /icon.svg
+web:build: ├ ○ /journeys
+web:build: ├   /journeys/[slug]
+web:build: │ ├ ● /journeys/odyssey
+web:build: │ ├ ● /journeys/golden-fleece
+web:build: │ ├ ● /journeys/twelve-labors
+web:build: │ └ ● [+5 more paths]
+web:build: ├ ○ /knowledge-graph
+web:build: ├ ƒ /locations
+web:build: ├   /locations/[slug]
+web:build: │ ├ ● /locations/mount-olympus
+web:build: │ ├ ● /locations/underworld
+web:build: │ ├ ● /locations/delphi
+web:build: │ └ ● [+181 more paths]
+web:build: ├ ƒ /locations/[slug]/opengraph-image
+web:build: ├ ○ /newsletter                                                 1h      1y
+web:build: ├ ○ /opengraph-image
+web:build: ├ ○ /oracle
+web:build: ├ ○ /pantheons
+web:build: ├   /pantheons/[slug]
+web:build: │ ├ ● /pantheons/greek
+web:build: │ ├ ● /pantheons/norse
+web:build: │ ├ ● /pantheons/egyptian
+web:build: │ └ ● [+24 more paths]
+web:build: ├   /pantheons/[slug]/creatures
+web:build: │ ├ ● /pantheons/greek/creatures
+web:build: │ ├ ● /pantheons/aztec/creatures
+web:build: │ ├ ● /pantheons/slavic/creatures
+web:build: │ └ ● [+11 more paths]
+web:build: ├   /pantheons/[slug]/goddesses
+web:build: │ ├ ● /pantheons/greek/goddesses
+web:build: │ ├ ● /pantheons/hindu/goddesses
+web:build: │ ├ ● /pantheons/aztec/goddesses
+web:build: │ └ ● [+8 more paths]
+web:build: ├ ƒ /pantheons/[slug]/opengraph-image
+web:build: ├   /pantheons/[slug]/worksheet
+web:build: │ ├ ● /pantheons/greek/worksheet
+web:build: │ ├ ● /pantheons/norse/worksheet
+web:build: │ ├ ● /pantheons/egyptian/worksheet
+web:build: │ └ ● [+23 more paths]
+web:build: ├ ○ /paths
+web:build: ├ ○ /privacy
+web:build: ├ ○ /progress
+web:build: ├ ○ /quiz
+web:build: ├ ○ /quiz/personality
+web:build: ├ ○ /quiz/quick
+web:build: ├ ○ /quiz/relationships
+web:build: ├ ƒ /quiz/relationships/opengraph-image
+web:build: ├ ƒ /quiz/result/[result]
+web:build: ├ ƒ /quiz/result/[result]/opengraph-image
+web:build: ├ ○ /review
+web:build: ├ ○ /robots.txt
+web:build: ├ ○ /sitemap.xml
+web:build: ├ ○ /sources
+web:build: ├   /sources/[slug]
+web:build: │ ├ ● /sources/iliad
+web:build: │ ├ ● /sources/odyssey
+web:build: │ ├ ● /sources/theogony
+web:build: │ └ ● [+82 more paths]
+web:build: ├ ○ /stories
+web:build: ├   /stories/[slug]
+web:build: │ ├ ● /stories/titanomachy
+web:build: │ ├ ● /stories/ragnarok
+web:build: │ ├ ● /stories/creation-myth-norse
+web:build: │ └ ● [+159 more paths]
+web:build: ├ ƒ /stories/[slug]/opengraph-image
+web:build: ├   /stories/[slug]/read
+web:build: │ ├ ● /stories/titanomachy/read
+web:build: │ ├ ● /stories/ragnarok/read
+web:build: │ ├ ● /stories/creation-myth-norse/read
+web:build: │ └ ● [+159 more paths]
+web:build: ├ ○ /stories/interactive
+web:build: ├   /stories/interactive/[slug]
+web:build: │ ├ ● /stories/interactive/judgment-of-paris
+web:build: │ ├ ● /stories/interactive/thor-jotunheim
+web:build: │ ├ ● /stories/interactive/orpheus-underworld
+web:build: │ └ ● [+2 more paths]
+web:build: ├ ○ /stories/ragnarok/cinematic
+web:build: ├ ○ /stories/titanomachy/cinematic
+web:build: ├   /study/[slug]
+web:build: │ ├ ● /study/inanna-text-and-temple
+web:build: │ ├ ● /study/ibeji-objects-and-remembrance
+web:build: │ ├ ● /study/greek-gods
+web:build: │ └ ● [+2 more paths]
+web:build: ├ ○ /support
+web:build: ├ ○ /terms
+web:build: └ ○ /timeline
+web:build: 
+web:build: 
+web:build: ƒ Proxy (Middleware)
+web:build: 
+web:build: ○  (Static)   prerendered as static content
+web:build: ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+web:build: ƒ  (Dynamic)  server-rendered on demand
+web:build: 
+web:build: csp-hashes: 1962 prerendered pages, 1 common hashes, max 8 hashes per page (269 KB manifest)
+
+ Tasks:    1 successful, 1 total
+Cached:    0 cached, 1 total
+  Time:    1m33.596s 
+

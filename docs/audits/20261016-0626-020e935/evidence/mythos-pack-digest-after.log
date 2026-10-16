@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /Volumes/LizsDisk/mythos/apps/web
+
+
+ Test Files  1 passed (1)
+      Tests  15 passed (15)
+   Start at  06:37:03
+   Duration  1.33s (transform 70ms, setup 236ms, import 126ms, tests 15ms, environment 859ms)
+

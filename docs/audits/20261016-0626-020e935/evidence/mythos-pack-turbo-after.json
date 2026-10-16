@@ -1,0 +1,46 @@
+[
+  {
+    "hash": "fadd577edc2cfbc1",
+    "env": {
+      "env": [
+        "ANALYZE",
+        "ANTHROPIC_*",
+        "CRON_SECRET",
+        "GROQ_*",
+        "NEWSLETTER_*",
+        "NEXT_ADAPTER_PATH",
+        "OPENAI_*",
+        "ORACLE_*",
+        "POSTHOG_*",
+        "RESEND_*",
+        "SENTRY_*",
+        "UPSTASH_*",
+        "VERCEL_ENV"
+      ],
+      "passThroughEnv": null
+    },
+    "localEnvTracked": true
+  },
+  {
+    "hash": "4a4c44a610b8997a",
+    "env": {
+      "env": [
+        "ANALYZE",
+        "ANTHROPIC_*",
+        "CRON_SECRET",
+        "GROQ_*",
+        "NEWSLETTER_*",
+        "NEXT_ADAPTER_PATH",
+        "OPENAI_*",
+        "ORACLE_*",
+        "POSTHOG_*",
+        "RESEND_*",
+        "SENTRY_*",
+        "UPSTASH_*",
+        "VERCEL_ENV"
+      ],
+      "passThroughEnv": null
+    },
+    "localEnvTracked": true
+  }
+]

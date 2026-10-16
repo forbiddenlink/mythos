@@ -1,0 +1,787 @@
+{
+  "tier": "full",
+  "stack": [
+    "node",
+    "next",
+    "react",
+    "resend",
+    "upstash",
+    "sentry",
+    "tailwind4",
+    "ai",
+    "vercel",
+    "email",
+    "game",
+    "monorepo",
+    "tailwind",
+    "server",
+    "priorRuns",
+    "webui"
+  ],
+  "setup": ["ctx", "order", "evidence-contract", "workflow"],
+  "routed": [
+    {
+      "id": "repo-map",
+      "tier": "quick",
+      "phase": "Setup",
+      "title": "Repo map and audit router"
+    },
+    {
+      "id": "viability",
+      "tier": "quick",
+      "phase": "Viability & fit",
+      "title": "Project viability: what is this, and is it worth continuing?"
+    },
+    {
+      "id": "sellable",
+      "tier": "full",
+      "phase": "Viability & fit",
+      "title": "Exit readiness (sellability + due diligence)"
+    },
+    {
+      "id": "ux",
+      "tier": "quick",
+      "phase": "Product quality",
+      "title": "UX flow audit"
+    },
+    {
+      "id": "design",
+      "tier": "quick",
+      "phase": "Product quality",
+      "title": "Design quality and anti-template audit"
+    },
+    {
+      "id": "design-research",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Design research and direction for this specific product"
+    },
+    {
+      "id": "writing",
+      "tier": "quick",
+      "phase": "Product quality",
+      "title": "Writing quality and AI slop detection"
+    },
+    {
+      "id": "content",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Content and states completeness"
+    },
+    {
+      "id": "conversion",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Conversion and trust signals audit"
+    },
+    {
+      "id": "forms",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Form and input UX deep-dive"
+    },
+    {
+      "id": "crossbrowser",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Cross-browser and device compatibility"
+    },
+    {
+      "id": "i18n",
+      "tier": "full",
+      "phase": "Product quality",
+      "title": "i18n & Localization Audit"
+    },
+    {
+      "id": "datapitfalls",
+      "tier": "full",
+      "phase": "Product quality",
+      "title": "Data Viz & Dashboard Pitfalls Audit"
+    },
+    {
+      "id": "darkmode",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Dark mode correctness"
+    },
+    {
+      "id": "motion",
+      "tier": "full",
+      "phase": "Product quality",
+      "title": "Motion & animation quality"
+    },
+    {
+      "id": "onboarding",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Onboarding & first-run"
+    },
+    {
+      "id": "microcopy",
+      "tier": "full",
+      "phase": "Product quality",
+      "title": "Microcopy & empty states"
+    },
+    {
+      "id": "whole-app",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Whole-app functionality, repairs and gaps"
+    },
+    {
+      "id": "design-second-pass",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Second-pass design and coverage review"
+    },
+    {
+      "id": "modern-css",
+      "tier": "full",
+      "phase": "Product quality",
+      "title": "View Transitions, container queries, :has() and anchor positioning"
+    },
+    {
+      "id": "print-output",
+      "tier": "full",
+      "phase": "Product quality",
+      "title": "Print stylesheets and printable documents (invoices, receipts, reports)"
+    },
+    {
+      "id": "distinctiveness",
+      "tier": "pre",
+      "phase": "Product quality",
+      "title": "Distinctiveness and structural-variety audit"
+    },
+    {
+      "id": "structure",
+      "tier": "pre",
+      "phase": "Code health",
+      "title": "Codebase structure and hygiene"
+    },
+    {
+      "id": "organizing-model",
+      "tier": "full",
+      "phase": "Code health",
+      "title": "Data structure & organizing-model simplification audit"
+    },
+    {
+      "id": "docs",
+      "tier": "pre",
+      "phase": "Code health",
+      "title": "Documentation, README, and gitignore audit"
+    },
+    {
+      "id": "deps",
+      "tier": "pre",
+      "phase": "Code health",
+      "title": "Dependency audit"
+    },
+    {
+      "id": "quality",
+      "tier": "full",
+      "phase": "Code health",
+      "title": "Code quality and Next.js best practices"
+    },
+    {
+      "id": "testing",
+      "tier": "pre",
+      "phase": "Code health",
+      "title": "Testing strategy and coverage audit"
+    },
+    {
+      "id": "cicd",
+      "tier": "pre",
+      "phase": "Code health",
+      "title": "CI/CD pipeline audit"
+    },
+    {
+      "id": "featureflags",
+      "tier": "pre",
+      "phase": "Code health",
+      "title": "Feature flags and safe rollout audit"
+    },
+    {
+      "id": "migrations",
+      "tier": "pre",
+      "phase": "Code health",
+      "title": "Database migration safety audit"
+    },
+    {
+      "id": "agent-code-trust",
+      "tier": "full",
+      "phase": "Code health",
+      "title": "AI-agent-authored code trust & verification"
+    },
+    {
+      "id": "monorepo",
+      "tier": "full",
+      "phase": "Code health",
+      "title": "Monorepo and workspace hygiene (Turborepo / pnpm workspaces)"
+    },
+    {
+      "id": "secretmgmt",
+      "tier": "pre",
+      "phase": "Stack-specific",
+      "title": "Secret management and environment variable audit (age/sops, Vercel, gitleaks)"
+    },
+    {
+      "id": "multiproviderai",
+      "tier": "full",
+      "phase": "Stack-specific",
+      "title": "Multi-provider AI architecture audit"
+    },
+    {
+      "id": "tailwindv4",
+      "tier": "pre",
+      "phase": "Stack-specific",
+      "title": "Tailwind CSS v4 Migration Audit"
+    },
+    {
+      "id": "resend",
+      "tier": "pre",
+      "phase": "Stack-specific",
+      "title": "Resend Deliverability & Email Infrastructure Audit"
+    },
+    {
+      "id": "upstash",
+      "tier": "pre",
+      "phase": "Stack-specific",
+      "title": "Upstash Redis & Rate-Limiting Audit"
+    },
+    {
+      "id": "vercel-config",
+      "tier": "pre",
+      "phase": "Stack-specific",
+      "title": "Vercel Project Configuration Audit"
+    },
+    {
+      "id": "sentry-setup",
+      "tier": "pre",
+      "phase": "Stack-specific",
+      "title": "Sentry Instrumentation & Error Capture Audit"
+    },
+    {
+      "id": "game-webgl",
+      "tier": "pre",
+      "phase": "Stack-specific",
+      "title": "Browser games and canvas/WebGL/Three.js/R3F audit"
+    },
+    {
+      "id": "func",
+      "tier": "quick",
+      "phase": "Technical depth",
+      "title": "Functionality and release gate"
+    },
+    {
+      "id": "state",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "State management and navigation audit"
+    },
+    {
+      "id": "timekeeping",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Date, timezone and scheduling correctness"
+    },
+    {
+      "id": "errorrecovery",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Error recovery and resilience audit"
+    },
+    {
+      "id": "serveractions",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Server Actions security deep-check"
+    },
+    {
+      "id": "perf",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Performance and bundle budget audit"
+    },
+    {
+      "id": "caching",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Next.js 15/16 caching strategy audit"
+    },
+    {
+      "id": "api",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "API and data integrity"
+    },
+    {
+      "id": "public-api",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "Customer-facing API, keys and deprecation policy"
+    },
+    {
+      "id": "ratelimit",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Rate Limiting & Bot Protection Audit"
+    },
+    {
+      "id": "ai-features",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "AI and LLM feature audit"
+    },
+    {
+      "id": "ai-evals",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "AI evaluation & quality-regression harness"
+    },
+    {
+      "id": "email",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Email, notifications and rendering audit"
+    },
+    {
+      "id": "webhooks",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Webhook reliability audit"
+    },
+    {
+      "id": "backup",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Data backup and recovery audit"
+    },
+    {
+      "id": "abuse",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Abuse, fraud, and runaway-spend protection"
+    },
+    {
+      "id": "lifecycle",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "User lifecycle, dunning, and offboarding audit"
+    },
+    {
+      "id": "loadtest",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "Load, soak, and chaos testing audit"
+    },
+    {
+      "id": "db-performance",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "Database query performance & indexing audit"
+    },
+    {
+      "id": "rsc-streaming",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "RSC & streaming correctness audit"
+    },
+    {
+      "id": "otel-logging",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "OpenTelemetry & structured logging audit"
+    },
+    {
+      "id": "edge-runtime",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "Edge vs Node runtime audit"
+    },
+    {
+      "id": "typesafety",
+      "tier": "full",
+      "phase": "Technical depth",
+      "title": "End-to-end type safety audit"
+    },
+    {
+      "id": "data-integrity",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Data integrity, transactions and recovery"
+    },
+    {
+      "id": "importexport",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Search, imports, exports and bulk actions"
+    },
+    {
+      "id": "deploy-skew",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "Rolling-deploy version skew: Server Actions, caching, and stale clients"
+    },
+    {
+      "id": "hydration",
+      "tier": "pre",
+      "phase": "Technical depth",
+      "title": "SSR/CSR hydration mismatches"
+    },
+    {
+      "id": "sec",
+      "tier": "quick",
+      "phase": "Security & compliance",
+      "title": "Application security audit"
+    },
+    {
+      "id": "a11y",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Accessibility audit: WCAG 2.2 AA"
+    },
+    {
+      "id": "gdpr",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "GDPR, CCPA, EAA, EU AI Act, and privacy compliance"
+    },
+    {
+      "id": "multitenancy",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Multi-tenant isolation audit"
+    },
+    {
+      "id": "legaldocs",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Legal documents and policy completeness"
+    },
+    {
+      "id": "moderation",
+      "tier": "full",
+      "phase": "Security & compliance",
+      "title": "Content moderation and UGC safety"
+    },
+    {
+      "id": "dast",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Dynamic security scan (DAST) of the running app"
+    },
+    {
+      "id": "secrets-scan",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Secrets & credential leak scan"
+    },
+    {
+      "id": "ssrf",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "SSRF & cloud metadata exposure"
+    },
+    {
+      "id": "ai-redteam",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "AI/LLM red-teaming (OWASP Top 10 for LLM Applications 2026)"
+    },
+    {
+      "id": "csp-report",
+      "tier": "full",
+      "phase": "Security & compliance",
+      "title": "CSP reporting pipeline & nonce hardening"
+    },
+    {
+      "id": "third-party-scripts",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Third-party scripts, tags & consent governance"
+    },
+    {
+      "id": "gha-workflow-security",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "GitHub Actions workflow security"
+    },
+    {
+      "id": "breach-response",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Breach notification & disclosure readiness"
+    },
+    {
+      "id": "audit-logging",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Security audit trail & tamper-evident logging"
+    },
+    {
+      "id": "ai-provenance",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "AI content provenance & watermarking (C2PA)"
+    },
+    {
+      "id": "a11y-widgets",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Complex widget accessibility (ARIA APG patterns)"
+    },
+    {
+      "id": "admin-tools",
+      "tier": "pre",
+      "phase": "Security & compliance",
+      "title": "Internal admin and back-office tooling held to the same rigor as the app"
+    },
+    {
+      "id": "seo",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "SEO, metadata, and AI discoverability"
+    },
+    {
+      "id": "webstandards",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "Web standards conformance (specification.website cross-check)"
+    },
+    {
+      "id": "obs",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "Analytics and observability"
+    },
+    {
+      "id": "deploy",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "Deployment and infrastructure"
+    },
+    {
+      "id": "incident",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "Incident response, on-call readiness and status communication"
+    },
+    {
+      "id": "dns",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "Domain, DNS, and email-domain health"
+    },
+    {
+      "id": "support",
+      "tier": "full",
+      "phase": "Pre-launch",
+      "title": "Customer support and feedback readiness"
+    },
+    {
+      "id": "launchday",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "Launch-Day Runbook"
+    },
+    {
+      "id": "analytics-integrity",
+      "tier": "pre",
+      "phase": "Pre-launch",
+      "title": "Analytics event integrity: double-counting, ad-block loss, and funnel truth"
+    },
+    {
+      "id": "competitive",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Competitive analysis and gap audit"
+    },
+    {
+      "id": "research",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Feature, API, and tooling research"
+    },
+    {
+      "id": "designsystem",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Design system and token health audit"
+    },
+    {
+      "id": "dx",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Developer experience audit"
+    },
+    {
+      "id": "busfactor",
+      "tier": "pre",
+      "phase": "Strategy",
+      "title": "Bus factor and recovery readiness"
+    },
+    {
+      "id": "costaudit",
+      "tier": "pre",
+      "phase": "Strategy",
+      "title": "Cost efficiency and waste audit"
+    },
+    {
+      "id": "supplychain",
+      "tier": "pre",
+      "phase": "Strategy",
+      "title": "Supply chain security deep dive"
+    },
+    {
+      "id": "agentready",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "AI agent readiness audit"
+    },
+    {
+      "id": "experiments",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "A/B testing and experiment validity audit"
+    },
+    {
+      "id": "growth",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Growth & Retention Analytics"
+    },
+    {
+      "id": "channel-fit",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Acquisition channel strategy (channel-market fit)"
+    },
+    {
+      "id": "paid-acquisition",
+      "tier": "pre",
+      "phase": "Strategy",
+      "title": "Paid acquisition, conversion tracking and tag governance"
+    },
+    {
+      "id": "launch-marketing",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Go-to-market launch plan (marketing)"
+    },
+    {
+      "id": "organic-authority",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Content & AI-citation (AEO) acquisition audit"
+    },
+    {
+      "id": "social-proof",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Social proof acquisition (reviews, testimonials, press)"
+    },
+    {
+      "id": "pricing",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Pricing & Packaging"
+    },
+    {
+      "id": "changelog",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Changelog & Release Notes"
+    },
+    {
+      "id": "agent-commerce",
+      "tier": "full",
+      "phase": "Strategy",
+      "title": "Agentic commerce & AI-shopper readiness"
+    },
+    {
+      "id": "action",
+      "tier": "quick",
+      "phase": "Output",
+      "title": "Convert findings to prioritized action plan"
+    },
+    {
+      "id": "voice",
+      "tier": "full",
+      "phase": "Output",
+      "title": "Brand voice document generator"
+    },
+    {
+      "id": "pw",
+      "tier": "full",
+      "phase": "Output",
+      "title": "Playwright test generation"
+    },
+    {
+      "id": "visualreg",
+      "tier": "full",
+      "phase": "Output",
+      "title": "Visual regression testing setup"
+    },
+    {
+      "id": "gate",
+      "tier": "quick",
+      "phase": "Output",
+      "title": "Master launch gate: go / no-go"
+    },
+    {
+      "id": "delta",
+      "tier": "quick",
+      "phase": "Output",
+      "title": "Re-Audit: Delta Against Prior Findings"
+    },
+    {
+      "id": "rollback",
+      "tier": "pre",
+      "phase": "Output",
+      "title": "Rollback Readiness Audit"
+    },
+    {
+      "id": "postlaunch",
+      "tier": "full",
+      "phase": "Post-launch",
+      "title": "Post-launch monitoring checklist"
+    },
+    {
+      "id": "postlaunch-retro",
+      "tier": "full",
+      "phase": "Post-launch",
+      "title": "Post-launch retrospective & iteration loop"
+    }
+  ],
+  "skipped": [
+    "sunset",
+    "paywall-ux",
+    "supabase",
+    "stripe",
+    "billing-reconciliation",
+    "drizzle",
+    "betterauth",
+    "triggerjobs",
+    "msal",
+    "prisma",
+    "auth-complete",
+    "dotnet",
+    "power-platform",
+    "remotion",
+    "mobile-app",
+    "spa",
+    "cli-package",
+    "container",
+    "pwa",
+    "rag-quality",
+    "realtime",
+    "tax-compliance",
+    "uploads",
+    "mcp-security",
+    "voice-realtime",
+    "dedup",
+    "python-stack",
+    "python-api",
+    "python-security"
+  ]
+}

@@ -323,6 +323,7 @@ export function ProgressProvider({
 
   const updateQuickQuizHighScore = useCallback(
     (score: number) => {
+      updateStreak();
       setProgress((prev) => {
         if (score <= prev.quickQuizHighScore) {
           return prev;
@@ -333,11 +334,12 @@ export function ProgressProvider({
         };
       });
     },
-    [setProgress],
+    [setProgress, updateStreak],
   );
 
   const trackDeityView = useCallback(
     (deityId: string, pantheonId?: string) => {
+      updateStreak();
       setProgress((prev) => {
         const today = getToday();
         const isNewDeity = !prev.deitiesViewed.includes(deityId);
@@ -375,11 +377,12 @@ export function ProgressProvider({
         };
       });
     },
-    [setProgress],
+    [setProgress, updateStreak],
   );
 
   const trackStoryRead = useCallback(
     (storyId: string) => {
+      updateStreak();
       setProgress((prev) => {
         const today = getToday();
         const isNewStory = !prev.storiesRead.includes(storyId);
@@ -413,11 +416,12 @@ export function ProgressProvider({
         };
       });
     },
-    [setProgress],
+    [setProgress, updateStreak],
   );
 
   const trackPantheonExplore = useCallback(
     (pantheonId: string) => {
+      updateStreak();
       setProgress((prev) => {
         if (prev.pantheonsExplored.includes(pantheonId)) {
           return prev;
@@ -428,11 +432,12 @@ export function ProgressProvider({
         };
       });
     },
-    [setProgress],
+    [setProgress, updateStreak],
   );
 
   const trackLocationVisit = useCallback(
     (locationId: string) => {
+      updateStreak();
       setProgress((prev) => {
         if (prev.locationsVisited.includes(locationId)) {
           return prev;
@@ -443,11 +448,12 @@ export function ProgressProvider({
         };
       });
     },
-    [setProgress],
+    [setProgress, updateStreak],
   );
 
   const recordQuizScore = useCallback(
     (quizId: string, score: number) => {
+      updateStreak();
       setProgress((prev) => ({
         ...prev,
         quizScores: {
@@ -456,7 +462,7 @@ export function ProgressProvider({
         },
       }));
     },
-    [setProgress],
+    [setProgress, updateStreak],
   );
 
   const unlockAchievement = useCallback(
@@ -551,6 +557,7 @@ export function ProgressProvider({
 
   const trackQuizCompletion = useCallback(
     (score: number) => {
+      updateStreak();
       setProgress((prev) => {
         const today = getToday();
 
@@ -577,7 +584,7 @@ export function ProgressProvider({
         };
       });
     },
-    [setProgress],
+    [setProgress, updateStreak],
   );
 
   const contextValue = useMemo(

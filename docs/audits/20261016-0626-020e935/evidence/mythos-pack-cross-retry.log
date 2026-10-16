@@ -1,0 +1,86 @@
+[WebServer] (node:23137) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:23161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] [mythos] NEXT_PUBLIC_ORACLE_ENABLED is true but Upstash is unset — Oracle requests will fail closed (503).
+
+
+Running 66 tests using 1 worker
+
+(node:23249) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/66] [firefox] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions
+[2/66] [firefox] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets
+[3/66] [firefox] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles
+[4/66] [firefox] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session
+[5/66] [firefox] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation
+[6/66] [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px
+[7/66] [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px
+[8/66] [firefox] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px
+[9/66] [firefox] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px
+[10/66] [firefox] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage
+[11/66] [firefox] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads
+[12/66] [firefox] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads
+[13/66] [firefox] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days
+[14/66] [firefox] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date
+[15/66] [firefox] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks
+[16/66] [firefox] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit
+[17/66] [firefox] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available
+[18/66] [firefox] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially
+[19/66] [firefox] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading
+[20/66] [firefox] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer
+[21/66] [firefox] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering
+[22/66] [firefox] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions
+[23/66] [firefox] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results
+[24/66] [firefox] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion
+[25/66] [firefox] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz
+[26/66] [firefox] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut
+[27/66] [firefox] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger
+[28/66] [firefox] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened
+[29/66] [firefox] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results
+[30/66] [firefox] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection
+[31/66] [firefox] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape
+[32/66] [firefox] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries
+[33/66] [firefox] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation
+(node:28845) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[34/66] [webkit] › e2e/interactive-reliability.spec.ts:3:5 › family-tree keyboard users can leave the graph in both directions
+[35/66] [webkit] › e2e/interactive-reliability.spec.ts:22:5 › mobile comparison links have separate touch targets
+[36/66] [webkit] › e2e/interactive-reliability.spec.ts:50:5 › comparisons link existing heroes to their hero articles
+[37/66] [webkit] › e2e/learning-recovery.spec.ts:10:7 › Review across midnight › keeps today's count separate while continuing the same session
+[38/66] [webkit] › e2e/learning-recovery.spec.ts:68:7 › Review across midnight › preserves a streak when reading continues after midnight through client navigation
+[39/66] [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 1440px
+[40/66] [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 1440px
+[41/66] [webkit] › e2e/learning-recovery.spec.ts:97:7 › failed local saves remain recoverable at 390px
+[42/66] [webkit] › e2e/learning-recovery.spec.ts:154:7 › review loading failure can be retried at 390px
+[43/66] [webkit] › e2e/progress-tracking.spec.ts:25:7 › Progress Tracking › should track deity views in localStorage
+[44/66] [webkit] › e2e/progress-tracking.spec.ts:40:7 › Progress Tracking › should track story reads
+[45/66] [webkit] › e2e/progress-tracking.spec.ts:61:7 › Progress Tracking › should persist progress across page reloads
+[46/66] [webkit] › e2e/progress-tracking.spec.ts:80:7 › Progress Tracking › should maintain streak on consecutive days
+[47/66] [webkit] › e2e/progress-tracking.spec.ts:126:7 › Progress Tracking › should update last visit date
+[48/66] [webkit] › e2e/progress-tracking.spec.ts:154:7 › First reading visit › saves a first entry and keeps it after returning to bookmarks
+[49/66] [webkit] › e2e/progress-tracking.spec.ts:194:7 › First reading visit › builds a review deck after the first figure visit
+[50/66] [webkit] › e2e/progress-tracking.spec.ts:227:7 › First reading visit › offers a first destination and keeps backup restore available
+[51/66] [webkit] › e2e/quiz-flow.spec.ts:15:7 › Quiz Flow › should show loading state initially
+[52/66] [webkit] › e2e/quiz-flow.spec.ts:21:7 › Quiz Flow › should display quiz questions after loading
+[53/66] [webkit] › e2e/quiz-flow.spec.ts:29:7 › Quiz Flow › should allow selecting an answer
+[54/66] [webkit] › e2e/quiz-flow.spec.ts:44:7 › Quiz Flow › should show correct/incorrect feedback after answering
+[55/66] [webkit] › e2e/quiz-flow.spec.ts:60:7 › Quiz Flow › should progress through questions
+[56/66] [webkit] › e2e/quiz-flow.spec.ts:75:7 › Quiz Flow › should complete quiz and show results
+[57/66] [webkit] › e2e/quiz-flow.spec.ts:97:7 › Quiz Flow › should show score on completion
+[58/66] [webkit] › e2e/quiz-flow.spec.ts:115:7 › Quiz Flow › should allow restarting the quiz
+[59/66] [webkit] › e2e/search-functionality.spec.ts:14:7 › Search Functionality › should open search with keyboard shortcut
+[60/66] [webkit] › e2e/search-functionality.spec.ts:24:7 › Search Functionality › should open search with click on search trigger
+[61/66] [webkit] › e2e/search-functionality.spec.ts:39:7 › Search Functionality › should show popular searches when opened
+[62/66] [webkit] › e2e/search-functionality.spec.ts:50:7 › Search Functionality › should search and show results
+[63/66] [webkit] › e2e/search-functionality.spec.ts:67:7 › Search Functionality › should navigate to result on selection
+[64/66] [webkit] › e2e/search-functionality.spec.ts:87:7 › Search Functionality › should close search with Escape
+[65/66] [webkit] › e2e/search-functionality.spec.ts:103:7 › Search Functionality › should show "no results" for unmatched queries
+[66/66] [webkit] › e2e/search-functionality.spec.ts:118:7 › Search Functionality › should support keyboard navigation
+  66 passed (2.9m)
