@@ -41,7 +41,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#d4af37",
+  // Matches the header ground in each colour scheme.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f5ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#14162b" },
+  ],
 };
 
 export default async function RootLayout({
