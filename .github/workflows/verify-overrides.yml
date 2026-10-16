@@ -14,12 +14,18 @@ on:
       - "**/package.json"
       - "**/pnpm-lock.yaml"
       - "**/pnpm-workspace.yaml"
+      - ".github/scripts/verify-overrides.sh"
+      - ".github/scripts/test-verify-overrides.py"
+      - ".github/workflows/verify-overrides.yml"
   push:
     branches: [main, master]
     paths:
       - "**/package.json"
       - "**/pnpm-lock.yaml"
       - "**/pnpm-workspace.yaml"
+      - ".github/scripts/verify-overrides.sh"
+      - ".github/scripts/test-verify-overrides.py"
+      - ".github/workflows/verify-overrides.yml"
   schedule:
     - cron: "0 7 * * 1"
   workflow_dispatch:
@@ -37,6 +43,9 @@ jobs:
           persist-credentials: false
       # No pnpm install needed: the check reads package.json and pnpm-lock.yaml as text,
       # so it cannot be affected by the very install it is policing.
+      - name: Test override verification against vulnerable fixtures
+        run: python3 .github/scripts/test-verify-overrides.py
+
       - name: Verify every declared override is in force
         run: bash .github/scripts/verify-overrides.sh .
 

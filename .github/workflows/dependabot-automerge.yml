@@ -39,7 +39,7 @@ jobs:
             case "$state" in
               completed/success)
                 echo "CI green -> merging"
-                gh pr merge --squash --delete-branch "$PR_URL"
+                gh pr merge --squash --delete-branch --match-head-commit "$SHA" "$PR_URL"
                 exit 0 ;;
               completed/*)
                 echo "CI not green ($state) -> leaving PR open for review"

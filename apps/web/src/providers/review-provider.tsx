@@ -175,6 +175,7 @@ export function ReviewProvider({
   const [mounted, setMounted] = useState(false);
 
   const progressContext = useContext(ProgressContext);
+  const updateVisitStreak = progressContext?.updateStreak;
 
   // Hydration-safe: load from localStorage on client mount
   useEffect(() => {
@@ -297,7 +298,9 @@ export function ReviewProvider({
 
     // Also exclude already reviewed today
     const notReviewedToday = due.filter(
-      (card) => !reviewState.todayReviewed.includes(card.id),
+      (card) =>
+        reviewState.lastReviewDate !== getToday() ||
+        !reviewState.todayReviewed.includes(card.id),
     );
 
     setDueCards(notReviewedToday);
@@ -306,56 +309,67 @@ export function ReviewProvider({
     progressContext?.progress.storiesRead,
     reviewState.cards,
     reviewState.todayReviewed,
+    reviewState.lastReviewDate,
   ]);
 
   // Review a card with a rating
-  const reviewCard = useCallback((cardId: string, rating: DifficultyRating) => {
-    setReviewState((prev) => {
-      const today = getToday();
-      const currentCardState = prev.cards[cardId] || createInitialCardState();
-      const updatedCardState = updateCardState(currentCardState, rating);
+  const reviewCard = useCallback(
+    (cardId: string, rating: DifficultyRating) => {
+      updateVisitStreak?.();
+      setReviewState((prev) => {
+        const today = getToday();
+        const currentCardState = prev.cards[cardId] || createInitialCardState();
+        const updatedCardState = updateCardState(currentCardState, rating);
 
-      const isCorrect = rating >= 3;
-      const totalReviewed = prev.stats.totalReviewed + 1;
-      const correctToday = prev.stats.correctToday + (isCorrect ? 1 : 0);
-      const incorrectToday = prev.stats.incorrectToday + (isCorrect ? 0 : 1);
+        const isNewReviewDay = prev.lastReviewDate !== today;
+        const isCorrect = rating >= 3;
+        const totalReviewed = prev.stats.totalReviewed + 1;
+        const correctToday =
+          (isNewReviewDay ? 0 : prev.stats.correctToday) + (isCorrect ? 1 : 0);
+        const incorrectToday =
+          (isNewReviewDay ? 0 : prev.stats.incorrectToday) +
+          (isCorrect ? 0 : 1);
 
-      // Calculate running average accuracy
-      const totalCorrect =
-        Math.round(
-          (prev.stats.averageAccuracy / 100) * prev.stats.totalReviewed,
-        ) + (isCorrect ? 1 : 0);
-      const averageAccuracy = calculateAccuracy(totalCorrect, totalReviewed);
-      const isNewReviewDay = prev.lastReviewDate !== today;
-      const currentStreak = isNewReviewDay
-        ? prev.lastReviewDate === getYesterday()
-          ? prev.stats.currentStreak + 1
-          : 1
-        : prev.stats.currentStreak;
+        // Calculate running average accuracy
+        const totalCorrect =
+          Math.round(
+            (prev.stats.averageAccuracy / 100) * prev.stats.totalReviewed,
+          ) + (isCorrect ? 1 : 0);
+        const averageAccuracy = calculateAccuracy(totalCorrect, totalReviewed);
+        const currentStreak = isNewReviewDay
+          ? prev.lastReviewDate === getYesterday()
+            ? prev.stats.currentStreak + 1
+            : 1
+          : prev.stats.currentStreak;
 
-      return {
-        ...prev,
-        cards: {
-          ...prev.cards,
-          [cardId]: updatedCardState,
-        },
-        todayReviewed: [...prev.todayReviewed, cardId],
-        lastReviewDate: today,
-        stats: {
-          ...prev.stats,
-          totalReviewed,
-          correctToday,
-          incorrectToday,
-          averageAccuracy,
-          currentStreak,
-          longestStreak: Math.max(prev.stats.longestStreak, currentStreak),
-        },
-      };
-    });
+        return {
+          ...prev,
+          cards: {
+            ...prev.cards,
+            [cardId]: updatedCardState,
+          },
+          todayReviewed: [
+            ...(isNewReviewDay ? [] : prev.todayReviewed),
+            cardId,
+          ],
+          lastReviewDate: today,
+          stats: {
+            ...prev.stats,
+            totalReviewed,
+            correctToday,
+            incorrectToday,
+            averageAccuracy,
+            currentStreak,
+            longestStreak: Math.max(prev.stats.longestStreak, currentStreak),
+          },
+        };
+      });
 
-    // Remove from due cards
-    setDueCards((prev) => prev.filter((card) => card.id !== cardId));
-  }, []);
+      // Remove from due cards
+      setDueCards((prev) => prev.filter((card) => card.id !== cardId));
+    },
+    [updateVisitStreak],
+  );
 
   const getCardState = useCallback(
     (cardId: string) => reviewState.cards[cardId],
@@ -363,11 +377,18 @@ export function ReviewProvider({
   );
 
   const getTodayStats = useCallback(() => {
+    if (reviewState.lastReviewDate !== getToday()) {
+      return { reviewed: 0, correct: 0, accuracy: 0 };
+    }
     const reviewed = reviewState.todayReviewed.length;
     const correct = reviewState.stats.correctToday;
     const accuracy = calculateAccuracy(correct, reviewed);
     return { reviewed, correct, accuracy };
-  }, [reviewState.todayReviewed.length, reviewState.stats.correctToday]);
+  }, [
+    reviewState.todayReviewed.length,
+    reviewState.stats.correctToday,
+    reviewState.lastReviewDate,
+  ]);
 
   const resetTodayProgress = useCallback(() => {
     setReviewState((prev) => ({
@@ -387,7 +408,9 @@ export function ReviewProvider({
       dueCards,
       dueCount: Object.entries(reviewState.cards).filter(
         ([cardId, cardState]) =>
-          isCardDue(cardState) && !reviewState.todayReviewed.includes(cardId),
+          isCardDue(cardState) &&
+          (reviewState.lastReviewDate !== getToday() ||
+            !reviewState.todayReviewed.includes(cardId)),
       ).length,
       generateCardsFromProgress,
       reviewCard,

@@ -4,6 +4,7 @@ import {
   runWeeklyDigest,
   type BroadcastClient,
   type DigestEnv,
+  type DigestLock,
 } from "@/lib/newsletter-broadcast";
 import { DEFAULT_RESEND_SEGMENT_ID } from "@/lib/newsletter";
 import type { DigestStory } from "@/lib/newsletter-digest";
@@ -48,6 +49,20 @@ function fakeClient(
   return client;
 }
 
+function fakeLock(): DigestLock {
+  let held = false;
+  return {
+    acquire: async () => {
+      if (held) return null;
+      held = true;
+      return "lease";
+    },
+    release: async () => {
+      held = false;
+    },
+  };
+}
+
 function req(authorization?: string): Request {
   return new Request("http://localhost/api/cron/weekly-digest", {
     headers: authorization ? { authorization } : {},
@@ -68,11 +83,26 @@ function handle(
       journeys: [],
       now: NOW,
       createClient,
+      createLock: () => fakeLock(),
     }),
   };
 }
 
 describe("weekly digest cron auth and config", () => {
+  it("does not build a delivery client without a configured shared lock", async () => {
+    const client = fakeClient();
+    const createClient = vi.fn(() => client);
+    const response = await handleWeeklyDigestRequest(req("Bearer s3cret"), {
+      env: ENV,
+      stories: STORIES,
+      journeys: [],
+      now: NOW,
+      createClient,
+      createLock: () => null,
+    });
+    expect(response.status).toBe(501);
+    expect(createClient).not.toHaveBeenCalled();
+  });
   it("answers 401 without the bearer secret and never builds a client", async () => {
     const client = fakeClient();
     for (const header of [undefined, "Bearer wrong", "s3cret"]) {
@@ -96,6 +126,75 @@ describe("weekly digest cron auth and config", () => {
 });
 
 describe("weekly digest run", () => {
+  it("releases the lease after a thrown upstream failure so a retry can proceed", async () => {
+    const client = fakeClient();
+    client.broadcasts.list.mockRejectedValueOnce(new Error("offline"));
+    const options = {
+      client,
+      lock: fakeLock(),
+      stories: STORIES,
+      journeys: [],
+      now: NOW,
+      segmentId: "seg",
+      from: "a@b.co",
+      send: false,
+    };
+    await expect(runWeeklyDigest(options)).rejects.toThrow("offline");
+    expect(await runWeeklyDigest(options)).toMatchObject({ status: "drafted" });
+  });
+  it.each([false, true])(
+    "prevents overlapping deliveries when an existing draft is %s",
+    async (existingDraft) => {
+      const client = fakeClient(
+        existingDraft ? [{ id: "bc_draft", name: NAME, status: "draft" }] : [],
+      );
+      const options = {
+        client,
+        lock: fakeLock(),
+        stories: STORIES,
+        journeys: [],
+        now: NOW,
+        segmentId: "seg",
+        from: "a@b.co",
+        send: true,
+      };
+      const results = await Promise.all([
+        runWeeklyDigest(options),
+        runWeeklyDigest(options),
+      ]);
+      expect(results.map((result) => result.status).sort()).toEqual([
+        "busy",
+        "sent",
+      ]);
+      expect(client.broadcasts.send).toHaveBeenCalledTimes(1);
+      expect(client.broadcasts.create).toHaveBeenCalledTimes(
+        existingDraft ? 0 : 1,
+      );
+    },
+  );
+
+  it("fails closed when the shared lock cannot be acquired", async () => {
+    const client = fakeClient();
+    const result = await runWeeklyDigest({
+      client,
+      lock: {
+        acquire: async () => {
+          throw new Error("unavailable");
+        },
+        release: async () => {},
+      },
+      stories: STORIES,
+      journeys: [],
+      now: NOW,
+      segmentId: "seg",
+      from: "a@b.co",
+      send: true,
+    });
+    expect(result).toEqual({ status: "error", step: "lock" });
+    expect(client.broadcasts.create).not.toHaveBeenCalled();
+    expect(client.broadcasts.send).not.toHaveBeenCalled();
+  });
+
   it("creates a draft and does not send by default", async () => {
     const client = fakeClient();
     const { response } = handle(req("Bearer s3cret"), client);
@@ -163,6 +262,7 @@ describe("weekly digest run", () => {
     const off = fakeClient(drafts);
     await runWeeklyDigest({
       client: off,
+      lock: fakeLock(),
       stories: STORIES,
       journeys: [],
       now: NOW,
@@ -176,6 +276,7 @@ describe("weekly digest run", () => {
     const on = fakeClient(drafts);
     const result = await runWeeklyDigest({
       client: on,
+      lock: fakeLock(),
       stories: STORIES,
       journeys: [],
       now: NOW,
@@ -229,6 +330,7 @@ describe("weekly digest run", () => {
     const client = fakeClient();
     const result = await runWeeklyDigest({
       client,
+      lock: fakeLock(),
       stories: [],
       journeys: [],
       now: NOW,

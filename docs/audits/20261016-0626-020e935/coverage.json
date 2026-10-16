@@ -1,0 +1,1087 @@
+[
+  {
+    "id": "ctx",
+    "phase": "Setup",
+    "title": "Master context block + shared execution contract",
+    "status": "inspected",
+    "reason": "Execution contract, evidence, deduplication and output used; see run.md, findings.md, action.md and gate.md."
+  },
+  {
+    "id": "order",
+    "phase": "Setup",
+    "title": "Recommended audit order",
+    "status": "inspected",
+    "reason": "Execution contract, evidence, deduplication and output used; see run.md, findings.md, action.md and gate.md."
+  },
+  {
+    "id": "evidence-contract",
+    "phase": "Setup",
+    "title": "Pre-run checklist and run record",
+    "status": "inspected",
+    "reason": "Execution contract, evidence, deduplication and output used; see run.md, findings.md, action.md and gate.md."
+  },
+  {
+    "id": "workflow",
+    "phase": "Setup",
+    "title": "How to run this pack (agent workflow)",
+    "status": "inspected",
+    "reason": "Execution contract, evidence, deduplication and output used; see run.md, findings.md, action.md and gate.md."
+  },
+  {
+    "id": "repo-map",
+    "phase": "Setup",
+    "title": "Repo map and audit router",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "viability",
+    "phase": "Viability & fit",
+    "title": "Project viability: what is this, and is it worth continuing?",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "sellable",
+    "phase": "Viability & fit",
+    "title": "Exit readiness (sellability + due diligence)",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "sunset",
+    "phase": "Viability & fit",
+    "title": "Sunset and park checklist (kill criteria + safe shutdown)",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "ux",
+    "phase": "Product quality",
+    "title": "UX flow audit",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "design",
+    "phase": "Product quality",
+    "title": "Design quality and anti-template audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "design-research",
+    "phase": "Product quality",
+    "title": "Design research and direction for this specific product",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "writing",
+    "phase": "Product quality",
+    "title": "Writing quality and AI slop detection",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "content",
+    "phase": "Product quality",
+    "title": "Content and states completeness",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "conversion",
+    "phase": "Product quality",
+    "title": "Conversion and trust signals audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "forms",
+    "phase": "Product quality",
+    "title": "Form and input UX deep-dive",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "crossbrowser",
+    "phase": "Product quality",
+    "title": "Cross-browser and device compatibility",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "i18n",
+    "phase": "Product quality",
+    "title": "i18n & Localization Audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "datapitfalls",
+    "phase": "Product quality",
+    "title": "Data Viz & Dashboard Pitfalls Audit",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "darkmode",
+    "phase": "Product quality",
+    "title": "Dark mode correctness",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "motion",
+    "phase": "Product quality",
+    "title": "Motion & animation quality",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "onboarding",
+    "phase": "Product quality",
+    "title": "Onboarding & first-run",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "microcopy",
+    "phase": "Product quality",
+    "title": "Microcopy & empty states",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "paywall-ux",
+    "phase": "Product quality",
+    "title": "Usage limits & metering UX (the paywall moment)",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "whole-app",
+    "phase": "Product quality",
+    "title": "Whole-app functionality, repairs and gaps",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "design-second-pass",
+    "phase": "Product quality",
+    "title": "Second-pass design and coverage review",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "modern-css",
+    "phase": "Product quality",
+    "title": "View Transitions, container queries, :has() and anchor positioning",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "print-output",
+    "phase": "Product quality",
+    "title": "Print stylesheets and printable documents (invoices, receipts, reports)",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "distinctiveness",
+    "phase": "Product quality",
+    "title": "Distinctiveness and structural-variety audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "structure",
+    "phase": "Code health",
+    "title": "Codebase structure and hygiene",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "organizing-model",
+    "phase": "Code health",
+    "title": "Data structure & organizing-model simplification audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "docs",
+    "phase": "Code health",
+    "title": "Documentation, README, and gitignore audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "deps",
+    "phase": "Code health",
+    "title": "Dependency audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "quality",
+    "phase": "Code health",
+    "title": "Code quality and Next.js best practices",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "testing",
+    "phase": "Code health",
+    "title": "Testing strategy and coverage audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "cicd",
+    "phase": "Code health",
+    "title": "CI/CD pipeline audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "featureflags",
+    "phase": "Code health",
+    "title": "Feature flags and safe rollout audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "migrations",
+    "phase": "Code health",
+    "title": "Database migration safety audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "agent-code-trust",
+    "phase": "Code health",
+    "title": "AI-agent-authored code trust & verification",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "monorepo",
+    "phase": "Code health",
+    "title": "Monorepo and workspace hygiene (Turborepo / pnpm workspaces)",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "supabase",
+    "phase": "Stack-specific",
+    "title": "Supabase security and configuration",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "stripe",
+    "phase": "Stack-specific",
+    "title": "Stripe integration and payments",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "billing-reconciliation",
+    "phase": "Stack-specific",
+    "title": "Billing state reconciliation & silent revenue loss",
+    "status": "partial",
+    "reason": "Optional Stripe-hosted support links exist, but there are no app entitlements or subscription records to reconcile. Provider dashboard and settlement are not inspected."
+  },
+  {
+    "id": "drizzle",
+    "phase": "Stack-specific",
+    "title": "Drizzle ORM and Neon Postgres audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "betterauth",
+    "phase": "Stack-specific",
+    "title": "better-auth Deep Security Audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "secretmgmt",
+    "phase": "Stack-specific",
+    "title": "Secret management and environment variable audit (age/sops, Vercel, gitleaks)",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "triggerjobs",
+    "phase": "Stack-specific",
+    "title": "Background jobs and async workflow audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "multiproviderai",
+    "phase": "Stack-specific",
+    "title": "Multi-provider AI architecture audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "tailwindv4",
+    "phase": "Stack-specific",
+    "title": "Tailwind CSS v4 Migration Audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "msal",
+    "phase": "Stack-specific",
+    "title": "MSAL / Microsoft Entra ID authentication audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "prisma",
+    "phase": "Stack-specific",
+    "title": "Prisma ORM and Postgres audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "resend",
+    "phase": "Stack-specific",
+    "title": "Resend Deliverability & Email Infrastructure Audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "upstash",
+    "phase": "Stack-specific",
+    "title": "Upstash Redis & Rate-Limiting Audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "vercel-config",
+    "phase": "Stack-specific",
+    "title": "Vercel Project Configuration Audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "sentry-setup",
+    "phase": "Stack-specific",
+    "title": "Sentry Instrumentation & Error Capture Audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "auth-complete",
+    "phase": "Stack-specific",
+    "title": "Login, Google/GitHub OAuth setup and testing",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "dotnet",
+    "phase": "Stack-specific",
+    "title": "ASP.NET Core, Razor and EF Core",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "power-platform",
+    "phase": "Stack-specific",
+    "title": "Power Platform, Dataverse and Power Automate",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "remotion",
+    "phase": "Stack-specific",
+    "title": "Remotion video projects: determinism, licensing and render cost",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "game-webgl",
+    "phase": "Stack-specific",
+    "title": "Browser games and canvas/WebGL/Three.js/R3F audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "mobile-app",
+    "phase": "Stack-specific",
+    "title": "Mobile app shell audit: Expo, React Native and Capacitor",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "spa",
+    "phase": "Stack-specific",
+    "title": "Client-rendered SPA (Vite, React Router, TanStack Router)",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "cli-package",
+    "phase": "Stack-specific",
+    "title": "CLI tools and published packages (npm / PyPI)",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "container",
+    "phase": "Stack-specific",
+    "title": "Docker images, compose files and self-hosted services",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "func",
+    "phase": "Technical depth",
+    "title": "Functionality and release gate",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "state",
+    "phase": "Technical depth",
+    "title": "State management and navigation audit",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "timekeeping",
+    "phase": "Technical depth",
+    "title": "Date, timezone and scheduling correctness",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "errorrecovery",
+    "phase": "Technical depth",
+    "title": "Error recovery and resilience audit",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "serveractions",
+    "phase": "Technical depth",
+    "title": "Server Actions security deep-check",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "perf",
+    "phase": "Technical depth",
+    "title": "Performance and bundle budget audit",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "caching",
+    "phase": "Technical depth",
+    "title": "Next.js 15/16 caching strategy audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "api",
+    "phase": "Technical depth",
+    "title": "API and data integrity",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "public-api",
+    "phase": "Technical depth",
+    "title": "Customer-facing API, keys and deprecation policy",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "ratelimit",
+    "phase": "Technical depth",
+    "title": "Rate Limiting & Bot Protection Audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "pwa",
+    "phase": "Technical depth",
+    "title": "PWA & Offline Capability Audit",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "ai-features",
+    "phase": "Technical depth",
+    "title": "AI and LLM feature audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "ai-evals",
+    "phase": "Technical depth",
+    "title": "AI evaluation & quality-regression harness",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "rag-quality",
+    "phase": "Technical depth",
+    "title": "RAG retrieval quality audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "email",
+    "phase": "Technical depth",
+    "title": "Email, notifications and rendering audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "webhooks",
+    "phase": "Technical depth",
+    "title": "Webhook reliability audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "backup",
+    "phase": "Technical depth",
+    "title": "Data backup and recovery audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "abuse",
+    "phase": "Technical depth",
+    "title": "Abuse, fraud, and runaway-spend protection",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "lifecycle",
+    "phase": "Technical depth",
+    "title": "User lifecycle, dunning, and offboarding audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "loadtest",
+    "phase": "Technical depth",
+    "title": "Load, soak, and chaos testing audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "db-performance",
+    "phase": "Technical depth",
+    "title": "Database query performance & indexing audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "rsc-streaming",
+    "phase": "Technical depth",
+    "title": "RSC & streaming correctness audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "otel-logging",
+    "phase": "Technical depth",
+    "title": "OpenTelemetry & structured logging audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "edge-runtime",
+    "phase": "Technical depth",
+    "title": "Edge vs Node runtime audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "typesafety",
+    "phase": "Technical depth",
+    "title": "End-to-end type safety audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "data-integrity",
+    "phase": "Technical depth",
+    "title": "Data integrity, transactions and recovery",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "realtime",
+    "phase": "Technical depth",
+    "title": "Realtime, concurrency and synchronization",
+    "status": "partial",
+    "reason": "Oracle streaming exists; source safeguards inspected. No collaborative/shared-record realtime backend; live model streaming and long-connection behavior not exercised."
+  },
+  {
+    "id": "importexport",
+    "phase": "Technical depth",
+    "title": "Search, imports, exports and bulk actions",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "deploy-skew",
+    "phase": "Technical depth",
+    "title": "Rolling-deploy version skew: Server Actions, caching, and stale clients",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "hydration",
+    "phase": "Technical depth",
+    "title": "SSR/CSR hydration mismatches",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "sec",
+    "phase": "Security & compliance",
+    "title": "Application security audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "a11y",
+    "phase": "Security & compliance",
+    "title": "Accessibility audit: WCAG 2.2 AA",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "gdpr",
+    "phase": "Security & compliance",
+    "title": "GDPR, CCPA, EAA, EU AI Act, and privacy compliance",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "multitenancy",
+    "phase": "Security & compliance",
+    "title": "Multi-tenant isolation audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "legaldocs",
+    "phase": "Security & compliance",
+    "title": "Legal documents and policy completeness",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "tax-compliance",
+    "phase": "Security & compliance",
+    "title": "Sales tax, VAT and merchant-of-record exposure",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "moderation",
+    "phase": "Security & compliance",
+    "title": "Content moderation and UGC safety",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "dast",
+    "phase": "Security & compliance",
+    "title": "Dynamic security scan (DAST) of the running app",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "secrets-scan",
+    "phase": "Security & compliance",
+    "title": "Secrets & credential leak scan",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "ssrf",
+    "phase": "Security & compliance",
+    "title": "SSRF & cloud metadata exposure",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "uploads",
+    "phase": "Security & compliance",
+    "title": "File upload & object-storage pipeline",
+    "status": "partial",
+    "reason": "Learning backup file import is validated locally; Next image optimizer remote allowlist is source-inspected. No user-hosted media uploads. Full hostile-file fuzzing not run."
+  },
+  {
+    "id": "ai-redteam",
+    "phase": "Security & compliance",
+    "title": "AI/LLM red-teaming (OWASP Top 10 for LLM Applications 2026)",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "mcp-security",
+    "phase": "Security & compliance",
+    "title": "MCP & agent tool security (OWASP Top 10 for Agentic Applications 2026)",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "voice-realtime",
+    "phase": "Security & compliance",
+    "title": "Voice & realtime AI agent audit",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "csp-report",
+    "phase": "Security & compliance",
+    "title": "CSP reporting pipeline & nonce hardening",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "third-party-scripts",
+    "phase": "Security & compliance",
+    "title": "Third-party scripts, tags & consent governance",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "gha-workflow-security",
+    "phase": "Security & compliance",
+    "title": "GitHub Actions workflow security",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "breach-response",
+    "phase": "Security & compliance",
+    "title": "Breach notification & disclosure readiness",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "audit-logging",
+    "phase": "Security & compliance",
+    "title": "Security audit trail & tamper-evident logging",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "ai-provenance",
+    "phase": "Security & compliance",
+    "title": "AI content provenance & watermarking (C2PA)",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "a11y-widgets",
+    "phase": "Security & compliance",
+    "title": "Complex widget accessibility (ARIA APG patterns)",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "admin-tools",
+    "phase": "Security & compliance",
+    "title": "Internal admin and back-office tooling held to the same rigor as the app",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "seo",
+    "phase": "Pre-launch",
+    "title": "SEO, metadata, and AI discoverability",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "webstandards",
+    "phase": "Pre-launch",
+    "title": "Web standards conformance (specification.website cross-check)",
+    "status": "partial",
+    "reason": "Reuses same-session QA: 69 templates/414 cases, 1585 units and 321 browser checks. Not every control/content record, physical device, print output or manual assistive technology was covered; see prior QA report. Final changed journeys rerun separately."
+  },
+  {
+    "id": "obs",
+    "phase": "Pre-launch",
+    "title": "Analytics and observability",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "deploy",
+    "phase": "Pre-launch",
+    "title": "Deployment and infrastructure",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "incident",
+    "phase": "Pre-launch",
+    "title": "Incident response, on-call readiness and status communication",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "dns",
+    "phase": "Pre-launch",
+    "title": "Domain, DNS, and email-domain health",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "support",
+    "phase": "Pre-launch",
+    "title": "Customer support and feedback readiness",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "launchday",
+    "phase": "Pre-launch",
+    "title": "Launch-Day Runbook",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "analytics-integrity",
+    "phase": "Pre-launch",
+    "title": "Analytics event integrity: double-counting, ad-block loss, and funnel truth",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "competitive",
+    "phase": "Strategy",
+    "title": "Competitive analysis and gap audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "research",
+    "phase": "Strategy",
+    "title": "Feature, API, and tooling research",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "designsystem",
+    "phase": "Strategy",
+    "title": "Design system and token health audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "dx",
+    "phase": "Strategy",
+    "title": "Developer experience audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "busfactor",
+    "phase": "Strategy",
+    "title": "Bus factor and recovery readiness",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "costaudit",
+    "phase": "Strategy",
+    "title": "Cost efficiency and waste audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "supplychain",
+    "phase": "Strategy",
+    "title": "Supply chain security deep dive",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "agentready",
+    "phase": "Strategy",
+    "title": "AI agent readiness audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "experiments",
+    "phase": "Strategy",
+    "title": "A/B testing and experiment validity audit",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "growth",
+    "phase": "Strategy",
+    "title": "Growth & Retention Analytics",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "channel-fit",
+    "phase": "Strategy",
+    "title": "Acquisition channel strategy (channel-market fit)",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "paid-acquisition",
+    "phase": "Strategy",
+    "title": "Paid acquisition, conversion tracking and tag governance",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "launch-marketing",
+    "phase": "Strategy",
+    "title": "Go-to-market launch plan (marketing)",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "organic-authority",
+    "phase": "Strategy",
+    "title": "Content & AI-citation (AEO) acquisition audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "social-proof",
+    "phase": "Strategy",
+    "title": "Social proof acquisition (reviews, testimonials, press)",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "pricing",
+    "phase": "Strategy",
+    "title": "Pricing & Packaging",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "changelog",
+    "phase": "Strategy",
+    "title": "Changelog & Release Notes",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "agent-commerce",
+    "phase": "Strategy",
+    "title": "Agentic commerce & AI-shopper readiness",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "action",
+    "phase": "Output",
+    "title": "Convert findings to prioritized action plan",
+    "status": "inspected",
+    "reason": "Execution contract, evidence, deduplication and output used; see run.md, findings.md, action.md and gate.md."
+  },
+  {
+    "id": "voice",
+    "phase": "Output",
+    "title": "Brand voice document generator",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "pw",
+    "phase": "Output",
+    "title": "Playwright test generation",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "visualreg",
+    "phase": "Output",
+    "title": "Visual regression testing setup",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "gate",
+    "phase": "Output",
+    "title": "Master launch gate: go / no-go",
+    "status": "inspected",
+    "reason": "Execution contract, evidence, deduplication and output used; see run.md, findings.md, action.md and gate.md."
+  },
+  {
+    "id": "delta",
+    "phase": "Output",
+    "title": "Re-Audit: Delta Against Prior Findings",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "dedup",
+    "phase": "Output",
+    "title": "Parallel Findings Deduplicator & Priority Merge",
+    "status": "inspected",
+    "reason": "Execution contract, evidence, deduplication and output used; see run.md, findings.md, action.md and gate.md."
+  },
+  {
+    "id": "rollback",
+    "phase": "Output",
+    "title": "Rollback Readiness Audit",
+    "status": "partial",
+    "reason": "Source/config or local-check evidence only; see findings.md and gate.md. Live provider settings, production delivery/alerts, legal applicability and complete native advisories are not certified."
+  },
+  {
+    "id": "postlaunch",
+    "phase": "Post-launch",
+    "title": "Post-launch monitoring checklist",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "postlaunch-retro",
+    "phase": "Post-launch",
+    "title": "Post-launch retrospective & iteration loop",
+    "status": "not covered",
+    "reason": "Outside this functional/engineering repair pass, or requires business/brand/human research, traffic, live accounts or production authority. Not counted as passed."
+  },
+  {
+    "id": "python-stack",
+    "phase": "Python (FastAPI / Django)",
+    "title": "Python runtime, packaging and dependency hygiene",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "python-api",
+    "phase": "Python (FastAPI / Django)",
+    "title": "FastAPI and Django application correctness",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  },
+  {
+    "id": "python-security",
+    "phase": "Python (FastAPI / Django)",
+    "title": "Python security floors and language-specific attack surface",
+    "status": "N/A",
+    "reason": "Gate absent in this single Next.js static-catalog app: no account/tenant DB, ORM, uploads, public/customer API, those frameworks or subscription backend. See ARCHITECTURE.md and manifests."
+  }
+]

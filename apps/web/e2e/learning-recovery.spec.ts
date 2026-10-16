@@ -1,6 +1,98 @@
 import { readFile } from "node:fs/promises";
 import { expect, test } from "@playwright/test";
 
+test.describe("Review across midnight", () => {
+  test.use({
+    timezoneId: "America/New_York",
+    viewport: { width: 390, height: 900 },
+  });
+
+  test("keeps today's count separate while continuing the same session", async ({
+    page,
+  }) => {
+    await page.clock.setFixedTime("2026-10-16T03:59:00Z");
+    await page.goto("/deities/athena");
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () =>
+            JSON.parse(localStorage.getItem("mythos-atlas-progress") || "{}")
+              .deitiesViewed,
+        ),
+      )
+      .toContain("athena");
+    await page.goto("/review");
+    await page.getByRole("button", { name: "Start Review Session" }).click();
+    await page.getByRole("button", { name: "Reveal Answer" }).click();
+    await page.getByRole("button", { name: /^Good/ }).click();
+    await expect(page.getByText("1 today", { exact: true })).toBeVisible();
+
+    await page.clock.setFixedTime("2026-10-16T04:01:00Z");
+    await page.getByRole("button", { name: "Reveal Answer" }).click();
+    await page.getByRole("button", { name: /^Forgot/ }).click();
+    await expect(page.getByText("1 today", { exact: true })).toBeVisible();
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const review = JSON.parse(
+            localStorage.getItem("mythos-atlas-review") || "{}",
+          );
+          return {
+            date: review.lastReviewDate,
+            total: review.stats?.totalReviewed,
+            correct: review.stats?.correctToday,
+            incorrect: review.stats?.incorrectToday,
+            streak: review.stats?.currentStreak,
+          };
+        }),
+      )
+      .toEqual({
+        date: "2026-10-16",
+        total: 2,
+        correct: 0,
+        incorrect: 1,
+        streak: 2,
+      });
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const progress = JSON.parse(
+            localStorage.getItem("mythos-atlas-progress") || "{}",
+          );
+          return { date: progress.lastVisit, streak: progress.dailyStreak };
+        }),
+      )
+      .toEqual({ date: "2026-10-16", streak: 2 });
+  });
+
+  test("preserves a streak when reading continues after midnight through client navigation", async ({
+    page,
+  }) => {
+    await page.clock.setFixedTime("2026-10-16T03:59:00Z");
+    await page.goto("/deities/athena");
+    const visit = () =>
+      page.evaluate(() => {
+        const progress = JSON.parse(
+          localStorage.getItem("mythos-atlas-progress") || "{}",
+        );
+        return { date: progress.lastVisit, streak: progress.dailyStreak };
+      });
+    await expect.poll(visit).toEqual({ date: "2026-10-15", streak: 1 });
+    await page.clock.setFixedTime("2026-10-16T04:01:00Z");
+    await page.keyboard.press("Control+k");
+    await page.getByPlaceholder(/search deities, stories/i).fill("Titanomachy");
+    await page
+      .getByRole("option")
+      .filter({ hasText: "Titanomachy" })
+      .first()
+      .click();
+    await expect(page).toHaveURL(/\/stories\/titanomachy$/);
+    await expect.poll(visit).toEqual({ date: "2026-10-16", streak: 2 });
+    await page.reload();
+    await expect.poll(visit).toEqual({ date: "2026-10-16", streak: 2 });
+  });
+});
+
 for (const width of [1440, 390]) {
   test(`failed local saves remain recoverable at ${width}px`, async ({
     page,

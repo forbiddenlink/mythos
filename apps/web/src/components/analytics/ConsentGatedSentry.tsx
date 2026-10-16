@@ -12,56 +12,71 @@ export function ConsentGatedSentry() {
 
   useEffect(() => {
     let cancelled = false;
+    let running = false;
+    let resync = false;
 
     const sync = async () => {
-      const allowed = hasAnalyticsConsent();
-      if (allowed && !activeRef.current) {
-        const dsn = process.env.NEXT_PUBLIC_SENTRY_DSN;
-        if (!dsn || process.env.NODE_ENV !== "production") return;
+      if (running) {
+        resync = true;
+        return;
+      }
+      running = true;
+      try {
+        const allowed = hasAnalyticsConsent();
+        if (allowed && !activeRef.current) {
+          const dsn = process.env.NEXT_PUBLIC_SENTRY_DSN;
+          if (!dsn || process.env.NODE_ENV !== "production") return;
 
-        try {
-          const Sentry = await import("@sentry/nextjs");
-          if (cancelled) return;
-          const replayEnabled =
-            process.env.NEXT_PUBLIC_SENTRY_REPLAY_ENABLED === "true";
-          Sentry.init({
-            dsn,
-            tracesSampleRate:
-              Number.parseFloat(
-                process.env.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE ?? "0.15",
-              ) || 0.15,
-            debug: false,
-            ignoreErrors: [
-              "closest is not a function",
-              // Blocked storage in in-app webviews / privacy mode. Every app
-              // localStorage access is already try/catch-guarded; this throw
-              // comes from third-party/SDK code and is not actionable.
-              /Failed to read the 'localStorage' property from 'Window'/,
-            ],
-            replaysOnErrorSampleRate: replayEnabled ? 1 : 0,
-            replaysSessionSampleRate: 0,
-            integrations: replayEnabled
-              ? [
-                  Sentry.replayIntegration({
-                    maskAllText: true,
-                    blockAllMedia: true,
-                  }),
-                ]
-              : [],
-            enabled: true,
-          });
-          activeRef.current = true;
-        } catch {
-          // Ignore Sentry load failures
+          try {
+            const Sentry = await import("@sentry/nextjs");
+            if (cancelled || !hasAnalyticsConsent()) return;
+            const replayEnabled =
+              process.env.NEXT_PUBLIC_SENTRY_REPLAY_ENABLED === "true";
+            Sentry.init({
+              dsn,
+              tracesSampleRate:
+                Number.parseFloat(
+                  process.env.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE ?? "0.15",
+                ) || 0.15,
+              debug: false,
+              ignoreErrors: [
+                "closest is not a function",
+                // Blocked storage in in-app webviews / privacy mode. Every app
+                // localStorage access is already try/catch-guarded; this throw
+                // comes from third-party/SDK code and is not actionable.
+                /Failed to read the 'localStorage' property from 'Window'/,
+              ],
+              replaysOnErrorSampleRate: replayEnabled ? 1 : 0,
+              replaysSessionSampleRate: 0,
+              integrations: replayEnabled
+                ? [
+                    Sentry.replayIntegration({
+                      maskAllText: true,
+                      blockAllMedia: true,
+                    }),
+                  ]
+                : [],
+              enabled: true,
+            });
+            activeRef.current = true;
+          } catch {
+            // Ignore Sentry load failures
+          }
+        } else if (!allowed && activeRef.current) {
+          try {
+            const Sentry = await import("@sentry/nextjs");
+            if (cancelled || hasAnalyticsConsent()) return;
+            await Sentry.close(2000);
+            activeRef.current = false;
+          } catch {
+            activeRef.current = false;
+          }
         }
-      } else if (!allowed && activeRef.current) {
-        try {
-          const Sentry = await import("@sentry/nextjs");
-          if (cancelled) return;
-          await Sentry.close(2000);
-          activeRef.current = false;
-        } catch {
-          activeRef.current = false;
+      } finally {
+        running = false;
+        if (resync && !cancelled) {
+          resync = false;
+          void sync();
         }
       }
     };

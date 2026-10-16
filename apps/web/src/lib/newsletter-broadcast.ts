@@ -6,7 +6,8 @@
  * can reach the network by accident. Safe by default: a broadcast is created
  * as a DRAFT, and sending needs NEWSLETTER_DIGEST_SEND=true.
  */
-import { timingSafeEqual } from "node:crypto";
+import { randomUUID, timingSafeEqual } from "node:crypto";
+import { Redis } from "@upstash/redis";
 import { DEFAULT_RESEND_SEGMENT_ID } from "@/lib/newsletter";
 import {
   buildWeeklyDigest,
@@ -49,10 +50,11 @@ export interface BroadcastClient {
 
 export type DigestRunResult =
   | { status: "no_story" }
+  | { status: "busy" }
   | { status: "exists"; id: string; broadcastStatus: string }
   | { status: "drafted"; id: string; name: string }
   | { status: "sent"; id: string; name: string }
-  | { status: "error"; step: "list" | "create" | "send" };
+  | { status: "error"; step: "lock" | "list" | "create" | "send" };
 
 export function digestBroadcastName(weekKey: string): string {
   return `Weekly myth ${weekKey}`;
@@ -78,8 +80,42 @@ async function findBroadcastByName(
   return null;
 }
 
+export interface DigestLock {
+  acquire: (name: string) => Promise<string | null>;
+  release: (name: string, token: string) => Promise<void>;
+}
+
+/** Shared lease: process-local locks cannot coordinate separate cron instances. */
+export function createDigestLock(env: DigestEnv): DigestLock | null {
+  const url = env.UPSTASH_REDIS_REST_URL;
+  const token = env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  const redis = new Redis({ url, token });
+  const key = (name: string): string => `mythos:newsletter:lease:${name}`;
+  return {
+    acquire: async (name) => {
+      const owner = randomUUID();
+      // Longer than a serverless invocation; expires if the process terminates.
+      const acquired = await redis.set(key(name), owner, {
+        nx: true,
+        ex: 1800,
+      });
+      return acquired === "OK" ? owner : null;
+    },
+    release: async (name, owner) => {
+      // An expired invocation must never release a newer invocation's lease.
+      await redis.eval(
+        "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end",
+        [key(name)],
+        [owner],
+      );
+    },
+  };
+}
+
 export interface RunDigestOptions {
   client: BroadcastClient;
+  lock: DigestLock;
   stories: readonly DigestStory[];
   journeys: readonly DigestJourney[];
   now: Date;
@@ -102,41 +138,56 @@ export async function runWeeklyDigest(
   if (!digest) return { status: "no_story" };
 
   const name = digestBroadcastName(digest.weekKey);
-  const existing = await findBroadcastByName(client, name);
-  if (existing === "error") return { status: "error", step: "list" };
-
-  if (existing) {
-    if (send && existing.status === "draft") {
-      const sent = await client.broadcasts.send(existing.id);
-      return sent.error
-        ? { status: "error", step: "send" }
-        : { status: "sent", id: existing.id, name };
-    }
-    return {
-      status: "exists",
-      id: existing.id,
-      broadcastStatus: existing.status,
-    };
+  let owner: string | null;
+  try {
+    owner = await options.lock.acquire(name);
+  } catch {
+    return { status: "error", step: "lock" };
   }
+  if (!owner) return { status: "busy" };
+  try {
+    const existing = await findBroadcastByName(client, name);
+    if (existing === "error") return { status: "error", step: "list" };
 
-  const created = await client.broadcasts.create({
-    name,
-    segmentId: options.segmentId,
-    from: options.from,
-    subject: digest.subject,
-    previewText: digest.previewText,
-    html: digest.html,
-    text: digest.text,
-  });
-  if (created.error || !created.data)
-    return { status: "error", step: "create" };
+    if (existing) {
+      if (send && existing.status === "draft") {
+        const sent = await client.broadcasts.send(existing.id);
+        return sent.error
+          ? { status: "error", step: "send" }
+          : { status: "sent", id: existing.id, name };
+      }
+      return {
+        status: "exists",
+        id: existing.id,
+        broadcastStatus: existing.status,
+      };
+    }
 
-  if (!send) return { status: "drafted", id: created.data.id, name };
+    const created = await client.broadcasts.create({
+      name,
+      segmentId: options.segmentId,
+      from: options.from,
+      subject: digest.subject,
+      previewText: digest.previewText,
+      html: digest.html,
+      text: digest.text,
+    });
+    if (created.error || !created.data)
+      return { status: "error", step: "create" };
 
-  const sent = await client.broadcasts.send(created.data.id);
-  return sent.error
-    ? { status: "error", step: "send" }
-    : { status: "sent", id: created.data.id, name };
+    if (!send) return { status: "drafted", id: created.data.id, name };
+
+    const sent = await client.broadcasts.send(created.data.id);
+    return sent.error
+      ? { status: "error", step: "send" }
+      : { status: "sent", id: created.data.id, name };
+  } finally {
+    try {
+      await options.lock.release(name, owner);
+    } catch {
+      // Retaining the expiring lease is safer than retrying a delivered email.
+    }
+  }
 }
 
 /** Reads CRON_SECRET, RESEND_API_KEY, NEWSLETTER_FROM, RESEND_SEGMENT_ID and
@@ -163,6 +214,7 @@ export interface DigestRequestDeps {
   now: Date;
   /** Builds the Resend client from the API key; replaced by a fake in tests. */
   createClient: (apiKey: string) => BroadcastClient;
+  createLock: (env: DigestEnv) => DigestLock | null;
 }
 
 /**
@@ -186,8 +238,12 @@ export async function handleWeeklyDigestRequest(
     return json({ ok: false, reason: "not_configured" }, 501);
   }
 
+  const lock = deps.createLock(env);
+  if (!lock) return json({ ok: false, reason: "not_configured" }, 501);
+
   const result = await runWeeklyDigest({
     client: deps.createClient(apiKey),
+    lock,
     stories: deps.stories,
     journeys: deps.journeys,
     now: deps.now,

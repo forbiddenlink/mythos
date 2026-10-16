@@ -7,6 +7,22 @@
     },
     "build": {
       "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "env": [
+        "ANALYZE",
+        "ANTHROPIC_*",
+        "GROQ_*",
+        "OPENAI_*",
+        "ORACLE_*",
+        "POSTHOG_*",
+        "SENTRY_*",
+        "UPSTASH_*",
+        "RESEND_*",
+        "NEWSLETTER_*",
+        "CRON_SECRET",
+        "NEXT_ADAPTER_PATH",
+        "VERCEL_ENV"
+      ],
       "outputs": [".next/**", "dist/**"]
     },
     "lint": {
