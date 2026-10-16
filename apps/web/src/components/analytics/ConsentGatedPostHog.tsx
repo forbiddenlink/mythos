@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { resetAnalyticsSink, setAnalyticsSink } from "@/lib/analytics/events";
+import { isProductionHostname } from "@/lib/analytics/production-host";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 
 type PostHogClient = {
@@ -53,6 +54,7 @@ export function ConsentGatedPostHog() {
   useEffect(() => {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
     if (!allowed || !key) return;
+    if (!isProductionHostname(globalThis.location.hostname)) return;
 
     const connect = (client: PostHogClient): void => {
       client.opt_in_capturing?.({ captureEventName: false });

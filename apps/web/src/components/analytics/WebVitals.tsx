@@ -1,6 +1,7 @@
 "use client";
 
 import { getPostHogDistinctId } from "@/components/analytics/ConsentGatedPostHog";
+import { isProductionHostname } from "@/lib/analytics/production-host";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 import { useEffect } from "react";
 import { onCLS, onFCP, onINP, onLCP, onTTFB, type Metric } from "web-vitals";
@@ -16,6 +17,10 @@ export function isVitalsReportingConfigured(): boolean {
 
 function sendToAnalytics(metric: Metric) {
   if (!isVitalsReportingConfigured()) {
+    return;
+  }
+
+  if (!isProductionHostname(globalThis.location.hostname)) {
     return;
   }
 
