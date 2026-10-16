@@ -86,3 +86,62 @@ test("home links are available with reduced motion", async ({ page }) => {
   await expect(page).toHaveURL(/\/stories$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 });
+
+test("home offers image-led entry to featured traditions", async ({ page }) => {
+  await page.goto("/");
+  const traditions = page.getByRole("region", { name: "Featured pantheons" });
+  await expect(traditions).toBeVisible();
+  for (const slug of ["greek", "norse", "egyptian", "hindu", "japanese"]) {
+    const link = traditions.locator(`a[href="/pantheons/${slug}"]`);
+    await link.scrollIntoViewIfNeeded();
+    await expect(link).toBeVisible();
+    await expect
+      .poll(() =>
+        link
+          .locator("img")
+          .evaluate(
+            (image: HTMLImageElement) =>
+              image.complete && image.naturalWidth > 0,
+          ),
+      )
+      .toBe(true);
+  }
+});
+
+test("home frontispiece identifies its real artwork and museum source", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const hero = page.getByRole("region", { name: "Mythos Atlas", exact: true });
+  const artwork = hero.getByRole("img", {
+    name: /Bronze figure of Shiva as Nataraja/,
+  });
+  await expect(artwork).toBeVisible();
+  await expect
+    .poll(() =>
+      artwork.evaluate(
+        (image: HTMLImageElement) => image.complete && image.naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
+  await expect(
+    hero.getByRole("link", {
+      name: "The Metropolitan Museum of Art",
+      exact: true,
+    }),
+  ).toHaveAttribute(
+    "href",
+    "https://www.metmuseum.org/art/collection/search/39328",
+  );
+  await expect(
+    hero.getByText("Shiva as Lord of Dance (Nataraja)", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    hero
+      .getByRole("navigation", { name: "Index of traditions" })
+      .locator("ol a"),
+  ).toHaveCount(6);
+  await expect(
+    hero.getByRole("link", { name: "All 26 traditions" }),
+  ).toHaveAttribute("href", "/pantheons");
+});

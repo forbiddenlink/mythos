@@ -69,6 +69,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "images.metmuseum.org",
+        pathname: "/CRDImages/**",
+      },
+      {
+        protocol: "https",
         hostname: "collectionapi.metmuseum.org",
         pathname: "/api/collection/v1/iiif/**/main-image",
       },

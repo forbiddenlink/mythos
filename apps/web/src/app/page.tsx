@@ -27,6 +27,7 @@ import creaturesData from "@/data/creatures.json";
 import artifactsData from "@/data/artifacts.json";
 import locationsData from "@/data/locations.json";
 import { getImageProvenance } from "@/lib/image-provenance";
+import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 
 // Computed on the server (this is a Server Component). Reading the catalog
 // here keeps it OUT of the client bundle: only the small derived values below
@@ -52,12 +53,7 @@ for (const d of deities) {
   DEITY_LOOKUP[d.slug] = entry;
 }
 
-const pantheonShortName = (pantheonId: string) =>
-  getPantheons()
-    .find((p) => p.id === pantheonId)
-    ?.name.replace(/ Pantheon$/, "") ?? pantheonId.replace(/-pantheon$/, "");
-
-// The printed index under the title: every tradition, largest first.
+// The opening index previews the largest traditions; the full catalog is one link away.
 const TRADITION_INDEX: IndexEntry[] = getTraditions()
   .map((p) => ({
     name: p.name,
@@ -67,29 +63,23 @@ const TRADITION_INDEX: IndexEntry[] = getTraditions()
   }))
   .sort((a, b) => b.deities - a.deities || a.name.localeCompare(b.name));
 
-// Portraits for the hero frontispiece: well-known figures from six traditions.
-// Strictly enforce illustration-ai provenance so procedural plates never appear.
-const HERO_FIGURES: HeroFigure[] = [
-  "zeus",
-  "isis",
-  "odin",
-  "shiva",
-  "quetzalcoatl",
-  "amaterasu",
-].flatMap((slug) => {
-  const deity = deities.find((d) => d.slug === slug);
-  if (!deity?.imageUrl) return [];
-  const prov = getImageProvenance("deity", deity.slug);
-  if (prov?.kind !== "illustration-ai") return [];
-  return [
-    {
-      name: deity.name,
-      slug: deity.slug,
-      imageUrl: deity.imageUrl,
-      tradition: pantheonShortName(deity.pantheonId),
-    },
-  ];
-});
+// The opening plate is a documented work, with its museum credit intact.
+const frontispiece = getMuseumPortrait(getMuseumObjectsFor({ deity: "shiva" }));
+const HERO_FIGURE: HeroFigure | undefined = frontispiece?.imageUrl
+  ? {
+      name: "Shiva",
+      slug: "shiva",
+      imageUrl: frontispiece.imageUrl,
+      tradition: "Tamil Nadu",
+      artwork: {
+        title: frontispiece.title,
+        date: frontispiece.date,
+        institution: frontispiece.institution,
+        url: frontispiece.url,
+        alt: frontispiece.imageAlt ?? frontispiece.title,
+      },
+    }
+  : undefined;
 
 // Featured traditions, each with a curated one-line pitch and a local image
 // (a landscape cover, or a representative portrait where the cover is a plate).
@@ -134,15 +124,20 @@ const TRADITIONS: FeaturedTradition[] = FEATURED_TRADITIONS.flatMap(
   (featured) => {
     const pantheon = getPantheons().find((p) => p.slug === featured.slug);
     if (!pantheon) return [];
-    const prov = getImageProvenance("pantheon", pantheon.slug);
+    const prov = getImageProvenance("pantheon", pantheon.id);
     if (prov?.kind !== "illustration-ai") return [];
+    const artwork =
+      featured.slug === "greek"
+        ? getMuseumPortrait(getMuseumObjectsFor({ deity: "zeus" }))
+        : null;
     return [
       {
         name: pantheon.name,
         slug: pantheon.slug,
         culture: pantheon.culture,
         description: featured.description,
-        imageUrl: featured.image,
+        imageUrl: artwork?.imageUrl ?? featured.image,
+        artwork: artwork ?? undefined,
         figureCount: deities.filter((d) => d.pantheonId === pantheon.id).length,
         figuresLabel: "deities",
       },
@@ -182,7 +177,7 @@ export default function Home() {
     <div className="min-h-screen">
       <AtlasOpensHero
         counts={HERO_COUNTS}
-        figure={HERO_FIGURES[0]}
+        figure={HERO_FIGURE}
         index={TRADITION_INDEX}
       />
       <PantheonShowcase

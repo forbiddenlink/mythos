@@ -23,36 +23,44 @@ export function DeityHero({
   museumPortrait: MuseumObject | null;
   imageNote?: ImageNote;
 }) {
-  const image = deity.imageUrl
+  const image = museumPortrait?.imageUrl
     ? {
-        src: deity.imageUrl,
-        alt: generateEntityAlt({
-          name: deity.name,
-          tradition: traditionLabel,
-          type: "deity",
-          entityType: "deity",
-          slug: deity.slug,
-        }),
+        src: museumPortrait.imageUrl,
+        alt: museumPortrait.imageAlt || museumPortrait.title,
+        unoptimized: true,
+        fit: "contain" as const,
       }
-    : museumPortrait?.imageUrl
+    : deity.imageUrl
       ? {
-          src: museumPortrait.imageUrl,
-          alt: museumPortrait.imageAlt || museumPortrait.title,
-          unoptimized: true,
-          fit: "contain" as const,
+          src: deity.imageUrl,
+          alt: generateEntityAlt({
+            name: deity.name,
+            tradition: traditionLabel,
+            type: "deity",
+            entityType: "deity",
+            slug: deity.slug,
+          }),
         }
       : null;
 
-  const caption = deity.imageUrl ? (
+  const caption = museumPortrait?.imageUrl ? (
+    <figcaption className="type-meta text-parchment/75">
+      {museumPortrait.title}
+      {museumPortrait.date ? `, ${museumPortrait.date}` : null}
+      {" · "}
+      <a
+        href={museumPortrait.url}
+        className="underline underline-offset-2 hover:text-parchment"
+      >
+        {museumPortrait.institution}
+      </a>
+    </figcaption>
+  ) : deity.imageUrl ? (
     <IllustrativeImageCaption
       note={imageNote}
       subject={`Illustration of ${deity.name}`}
       tone="light"
     />
-  ) : museumPortrait ? (
-    <figcaption className="type-meta text-parchment/75">
-      {museumPortrait.title}, {museumPortrait.institution}
-    </figcaption>
   ) : null;
 
   return (

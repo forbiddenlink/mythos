@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/layout/section";
 import { getDeities } from "@/lib/data/catalog";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getSyncretismChains } from "@/lib/linked-mentions";
+import { cn } from "@/lib/utils";
 
 function traditionName(pantheonId: string): string {
   const label = pantheonId.replace(/-pantheon$/, "").replaceAll("-", " ");
@@ -29,10 +30,13 @@ export function SyncretismStrip() {
         action={{ href: "/compare/parallels", label: "Browse all parallels" }}
       />
       <ul className="grid gap-5 md:grid-cols-2">
-        {chains.map((chain) => (
+        {chains.map((chain, index) => (
           <li
             key={chain.id}
-            className="rounded-lg bg-card p-4 ring-1 ring-border/70 sm:p-5"
+            className={cn(
+              "rounded-lg bg-card p-4 ring-1 ring-border/70 sm:p-5",
+              index > 1 && "hidden md:block",
+            )}
           >
             <p className="mb-4 text-[0.8125rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
               The {chain.label} parallels
@@ -53,7 +57,7 @@ export function SyncretismStrip() {
                             alt=""
                             fill
                             sizes="(min-width: 768px) 8rem, 45vw"
-                            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+                            className="object-cover object-top motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
                           />
                         ) : (
                           <span

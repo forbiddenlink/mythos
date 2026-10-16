@@ -268,6 +268,7 @@ export function DetailHero({
                 <div
                   className={cn(
                     "plate-art",
+                    image?.fit === "contain" && "bg-parchment",
                     imageAspect === "portrait"
                       ? "aspect-4/5"
                       : imageAspect === "landscape"
@@ -289,7 +290,7 @@ export function DetailHero({
                       }
                       className={cn(
                         image.fit === "contain"
-                          ? "object-contain p-3"
+                          ? "object-contain"
                           : imageAspect === "portrait"
                             ? "object-cover object-top"
                             : "object-cover",
