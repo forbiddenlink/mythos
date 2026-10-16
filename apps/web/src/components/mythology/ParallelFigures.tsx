@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import type { MuseumObject } from "@/lib/museum";
 import { cn } from "@/lib/utils";
 
 export interface ParallelFigure {
@@ -11,6 +12,7 @@ export interface ParallelFigure {
   /** Readable tradition name; derived from the pantheon id when omitted. */
   traditionLabel?: string;
   imageUrl?: string | null;
+  museumPortrait?: MuseumObject | null;
   /** Why the figures are compared (editorial note). */
   note?: string;
   /** Side-by-side comparison page, when one exists. */
@@ -34,20 +36,29 @@ function Portrait({
   className?: string;
   sizes: string;
 }) {
+  const portrait = figure.museumPortrait?.imageUrl
+    ? figure.museumPortrait
+    : null;
+  const image = portrait?.imageUrl ?? figure.imageUrl;
   return (
     <span
       className={cn(
         "relative block shrink-0 overflow-hidden rounded-md bg-muted ring-1 ring-border",
+        portrait && "bg-parchment",
         className,
       )}
     >
-      {figure.imageUrl ? (
+      {image ? (
         <Image
-          src={figure.imageUrl}
-          alt=""
+          src={image}
+          alt={portrait ? portrait.imageAlt || portrait.title : ""}
+          unoptimized={Boolean(portrait)}
           fill
           sizes={sizes}
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          className={cn(
+            "motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.03]",
+            portrait ? "object-contain p-1" : "object-cover object-top",
+          )}
         />
       ) : (
         <span
@@ -59,6 +70,26 @@ function Portrait({
       )}
     </span>
   );
+}
+
+function ArtworkCredit({ figure }: { figure: ParallelFigure }) {
+  const portrait = figure.museumPortrait;
+  if (portrait?.imageUrl) {
+    return (
+      <a
+        href={portrait.url}
+        title={portrait.title}
+        className="mt-2 block text-xs text-muted-foreground underline underline-offset-2"
+      >
+        {portrait.institution}
+      </a>
+    );
+  }
+  return figure.imageUrl ? (
+    <span className="mt-2 block text-xs text-muted-foreground">
+      Illustration
+    </span>
+  ) : null;
 }
 
 function Tradition({ figure }: { figure: ParallelFigure }) {
@@ -123,6 +154,7 @@ export function ParallelFigures({
                   </span>
                 </span>
               </Link>
+              <ArtworkCredit figure={figure} />
             </li>
           ))}
         </ul>
@@ -167,6 +199,7 @@ export function ParallelFigures({
               ) : (
                 <div className="flex min-h-11 items-center gap-4">{head}</div>
               )}
+              <ArtworkCredit figure={figure} />
               {figure.note ? (
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
                   {figure.note}

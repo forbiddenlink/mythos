@@ -145,3 +145,51 @@ test("home frontispiece identifies its real artwork and museum source", async ({
     hero.getByRole("link", { name: "All 26 traditions" }),
   ).toHaveAttribute("href", "/pantheons");
 });
+
+for (const width of [320, 1440]) {
+  for (const route of ["/", "/collections/underworld-rulers"]) {
+    test(`museum thumbnails preserve sources and reflow at ${width}px on ${route}`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.goto(route, { waitUntil: "domcontentloaded" });
+      const section =
+        route === "/"
+          ? page.getByRole("region", { name: "Compare figures and traditions" })
+          : page.getByRole("region", {
+              name: "Rulers of the Dead across pantheons",
+            });
+      const object = section.locator("img.object-contain").first();
+      await object.scrollIntoViewIfNeeded();
+      await expect(object).toBeVisible();
+      await expect
+        .poll(() =>
+          object.evaluate(
+            (image: HTMLImageElement) =>
+              image.complete && image.naturalWidth > 0,
+          ),
+        )
+        .toBe(true);
+      const item = object.locator("xpath=ancestor::li[1]");
+      await expect(item.locator("a[title]")).toHaveAttribute(
+        "href",
+        /^https:\/\//,
+      );
+      const entry = item.locator('a[href^="/deities/"]');
+      await expect(entry).toHaveCount(1);
+      await expect(section.locator("a a")).toHaveCount(0);
+      await page.evaluate(() => {
+        document.documentElement.style.fontSize = "200%";
+      });
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+      await entry.click();
+      await expect(page).toHaveURL(/\/deities\//);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    });
+  }
+}

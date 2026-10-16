@@ -4,6 +4,7 @@ import { Section, SectionHeading } from "@/components/layout/section";
 import { getDeities } from "@/lib/data/catalog";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getSyncretismChains } from "@/lib/linked-mentions";
+import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 import { cn } from "@/lib/utils";
 
 function traditionName(pantheonId: string): string {
@@ -18,7 +19,7 @@ function traditionName(pantheonId: string): string {
 export function SyncretismStrip() {
   const chains = getSyncretismChains(4);
   if (chains.length === 0) return null;
-  const images = new Map(getDeities().map((d) => [d.slug, d.imageUrl]));
+  const deities = new Map(getDeities().map((deity) => [deity.slug, deity]));
 
   return (
     <Section tone="muted" aria-labelledby="compare-strip-title">
@@ -43,21 +44,40 @@ export function SyncretismStrip() {
             </p>
             <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {chain.members.slice(0, 4).map((member) => {
-                const image = images.get(member.slug);
+                const deity = deities.get(member.slug);
+                const portrait = deity
+                  ? getMuseumPortrait(getMuseumObjectsFor({ deity: deity.id }))
+                  : null;
+                const image = portrait?.imageUrl ?? deity?.imageUrl;
                 return (
                   <li key={member.slug}>
                     <Link
                       href={`/deities/${member.slug}`}
                       className="group block rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                     >
-                      <span className="relative block aspect-4/5 overflow-hidden plate-flat bg-midnight">
+                      <span
+                        className={cn(
+                          "relative block aspect-4/5 overflow-hidden plate-flat",
+                          portrait ? "bg-parchment" : "bg-midnight",
+                        )}
+                      >
                         {image ? (
                           <Image
                             src={image}
-                            alt=""
+                            alt={
+                              portrait
+                                ? portrait.imageAlt || portrait.title
+                                : ""
+                            }
+                            unoptimized={Boolean(portrait)}
                             fill
                             sizes="(min-width: 768px) 8rem, 45vw"
-                            className="object-cover object-top motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
+                            className={cn(
+                              "motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]",
+                              portrait
+                                ? "object-contain p-2"
+                                : "object-cover object-top",
+                            )}
                           />
                         ) : (
                           <span
@@ -84,6 +104,19 @@ export function SyncretismStrip() {
                         {traditionName(member.pantheonId)}
                       </span>
                     </Link>
+                    {portrait ? (
+                      <a
+                        href={portrait.url}
+                        className="mt-2 block text-xs text-muted-foreground underline underline-offset-2"
+                        title={portrait.title}
+                      >
+                        {portrait.institution}
+                      </a>
+                    ) : image ? (
+                      <span className="mt-2 block text-xs text-muted-foreground">
+                        Illustration
+                      </span>
+                    ) : null}
                   </li>
                 );
               })}
