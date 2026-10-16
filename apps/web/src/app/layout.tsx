@@ -79,7 +79,7 @@ export default async function RootLayout({
                         <Header />
                         <main
                           id="main-content"
-                          className="flex-1 scroll-mt-16"
+                          className="flex-1 scroll-mt-16 [overflow-wrap:anywhere]"
                           tabIndex={-1}
                         >
                           <LearningSaveNotice />

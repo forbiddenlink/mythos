@@ -179,8 +179,15 @@ for (const width of [320, 1440]) {
       const entry = item.locator('a[href^="/deities/"]');
       await expect(entry).toHaveCount(1);
       await expect(section.locator("a a")).toHaveCount(0);
-      await page.evaluate(() => {
-        document.documentElement.style.fontSize = "200%";
+      await page.addStyleTag({
+        content: "html { font-size: 200% !important; }",
+      });
+      await expect(page.locator("html")).toHaveCSS("font-size", "32px");
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await new Promise<void>((resolve) =>
+          requestAnimationFrame(() => resolve()),
+        );
       });
       await expect
         .poll(() =>
@@ -189,8 +196,10 @@ for (const width of [320, 1440]) {
           ),
         )
         .toBe(true);
-      await entry.click();
-      await expect(page).toHaveURL(/\/deities\//, { timeout: 10000 });
+      await Promise.all([
+        page.waitForURL(/\/deities\//, { waitUntil: "domcontentloaded" }),
+        entry.click(),
+      ]);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     });
   }

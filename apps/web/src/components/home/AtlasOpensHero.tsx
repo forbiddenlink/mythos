@@ -88,7 +88,7 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
           </span>
         </p>
 
-        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,23rem)] lg:grid-rows-[auto_1fr] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,23rem)] lg:grid-rows-[auto_1fr] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
           <div className="min-w-0 lg:col-start-1 lg:row-start-1">
             <h1 id="atlas-title" className="type-display text-parchment">
               Mythos <span className="sm:block">Atlas</span>
@@ -189,7 +189,7 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
               <span>Index of traditions</span>
               <span>Deities</span>
             </h2>
-            <ol className="columns-2 gap-x-6 sm:gap-x-10 xl:columns-3 [&>li]:break-inside-avoid">
+            <ol className="columns-[8rem] gap-x-6 sm:gap-x-10 xl:columns-3 [&>li]:break-inside-avoid">
               {index.slice(0, 6).map((entry) => (
                 <li key={entry.slug}>
                   <Link
