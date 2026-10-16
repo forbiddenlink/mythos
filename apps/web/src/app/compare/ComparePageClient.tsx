@@ -6,7 +6,7 @@ import { ComparisonTable } from "@/components/compare/ComparisonTable";
 import { Button } from "@/components/ui/button";
 import { Check, Share2 } from "lucide-react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -61,6 +61,8 @@ export function ComparePageClient({
   pantheonsData,
 }: Readonly<ComparePageClientProps>) {
   const t = useTranslations("pages.compare");
+  // Interface strings follow the reader's locale; catalog content stays English.
+  const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedDeities, setSelectedDeities] = useState<Deity[]>([]);
@@ -175,12 +177,12 @@ export function ComparePageClient({
   return (
     <div>
       <div className="flex flex-wrap items-end justify-between gap-4">
-        <h2 className="page-section-title text-foreground">
+        <h2 lang={locale} className="page-section-title text-foreground">
           {t("selectDeities")}
         </h2>
         <div className="flex flex-wrap items-center gap-3">
           {selectedDeities.length > 0 && (
-            <span className="type-meta text-muted-foreground">
+            <span lang={locale} className="type-meta text-muted-foreground">
               {t("selectedCount", { count: selectedDeities.length, max: 4 })}
             </span>
           )}
@@ -189,6 +191,7 @@ export function ComparePageClient({
               variant="outline"
               size="sm"
               onClick={handleShare}
+              lang={locale}
               className="gap-2"
             >
               {shareStatus === "success" ? (
@@ -217,6 +220,7 @@ export function ComparePageClient({
         <section aria-labelledby="suggested-comparisons" className="mt-14">
           <h2
             id="suggested-comparisons"
+            lang={locale}
             className="page-section-title text-foreground"
           >
             {t("suggestedComparisons")}
@@ -291,15 +295,19 @@ export function ComparePageClient({
 
       {selectedDeities.length >= 2 && (
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border/70 pt-6">
-          <p className="type-ui text-muted-foreground">{t("nextStepHint")}</p>
+          <p lang={locale} className="type-ui text-muted-foreground">
+            {t("nextStepHint")}
+          </p>
           <Link
             href="/stories"
+            lang={locale}
             className="type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
           >
             {t("nextStepStories")}
           </Link>
           <Link
             href="/quiz"
+            lang={locale}
             className="type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
           >
             {t("nextStepQuiz")}

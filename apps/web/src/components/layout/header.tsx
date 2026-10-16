@@ -3,7 +3,7 @@
 import { Logo } from "@/components/ui/logo";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Command, Heart, Search } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
@@ -19,6 +19,8 @@ const headerIconButtonClass =
 
 export function Header() {
   const t = useTranslations();
+  // Translated controls carry the interface locale; the page stays English.
+  const locale = useLocale();
   const [isMac, setIsMac] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -50,7 +52,7 @@ export function Header() {
       <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">
-          <MobileNav sections={mobileNavSections} />
+          <MobileNav sections={mobileNavSections} lang={locale} />
         </div>
 
         {/* Logo */}
@@ -80,6 +82,7 @@ export function Header() {
           <button
             type="button"
             onClick={handleSearchClick}
+            lang={locale}
             className="group inline-flex h-10 items-center gap-2 rounded-md px-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold md:border md:border-border md:bg-card/60 md:pr-1.5 md:pl-3"
             aria-label={t("actions.search")}
           >
@@ -100,6 +103,7 @@ export function Header() {
           {/* Bookmarks */}
           <Link
             href="/bookmarks"
+            lang={locale}
             className={`${headerIconButtonClass} hidden xl:inline-flex`}
             aria-label={t("navigation.bookmarks")}
           >

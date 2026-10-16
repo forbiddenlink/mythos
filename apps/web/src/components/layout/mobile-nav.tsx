@@ -30,6 +30,8 @@ interface NavSection {
 
 interface MobileNavProps {
   sections: NavSection[];
+  /** Locale of the translated section titles and links. */
+  lang?: string;
 }
 
 function MobileQuickStats() {
@@ -134,7 +136,7 @@ function CollapsibleSection({
   );
 }
 
-export function MobileNav({ sections }: Readonly<MobileNavProps>) {
+export function MobileNav({ sections, lang }: Readonly<MobileNavProps>) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -180,7 +182,7 @@ export function MobileNav({ sections }: Readonly<MobileNavProps>) {
           <MobileQuickStats />
 
           {/* Navigation Sections */}
-          <nav className="flex-1 overflow-y-auto">
+          <nav lang={lang} className="flex-1 overflow-y-auto">
             {sections.map((section, index) => (
               <CollapsibleSection
                 key={section.title}

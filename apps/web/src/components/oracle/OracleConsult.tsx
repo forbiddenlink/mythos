@@ -102,7 +102,8 @@ export function OracleConsult() {
   );
 
   return (
-    <div className="mx-auto w-full max-w-2xl">
+    // The Oracle answers in the reader's locale.
+    <div lang={locale} className="mx-auto w-full max-w-2xl">
       <form
         onSubmit={(e) => {
           e.preventDefault();
