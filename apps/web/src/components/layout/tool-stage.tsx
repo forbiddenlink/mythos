@@ -129,10 +129,6 @@ export function StageLoading({
           dark ? "opacity-[0.12]" : "opacity-[0.08]",
         )}
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_50%_45%_at_50%_50%,color-mix(in_oklch,var(--gold)_14%,transparent),transparent_75%)]"
-      />
       <MythosMark
         id={mark}
         className={cn(

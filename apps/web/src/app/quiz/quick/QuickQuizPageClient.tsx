@@ -186,10 +186,6 @@ export function QuickQuizPageClient({
             aria-labelledby="quick-quiz-ready"
             className="dark relative isolate overflow-hidden rounded-lg bg-midnight px-6 py-10 text-center text-foreground md:px-10 md:py-14"
           >
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_70%_at_50%_0%,color-mix(in_oklch,var(--gold)_22%,transparent),transparent_70%)]"
-            />
             <p className="font-serif text-7xl font-semibold tabular-nums text-gold-light md:text-8xl">
               60
             </p>

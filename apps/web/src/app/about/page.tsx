@@ -188,6 +188,16 @@ export default function AboutPage() {
               the institution, accession number and image rights appear beside
               each one, linked to the museum&apos;s own page.
             </p>
+            <p>
+              The star chart printed behind the home page title is the Draco
+              plate from Johannes Hevelius&apos;s{" "}
+              <em>Firmamentum Sobiescianum</em> (Gdańsk, 1690), a public-domain
+              engraving digitised by the{" "}
+              <a href="https://polona.pl/item/johannis-hevelii-prodromus-astronomiae-exhibens-fundamenta-quae-tam-ad-novum,NTU5MDc2MA/19/">
+                Polona digital library
+              </a>
+              .
+            </p>
             <p className="text-muted-foreground">
               If an illustration misrepresents a tradition, please{" "}
               <Link href="/contact">tell us</Link> and it will be reviewed or

@@ -165,10 +165,6 @@ export function ReviewPageClient() {
             transition={{ duration: 0.4 }}
             className="dark relative isolate overflow-hidden rounded-lg bg-midnight p-6 text-foreground md:p-8"
           >
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_90%_at_0%_0%,color-mix(in_oklch,var(--gold)_20%,transparent),transparent_70%)]"
-            />
             <p className="type-eyebrow text-gold-light">Today</p>
             <h2
               id="review-now-title"

@@ -1513,6 +1513,16 @@ html.cookie-banner-open {
 }
 
 @layer components {
+  /* Hevelius' engraved Draco plate (1690, public domain) printed faintly in
+     gilt behind titles on dark bands. The file is a greyscale luminance mask
+     (scripts/build_hero_star_chart.py), so the ink colour stays a token.
+     Callers set position, size and opacity. */
+  .engraved-sky {
+    background-color: var(--gold);
+    -webkit-mask: url("/hero-star-chart.webp") center / contain no-repeat;
+    mask: url("/hero-star-chart.webp") center / contain no-repeat luminance;
+  }
+
   /* A mounted plate: mat, gilt keyline just inside the mat edge, a tab of
      the tradition colour on top. Children: .plate-art (the picture). */
   .plate {

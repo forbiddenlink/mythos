@@ -75,9 +75,8 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_82%_30%,color-mix(in_oklch,var(--gold)_14%,transparent),transparent_70%)]" />
-        <div className="absolute inset-0 hidden lg:block bg-[repeating-linear-gradient(90deg,transparent_0,transparent_calc(8.333%-1px),color-mix(in_oklch,var(--gold)_7%,transparent)_calc(8.333%-1px),color-mix(in_oklch,var(--gold)_7%,transparent)_8.333%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-midnight to-transparent" />
+        <div className="engraved-sky absolute -top-16 -right-40 aspect-[1100/1026] w-[34rem] opacity-[0.16] sm:-right-24 sm:w-[44rem] lg:-top-44 lg:right-[16%] lg:w-[60rem] lg:opacity-[0.11]" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-midnight to-transparent" />
       </div>
 
       <Container className="pt-6 pb-8 sm:pt-10 lg:pt-12 lg:pb-12">

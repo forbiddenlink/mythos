@@ -51,8 +51,10 @@ describe("home hero is a priority image, not a CSS background", () => {
   it("globals.css has no hero rule with a background url()", () => {
     const css = read("app/globals.css");
     const heroRules = [...css.matchAll(/([^{}]*hero[^{}]*)\{([^}]*)\}/gi)];
+    // Only backgrounds count: a mask image (the hero star chart) is never
+    // an LCP candidate.
     const offenders = heroRules
-      .filter(([, , body]) => /url\(/.test(body))
+      .filter(([, , body]) => /background(-image)?\s*:[^;]*url\(/.test(body))
       .map(([, selector]) => selector.trim());
     expect(offenders).toEqual([]);
   });

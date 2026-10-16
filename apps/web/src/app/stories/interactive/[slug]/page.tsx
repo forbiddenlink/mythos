@@ -27,6 +27,7 @@ export default async function InteractiveStoryPage({ params }: PageProps) {
         eyebrow="Interactive story"
         mark="scroll"
         title={story.title}
+        breadcrumbLabel={story.title}
         lede={`Play as ${story.protagonist}. Every choice changes the path, and ${story.totalEndings} endings wait at the end of them.`}
         count={`${story.estimatedTime} · ${story.totalEndings} endings`}
         image={story.coverImage}

@@ -189,10 +189,6 @@ export function ProgressPageClient({
         aria-label="Summary"
         className="dark relative isolate overflow-hidden bg-midnight text-foreground"
       >
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_90%_at_15%_0%,color-mix(in_oklch,var(--gold)_18%,transparent),transparent_70%)]"
-        />
         <Container className="py-10 md:py-12">
           <dl className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
             <StatFigure
@@ -317,10 +313,6 @@ function StatsPreview({
   return (
     <figure className="overflow-hidden rounded-lg border border-border/70 bg-card shadow-xl shadow-black/5">
       <div className="dark relative isolate bg-midnight px-6 py-6 text-parchment">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_100%_at_0%_0%,color-mix(in_oklch,var(--gold)_18%,transparent),transparent_70%)]"
-        />
         <div className="grid grid-cols-3 gap-4" aria-hidden="true">
           {[
             ["Level 0", "0 XP"],

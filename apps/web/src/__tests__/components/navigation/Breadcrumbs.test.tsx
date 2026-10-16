@@ -38,6 +38,22 @@ describe("Breadcrumbs", () => {
     );
   });
 
+  it("names the current page from its title when given", () => {
+    pathname.current = "/stories/interactive/thor-jotunheim";
+    render(<Breadcrumbs currentLabel="Thor's Journey to Jotunheim" />);
+    expect(crumbs()[crumbs().length - 1]).toHaveTextContent(
+      "Thor's Journey to Jotunheim",
+    );
+  });
+
+  it("keeps minor words lower case in a slug label", () => {
+    pathname.current = "/stories/judgment-of-paris";
+    render(<Breadcrumbs />);
+    expect(crumbs()[crumbs().length - 1]).toHaveTextContent(
+      "Judgment of Paris",
+    );
+  });
+
   it("keeps ordinary parents", () => {
     pathname.current = "/deities/zeus";
     render(<Breadcrumbs />);
