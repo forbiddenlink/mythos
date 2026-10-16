@@ -21,6 +21,7 @@ import { EditorialByline } from "@/components/content/EditorialByline";
 import {
   ArticleStack,
   FactLink,
+  heroIconButtonClass,
   heroShareClass,
 } from "@/components/content/detail-parts";
 import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
@@ -40,6 +41,7 @@ import {
 } from "@/components/layout/detail-layout";
 import { LocationMap } from "@/components/locations/LocationMap";
 import { ShareButton } from "@/components/sharing/ShareButton";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
 import {
   EntitySources,
   hasEntitySources,
@@ -262,13 +264,22 @@ export default async function LocationPage({ params }: PageProps) {
             title={location.name}
             lede={location.detailedBio ? <p>{location.description}</p> : null}
             actions={
-              <ShareButton
-                surface="location_page"
-                title={`${location.name} - Mythos Atlas`}
-                text={`Explore ${location.name}, a sacred place in ${traditionName} mythology, on Mythos Atlas`}
-                url={`https://mythosatlas.com/locations/${location.id}`}
-                className={heroShareClass}
-              />
+              <>
+                <BookmarkButton
+                  type="location"
+                  id={location.id}
+                  size="md"
+                  variant="light"
+                  className={heroIconButtonClass}
+                />
+                <ShareButton
+                  surface="location_page"
+                  title={`${location.name} - Mythos Atlas`}
+                  text={`Explore ${location.name}, a sacred place in ${traditionName} mythology, on Mythos Atlas`}
+                  url={`https://mythosatlas.com/locations/${location.id}`}
+                  className={heroShareClass}
+                />
+              </>
             }
           />
         }

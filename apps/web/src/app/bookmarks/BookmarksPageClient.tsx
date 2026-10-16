@@ -54,6 +54,24 @@ interface Hero {
   imageUrl: string | null;
 }
 
+interface CatalogEntry {
+  id: string;
+  name: string;
+  slug: string;
+  pantheonId: string;
+  description: string | null;
+  imageUrl: string | null;
+}
+
+interface Place {
+  id: string;
+  name: string;
+  pantheonId: string;
+  description: string | null;
+  imageUrl: string | null;
+  locationType?: string;
+}
+
 interface SourceWork {
   id: string;
   title: string;
@@ -84,6 +102,9 @@ interface BookmarksPageClientProps {
   pantheonsData: Pantheon[];
   heroesData: Hero[];
   sourcesData: SourceWork[];
+  creaturesData: CatalogEntry[];
+  artifactsData: CatalogEntry[];
+  locationsData: Place[];
   /** Pantheon id → short name ("Greek"). */
   traditionNames: Record<string, string>;
 }
@@ -108,6 +129,9 @@ export function BookmarksPageClient({
   pantheonsData,
   heroesData,
   sourcesData,
+  creaturesData,
+  artifactsData,
+  locationsData,
   traditionNames,
 }: Readonly<BookmarksPageClientProps>) {
   const { getBookmarks, getReadingProgress } = useBookmarks();
@@ -223,6 +247,58 @@ export function BookmarksPageClient({
       }),
     },
     {
+      id: "creatures",
+      title: "Creatures",
+      aspect: "portrait",
+      cards: collect(
+        "creature",
+        creaturesData,
+        (c) => c.id,
+        (c) => ({
+          href: `/creatures/${c.slug}`,
+          title: c.name,
+          description: c.description,
+          image: c.imageUrl,
+          pantheonId: c.pantheonId,
+        }),
+      ),
+    },
+    {
+      id: "artifacts",
+      title: "Artifacts",
+      aspect: "landscape",
+      cards: collect(
+        "artifact",
+        artifactsData,
+        (a) => a.id,
+        (a) => ({
+          href: `/artifacts/${a.slug}`,
+          title: a.name,
+          description: a.description,
+          image: a.imageUrl,
+          pantheonId: a.pantheonId,
+        }),
+      ),
+    },
+    {
+      id: "locations",
+      title: "Places",
+      aspect: "landscape",
+      cards: collect(
+        "location",
+        locationsData,
+        (l) => l.id,
+        (l) => ({
+          href: `/locations/${l.id}`,
+          title: l.name,
+          description: l.description,
+          image: l.imageUrl,
+          pantheonId: l.pantheonId,
+          subtitle: l.locationType?.replaceAll("_", " "),
+        }),
+      ),
+    },
+    {
       id: "reading-list",
       title: "Reading list",
       aspect: "landscape",
@@ -330,7 +406,7 @@ export function BookmarksPageClient({
         lede={
           hydrated && count > 0
             ? `${count} saved ${count === 1 ? "entry" : "entries"}, kept in this browser.`
-            : "Figures, stories and sources you save, kept in this browser."
+            : "Figures, creatures, artifacts, places, stories and sources you save, kept in this browser."
         }
       />
       <Container className="pt-8 pb-16 md:pt-10">{body}</Container>
@@ -348,8 +424,8 @@ function EmptyState() {
         Keep a reading list
       </h2>
       <p className="mt-4 type-lede text-foreground">
-        Save a figure, story or source with its heart button. Your saved entries
-        will appear here, ready to open again.
+        Save a figure, creature, artifact, place, story or source with its heart
+        button. Your saved entries will appear here, ready to open again.
       </p>
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <Link

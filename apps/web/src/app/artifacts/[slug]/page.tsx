@@ -24,6 +24,7 @@ import { EditorialByline } from "@/components/content/EditorialByline";
 import {
   ArticleStack,
   FactLink,
+  heroIconButtonClass,
   heroShareClass,
 } from "@/components/content/detail-parts";
 import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
@@ -41,6 +42,7 @@ import {
   type TocItem,
 } from "@/components/layout/detail-layout";
 import { ShareButton } from "@/components/sharing/ShareButton";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
 import {
   EntitySources,
   hasEntitySources,
@@ -304,13 +306,22 @@ export default async function ArtifactPage({ params }: PageProps) {
             tagsLabel="Powers"
             lede={artifact.detailedBio ? <p>{artifact.description}</p> : null}
             actions={
-              <ShareButton
-                surface="artifact_page"
-                title={`${artifact.name} - Mythos Atlas`}
-                text={`Discover ${artifact.name}, a mythical ${artifact.type.toLowerCase()}, on Mythos Atlas`}
-                url={`https://mythosatlas.com/artifacts/${artifact.slug}`}
-                className={heroShareClass}
-              />
+              <>
+                <BookmarkButton
+                  type="artifact"
+                  id={artifact.id}
+                  size="md"
+                  variant="light"
+                  className={heroIconButtonClass}
+                />
+                <ShareButton
+                  surface="artifact_page"
+                  title={`${artifact.name} - Mythos Atlas`}
+                  text={`Discover ${artifact.name}, a mythical ${artifact.type.toLowerCase()}, on Mythos Atlas`}
+                  url={`https://mythosatlas.com/artifacts/${artifact.slug}`}
+                  className={heroShareClass}
+                />
+              </>
             }
           />
         }
