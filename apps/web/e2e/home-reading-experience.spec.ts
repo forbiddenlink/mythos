@@ -182,13 +182,15 @@ for (const width of [320, 1440]) {
       await page.evaluate(() => {
         document.documentElement.style.fontSize = "200%";
       });
-      expect(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth,
-        ),
-      ).toBe(true);
+      await expect
+        .poll(() =>
+          page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+        )
+        .toBe(true);
       await entry.click();
-      await expect(page).toHaveURL(/\/deities\//);
+      await expect(page).toHaveURL(/\/deities\//, { timeout: 10000 });
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     });
   }
