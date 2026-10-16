@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Volume2, VolumeX, Copy, Check, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import nameAudio from "@/data/name-audio.json";
 import {
   HoverCard,
   HoverCardTrigger,
@@ -15,25 +16,49 @@ export interface Pronunciation {
   audioUrl?: string;
 }
 
+/** Slugs that have a recorded clip under /audio/names/ (written by scripts/generate-name-audio.py). */
+const NAME_CLIPS: ReadonlySet<string> = new Set(nameAudio as string[]);
+
 interface PronunciationDisplayProps {
   pronunciation: Pronunciation;
+  /** Deity slug. When a recorded clip exists for it, that plays instead of browser speech. */
+  audioSlug?: string;
   className?: string;
 }
 
 export function PronunciationDisplay({
   pronunciation,
+  audioSlug,
   className,
 }: Readonly<PronunciationDisplayProps>) {
   const [copied, setCopied] = React.useState(false);
   const [audioSupported, setAudioSupported] = React.useState(false);
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const clipRef = React.useRef<HTMLAudioElement | null>(null);
+  // Id of the live playback attempt. Bumping it invalidates callbacks from any
+  // earlier clip, so a cancelled attempt can never start the speech fallback.
+  const attemptRef = React.useRef(0);
+  const clipUrl =
+    audioSlug && NAME_CLIPS.has(audioSlug)
+      ? `/audio/names/${audioSlug}.mp3`
+      : null;
 
   React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- feature-detect speechSynthesis on client mount
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- feature-detect audio on client mount
     setAudioSupported(
-      globalThis.window !== undefined && "speechSynthesis" in globalThis,
+      clipUrl !== null ||
+        (globalThis.window !== undefined && "speechSynthesis" in globalThis),
     );
-  }, []);
+  }, [clipUrl]);
+
+  React.useEffect(
+    () => () => {
+      attemptRef.current += 1;
+      clipRef.current?.pause();
+    },
+    [],
+  );
 
   const handleCopyIPA = async () => {
     try {
@@ -45,8 +70,11 @@ export function PronunciationDisplay({
     }
   };
 
-  const handlePlayAudio = () => {
-    if (!audioSupported) return;
+  const speakWithBrowser = () => {
+    if (!("speechSynthesis" in globalThis)) {
+      setIsPlaying(false);
+      return;
+    }
 
     // Cancel any ongoing speech
     globalThis.speechSynthesis.cancel();
@@ -60,6 +88,51 @@ export function PronunciationDisplay({
     utterance.onerror = () => setIsPlaying(false);
 
     globalThis.speechSynthesis.speak(utterance);
+  };
+
+  const handlePlayAudio = () => {
+    if (!audioSupported) return;
+
+    if (clipUrl) {
+      const attempt = ++attemptRef.current;
+      const isCurrent = () => attemptRef.current === attempt;
+      clipRef.current?.pause();
+      const clip = new Audio(clipUrl);
+      clipRef.current = clip;
+      setIsLoading(true);
+      clip.onplaying = () => {
+        if (!isCurrent()) return;
+        setIsLoading(false);
+        setIsPlaying(true);
+      };
+      clip.onended = () => {
+        if (!isCurrent()) return;
+        setIsPlaying(false);
+      };
+      // A failed load falls back to browser speech, once, and only while this
+      // attempt is still the live one. A play() interrupted by pause() or a
+      // newer attempt rejects with AbortError and is not a failure.
+      let fellBack = false;
+      const fallBack = () => {
+        if (fellBack || !isCurrent()) return;
+        fellBack = true;
+        setIsLoading(false);
+        speakWithBrowser();
+      };
+      clip.onerror = fallBack;
+      clip.play().catch((err: unknown) => {
+        const name = err instanceof DOMException ? err.name : "";
+        if (name === "AbortError" || !isCurrent()) return;
+        if (name === "NotAllowedError") {
+          setIsLoading(false);
+          return;
+        }
+        fallBack();
+      });
+      return;
+    }
+
+    speakWithBrowser();
   };
 
   let audioAriaLabel = "Audio not available";
@@ -152,7 +225,7 @@ export function PronunciationDisplay({
           <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
             <button
               onClick={handlePlayAudio}
-              disabled={!audioSupported || isPlaying}
+              disabled={!audioSupported || isPlaying || isLoading}
               className={cn(
                 "w-full flex items-center justify-center gap-2 py-1.5 px-3 rounded text-sm transition-colors",
                 audioSupported

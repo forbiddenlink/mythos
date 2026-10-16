@@ -85,6 +85,7 @@ export function DeityHero({
         deity.pronunciation ? (
           <PronunciationDisplay
             pronunciation={deity.pronunciation}
+            audioSlug={deity.slug}
             className="text-parchment/75 hover:text-parchment"
           />
         ) : null
