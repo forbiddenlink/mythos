@@ -79,7 +79,7 @@ function ArtworkCredit({ figure }: { figure: ParallelFigure }) {
       <a
         href={portrait.url}
         title={portrait.title}
-        className="mt-2 block text-xs text-muted-foreground underline underline-offset-2"
+        className="mt-2 flex min-h-11 items-center text-xs text-muted-foreground underline underline-offset-2"
       >
         {portrait.institution}
       </a>

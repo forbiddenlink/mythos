@@ -107,7 +107,7 @@ export function SyncretismStrip() {
                     {portrait ? (
                       <a
                         href={portrait.url}
-                        className="mt-2 block text-xs text-muted-foreground underline underline-offset-2"
+                        className="mt-2 flex min-h-11 items-center text-xs text-muted-foreground underline underline-offset-2"
                         title={portrait.title}
                       >
                         {portrait.institution}
