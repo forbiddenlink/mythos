@@ -378,9 +378,10 @@ export function EnhancedFamilyTree({
       x: fitsX
         ? frame.clientWidth / 2 - (box.x + box.width / 2) * nextZoom
         : pad - box.x * nextZoom,
-      y: fitsY
-        ? height / 2 - (box.y + box.height / 2) * nextZoom
-        : pad - box.y * nextZoom,
+      // A tall tree is entered at its root (the origin, vertically centred
+      // among its children): top-aligning it left the first figures far
+      // below the frame and the left of the canvas empty.
+      y: fitsY ? height / 2 - (box.y + box.height / 2) * nextZoom : height / 2,
     });
   }, []);
 

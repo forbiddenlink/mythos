@@ -135,8 +135,9 @@ export default function PathsPage() {
               realms in order.
             </p>
             <EntityGrid className="mt-8">
-              {journeys.map((journey) => (
+              {journeys.map((journey, index) => (
                 <EntityCard
+                  priority={index < 2}
                   key={journey.id}
                   href={`/journeys/${journey.slug}`}
                   title={journey.title}

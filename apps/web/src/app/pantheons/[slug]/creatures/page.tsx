@@ -91,9 +91,10 @@ export default async function PantheonCreaturesPage({
       />
       <Container className="pt-6 pb-16 md:pt-8">
         <EntityGrid as="ul" aspect="landscape">
-          {creatures.map((creature) => (
+          {creatures.map((creature, index) => (
             <li key={creature.id}>
               <EntityCard
+                priority={index < 2}
                 href={`/creatures/${creature.slug}`}
                 title={creature.name}
                 image={creature.imageUrl}

@@ -46,9 +46,10 @@ export function ComparisonCard({
   highlightedSymbols = [],
   pantheonName,
 }: ComparisonCardProps) {
+  // The prop names this deity's own tradition; parallels belong to others.
   const formatPantheonName = (id: string) => {
     return (
-      pantheonName ||
+      (id === deity.pantheonId ? pantheonName : undefined) ||
       id
         .replace("-pantheon", "")
         .replaceAll("-", " ")

@@ -126,7 +126,9 @@ export function EntityCard({
             src={image}
             alt={imageAlt}
             fill
-            priority={priority}
+            // Next 16 deprecates `priority`; above-the-fold cards load eagerly.
+            loading={priority ? "eager" : undefined}
+            fetchPriority={priority ? "high" : undefined}
             unoptimized={imageUnoptimized}
             sizes={list ? "8rem" : (sizes ?? DEFAULT_SIZES[aspect])}
             className="object-cover transition-transform duration-700 ease-out group-hover/entity:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover/entity:scale-100"

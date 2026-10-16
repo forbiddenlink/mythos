@@ -53,7 +53,7 @@ export default function GamesPage() {
 
       <Container className="section-space-sm">
         <ul className="grid gap-4 md:grid-cols-3">
-          {games.map((game) => (
+          {games.map((game, index) => (
             <li key={game.href}>
               <Link
                 href={game.href}
@@ -63,6 +63,7 @@ export default function GamesPage() {
                   src={game.image}
                   alt=""
                   fill
+                  loading={index < 3 ? "eager" : undefined}
                   sizes="(min-width: 768px) 24rem, 100vw"
                   className="-z-10 object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
                 />
