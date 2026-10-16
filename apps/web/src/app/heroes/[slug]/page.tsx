@@ -177,7 +177,11 @@ export default async function HeroPage({ params }: PageProps) {
     );
 
   const museumObjects = getMuseumObjectsFor({ hero: hero.slug });
-  const museumPortrait = getMuseumPortrait(museumObjects);
+  // The illustration is the portrait; a museum object stands in only when a
+  // hero has none, and otherwise stays in the gallery below.
+  const museumPortrait = hero.imageUrl
+    ? null
+    : getMuseumPortrait(museumObjects);
   const galleryObjects = museumObjects.filter(
     (object) => object.id !== museumPortrait?.id,
   );

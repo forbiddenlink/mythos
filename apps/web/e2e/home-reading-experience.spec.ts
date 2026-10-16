@@ -148,7 +148,7 @@ test("home frontispiece identifies its real artwork and museum source", async ({
 
 for (const width of [320, 1440]) {
   for (const route of ["/", "/collections/underworld-rulers"]) {
-    test(`museum thumbnails preserve sources and reflow at ${width}px on ${route}`, async ({
+    test(`figure portraits load, link once and reflow at ${width}px on ${route}`, async ({
       page,
     }) => {
       await page.setViewportSize({ width, height: 900 });
@@ -160,7 +160,8 @@ for (const width of [320, 1440]) {
           : page.getByRole("region", {
               name: "Rulers of the Dead across pantheons",
             });
-      const object = section.locator("img.object-contain").first();
+      // Portraits are the illustrations; museum objects only fill gaps.
+      const object = section.locator("img").first();
       await object.scrollIntoViewIfNeeded();
       await expect(object).toBeVisible();
       await expect
@@ -172,10 +173,6 @@ for (const width of [320, 1440]) {
         )
         .toBe(true);
       const item = object.locator("xpath=ancestor::li[1]");
-      await expect(item.locator("a[title]")).toHaveAttribute(
-        "href",
-        /^https:\/\//,
-      );
       const entry = item.locator('a[href^="/deities/"]');
       await expect(entry).toHaveCount(1);
       await expect(section.locator("a a")).toHaveCount(0);

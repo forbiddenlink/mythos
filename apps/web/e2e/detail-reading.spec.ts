@@ -63,17 +63,23 @@ test.describe("Detail-page reading", () => {
         "quotations are not displayed",
       );
       if (path === "/heroes/heracles") {
+        // The illustration leads; the museum object is credited in "In art".
+        const gallery = main.locator("#in-art");
         await expect(
-          main.getByText("Bronze statuette of Herakles", { exact: true }),
+          gallery.getByRole("heading", {
+            name: /Bronze statuette of Herakles/,
+          }),
         ).toBeVisible();
         await expect(
-          main.locator(
-            'a[href="https://www.metmuseum.org/art/collection/search/246432"]',
-          ),
+          gallery
+            .locator(
+              'a[href="https://www.metmuseum.org/art/collection/search/246432"]',
+            )
+            .first(),
         ).toBeVisible();
         await expect(
           main.getByTestId("illustrative-image-caption"),
-        ).toHaveCount(0);
+        ).toContainText(`Illustration of ${name}`);
       } else {
         const caption = main.getByTestId("illustrative-image-caption");
         await expect(caption).toBeVisible();

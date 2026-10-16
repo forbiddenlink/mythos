@@ -44,9 +44,8 @@ test.describe("Story and source reading", () => {
     });
     await expect(title).toBeInViewport();
     const heroFigure = page.locator("main figure").first();
-    const portrait = heroFigure.getByRole("img", {
-      name: /Bronze statuette.*Athena/,
-    });
+    // The catalog illustration leads; museum objects follow in the article.
+    const portrait = heroFigure.getByRole("img").first();
     const titleBox = await title.boundingBox();
     const portraitBox = await portrait.boundingBox();
     expect(titleBox).not.toBeNull();
@@ -64,16 +63,16 @@ test.describe("Story and source reading", () => {
       .getByRole("link", { name: "Sources and further reading", exact: true })
       .click();
     await expect(page.locator("#deity-sources")).toBeInViewport();
-    await expect(page.getByTestId("illustrative-image-caption")).toHaveCount(0);
     await expect(
-      heroFigure.getByRole("link", {
-        name: "The Metropolitan Museum of Art",
-        exact: true,
-      }),
-    ).toHaveAttribute(
-      "href",
-      "https://www.metmuseum.org/art/collection/search/244457",
-    );
+      heroFigure.getByTestId("illustrative-image-caption"),
+    ).toContainText("Illustration of Athena");
+    await expect(
+      page
+        .locator(
+          'main a[href="https://www.metmuseum.org/art/collection/search/244457"]',
+        )
+        .first(),
+    ).toBeAttached();
     await expect(
       page.getByText(/toggle to see the original language/),
     ).toHaveCount(0);

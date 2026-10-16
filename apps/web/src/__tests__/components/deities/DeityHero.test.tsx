@@ -49,8 +49,26 @@ function renderHero(portrait: MuseumObject | null): HTMLDivElement {
 }
 
 describe("deity hero artwork provenance", () => {
-  it("prefers documented museum art over the illustrative portrait and credits its record", () => {
+  it("keeps the illustration as the portrait when a museum object also exists", () => {
     const container = renderHero(museumPortrait);
+    expect(container.querySelector("figure img")).toHaveAttribute(
+      "src",
+      expect.stringContaining("osiris.png"),
+    );
+    expect(
+      container.querySelector('[data-testid="illustrative-image-caption"]'),
+    ).not.toBeNull();
+    expect(container).not.toHaveTextContent(museumPortrait.institution);
+  });
+
+  it("falls back to documented museum art and credits its record when there is no illustration", () => {
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(
+      <DeityHero
+        deity={{ ...deity, imageUrl: "" }}
+        museumPortrait={museumPortrait}
+      />,
+    );
     const image = container.querySelector("figure img");
     expect(image).toHaveAttribute("src", museumPortrait.imageUrl);
     expect(image).toHaveAttribute("alt", museumPortrait.imageAlt);
@@ -61,10 +79,6 @@ describe("deity hero artwork provenance", () => {
     const credit = container.querySelector("figcaption a");
     expect(credit).toHaveTextContent(museumPortrait.institution);
     expect(credit).toHaveAttribute("href", museumPortrait.url);
-    expect(
-      container.querySelector('[data-testid="illustrative-image-caption"]'),
-    ).toBeNull();
-    expect(container).not.toHaveTextContent("Generated with an AI image model");
   });
 
   it.each([null, { ...museumPortrait, imageUrl: undefined }])(

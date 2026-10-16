@@ -126,18 +126,13 @@ const TRADITIONS: FeaturedTradition[] = FEATURED_TRADITIONS.flatMap(
     if (!pantheon) return [];
     const prov = getImageProvenance("pantheon", pantheon.id);
     if (prov?.kind !== "illustration-ai") return [];
-    const artwork =
-      featured.slug === "greek"
-        ? getMuseumPortrait(getMuseumObjectsFor({ deity: "zeus" }))
-        : null;
     return [
       {
         name: pantheon.name,
         slug: pantheon.slug,
         culture: pantheon.culture,
         description: featured.description,
-        imageUrl: artwork?.imageUrl ?? featured.image,
-        artwork: artwork ?? undefined,
+        imageUrl: featured.image,
         figureCount: deities.filter((d) => d.pantheonId === pantheon.id).length,
         figuresLabel: "deities",
       },

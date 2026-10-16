@@ -14,7 +14,7 @@ const portrait = getMuseumPortrait(getMuseumObjectsFor({ deity: "osiris" }))!;
 
 for (const variant of ["annotated", "portraits"] as const) {
   describe(`${variant} artwork`, () => {
-    it("uses the museum object and keeps its source separate from the entry link", () => {
+    it("keeps the illustration when a museum object also exists", () => {
       const container = markup(
         <ParallelFigures
           label="Figures across pantheons"
@@ -25,6 +25,30 @@ for (const variant of ["annotated", "portraits"] as const) {
               href: "/deities/osiris",
               pantheonId: "egyptian",
               imageUrl: "/images/deities/osiris.png",
+              museumPortrait: portrait,
+            },
+          ]}
+        />,
+      );
+      expect(container.querySelector("img")).toHaveAttribute(
+        "src",
+        expect.stringContaining("osiris.png"),
+      );
+      expect(container).toHaveTextContent("Illustration");
+      expect(container.querySelector(`a[href="${portrait.url}"]`)).toBeNull();
+    });
+
+    it("falls back to the museum object and keeps its source separate from the entry link", () => {
+      const container = markup(
+        <ParallelFigures
+          label="Figures across pantheons"
+          variant={variant}
+          figures={[
+            {
+              name: "Osiris",
+              href: "/deities/osiris",
+              pantheonId: "egyptian",
+              imageUrl: null,
               museumPortrait: portrait,
             },
           ]}
@@ -66,14 +90,11 @@ for (const variant of ["annotated", "portraits"] as const) {
   });
 }
 
-it("credits real museum images in the homepage comparison strip", () => {
+it("shows the illustrations in the homepage comparison strip", () => {
   const container = markup(<SyncretismStrip />);
-  const museumImages = [...container.querySelectorAll("img.object-contain")];
-  expect(museumImages.length).toBeGreaterThan(0);
-  for (const image of museumImages) {
-    const item = image.closest("li")!;
-    expect(item.querySelector("a[title]")).not.toBeNull();
-    expect(item.querySelectorAll("a")).toHaveLength(2);
-    expect(image.getAttribute("alt")).toBeTruthy();
-  }
+  const images = [...container.querySelectorAll("img")];
+  expect(images.length).toBeGreaterThan(0);
+  // Every member of the strip has an illustration, so no museum object
+  // replaces a portrait there.
+  expect(container.querySelectorAll("img.object-contain")).toHaveLength(0);
 });

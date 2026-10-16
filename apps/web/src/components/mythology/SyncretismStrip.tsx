@@ -45,10 +45,14 @@ export function SyncretismStrip() {
             <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {chain.members.slice(0, 4).map((member) => {
                 const deity = deities.get(member.slug);
-                const portrait = deity
-                  ? getMuseumPortrait(getMuseumObjectsFor({ deity: deity.id }))
-                  : null;
-                const image = portrait?.imageUrl ?? deity?.imageUrl;
+                // Illustration first; a museum object only fills a gap.
+                const portrait =
+                  deity && !deity.imageUrl
+                    ? getMuseumPortrait(
+                        getMuseumObjectsFor({ deity: deity.id }),
+                      )
+                    : null;
+                const image = deity?.imageUrl ?? portrait?.imageUrl;
                 return (
                   <li key={member.slug}>
                     <Link

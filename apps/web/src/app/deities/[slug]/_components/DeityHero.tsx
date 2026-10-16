@@ -23,27 +23,35 @@ export function DeityHero({
   museumPortrait: MuseumObject | null;
   imageNote?: ImageNote;
 }) {
-  const image = museumPortrait?.imageUrl
+  // The illustration is the portrait; a museum object stands in only when a
+  // figure has none. Documented objects get their own section further down.
+  const image = deity.imageUrl
     ? {
-        src: museumPortrait.imageUrl,
-        alt: museumPortrait.imageAlt || museumPortrait.title,
-        unoptimized: true,
-        fit: "contain" as const,
+        src: deity.imageUrl,
+        alt: generateEntityAlt({
+          name: deity.name,
+          tradition: traditionLabel,
+          type: "deity",
+          entityType: "deity",
+          slug: deity.slug,
+        }),
       }
-    : deity.imageUrl
+    : museumPortrait?.imageUrl
       ? {
-          src: deity.imageUrl,
-          alt: generateEntityAlt({
-            name: deity.name,
-            tradition: traditionLabel,
-            type: "deity",
-            entityType: "deity",
-            slug: deity.slug,
-          }),
+          src: museumPortrait.imageUrl,
+          alt: museumPortrait.imageAlt || museumPortrait.title,
+          unoptimized: true,
+          fit: "contain" as const,
         }
       : null;
 
-  const caption = museumPortrait?.imageUrl ? (
+  const caption = deity.imageUrl ? (
+    <IllustrativeImageCaption
+      note={imageNote}
+      subject={`Illustration of ${deity.name}`}
+      tone="light"
+    />
+  ) : museumPortrait?.imageUrl ? (
     <figcaption className="type-meta text-parchment/75">
       {museumPortrait.title}
       {museumPortrait.date ? `, ${museumPortrait.date}` : null}
@@ -55,12 +63,6 @@ export function DeityHero({
         {museumPortrait.institution}
       </a>
     </figcaption>
-  ) : deity.imageUrl ? (
-    <IllustrativeImageCaption
-      note={imageNote}
-      subject={`Illustration of ${deity.name}`}
-      tone="light"
-    />
   ) : null;
 
   return (

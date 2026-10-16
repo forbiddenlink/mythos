@@ -36,9 +36,11 @@ function Portrait({
   className?: string;
   sizes: string;
 }) {
-  const portrait = figure.museumPortrait?.imageUrl
-    ? figure.museumPortrait
-    : null;
+  // Illustration first; a museum object only fills a gap.
+  const portrait =
+    !figure.imageUrl && figure.museumPortrait?.imageUrl
+      ? figure.museumPortrait
+      : null;
   const image = portrait?.imageUrl ?? figure.imageUrl;
   return (
     <span
@@ -74,7 +76,7 @@ function Portrait({
 
 function ArtworkCredit({ figure }: { figure: ParallelFigure }) {
   const portrait = figure.museumPortrait;
-  if (portrait?.imageUrl) {
+  if (!figure.imageUrl && portrait?.imageUrl) {
     return (
       <a
         href={portrait.url}
