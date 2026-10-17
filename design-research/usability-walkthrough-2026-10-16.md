@@ -39,11 +39,18 @@ task as passed.
 - With two figures selected, the compare tool links to the written
   comparison when one exists.
 
-## Left for a decision or a later pass
+## Fixed in the follow-up pass
 
-- No confirmation message after saving (the control does announce its
-  pressed state to screen readers).
-- Family diagram monograms instead of portraits; truncated long names.
-- Story results ranked after deities and places in search.
-- Works cited not linked to online editions.
+- Saving shows a short "Saved to Bookmarks" note, and the header bookmarks
+  link shows the saved count.
+- The family diagram shows each figure's illustration, and long names wrap
+  to two lines instead of being cut off.
+- Search keeps at most 4 results per type, so "underworld" shows stories
+  next to gods and places.
+- Cited works link to the atlas's own page for the text: 191 of 398
+  citations now link (15 before). A different author blocks a title match.
+
+## Still open
+
 - Matching "dead" to "death" needs stemming; not added.
+- 207 citations name works the sources catalog does not hold yet.
