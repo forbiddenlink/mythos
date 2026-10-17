@@ -43,3 +43,31 @@ describe("search ranking", () => {
     expect(hit).toBeDefined();
   });
 });
+
+describe("natural-language queries", () => {
+  it.each([
+    ["norse god of war", "tyr"],
+    ["greek goddess of wisdom", "athena"],
+    ["egyptian god of the afterlife", "osiris"],
+  ])("finds the figure for %s", (query, slug) => {
+    const top = searchAll(query, 5).map((result) => result.slug);
+    expect(top).toContain(slug);
+  });
+
+  it("still finds nothing for nonsense", () => {
+    expect(searchAll("zzzznonexistent")).toEqual([]);
+  });
+});
+
+describe("tradition labels", () => {
+  it.each([
+    ["Guan Yu", "Chinese Deity"],
+    ["Mictlan", "Aztec"],
+    ["Xibalba", "Mesoamerican"],
+  ])("names the tradition of %s", (query, label) => {
+    const hit = searchAll(query).find((result) =>
+      result.title.startsWith(query),
+    );
+    expect(hit?.subtitle).toContain(label);
+  });
+});

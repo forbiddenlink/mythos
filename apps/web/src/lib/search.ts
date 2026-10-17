@@ -15,6 +15,7 @@ import artifacts from "@/data/artifacts.json";
 import locations from "@/data/locations.json";
 import heroes from "@/data/heroes.json";
 import sources from "@/data/sources.json";
+import pantheons from "@/data/pantheons.json";
 import { searchIndex, toSearchIndex, type SearchIndex } from "./search-engine";
 import type { SearchResult } from "./search-result";
 
@@ -40,6 +41,7 @@ export function getSearchIndex(): SearchIndex {
     locations,
     heroes,
     sources,
+    pantheons,
   });
   return index;
 }

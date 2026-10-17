@@ -84,6 +84,8 @@ export interface SearchIndex {
   locations: LocationData[];
   heroes: HeroData[];
   sources: SourceData[];
+  /** Short tradition name per pantheon id ("Chinese", "Aztec"), for labels and queries. */
+  pantheonLabels?: Record<string, string>;
 }
 
 type Loose = Record<string, unknown>;
@@ -109,9 +111,20 @@ export function toSearchIndex(raw: {
   locations: readonly object[];
   heroes: readonly object[];
   sources: readonly object[];
+  pantheons?: readonly object[];
 }): SearchIndex {
   const rows = (list: readonly object[]) => list as readonly Loose[];
+  const pantheonLabels = Object.fromEntries(
+    rows(raw.pantheons ?? []).map((p) => [
+      String(p.id),
+      // "Canaanite Pantheon (Ugarit)" -> "Canaanite", "Haudenosaunee Tradition" -> "Haudenosaunee"
+      String(p.name)
+        .replace(/\s*\([^)]*\)/g, "")
+        .replace(/\s+(?:Pantheon|Traditions?)$/, ""),
+    ]),
+  );
   return {
+    pantheonLabels,
     deities: rows(raw.deities).map((d) =>
       compact({
         id: String(d.id),
@@ -184,17 +197,39 @@ export function toSearchIndex(raw: {
   };
 }
 
-// Pantheon ID to readable name mapping
-const pantheonNames: Record<string, string> = {
-  "greek-pantheon": "Greek",
-  "norse-pantheon": "Norse",
-  "egyptian-pantheon": "Egyptian",
-  "roman-pantheon": "Roman",
-  "hindu-pantheon": "Hindu",
-  "japanese-pantheon": "Japanese",
-  "celtic-pantheon": "Celtic",
-  "mesopotamian-pantheon": "Mesopotamian",
-};
+/** Words that carry no meaning in a query like "norse god of war". */
+const QUERY_STOPWORDS = new Set([
+  "of",
+  "the",
+  "a",
+  "an",
+  "and",
+  "in",
+  "from",
+  "for",
+]);
+
+/**
+ * Fallback for multi-word queries that match no field as a whole phrase:
+ * every meaningful word must match some field (or the tradition name), and
+ * the score is half the per-word scores so phrase matches still lead.
+ */
+function calculateWordScore(
+  query: string,
+  fields: { value: string; weight: number }[],
+): number {
+  const words = foldForSearch(query)
+    .split(/\s+/)
+    .filter((word) => word.length > 1 && !QUERY_STOPWORDS.has(word));
+  if (words.length < 2) return 0;
+  let total = 0;
+  for (const word of words) {
+    const score = calculateMatchScore(word, fields);
+    if (score === 0) return 0;
+    total += score;
+  }
+  return total / 2;
+}
 
 /**
  * Calculate match score based on where the query matches
@@ -237,10 +272,11 @@ function calculateMatchScore(
 
 /** Build a pantheon-prefixed label like "Greek Deity" or just "Deity" */
 function getPantheonLabel(
+  labels: Record<string, string>,
   pantheonId: string | undefined,
   typeName: string,
 ): string {
-  const name = pantheonId ? pantheonNames[pantheonId] : "";
+  const name = pantheonId ? labels[pantheonId] : "";
   return name ? `${name} ${typeName}` : typeName;
 }
 
@@ -257,12 +293,21 @@ function searchItems<T extends { id: string }>(
     getSlug: (item: T) => string;
     getSearchFields: (item: T) => { value: string; weight: number }[];
     getSubtitle: (item: T) => string;
+    /** Tradition name, matched only by the word-by-word fallback. */
+    getTradition?: (item: T) => string;
   },
 ): SearchResult[] {
   const results: SearchResult[] = [];
   const foldedQuery = foldForSearch(query).trim();
   for (const item of items) {
-    let score = calculateMatchScore(query, config.getSearchFields(item));
+    const fields = config.getSearchFields(item);
+    let score = calculateMatchScore(query, fields);
+    if (score === 0) {
+      score = calculateWordScore(query, [
+        ...fields,
+        { value: config.getTradition?.(item) ?? "", weight: 1 },
+      ]);
+    }
     // A title that IS the query must beat any entry that merely starts with it
     // plus a matching summary ("Hera" over "Heracles", "Prometheus" over
     // "Prometheus Steals Fire"). Field weights alone let those outscore it.
@@ -296,6 +341,9 @@ export function searchIndex(
   }
 
   const normalizedQuery = foldForSearch(query).trim();
+  const labels = index.pantheonLabels ?? {};
+  const tradition = (item: { pantheonId?: string }) =>
+    item.pantheonId ? (labels[item.pantheonId] ?? "") : "";
 
   const results: SearchResult[] = [
     ...searchItems(index.heroes, normalizedQuery, {
@@ -307,7 +355,8 @@ export function searchIndex(
         { value: h.alternateNames?.join(" ") || "", weight: 2.5 },
         { value: h.description, weight: 1 },
       ],
-      getSubtitle: (h) => getPantheonLabel(h.pantheonId, "Hero"),
+      getTradition: tradition,
+      getSubtitle: (h) => getPantheonLabel(labels, h.pantheonId, "Hero"),
     }),
     ...searchItems(index.sources, normalizedQuery, {
       type: "source",
@@ -330,7 +379,8 @@ export function searchIndex(
         { value: d.domain?.join(" ") || "", weight: 1.5 },
         { value: d.description, weight: 1 },
       ],
-      getSubtitle: (d) => getPantheonLabel(d.pantheonId, "Deity"),
+      getTradition: tradition,
+      getSubtitle: (d) => getPantheonLabel(labels, d.pantheonId, "Deity"),
     }),
     ...searchItems(index.stories, normalizedQuery, {
       type: "story",
@@ -341,7 +391,8 @@ export function searchIndex(
         { value: s.summary, weight: 1.5 },
         { value: s.category || "", weight: 1 },
       ],
-      getSubtitle: (s) => getPantheonLabel(s.pantheonId, "Story"),
+      getTradition: tradition,
+      getSubtitle: (s) => getPantheonLabel(labels, s.pantheonId, "Story"),
     }),
     ...searchItems(index.creatures, normalizedQuery, {
       type: "creature",
@@ -352,8 +403,9 @@ export function searchIndex(
         { value: c.description, weight: 1.5 },
         { value: c.habitat || "", weight: 1 },
       ],
+      getTradition: tradition,
       getSubtitle: (c) =>
-        c.habitat || getPantheonLabel(c.pantheonId, "Creature"),
+        c.habitat || getPantheonLabel(labels, c.pantheonId, "Creature"),
     }),
     ...searchItems(index.artifacts, normalizedQuery, {
       type: "artifact",
@@ -364,6 +416,7 @@ export function searchIndex(
         { value: a.description, weight: 1.5 },
         { value: a.type || "", weight: 1 },
       ],
+      getTradition: tradition,
       getSubtitle: (a) =>
         a.type ? a.type.charAt(0).toUpperCase() + a.type.slice(1) : "Artifact",
     }),
@@ -376,8 +429,9 @@ export function searchIndex(
         { value: l.description, weight: 1.5 },
         { value: l.locationType || "", weight: 1 },
       ],
+      getTradition: tradition,
       getSubtitle: (l) => {
-        const pantheonName = l.pantheonId ? pantheonNames[l.pantheonId] : "";
+        const pantheonName = tradition(l);
         const locationType = l.locationType?.replace("_", " ") || "";
         const capitalizedType =
           locationType.charAt(0).toUpperCase() + locationType.slice(1);

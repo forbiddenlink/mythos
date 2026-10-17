@@ -28,13 +28,12 @@ import {
   Globe,
   Home,
   Map as MapIcon,
-  MapPin,
   Network,
   Skull,
-  Sparkles,
   TrendingUp,
   Users,
 } from "lucide-react";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import { useRouter } from "next/navigation";
 import {
   useCallback,
@@ -44,26 +43,15 @@ import {
   type PointerEvent,
 } from "react";
 
-// Icons for each content type
-const typeIcons: Record<ContentType, typeof Sparkles> = {
-  deity: Sparkles,
-  story: BookOpen,
-  creature: Skull,
-  artifact: Gem,
-  location: MapPin,
-  hero: Sparkles,
-  source: BookOpen,
-};
-
-// Colors for each content type
-const typeColors: Record<ContentType, string> = {
-  deity: "text-amber-500",
-  story: "text-blue-500",
-  creature: "text-red-500",
-  artifact: "text-bronze",
-  location: "text-emerald-500",
-  hero: "text-gold",
-  source: "text-bronze",
+// The same classical marks the menu uses for each section.
+const typeMarks: Record<ContentType, MythosMarkId> = {
+  deity: "laurel",
+  story: "scroll",
+  creature: "serpent",
+  artifact: "relic",
+  location: "peak",
+  hero: "blade",
+  source: "scroll",
 };
 
 // Group labels for each content type
@@ -386,8 +374,7 @@ export function GlobalSearch({
             )}
 
             {groupedResults.map(([type, items]) => {
-              const Icon = typeIcons[type];
-              const colorClass = typeColors[type];
+              const mark = typeMarks[type];
 
               return (
                 <CommandGroup key={type} heading={typeLabels[type]}>
@@ -399,7 +386,10 @@ export function GlobalSearch({
                       onPointerDown={pointerSelect(() => handleSelect(result))}
                       className="flex items-center gap-3"
                     >
-                      <Icon className={`h-4 w-4 shrink-0 ${colorClass}`} />
+                      <MythosMark
+                        id={mark}
+                        className="h-4 w-4 shrink-0 text-gold-text"
+                      />
                       <div className="flex flex-col min-w-0">
                         <span className="truncate font-medium">
                           {result.title}
