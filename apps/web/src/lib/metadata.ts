@@ -21,6 +21,21 @@ export function shortPantheonName(
   return pantheon?.name.replace(/\s+(?:Pantheon|Tradition)$/, "") ?? "Ancient";
 }
 
+/**
+ * Title for a tradition's hub page. Story pages are titled "<story> -
+ * <Tradition> Mythology", so a hub called "<Tradition> Guide" lost the
+ * "<tradition> mythology" query to a single story (Search Console, Oct 2026:
+ * "haudenosaunee mythology" ranked a story at 5.7 with no clicks while the
+ * hub did not rank). The hub carries the phrase itself.
+ */
+export function traditionHubTitle(pantheon: { name: string }): string {
+  const short = shortPantheonName(pantheon);
+  // "African Traditions", "Canaanite Pantheon (Ugarit)": no "Mythology" suffix.
+  return /(?:Traditions|\))$/.test(short)
+    ? `${short}: Gods and Myths`
+    : `${short} Mythology: Gods and Myths`;
+}
+
 /** Map UI locale to Open Graph locale (cookie-based locale; URLs are not locale-prefixed). */
 export function localeToOpenGraphLocale(locale: string): string {
   const map: Record<Locale, string> = {

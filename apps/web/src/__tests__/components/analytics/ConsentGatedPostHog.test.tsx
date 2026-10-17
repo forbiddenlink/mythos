@@ -13,6 +13,11 @@ const posthog = vi.hoisted(() => ({
 }));
 vi.mock("posthog-js", () => ({ default: posthog }));
 vi.mock("next/navigation", () => ({ usePathname: () => "/paths" }));
+// jsdom runs on localhost; the live-host rule has its own test below.
+const host = vi.hoisted(() => ({ production: true }));
+vi.mock("@/lib/analytics/production-host", () => ({
+  isProductionHostname: () => host.production,
+}));
 
 function consent(value: "accepted" | "rejected"): void {
   act(() => {
@@ -36,6 +41,17 @@ describe("PostHog consent lifecycle", () => {
     cleanup();
     resetAnalyticsSink();
     vi.unstubAllEnvs();
+    host.production = true;
+  });
+
+  it("never loads the SDK outside the live site, even with consent", async () => {
+    host.production = false;
+    render(<ConsentGatedPostHog />);
+    consent("accepted");
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(posthog.init).not.toHaveBeenCalled();
   });
 
   it("does not initialize after consent is withdrawn while the SDK loads", async () => {

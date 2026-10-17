@@ -10,6 +10,11 @@ vi.mock("@/components/analytics/ConsentGatedPostHog", () => ({
   getPostHogDistinctId: () => "id",
 }));
 vi.mock("@/lib/privacy-consent", () => ({ hasAnalyticsConsent: () => true }));
+// jsdom runs on localhost; the live-host rule has its own test below.
+const host = vi.hoisted(() => ({ production: true }));
+vi.mock("@/lib/analytics/production-host", () => ({
+  isProductionHostname: () => host.production,
+}));
 
 import { WebVitals } from "@/components/analytics/WebVitals";
 
@@ -32,7 +37,18 @@ describe("WebVitals", () => {
       configurable: true,
     });
   });
-  afterEach(() => vi.unstubAllEnvs());
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    host.production = true;
+  });
+
+  it("does not POST from a local or test build of the site", () => {
+    vi.stubEnv("NEXT_PUBLIC_POSTHOG_KEY", "phc_test");
+    host.production = false;
+    render(<WebVitals />);
+    for (const h of handlers) h(metric);
+    expect(beacon).not.toHaveBeenCalled();
+  });
 
   it("does not POST when PostHog is not configured", () => {
     vi.stubEnv("NEXT_PUBLIC_POSTHOG_KEY", "");
