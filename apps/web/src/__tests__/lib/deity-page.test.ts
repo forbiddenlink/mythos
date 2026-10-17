@@ -157,6 +157,16 @@ describe("buildBloodline", () => {
   it("groups kin into tiers without duplicates and marks dangling kin", () => {
     const bloodline = buildBloodline("zeus", relationships, deities);
     expect(bloodline.parents.map((k) => k.key)).toEqual(["cronus"]);
+    // Kin with a catalog picture show it instead of an initial.
+    const pictured = buildBloodline(
+      "zeus",
+      relationships,
+      deities.map((d) =>
+        d.id === "cronus" ? { ...d, imageUrl: "/deities/cronus.webp" } : d,
+      ),
+    );
+    expect(pictured.parents[0].imageUrl).toBe("/deities/cronus.webp");
+    expect(pictured.children[0].imageUrl).toBeUndefined();
     expect(bloodline.children.map((k) => k.key)).toEqual(["ares"]);
     expect(bloodline.consorts.map((k) => k.key)).toEqual(["hera"]);
     expect(bloodline.rivals).toEqual([

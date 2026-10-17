@@ -121,6 +121,8 @@ export interface Kin {
   name: string;
   slug: string | null;
   color: string;
+  /** Catalog illustration; omitted when the figure has none. */
+  imageUrl?: string;
 }
 
 export interface Bloodline {
@@ -136,6 +138,7 @@ interface KinDeity {
   name: string;
   slug: string;
   pantheonId: string;
+  imageUrl?: string | null;
 }
 
 function toKin(id: string, byId: ReadonlyMap<string, KinDeity>): Kin {
@@ -146,6 +149,7 @@ function toKin(id: string, byId: ReadonlyMap<string, KinDeity>): Kin {
       name: d.name,
       slug: d.slug,
       color: getPantheonColor(d.pantheonId),
+      ...(d.imageUrl ? { imageUrl: d.imageUrl } : {}),
     };
   }
   // dangling reference — show a readable name, no link
