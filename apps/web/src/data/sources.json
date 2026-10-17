@@ -3298,5 +3298,241 @@
       }
     ],
     "readingOrder": "Athanassakis's facing-page translation (1977, revised with Wolkow 2013) is the standard modern English edition; Thomas Taylor's 1792 verse translation is out of copyright. Hymn numbers on this site follow the modern numbering used by Athanassakis (1 Hecate, 3 Nyx, 71 Melinoë, 87 Thanatos); Taylor's translation, as reproduced on Theoi.com, gives no separate number to the Hecate hymn and numbers the others one lower (2 Night, 70 Melinoë, 86 Death)."
+  },
+  {
+    "id": "atrahasis",
+    "title": "Atrahasis",
+    "author": "Anonymous Babylonian poet",
+    "year": "c. 1700 BCE (Old Babylonian copies)",
+    "type": "ancient-text",
+    "language": "Akkadian",
+    "description": "Akkadian epic of humanity's making from clay mixed with a slain god's flesh and blood, the gods' attempts to silence human noise with plague and drought, and the flood that Atrahasis survives in a boat on Enki's warning.",
+    "translators": [
+      {
+        "name": "W. G. Lambert and A. R. Millard",
+        "year": 1969
+      }
+    ]
+  },
+  {
+    "id": "descent-of-inanna",
+    "title": "Descent of Inanna",
+    "author": "Anonymous Sumerian poet",
+    "year": "c. 1900-1600 BCE (Old Babylonian copies)",
+    "type": "ancient-text",
+    "language": "Sumerian",
+    "description": "Sumerian poem of Inanna's passage through the seven gates into the underworld ruled by her sister Ereshkigal, her death and revival, and Dumuzi taken in her place.",
+    "translators": [
+      {
+        "name": "Diane Wolkstein and Samuel Noah Kramer",
+        "year": 1983
+      }
+    ]
+  },
+  {
+    "id": "coffin-texts",
+    "title": "Coffin Texts",
+    "author": "Various Egyptian priests",
+    "year": "c. 2100-1650 BCE",
+    "type": "ancient-text",
+    "language": "Egyptian",
+    "description": "Funerary spells painted inside Middle Kingdom coffins, drawing on the Pyramid Texts and leading into the Book of the Dead; they include Atum's creation of Shu and Tefnut.",
+    "translators": [
+      {
+        "name": "R. O. Faulkner",
+        "year": 1973
+      }
+    ]
+  },
+  {
+    "id": "bhagavata-purana",
+    "title": "Bhagavata Purana",
+    "author": "Attributed to Vyasa",
+    "year": "c. 9th-10th century CE",
+    "type": "ancient-text",
+    "language": "Sanskrit",
+    "description": "Sanskrit Purana devoted to Vishnu, best known for its tenth book on the life of Krishna, and a major source for the avatars and the churning of the ocean.",
+    "translators": [
+      {
+        "name": "Edwin F. Bryant (Book 10)",
+        "year": 2003
+      }
+    ]
+  },
+  {
+    "id": "shiva-purana",
+    "title": "Shiva Purana",
+    "author": "Attributed to Vyasa",
+    "year": "Medieval, compiled over centuries",
+    "type": "ancient-text",
+    "language": "Sanskrit",
+    "description": "Sanskrit Purana centred on Shiva, with the stories of Sati and Parvati, the births of Ganesha and Kartikeya, and the endless pillar of light.",
+    "translators": [
+      {
+        "name": "Board of scholars, ed. J. L. Shastri",
+        "year": 1970
+      }
+    ]
+  },
+  {
+    "id": "ab-urbe-condita",
+    "title": "Ab Urbe Condita (History of Rome)",
+    "author": "Livy",
+    "year": "c. 27 BCE onward",
+    "type": "ancient-text",
+    "language": "Latin",
+    "description": "Livy's history of Rome from its founding; Book 1 tells of Romulus and Remus, the Sabine women and the early kings.",
+    "translators": [
+      {
+        "name": "B. O. Foster",
+        "year": 1919
+      }
+    ]
+  },
+  {
+    "id": "gesta-danorum",
+    "title": "Gesta Danorum (Deeds of the Danes)",
+    "author": "Saxo Grammaticus",
+    "year": "c. 1200",
+    "type": "ancient-text",
+    "language": "Latin",
+    "description": "Saxo's Latin history of the Danes. Its first nine books retell Norse legend, including Baldr and Höðr and the tale of Amleth; Book 14 records the destruction of Svantevit's temple at Arkona.",
+    "translators": [
+      {
+        "name": "Peter Fisher (Books 1-9)",
+        "year": 1979
+      }
+    ]
+  },
+  {
+    "id": "shan-hai-jing",
+    "title": "Shan Hai Jing (Classic of Mountains and Seas)",
+    "author": "Anonymous compilers",
+    "year": "c. 4th-1st century BCE",
+    "type": "ancient-text",
+    "language": "Classical Chinese",
+    "description": "Chinese compendium of mountains, rivers and the creatures, spirits and peoples said to live among them; a source for Xihe, the ten suns and the Fusang tree.",
+    "translators": [
+      {
+        "name": "Anne Birrell",
+        "year": 1999
+      }
+    ]
+  },
+  {
+    "id": "fengshen-yanyi",
+    "title": "Fengshen Yanyi (Investiture of the Gods)",
+    "author": "Attributed to Xu Zhonglin",
+    "year": "16th century",
+    "type": "ancient-text",
+    "language": "Vernacular Chinese",
+    "description": "Ming-dynasty novel of the fall of the Shang and the war of gods and immortals behind it; the source of Nezha's best-known story and of many deities' places in the celestial order.",
+    "translators": [
+      {
+        "name": "Gu Zhizhong",
+        "year": 1992
+      }
+    ]
+  },
+  {
+    "id": "codex-borgia",
+    "title": "Codex Borgia",
+    "author": "Anonymous painter-scribes of central Mexico",
+    "year": "Late 15th or early 16th century",
+    "type": "ancient-text",
+    "language": "Pictographic",
+    "description": "Painted deerskin divinatory book from central Mexico, one of the few codices to survive the conquest, laying out the 260-day calendar and the deities who govern it."
+  },
+  {
+    "id": "kumulipo",
+    "title": "Kumulipo",
+    "author": "Hawaiian chanters",
+    "year": "18th century (oral composition)",
+    "type": "ancient-text",
+    "language": "Hawaiian",
+    "description": "Hawaiian genealogical creation chant of more than two thousand lines, tracing life from the darkness of Pō through the creatures of sea and land to the gods and chiefs.",
+    "translators": [
+      {
+        "name": "Liliʻuokalani",
+        "year": 1897
+      },
+      {
+        "name": "Martha Warren Beckwith",
+        "year": 1951
+      }
+    ]
+  },
+  {
+    "id": "mabinogion",
+    "title": "The Mabinogion",
+    "author": "Anonymous Welsh storytellers",
+    "year": "c. 1350-1410 (manuscripts)",
+    "type": "ancient-text",
+    "language": "Middle Welsh",
+    "description": "Eleven Middle Welsh prose tales, among them the Four Branches of the Mabinogi, preserved in the White Book of Rhydderch and the Red Book of Hergest.",
+    "translators": [
+      {
+        "name": "Charlotte Guest",
+        "year": 1849
+      },
+      {
+        "name": "Sioned Davies",
+        "year": 2007
+      }
+    ]
+  },
+  {
+    "id": "book-of-the-dun-cow",
+    "title": "Book of the Dun Cow (Lebor na hUidre)",
+    "author": "Scribes of Clonmacnoise",
+    "year": "c. 1100",
+    "type": "ancient-text",
+    "language": "Middle Irish",
+    "description": "The oldest surviving manuscript written in Irish, compiled at Clonmacnoise around 1100, with early versions of the Táin Bó Cúailnge and Tochmarc Étaíne."
+  },
+  {
+    "id": "book-of-leinster",
+    "title": "Book of Leinster (Lebor Laignech)",
+    "author": "Áed Ua Crimthainn and other scribes",
+    "year": "c. 1160",
+    "type": "ancient-text",
+    "language": "Middle Irish",
+    "description": "Twelfth-century Irish manuscript compiled largely at Terryglass, preserving among much else a version of the Táin Bó Cúailnge and of the Lebor Gabála Érenn."
+  },
+  {
+    "id": "hawaiian-mythology-beckwith",
+    "title": "Hawaiian Mythology",
+    "author": "Martha Warren Beckwith",
+    "year": "1940",
+    "type": "academic",
+    "language": "English",
+    "description": "Beckwith's survey of Hawaiian gods, demigods and chiefs, drawn from nineteenth-century Hawaiian-language sources; the standard reference on Pele, Maui and the Kumulipo."
+  },
+  {
+    "id": "tlingit-myths-texts",
+    "title": "Tlingit Myths and Texts",
+    "author": "John R. Swanton",
+    "year": "1909",
+    "type": "academic",
+    "language": "English and Tlingit",
+    "description": "Tlingit stories recorded by Swanton at Sitka and Wrangell in 1904, including the Raven cycle (Bureau of American Ethnology Bulletin 39)."
+  },
+  {
+    "id": "haida-texts-myths",
+    "title": "Haida Texts and Myths, Skidegate Dialect",
+    "author": "John R. Swanton",
+    "year": "1905",
+    "type": "academic",
+    "language": "English and Haida",
+    "description": "Haida stories in the Skidegate dialect recorded by Swanton, including Raven stories and accounts of the supernatural beings of sea and forest (Bureau of American Ethnology Bulletin 29)."
+  },
+  {
+    "id": "ugaritic-narrative-poetry",
+    "title": "Ugaritic Narrative Poetry",
+    "author": "Simon B. Parker (ed.)",
+    "year": "1997",
+    "type": "translation",
+    "language": "English",
+    "description": "Translations of the Ugaritic narrative poems, including the Baal Cycle (Mark S. Smith), Aqhat (Simon B. Parker) and Kirta (Edward L. Greenstein)."
   }
 ]
