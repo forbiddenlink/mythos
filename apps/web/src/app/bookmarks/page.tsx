@@ -1,3 +1,6 @@
+import artifacts from "@/data/artifacts.json";
+import creatures from "@/data/creatures.json";
+import locations from "@/data/locations.json";
 import {
   getDeities,
   getHeroes,
@@ -39,6 +42,30 @@ export default function Page() {
         imageUrl: (hero.imageUrl as string | null | undefined) ?? null,
       }))}
       sourcesData={getSourceWorks()}
+      creaturesData={project(creatures, [
+        "id",
+        "name",
+        "slug",
+        "pantheonId",
+        "description",
+        "imageUrl",
+      ])}
+      artifactsData={project(artifacts, [
+        "id",
+        "name",
+        "slug",
+        "pantheonId",
+        "description",
+        "imageUrl",
+      ])}
+      locationsData={locations.map((location) => ({
+        id: location.id,
+        name: location.name,
+        pantheonId: location.pantheonId,
+        description: location.description,
+        imageUrl: location.imageUrl ?? null,
+        locationType: location.locationType,
+      }))}
       traditionNames={getPantheonShortNames()}
     />
   );

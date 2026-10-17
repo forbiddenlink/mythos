@@ -24,6 +24,8 @@ export interface PageHeaderProps {
   imageAlt?: string;
   /** Show the breadcrumb trail (default true). */
   breadcrumbs?: boolean;
+  /** Last crumb label when the slug would read wrongly ("Thor Jotunheim"). */
+  breadcrumbLabel?: string;
   /** Tint for the eyebrow on image headers. */
   accent?: "gold" | "red" | "bronze";
   className?: string;
@@ -54,6 +56,7 @@ export function PageHeader({
   image,
   imageAlt = "",
   breadcrumbs = true,
+  breadcrumbLabel,
   accent = "gold",
   className,
   viewTransitionName,
@@ -87,15 +90,23 @@ export function PageHeader({
         </div>
       ) : (
         <div
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_80%_at_85%_0%,color-mix(in_oklch,var(--gold)_12%,transparent),transparent_70%)]"
+          className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
           aria-hidden="true"
-        />
+        >
+          <div
+            className={cn(
+              "engraved-sky absolute -top-28 -right-56 aspect-[1100/1026] w-[34rem] md:-right-24 md:w-[46rem]",
+              onDark ? "opacity-[0.09]" : "opacity-[0.07]",
+            )}
+          />
+        </div>
       )}
 
       <Container className="pt-5 pb-9 md:pt-6 md:pb-12">
         {breadcrumbs ? (
           <Breadcrumbs
             tone={onDark ? "onDark" : "default"}
+            currentLabel={breadcrumbLabel}
             className="mb-6 md:mb-10"
           />
         ) : null}

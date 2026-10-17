@@ -10,6 +10,7 @@ export const contentType = "image/png";
 
 interface Entry {
   id: string;
+  imageUrl?: string | null;
   pantheonId: string;
   name: string;
   slug: string;
@@ -34,6 +35,7 @@ export default async function Image({
       .find((p) => p.id === entry.pantheonId)
       ?.name.replace(/\s+(?:Pantheon|Tradition|Traditions)$/, "") ?? "World";
   return renderOgCard({
+    image: entry.imageUrl,
     eyebrow: `${tradition} artifact`,
     title: entry.name,
     subtitle: entry.type?.replaceAll("_", " "),

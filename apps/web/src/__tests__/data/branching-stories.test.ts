@@ -16,6 +16,13 @@ type Story = {
 const stories = branchingStories as unknown as Story[];
 
 describe("branching-stories.json", () => {
+  it("counts every ending node in totalEndings", () => {
+    for (const story of stories) {
+      const endings = Object.values(story.nodes).filter((n) => n.ending);
+      expect(story.totalEndings, story.slug).toBe(endings.length);
+    }
+  });
+
   it("includes five interactive myths", () => {
     expect(stories.map((s) => s.slug).sort()).toEqual(
       [

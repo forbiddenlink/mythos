@@ -218,7 +218,9 @@ function Scene({
               aria-hidden="true"
               className="pointer-events-none block whitespace-nowrap font-serif text-lg tracking-[0.2em] uppercase"
               style={{
-                color: p.color,
+                // Tinted towards parchment: several tradition colours (Akan,
+                // Aztec) are too dark to read as text on the night sky.
+                color: `color-mix(in oklch, ${p.color} 45%, oklch(0.94 0.02 85))`,
                 textShadow: "0 0 12px rgba(0,0,0,0.9)",
                 opacity: isHidden ? 0 : 1,
                 transition: reducedMotion ? "none" : "opacity 200ms ease",

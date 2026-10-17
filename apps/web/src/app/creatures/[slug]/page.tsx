@@ -26,6 +26,7 @@ import { EditorialByline } from "@/components/content/EditorialByline";
 import {
   ArticleStack,
   FactLink,
+  heroIconButtonClass,
   heroShareClass,
 } from "@/components/content/detail-parts";
 import { IllustrativeImageCaption } from "@/components/content/IllustrativeImageCaption";
@@ -45,6 +46,7 @@ import {
 } from "@/components/layout/detail-layout";
 import { MuseumGallery } from "@/components/museum/MuseumGallery";
 import { ShareButton } from "@/components/sharing/ShareButton";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
 import {
   EntitySources,
   hasEntitySources,
@@ -292,13 +294,22 @@ export default async function CreaturePage({ params }: PageProps) {
             tagsLabel="Abilities"
             lede={creature.detailedBio ? <p>{creature.description}</p> : null}
             actions={
-              <ShareButton
-                surface="creature_page"
-                title={`${creature.name} - Mythos Atlas`}
-                text={`Meet ${creature.name} in the Mythos Atlas bestiary`}
-                url={`https://mythosatlas.com/creatures/${creature.slug}`}
-                className={heroShareClass}
-              />
+              <>
+                <BookmarkButton
+                  type="creature"
+                  id={creature.id}
+                  size="md"
+                  variant="light"
+                  className={heroIconButtonClass}
+                />
+                <ShareButton
+                  surface="creature_page"
+                  title={`${creature.name} - Mythos Atlas`}
+                  text={`Meet ${creature.name} in the Mythos Atlas bestiary`}
+                  url={`https://mythosatlas.com/creatures/${creature.slug}`}
+                  className={heroShareClass}
+                />
+              </>
             }
           />
         }

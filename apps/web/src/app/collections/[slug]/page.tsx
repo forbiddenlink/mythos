@@ -25,6 +25,7 @@ import { getDeities, getStories } from "@/lib/data/catalog";
 import { formatPantheonLabel } from "@/lib/deity-page";
 import { getImageProvenance } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -269,6 +270,9 @@ export default async function CollectionPage({ params }: PageProps) {
                   pantheonId: deity.pantheonId,
                   traditionLabel: pantheonName(deity.pantheonId),
                   imageUrl: deity.imageUrl,
+                  museumPortrait: getMuseumPortrait(
+                    getMuseumObjectsFor({ deity: deity.id }),
+                  ),
                   note: firstSentence(deity.description),
                 }))}
               />

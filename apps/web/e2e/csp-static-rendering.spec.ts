@@ -66,8 +66,16 @@ test("a saved locale cookie translates the prerendered page", async ({
 }) => {
   await context.addCookies([{ name: "locale", value: "es", url: baseURL! }]);
   await page.goto("/quiz");
-  await expect(page.locator("html")).toHaveAttribute("lang", "es");
+  const title = page.getByRole("heading", {
+    level: 1,
+    name: "Cuestionario de Mitología",
+  });
+  await expect(title).toBeVisible();
+  // Only some strings translate, so each carries its own language and the
+  // English page around it keeps lang="en".
+  await expect(title.locator('[lang="es"]')).toHaveCount(1);
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(
-    page.getByRole("heading", { level: 1, name: "Cuestionario de Mitología" }),
-  ).toBeVisible();
+    page.getByRole("navigation", { name: "Primary" }),
+  ).toHaveAttribute("lang", "es");
 });

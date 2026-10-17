@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { siteConfig } from "@/lib/metadata";
 import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 /**
@@ -19,15 +20,28 @@ import { PANTHEON_COLORS } from "@/lib/pantheon-colors";
 // file was missing from a function, not just the OG route.
 let cinzel700: Buffer | undefined;
 function cinzelFont(): Buffer {
-  cinzel700 ??= readFileSync(join(process.cwd(), "src/app/fonts/cinzel-og-700.ttf"));
+  cinzel700 ??= readFileSync(
+    join(process.cwd(), "src/app/fonts/cinzel-og-700.ttf"),
+  );
   return cinzel700;
+}
+
+// Crimson Pro 400 (OFL, latin subset as WOFF; Satori cannot read WOFF2) for
+// the description, so reading text is never set in Cinzel's all-caps forms.
+let crimson400: Buffer | undefined;
+function crimsonFont(): Buffer {
+  crimson400 ??= readFileSync(
+    join(process.cwd(), "src/app/fonts/crimson-pro-og-400.woff"),
+  );
+  return crimson400;
 }
 
 export const OG_SIZE = { width: 1200, height: 630 } as const;
 
 const PARCHMENT = "#f5f0e1";
 const GOLD = "#d4af37";
-const MIDNIGHT = "#0f1020";
+const MIDNIGHT = "#14162b";
+const MAT = "#f3ecdc";
 
 interface OgPalette {
   bg: string;
@@ -71,6 +85,8 @@ interface OgCardInput {
   subtitle?: string;
   description?: string;
   palette?: OgPalette;
+  /** The entry's picture, a site path ("/deities/zeus.jpg"), mounted as a plate. */
+  image?: string | null;
 }
 
 function clip(text: string, max: number): string {
@@ -80,124 +96,208 @@ function clip(text: string, max: number): string {
   return `${cut.slice(0, lastSpace > max * 0.6 ? lastSpace : max).trimEnd()}…`;
 }
 
-export function renderOgCard({
+/**
+ * The picture as a data URI, fetched from the site itself: OG routes render
+ * per request, and the image folders are far too large to ship inside the
+ * function. Any failure (timeout, protected preview, unsupported format)
+ * returns null and the card is drawn without a plate.
+ */
+async function loadImage(path: string): Promise<string | null> {
+  const origin =
+    process.env.NODE_ENV === "development"
+      ? `http://localhost:${process.env.PORT ?? 3000}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : siteConfig.url;
+  // Site paths go through the image optimizer, which resizes the picture and
+  // answers a JPEG-only Accept header with JPEG even for WebP sources (Satori
+  // cannot decode WebP). 750 and 75 are a configured width and quality.
+  const url = path.startsWith("/")
+    ? new URL(`/_next/image?url=${encodeURIComponent(path)}&w=750&q=75`, origin)
+    : new URL(path);
+  try {
+    const res = await fetch(url, {
+      headers: { Accept: "image/jpeg" },
+      signal: AbortSignal.timeout(6000),
+    });
+    const type = res.headers.get("content-type") ?? "";
+    // Satori decodes PNG and JPEG; anything else falls back to text only.
+    if (!res.ok || !/^image\/(png|jpe?g)/.test(type)) return null;
+    const data = Buffer.from(await res.arrayBuffer()).toString("base64");
+    return `data:${type};base64,${data}`;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * A title page: running head, the name in Cinzel, the lede in Crimson Pro,
+ * and the entry's picture mounted as a plate with a tab in the tradition
+ * colour. Flat midnight ground, no glow.
+ */
+export async function renderOgCard({
   eyebrow,
   title,
   subtitle,
   description,
   palette = ogPalette(null),
-}: OgCardInput): ImageResponse {
-  const { bg, accent } = palette;
-  const titleSize = title.length > 34 ? 56 : title.length > 22 ? 64 : 76;
+  image,
+}: OgCardInput): Promise<ImageResponse> {
+  const { accent } = palette;
+  const picture = image ? await loadImage(image) : null;
+  const titleSize =
+    title.length > 34 ? 54 : title.length > 22 ? 64 : picture ? 80 : 88;
 
   return new ImageResponse(
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
         width: "100%",
         height: "100%",
-        backgroundColor: bg,
-        backgroundImage: `linear-gradient(135deg, ${bg} 0%, ${MIDNIGHT} 55%, ${accent}26 100%)`,
-        position: "relative",
+        backgroundColor: MIDNIGHT,
+        padding: "56px 72px",
+        fontFamily: "Crimson Pro, serif",
       }}
     >
       <div
         style={{
-          position: "absolute",
-          top: 20,
-          left: 20,
-          right: 20,
-          bottom: 20,
-          border: `2px solid ${accent}55`,
-          borderRadius: 12,
-        }}
-      />
-      <div
-        style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           flex: 1,
-          padding: "60px 80px",
+          paddingRight: picture ? 56 : 0,
         }}
       >
         <div
           style={{
             display: "flex",
-            padding: "8px 24px",
-            border: `1px solid ${accent}88`,
-            borderRadius: 999,
-            color: accent,
-            fontSize: 20,
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            marginBottom: 28,
-          }}
-        >
-          {clip(eyebrow, 48)}
-        </div>
-        <div
-          style={{
-            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderTop: `3px solid ${GOLD}99`,
+            borderBottom: `1px solid ${GOLD}55`,
+            padding: "12px 0",
             fontFamily: "Cinzel, serif",
-            fontSize: titleSize,
-            fontWeight: 700,
-            color: PARCHMENT,
-            textAlign: "center",
-            lineHeight: 1.1,
-            marginBottom: 20,
+            fontSize: 18,
+            letterSpacing: "0.22em",
           }}
         >
-          {clip(title, 64)}
+          <span style={{ color: GOLD }}>MYTHOS ATLAS</span>
+          {/* Fallback cards pass the brand as the eyebrow; print it once. */}
+          {eyebrow.toLowerCase() === siteConfig.name.toLowerCase() ? null : (
+            <span style={{ color: `${PARCHMENT}aa` }}>
+              {clip(eyebrow, 40).toUpperCase()}
+            </span>
+          )}
         </div>
-        {subtitle ? (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            flex: 1,
+          }}
+        >
           <div
             style={{
               display: "flex",
-              fontSize: 28,
-              color: accent,
-              textAlign: "center",
-              marginBottom: 24,
+              fontFamily: "Cinzel, serif",
+              fontSize: titleSize,
+              fontWeight: 700,
+              color: PARCHMENT,
+              lineHeight: 1.05,
             }}
           >
-            {clip(subtitle, 80)}
+            {clip(title, 64)}
           </div>
-        ) : null}
-        {description ? (
+          {subtitle ? (
+            <div
+              style={{
+                display: "flex",
+                marginTop: 18,
+                fontFamily: "Cinzel, serif",
+                fontSize: 22,
+                letterSpacing: "0.08em",
+                color: accent,
+              }}
+            >
+              {clip(subtitle, picture ? 56 : 80)}
+            </div>
+          ) : null}
+          {description ? (
+            <div
+              style={{
+                display: "flex",
+                marginTop: 26,
+                fontSize: 30,
+                lineHeight: 1.32,
+                color: `${PARCHMENT}d0`,
+              }}
+            >
+              {clip(description, picture ? 128 : 190)}
+            </div>
+          ) : null}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            fontSize: 22,
+            color: `${PARCHMENT}88`,
+          }}
+        >
+          <span
+            style={{
+              width: 28,
+              height: 4,
+              backgroundColor: accent,
+              marginRight: 14,
+            }}
+          />
+          mythosatlas.com
+        </div>
+      </div>
+      {picture ? (
+        <div
+          style={{
+            display: "flex",
+            width: 384,
+            height: 518,
+            padding: 12,
+            backgroundColor: MAT,
+            borderTop: `6px solid ${accent}`,
+          }}
+        >
           <div
             style={{
               display: "flex",
-              fontSize: 22,
-              color: `${PARCHMENT}bb`,
-              maxWidth: 900,
-              textAlign: "center",
-              lineHeight: 1.45,
+              width: "100%",
+              height: "100%",
+              border: `1px solid ${GOLD}aa`,
+              padding: 6,
             }}
           >
-            {clip(description, 170)}
+            {/* biome-ignore lint/performance/noImgElement: Satori renders plain img */}
+            {/* eslint-disable-next-line @next/next/no-img-element -- Satori renders plain img */}
+            <img
+              src={picture}
+              alt=""
+              width={346}
+              height={474}
+              style={{ objectFit: "cover", objectPosition: "top" }}
+            />
           </div>
-        ) : null}
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          fontFamily: "Cinzel, serif",
-          padding: "18px 60px 34px",
-          fontSize: 20,
-          letterSpacing: "0.2em",
-          color: `${PARCHMENT}88`,
-        }}
-      >
-        MYTHOS ATLAS
-      </div>
+        </div>
+      ) : null}
     </div>,
     {
       ...OG_SIZE,
       fonts: [
         { name: "Cinzel", data: cinzelFont(), weight: 700, style: "normal" },
+        {
+          name: "Crimson Pro",
+          data: crimsonFont(),
+          weight: 400,
+          style: "normal",
+        },
       ],
     },
   );

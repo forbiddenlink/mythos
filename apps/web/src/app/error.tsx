@@ -33,10 +33,6 @@ export default function ErrorPage({
 
   return (
     <div className="relative isolate overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(ellipse_60%_70%_at_20%_0%,color-mix(in_oklch,var(--gold)_12%,transparent),transparent_70%)]"
-      />
       <Container size="reading" className="section-space-lg">
         <p className="type-eyebrow flex items-center gap-2">
           <MythosMark id="urn" className="size-4" />

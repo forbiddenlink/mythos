@@ -46,7 +46,7 @@ export function InteractiveStoriesBanner({
                 alt={`Illustration for ${featured.title}`}
                 fill
                 sizes="(min-width: 1024px) 38rem, 100vw"
-                className="object-cover object-[50%_35%] transition-transform duration-700 group-hover:scale-[1.03]"
+                className="object-cover object-[50%_35%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
               />
             ) : null}
             <span

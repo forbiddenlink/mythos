@@ -205,6 +205,7 @@ export function OracleChat() {
                 {/* Modal */}
                 <motion.div
                   ref={panelRef}
+                  lang={locale}
                   role="dialog"
                   aria-modal="true"
                   aria-labelledby="oracle-dialog-title"

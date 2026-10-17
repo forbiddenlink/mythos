@@ -172,29 +172,23 @@ export function DetailHero({
   return (
     <div className="dark relative isolate overflow-hidden border-b border-gold/15 bg-midnight text-foreground">
       <div className="absolute inset-0 -z-10" aria-hidden="true">
-        {accentColor ? (
-          <div
-            className="absolute inset-0 opacity-70"
-            style={{
-              background: `radial-gradient(ellipse 70% 90% at 20% 30%, color-mix(in oklch, ${accentColor} 38%, transparent), transparent 70%)`,
-            }}
-          />
-        ) : null}
-        {image && !image.unoptimized ? (
-          <Image
-            src={image.src}
-            alt=""
-            fill
-            sizes="256px"
-            className="scale-110 object-cover opacity-25 blur-2xl"
-          />
-        ) : null}
-        <div className="absolute inset-0 bg-linear-to-t from-midnight via-midnight/60 to-midnight/30" />
+        {/* The tradition's colour as a plate tab, and the engraved sky
+            printed faintly behind the title. */}
+        <div
+          className="absolute inset-x-0 top-0 h-[3px]"
+          style={{ backgroundColor: accentColor ?? "var(--gold)" }}
+        />
+        <div className="engraved-sky absolute -top-24 -right-48 aspect-[1100/1026] w-[36rem] opacity-[0.09] md:-right-16 md:w-[52rem]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-midnight to-transparent" />
       </div>
 
       <Container className="pt-5 pb-10 md:pb-14">
         {breadcrumbs ? (
-          <Breadcrumbs tone="onDark" className="mb-6 md:mb-10" />
+          <Breadcrumbs
+            tone="onDark"
+            currentLabel={title}
+            className="mb-6 md:mb-10"
+          />
         ) : null}
 
         {/* Phones read the title first, then the portrait, then the rest;
@@ -268,6 +262,7 @@ export function DetailHero({
                 <div
                   className={cn(
                     "plate-art",
+                    image?.fit === "contain" && "bg-parchment",
                     imageAspect === "portrait"
                       ? "aspect-4/5"
                       : imageAspect === "landscape"
@@ -289,7 +284,7 @@ export function DetailHero({
                       }
                       className={cn(
                         image.fit === "contain"
-                          ? "object-contain p-3"
+                          ? "object-contain"
                           : imageAspect === "portrait"
                             ? "object-cover object-top"
                             : "object-cover",

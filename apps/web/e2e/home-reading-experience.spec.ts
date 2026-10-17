@@ -86,3 +86,118 @@ test("home links are available with reduced motion", async ({ page }) => {
   await expect(page).toHaveURL(/\/stories$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 });
+
+test("home offers image-led entry to featured traditions", async ({ page }) => {
+  await page.goto("/");
+  const traditions = page.getByRole("region", { name: "Featured pantheons" });
+  await expect(traditions).toBeVisible();
+  for (const slug of ["greek", "norse", "egyptian", "hindu", "japanese"]) {
+    const link = traditions.locator(`a[href="/pantheons/${slug}"]`);
+    await link.scrollIntoViewIfNeeded();
+    await expect(link).toBeVisible();
+    await expect
+      .poll(() =>
+        link
+          .locator("img")
+          .evaluate(
+            (image: HTMLImageElement) =>
+              image.complete && image.naturalWidth > 0,
+          ),
+      )
+      .toBe(true);
+  }
+});
+
+test("home frontispiece identifies its real artwork and museum source", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const hero = page.getByRole("region", { name: "Mythos Atlas", exact: true });
+  const artwork = hero.getByRole("img", {
+    name: /Bronze figure of Shiva as Nataraja/,
+  });
+  await expect(artwork).toBeVisible();
+  await expect
+    .poll(() =>
+      artwork.evaluate(
+        (image: HTMLImageElement) => image.complete && image.naturalWidth > 0,
+      ),
+    )
+    .toBe(true);
+  await expect(
+    hero.getByRole("link", {
+      name: "The Metropolitan Museum of Art",
+      exact: true,
+    }),
+  ).toHaveAttribute(
+    "href",
+    "https://www.metmuseum.org/art/collection/search/39328",
+  );
+  await expect(
+    hero.getByText("Shiva as Lord of Dance (Nataraja)", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    hero
+      .getByRole("navigation", { name: "Index of traditions" })
+      .locator("ol a"),
+  ).toHaveCount(6);
+  await expect(
+    hero.getByRole("link", { name: "All 26 traditions" }),
+  ).toHaveAttribute("href", "/pantheons");
+});
+
+for (const width of [320, 1440]) {
+  for (const route of ["/", "/collections/underworld-rulers"]) {
+    test(`figure portraits load, link once and reflow at ${width}px on ${route}`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      await page.goto(route, { waitUntil: "domcontentloaded" });
+      const section =
+        route === "/"
+          ? page.getByRole("region", { name: "Compare figures and traditions" })
+          : page.getByRole("region", {
+              name: "Rulers of the Dead across pantheons",
+            });
+      // Portraits are the illustrations; museum objects only fill gaps.
+      const object = section.locator("img").first();
+      await object.scrollIntoViewIfNeeded();
+      await expect(object).toBeVisible();
+      await expect
+        .poll(() =>
+          object.evaluate(
+            (image: HTMLImageElement) =>
+              image.complete && image.naturalWidth > 0,
+          ),
+        )
+        .toBe(true);
+      const item = object.locator("xpath=ancestor::li[1]");
+      const entry = item.locator('a[href^="/deities/"]');
+      await expect(entry).toHaveCount(1);
+      await expect(section.locator("a a")).toHaveCount(0);
+      await page.addStyleTag({
+        content: "html { font-size: 200% !important; }",
+      });
+      await expect(page.locator("html")).toHaveCSS("font-size", "32px");
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await new Promise<void>((resolve) =>
+          requestAnimationFrame(() => resolve()),
+        );
+      });
+      await expect
+        .poll(() =>
+          page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+        )
+        .toBe(true);
+      await Promise.all([
+        page.waitForURL(/\/deities\//, { waitUntil: "domcontentloaded" }),
+        entry.click(),
+      ]);
+      await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    });
+  }
+}

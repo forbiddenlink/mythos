@@ -90,9 +90,10 @@ export default async function PantheonGoddessesPage({
       />
       <Container className="pt-6 pb-16 md:pt-8">
         <EntityGrid as="ul" aspect="portrait">
-          {goddesses.map((goddess) => (
+          {goddesses.map((goddess, index) => (
             <li key={goddess.id}>
               <EntityCard
+                priority={index < 2}
                 href={`/deities/${goddess.slug}`}
                 title={goddess.name}
                 image={goddess.imageUrl}

@@ -93,10 +93,6 @@ export default function SupportPage() {
           >
             <div className="overflow-hidden rounded-lg border border-gold/35 bg-card shadow-xl shadow-black/5">
               <div className="dark relative isolate bg-midnight px-6 py-6 text-parchment">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_90%_at_100%_0%,color-mix(in_oklch,var(--gold)_22%,transparent),transparent_70%)]"
-                />
                 <p className="type-eyebrow text-gold-light">Contribute</p>
                 <p className="mt-2 font-serif text-2xl font-semibold leading-tight">
                   Keep the atlas open

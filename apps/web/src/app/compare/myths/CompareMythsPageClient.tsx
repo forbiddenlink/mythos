@@ -12,7 +12,7 @@ import {
   getAvailableCategories,
 } from "@/lib/myth-comparison";
 import { Check, Share2 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -33,6 +33,8 @@ export function CompareMythsPageClient({
   storiesData,
 }: Readonly<CompareMythsPageClientProps>) {
   const t = useTranslations("pages.compareMyths");
+  // Interface strings follow the reader's locale; catalog content stays English.
+  const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedStories, setSelectedStories] = useState<Story[]>([]);
@@ -239,7 +241,7 @@ export function CompareMythsPageClient({
     <div>
       <div className="mb-6 flex flex-wrap items-center justify-end gap-3 empty:hidden">
         {selectedStories.length > 0 && (
-          <span className="type-meta text-muted-foreground">
+          <span lang={locale} className="type-meta text-muted-foreground">
             {t("selectedCount", { count: selectedStories.length, max: 3 })}
           </span>
         )}
@@ -248,6 +250,7 @@ export function CompareMythsPageClient({
             variant="outline"
             size="sm"
             onClick={handleShare}
+            lang={locale}
             className="gap-2"
           >
             {shareStatus === "success" ? (
@@ -262,7 +265,7 @@ export function CompareMythsPageClient({
 
       {/* Story Selector */}
       <div className="mb-12">
-        <h2 className="page-section-title mb-6 text-foreground">
+        <h2 lang={locale} className="page-section-title mb-6 text-foreground">
           {t("selectMyths")}
         </h2>
 
@@ -286,7 +289,10 @@ export function CompareMythsPageClient({
               </Badge>
             ))}
             {selectedStories.length < 3 && (
-              <span className="text-sm text-muted-foreground self-center">
+              <span
+                lang={locale}
+                className="text-sm text-muted-foreground self-center"
+              >
                 {t("selectUpToMore", { count: 3 - selectedStories.length })}
               </span>
             )}
@@ -302,6 +308,7 @@ export function CompareMythsPageClient({
                 variant={selectedCategory === null ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedCategory(null)}
+                lang={locale}
               >
                 {t("allCategories")}
               </Button>
@@ -325,6 +332,7 @@ export function CompareMythsPageClient({
                 variant={selectedPantheon === null ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedPantheon(null)}
+                lang={locale}
               >
                 {t("allCultures")}
               </Button>
@@ -341,7 +349,12 @@ export function CompareMythsPageClient({
                 </Button>
               ))}
               {hasActiveFilters && (
-                <Button variant="ghost" size="sm" onClick={clearFilters}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={clearFilters}
+                  lang={locale}
+                >
                   {t("clearFilters")}
                 </Button>
               )}
@@ -354,6 +367,7 @@ export function CompareMythsPageClient({
               </label>
               <Input
                 id="compare-myth-search"
+                lang={locale}
                 type="text"
                 placeholder={t("searchPlaceholder")}
                 value={searchQuery}
@@ -371,7 +385,10 @@ export function CompareMythsPageClient({
               (searchQuery || selectedCategory || selectedPantheon) && (
                 <div className="border rounded-lg bg-card shadow-lg max-h-80 overflow-y-auto">
                   {filteredStories.length === 0 ? (
-                    <div className="p-4 text-center text-muted-foreground">
+                    <div
+                      lang={locale}
+                      className="p-4 text-center text-muted-foreground"
+                    >
                       {t("noMythsFound")}
                     </div>
                   ) : (
@@ -417,7 +434,7 @@ export function CompareMythsPageClient({
       {/* Predefined Comparisons */}
       {selectedStories.length === 0 && (
         <div className="mb-12">
-          <h2 className="page-section-title mb-6 text-foreground">
+          <h2 lang={locale} className="page-section-title mb-6 text-foreground">
             {t("suggestedComparisons")}
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -465,15 +482,19 @@ export function CompareMythsPageClient({
 
       {selectedStories.length >= 2 && (
         <div className="mt-10 border-t border-border/70 pt-6">
-          <p className="type-ui text-muted-foreground mb-3">
+          <p lang={locale} className="type-ui text-muted-foreground mb-3">
             {t("nextStepHint")}
           </p>
           <div className="flex flex-wrap gap-2">
             <Button asChild size="sm" variant="outline">
-              <Link href="/stories">{t("nextStepStories")}</Link>
+              <Link href="/stories" lang={locale}>
+                {t("nextStepStories")}
+              </Link>
             </Button>
             <Button asChild size="sm" variant="outline">
-              <Link href="/sources">{t("nextStepSources")}</Link>
+              <Link href="/sources" lang={locale}>
+                {t("nextStepSources")}
+              </Link>
             </Button>
           </div>
         </div>

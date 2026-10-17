@@ -7,6 +7,7 @@ export const contentType = "image/png";
 
 interface Entry {
   id: string;
+  imageUrl?: string | null;
   name: string;
   slug: string;
   culture?: string;
@@ -27,6 +28,7 @@ export default async function Image({
     return renderOgCard({ eyebrow: "Mythos Atlas", title: "Tradition" });
   }
   return renderOgCard({
+    image: entry.imageUrl,
     eyebrow: "Mythological tradition",
     title: entry.name,
     subtitle: entry.region ?? entry.culture,

@@ -45,7 +45,8 @@ export function IntlProvider({
       setState((current) =>
         current.locale === next ? current : { locale: next, messages },
       );
-      document.documentElement.lang = next;
+      // <html lang> stays "en": pages are prerendered English and only some
+      // strings translate. Translated elements carry lang={locale} themselves.
     },
     [initialLocale, initialMessages],
   );

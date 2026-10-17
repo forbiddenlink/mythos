@@ -12,7 +12,18 @@ import {
 } from "react";
 import { trackEvent } from "@/lib/analytics/events";
 
-export type BookmarkType = "deity" | "story" | "pantheon" | "hero" | "source";
+export const BOOKMARK_TYPES = [
+  "deity",
+  "story",
+  "pantheon",
+  "hero",
+  "source",
+  "creature",
+  "artifact",
+  "location",
+] as const;
+
+export type BookmarkType = (typeof BOOKMARK_TYPES)[number];
 
 export interface Bookmark {
   type: BookmarkType;
@@ -53,7 +64,7 @@ function loadBookmarks(): Bookmark[] {
       (value): value is Bookmark =>
         value !== null &&
         typeof value === "object" &&
-        ["deity", "story", "pantheon", "hero", "source"].includes(value.type) &&
+        (BOOKMARK_TYPES as readonly string[]).includes(value.type) &&
         typeof value.id === "string" &&
         value.id.length > 0 &&
         typeof value.timestamp === "number" &&

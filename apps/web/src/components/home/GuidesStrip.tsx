@@ -39,7 +39,7 @@ export function GuidesStrip() {
                       alt=""
                       fill
                       sizes="(min-width: 768px) 24rem, 100vw"
-                      className="object-cover object-[50%_30%] transition-transform duration-700 group-hover:scale-[1.04]"
+                      className="object-cover object-[50%_30%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
                     />
                   </span>
                 ) : null}

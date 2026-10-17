@@ -129,7 +129,7 @@
     "pantheonId": "norse-pantheon",
     "protagonist": "Thor Odinson",
     "coverImage": "/stories/thor-jotunheim.jpg",
-    "totalEndings": 4,
+    "totalEndings": 8,
     "estimatedTime": "8-12 min",
     "startNodeId": "start",
     "nodes": {
@@ -329,7 +329,7 @@
     "pantheonId": "greek-pantheon",
     "protagonist": "Orpheus",
     "coverImage": "/stories/orpheus-underworld.jpg",
-    "totalEndings": 4,
+    "totalEndings": 3,
     "estimatedTime": "6-10 min",
     "startNodeId": "start",
     "nodes": {

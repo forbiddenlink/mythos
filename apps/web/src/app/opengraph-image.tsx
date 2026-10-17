@@ -15,9 +15,10 @@ export default function Image() {
   const places = (locationsData as unknown[]).length;
 
   return renderOgCard({
+    image: "/deities/zeus.jpg",
     eyebrow: "Interactive Encyclopedia",
     title: "Mythos Atlas",
-    subtitle: `${traditions} Traditions · ${deities} Deities · ${stories} Stories · ${places} Places`,
-    description: `Explore the gods, myths, and sacred places of world mythology across ${traditions} ancient civilizations with interactive family trees and maps.`,
+    subtitle: `${traditions} traditions · ${deities} deities · ${stories} stories`,
+    description: `Explore the gods, myths, and ${places} sacred places of world mythology, with family trees, maps and the sources behind each story.`,
   });
 }

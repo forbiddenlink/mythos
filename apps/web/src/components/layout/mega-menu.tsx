@@ -8,7 +8,7 @@ import {
   PRIMARY_DIRECT_LINK,
   PRIMARY_NAV,
 } from "@/components/layout/nav-config";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -48,11 +48,15 @@ function MegaMenuDropdown({
 }: Readonly<MegaMenuDropdownProps>) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  // When hover or focus opened the menu, the click that follows is the same
+  // gesture (mouse users click what they hover); it must not close it again.
+  const openedAtRef = useRef(0);
 
   const handlePointerEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
+    if (!isOpen) openedAtRef.current = Date.now();
     onOpen();
   };
 
@@ -94,6 +98,7 @@ function MegaMenuDropdown({
         aria-expanded={isOpen}
         onClick={() => {
           if (isOpen) {
+            if (Date.now() - openedAtRef.current < 600) return;
             onClose();
             return;
           }
@@ -134,7 +139,7 @@ function MegaMenuDropdown({
                     onClick={onClose}
                     aria-current={item.current ? "page" : undefined}
                     className={cn(
-                      "group flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted/60",
+                      "group flex items-start gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted/60 focus-visible:bg-muted/60 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-gold",
                       item.current && "bg-muted/60",
                     )}
                   >
@@ -166,6 +171,7 @@ function MegaMenuDropdown({
 
 export function MegaMenu() {
   const t = useTranslations();
+  const locale = useLocale();
   const pathname = usePathname() ?? "/";
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
@@ -185,7 +191,11 @@ export function MegaMenu() {
   const directActive = isActivePath(pathname, PRIMARY_DIRECT_LINK.href);
 
   return (
-    <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
+    <nav
+      aria-label="Primary"
+      lang={locale}
+      className="hidden items-center gap-0.5 lg:flex"
+    >
       {sections.map((section) => (
         <MegaMenuDropdown
           key={section.label}

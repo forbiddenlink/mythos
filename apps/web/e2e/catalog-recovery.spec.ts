@@ -100,10 +100,12 @@ for (const width of [1440, 390, 768, 320]) {
     const trigger = page
       .locator("header")
       .getByRole("button", { name: "Search", exact: true });
+    // Retry only while the palette is closed: under load it can take over a
+    // second to open, and a second click would toggle it shut again.
     await expect(async () => {
-      await trigger.click();
-      await expect(page.getByRole("dialog")).toBeVisible({ timeout: 1000 });
-    }).toPass({ timeout: 10000 });
+      if (!(await page.getByRole("dialog").isVisible())) await trigger.click();
+      await expect(page.getByRole("dialog")).toBeVisible({ timeout: 2000 });
+    }).toPass({ timeout: 15000 });
     const dialog = page.getByRole("dialog");
     await dialog.getByRole("combobox").fill("zzzznonexistent");
     await expect(dialog.getByRole("status")).toContainText("No results found");

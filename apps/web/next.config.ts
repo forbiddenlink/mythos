@@ -47,7 +47,10 @@ const nextConfig: NextConfig = {
   // also bundles the card into ordinary pages (via metadata images), so every route gets it,
   // not only opengraph-image ones (/changelog failed the same way). It is 75 KB.
   outputFileTracingIncludes: {
-    "/**": ["./src/app/fonts/cinzel-og-700.ttf"],
+    "/**": [
+      "./src/app/fonts/cinzel-og-700.ttf",
+      "./src/app/fonts/crimson-pro-og-400.woff",
+    ],
   },
   webpack: (config) => {
     config.ignoreWarnings = [
@@ -67,6 +70,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.metmuseum.org",
+        pathname: "/CRDImages/**",
+      },
       {
         protocol: "https",
         hostname: "collectionapi.metmuseum.org",

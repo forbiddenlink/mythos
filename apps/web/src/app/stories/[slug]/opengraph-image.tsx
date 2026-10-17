@@ -10,6 +10,7 @@ export const contentType = "image/png";
 
 interface Entry {
   id: string;
+  imageUrl?: string | null;
   pantheonId: string;
   title: string;
   slug: string;
@@ -39,6 +40,7 @@ export default async function Image({
     return renderOgCard({ eyebrow: "Mythos Atlas", title: "Story" });
   }
   return renderOgCard({
+    image: entry.imageUrl,
     eyebrow: `${traditionName(entry.pantheonId)} myth`,
     title: entry.title,
     subtitle: entry.category

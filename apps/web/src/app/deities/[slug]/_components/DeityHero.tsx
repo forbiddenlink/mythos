@@ -23,6 +23,8 @@ export function DeityHero({
   museumPortrait: MuseumObject | null;
   imageNote?: ImageNote;
 }) {
+  // The illustration is the portrait; a museum object stands in only when a
+  // figure has none. Documented objects get their own section further down.
   const image = deity.imageUrl
     ? {
         src: deity.imageUrl,
@@ -49,9 +51,17 @@ export function DeityHero({
       subject={`Illustration of ${deity.name}`}
       tone="light"
     />
-  ) : museumPortrait ? (
+  ) : museumPortrait?.imageUrl ? (
     <figcaption className="type-meta text-parchment/75">
-      {museumPortrait.title}, {museumPortrait.institution}
+      {museumPortrait.title}
+      {museumPortrait.date ? `, ${museumPortrait.date}` : null}
+      {" · "}
+      <a
+        href={museumPortrait.url}
+        className="underline underline-offset-2 hover:text-parchment"
+      >
+        {museumPortrait.institution}
+      </a>
     </figcaption>
   ) : null;
 

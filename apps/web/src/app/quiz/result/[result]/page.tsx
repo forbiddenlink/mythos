@@ -78,10 +78,6 @@ export default async function QuizResultPage({
       </Container>
       <Container size="reading" className="section-space-sm">
         <div className="dark relative isolate overflow-hidden rounded-lg bg-midnight px-6 py-12 text-center text-foreground shadow-xl shadow-black/10 md:px-12 md:py-16">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_65%_60%_at_50%_0%,color-mix(in_oklch,var(--gold)_24%,transparent),transparent_70%)]"
-          />
           <p className="type-eyebrow text-gold-light">
             {quizLabel(parsed.quizId)}
           </p>

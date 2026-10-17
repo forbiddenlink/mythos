@@ -70,7 +70,8 @@ export function Footer() {
         <p className="runhead mb-10 text-gold-text md:mb-12">
           <span>Colophon</span>
           <span className="text-right text-muted-foreground normal-case tracking-normal">
-            Catalog pictures are illustrations, not historical artworks.
+            Museum objects are credited to their collections. Other catalog
+            pictures are illustrations.
           </span>
         </p>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)] lg:gap-16">
