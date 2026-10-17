@@ -5,13 +5,14 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Command, Heart, Search } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { MegaMenu } from "@/components/layout/mega-menu";
 import { MOBILE_MORE_NAV, PRIMARY_NAV } from "@/components/layout/nav-config";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { QuickActions } from "@/components/layout/quick-actions";
+import { BookmarksContext } from "@/providers/bookmarks-provider";
 
 /** Shared look for the square icon controls on the right of the header. */
 const headerIconButtonClass =
@@ -21,6 +22,8 @@ export function Header() {
   const t = useTranslations();
   // Translated controls carry the interface locale; the page stays English.
   const locale = useLocale();
+  // Optional: the header also renders where no bookmarks provider exists.
+  const savedCount = useContext(BookmarksContext)?.bookmarks.length ?? 0;
   const [isMac, setIsMac] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -104,10 +107,22 @@ export function Header() {
           <Link
             href="/bookmarks"
             lang={locale}
-            className={`${headerIconButtonClass} hidden xl:inline-flex`}
-            aria-label={t("navigation.bookmarks")}
+            className={`${headerIconButtonClass} relative hidden xl:inline-flex`}
+            aria-label={
+              savedCount > 0
+                ? `${t("navigation.bookmarks")} (${savedCount})`
+                : t("navigation.bookmarks")
+            }
           >
             <Heart className="h-[1.125rem] w-[1.125rem]" strokeWidth={1.75} />
+            {savedCount > 0 ? (
+              <span
+                aria-hidden="true"
+                className="absolute right-0.5 top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 font-sans text-[0.625rem] font-semibold leading-none tabular-nums text-background"
+              >
+                {savedCount}
+              </span>
+            ) : null}
           </Link>
 
           {/* Language Switcher */}
