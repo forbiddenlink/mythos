@@ -237,3 +237,32 @@ function expectCultNotes(deity: CultDeity, id: string) {
     (worship?.practices ? 1 : 0);
   expect(cultBits, id).toBeGreaterThan(0);
 }
+
+describe("cross-pantheon parallel notes", () => {
+  const all = (
+    deities as unknown as Array<{
+      id: string;
+      name: string;
+      crossPantheonParallels?: Array<{ deityId: string; note: string }>;
+    }>
+  ).flatMap((deity) =>
+    (deity.crossPantheonParallels ?? []).map((parallel) => ({
+      deity,
+      parallel,
+    })),
+  );
+
+  it("are written for readers, not as editor backlink notes", () => {
+    const leaked = all.filter(({ parallel }) =>
+      /already lists/.test(parallel.note),
+    );
+    expect(leaked.map(({ deity }) => deity.id)).toEqual([]);
+  });
+
+  it("never describe the entry itself as its own equivalent", () => {
+    const selfReferencing = all.filter(({ deity, parallel }) =>
+      parallel.note.startsWith(`${deity.name} is the direct`),
+    );
+    expect(selfReferencing.map(({ deity }) => deity.id)).toEqual([]);
+  });
+});

@@ -784,7 +784,7 @@
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "zao-jun",
-        "note": "The Kitchen God's entry already lists Hestia; both preside over the domestic hearth and family harmony"
+        "note": "Both preside over the domestic hearth and family harmony"
       }
     ],
     "imageUrl": "/deities/hestia.jpg",
@@ -839,7 +839,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "zeus",
-        "note": "Zeus already lists Odin; both are the chief god of their pantheon associated with sky, war, and supreme authority"
+        "note": "Both are the chief god of their pantheon associated with sky, war, and supreme authority"
       },
       {
         "pantheonId": "roman-pantheon",
@@ -955,7 +955,7 @@
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "lei-gong",
-        "note": "Lei Gong already lists Thor; both are thunder gods who punish wrongdoing with lightning"
+        "note": "Both are thunder gods who punish wrongdoing with lightning"
       }
     ],
     "imageUrl": "/deities/thor.jpg",
@@ -1016,17 +1016,17 @@
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "sun-wukong",
-        "note": "Sun Wukong already lists Loki; both are shape-shifting troublemakers whose mischief repeatedly disrupts the divine order"
+        "note": "Both are shape-shifting troublemakers whose mischief repeatedly disrupts the divine order"
       },
       {
         "pantheonId": "yoruba-pantheon",
         "deityId": "eshu",
-        "note": "Eshu already lists Loki; both are trickster gods who thrive on mischief, disruption, and crossing boundaries"
+        "note": "Both are trickster gods who thrive on mischief, disruption, and crossing boundaries"
       },
       {
         "pantheonId": "polynesian-pantheon",
         "deityId": "maui",
-        "note": "Maui already lists Loki; both are cunning shape-shifting tricksters who use cleverness rather than strength to achieve their ends"
+        "note": "Both are cunning shape-shifting tricksters who use cleverness rather than strength to achieve their ends"
       }
     ],
     "imageUrl": "/deities/loki.webp",
@@ -1118,12 +1118,12 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "aphrodite",
-        "note": "Aphrodite already lists Freyja; both are the pantheon's foremost goddess of love, beauty, and desire"
+        "note": "Both are the pantheon's foremost goddess of love, beauty, and desire"
       },
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "inanna",
-        "note": "Inanna already lists Freyja; both goddesses combine love and beauty with war, death, and formidable independent power"
+        "note": "Both goddesses combine love and beauty with war, death, and formidable independent power"
       }
     ],
     "imageUrl": "/deities/freyja.jpg",
@@ -1198,14 +1198,14 @@
     "domain": ["war", "justice", "law", "courage", "oaths"],
     "symbols": ["sword", "one hand", "rune Tiwaz"],
     "description": "God of war, justice, and law. Bravest of the gods. Sacrificed his right hand to bind the wolf Fenrir, demonstrating his courage and willingness to uphold cosmic order.",
-    "detailedBio": "## The One-Handed God\n\nTyr is the ancient god of war and the guarantor of justice and oaths (`thing`). While Thor represents the physical strength of a warrior, Tyr represents the legal and moral principles of war.\n\n### The Binding of Fenrir\n\nWhen the gods decided to bind the monstrous wolf Fenrir, the beast only agreed to be chained if one of them placed a hand in his mouth as a pledge of good faith. Tyr alone had the courage to do so. When Fenrir realized he was trapped, he bit off Tyr's hand.",
+    "detailedBio": "## The One-Handed God\n\nTyr is the ancient god of war and the guarantor of justice and oaths, linked to the *thing*, the assembly where Germanic peoples settled disputes. While Thor represents the physical strength of a warrior, Tyr represents the legal and moral principles of war.\n\n### The Binding of Fenrir\n\nWhen the gods decided to bind the monstrous wolf Fenrir, the beast only agreed to be chained if one of them placed a hand in his mouth as a pledge of good faith. Tyr alone had the courage to do so. When Fenrir realized he was trapped, he bit off Tyr's hand.",
     "originStory": "Tyr's origins are mysterious and debated among scholars of the myths. Some accounts name him as a son of Odin, while others claim he is the son of the giant Hymir, making him older than the Aesir themselves. Indeed, linguistic evidence suggests Tyr may have once been the chief sky god of the Germanic peoples before Odin rose to prominence. The rune Tiwaz, which bears his name, is among the oldest of the runic alphabet. Regardless of his parentage, Tyr became the god whom warriors invoked before battle and to whom oaths were sworn, embodying the sacred bond between valor and honor.",
     "importanceRank": 9,
     "crossPantheonParallels": [
       {
         "pantheonId": "greek-pantheon",
         "deityId": "ares",
-        "note": "Ares already lists Tyr; both are gods of war associated with courage and combat"
+        "note": "Both are gods of war associated with courage and combat"
       },
       {
         "pantheonId": "celtic-pantheon",
@@ -1215,7 +1215,7 @@
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "guan-yu",
-        "note": "Guan Yu already lists Tyr; both are war gods whose domain centers on oaths, loyalty, and righteous justice rather than raw violence alone"
+        "note": "Both are war gods whose domain centers on oaths, loyalty, and righteous justice rather than raw violence alone"
       }
     ],
     "imageUrl": "/deities/tyr.jpg",
@@ -1311,17 +1311,17 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "poseidon",
-        "note": "Poseidon already lists Njord; both are major gods of the sea"
+        "note": "Both are major gods of the sea"
       },
       {
         "pantheonId": "polynesian-pantheon",
         "deityId": "tangaroa",
-        "note": "Tangaroa already lists Njord; both are sea gods tied to seafaring, fish, and the ocean's bounty"
+        "note": "Both are sea gods tied to seafaring, fish, and the ocean's bounty"
       },
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "mazu",
-        "note": "Mazu already lists Njord; both are sea deities invoked by sailors and traders for safe passage and prosperity"
+        "note": "Both are sea deities invoked by sailors and traders for safe passage and prosperity"
       }
     ],
     "imageUrl": "/deities/njord.png",
@@ -1364,12 +1364,12 @@
       {
         "pantheonId": "polynesian-pantheon",
         "deityId": "tane",
-        "note": "Tane already lists Freyr; both are gods of fertility, natural abundance, and life"
+        "note": "Both are gods of fertility, natural abundance, and life"
       },
       {
         "pantheonId": "japanese-pantheon",
         "deityId": "okuninushi",
-        "note": "Okuninushi already lists Freyr; both are gods of prosperity, fertility, and peaceful, benevolent rule"
+        "note": "Both are gods of prosperity, fertility, and peaceful, benevolent rule"
       }
     ],
     "imageUrl": "/deities/freyr.jpg",
@@ -1445,12 +1445,12 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "hades",
-        "note": "Hades already lists Hel; both rule an underworld realm that receives the souls of the dead"
+        "note": "Both rule an underworld realm that receives the souls of the dead"
       },
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "ereshkigal",
-        "note": "Ereshkigal already lists Hel; both are goddesses who preside grimly over a shadowy realm of the dead"
+        "note": "Both are goddesses who preside grimly over a shadowy realm of the dead"
       },
       {
         "pantheonId": "japanese-pantheon",
@@ -1543,17 +1543,17 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "apollo",
-        "note": "Apollo already lists Ra; both are supreme solar deities associated with light and order"
+        "note": "Both are supreme solar deities associated with light and order"
       },
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "shamash",
-        "note": "Shamash already lists Ra; both are sun gods associated with truth, order, and justice"
+        "note": "Both are sun gods associated with truth, order, and justice"
       },
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "anu",
-        "note": "Anu already lists Ra; both are the foundational sky/sun god of their pantheon's cosmic order"
+        "note": "Both are the foundational sky/sun god of their pantheon's cosmic order"
       }
     ],
     "imageUrl": "/deities/ra.jpg",
@@ -1645,7 +1645,7 @@
       {
         "pantheonId": "mesoamerican-pantheon",
         "deityId": "xipe-totec",
-        "note": "Xipe Totec already lists Osiris; both are gods of death and agricultural renewal/rebirth"
+        "note": "Both are gods of death and agricultural renewal/rebirth"
       },
       {
         "pantheonId": "yoruba-pantheon",
@@ -1868,7 +1868,7 @@
       {
         "pantheonId": "aztec-pantheon",
         "deityId": "xolotl",
-        "note": "Xolotl already lists Anubis; both are canine-associated death gods who guide souls through the underworld"
+        "note": "Both are canine-associated death gods who guide souls through the underworld"
       }
     ],
     "imageUrl": "/deities/anubis.jpg",
@@ -1935,17 +1935,17 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "hermes",
-        "note": "Hermes already lists Thoth; the Hellenistic syncretism 'Hermes Trismegistus' directly fused the two as the god of wisdom, writing, and magic"
+        "note": "The Hellenistic syncretism 'Hermes Trismegistus' directly fused the two as the god of wisdom, writing, and magic"
       },
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "enki",
-        "note": "Enki already lists Thoth; both are gods of wisdom, magic, and secret knowledge"
+        "note": "Both are gods of wisdom, magic, and secret knowledge"
       },
       {
         "pantheonId": "mesoamerican-pantheon",
         "deityId": "itzamna",
-        "note": "Itzamna already lists Thoth; both are creator-gods associated with writing, wisdom, and healing"
+        "note": "Both are creator-gods associated with writing, wisdom, and healing"
       }
     ],
     "imageUrl": "/deities/thoth.jpg",
@@ -2034,7 +2034,7 @@
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "inanna",
-        "note": "Inanna already lists Hathor; both are goddesses combining love, beauty, and joyful sensuality"
+        "note": "Both are goddesses combining love, beauty, and joyful sensuality"
       },
       {
         "pantheonId": "greek-pantheon",
@@ -2247,7 +2247,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "zeus",
-        "note": "Jupiter is the direct Roman equivalent, sky father and king of the gods (Zeus already lists Jupiter)"
+        "note": "Zeus is the direct Greek equivalent, sky father and king of the gods"
       }
     ],
     "imageUrl": "/deities/jupiter.jpg",
@@ -2291,7 +2291,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "hera",
-        "note": "Juno is the direct Greek equivalent (Hera already lists Juno); both are queen of the gods and goddess of marriage"
+        "note": "Both are queen of the gods and goddess of marriage"
       },
       {
         "pantheonId": "norse-pantheon",
@@ -2343,7 +2343,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "poseidon",
-        "note": "Neptune is the direct Greek equivalent, ruling the seas with the same trident (Poseidon already lists Neptune)"
+        "note": "Poseidon is the direct Greek equivalent, ruling the seas with the same trident"
       }
     ],
     "imageUrl": "/deities/neptune.jpg",
@@ -2386,7 +2386,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "ares",
-        "note": "Mars is the direct Greek equivalent, god of war (Ares already lists Mars)"
+        "note": "Ares is the direct Greek equivalent, god of war"
       }
     ],
     "imageUrl": "/deities/mars.jpg",
@@ -2435,7 +2435,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "aphrodite",
-        "note": "Venus is the direct Greek equivalent, goddess of love and beauty (Aphrodite already lists Venus)"
+        "note": "Aphrodite is the direct Greek equivalent, goddess of love and beauty"
       }
     ],
     "imageUrl": "/deities/venus.jpg",
@@ -2478,7 +2478,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "athena",
-        "note": "Minerva is the direct Greek equivalent, goddess of wisdom and strategic warfare (Athena already lists Minerva)"
+        "note": "Athena is the direct Greek equivalent, goddess of wisdom and strategic warfare"
       },
       {
         "pantheonId": "celtic-pantheon",
@@ -2529,7 +2529,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "apollo",
-        "note": "Rome adopted Apollo directly under his Greek name rather than renaming him (the Greek Apollo entry already lists this one)"
+        "note": "Rome adopted Apollo directly under his Greek name rather than renaming him"
       }
     ],
     "imageUrl": "/deities/apollo-roman.png",
@@ -2571,7 +2571,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "artemis",
-        "note": "Diana is the direct Greek equivalent, goddess of the hunt and moon (Artemis already lists Diana)"
+        "note": "Artemis is the direct Greek equivalent, goddess of the hunt and moon"
       }
     ],
     "imageUrl": "/deities/diana.png",
@@ -2620,7 +2620,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "hermes",
-        "note": "Mercury is the direct Greek equivalent, messenger god of commerce and travel (Hermes already lists Mercury)"
+        "note": "Hermes is the direct Greek equivalent, messenger god of commerce and travel"
       },
       {
         "pantheonId": "norse-pantheon",
@@ -2717,7 +2717,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "hephaestus",
-        "note": "Vulcan is the direct Greek equivalent, god of fire and the forge (Hephaestus already lists Vulcan)"
+        "note": "Hephaestus is the direct Greek equivalent, god of fire and the forge"
       },
       {
         "pantheonId": "celtic-pantheon",
@@ -2764,7 +2764,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "demeter",
-        "note": "Ceres is the direct Greek equivalent, goddess of grain and harvest (Demeter already lists Ceres)"
+        "note": "Demeter is the direct Greek equivalent, goddess of grain and harvest"
       },
       {
         "pantheonId": "japanese-pantheon",
@@ -2817,7 +2817,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "hestia",
-        "note": "Vesta is the direct Greek equivalent, goddess of the hearth and household fire (Hestia already lists Vesta)"
+        "note": "Hestia is the direct Greek equivalent, goddess of the hearth and household fire"
       }
     ],
     "imageUrl": "/deities/vesta.png",
@@ -2921,7 +2921,7 @@
       {
         "pantheonId": "yoruba-pantheon",
         "deityId": "olodumare",
-        "note": "Both are the remote supreme creator deity of their pantheon, rarely worshipped directly compared to more active gods (Olodumare already lists Brahma)"
+        "note": "Both are the remote supreme creator deity of their pantheon, rarely worshipped directly compared to more active gods"
       }
     ],
     "imageUrl": "/deities/brahma.jpg",
@@ -3016,17 +3016,17 @@
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "erlang-shen",
-        "note": "Erlang Shen already lists Shiva; both are fierce warrior-ascetic gods with a third eye"
+        "note": "Both are fierce warrior-ascetic gods with a third eye"
       },
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "nergal",
-        "note": "Nergal already lists Shiva; both are destroyer gods associated with plague, death, and cosmic upheaval"
+        "note": "Both are destroyer gods associated with plague, death, and cosmic upheaval"
       },
       {
         "pantheonId": "japanese-pantheon",
         "deityId": "daikokuten",
-        "note": "Daikokuten already lists Shiva; both carry aspects of a fierce, transformative deity behind a more benevolent public form"
+        "note": "Both carry aspects of a fierce, transformative deity behind a more benevolent public form"
       }
     ],
     "imageUrl": "/deities/shiva.jpg",
@@ -3246,7 +3246,7 @@
       {
         "pantheonId": "aztec-pantheon",
         "deityId": "tlazolteotl",
-        "note": "Tlazolteotl already lists Kali; both are transgressive goddesses tied to purification through consuming filth/destruction"
+        "note": "Both are transgressive goddesses tied to purification through consuming filth/destruction"
       },
       {
         "pantheonId": "celtic-pantheon",
@@ -3344,7 +3344,7 @@
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "sun-wukong",
-        "note": "Sun Wukong already lists Hanuman; both are super-strong monkey heroes with shape-shifting and flight powers devoted to a higher cause"
+        "note": "Both are super-strong monkey heroes with shape-shifting and flight powers devoted to a higher cause"
       }
     ],
     "imageUrl": "/deities/hanuman.png",
@@ -3388,7 +3388,7 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "perseus",
-        "note": "Perseus already lists Rama; both are heroic demigods who defeat a monstrous antagonist through divine favor and are held up as models of virtue"
+        "note": "Both are heroic demigods who defeat a monstrous antagonist through divine favor and are held up as models of virtue"
       }
     ],
     "imageUrl": "/deities/rama.jpg",
@@ -3469,12 +3469,12 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "zeus",
-        "note": "Zeus already lists Indra; both are storm-and-thunder kings of the gods who wield a signature weapon (thunderbolt/vajra)"
+        "note": "Both are storm-and-thunder kings of the gods who wield a signature weapon (thunderbolt/vajra)"
       },
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "jade-emperor",
-        "note": "The Jade Emperor already lists Indra; both are the ruling sky-king who commands the weather and the pantheon"
+        "note": "Both are the ruling sky-king who commands the weather and the pantheon"
       },
       {
         "pantheonId": "norse-pantheon",
@@ -3524,17 +3524,17 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "prometheus",
-        "note": "Prometheus already lists Agni; both mediate fire between the divine and human realms"
+        "note": "Both mediate fire between the divine and human realms"
       },
       {
         "pantheonId": "japanese-pantheon",
         "deityId": "kagutsuchi",
-        "note": "Kagutsuchi already lists Agni; both are personifications of sacred/sacrificial fire"
+        "note": "Both are personifications of sacred/sacrificial fire"
       },
       {
         "pantheonId": "aztec-pantheon",
         "deityId": "xiuhtecuhtli",
-        "note": "Xiuhtecuhtli already lists Agni; both are fire gods central to sacrificial ritual and purification"
+        "note": "Both are fire gods central to sacrificial ritual and purification"
       }
     ],
     "imageUrl": "/deities/agni.png",
@@ -3718,17 +3718,17 @@
       {
         "pantheonId": "greek-pantheon",
         "deityId": "artemis",
-        "note": "Artemis already lists Tsukuyomi; both are deities of the moon and the night sky"
+        "note": "Both are deities of the moon and the night sky"
       },
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "chang-e",
-        "note": "Chang'e already lists Tsukuyomi; both are lunar deities associated with the moon's isolation and beauty"
+        "note": "Both are lunar deities associated with the moon's isolation and beauty"
       },
       {
         "pantheonId": "aztec-pantheon",
         "deityId": "coyolxauhqui",
-        "note": "Coyolxauhqui already lists Tsukuyomi; both are moon deities born from a sibling conflict with a sun/light deity"
+        "note": "Both are moon deities born from a sibling conflict with a sun/light deity"
       }
     ],
     "imageUrl": "/deities/tsukuyomi.png",
@@ -4598,7 +4598,7 @@
       {
         "pantheonId": "mesoamerican-pantheon",
         "deityId": "kukulkan",
-        "note": "Kukulkan already lists Quetzalcoatl; the Feathered Serpent is the same deity of wind, wisdom, and creation shared across Mesoamerican cultures"
+        "note": "The Feathered Serpent is the same deity of wind, wisdom, and creation shared across Mesoamerican cultures"
       }
     ],
     "imageUrl": "/deities/quetzalcoatl.jpg",
@@ -9277,7 +9277,7 @@
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "tiamat",
-        "note": "Tiamat already lists Gaia; both are primordial mothers of the first gods who later turn against a younger generation"
+        "note": "Both are primordial mothers of the first gods who later turn against a younger generation"
       },
       {
         "pantheonId": "norse-pantheon",
@@ -9544,12 +9544,12 @@
       {
         "pantheonId": "mesopotamian-pantheon",
         "deityId": "tiamat",
-        "note": "Tiamat already lists Ymir; both are primordial beings whose slain bodies become the physical material of the world"
+        "note": "Both are primordial beings whose slain bodies become the physical material of the world"
       },
       {
         "pantheonId": "chinese-pantheon",
         "deityId": "pangu",
-        "note": "Pangu already lists Ymir; both are primordial giants whose deaths and dismembered bodies form the sky, earth, and landscape"
+        "note": "Both are primordial giants whose deaths and dismembered bodies form the sky, earth, and landscape"
       }
     ],
     "pronunciation": {
