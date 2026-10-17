@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0](https://github.com/forbiddenlink/mythos/compare/v1.8.1...v1.9.0) (2026-10-17)
+
+
+### Features
+
+* **audio:** bespoke ambience, recorded name pronunciations, story narration, live oracle search ([#175](https://github.com/forbiddenlink/mythos/issues/175)) ([586b017](https://github.com/forbiddenlink/mythos/commit/586b017dc91ab1418c4e484703172bba7308f596))
+* entry closer, weekly digest drafts, support ask after finished stories ([#173](https://github.com/forbiddenlink/mythos/issues/173)) ([020e935](https://github.com/forbiddenlink/mythos/commit/020e935d0284a19ee59e36ec9a34f7c515a099ef))
+* illustrated atlas polish: brand mark, engraved backgrounds, illustrations first ([#179](https://github.com/forbiddenlink/mythos/issues/179)) ([bf2ac89](https://github.com/forbiddenlink/mythos/commit/bf2ac89a4cd0eed1fb0351a19c7752850af456b8))
+* **seo:** search-shaped titles, clean descriptions, mention links, tradition hubs ([#172](https://github.com/forbiddenlink/mythos/issues/172)) ([e24d6fd](https://github.com/forbiddenlink/mythos/commit/e24d6fd5befaedc1cf40c04dc9989aa9e63806c8))
+
+
+### Bug Fixes
+
+* count support and entry views, patch postcss-selector-parser ([#171](https://github.com/forbiddenlink/mythos/issues/171)) ([08769b9](https://github.com/forbiddenlink/mythos/commit/08769b9ac2e48d3d85ec15aee34f55bc448ee9c4))
+* **deps:** update non-major (automerge) ([#168](https://github.com/forbiddenlink/mythos/issues/168)) ([e867f81](https://github.com/forbiddenlink/mythos/commit/e867f8181d4f5aa6409951f30f826cc72bd0a800))
+* measure real readers, and title pages the way people search ([#180](https://github.com/forbiddenlink/mythos/issues/180)) ([8327a2d](https://github.com/forbiddenlink/mythos/commit/8327a2d0c40944f3f4ae2f42d95574fa1e1f60b1))
+* preserve learning progress and close QA timing regressions ([#176](https://github.com/forbiddenlink/mythos/issues/176)) ([67072a7](https://github.com/forbiddenlink/mythos/commit/67072a740f9401e318ed20b51568fdf1984fd68c))
+* related-word search and more linked sources ([#182](https://github.com/forbiddenlink/mythos/issues/182)) ([4eb89a7](https://github.com/forbiddenlink/mythos/commit/4eb89a70097edee2967fd5cb9cf62baab227fa3c))
+* usability walkthrough fixes (search, sources, bookmarks, family, compare) ([#181](https://github.com/forbiddenlink/mythos/issues/181)) ([e5d93b9](https://github.com/forbiddenlink/mythos/commit/e5d93b9080484aed5a9a7fad7e2040be09c43ada))
+
 ## [1.8.1](https://github.com/forbiddenlink/mythos/compare/v1.8.0...v1.8.1) (2026-10-10)
 
 
