@@ -54,11 +54,14 @@ const PREDEFINED_COMPARISONS = [
 interface ComparePageClientProps {
   deitiesData: Deity[];
   pantheonsData: Pantheon[];
+  /** Slugs of the written /compare/<a>-vs-<b> pages. */
+  writtenComparisons?: string[];
 }
 
 export function ComparePageClient({
   deitiesData,
   pantheonsData,
+  writtenComparisons,
 }: Readonly<ComparePageClientProps>) {
   const t = useTranslations("pages.compare");
   // Interface strings follow the reader's locale; catalog content stays English.
@@ -166,6 +169,16 @@ export function ComparePageClient({
       setTimeout(() => setShareStatus("idle"), 2500);
     }
   }, []);
+
+  // Two figures with a written comparison: point to it, since the side-by-side
+  // view never says in words how they relate.
+  const writtenComparison =
+    selectedDeities.length === 2
+      ? [
+          `${selectedDeities[0].slug}-vs-${selectedDeities[1].slug}`,
+          `${selectedDeities[1].slug}-vs-${selectedDeities[0].slug}`,
+        ].find((slug) => writtenComparisons?.includes(slug))
+      : undefined;
 
   let shareLabel = t("shareComparison");
   if (shareStatus === "success") {
@@ -285,6 +298,17 @@ export function ComparePageClient({
         </section>
       ) : (
         <div className="mt-10">
+          {writtenComparison ? (
+            <p className="mb-6 type-ui">
+              <Link
+                href={`/compare/${writtenComparison}`}
+                className="font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+              >
+                Read how {selectedDeities[0].name} and {selectedDeities[1].name}{" "}
+                compare
+              </Link>
+            </p>
+          ) : null}
           <ComparisonTable
             deities={selectedDeities}
             onRemove={handleRemove}

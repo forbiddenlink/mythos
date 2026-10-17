@@ -10,6 +10,7 @@ import {
   getPantheons,
   resolveParallelRefs,
 } from "@/lib/data/catalog";
+import { getDeityComparisons } from "@/lib/comparisons";
 import { pick, project } from "@/lib/data/project";
 import { ComparePageClient } from "./ComparePageClient";
 
@@ -56,6 +57,7 @@ export default function Page() {
               crossPantheonParallels: resolveParallelRefs(deity),
             }))}
             pantheonsData={project(getPantheons(), ["id", "name", "slug"])}
+            writtenComparisons={getDeityComparisons().map((c) => c.slug)}
           />
         </Suspense>
       </Container>
