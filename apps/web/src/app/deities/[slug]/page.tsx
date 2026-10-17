@@ -479,6 +479,7 @@ export default async function DeityPage({ params }: PageProps) {
                 <BloodlineTapestry
                   deityId={deity.id}
                   deityName={deity.name}
+                  deityImageUrl={deity.imageUrl}
                   pantheonId={deity.pantheonId}
                   bloodline={bloodline}
                 />

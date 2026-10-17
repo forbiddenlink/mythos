@@ -81,6 +81,8 @@ describe("search index", () => {
       locations: locationsData,
       heroes: heroesData,
       sources: sourcesData,
+      // Labels are derived data, not catalog rows; both sides share them.
+      pantheonLabels: slim.pantheonLabels,
     } as unknown as SearchIndex;
     for (const query of [
       "zeus",

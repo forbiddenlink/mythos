@@ -247,6 +247,33 @@ describe("BookmarkButton", () => {
     });
   });
 
+  describe("Save note", () => {
+    it("says where the entry went, then fades", () => {
+      vi.useFakeTimers();
+      try {
+        render(<BookmarkButton type="deity" id="tyr" />, { wrapper });
+        act(() => {
+          fireEvent.click(screen.getByRole("button"));
+        });
+        expect(screen.getByText("Saved to Bookmarks")).toBeInTheDocument();
+        // The note is visual only; the button name stays stable.
+        expect(screen.getByRole("button")).toHaveAccessibleName(
+          "Remove deity from bookmarks",
+        );
+        act(() => {
+          vi.advanceTimersByTime(2600);
+        });
+        expect(screen.queryByText("Saved to Bookmarks")).toBeNull();
+        act(() => {
+          fireEvent.click(screen.getByRole("button"));
+        });
+        expect(screen.getByText("Removed from Bookmarks")).toBeInTheDocument();
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+  });
+
   describe("Integration with bookmark context", () => {
     it("restores hero bookmarks saved using the legacy story namespace", () => {
       localStorageMock.setItem(

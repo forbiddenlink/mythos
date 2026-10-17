@@ -62,4 +62,26 @@ describe("CitationSourcesList", () => {
     );
     expect(works).toContainElement(screen.getByText("Iliad"));
   });
+
+  it("links a cited work to the atlas page for it", () => {
+    render(
+      <CitationSourcesList
+        sources={[
+          { title: "Prose Edda - Gylfaginning", author: "Snorri Sturluson" },
+          { title: "Metamorphoses (The Golden Ass)", author: "Apuleius" },
+          { title: "Maori Oral Tradition" },
+        ]}
+      />,
+    );
+    expect(
+      screen.getByRole("link", { name: "Prose Edda - Gylfaginning" }),
+    ).toHaveAttribute("href", "/sources/prose-edda");
+    // Same title, different author: not Ovid's poem.
+    expect(
+      screen.queryByRole("link", { name: /Golden Ass/ }),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("link", { name: "Maori Oral Tradition" }),
+    ).not.toBeInTheDocument();
+  });
 });

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { hasLineage, type Bloodline, type Kin } from "@/lib/deity-page";
@@ -6,15 +7,26 @@ function Medallion({ kin, big = false }: { kin: Kin; big?: boolean }) {
   const inner = (
     <>
       <span
-        className={`flex items-center justify-center rounded-full border-2 bg-midnight/80 font-serif text-parchment transition-transform duration-200 group-hover:scale-110 ${
-          big ? "size-16 text-2xl" : "size-11 text-lg"
+        className={`relative flex items-center justify-center overflow-hidden rounded-full border-2 bg-midnight/80 font-serif text-parchment transition-transform duration-200 group-hover:scale-110 ${
+          big ? "size-16 text-2xl" : "size-12 text-lg"
         }`}
         style={{ borderColor: kin.color }}
       >
-        {kin.name.charAt(0)}
+        {kin.imageUrl ? (
+          // The figure's portrait; the name below carries the meaning.
+          <Image
+            src={kin.imageUrl}
+            alt=""
+            fill
+            sizes={big ? "64px" : "48px"}
+            className="object-cover object-top"
+          />
+        ) : (
+          kin.name.charAt(0)
+        )}
       </span>
       <span
-        className={`mt-1.5 max-w-[7rem] truncate text-center ${big ? "text-[0.9375rem] font-semibold text-foreground" : "text-sm text-foreground group-hover:text-gold-text"}`}
+        className={`mt-1.5 line-clamp-2 max-w-[7.5rem] text-balance text-center leading-tight ${big ? "text-[0.9375rem] font-semibold text-foreground" : "text-sm text-foreground group-hover:text-gold-text"}`}
       >
         {kin.name}
       </span>
@@ -62,11 +74,13 @@ function Tier({ label, kin }: { label: string; kin: Kin[] }) {
 export function BloodlineTapestry({
   deityId,
   deityName,
+  deityImageUrl,
   pantheonId,
   bloodline,
 }: {
   deityId: string;
   deityName: string;
+  deityImageUrl?: string | null;
   pantheonId: string;
   bloodline: Bloodline;
 }) {
@@ -78,6 +92,7 @@ export function BloodlineTapestry({
     name: deityName,
     slug: null,
     color: getPantheonColor(pantheonId),
+    ...(deityImageUrl ? { imageUrl: deityImageUrl } : {}),
   };
 
   return (
