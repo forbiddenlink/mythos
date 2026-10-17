@@ -224,11 +224,51 @@ function calculateWordScore(
   if (words.length < 2) return 0;
   let total = 0;
   for (const word of words) {
-    const score = calculateMatchScore(word, fields);
+    const score = Math.max(
+      ...wordVariants(word).map((variant) =>
+        calculateMatchScore(variant, fields),
+      ),
+    );
     if (score === 0) return 0;
     total += score;
   }
   return total / 2;
+}
+
+/**
+ * What a reader calls each kind of entry, so "god" in "egyptian god of the
+ * dead" counts toward deities, not toward every place whose description
+ * mentions a god.
+ */
+const TYPE_WORDS: Partial<Record<ContentType, string>> = {
+  deity: "god goddess deity",
+  hero: "hero heroine",
+  creature: "creature monster beast",
+  story: "story myth tale",
+};
+
+/**
+ * Words a reader uses for what the catalog files under another word
+ * ("god of the dead" for domains listed as death or the afterlife).
+ */
+const RELATED_WORDS: Record<string, string[]> = {
+  dead: ["death", "afterlife", "underworld"],
+  death: ["dead", "afterlife"],
+  afterlife: ["death", "underworld"],
+  sea: ["ocean"],
+  ocean: ["sea"],
+  sun: ["solar"],
+  moon: ["lunar"],
+  battle: ["war"],
+};
+
+/** The word, its plain singular ("gods" -> "god"), and related words. */
+function wordVariants(word: string): string[] {
+  const variants = [word, ...(RELATED_WORDS[word] ?? [])];
+  if (word.length > 3 && word.endsWith("s") && !word.endsWith("ss")) {
+    variants.push(word.slice(0, -1));
+  }
+  return variants;
 }
 
 /**
@@ -306,6 +346,7 @@ function searchItems<T extends { id: string }>(
       score = calculateWordScore(query, [
         ...fields,
         { value: config.getTradition?.(item) ?? "", weight: 1 },
+        { value: TYPE_WORDS[config.type] ?? "", weight: 2 },
       ]);
     }
     // A title that IS the query must beat any entry that merely starts with it

@@ -55,6 +55,15 @@ describe("natural-language queries", () => {
     expect(top).toContain(slug);
   });
 
+  it.each([
+    ["egyptian god of the dead", ["anubis", "osiris"]],
+    ["norse goddess of the dead", ["hel"]],
+    ["greek gods of the sea", ["poseidon"]],
+  ])("matches related words and plurals in %s", (query, slugs) => {
+    const top = searchAll(query, 5).map((result) => result.slug);
+    expect(top).toEqual(expect.arrayContaining(slugs));
+  });
+
   it("still finds nothing for nonsense", () => {
     expect(searchAll("zzzznonexistent")).toEqual([]);
   });
