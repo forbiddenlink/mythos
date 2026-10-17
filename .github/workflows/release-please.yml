@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
   issues: write
 
 # Two pushes to main a few seconds apart ran release-please twice at once; the second
@@ -22,9 +23,23 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      actions: write
       issues: write
     steps:
       - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        id: release
         with:
           release-type: node
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      # A PR opened with GITHUB_TOKEN never starts pull_request workflows, so the
+      # release PR would merge with its tests never run. workflow_dispatch is the one
+      # event GITHUB_TOKEN may start, and the run's checks land on the PR head commit.
+      - name: Run CI on the release PR
+        if: ${{ steps.release.outputs.pr }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_JSON: ${{ steps.release.outputs.pr }}
+        run: |
+          branch=$(jq -r '.headBranchName' <<<"$PR_JSON")
+          gh workflow run test.yml --repo "$GITHUB_REPOSITORY" --ref "$branch"
