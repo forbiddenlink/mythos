@@ -16,6 +16,7 @@ import {
   getRecentSearches,
   getResultUrl,
   saveRecentSearch,
+  capPerType,
   searchIndex,
   type ContentType,
   type SearchResult as SearchResultType,
@@ -154,7 +155,7 @@ export function GlobalSearch({
     if (!index || !debouncedSearch || debouncedSearch.length < 2) {
       return [];
     }
-    return searchIndex(index, debouncedSearch, 15);
+    return capPerType(searchIndex(index, debouncedSearch, 60), 4, 15);
   }, [index, debouncedSearch]);
 
   // Group results by type

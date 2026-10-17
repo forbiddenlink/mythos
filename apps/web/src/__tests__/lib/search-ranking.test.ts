@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { searchAll } from "@/lib/search";
 import { foldForSearch } from "@/lib/search-fold";
+import { capPerType } from "@/lib/search-engine";
 
 describe("foldForSearch", () => {
   it("strips diacritics and lower-cases", () => {
@@ -69,5 +70,23 @@ describe("tradition labels", () => {
       result.title.startsWith(query),
     );
     expect(hit?.subtitle).toContain(label);
+  });
+});
+
+describe("capPerType", () => {
+  it("lets stories through on a topic query that one type would fill", () => {
+    const capped = capPerType(searchAll("underworld", 60), 4, 15);
+    const count = (type: string) =>
+      capped.filter((result) => result.type === type).length;
+    expect(count("location")).toBeLessThanOrEqual(4);
+    expect(count("deity")).toBeLessThanOrEqual(4);
+    expect(count("story")).toBeGreaterThan(0);
+  });
+
+  it("keeps score order and the overall limit", () => {
+    const capped = capPerType(searchAll("creation", 60), 4, 6);
+    expect(capped).toHaveLength(6);
+    const scores = capped.map((result) => result.matchScore);
+    expect(scores).toEqual(scores.toSorted((a, b) => b - a));
   });
 });

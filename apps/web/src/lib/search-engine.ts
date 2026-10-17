@@ -447,6 +447,28 @@ export function searchIndex(
     .slice(0, limit);
 }
 
+/**
+ * Keep at most `perType` results of each content type, in score order, so a
+ * topic query ("underworld") shows stories and places instead of a list
+ * filled by one type.
+ */
+export function capPerType(
+  results: SearchResult[],
+  perType: number,
+  limit: number,
+): SearchResult[] {
+  const seen = new Map<ContentType, number>();
+  const kept: SearchResult[] = [];
+  for (const result of results) {
+    const count = seen.get(result.type) ?? 0;
+    if (count >= perType) continue;
+    seen.set(result.type, count + 1);
+    kept.push(result);
+    if (kept.length === limit) break;
+  }
+  return kept;
+}
+
 // Popular/trending searches - static list of common searches
 const POPULAR_SEARCHES = [
   "Zeus",
