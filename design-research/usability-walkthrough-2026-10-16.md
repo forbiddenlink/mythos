@@ -50,7 +50,17 @@ task as passed.
 - Cited works link to the atlas's own page for the text: 191 of 398
   citations now link (15 before). A different author blocks a title match.
 
+## Fixed on 2026-10-17
+
+- Search matches related words and plain plurals: "egyptian god of the dead"
+  finds Anubis and Osiris, "greek gods of the sea" finds Poseidon. "god" and
+  "goddess" in a query count toward deities, not toward places that mention a god.
+- Citations: translator credits no longer block a link, editions map to their
+  work, and 18 often-cited works joined the sources catalog. 269 of 398
+  citations link (191 before).
+
 ## Still open
 
-- Matching "dead" to "death" needs stemming; not added.
-- 207 citations name works the sources catalog does not hold yet.
+- 129 citations name works without a catalog page, mostly oral traditions,
+  ethnographies and single tales.
+- The five-person usability test has not been run. It needs real participants.
