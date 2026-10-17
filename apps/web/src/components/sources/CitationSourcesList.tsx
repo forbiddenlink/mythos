@@ -1,5 +1,10 @@
+import Link from "next/link";
 import { InlineMarkdown } from "@/components/content/reading-prose";
+import { citedWorkHref } from "@/lib/citation-links";
 import { cn } from "@/lib/utils";
+
+const linkClass =
+  "text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current";
 
 export interface CitationSourceItem {
   title: string;
@@ -44,6 +49,14 @@ export function CitationSourcesList({
       <ol className="mt-4 divide-y divide-border/70 border-y border-border/70">
         {sources.map((source, index) => {
           const location = formatLocation(source);
+          const external =
+            source.url && /^https?:\/\//.test(source.url)
+              ? source.url
+              : undefined;
+          // No edition link: point to the atlas's own page for the work.
+          const internal = external
+            ? undefined
+            : citedWorkHref(source.title, source.author);
           return (
             <li
               key={`${source.title}-${source.author ?? ""}-${index}`}
@@ -58,13 +71,14 @@ export function CitationSourcesList({
               <div className="min-w-0">
                 <p className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
                   <cite className="break-words font-body text-[1.125rem] italic text-foreground">
-                    {source.url && /^https?:\/\//.test(source.url) ? (
-                      <a
-                        href={source.url}
-                        className="text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
-                      >
+                    {external ? (
+                      <a href={external} className={linkClass}>
                         <InlineMarkdown text={source.title} />
                       </a>
+                    ) : internal ? (
+                      <Link href={internal} className={linkClass}>
+                        <InlineMarkdown text={source.title} />
+                      </Link>
                     ) : (
                       <InlineMarkdown text={source.title} />
                     )}
