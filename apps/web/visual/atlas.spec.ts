@@ -63,6 +63,17 @@ test("home first viewport", async ({ page }) => {
 
 test("deity family reading area", async ({ page }) => {
   await page.goto("/deities/zeus");
+  // Warm the priority portrait before parsing the lazy medallions again.
+  // Chromium's cached-image selection then consistently reuses the larger Zeus.
+  await page
+    .locator("main img")
+    .first()
+    .evaluate((image: HTMLImageElement) => image.decode());
+  await page.reload();
+  await page
+    .locator("main img")
+    .first()
+    .evaluate((image: HTMLImageElement) => image.decode());
   await atSection(page.locator("#family"));
   await expect(
     page.locator('#family a[href^="/deities/"]').first(),

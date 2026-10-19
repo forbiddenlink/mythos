@@ -65,11 +65,14 @@ export default defineConfig({
       },
     })),
   ),
-  // Build explicitly before this suite; a running local production server is reusable.
+  // Own the server and discard encoder-dependent entries from earlier runs.
   webServer: {
-    command: `pnpm start --port ${port}`,
+    command: `node -e "require('node:fs').rmSync('.next/cache/images', { recursive: true, force: true })" && pnpm start --port ${port}`,
+    // Next halves Sharp's initial concurrency in production. Four workers match
+    // the reviewed AVIF references; host CPU counts otherwise change the bytes.
+    env: { VIPS_CONCURRENCY: "8" },
     url: baseURL,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
     timeout: 120000,
   },
 });

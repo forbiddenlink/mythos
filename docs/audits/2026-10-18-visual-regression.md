@@ -12,7 +12,9 @@ Every scene allows zero differing pixels beyond its color threshold. Four scenes
 
 ## Generate and review references
 
-Build the production application first. The visual configuration starts `pnpm start` on port 3118 if no server is already running there; it never builds. A separately started production server on that port is reused locally.
+Build the production application first. The visual configuration always owns its production server on port 3118 and fails if that port is occupied; it never builds. Use `VISUAL_PORT=3119` for a separate available port.
+
+The visual server sets `VIPS_CONCURRENCY=8`, which Next 16.3.8 halves to four Sharp workers in production, matching the reviewed references. Sharp's AVIF encoder produces different bytes at different worker counts: the hosted run `39231899093` used one worker, and its homepage portrait payloads were reproduced exactly locally at that count. Four workers reproduce the existing reference cache payloads. The suite clears only generated `.next/cache/images` before starting its server because those cache keys omit encoder concurrency. These controls apply only to the visual server. The family scene deliberately tests a warmed navigation: it decodes the priority Zeus portrait, reloads, decodes it again, and then scrolls. Chromium can choose a responsive candidate while parsing a lazy image before its download begins; decoding immediately before scrolling alone did not stabilize the first cold run. Warming the portrait before parsing makes Chromium consistently reuse its larger candidate for the central medallion. The homepage remains a cold navigation, and the real portrait images remain unmodified.
 
 From the repository root, using the installed Node 22.23.1 runtime:
 
