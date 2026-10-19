@@ -28,6 +28,8 @@ import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { JourneyExplorer } from "./JourneyExplorer";
+import { getJourneyStopContexts } from "@/lib/journey-references";
+import { StoryRecording } from "@/components/stories/StoryRecording";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -105,6 +107,7 @@ export default async function JourneyPage({ params }: PageProps) {
   const color = getPantheonColor(journey.pantheonId);
   const otherworld = isOtherworldJourney(journey);
   const stops = sortWaypoints(journey.waypoints);
+  const stopContexts = getJourneyStopContexts(journey);
 
   const traveller =
     journey.heroKind === "hero"
@@ -285,7 +288,16 @@ export default async function JourneyPage({ params }: PageProps) {
             }
             reading={false}
           >
-            <JourneyExplorer journey={journey} color={color} />
+            <JourneyExplorer
+              journey={journey}
+              color={color}
+              stopContexts={stopContexts}
+            />
+            {journey.storyId ? (
+              <div className="mt-6">
+                <StoryRecording slug={journey.storyId} />
+              </div>
+            ) : null}
           </ArticleSection>
 
           {otherworld ? null : (
@@ -324,6 +336,22 @@ export default async function JourneyPage({ params }: PageProps) {
                       <p className="mt-2 type-reading text-foreground/90">
                         {stop.description}
                       </p>
+                      {stopContexts[stop.id]?.passage ? (
+                        <p className="mt-2 type-ui">
+                          <a
+                            href={stopContexts[stop.id].passage!.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex min-h-10 items-center text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+                          >
+                            Read {stopContexts[stop.id].passage!.label}
+                            <span className="sr-only">
+                              {" "}
+                              (opens in a new tab)
+                            </span>
+                          </a>
+                        </p>
+                      ) : null}
                       {stop.events?.length ? (
                         <p className="mt-2 type-ui text-muted-foreground">
                           <span className="font-medium text-foreground">

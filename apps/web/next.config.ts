@@ -53,6 +53,15 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack: (config) => {
+    // Next 16.3.8 embeds this ID in font CSS but omits it from its cache version.
+    // Restored builds must not reuse font URLs from a previous deployment.
+    if (
+      process.env.NEXT_DEPLOYMENT_ID &&
+      config.cache &&
+      config.cache.type === "filesystem"
+    ) {
+      config.cache.version = `${config.cache.version ?? ""}|deployment:${process.env.NEXT_DEPLOYMENT_ID}`;
+    }
     config.ignoreWarnings = [
       ...(config.ignoreWarnings ?? []),
       {

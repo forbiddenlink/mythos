@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  DOMAIN_CATEGORY_IDS,
+  domainCategoryLabel,
+  domainFilterOptions,
+  matchesDomainFilter,
+} from "@/lib/domain-categories";
 import { foldForSearch } from "@/lib/search-fold";
 import { useMemo } from "react";
 import Link from "next/link";
@@ -105,6 +111,7 @@ export function DeitiesPageClient({
   ]);
   const [domainFilter, setDomainFilter] = useCatalogState("domain", "all", [
     "all",
+    ...DOMAIN_CATEGORY_IDS,
     ...allDeities.flatMap((d) => d.domain ?? []),
   ]);
   const [sortBy, setSortBy] = useCatalogState("sort", "importance", [
@@ -119,25 +126,10 @@ export function DeitiesPageClient({
   const traditionName = (id: string) =>
     traditionNames[id] ?? capitalize(id.replace(/-pantheon$/, ""));
 
-  // Domains shared by at least two deities in the chosen tradition: the raw
-  // list holds hundreds of one-off phrases. A selected (or
-  // deep-linked) domain always stays listed.
-  const domainOptions = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const d of allDeities) {
-      if (pantheonFilter !== "all" && d.pantheonId !== pantheonFilter) continue;
-      for (const domain of d.domain ?? []) {
-        counts.set(domain, (counts.get(domain) ?? 0) + 1);
-      }
-    }
-    const options = [...counts]
-      .filter(([domain, count]) => count >= 2 || domain === domainFilter)
-      .sort((a, b) => a[0].localeCompare(b[0]));
-    if (domainFilter !== "all" && !counts.has(domainFilter)) {
-      options.push([domainFilter, 0]);
-    }
-    return options;
-  }, [allDeities, pantheonFilter, domainFilter]);
+  const domainOptions = useMemo(
+    () => domainFilterOptions(allDeities, pantheonFilter, domainFilter),
+    [allDeities, pantheonFilter, domainFilter],
+  );
   const allPantheons = useMemo(
     () =>
       Array.from(new Set(allDeities.map((d) => d.pantheonId))).sort((a, b) =>
@@ -157,7 +149,7 @@ export function DeitiesPageClient({
           (genderFilter === "unspecified"
             ? !d.gender
             : d.gender === genderFilter)) &&
-        (domainFilter === "all" || d.domain?.includes(domainFilter)) &&
+        matchesDomainFilter(d.domain ?? [], domainFilter) &&
         (pantheonFilter === "all" || d.pantheonId === pantheonFilter),
     );
     filtered.sort((a, b) => {
@@ -257,7 +249,7 @@ export function DeitiesPageClient({
               <SelectItem value="all">All domains</SelectItem>
               {domainOptions.map(([domain]) => (
                 <SelectItem key={domain} value={domain}>
-                  {capitalize(domain)}
+                  {domainCategoryLabel(domain)}
                 </SelectItem>
               ))}
             </SelectContent>

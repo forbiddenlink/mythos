@@ -2,8 +2,7 @@ import type { BeatState, MythVersions, SourceKind } from "@/lib/myth-versions";
 
 /**
  * "One myth, many tellings" — a story's key moments set against every source
- * that tells it, oldest first. A timeline strip shows how far apart the
- * sources are in time; the table shows where they agree, where they tell it
+ * that tells it, oldest first. An ordered chronology dates the sources; the table shows where they agree, where they tell it
  * differently, and where a text is silent or broken. A real <table>, so screen
  * readers get the same grid sighted readers do.
  */
@@ -18,7 +17,7 @@ const KIND_LABEL: Record<SourceKind, string> = {
 const STATE_LABEL: Record<BeatState, string> = {
   present: "Told this way",
   variant: "Told differently",
-  absent: "Not in this source",
+  absent: "Not narrated here",
   lost: "Text lost or broken",
 };
 
@@ -62,10 +61,6 @@ function formatYear(year: number): string {
 
 export function VersionMatrix({ versions }: { versions: MythVersions }) {
   const { sources, beats } = versions;
-  const years = sources.map((s) => s.sortYear);
-  const min = Math.min(...years);
-  const max = Math.max(...years);
-  const span = Math.max(max - min, 1);
 
   return (
     <section
@@ -84,33 +79,22 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
         {versions.takeaway}
       </p>
 
-      {/* Timeline strip: where each source sits in time */}
-      <div className="mt-8" aria-hidden>
-        <div className="relative mx-4 h-10">
-          <div className="absolute inset-x-0 top-4 h-px bg-border" />
-          {sources.map((s, i) => {
-            const left = ((s.sortYear - min) / span) * 100;
-            return (
-              <div
-                key={s.name}
-                className="absolute top-2 -translate-x-1/2"
-                style={{ left: `${left}%` }}
-              >
-                <span
-                  className={`block h-4 w-4 rounded-full border-2 ${s.reference ? "border-gold bg-gold" : "border-gold/70 bg-background"}`}
-                />
-                <span className="absolute left-1/2 top-5 -translate-x-1/2 whitespace-nowrap text-xs text-muted-foreground">
-                  {i + 1}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-        <div className="mx-4 mt-1 flex justify-between text-xs uppercase tracking-[0.15em] text-muted-foreground">
-          <span>{formatYear(min)}</span>
-          <span>{formatYear(max)}</span>
-        </div>
-      </div>
+      <ol
+        aria-label="Sources in chronological order"
+        className="mt-8 flex flex-wrap gap-3"
+      >
+        {sources.map((source, index) => (
+          <li
+            key={source.name}
+            className="min-w-0 rounded-lg border border-border/70 p-3 text-sm"
+          >
+            <span className="block text-xs text-gold-text">
+              {index + 1} · {formatYear(source.sortYear)}
+            </span>
+            <span className="break-words font-serif">{source.name}</span>
+          </li>
+        ))}
+      </ol>
 
       <ul
         aria-label="Legend"
@@ -127,15 +111,76 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
             aria-hidden
             className="inline-block h-3 w-5 rounded-sm border border-gold/40 bg-gold/15"
           />
-          Shaded column: comparison baseline
+          Shaded source: comparison baseline
         </li>
       </ul>
 
+      <div className="mt-6 space-y-4 md:hidden">
+        {sources.map((source, index) => (
+          <article
+            key={source.name}
+            aria-labelledby={`version-source-${index}`}
+            className={`min-w-0 rounded-lg border border-border/70 p-4 ${source.reference ? "bg-gold/5" : ""}`}
+          >
+            <h3
+              id={`version-source-${index}`}
+              className="break-words font-serif text-lg"
+            >
+              {index + 1}. {source.name}
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">{source.work}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{source.date}</p>
+            <p className="mt-2 text-xs text-gold-text">
+              {KIND_LABEL[source.kind]}
+              {source.reference && " · comparison baseline"}
+            </p>
+            {source.readingUrl && (
+              <a
+                href={source.readingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center text-sm text-gold-text underline underline-offset-4"
+              >
+                Read the passage (opens a new tab)
+              </a>
+            )}
+            <dl className="mt-3 space-y-4">
+              {beats.map((beat) => {
+                const cell = source.cells[beat.id];
+                return (
+                  <div key={beat.id}>
+                    <dt className="font-serif text-sm">{beat.label}</dt>
+                    <dd className="mt-1 flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5">
+                        <StateMark state={cell.state} />
+                      </span>
+                      <span className="min-w-0 break-words">
+                        <span className="block text-xs text-gold-text">
+                          {STATE_LABEL[cell.state]}
+                        </span>
+                        {cell.note}
+                      </span>
+                    </dd>
+                  </div>
+                );
+              })}
+            </dl>
+          </article>
+        ))}
+      </div>
+
+      <p
+        id="version-table-help"
+        className="mt-6 hidden text-sm text-muted-foreground md:block"
+      >
+        Scroll horizontally to compare all sources.
+      </p>
       <div
         role="region"
         aria-labelledby="version-matrix-title"
+        aria-describedby="version-table-help"
         tabIndex={0}
-        className="relative mt-6 overflow-x-auto rounded-lg border border-border/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="relative mt-2 hidden overflow-x-auto md:block rounded-lg border border-border/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <table className="w-full min-w-[44rem] border-collapse text-left text-sm">
           <caption className="sr-only">
@@ -146,7 +191,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
             <tr className="bg-muted/40 align-bottom">
               <th
                 scope="col"
-                className="sticky left-0 z-10 w-40 bg-muted/90 p-3 text-[0.8125rem] font-normal uppercase tracking-[0.15em] text-muted-foreground backdrop-blur"
+                className="sticky left-0 z-10 w-40 min-w-40 bg-muted/90 p-3 text-[0.8125rem] font-normal uppercase tracking-[0.15em] text-muted-foreground backdrop-blur"
               >
                 Moment
               </th>
@@ -154,7 +199,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
                 <th
                   key={s.name}
                   scope="col"
-                  className={`p-3 align-bottom font-normal ${s.reference ? "bg-gold/10" : ""}`}
+                  className={`min-w-52 p-3 align-bottom font-normal ${s.reference ? "bg-gold/10" : ""}`}
                 >
                   <span className="text-xs text-muted-foreground">{i + 1}</span>
                   <span className="block font-serif text-sm leading-snug text-foreground">
@@ -227,7 +272,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
       </div>
       <p className="mt-3 text-[0.8125rem] text-muted-foreground">
         Dates are approximate. For manuscripts copied long after composition,
-        the position shows the estimated date of the telling.
+        the chronology uses the estimated date of the telling.
       </p>
     </section>
   );

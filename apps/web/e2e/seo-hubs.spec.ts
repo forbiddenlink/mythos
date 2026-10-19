@@ -68,7 +68,7 @@ test.describe("structured data in server HTML", () => {
     expect(types(blocks)).toContain("Book");
   });
 
-  test("deity pages answer family questions visibly and as FAQPage", async ({
+  test("deity pages disclose accessible family answers matching FAQPage", async ({
     page,
     request,
   }) => {
@@ -77,9 +77,25 @@ test.describe("structured data in server HTML", () => {
     expect(JSON.stringify(faq)).toContain("Who are Zeus's parents?");
 
     await page.goto("/deities/zeus");
+    const summary = page.locator("summary", {
+      hasText: "Questions about Zeus's family",
+    });
+    await expect(summary).toBeVisible();
+    const disclosure = page.locator("details").filter({ has: summary });
+    await expect(disclosure).not.toHaveAttribute("open");
     await expect(
-      page.getByRole("heading", { name: "Zeus's family at a glance" }),
+      disclosure.getByText("Who are Zeus's parents?", { exact: true }),
+    ).not.toBeVisible();
+    await summary.focus();
+    await page.keyboard.press("Enter");
+    await expect(disclosure).toHaveAttribute("open");
+    await expect(
+      disclosure.getByText("Who are Zeus's parents?", { exact: true }),
     ).toBeVisible();
+    const answerText = (await disclosure.locator("dd").first().innerText())
+      .replace(/\s+/g, " ")
+      .trim();
+    expect(JSON.stringify(faq)).toContain(answerText);
     await expect(
       page.getByRole("link", { name: "Compare Zeus and Jupiter side by side" }),
     ).toHaveAttribute("href", "/compare/jupiter-vs-zeus");

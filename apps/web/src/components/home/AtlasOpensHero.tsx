@@ -63,7 +63,7 @@ const studyPaths = [
  * "The Atlas Opens", set as a title page: the brand as the headline, one
  * mounted plate as the frontispiece, and an index of every tradition with
  * leader dots, the way a printed atlas opens. One server-rendered
- * composition; the plate is the only image, and it is the LCP element.
+ * composition. The large engraved sky can be the LCP image on mobile.
  */
 export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
   return (
@@ -71,6 +71,13 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
       aria-labelledby="atlas-title"
       className="dark relative isolate overflow-hidden bg-midnight text-foreground"
     >
+      <link
+        rel="preload"
+        as="image"
+        href="/hero-star-chart.webp"
+        crossOrigin="anonymous"
+        fetchPriority="high"
+      />
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"
@@ -135,9 +142,9 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
                       `${figure.name}, ${figure.tradition}`
                     }
                     fill
-                    priority
+                    loading="eager"
                     fetchPriority="high"
-                    sizes="(min-width: 1280px) 24rem, (min-width: 1024px) 23rem, 22rem"
+                    sizes="(min-width: 1280px) 22.5rem, (min-width: 1024px) 21.5rem, (min-width: 640px) 20.5rem, 15.5rem"
                     className="object-contain motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
                   />
                 </span>

@@ -38,6 +38,29 @@ describe("myth-versions data", () => {
             expect(cell.note, `${v.storySlug}/${s.name}/${beat}`).toBeTruthy();
   });
 
+  it("keeps the new comparisons traceable to bounded passages and named translations", () => {
+    for (const slug of ["prometheus-fire", "perseus-medusa", "titanomachy"]) {
+      const comparison = getMythVersions(slug);
+      expect(comparison?.sources.length).toBeGreaterThanOrEqual(2);
+      for (const source of comparison?.sources ?? []) {
+        expect(source.readingUrl).toMatch(/^https:\/\/www\.theoi\.com\/Text\//);
+        expect(source.work).toMatch(/translation \(\d{4}\)/);
+        expect(
+          Object.values(source.cells).every((cell) => Boolean(cell.note)),
+        ).toBe(true);
+      }
+    }
+    const prometheus = getMythVersions("prometheus-fire")!;
+    expect(prometheus.sources[0].cells.jar.state).toBe("absent");
+    expect(prometheus.sources[1].cells.jar.state).toBe("variant");
+    const medusa = getMythVersions("perseus-medusa")!;
+    expect(medusa.sources[0].cells.shield.state).toBe("absent");
+    expect(medusa.sources[1].cells.origin.state).toBe("variant");
+    expect(medusa.sources[2].cells.origin.note).toContain(
+      "alternative tradition",
+    );
+  });
+
   it("marks at most one familiar reference version per story", () => {
     for (const v of all)
       expect(v.sources.filter((s) => s.reference).length).toBeLessThanOrEqual(

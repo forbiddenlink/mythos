@@ -1,6 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { MAP_TILE_OPTIONS, MAP_TILE_URL } from "@/lib/map-tiles";
+import { PANTHEON_PRIMARY_SECONDARY as PANTHEON_COLORS } from "@/lib/pantheon-colors";
+import type { JourneyDetail, JourneyWaypoint } from "@/lib/journeys";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import {
@@ -11,106 +14,12 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { PANTHEON_PRIMARY_SECONDARY as PANTHEON_COLORS } from "@/lib/pantheon-colors";
-import { MAP_TILE_OPTIONS, MAP_TILE_URL } from "@/lib/map-tiles";
 
-// Types
-interface Waypoint {
-  id: string;
-  name: string;
-  coordinates: [number, number];
-  order: number;
-  description: string;
-  events?: string[];
-  creatures?: string[];
-  deities?: string[];
-  duration?: string;
-}
-
-interface Journey {
-  id: string;
-  heroId: string;
-  heroName: string;
-  title: string;
-  slug: string;
-  description: string;
-  pantheonId: string;
-  duration: string;
-  imageUrl?: string;
-  source: string;
-  waypoints: Waypoint[];
-}
-
+type Waypoint = JourneyWaypoint & { coordinates: [number, number] };
 interface JourneyMapProps {
-  journey: Journey;
+  journey: Omit<JourneyDetail, "waypoints"> & { waypoints: Waypoint[] };
   onWaypointSelect?: (waypoint: Waypoint | null) => void;
   selectedWaypointId?: string | null;
-}
-
-// Create numbered marker icon
-function createNumberedMarkerIcon(
-  number: number,
-  isActive: boolean,
-  isVisited: boolean,
-  pantheonId: string,
-): L.DivIcon {
-  const colors = PANTHEON_COLORS[pantheonId] || {
-    primary: "#D4AF37",
-    secondary: "#B8860B",
-  };
-  const size = isActive ? 44 : 36;
-  const fontSize = isActive ? 16 : 14;
-
-  const bgColor = isActive
-    ? colors.primary
-    : isVisited
-      ? colors.primary
-      : "rgba(30, 30, 46, 0.9)";
-  const borderColor = isActive
-    ? "#D4AF37"
-    : isVisited
-      ? colors.secondary
-      : "#4b5563";
-  const textColor = isActive || isVisited ? "#ffffff" : "#9ca3af";
-  const borderWidth = isActive ? 3 : 2;
-  const shadow = isActive ? "0 0 20px rgba(212, 175, 55, 0.5)" : "none";
-
-  const svgHtml = `
-    <div style="
-      position: relative;
-      width: ${size}px;
-      height: ${size + 8}px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-    ">
-      <svg width="${size}" height="${size + 8}" viewBox="0 0 ${size} ${size + 8}" xmlns="http://www.w3.org/2000/svg">
-        <path d="M${size / 2} 0
-                 C${size * 0.2} 0 0 ${size * 0.2} 0 ${size * 0.45}
-                 C0 ${size * 0.7} ${size / 2} ${size + 8} ${size / 2} ${size + 8}
-                 S${size} ${size * 0.7} ${size} ${size * 0.45}
-                 C${size} ${size * 0.2} ${size * 0.8} 0 ${size / 2} 0z"
-              fill="${bgColor}"
-              stroke="${borderColor}"
-              stroke-width="${borderWidth}"
-              style="filter: ${shadow ? `drop-shadow(${shadow})` : "none"}"/>
-        <circle cx="${size / 2}" cy="${size * 0.4}" r="${size * 0.3}"
-                fill="rgba(255,255,255,0.1)"/>
-        <text x="${size / 2}" y="${size * 0.48}"
-              text-anchor="middle"
-              fill="${textColor}"
-              font-family="ui-serif, Georgia, serif"
-              font-weight="700"
-              font-size="${fontSize}px">${number}</text>
-      </svg>
-    </div>
-  `;
-
-  return L.divIcon({
-    html: svgHtml,
-    className: "custom-journey-marker",
-    iconSize: [size, size + 8],
-    iconAnchor: [size / 2, size + 8],
-    popupAnchor: [0, -(size + 8)],
-  });
 }
 
 export function JourneyMap({
@@ -118,425 +27,242 @@ export function JourneyMap({
   onWaypointSelect,
   selectedWaypointId,
 }: JourneyMapProps) {
-  const [currentWaypointIndex, setCurrentWaypointIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [visitedWaypoints, setVisitedWaypoints] = useState<Set<number>>(
-    new Set([0]),
-  );
-  const [_pathProgress, _setPathProgress] = useState(0);
-
   const containerRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<L.Map | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);
-  const pathRef = useRef<L.Polyline | null>(null);
-  const animatedPathRef = useRef<L.Polyline | null>(null);
-  const animationFrameRef = useRef<number | null>(null);
-
-  const sortedWaypoints = useMemo(
+  const progressRef = useRef<L.Polyline | null>(null);
+  const [localId, setLocalId] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [tilesUnavailable, setTilesUnavailable] = useState(false);
+  const stops = useMemo(
     () => journey.waypoints.toSorted((a, b) => a.order - b.order),
     [journey.waypoints],
   );
+  const selectedIndex = stops.findIndex(
+    (stop) => stop.id === (selectedWaypointId ?? localId),
+  );
+  const index = Math.max(0, selectedIndex);
+  const current = stops[index];
+  const color = PANTHEON_COLORS[journey.pantheonId]?.primary ?? "#D4AF37";
 
-  const colors = PANTHEON_COLORS[journey.pantheonId] || {
-    primary: "#D4AF37",
-    secondary: "#B8860B",
-  };
+  const select = useCallback(
+    (next: number) => {
+      const stop = stops[next];
+      if (!stop) return;
+      setLocalId(stop.id);
+      onWaypointSelect?.(stop);
+    },
+    [stops, onWaypointSelect],
+  );
+  const selectRef = useRef(select);
+  useEffect(() => {
+    selectRef.current = select;
+  }, [select]);
 
-  // Initialize map
+  const showRoute = useCallback(() => {
+    if (stops.length) {
+      mapRef.current?.fitBounds(
+        L.latLngBounds(stops.map((stop) => stop.coordinates)),
+        {
+          padding: [36, 36],
+          maxZoom: 5,
+          animate: false,
+        },
+      );
+    }
+  }, [stops]);
+
   useEffect(() => {
     if (!containerRef.current) return;
-
-    // Cleanup existing map
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.remove();
-      mapInstanceRef.current = null;
-    }
-
-    const element = containerRef.current as HTMLDivElement & {
-      _leaflet_id?: number | null;
-    };
-    if (element._leaflet_id) {
-      element._leaflet_id = null;
-    }
-
-    // Create map
+    // A fixed overview keeps the coastline and the whole voyage in context.
+    // Selection never triggers a flying camera, including with reduced motion.
     const map = L.map(containerRef.current, {
       zoomControl: false,
-    }).setView([40, 20], 4);
-    mapInstanceRef.current = map;
-
-    // Add zoom control to bottom right
-    L.control.zoom({ position: "bottomright" }).addTo(map);
-
-    // Dark tile layer
-    L.tileLayer(MAP_TILE_URL, MAP_TILE_OPTIONS).addTo(map);
-
-    // Fit to waypoints
-    if (sortedWaypoints.length > 0) {
-      const bounds = L.latLngBounds(
-        sortedWaypoints.map((wp) => wp.coordinates),
-      );
-      map.fitBounds(bounds, { padding: [60, 60], maxZoom: 6 });
-    }
-
-    // Draw the full path (faded)
-    const pathCoords = sortedWaypoints.map((wp) => wp.coordinates);
-    const fullPath = L.polyline(pathCoords, {
-      color: "rgba(75, 85, 99, 0.4)",
-      weight: 3,
-      dashArray: "10, 10",
-    }).addTo(map);
-    pathRef.current = fullPath;
-
-    // Draw animated path (will be updated)
-    const animatedPath = L.polyline([], {
-      color: colors.primary,
-      weight: 4,
-      opacity: 0.9,
-    }).addTo(map);
-    animatedPathRef.current = animatedPath;
-
-    return () => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
-        mapInstanceRef.current = null;
-      }
-    };
-  }, [journey.id, sortedWaypoints, colors.primary]);
-
-  // Update markers when waypoint changes
-  const updateMarkers = useCallback(() => {
-    const map = mapInstanceRef.current;
-    if (!map) return;
-
-    // Clear existing markers
-    for (const marker of markersRef.current) marker.remove();
-    markersRef.current = [];
-
-    // Add markers
-    sortedWaypoints.forEach((waypoint, index) => {
-      const isActive = index === currentWaypointIndex;
-      const isVisited = visitedWaypoints.has(index);
-
-      const icon = createNumberedMarkerIcon(
-        waypoint.order,
-        isActive,
-        isVisited,
-        journey.pantheonId,
-      );
-
-      // Consecutive stops sit close together, so the pins can overlap. Every
-      // stop is also a numbered button in the strip below the map (WCAG 2.5.8
-      // equivalent control), so the pins are not separate tab stops.
-      const marker = L.marker(waypoint.coordinates, {
-        icon,
-        title: `Stop ${waypoint.order}: ${waypoint.name}`,
-        keyboard: false,
-      }).on("click", () => {
-        setCurrentWaypointIndex(index);
-        setVisitedWaypoints((prev) => new Set([...prev, index]));
-        onWaypointSelect?.(waypoint);
-      });
-
-      marker.on("add", () => {
-        // Not a tab stop or button, so it gets no name; assistive tech uses
-        // the stop buttons ("Go to stop N: name") instead.
-        marker.getElement()?.setAttribute("aria-hidden", "true");
-      });
-      marker.addTo(map);
-
-      // Add popup
-      const popupContent = `
-        <div class="p-3 min-w-50">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white"
-                  style="background-color: ${colors.primary}">
-              ${waypoint.order}
-            </span>
-            <h3 class="font-serif font-semibold text-slate-900">${waypoint.name}</h3>
-          </div>
-          <p class="text-sm text-slate-600 line-clamp-3">${waypoint.description}</p>
-          ${waypoint.duration ? `<p class="text-xs text-slate-400 mt-2">Duration: ${waypoint.duration}</p>` : ""}
-        </div>
-      `;
-      marker.bindPopup(popupContent, { maxWidth: 300 });
-
-      markersRef.current.push(marker);
+      scrollWheelZoom: false,
+      zoomAnimation: false,
+      fadeAnimation: false,
+      markerZoomAnimation: false,
     });
-  }, [
-    sortedWaypoints,
-    currentWaypointIndex,
-    visitedWaypoints,
-    journey.pantheonId,
-    colors.primary,
-    onWaypointSelect,
-  ]);
-
-  // Update animated path
-  const updateAnimatedPath = useCallback(() => {
-    if (!animatedPathRef.current) return;
-
-    const visitedCoords = sortedWaypoints
-      .slice(0, currentWaypointIndex + 1)
-      .map((wp) => wp.coordinates);
-
-    animatedPathRef.current.setLatLngs(visitedCoords);
-  }, [sortedWaypoints, currentWaypointIndex]);
-
-  // Effect to update markers and path
-  useEffect(() => {
-    updateMarkers();
-    updateAnimatedPath();
-  }, [updateMarkers, updateAnimatedPath]);
-
-  // Effect to fly to current waypoint
-  useEffect(() => {
-    const map = mapInstanceRef.current;
-    if (!map || sortedWaypoints.length === 0) return;
-
-    const waypoint = sortedWaypoints[currentWaypointIndex];
-    if (waypoint) {
-      map.flyTo(waypoint.coordinates, 6, { duration: 1.5 });
-      onWaypointSelect?.(waypoint);
-    }
-  }, [currentWaypointIndex, sortedWaypoints, onWaypointSelect]);
-
-  // Handle external waypoint selection
-  useEffect(() => {
-    if (selectedWaypointId) {
-      const index = sortedWaypoints.findIndex(
-        (wp) => wp.id === selectedWaypointId,
-      );
-      if (index !== -1 && index !== currentWaypointIndex) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- sync waypoint index from external selection prop
-        setCurrentWaypointIndex(index);
-        setVisitedWaypoints((prev) => new Set([...prev, index]));
-      }
-    }
-  }, [selectedWaypointId, sortedWaypoints, currentWaypointIndex]);
-
-  // Auto-play animation
-  useEffect(() => {
-    if (!isPlaying) {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-      return;
-    }
-
-    const animate = () => {
-      setCurrentWaypointIndex((prev) => {
-        if (prev >= sortedWaypoints.length - 1) {
-          setIsPlaying(false);
-          return prev;
-        }
-        const next = prev + 1;
-        setVisitedWaypoints((visited) => new Set([...visited, next]));
-        return next;
+    mapRef.current = map;
+    L.control.zoom({ position: "bottomright" }).addTo(map);
+    L.tileLayer(MAP_TILE_URL, {
+      ...MAP_TILE_OPTIONS,
+      className: `${MAP_TILE_OPTIONS.className} journey-tiles`,
+    })
+      .on("tileerror", () => setTilesUnavailable(true))
+      .addTo(map);
+    const coordinates = stops.map((stop) => stop.coordinates);
+    L.polyline(coordinates, {
+      color,
+      weight: 2,
+      opacity: 0.6,
+      dashArray: "5 8",
+    }).addTo(map);
+    progressRef.current = L.polyline([], {
+      color,
+      weight: 3,
+      opacity: 0.95,
+    }).addTo(map);
+    markersRef.current = stops.map((stop, stopIndex) => {
+      const marker = L.marker(stop.coordinates, {
+        keyboard: false,
+        title: `Stop ${stop.order}: ${stop.name}`,
       });
+      marker.on("click", () => selectRef.current(stopIndex));
+      marker.on("add", () =>
+        marker.getElement()?.setAttribute("aria-hidden", "true"),
+      );
+      const label = document.createElement("span");
+      label.textContent = stop.name;
+      marker.bindTooltip(label, { direction: "top" });
+      return marker;
+    });
+    showRoute();
+    return () => {
+      map.remove();
+      mapRef.current = null;
+      markersRef.current = [];
+      progressRef.current = null;
     };
+  }, [stops, color, showRoute]);
 
-    const timer = setTimeout(animate, 3000);
-    return () => clearTimeout(timer);
-  }, [isPlaying, currentWaypointIndex, sortedWaypoints.length]);
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    markersRef.current.forEach((marker, markerIndex) => {
+      const active = markerIndex === index;
+      marker.setIcon(
+        L.divIcon({
+          className: "journey-stop-marker",
+          html: `<span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:2px solid ${color};background:${active ? color : "#182129"};color:${active ? "#111827" : "#f5ecd8"};font:bold 12px Georgia,serif;box-shadow:0 1px 5px #0008">${stops[markerIndex].order}</span>`,
+          iconSize: [28, 28],
+          iconAnchor: [14, 14],
+          tooltipAnchor: [0, -17],
+        }),
+      );
+      if (!map.hasLayer(marker)) marker.addTo(map);
+      marker.setZIndexOffset(active ? 1000 : 0);
+    });
+    progressRef.current?.setLatLngs(
+      stops.slice(0, index + 1).map((stop) => stop.coordinates),
+    );
+    if (current)
+      map.panInside(current.coordinates, { padding: [40, 40], animate: false });
+  }, [index, current, stops, color]);
 
-  // Controls
-  const handlePlay = () => setIsPlaying(true);
-  const handlePause = () => setIsPlaying(false);
-  const handleReset = () => {
-    setIsPlaying(false);
-    setCurrentWaypointIndex(0);
-    setVisitedWaypoints(new Set([0]));
-  };
-  const handlePrev = () => {
-    if (currentWaypointIndex > 0) {
-      setCurrentWaypointIndex((prev) => prev - 1);
-    }
-  };
-  const handleNext = () => {
-    if (currentWaypointIndex < sortedWaypoints.length - 1) {
-      const next = currentWaypointIndex + 1;
-      setCurrentWaypointIndex(next);
-      setVisitedWaypoints((prev) => new Set([...prev, next]));
-    }
-  };
-
-  const currentWaypoint = sortedWaypoints[currentWaypointIndex];
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = window.setTimeout(() => {
+      if (index >= stops.length - 1) setIsPlaying(false);
+      else select(index + 1);
+    }, 4000);
+    return () => window.clearTimeout(timer);
+  }, [isPlaying, index, stops.length, select]);
 
   return (
-    <div className="relative w-full h-full min-h-125 bg-slate-950 rounded-xl overflow-hidden">
-      {/* Map Container */}
+    <div className="overflow-hidden rounded-md border border-border bg-card">
       <div
         ref={containerRef}
-        className="w-full h-full"
-        style={{ minHeight: "500px" }}
+        className="journey-geography h-[22rem] w-full bg-[#182129] sm:h-[28rem]"
+        role="region"
+        aria-label={`Geographic illustration of ${journey.title}`}
       />
-
-      {/* Journey Progress Bar */}
-      <div className="absolute top-4 left-4 right-4 z-1000">
-        <div className="bg-card/95 backdrop-blur-sm rounded-xl border border-border p-4 shadow-lg">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-3">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center font-serif font-bold text-white text-sm"
-                style={{ backgroundColor: colors.primary }}
-              >
-                {currentWaypoint?.order || 1}
-              </div>
-              <div>
-                <h3 className="font-serif font-semibold text-foreground">
-                  {currentWaypoint?.name || "Start"}
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  Stop {currentWaypointIndex + 1} of {sortedWaypoints.length}
-                </p>
-              </div>
-            </div>
-
-            {/* Playback Controls */}
-            <div className="flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={handleReset}
-                className="h-8 w-8"
-                aria-label="Reset journey"
-              >
-                <RotateCcw className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={handlePrev}
-                disabled={currentWaypointIndex === 0}
-                className="h-8 w-8"
-                aria-label="Previous stop"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="default"
-                size="icon"
-                onClick={isPlaying ? handlePause : handlePlay}
-                className="h-8 w-8"
-                style={{ backgroundColor: colors.primary }}
-                aria-label={isPlaying ? "Pause" : "Play journey"}
-              >
-                {isPlaying ? (
-                  <Pause className="h-4 w-4" />
-                ) : (
-                  <Play className="h-4 w-4 ml-0.5" />
-                )}
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={handleNext}
-                disabled={currentWaypointIndex === sortedWaypoints.length - 1}
-                className="h-8 w-8"
-                aria-label="Next stop"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-
-          {/* Progress Dots */}
-          <div className="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-thin">
-            {sortedWaypoints.map((wp, index) => (
-              <button
-                key={wp.id}
-                type="button"
-                onClick={() => {
-                  setCurrentWaypointIndex(index);
-                  setVisitedWaypoints((prev) => new Set([...prev, index]));
-                }}
-                className={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${
-                  index === currentWaypointIndex
-                    ? "ring-2 ring-gold ring-offset-2 ring-offset-background"
-                    : ""
-                }`}
-                style={{
-                  backgroundColor:
-                    index === currentWaypointIndex
-                      ? colors.primary
-                      : visitedWaypoints.has(index)
-                        ? colors.primary + "80"
-                        : "rgba(75, 85, 99, 0.5)",
-                  color:
-                    index === currentWaypointIndex ||
-                    visitedWaypoints.has(index)
-                      ? "#ffffff"
-                      : "#9ca3af",
-                }}
-                title={wp.name}
-                aria-label={`Go to stop ${wp.order}: ${wp.name}`}
-              >
-                {wp.order}
-              </button>
-            ))}
+      <style>{`.journey-geography .journey-tiles { filter: invert(1) hue-rotate(180deg) saturate(.12) brightness(.82) contrast(.85); }`}</style>
+      <div className="space-y-4 border-t border-border p-4 sm:p-5">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="type-ui text-foreground">
+            <span className="text-muted-foreground">
+              Stop {index + 1} of {stops.length}
+            </span>{" "}
+            · {current?.name}
+          </p>
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Reset journey"
+              onClick={() => {
+                setIsPlaying(false);
+                select(0);
+                showRoute();
+              }}
+            >
+              <RotateCcw className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Previous stop"
+              disabled={index === 0}
+              onClick={() => {
+                setIsPlaying(false);
+                select(index - 1);
+              }}
+            >
+              <ChevronLeft className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label={isPlaying ? "Pause journey" : "Play journey"}
+              aria-pressed={isPlaying}
+              disabled={
+                !stops.length || (!isPlaying && index === stops.length - 1)
+              }
+              onClick={() => setIsPlaying(!isPlaying)}
+            >
+              {isPlaying ? (
+                <Pause className="size-4" />
+              ) : (
+                <Play className="size-4" />
+              )}
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Next stop"
+              disabled={index >= stops.length - 1}
+              onClick={() => {
+                setIsPlaying(false);
+                select(index + 1);
+              }}
+            >
+              <ChevronRight className="size-4" />
+            </Button>
           </div>
         </div>
-      </div>
-
-      {/* Journey Timeline Slider */}
-      <div className="absolute bottom-4 left-4 right-4 z-1000">
-        <div className="bg-card/95 backdrop-blur-sm rounded-lg border border-border px-4 py-2">
-          <input
-            type="range"
-            min={0}
-            max={sortedWaypoints.length - 1}
-            value={currentWaypointIndex}
-            aria-label="Journey progress"
-            onChange={(e) => {
-              const index = Number.parseInt(e.target.value);
-              setCurrentWaypointIndex(index);
-              setVisitedWaypoints((prev) => {
-                const newSet = new Set(prev);
-                for (let i = 0; i <= index; i++) {
-                  newSet.add(i);
-                }
-                return newSet;
-              });
-            }}
-            className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-gold"
-            style={{
-              background: `linear-gradient(to right, ${colors.primary} 0%, ${colors.primary} ${
-                (currentWaypointIndex / (sortedWaypoints.length - 1)) * 100
-              }%, rgba(75, 85, 99, 0.5) ${
-                (currentWaypointIndex / (sortedWaypoints.length - 1)) * 100
-              }%, rgba(75, 85, 99, 0.5) 100%)`,
-            }}
-          />
-          <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
-            <span>{sortedWaypoints[0]?.name}</span>
-            <span>{sortedWaypoints[sortedWaypoints.length - 1]?.name}</span>
-          </div>
+        <div className="flex flex-wrap gap-2" aria-label="Journey stops">
+          {stops.map((stop, stopIndex) => (
+            <button
+              key={stop.id}
+              type="button"
+              aria-label={`Go to stop ${stop.order}: ${stop.name}`}
+              aria-pressed={index === stopIndex}
+              onClick={() => {
+                setIsPlaying(false);
+                select(stopIndex);
+              }}
+              className="flex size-10 items-center justify-center rounded-full border font-serif text-sm text-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+              style={{
+                borderColor: index === stopIndex ? color : undefined,
+                backgroundColor: index === stopIndex ? `${color}20` : undefined,
+              }}
+            >
+              {stop.order}
+            </button>
+          ))}
         </div>
-      </div>
-
-      {/* Legend */}
-      <div className="absolute bottom-20 right-4 z-1000 bg-card/90 backdrop-blur-sm border border-border rounded-lg px-3 py-2 text-xs">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5">
-            <div
-              className="w-3 h-3 rounded-full"
-              style={{ backgroundColor: colors.primary }}
-            />
-            <span className="text-muted-foreground">Visited</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-gray-600" />
-            <span className="text-muted-foreground">Upcoming</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <div
-              className="w-3 h-3 rounded-full ring-2 ring-gold"
-              style={{ backgroundColor: colors.primary }}
-            />
-            <span className="text-muted-foreground">Current</span>
-          </div>
-        </div>
+        <p className="type-meta text-muted-foreground">
+          Dashed line: story sequence. Solid line: route to the selected stop.
+          Modern coastline shown for orientation; disputed and mythical places
+          are illustrative.
+        </p>
+        {tilesUnavailable ? (
+          <p role="status" className="type-meta text-muted-foreground">
+            The background map could not load. Use the numbered stops and the
+            written route below.
+          </p>
+        ) : null}
       </div>
     </div>
   );

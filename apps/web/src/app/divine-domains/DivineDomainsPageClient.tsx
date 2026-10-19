@@ -21,6 +21,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  domainCategories,
+  domainCategoryLabel,
+  matchesDomainFilter,
+} from "@/lib/domain-categories";
 import { normalizeDeityReference } from "@/lib/deity-reference";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
@@ -93,8 +98,7 @@ export function DivineDomainsPageClient({
   const domainStats = useMemo(() => {
     const stats = new Map<string, { count: number; pantheons: Set<string> }>();
     for (const deity of deities) {
-      for (const raw of deity.domain ?? []) {
-        const key = raw.toLowerCase();
+      for (const key of domainCategories(deity.domain ?? [])) {
         const entry = stats.get(key) ?? {
           count: 0,
           pantheons: new Set<string>(),
@@ -114,7 +118,7 @@ export function DivineDomainsPageClient({
     const leads = new Map<string, { image: string | null; names: string[] }>();
     for (const domain of PRIMARY_DOMAINS) {
       const holders = deities
-        .filter((d) => d.domain?.some((x) => x.toLowerCase() === domain))
+        .filter((d) => matchesDomainFilter(d.domain ?? [], domain))
         .sort(
           (a, b) =>
             Number(a.domain[0]?.toLowerCase() !== domain) -
@@ -144,7 +148,7 @@ export function DivineDomainsPageClient({
     if (!selectedDomain) return [];
     return deities
       .filter((deity) =>
-        deity.domain?.some((d) => d.toLowerCase() === selectedDomain),
+        matchesDomainFilter(deity.domain ?? [], selectedDomain),
       )
       .sort((a, b) => (a.importanceRank ?? 999) - (b.importanceRank ?? 999));
   }, [deities, selectedDomain]);
@@ -172,7 +176,8 @@ export function DivineDomainsPageClient({
           normalizeDeityReference(parallel.deityId),
         );
         if (
-          other?.domain?.some((d) => d.toLowerCase() === selectedDomain) &&
+          other &&
+          matchesDomainFilter(other.domain ?? [], selectedDomain) &&
           !connections.some(
             (c) =>
               (c.from.id === deity.id && c.to.id === other.id) ||
@@ -220,7 +225,7 @@ export function DivineDomainsPageClient({
                   }
                   count={domainStats.get(domain)?.count}
                 >
-                  {capitalize(domain)}
+                  {domainCategoryLabel(domain)}
                 </FilterChip>
               ))}
             </ChipRow>
@@ -243,7 +248,7 @@ export function DivineDomainsPageClient({
               <SelectItem value="none">More domains…</SelectItem>
               {otherDomains.map((domain) => (
                 <SelectItem key={domain} value={domain}>
-                  {`${capitalize(domain)} (${domainStats.get(domain)?.count ?? 0})`}
+                  {`${domainCategoryLabel(domain)} (${domainStats.get(domain)?.count ?? 0})`}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -277,8 +282,8 @@ export function DivineDomainsPageClient({
           <>
             <SectionHeading
               eyebrow="Domain"
-              title={capitalize(selectedDomain)}
-              description={`Deities across ${availablePantheons.length} traditions whose entries list ${selectedDomain}.`}
+              title={domainCategoryLabel(selectedDomain)}
+              description={`Deities across ${availablePantheons.length} traditions grouped for browsing. Original domain descriptions retain their qualifications in each entry.`}
               action={
                 domainPage
                   ? {
@@ -381,7 +386,7 @@ export function DivineDomainsPageClient({
                 <EntityCard
                   key={domain}
                   href={`/gods-of/${slug}`}
-                  title={capitalize(domain)}
+                  title={domainCategoryLabel(domain)}
                   image={domainLeads.get(domain)?.image}
                   imagePosition="50% 25%"
                   aspect="landscape"

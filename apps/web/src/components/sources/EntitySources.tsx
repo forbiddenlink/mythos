@@ -12,7 +12,7 @@ import { type FurtherReadingReference, ReferencesList } from "./ReferencesList";
 import { type PrimarySourceExcerpt, SourceExcerptsList } from "./SourceExcerpt";
 
 export interface EntitySourceFields {
-  primarySources?: PrimarySource[] | null;
+  primarySources?: (PrimarySource & { sourceId?: string })[] | null;
   primarySourceExcerpts?: PrimarySourceExcerpt[] | null;
   furtherReading?: FurtherReadingReference[] | null;
   /** Editorial bibliography lines. */
@@ -60,6 +60,16 @@ export function EntitySources({
   provenance = true,
 }: EntitySourcesProps) {
   const excerpts = primarySourceExcerpts ?? [];
+  const normalizeLabel = (label: string): string =>
+    label.trim().replace(/\s+/g, " ").toLowerCase();
+  const unrepresentedSources = primarySources?.filter(
+    (source) =>
+      !excerpts.some((excerpt) =>
+        source.sourceId && excerpt.sourceId
+          ? source.sourceId === excerpt.sourceId
+          : normalizeLabel(source.source) === normalizeLabel(excerpt.source),
+      ),
+  );
   return (
     <div className="space-y-12">
       {provenance ? <SourceProvenance sources={primarySources} /> : null}
@@ -75,9 +85,8 @@ export function EntitySources({
           </p>
           <SourceExcerptsList excerpts={excerpts} className="mt-2" />
         </section>
-      ) : (
-        <CatalogSourceNotes sources={primarySources ?? undefined} />
-      )}
+      ) : null}
+      <CatalogSourceNotes sources={unrepresentedSources} />
 
       {citationSources?.length ? (
         <CitationSourcesList sources={citationSources} />

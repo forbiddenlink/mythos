@@ -1,11 +1,19 @@
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
 import { PageHeader } from "@/components/layout/page-header";
-import { getDeities, getPantheons, getRelationships } from "@/lib/data/catalog";
+import {
+  getDeities,
+  getPantheons,
+  getRelationships,
+  getSourceWorks,
+} from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
 import { FamilyTreePageClient } from "./FamilyTreePageClient";
 
 export default function Page() {
+  const sourceTitles = new Map(
+    getSourceWorks().map((source) => [source.id, source.title]),
+  );
   return (
     <div className="min-h-screen">
       <PageHeader
@@ -33,11 +41,28 @@ export default function Page() {
             toDeityId: r.toDeityId,
             relationshipType: r.relationshipType,
             description: r.description ?? null,
+            confidenceLevel: r.confidenceLevel,
+            isDisputed: r.isDisputed,
+            evidence: r.evidence?.map((evidence) => ({
+              sourceId: evidence.sourceId,
+              sourceTitle: sourceTitles.get(evidence.sourceId),
+              locator: evidence.locator,
+              sourceUrl: evidence.sourceUrl,
+              edition: evidence.edition,
+            })),
           }))}
         />
       </Container>
 
       <AboutThisPage title="How to read the family tree" size="wide">
+        <p>
+          Choose Connection to trace the shortest recorded chain between two
+          figures in the selected tradition. Each step names its relationship
+          and shows any attached passage, edition, and catalog confidence.
+          Connections may be family ties, alliances, rivalries, or aspects; a
+          chain does not establish shared ancestry. “No passage attached” means
+          the catalog has no passage attached to that individual relationship.
+        </p>
         <p>
           Family trees are one of the fastest ways to understand why myths
           branch the way they do. Switch pantheons to compare divine succession,

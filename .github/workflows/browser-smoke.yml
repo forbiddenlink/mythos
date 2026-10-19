@@ -15,7 +15,9 @@ concurrency:
 jobs:
   reader-journeys:
     name: Firefox and WebKit reader journeys
-    runs-on: ubuntu-latest
+    # Linux WebKit r2370 stalls on blurred layers (microsoft/playwright#43426).
+    # Exercise the Safari engine on its native OS; test.yml retains Linux Chromium.
+    runs-on: macos-26
     timeout-minutes: 25
     env:
       CI: "true"
