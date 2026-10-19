@@ -77,7 +77,7 @@ See [entity types](apps/web/src/types/Entity.ts) and [catalog schemas](apps/web/
 
 - `src/app/layout.tsx` owns the provider stack: locale, theme, bookmarks, progress, review, leaderboard, and achievement notifications. Saved learning state is browser-local; it is not an account-backed cross-device service.
 - Search loads on command-palette intent. Audio controls and playback are optional. Achievement notifications default off.
-- Vercel analytics, Web Vitals, and Sentry browser collection are consent-gated. Global Privacy Control takes precedence over analytics opt-in. Session replay is off by default.
+- Vercel analytics, PostHog (including its Web Vitals capture and masked-input session replay), and Sentry browser collection are consent-gated. Global Privacy Control takes precedence over analytics opt-in. Sentry replay is off by default.
 - Oracle requires explicit enablement and credentials. Production requests fail closed without Upstash for both Anthropic and Groq. Shared per-IP limits and the global daily cap require Upstash; only development can fall back to in-memory limits. The kill switch disables Oracle and story-quiz generation. No Oracle key belongs in browser code.
 - `/support` links to Stripe's hosted optional one-time checkout. The site does not collect card numbers, grant paid access, or claim a payment succeeded from an unverified query parameter. Stripe is the transaction record; no checkout session endpoint or webhook was added for this flow.
 - Navigation/Oracle locale choices support EN, ES, FR, and DE. Most encyclopedia prose remains English.

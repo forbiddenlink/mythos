@@ -65,7 +65,6 @@ Two reasons:
 | `export_generated`                | PDF or Anki export succeeds                            | Which artifacts people keep                             |
 | `achievement_unlocked`            | An achievement fires                                   | Whether gamification lands                              |
 | `pmf_survey_answered`             | The retention survey is answered                       | Product-market fit                                      |
-| `web_vital`                       | Each Core Web Vital reports                            | Field performance per route                             |
 | `support_page_viewed`             | The /support page renders                              | Top of the conversion funnel                            |
 | `support_nudge_shown`             | A support nudge appears after a value moment           | Nudge impressions, kept apart from /support page views  |
 | `support_click`                   | Any route to Stripe checkout                           | The only conversion the site has                        |
