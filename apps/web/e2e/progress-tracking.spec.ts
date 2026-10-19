@@ -171,6 +171,10 @@ test.describe("First reading visit", () => {
     await expect(page.locator("main article")).toHaveCount(1);
     const athenaLink = page.getByRole("link", { name: "Athena", exact: true });
     await athenaLink.click();
+    await expect(page).toHaveURL(/\/deities\/athena$/);
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Athena", exact: true }),
+    ).toBeVisible();
     await page
       .getByRole("button", { name: "Add deity to bookmarks", exact: true })
       .click();
