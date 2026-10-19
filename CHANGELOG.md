@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0](https://github.com/forbiddenlink/mythos/compare/v1.9.0...v1.10.0) (2026-10-19)
+
+
+### Features
+
+* improve atlas discovery, source evidence, and visual QA ([#185](https://github.com/forbiddenlink/mythos/issues/185)) ([1425e7b](https://github.com/forbiddenlink/mythos/commit/1425e7b39bad4cf5166d1f3eee65e7f293caf5b0))
+
 ## [1.9.0](https://github.com/forbiddenlink/mythos/compare/v1.8.1...v1.9.0) (2026-10-17)
 
 
