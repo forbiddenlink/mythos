@@ -7,7 +7,7 @@ const url = new URL(baseURL);
 if (!["localhost", "127.0.0.1"].includes(url.hostname))
   throw new Error("Audit accepts an existing local server only.");
 export default defineConfig({
-  testDir: __dirname,
+  testDir: ".",
   globalSetup: path.join(__dirname, "global-setup.ts"),
   testMatch: "template-sweep.spec.ts",
   fullyParallel: true,

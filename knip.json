@@ -18,6 +18,13 @@
       ]
     },
     "apps/web": {
+      "playwright": {
+        "config": [
+          "playwright.config.ts",
+          "playwright.visual.config.ts",
+          "audit/playwright.config.ts"
+        ]
+      },
       "entry": [
         "i18n.ts",
         "scripts/quality-sweep.ts",

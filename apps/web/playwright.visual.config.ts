@@ -1,26 +1,14 @@
 import { defineConfig } from "@playwright/test";
-import { execFileSync } from "node:child_process";
 
 const port = Number(process.env.VISUAL_PORT ?? "3118");
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   throw new Error("VISUAL_PORT must be a port number between 1 and 65535");
 }
-if (process.platform !== "darwin" || process.arch !== "arm64") {
-  throw new Error(
-    "Visual baselines require macOS 26 on ARM64. Use the macos-26 visual workflow; do not regenerate baselines on another platform.",
-  );
-}
-if (
-  execFileSync("sw_vers", ["-productVersion"], { encoding: "utf8" })
-    .trim()
-    .split(".")[0] !== "26"
-) {
-  throw new Error("Visual baselines require macOS major version 26.");
-}
 const baseURL = `http://localhost:${port}`;
 
 export default defineConfig({
   testDir: "./visual",
+  globalSetup: "./visual/global-setup.ts",
   testMatch: "**/*.spec.ts",
   outputDir: "./visual-test-results",
   snapshotPathTemplate: "{testDir}/__screenshots__/{projectName}/{arg}{ext}",
