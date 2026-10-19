@@ -38,10 +38,6 @@ const ConsentGatedPostHog = dynamic(
     ),
   { ssr: false },
 );
-const WebVitals = dynamic(
-  () => import("@/components/analytics/WebVitals").then((mod) => mod.WebVitals),
-  { ssr: false },
-);
 export function GlobalClientAddons() {
   const searchTrigger = useRef<HTMLElement | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -89,7 +85,6 @@ export function GlobalClientAddons() {
       ) : null}
       {pwaInstallEnabled ? <InstallPrompt /> : null}
       <CookieConsent />
-      <WebVitals />
     </>
   );
 }

@@ -82,7 +82,10 @@ export function ConsentGatedPostHog() {
           capture_pageview: "history_change",
           persistence: "localStorage+cookie",
           autocapture: false,
-          disable_session_recording: true,
+          // Replay runs only inside this consent gate. Inputs are masked so a
+          // search box or form never leaves the browser as plain text.
+          disable_session_recording: false,
+          session_recording: { maskAllInputs: true },
           person_profiles: "identified_only",
         });
         // Identifies this app in its configured PostHog project.

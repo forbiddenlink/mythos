@@ -115,10 +115,12 @@ export default function PrivacyPolicyPage() {
           unless you explicitly choose to export it.
         </p>
         <p>
-          Analytics data is processed by third-party services (Vercel Analytics)
-          only after you accept non-essential cookies (or never, when Global
-          Privacy Control is on). Browser error monitoring via Sentry is
-          likewise gated behind that consent. Server-side error logs for API
+          Analytics data is processed by third-party services (Vercel Analytics
+          and PostHog) only after you accept non-essential cookies (or never,
+          when Global Privacy Control is on). PostHog also records anonymized
+          session replays of how pages are used, with everything typed into
+          form fields masked. Browser error monitoring via Sentry is likewise
+          gated behind that consent. Server-side error logs for API
           routes may still be recorded without browser cookies for reliability.
         </p>
       </section>
@@ -160,6 +162,7 @@ export default function PrivacyPolicyPage() {
         <p>We use the following third-party services:</p>
         <ul>
           <li>Vercel - Hosting and analytics</li>
+          <li>PostHog - Product analytics and session replay</li>
           <li>Sentry - Error tracking and monitoring</li>
           <li>Anthropic - AI features (Oracle)</li>
           <li>Stripe - Optional support payments through a hosted checkout</li>

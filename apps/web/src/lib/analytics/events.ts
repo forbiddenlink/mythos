@@ -32,8 +32,6 @@ export const ANALYTICS_EVENTS = [
   "achievement_unlocked",
   // Product-market fit
   "pmf_survey_answered",
-  // Delivery quality
-  "web_vital",
   // Conversion
   "support_page_viewed",
   "support_nudge_shown",
@@ -73,7 +71,6 @@ export interface AnalyticsEventMap {
   export_generated: { format: string; kind: string };
   achievement_unlocked: { achievementId: string };
   pmf_survey_answered: { quizId: string; rating: string };
-  web_vital: { metric: string; value: number; rating: string; path?: string };
   support_page_viewed: { from: string };
   support_nudge_shown: { from: string };
   support_click: { placement: string };

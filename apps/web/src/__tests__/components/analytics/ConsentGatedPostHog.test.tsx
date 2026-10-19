@@ -72,6 +72,11 @@ describe("PostHog consent lifecycle", () => {
     expect(posthog.capture).not.toHaveBeenCalled();
     consent("accepted");
     await waitFor(() => expect(posthog.init).toHaveBeenCalledTimes(1));
+    // Replay starts only inside the consent gate, with typed input masked.
+    expect(posthog.init.mock.calls[0]?.[1]).toMatchObject({
+      disable_session_recording: false,
+      session_recording: { maskAllInputs: true },
+    });
     trackEvent("support_click", { placement: "first" });
     expect(posthog.capture).toHaveBeenLastCalledWith("support_click", {
       placement: "first",
