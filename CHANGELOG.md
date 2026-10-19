@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.0](https://github.com/forbiddenlink/mythos/compare/v1.10.0...v1.11.0) (2026-10-19)
+
+
+### Features
+
+* **analytics:** enable masked session replay, drop duplicate web_vital event ([#187](https://github.com/forbiddenlink/mythos/issues/187)) ([e8c03d0](https://github.com/forbiddenlink/mythos/commit/e8c03d06db80af792d047286be3c134ac8da4a2d))
+
 ## [1.10.0](https://github.com/forbiddenlink/mythos/compare/v1.9.0...v1.10.0) (2026-10-19)
 
 
