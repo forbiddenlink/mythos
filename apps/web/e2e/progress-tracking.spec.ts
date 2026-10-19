@@ -170,9 +170,6 @@ test.describe("First reading visit", () => {
       .fill("Athena");
     await expect(page.locator("main article")).toHaveCount(1);
     const athenaLink = page.getByRole("link", { name: "Athena", exact: true });
-    // Scroll the filtered card into view before WebKit's click stability check.
-    await page.mouse.wheel(0, 800);
-    await expect(athenaLink).toBeInViewport();
     await athenaLink.click();
     await page
       .getByRole("button", { name: "Add deity to bookmarks", exact: true })
