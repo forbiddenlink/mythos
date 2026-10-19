@@ -19,35 +19,75 @@
     "fromDeityId": "zeus",
     "toDeityId": "hera",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "r3",
     "fromDeityId": "zeus",
     "toDeityId": "poseidon",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "r4",
     "fromDeityId": "zeus",
     "toDeityId": "hades",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "r5",
     "fromDeityId": "zeus",
     "toDeityId": "demeter",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "r6",
     "fromDeityId": "zeus",
     "toDeityId": "hestia",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "r7",
@@ -213,35 +253,75 @@
     "fromDeityId": "odin",
     "toDeityId": "frigg",
     "relationshipType": "spouse_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning XX (20)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r20",
     "fromDeityId": "odin",
     "toDeityId": "thor",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning IX (9)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r21",
     "fromDeityId": "odin",
     "toDeityId": "baldur",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning XXII (22)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r22",
     "fromDeityId": "frigg",
     "toDeityId": "baldur",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Skáldskaparmál V (5)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/skaldskaparmal",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r23",
     "fromDeityId": "thor",
     "toDeityId": "sif",
     "relationshipType": "spouse_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Skáldskaparmál IV (4)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/skaldskaparmal",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r24",
@@ -256,14 +336,30 @@
     "fromDeityId": "loki",
     "toDeityId": "hel",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning XXXIV (34)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r26",
     "fromDeityId": "loki",
     "toDeityId": "fenrir",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning XXXIV (34)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r27",
@@ -308,35 +404,75 @@
     "fromDeityId": "osiris",
     "toDeityId": "isis",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 12 (355D–356A)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r33",
     "fromDeityId": "osiris",
     "toDeityId": "set",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 12 (355D–356A)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r34",
     "fromDeityId": "osiris",
     "toDeityId": "nephthys",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 12 (355D–356A)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r35",
     "fromDeityId": "set",
     "toDeityId": "nephthys",
     "relationshipType": "spouse_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 12 (355D–356A)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r36",
     "fromDeityId": "isis",
     "toDeityId": "nephthys",
     "relationshipType": "sibling_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 14 (356E–F)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r37",
@@ -350,21 +486,45 @@
     "fromDeityId": "isis",
     "toDeityId": "horus",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 18 (357F–358A)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r39",
     "fromDeityId": "osiris",
     "toDeityId": "anubis",
     "relationshipType": "parent_of",
-    "confidenceLevel": "medium"
+    "confidenceLevel": "medium",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 14 (356E–F)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r40",
     "fromDeityId": "nephthys",
     "toDeityId": "anubis",
     "relationshipType": "parent_of",
-    "confidenceLevel": "medium"
+    "confidenceLevel": "medium",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 14 (356E–F)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r41",
@@ -380,7 +540,15 @@
     "toDeityId": "set",
     "relationshipType": "enemy_of",
     "confidenceLevel": "high",
-    "description": "Set murdered Osiris"
+    "description": "Set murdered Osiris",
+    "evidence": [
+      {
+        "sourceId": "plutarch-isis-osiris",
+        "locator": "On Isis and Osiris 13 (356B–D)",
+        "sourceUrl": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Plutarch/Moralia/Isis_and_Osiris*/A.html",
+        "edition": "Frank Cole Babbitt, Plutarch, Moralia, Volume V (1936), Loeb Classical Library; LacusCurtius transcription"
+      }
+    ]
   },
   {
     "id": "r43",
@@ -482,7 +650,21 @@
     "toDeityId": "izanami",
     "relationshipType": "spouse_of",
     "confidenceLevel": "high",
-    "description": "Divine couple who created Japan"
+    "description": "Divine couple who created Japan",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section V (Birth of the Eight Islands)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-v-birth-of-the-eight-islands",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      },
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section IV (Courtship of the Deities The Male-Who-Invites and the Female Who-Invites)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-iv-courtship-of-the-deities-the-male-who-invites-and-the-female-who-invites",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r56",
@@ -490,7 +672,15 @@
     "toDeityId": "susanoo",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Sun and storm siblings"
+    "description": "Sun and storm siblings",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section X (The Purification of the August Person)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-x-the-purification-of-the-august-person",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r57",
@@ -498,7 +688,15 @@
     "toDeityId": "tsukuyomi",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Sun and moon siblings"
+    "description": "Sun and moon siblings",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section X (The Purification of the August Person)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-x-the-purification-of-the-august-person",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r90",
@@ -658,7 +856,15 @@
     "toDeityId": "freyja",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Njord is father of Freyja"
+    "description": "Njord is father of Freyja",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning XXIV (24)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r110",
@@ -666,7 +872,15 @@
     "toDeityId": "freyr",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Njord is father of Freyr"
+    "description": "Njord is father of Freyr",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning XXIV (24)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r111",
@@ -682,7 +896,15 @@
     "toDeityId": "amaterasu",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Amaterasu born from Izanagi's left eye"
+    "description": "Amaterasu born from Izanagi's left eye",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section X (The Purification of the August Person)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-x-the-purification-of-the-august-person",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r113",
@@ -690,7 +912,15 @@
     "toDeityId": "tsukuyomi",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Tsukuyomi born from Izanagi's right eye"
+    "description": "Tsukuyomi born from Izanagi's right eye",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section X (The Purification of the August Person)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-x-the-purification-of-the-august-person",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r114",
@@ -698,7 +928,15 @@
     "toDeityId": "susanoo",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Susanoo born from Izanagi's nose"
+    "description": "Susanoo born from Izanagi's nose",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section X (The Purification of the August Person)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-x-the-purification-of-the-august-person",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r115",
@@ -706,7 +944,21 @@
     "toDeityId": "kagutsuchi",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Izanami died giving birth to Kagutsuchi"
+    "description": "Izanami died giving birth to Kagutsuchi",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section VII (Retirement of Her Augustness The Princess-Who-Invites)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-vii-retirement-of-her-augustness-the-princess-who-invites",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      },
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section VI (Birth of the Various Deities), note 26",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-vi-birth-of-the-various-deities",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r116",
@@ -714,7 +966,15 @@
     "toDeityId": "ame-no-uzume",
     "relationshipType": "ally_of",
     "confidenceLevel": "high",
-    "description": "Uzume lured Amaterasu from the cave"
+    "description": "Uzume lured Amaterasu from the cave",
+    "evidence": [
+      {
+        "sourceId": "kojiki",
+        "locator": "Kojiki, Volume I, Section XVI (The Door of the Heavenly Rock-Dwelling)",
+        "sourceUrl": "https://sacred-texts.com/book/the-kojiki-2/section-xvi-the-door-of-the-heavenly-rock-dwelling",
+        "edition": "Basil Hall Chamberlain, A Translation of the Ko-ji-ki (1882; reprinted May 1919); Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r117",
@@ -1698,7 +1958,15 @@
     "fromDeityId": "idun",
     "toDeityId": "bragi",
     "relationshipType": "spouse_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "prose-edda",
+        "locator": "Gylfaginning XXVI (26)",
+        "sourceUrl": "https://sacred-texts.com/book/the-prose-edda/gylfaginning",
+        "edition": "Arthur Gilchrist Brodeur, The Prose Edda (1916), American-Scandinavian Foundation; Internet Sacred Text Archive transcription"
+      }
+    ]
   },
   {
     "id": "r231",
@@ -2003,7 +2271,15 @@
     "toDeityId": "selene",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Hesiod's Theogony (371-374) names Helios, Selene, and Eos as the children of Hyperion and Theia."
+    "description": "Hesiod's Theogony (371-374) names Helios, Selene, and Eos as the children of Hyperion and Theia.",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 371–374",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-helios-eos",
@@ -2011,7 +2287,15 @@
     "toDeityId": "eos",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Children of Hyperion and Theia (Theogony 371-374)."
+    "description": "Children of Hyperion and Theia (Theogony 371-374).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 371–374",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-selene-eos",
@@ -2019,7 +2303,15 @@
     "toDeityId": "eos",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Children of Hyperion and Theia (Theogony 371-374)."
+    "description": "Children of Hyperion and Theia (Theogony 371-374).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 371–374",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-gaia-tethys",
@@ -2059,7 +2351,15 @@
     "toDeityId": "tethys",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Cronus and Tethys are both Titans, children of Gaia and Uranus."
+    "description": "Cronus and Tethys are both Titans, children of Gaia and Uranus.",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 134–138",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-apollo-asclepius",
@@ -2067,7 +2367,15 @@
     "toDeityId": "asclepius",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "The Homeric Hymn to Asclepius names him son of Apollo and Coronis."
+    "description": "The Homeric Hymn to Asclepius names him son of Apollo and Coronis.",
+    "evidence": [
+      {
+        "sourceId": "homeric-hymns",
+        "locator": "Homeric Hymn 16 to Asclepius, lines 1–4",
+        "sourceUrl": "https://www.theoi.com/Text/HomericHymns3.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-demeter-plutus",
@@ -2075,7 +2383,15 @@
     "toDeityId": "plutus",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Demeter bore Plutus to the hero Iasion in a thrice-plowed field in Crete (Theogony 969-974)."
+    "description": "Demeter bore Plutus to the hero Iasion in a thrice-plowed field in Crete (Theogony 969-974).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 969–974",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-zeus-dioscuri",
@@ -2897,7 +3213,15 @@
     "toDeityId": "prometheus",
     "relationshipType": "sibling_of",
     "confidenceLevel": "high",
-    "description": "Both are sons of Iapetus and Clymene (Hesiod, Theogony 507-514)."
+    "description": "Both are sons of Iapetus and Clymene (Hesiod, Theogony 507-514).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 507–511",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-nyx-nemesis",
@@ -2905,7 +3229,15 @@
     "toDeityId": "nemesis",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Night bore Nemesis without a partner (Hesiod, Theogony 223-224)."
+    "description": "Night bore Nemesis without a partner (Hesiod, Theogony 223-224).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 223–225",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-nyx-thanatos",
@@ -2913,7 +3245,15 @@
     "toDeityId": "thanatos",
     "relationshipType": "parent_of",
     "confidenceLevel": "high",
-    "description": "Night bore Death, with Sleep and Doom, without a partner (Hesiod, Theogony 211-212)."
+    "description": "Night bore Death, with Sleep and Doom, without a partner (Hesiod, Theogony 211-212).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 211–213",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
   },
   {
     "id": "greek-persephone-melinoe",

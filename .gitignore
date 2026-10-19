@@ -58,6 +58,7 @@ pnpm-debug.log*
 coverage/
 playwright-report/
 test-results/
+visual-test-results/
 
 # Local History (VS Code extension)
 .history/

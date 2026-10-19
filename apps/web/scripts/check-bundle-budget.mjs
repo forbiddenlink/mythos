@@ -71,7 +71,9 @@ function routeChunks(route) {
   for (const mod of Object.values(manifest.clientModules ?? {})) {
     if (mod.async) continue;
     for (const chunk of mod.chunks ?? []) {
-      if (typeof chunk === "string" && chunk.endsWith(".js")) files.add(chunk);
+      if (typeof chunk !== "string") continue;
+      const file = chunk.split(/[?#]/, 1)[0];
+      if (file.endsWith(".js")) files.add(file);
     }
   }
   return files;
@@ -91,7 +93,9 @@ const kib = (bytes) => bytes / 1024;
 let failed = false;
 const rows = [];
 for (const [route, budget] of Object.entries(BUDGETS_KIB)) {
-  const files = new Set([...rootFiles, ...routeChunks(route)]);
+  const files = new Set(
+    [...rootFiles, ...routeChunks(route)].map((file) => file.split(/[?#]/, 1)[0]),
+  );
   let total = 0;
   for (const file of files) total += gzipBytes(file);
   const over = kib(total) > budget;

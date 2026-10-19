@@ -1,12 +1,14 @@
 import Image from "next/image";
 import type { MuseumObject } from "@/lib/museum";
 import { cn } from "@/lib/utils";
+import { MuseumInspector } from "./MuseumInspector";
 
 /**
  * Real, public-domain objects that depict a figure or a myth, hung like plates
- * on a gallery wall. Presentational only: callers pass the objects (filtered
+ * on a gallery wall. Callers pass the objects (filtered
  * on the server) so the full collection never ships to the client, and wrap
- * it in an <ArticleSection> that supplies the heading.
+ * it in an <ArticleSection> that supplies the heading. Each optional inspector
+ * fetches its enlarged photograph only when opened.
  */
 export function MuseumGallery({
   objects,
@@ -54,6 +56,7 @@ export function MuseumGallery({
                 <span className="sr-only"> (opens the museum record)</span>
               </a>
             ) : null}
+            <MuseumInspector object={object} />
             <p className="type-eyebrow">{object.context}</p>
             <h3 className="mt-1 font-serif text-[1.0625rem] font-semibold leading-snug text-foreground">
               <a

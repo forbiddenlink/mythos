@@ -46,3 +46,32 @@ Read each task aloud. Do not use the site's own labels in the wording.
 At least 4 of 5 participants complete each task without help. Any task under
 that bar becomes the top fix. Record results next to
 `design-research/baseline-2026-10-16.md`.
+
+## October 18 improvement follow-up
+
+Use the deployed build containing the improvements, or the local production
+preview. Do not test the older production site and attribute its results to
+these changes. The protected [October 18 improvement preview](https://mythos-ivmxbsu2r-elizabeth-emersons-projects.vercel.app)
+contains the current improvements; use an account with preview access. No
+participant sessions have been completed for this update.
+
+Keep sessions to 30 minutes: rotate the tasks below across participants rather
+than adding all of them to the six tasks above. Include at least two phone users.
+
+| Task prompt                                                                                                   | Success observation                                                                                        |
+| ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| "Find a god connected with healing. Then find another from a different tradition."                            | Uses browsing categories and reaches two relevant records without losing their place.                      |
+| "How is Athena connected to Zeus? What evidence does this site give for that relationship?"                   | Finds the connection, reads its direction correctly, and locates the attached passage.                     |
+| "Explore the sculpture of Shiva dancing. What does the drum mean, and where does that explanation come from?" | Opens the artwork, zooms and resets, finds the drum explanation and museum record, then closes the viewer. |
+| "Do all the sources tell Medusa's story the same way? Find one difference."                                   | Distinguishes accounts and identifies a source; does not treat absence from a source as contradiction.     |
+| "Follow Odysseus's journey. Find a stop you want to read more about and explain how certain its location is." | Uses the itinerary, finds its source or story link, and recognizes uncertain locations.                    |
+
+Repeat one artwork task using only the keyboard. Check that zoom, image scrolling,
+Escape, and return focus work. In a separate device check, inspect the journey
+with map tiles unavailable; the reading itinerary must remain usable.
+
+Record anonymous participant labels (P1–P5), device/browser, task, completion
+without help, time, first action, confusion, and the next proposed fix. Do not
+store names, recordings, or identifying quotes in this public repository.
+Mark untested tasks explicitly. Automated browser checks do not count as
+participant success or physical-device/screen-reader validation.

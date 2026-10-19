@@ -2,6 +2,8 @@
 
 import { useId, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
+import { RelationshipPathExplorer } from "@/components/family-tree/RelationshipPathExplorer";
+import type { ConnectionRelationship } from "@/lib/relationship-path";
 import { GitBranch } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import {
@@ -62,21 +64,15 @@ interface Deity {
   imageUrl?: string;
 }
 
-interface Relationship {
-  id: string;
-  fromDeityId: string;
-  toDeityId: string;
-  relationshipType: string;
-  description: string | null;
-}
-
 interface FamilyTreePageClientProps {
   pantheonsData: Array<{ id: string; name: string }>;
   deitiesData: Deity[];
-  relationshipsData: Relationship[];
+  relationshipsData: (ConnectionRelationship & {
+    description: string | null;
+  })[];
 }
 
-type ViewMode = "hierarchical" | "network";
+type ViewMode = "hierarchical" | "network" | "connection";
 
 export function FamilyTreePageClient({
   pantheonsData,
@@ -117,6 +113,7 @@ export function FamilyTreePageClient({
           <Select value={selectedPantheon} onValueChange={setSelectedPantheon}>
             <SelectTrigger
               id={selectId}
+              aria-label="Pantheon"
               className="min-h-10 w-full min-w-0 flex-1 sm:w-60 sm:flex-none"
             >
               <SelectValue placeholder="Select Pantheon" />
@@ -155,6 +152,11 @@ export function FamilyTreePageClient({
                 </>
               ),
             },
+            {
+              value: "connection",
+              ariaLabel: "Connection path view",
+              label: "Connection",
+            },
           ]}
         />
         <p className="type-ui text-muted-foreground lg:ml-auto">
@@ -172,6 +174,12 @@ export function FamilyTreePageClient({
               No family tree data is recorded for this pantheon yet.
             </p>
           </div>
+        ) : viewMode === "connection" ? (
+          <RelationshipPathExplorer
+            key={selectedPantheon}
+            deities={deities}
+            relationships={relationships}
+          />
         ) : viewMode === "hierarchical" ? (
           <EnhancedFamilyTree
             key={selectedPantheon}

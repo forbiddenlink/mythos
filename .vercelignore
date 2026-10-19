@@ -21,6 +21,7 @@ apps/web/.next
 **/.qa-shots/**
 **/playwright-report/**
 **/test-results/**
+**/visual-test-results/**
 **/coverage/**
 **/*.tsbuildinfo
 .codacy
@@ -30,6 +31,8 @@ temp
 .audit-report.md
 design-research
 functional-review
+visual-assets
+apps/web/visual/__screenshots__
 apps/api
 apps/web/public/csp-manifest.json
 /*.png

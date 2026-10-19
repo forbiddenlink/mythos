@@ -11,6 +11,8 @@ import {
   sortWaypoints,
   type JourneyDetail,
   type JourneyWaypoint,
+  type JourneyLink,
+  type JourneyStopContext,
 } from "@/lib/journeys";
 
 // Leaflet needs `window`; the placeholder matches the map's height.
@@ -20,21 +22,48 @@ const JourneyMap = dynamic(
     ssr: false,
     loading: () => (
       <div
-        className="h-full w-full animate-pulse bg-muted/40 motion-reduce:animate-none"
+        className="h-[34rem] w-full animate-pulse bg-muted/40 sm:h-[38rem] motion-reduce:animate-none"
         aria-hidden="true"
       />
     ),
   },
 );
 
-function TagRow({ label, items }: { label: string; items?: string[] }) {
+function TagRow({
+  label,
+  items,
+  links = [],
+}: {
+  label: string;
+  items?: string[];
+  links?: JourneyLink[];
+}) {
   if (!items?.length) return null;
   return (
     <div>
       <p className="type-meta font-medium uppercase tracking-[0.12em] text-muted-foreground">
         {label}
       </p>
-      <p className="mt-1 type-ui text-foreground">{items.join(", ")}</p>
+      <p className="mt-1 type-ui text-foreground">
+        {items.map((item, index) => {
+          const link = links.find((reference) => reference.label === item);
+          return (
+            <span key={item}>
+              {index ? ", " : ""}
+              {link ? (
+                <Link
+                  href={link.href}
+                  className="text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+                >
+                  {item}
+                </Link>
+              ) : (
+                item
+              )}
+            </span>
+          );
+        })}
+      </p>
     </div>
   );
 }
@@ -46,7 +75,12 @@ function TagRow({ label, items }: { label: string; items?: string[] }) {
 export function JourneyExplorer({
   journey,
   color,
-}: Readonly<{ journey: JourneyDetail; color: string }>) {
+  stopContexts = {},
+}: Readonly<{
+  journey: JourneyDetail;
+  color: string;
+  stopContexts?: Record<string, JourneyStopContext>;
+}>) {
   const otherworld = isOtherworldJourney(journey);
   const stops = useMemo(() => sortWaypoints(journey.waypoints), [journey]);
   const mapJourney = useMemo(
@@ -56,6 +90,7 @@ export function JourneyExplorer({
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const current =
     stops.find((stop) => stop.id === selectedId) ?? stops[0] ?? null;
+  const context = current ? stopContexts[current.id] : undefined;
   const index = current ? stops.indexOf(current) : -1;
 
   const select = useCallback(
@@ -83,7 +118,7 @@ export function JourneyExplorer({
           onWaypointSelect={select}
         />
       ) : (
-        <div className="h-[22rem] overflow-hidden rounded-md ring-1 ring-border sm:h-[28rem]">
+        <div>
           <JourneyMap
             journey={mapJourney}
             onWaypointSelect={select}
@@ -121,8 +156,41 @@ export function JourneyExplorer({
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
             <TagRow label="Events" items={current.events} />
             <TagRow label="Creatures" items={current.creatures} />
-            <TagRow label="Gods involved" items={current.deities} />
+            <TagRow
+              label="Gods involved"
+              items={current.deities}
+              links={context?.deities}
+            />
           </div>
+          {context?.creatures.length ? (
+            <TagRow
+              label="Creature profiles"
+              items={context.creatures.map((creature) => creature.label)}
+              links={context.creatures}
+            />
+          ) : null}
+          {context?.stories.length ? (
+            <div className="mt-4">
+              <TagRow
+                label="Related stories"
+                items={context.stories.map((story) => story.label)}
+                links={context.stories}
+              />
+            </div>
+          ) : null}
+          {context?.passage ? (
+            <p className="mt-4 type-ui">
+              <a
+                href={context.passage.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+              >
+                Read {context.passage.label}
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          ) : null}
           {current.locationId ? (
             <Link
               href={`/locations/${current.locationId}`}

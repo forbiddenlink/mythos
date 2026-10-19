@@ -1216,5 +1216,289 @@
         }
       }
     ]
+  },
+  {
+    "storySlug": "prometheus-fire",
+    "question": "What does each Hesiod poem tell about the stolen fire?",
+    "takeaway": "Both poems connect stolen fire with a woman sent by Zeus. Only Works and Days names Pandora and tells of her jar; silence in the other selected passage does not mean the story was unknown.",
+    "beats": [
+      {
+        "id": "trick",
+        "label": "The sacrifice trick"
+      },
+      {
+        "id": "fire",
+        "label": "How fire is stolen"
+      },
+      {
+        "id": "woman",
+        "label": "The woman sent by Zeus"
+      },
+      {
+        "id": "jar",
+        "label": "The jar"
+      },
+      {
+        "id": "punishment",
+        "label": "Prometheus’s punishment"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Hesiod, Theogony 507–616",
+        "work": "H. G. Evelyn-White translation (1914)",
+        "date": "c. 700 BCE",
+        "sortYear": -700,
+        "kind": "primary",
+        "readingUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "cells": {
+          "trick": {
+            "state": "present",
+            "note": "Bones concealed in fat (535–557)."
+          },
+          "fire": {
+            "state": "present",
+            "note": "A hollow fennel stalk (560–569)."
+          },
+          "woman": {
+            "state": "present",
+            "note": "An unnamed maiden (570–589)."
+          },
+          "jar": {
+            "state": "absent",
+            "note": "No jar in this passage."
+          },
+          "punishment": {
+            "state": "present",
+            "note": "Eagle and renewing liver; Heracles releases him (521–534)."
+          }
+        },
+        "reference": true
+      },
+      {
+        "name": "Hesiod, Works and Days 42–105",
+        "work": "H. G. Evelyn-White translation (1914)",
+        "date": "c. 700 BCE",
+        "sortYear": -700,
+        "kind": "primary",
+        "readingUrl": "https://www.theoi.com/Text/HesiodWorksDays.html",
+        "cells": {
+          "trick": {
+            "state": "absent",
+            "note": "Deception is mentioned, but the sacrifice is not narrated (42–49)."
+          },
+          "fire": {
+            "state": "present",
+            "note": "Prometheus carries stolen fire in a fennel stalk (50–52)."
+          },
+          "woman": {
+            "state": "variant",
+            "note": "The gods equip Pandora; Hermes brings her to Epimetheus (60–89)."
+          },
+          "jar": {
+            "state": "variant",
+            "note": "She opens the jar, releasing afflictions; Hope remains inside (90–105)."
+          },
+          "punishment": {
+            "state": "absent",
+            "note": "Zeus threatens punishment, but no eagle or release is narrated here."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "storySlug": "perseus-medusa",
+    "question": "Which source tells how Medusa acquired her snake hair?",
+    "takeaway": "Hesiod gives a brief genealogy and beheading. Ovid adds an account of changed hair; Apollodorus describes the Gorgons and also reports a different beauty-rivalry tradition. These are distinct tellings, not missing chapters of one account.",
+    "beats": [
+      {
+        "id": "origin",
+        "label": "Medusa’s origin and appearance"
+      },
+      {
+        "id": "encounter",
+        "label": "Poseidon and Medusa"
+      },
+      {
+        "id": "shield",
+        "label": "Perseus uses a reflection"
+      },
+      {
+        "id": "birth",
+        "label": "Birth after the beheading"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Hesiod, Theogony 270–286",
+        "work": "H. G. Evelyn-White translation (1914)",
+        "date": "c. 700 BCE",
+        "sortYear": -700,
+        "kind": "primary",
+        "readingUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "cells": {
+          "origin": {
+            "state": "present",
+            "note": "One of three Gorgons; only Medusa is mortal."
+          },
+          "encounter": {
+            "state": "present",
+            "note": "Poseidon lies with her in a meadow."
+          },
+          "shield": {
+            "state": "absent",
+            "note": "No reflection described here."
+          },
+          "birth": {
+            "state": "present",
+            "note": "Pegasus and Chrysaor emerge."
+          }
+        },
+        "reference": true
+      },
+      {
+        "name": "Ovid, Metamorphoses 4.765–803",
+        "work": "Brookes More translation (1922)",
+        "date": "c. 8 CE",
+        "sortYear": 8,
+        "kind": "primary",
+        "readingUrl": "https://www.theoi.com/Text/OvidMetamorphoses4.html",
+        "cells": {
+          "origin": {
+            "state": "variant",
+            "note": "Minerva changes her admired hair into snakes (790–803)."
+          },
+          "encounter": {
+            "state": "variant",
+            "note": "Perseus reports an encounter with Neptune in Minerva’s temple, rather than a meadow (790–803)."
+          },
+          "shield": {
+            "state": "present",
+            "note": "Perseus watches her reflection in his bronze shield and beheads her asleep (772–785)."
+          },
+          "birth": {
+            "state": "present",
+            "note": "Pegasus and his brother are born from her blood (784–786)."
+          }
+        }
+      },
+      {
+        "name": "Apollodorus, Library 2.4.2–3",
+        "work": "J. G. Frazer translation (1921)",
+        "date": "1st–2nd century CE",
+        "sortYear": 100,
+        "kind": "later-ancient",
+        "readingUrl": "https://www.theoi.com/Text/Apollodorus2.html",
+        "cells": {
+          "origin": {
+            "state": "variant",
+            "note": "All three have serpentine heads; an alternative tradition makes Medusa Athena’s rival in beauty (2.4.2–3)."
+          },
+          "encounter": {
+            "state": "variant",
+            "note": "Poseidon is named as father of Pegasus and Chrysaor; the encounter is not narrated (2.4.2)."
+          },
+          "shield": {
+            "state": "present",
+            "note": "Athena guides his hand as he looks into a bronze shield (2.4.2)."
+          },
+          "birth": {
+            "state": "present",
+            "note": "Pegasus and Chrysaor spring from her severed neck (2.4.2)."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "storySlug": "titanomachy",
+    "question": "How do the gods win the war against the Titans?",
+    "takeaway": "Both accounts give a ten-year war and decisive released allies. Apollodorus adds Metis’s drug, weapons for all three brothers, and a division by lot. Hesiod’s selected account has its own emphasis on Zeus and the Hundred-Handers.",
+    "beats": [
+      {
+        "id": "release",
+        "label": "Cronus releases his children"
+      },
+      {
+        "id": "duration",
+        "label": "Ten years of war"
+      },
+      {
+        "id": "weapons",
+        "label": "The Cyclopes’ weapons"
+      },
+      {
+        "id": "allies",
+        "label": "The released allies"
+      },
+      {
+        "id": "settlement",
+        "label": "The settlement"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Hesiod, Theogony 453–506, 617–735, 881–885",
+        "work": "H. G. Evelyn-White translation (1914)",
+        "date": "c. 700 BCE",
+        "sortYear": -700,
+        "kind": "primary",
+        "readingUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "cells": {
+          "release": {
+            "state": "present",
+            "note": "Earth’s counsel and Zeus’s power (492–500)."
+          },
+          "duration": {
+            "state": "present",
+            "note": "Ten years (617–638)."
+          },
+          "weapons": {
+            "state": "present",
+            "note": "Thunder and lightning for Zeus (501–506)."
+          },
+          "allies": {
+            "state": "present",
+            "note": "The Hundred-Handers hurl rocks (713–720)."
+          },
+          "settlement": {
+            "state": "present",
+            "note": "Titans confined; gods urge Zeus to rule (729–735, 881–885)."
+          }
+        },
+        "reference": true
+      },
+      {
+        "name": "Apollodorus, Library 1.2.1",
+        "work": "J. G. Frazer translation (1921)",
+        "date": "1st–2nd century CE",
+        "sortYear": 100,
+        "kind": "later-ancient",
+        "readingUrl": "https://www.theoi.com/Text/Apollodorus1.html",
+        "cells": {
+          "release": {
+            "state": "variant",
+            "note": "Metis gives Cronus a drug that makes him disgorge the children."
+          },
+          "duration": {
+            "state": "present",
+            "note": "The war lasts ten years."
+          },
+          "weapons": {
+            "state": "variant",
+            "note": "Zeus receives lightning, Pluto a helmet, and Poseidon a trident."
+          },
+          "allies": {
+            "state": "variant",
+            "note": "Zeus kills Campe and frees the prisoners of Tartarus; the Hundred-Handers later guard the Titans."
+          },
+          "settlement": {
+            "state": "variant",
+            "note": "The brothers cast lots: sky to Zeus, sea to Poseidon, Hades to Pluto."
+          }
+        }
+      }
+    ]
   }
 ]

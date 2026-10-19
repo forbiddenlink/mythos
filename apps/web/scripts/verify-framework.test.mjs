@@ -3,6 +3,15 @@ import { test } from "node:test";
 import { createRequire } from "node:module";
 import { resolve } from "node:path";
 import { PassThrough } from "node:stream";
+import { execFileSync } from "node:child_process";
+import {
+  copyFileSync,
+  mkdirSync,
+  mkdtempSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
+import { tmpdir } from "node:os";
 import { verifyFramework } from "./verify-framework.mjs";
 
 const root = { pnpm: { overrides: { next: "16.3.8" } } };
@@ -85,5 +94,63 @@ test("an aborted requester cannot strand a shared internal image fetch", async (
     assert.match(image.contentType, /image\/jpeg/);
   } finally {
     clearTimeout(timer);
+  }
+});
+
+test("bundle budgets count deployment-query chunks and deduplicate their paths", () => {
+  const fixture = mkdtempSync(resolve(tmpdir(), "mythos-bundle-budget-"));
+  try {
+    mkdirSync(resolve(fixture, "scripts"));
+    mkdirSync(resolve(fixture, ".next/static/chunks"), { recursive: true });
+    const script = resolve(fixture, "scripts/check-bundle-budget.mjs");
+    copyFileSync(new URL("./check-bundle-budget.mjs", import.meta.url), script);
+    writeFileSync(resolve(fixture, ".next/static/chunks/root.js"), "root();");
+    const writeManifests = (query) => {
+      writeFileSync(
+        resolve(fixture, ".next/build-manifest.json"),
+        JSON.stringify({ rootMainFiles: [`static/chunks/root.js${query}`] }),
+      );
+      for (const route of ["", "deities/[slug]", "stories/[slug]", "atlas"]) {
+        const directory = resolve(fixture, ".next/server/app", route);
+        mkdirSync(directory, { recursive: true });
+        const manifest = {
+          clientModules: {
+            client: {
+              chunks: [
+                "123",
+                `static/chunks/route.js${query}`,
+                `static/chunks/route.js${query ? "?dpl=another-deployment" : ""}`,
+                "static/chunks/root.js",
+              ],
+            },
+          },
+        };
+        writeFileSync(
+          resolve(directory, "page_client-reference-manifest.js"),
+          `globalThis.__RSC_MANIFEST = ${JSON.stringify({
+            [route ? `/${route}/page` : "/page"]: manifest,
+          })};`,
+        );
+      }
+    };
+    writeManifests("?dpl=test-deployment");
+    assert.throws(
+      () => execFileSync(process.execPath, [script], { stdio: "pipe" }),
+      (error) =>
+        /chunk static\/chunks\/route.js listed but missing/.test(
+          error.stderr.toString(),
+        ),
+    );
+    writeFileSync(resolve(fixture, ".next/static/chunks/route.js"), "route();");
+    const withDeployment = execFileSync(process.execPath, [script], {
+      encoding: "utf8",
+    });
+    writeManifests("");
+    const withoutDeployment = execFileSync(process.execPath, [script], {
+      encoding: "utf8",
+    });
+    assert.equal(withDeployment, withoutDeployment);
+  } finally {
+    rmSync(fixture, { recursive: true, force: true });
   }
 });

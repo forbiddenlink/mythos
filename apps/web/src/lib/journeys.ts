@@ -17,6 +17,9 @@ export interface JourneyWaypoint {
   coordinates?: [number, number];
   /** Catalog location for this stop, when there is one. */
   locationId?: string;
+  storyIds?: string[];
+  creatureIds?: string[];
+  sourcePassage?: { sourceId: string; locator: string; book?: number };
   events?: string[];
   creatures?: string[];
   deities?: string[];
@@ -36,6 +39,7 @@ export interface JourneyDetail {
   imageUrl?: string;
   source: string;
   sourceId?: string;
+  storyId?: string;
   setting?: JourneySetting;
   waypoints: JourneyWaypoint[];
 }
@@ -70,4 +74,17 @@ export function findJourneyForPantheon<T extends { pantheonId: string }>(
 ): T | undefined {
   if (!pantheonId) return undefined;
   return journeys.find((journey) => journey.pantheonId === pantheonId);
+}
+
+/** Slim catalog links resolved on the server, never full catalog records. */
+export interface JourneyLink {
+  label: string;
+  href: string;
+}
+
+export interface JourneyStopContext {
+  deities: JourneyLink[];
+  creatures: JourneyLink[];
+  stories: JourneyLink[];
+  passage?: JourneyLink;
 }

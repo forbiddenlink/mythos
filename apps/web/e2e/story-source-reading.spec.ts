@@ -235,21 +235,21 @@ test("Osiris comparison exposes editions and preserves source differences", asyn
   await expect(matrix).toContainText("Alan H. Gardiner translation (1931)");
   await expect(matrix).toContainText("C. H. Oldfather translation (1933)");
   await expect(matrix).toContainText("Frank Cole Babbitt translation (1936)");
-  await expect(matrix.locator('a[href*="chesterbeatty.ie"]')).toHaveCount(1);
+  await expect(
+    matrix.locator('a[href*="chesterbeatty.ie"]:visible'),
+  ).toHaveCount(1);
   await expect(matrix).toContainText(
     "The posthumous child is named Harpocrates",
   );
   await expect(matrix).toContainText(
     "Chapter 1.21 describes burial and divine honours, not rule over the dead.",
   );
-  await expect(matrix.locator('a[href*="Diodorus_Siculus"]')).toHaveAttribute(
-    "href",
-    /#21$/,
-  );
-  await expect(matrix.locator('a[href*="Isis_and_Osiris"]')).toHaveAttribute(
-    "href",
-    /#13$/,
-  );
+  await expect(
+    matrix.locator('a[href*="Diodorus_Siculus"]:visible'),
+  ).toHaveAttribute("href", /#21$/);
+  await expect(
+    matrix.locator('a[href*="Isis_and_Osiris"]:visible'),
+  ).toHaveAttribute("href", /#13$/);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
