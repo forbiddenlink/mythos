@@ -1,12 +1,15 @@
+import { createHash } from "node:crypto";
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 import { readJsonBody } from "@/lib/http/read-json-body";
 import { logger } from "@/lib/logger";
+import { siteConfig } from "@/lib/metadata";
 import {
   getNewsletterConfig,
   newsletterRequestSchema,
-  subscribeToNewsletter,
+  requestNewsletterConfirmation,
 } from "@/lib/newsletter";
+import { createConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkNewsletterRateLimit } from "@/lib/oracle/rate-limit";
 import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
@@ -21,9 +24,12 @@ function json(body: Record<string, unknown>, status: number): Response {
 }
 
 /**
- * Weekly myth digest sign-up. Adds the address to the Resend segment.
+ * Weekly myth digest sign-up, step one of double opt-in: records the address
+ * as an unsubscribed contact and emails a signed confirmation link. Nothing
+ * is added to the digest segment until /api/newsletter/confirm checks the
+ * link. A 200 answer means "check your inbox", never "subscribed".
  *
- * Without RESEND_API_KEY this answers 501 `not_configured` (like
+ * Without RESEND_API_KEY or NEWSLETTER_FROM this answers 501 `not_configured` (like
  * /api/analytics without a PostHog key) instead of pretending to store an
  * address it cannot keep; the form then shows "sign-ups open soon".
  */
@@ -51,7 +57,7 @@ export async function POST(req: NextRequest) {
 
   // A filled honeypot is a bot: answer as if it worked, store nothing.
   if (parsed.data.website) {
-    return json({ subscribed: true }, 200);
+    return json({ subscribed: false, pending: true }, 200);
   }
 
   const identity = getOracleClientIdentity(req.headers);
@@ -62,13 +68,30 @@ export async function POST(req: NextRequest) {
       : json({ subscribed: false, reason: "rate_limited" }, 429);
   }
 
+  // Per-address limit too, so rotating IPs cannot bury one inbox in
+  // confirmation emails.
+  const addressKey = createHash("sha256")
+    .update(parsed.data.email)
+    .digest("hex");
+  const addressLimit = await checkNewsletterRateLimit(
+    `newsletter-address:${addressKey}`,
+  );
+  if (!addressLimit.allowed) {
+    return addressLimit.reason === "misconfigured"
+      ? json({ subscribed: false, reason: "unavailable" }, 503)
+      : json({ subscribed: false, reason: "rate_limited" }, 429);
+  }
+
   try {
-    const result = await subscribeToNewsletter(
+    const token = createConfirmToken(parsed.data.email, config.apiKey);
+    const confirmUrl = `${siteConfig.url}/newsletter/confirm?token=${encodeURIComponent(token)}`;
+    const result = await requestNewsletterConfirmation(
       new Resend(config.apiKey),
-      parsed.data.email,
-      config.segmentId,
+      { email: parsed.data.email, from: config.from, confirmUrl },
     );
-    if (result.ok) return json({ subscribed: true }, 200);
+    if (result.ok) {
+      return json({ subscribed: false, pending: true }, 200);
+    }
   } catch (error) {
     logger.error("Newsletter sign-up failed", {
       error: error instanceof Error ? error.message : String(error),

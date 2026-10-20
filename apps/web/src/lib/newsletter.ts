@@ -30,17 +30,24 @@ export const newsletterRequestSchema = z.strictObject({
 export interface NewsletterConfig {
   apiKey: string;
   segmentId: string;
+  /** Sender for the confirmation email (NEWSLETTER_FROM). */
+  from: string;
 }
 
-/** Null when sign-ups are not configured (no RESEND_API_KEY). */
+/**
+ * Null when sign-ups are not configured. Double opt-in needs to send a
+ * confirmation email, so both RESEND_API_KEY and NEWSLETTER_FROM are required.
+ */
 export function getNewsletterConfig(
   env: Record<string, string | undefined> = process.env,
 ): NewsletterConfig | null {
   const apiKey = env.RESEND_API_KEY?.trim();
-  if (!apiKey) return null;
+  const from = env.NEWSLETTER_FROM?.trim();
+  if (!apiKey || !from) return null;
   return {
     apiKey,
     segmentId: env.RESEND_SEGMENT_ID?.trim() || DEFAULT_RESEND_SEGMENT_ID,
+    from,
   };
 }
 
@@ -48,7 +55,7 @@ interface ResendResult {
   error: { message: string; statusCode?: number | null; name?: string } | null;
 }
 
-/** The two Resend calls this feature makes (a subset of the SDK). */
+/** The Resend calls this feature makes (a subset of the SDK). */
 export interface NewsletterClient {
   contacts: {
     create(payload: {
@@ -56,9 +63,22 @@ export interface NewsletterClient {
       unsubscribed?: boolean;
       segments?: Array<{ id: string }>;
     }): Promise<ResendResult>;
+    update(payload: {
+      email: string;
+      unsubscribed?: boolean;
+    }): Promise<ResendResult>;
     segments: {
       add(options: { email: string; segmentId: string }): Promise<ResendResult>;
     };
+  };
+  emails: {
+    send(payload: {
+      from: string;
+      to: string;
+      subject: string;
+      html: string;
+      text: string;
+    }): Promise<ResendResult>;
   };
 }
 
@@ -73,12 +93,61 @@ function isAlreadyExists(error: NonNullable<ResendResult["error"]>): boolean {
   );
 }
 
+/** Subject line of the confirmation email; exported for tests. */
+export const CONFIRMATION_SUBJECT = "Confirm your Mythos Atlas weekly myth";
+
+function confirmationEmail(confirmUrl: string): { html: string; text: string } {
+  // confirmUrl is built by the server from a fixed origin and a base64url
+  // token, so it carries no user-supplied markup.
+  const text = [
+    "Someone, hopefully you, asked to receive the Mythos Atlas weekly myth at this address.",
+    "",
+    `Confirm the subscription: ${confirmUrl}`,
+    "",
+    "If this was not you, ignore this email. You will not be subscribed and will not hear from us again.",
+  ].join("\n");
+  const html = `<p>Someone, hopefully you, asked to receive the Mythos Atlas weekly myth at this address.</p>
+<p><a href="${confirmUrl}">Confirm the subscription</a></p>
+<p>If this was not you, ignore this email. You will not be subscribed and will not hear from us again.</p>`;
+  return { html, text };
+}
+
 /**
- * Add `email` to the digest segment. An address that is already a contact is
- * added to the segment instead, so re-subscribing succeeds and the response
+ * Step one of double opt-in. Records the address as an unsubscribed contact
+ * outside the digest segment (so no broadcast can reach it) and emails a
+ * signed confirmation link. An existing contact is left exactly as it is, so a
+ * stranger cannot unsubscribe or re-subscribe someone else, and the response
  * never reveals whether an address was known.
  */
-export async function subscribeToNewsletter(
+export async function requestNewsletterConfirmation(
+  client: NewsletterClient,
+  opts: { email: string; from: string; confirmUrl: string },
+): Promise<SubscribeResult> {
+  const created = await client.contacts.create({
+    email: opts.email,
+    unsubscribed: true,
+  });
+  if (created.error && !isAlreadyExists(created.error)) {
+    return { ok: false, reason: "upstream_error" };
+  }
+
+  const { html, text } = confirmationEmail(opts.confirmUrl);
+  const sent = await client.emails.send({
+    from: opts.from,
+    to: opts.email,
+    subject: CONFIRMATION_SUBJECT,
+    html,
+    text,
+  });
+  return sent.error ? { ok: false, reason: "upstream_error" } : { ok: true };
+}
+
+/**
+ * Step two, run only after the signed link checks out: mark the contact
+ * subscribed and put it in the digest segment, which is all the weekly
+ * broadcast sends to.
+ */
+export async function confirmNewsletterSubscription(
   client: NewsletterClient,
   email: string,
   segmentId: string,
@@ -89,10 +158,15 @@ export async function subscribeToNewsletter(
     segments: [{ id: segmentId }],
   });
   if (!created.error) return { ok: true };
-
-  if (isAlreadyExists(created.error)) {
-    const added = await client.contacts.segments.add({ email, segmentId });
-    if (!added.error) return { ok: true };
+  if (!isAlreadyExists(created.error)) {
+    return { ok: false, reason: "upstream_error" };
   }
-  return { ok: false, reason: "upstream_error" };
+
+  const updated = await client.contacts.update({ email, unsubscribed: false });
+  if (updated.error) return { ok: false, reason: "upstream_error" };
+  const added = await client.contacts.segments.add({ email, segmentId });
+  if (added.error && !isAlreadyExists(added.error)) {
+    return { ok: false, reason: "upstream_error" };
+  }
+  return { ok: true };
 }
