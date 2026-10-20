@@ -5,11 +5,7 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-  pull-requests: write
-  actions: write
-  issues: write
+permissions: {}
 
 # Two pushes to main a few seconds apart ran release-please twice at once; the second
 # failed updating the release-PR branch ref (2026-10-14). Queue runs instead.

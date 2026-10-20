@@ -6,11 +6,12 @@ on:
     branches: [main]
   schedule:
     - cron: "0 6 * * 1"
-permissions:
-  actions: read
-  contents: read
-  security-events: write
+permissions: {}
 jobs:
   call:
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     # Pin to commit SHA (not @main) for supply-chain safety
     uses: forbiddenlink/.github/.github/workflows/codeql.yml@2606e52c5ea220c9cf669715ca91e18da20f9eaa
