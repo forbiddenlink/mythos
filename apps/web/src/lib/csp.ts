@@ -84,6 +84,9 @@ export function buildCsp(options: {
     "https://va.vercel-scripts.com",
     "https://vitals.vercel-insights.com",
     "https://*.ingest.sentry.io",
+    // The DSN lives on the US region host (o<org>.ingest.us.sentry.io), which
+    // *.ingest.sentry.io does not match.
+    "https://*.ingest.us.sentry.io",
     "https://cdn.jsdelivr.net",
   ].join(" ");
 

@@ -77,6 +77,24 @@ describe("buildScriptSrc", () => {
     expect(csp).toContain("connect-src 'self' https://va.vercel-scripts.com");
     expect(csp).toContain("report-to csp-endpoint");
   });
+
+  it("lets the browser SDK reach the US Sentry ingest host", () => {
+    // CSP "*.a.b" only matches hosts ending in ".a.b", so *.ingest.sentry.io
+    // silently blocked every client event sent to o<org>.ingest.us.sentry.io.
+    const csp = buildCsp({ mode: "strict", nonce: "n", hashes: [] });
+    const connect = csp
+      .split(";")
+      .map((d) => d.trim())
+      .find((d) => d.startsWith("connect-src"))
+      ?.split(" ")
+      .slice(1) ?? [];
+    const host = "o4509096111112192.ingest.us.sentry.io";
+    const allowed = connect.some((src) => {
+      const m = /^https:\/\/\*\.(.+)$/.exec(src);
+      return m ? host.endsWith(`.${m[1]}`) : src === `https://${host}`;
+    });
+    expect(allowed).toBe(true);
+  });
 });
 
 describe("csp-hashes build script", () => {
