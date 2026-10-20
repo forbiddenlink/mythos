@@ -18,19 +18,19 @@ const MAX_DEPTH = 5;
 const MAX_TEXT = 4096;
 const PRE_CUT = MAX_TEXT + 512;
 const SENSITIVE_PARAM =
-  /token|secret|key|pass|auth|sig|session|jwt|code|email|phone|ssn|card|cvv|cvc/i;
+  /token|secret|key|pass|pwd|auth|sig|session|jwt|code|email|phone|ssn|card|cvv|cvc/i;
 const BEARER = /\bBearer\s+[A-Za-z0-9._~+/=-]+/gi;
-const BASIC = /\bBasic\s+[A-Za-z0-9+/]{8,}={0,2}/g;
+const BASIC = /\bBasic\s+[A-Za-z0-9+/]{8,}={0,2}/gi;
 const AUTH_HEADER = /\bAuthorization\s*:[^\n\r]{0,200}/gi;
 const JSON_KEY = /"((?:[^"\\]|\\.){1,64})"\s*:\s*/g;
 const KEY_CHAR = /[A-Za-z0-9_-]/;
 const SENSITIVE_WORD =
-  /pass|secret|token|api[_-]?key|authorization|session|cookie/i;
+  /pass|pwd|secret|token|api[_-]?key|authorization|session|cookie/i;
 const USERINFO = /(\b[A-Za-z][A-Za-z0-9+.-]{0,16}:\/\/)[^\s/@]{1,128}@/g;
 const SSN = /\b\d{3}-\d{2}-\d{4}\b/g;
 const CARD = /\b(?:\d[ -]?){13,19}\b/g;
 const IPV4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
-const PHONE = /(?<![^\s(:+])\+?\d[\d\s().-]{8,18}\d(?![\w:])/g;
+const PHONE = /(?<![^\s(:+[\]"'=,;>])\+?\d[\d\s().-]{8,18}\d(?![\w:])/g;
 const JWT =
   /(?<![A-Za-z0-9_-])eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g;
 const API_KEY = new RegExp(
@@ -50,7 +50,12 @@ const API_KEY = new RegExp(
 const KV_SEGMENT = /[^?#&;\s]+/g;
 const LOCAL_CH = /[A-Za-z0-9._%+-]/;
 const DOMAIN_CH = /[A-Za-z0-9.-]/;
-const TLD = /^[A-Za-z]{2,}$/;
+const TLD = /^(?:xn--[A-Za-z0-9-]{2,}|[A-Za-z]{2,})$/;
+const IPV6_RUN = /(?<![\w:])[0-9A-Fa-f:]{3,39}(?![\w:])/g;
+const MAX_QUOTED_KEY = 512;
+const MAX_STRUCT = 4096;
+const MAX_EXCEPTIONS = 20;
+const MAX_FRAMES = 100;
 
 function safeDecode(text: string): string {
   try {
@@ -81,8 +86,16 @@ function redactKeyValues(text: string): string {
 }
 
 /** One key test for JSON pairs, key=value and key: value. */
+/** Decode \uXXXX escapes so an escaped key such as pa\u0073sword is matched as written. */
+function unescapeUnicode(text: string): string {
+  return text.replace(/\\u([0-9a-fA-F]{4})/g, (_m, hex: string) =>
+    String.fromCharCode(Number.parseInt(hex, 16)),
+  );
+}
+
 function isSensitiveKey(key: string): boolean {
-  return SENSITIVE_PARAM.test(key) || SENSITIVE_WORD.test(key);
+  const k = unescapeUnicode(key);
+  return SENSITIVE_PARAM.test(k) || SENSITIVE_WORD.test(k);
 }
 
 /** End index of a quoted string that starts at `start` (a quote), or text.length. */
@@ -96,10 +109,60 @@ function quotedEnd(text: string, start: number): number {
   return text.length;
 }
 
+/** End of an object or array value that starts at `start`, string-aware and bounded. */
+function structEnd(text: string, start: number): number {
+  let depth = 0;
+  const limit = Math.min(text.length, start + MAX_STRUCT);
+  for (let i = start; i < limit; i++) {
+    const ch = text.charAt(i);
+    if (ch === '"' || ch === "'") {
+      i = quotedEnd(text, i) - 1;
+    } else if (ch === "{" || ch === "[") {
+      depth++;
+    } else if (ch === "}" || ch === "]") {
+      depth--;
+      if (depth === 0) return i + 1;
+    }
+  }
+  return text.length;
+}
+
+/**
+ * End of the value that begins at `start`, or undefined when there is none. Quoted values
+ * (plain or JSON-escaped) run to the closing quote; objects and arrays to their closing
+ * bracket; anything else to a delimiter. A closing quote followed straight away by a key
+ * character means the quote was inside the value, so redaction runs on to , } or end of line.
+ */
+function valueEnd(
+  text: string,
+  start: number,
+  scalar: RegExp,
+): number | undefined {
+  const first = text.charAt(start);
+  let end: number;
+  if (first === "{" || first === "[") {
+    end = structEnd(text, start);
+  } else if (first === '"' || first === "'") {
+    end = quotedEnd(text, start);
+  } else if (first === "\\" && /["']/.test(text.charAt(start + 1))) {
+    const close = text.indexOf(`\\${text.charAt(start + 1)}`, start + 2);
+    end = close === -1 ? text.length : close + 2;
+  } else {
+    scalar.lastIndex = start;
+    const v = scalar.exec(text);
+    return v && v.index === start ? start + v[0].length : undefined;
+  }
+  if (end < text.length && KEY_CHAR.test(text.charAt(end))) {
+    const rest = text.slice(end).search(/[,}\n]/);
+    end = rest === -1 ? text.length : end + rest;
+  }
+  return end;
+}
+
 /**
  * Replace the value that follows each sensitive key. `pattern` matches `key sep` only and
  * the value is measured here, so a non-sensitive key never swallows a pair nested in its
- * value. Quoted values run to the matching closing quote; unquoted ones to a delimiter.
+ * value.
  */
 function redactAfterKeys(
   text: string,
@@ -114,16 +177,8 @@ function redactAfterKeys(
   for (let m = pattern.exec(text); m; m = pattern.exec(text)) {
     const start = m.index + m[0].length;
     if (!isSensitiveKey(keyOf(m))) continue;
-    const first = text.charAt(start);
-    let end: number;
-    if (first === '"' || first === "'") {
-      end = quotedEnd(text, start);
-    } else {
-      scalar.lastIndex = start;
-      const v = scalar.exec(text);
-      if (!v || v.index !== start) continue;
-      end = start + v[0].length;
-    }
+    const end = valueEnd(text, start, scalar);
+    if (end === undefined) continue;
     out += text.slice(last, m.index) + render(m);
     last = end;
     pattern.lastIndex = end;
@@ -143,9 +198,45 @@ function redactJsonPairs(text: string): string {
 }
 
 /**
- * `key: value` and `key = value` for sensitive keys, quoted or not, in plain text. At each
- * separator the key is the (up to 64) key characters before it, so a long prefix cannot
- * hide the sensitive word. Cost per separator is bounded, so the pass is linear.
+ * The key written before the separator at `at`: a quoted key (any length up to
+ * MAX_QUOTED_KEY, escaped quotes allowed) or up to 64 key characters. `long` is true when
+ * the key is longer than what could be read, in which case the caller redacts by default.
+ */
+function keyBefore(
+  text: string,
+  at: number,
+  last: number,
+): { key: string; long: boolean } | undefined {
+  let end = at;
+  while (end > last && /\s/.test(text.charAt(end - 1))) end--;
+  if (end <= last) return undefined;
+  const close = text.charAt(end - 1);
+  if (close === '"' || close === "'") {
+    let e = end - 1;
+    while (e > last && text.charAt(e - 1) === "\\") e--;
+    const stop = Math.max(last, e - MAX_QUOTED_KEY);
+    let s = e - 1;
+    while (s >= stop && text.charAt(s) !== close) s--;
+    if (s < stop) return { key: "", long: true };
+    const key = text.slice(s + 1, e);
+    return key === "" ? undefined : { key, long: false };
+  }
+  let start = end;
+  while (
+    start > last &&
+    end - start < 64 &&
+    KEY_CHAR.test(text.charAt(start - 1))
+  )
+    start--;
+  if (start === end) return undefined;
+  const long =
+    end - start === 64 && start > last && KEY_CHAR.test(text.charAt(start - 1));
+  return { key: text.slice(start, end), long };
+}
+
+/**
+ * `key: value` and `key = value` for sensitive keys, quoted or not, in plain text. Cost per
+ * separator is bounded, so the pass is linear.
  */
 function redactKeyValueText(text: string): string {
   const scalar = /[^\s,;&"']+/y;
@@ -154,29 +245,13 @@ function redactKeyValueText(text: string): string {
   const sep = /[:=]/g;
   for (let m = sep.exec(text); m; m = sep.exec(text)) {
     const at = m.index;
-    let keyEnd = at;
-    while (keyEnd > last && /\s/.test(text.charAt(keyEnd - 1))) keyEnd--;
-    let keyStart = keyEnd;
-    while (
-      keyStart > last &&
-      keyEnd - keyStart < 64 &&
-      KEY_CHAR.test(text.charAt(keyStart - 1))
-    )
-      keyStart--;
-    if (keyStart === keyEnd) continue;
-    if (!isSensitiveKey(text.slice(keyStart, keyEnd))) continue;
+    const found = keyBefore(text, at, last);
+    if (!found || !(found.long || isSensitiveKey(found.key))) continue;
     let start = at + 1;
     while (start < text.length && /\s/.test(text.charAt(start))) start++;
-    const first = text.charAt(start);
-    let end: number;
-    if (first === '"' || first === "'") {
-      end = quotedEnd(text, start);
-    } else {
-      scalar.lastIndex = start;
-      const v = scalar.exec(text);
-      if (!v) continue;
-      end = start + v[0].length;
-    }
+    if (/^"?\[REDACTED\]/.test(text.slice(start, start + 12))) continue;
+    const end = valueEnd(text, start, scalar);
+    if (end === undefined) continue;
     out += `${text.slice(last, start)}[REDACTED]`;
     last = end;
     sep.lastIndex = end;
@@ -210,6 +285,14 @@ function redactIps(text: string): string {
   return text.replace(IPV4, (match) =>
     match.split(".").every((o) => Number(o) <= 255) ? "[IP]" : match,
   );
+}
+
+/** IPv6 addresses: a hex-and-colon run with a "::" or at least five colons. Times stay. */
+function redactIpv6(text: string): string {
+  return text.replace(IPV6_RUN, (match) => {
+    const colons = match.split(":").length - 1;
+    return match.includes("::") || colons >= 5 ? "[IP]" : match;
+  });
 }
 
 /** Token-shaped secrets: highest priority, run before any key/value handling. */
@@ -270,24 +353,33 @@ function dropPartialRun(text: string): string {
 export function redactText(text: string): string {
   const input =
     text.length > PRE_CUT ? dropPartialRun(text.slice(0, PRE_CUT)) : text;
-  // Escaped JSON (\\"password\\":\\"x\\") is unescaped so the pair pass can see it.
-  let current = input.replace(/\\+"/g, '"');
+  let current = input;
   for (let round = 0; round < 2; round++) {
     current = percentDecode(redactKeyValues(redactTokens(current)));
   }
-  const redacted = redactPhones(
-    redactIps(
-      redactCards(
-        redactEmails(
-          redactKeyValueText(
-            redactJsonPairs(redactKeyValues(redactTokens(current))),
-          ),
-        ).replace(SSN, "[SSN]"),
+  let redacted = redactPass(current);
+  // Escaped JSON (\\"password\\":\\"x\\") is scanned as written first, then unescaped and
+  // scanned again, so escape information is never lost before the value is measured.
+  const unescaped = unescapeUnicode(redacted).replace(/\\+"/g, '"');
+  if (unescaped !== redacted) redacted = redactPass(unescaped);
+  if (text.length <= MAX_TEXT && redacted.length <= MAX_TEXT) return redacted;
+  return `${dropPartialRun(redacted.slice(0, MAX_TEXT))}[TRUNCATED]`;
+}
+
+function redactPass(current: string): string {
+  return redactPhones(
+    redactIpv6(
+      redactIps(
+        redactCards(
+          redactEmails(
+            redactKeyValueText(
+              redactJsonPairs(redactKeyValues(redactTokens(current))),
+            ),
+          ).replace(SSN, "[SSN]"),
+        ),
       ),
     ),
   ).replace(USERINFO, "$1");
-  if (text.length <= MAX_TEXT && redacted.length <= MAX_TEXT) return redacted;
-  return `${dropPartialRun(redacted.slice(0, MAX_TEXT))}[TRUNCATED]`;
 }
 
 /** Recursive, depth-bounded redaction of keys and text. Nested Errors become plain objects. */
@@ -369,7 +461,6 @@ const ALLOWED_TAGS = new Set([
   "source",
 ]);
 const TAG_PREFIX = "ctx.";
-const SAFE_CONTEXTS = ["os", "runtime", "browser", "device", "app"];
 const METHODS = new Set([
   "GET",
   "POST",
@@ -393,13 +484,13 @@ function isBag(v: unknown): v is Bag {
 }
 
 /** Array entries that are plain objects, capped. Anything else is skipped. */
-function bags(v: unknown): Bag[] {
-  return Array.isArray(v) ? v.slice(0, MAX_ITEMS).filter(isBag) : [];
+function bags(v: unknown, max = MAX_ITEMS): Bag[] {
+  return Array.isArray(v) ? v.slice(0, max).filter(isBag) : [];
 }
 
 /** A short identifier string; anything else is dropped. */
 function id(v: unknown): string | undefined {
-  return typeof v === "string" ? v.slice(0, MAX_ID) : undefined;
+  return typeof v === "string" ? redactText(v.slice(0, MAX_ID)) : undefined;
 }
 
 function num(v: unknown): number | undefined {
@@ -492,7 +583,9 @@ function rebuildException(value: Bag): Bag {
   }
   const stack = value.stacktrace;
   if (isBag(stack) && Array.isArray(stack.frames)) {
-    out.stacktrace = { frames: bags(stack.frames).map(rebuildFrame) };
+    out.stacktrace = {
+      frames: bags(stack.frames, MAX_FRAMES).map(rebuildFrame),
+    };
   }
   return out;
 }
@@ -547,10 +640,55 @@ function rebuildSpan(span: Bag): Bag {
   return out; // span.data is dropped on purpose.
 }
 
+const CONTEXT_FIELDS: Record<string, string[]> = {
+  os: ["name", "version", "build", "kernel_version"],
+  runtime: ["name", "version"],
+  browser: ["name", "version"],
+  device: [
+    "family",
+    "model",
+    "model_id",
+    "arch",
+    "brand",
+    "manufacturer",
+    "simulator",
+    "memory_size",
+    "free_memory",
+    "usable_memory",
+    "storage_size",
+    "free_storage",
+    "screen_width_pixels",
+    "screen_height_pixels",
+    "screen_density",
+    "processor_count",
+    "processor_frequency",
+    "online",
+    "charging",
+    "orientation",
+  ],
+  app: [
+    "app_name",
+    "app_version",
+    "app_build",
+    "app_identifier",
+    "build_type",
+    "in_foreground",
+  ],
+};
+
+/** Scalar context fields on a per-context allowlist; nested values are dropped. */
 function rebuildContexts(contexts: Bag): Bag {
   const out: Bag = {};
-  for (const key of SAFE_CONTEXTS) {
-    if (isBag(contexts[key])) out[key] = scrub(contexts[key]);
+  for (const [key, fields] of Object.entries(CONTEXT_FIELDS)) {
+    const ctx = contexts[key];
+    if (!isBag(ctx)) continue;
+    const kept: Bag = {};
+    for (const field of fields) {
+      const v = ctx[field];
+      if (typeof v === "string") kept[field] = id(v);
+      else if (typeof v === "boolean" || num(v) !== undefined) kept[field] = v;
+    }
+    out[key] = kept;
   }
   if (isBag(contexts.trace)) {
     out.trace = take(contexts.trace, {
@@ -609,7 +747,7 @@ function rebuildEvent(src: Bag): Bag {
 
   if (isBag(src.exception) && Array.isArray(src.exception.values)) {
     out.exception = {
-      values: bags(src.exception.values).map(rebuildException),
+      values: bags(src.exception.values, MAX_EXCEPTIONS).map(rebuildException),
     };
   }
 

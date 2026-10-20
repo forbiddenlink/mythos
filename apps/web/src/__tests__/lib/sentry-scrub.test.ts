@@ -696,3 +696,115 @@ describe("sentry-scrub: Codex round 4", () => {
     }
   });
 });
+
+describe("sentry-scrub: review round 3", () => {
+  const gone = (input: string, canary: string) =>
+    expect(redactText(input)).not.toContain(canary);
+
+  it("redacts a sensitive key longer than 64 characters and a quoted sensitive key", () => {
+    const long = `${"a".repeat(70)}_password`;
+    gone(`{"${long}":"canary-long"}`, "canary-long");
+    gone(`${long}=canary-long2`, "canary-long2");
+    gone(`"api key": "canary-quoted"`, "canary-quoted");
+    gone(`'session id' : 'canary-single'`, "canary-single");
+    gone(`${"b".repeat(80)}: canary-unknown`, "canary-unknown");
+  });
+
+  it("measures a value on the original text so an escaped quote cannot end it early", () => {
+    gone(`{"password":"abc\\"canary-tail"}`, "canary-tail");
+    gone(`{"password":"abc"canary-tail2,"ok":1}`, "canary-tail2");
+    gone(`{"payload":"{\\"password\\":\\"canary-nested\\"}"}`, "canary-nested");
+    gone(
+      `{"payload":"{\\"password\\":\\"a\\\\\\"canary-nested2\\"}"}`,
+      "canary-nested2",
+    );
+  });
+
+  it("keeps the rest of the line after a quoted value", () => {
+    expect(redactText(`{"password":"x","ok":"keep"}`)).toContain("keep");
+  });
+
+  it("redacts whole object and array values under a sensitive key", () => {
+    gone(`{"token":{"v":"canary-obj","tail":"canary-tail3"}}`, "canary-tail3");
+    gone(`{"password":["canary-arr1","canary-arr2"]}`, "canary-arr2");
+  });
+
+  it("decodes unicode-escaped keys", () => {
+    gone(`{"pa\\u0073sword":"canary-uni"}`, "canary-uni");
+  });
+
+  it("covers pwd, lowercase basic, bracketed phones, punycode emails and IPv6", () => {
+    gone("pwd: canary-pwd", "canary-pwd");
+    gone("basic Q2FuYXJ5VXNlcjpDYW5hcnlQYXNz", "Q2FuYXJ5");
+    gone("call [202-555-0196]", "555-0196");
+    gone("mail canary@audit.xn--p1ai", "canary@");
+    gone("remote 2001:db8:abcd:42::7", "abcd");
+    expect(redactText("at 12:30:45 done")).toContain("12:30:45");
+  });
+
+  it("scrubs identifier fields, including the fallback event", () => {
+    const out = JSON.stringify(
+      scrubEvent({
+        server_name: "host@canary.invalid",
+        exception: {
+          values: [
+            {
+              type: "token=canary-type",
+              stacktrace: {
+                frames: [
+                  {
+                    function: "f@canary.invalid",
+                    module: "password=canary-mod",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        spans: [{ op: "password=canary-op" }],
+      }),
+    );
+    for (const c of ["@canary", "canary-type", "canary-mod", "canary-op"]) {
+      expect(out).not.toContain(c);
+    }
+    const fallback = JSON.stringify(
+      scrubEvent({
+        event_id: "canary-fb@audit.invalid",
+        exception: { values: [{ type: "token=canary-fb2" }] },
+        get message(): string {
+          throw new Error("x");
+        },
+      }),
+    );
+    expect(fallback).not.toContain("canary-fb");
+  });
+
+  it("keeps only allowlisted scalar fields in contexts", () => {
+    const out = JSON.stringify(
+      scrubEvent({
+        contexts: {
+          device: {
+            model: "Pixel",
+            custom_payload: { fullName: "Canary Person" },
+            owner_name: "Canary Person",
+          },
+        },
+      }),
+    );
+    expect(out).toContain("Pixel");
+    expect(out).not.toContain("Canary");
+  });
+
+  it("caps exceptions and frames so a huge event stays fast", () => {
+    const frames = Array.from({ length: 500 }, () => ({ function: "f" }));
+    const input = {
+      exception: {
+        values: Array.from({ length: 500 }, () => ({ stacktrace: { frames } })),
+      },
+    };
+    const start = performance.now();
+    const out = scrubEvent(input) as typeof input;
+    expect(performance.now() - start).toBeLessThan(250);
+    expect(out.exception.values.length).toBeLessThanOrEqual(20);
+  });
+});
