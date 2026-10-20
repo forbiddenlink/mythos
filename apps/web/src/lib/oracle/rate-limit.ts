@@ -23,7 +23,17 @@ const ORACLE_ANONYMOUS_RATE_LIMIT = 3;
 // covers typos and shared networks while keeping list-bombing expensive.
 const NEWSLETTER_RATE_LIMIT = 5;
 
-type Bucket = "oracle" | "oracle-anon" | "quiz" | "search" | "newsletter";
+type Bucket =
+  | "oracle"
+  | "oracle-anon"
+  | "quiz"
+  | "search"
+  | "newsletter"
+  | "newsletter-confirm";
+
+// Confirmation links are single-use, so a person confirms once. The ceiling
+// only bounds token-guessing and replay traffic from one client.
+const NEWSLETTER_CONFIRM_RATE_LIMIT = 20;
 
 const BUCKET_LIMITS: Record<Bucket, number> = {
   oracle: RATE_LIMIT,
@@ -31,6 +41,7 @@ const BUCKET_LIMITS: Record<Bucket, number> = {
   quiz: RATE_LIMIT,
   search: SEARCH_RATE_LIMIT,
   newsletter: NEWSLETTER_RATE_LIMIT,
+  "newsletter-confirm": NEWSLETTER_CONFIRM_RATE_LIMIT,
 };
 
 const memoryStores: Record<
@@ -42,6 +53,7 @@ const memoryStores: Record<
   quiz: new Map(),
   search: new Map(),
   newsletter: new Map(),
+  "newsletter-confirm": new Map(),
 };
 
 const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
@@ -50,6 +62,7 @@ const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   quiz: undefined,
   search: undefined,
   newsletter: undefined,
+  "newsletter-confirm": undefined,
 };
 
 function isProductionRuntime(): boolean {
@@ -101,18 +114,45 @@ function checkInMemoryRateLimit(bucket: Bucket, identifier: string): boolean {
 
 export type OracleRateLimitResult =
   | { allowed: true }
-  | { allowed: false; reason: "rate_limited" | "misconfigured" };
+  | {
+      allowed: false;
+      reason: "rate_limited" | "misconfigured" | "unavailable";
+    };
+
+export interface RateLimitOptions {
+  /**
+   * Opt-in. Upstash reports `success: true` with `reason: "timeout"` when
+   * Redis is slow, and `limit()` throws when Redis errors. Both normally let
+   * the request through. With `failClosed` they deny with "unavailable", for
+   * paths that send mail or otherwise cost real money per admission.
+   */
+  failClosed?: boolean;
+}
 
 async function checkBucketRateLimit(
   bucket: Bucket,
   identifier: string,
+  options: RateLimitOptions = {},
 ): Promise<OracleRateLimitResult> {
   const rl = getEdgeRatelimit(bucket);
   if (rl) {
-    const { success } = await rl.limit(identifier);
-    return success
-      ? { allowed: true }
-      : { allowed: false, reason: "rate_limited" };
+    if (!options.failClosed) {
+      const { success } = await rl.limit(identifier);
+      return success
+        ? { allowed: true }
+        : { allowed: false, reason: "rate_limited" };
+    }
+    try {
+      const result = await rl.limit(identifier);
+      if (result.reason === "timeout") {
+        return { allowed: false, reason: "unavailable" };
+      }
+      return result.success
+        ? { allowed: true }
+        : { allowed: false, reason: "rate_limited" };
+    } catch {
+      return { allowed: false, reason: "unavailable" };
+    }
   }
 
   // Fail closed in prod for EVERY bucket. quiz/search bill real money; the oracle
@@ -160,9 +200,21 @@ export async function checkSearchRateLimit(
   return checkBucketRateLimit("search", identifier);
 }
 
-/** Newsletter sign-up rate limit (5/hr per client key). */
+/**
+ * Newsletter sign-up rate limit (5/hr per client key). Fails closed on an
+ * Upstash timeout or error: every admission sends a real email.
+ */
 export async function checkNewsletterRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
-  return checkBucketRateLimit("newsletter", identifier);
+  return checkBucketRateLimit("newsletter", identifier, { failClosed: true });
+}
+
+/** Newsletter confirmation rate limit (20/hr per client key), fail closed. */
+export async function checkNewsletterConfirmRateLimit(
+  identifier: string,
+): Promise<OracleRateLimitResult> {
+  return checkBucketRateLimit("newsletter-confirm", identifier, {
+    failClosed: true,
+  });
 }

@@ -5,10 +5,12 @@ import { readJsonBody } from "@/lib/http/read-json-body";
 import { logger } from "@/lib/logger";
 import { siteConfig } from "@/lib/metadata";
 import {
+  canonicalMailboxKey,
   getNewsletterConfig,
   newsletterRequestSchema,
   requestNewsletterConfirmation,
 } from "@/lib/newsletter";
+import { checkNewsletterSendBudget } from "@/lib/newsletter-budget";
 import { createConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkNewsletterRateLimit } from "@/lib/oracle/rate-limit";
@@ -63,23 +65,33 @@ export async function POST(req: NextRequest) {
   const identity = getOracleClientIdentity(req.headers);
   const limit = await checkNewsletterRateLimit(`newsletter:${identity.key}`);
   if (!limit.allowed) {
-    return limit.reason === "misconfigured"
-      ? json({ subscribed: false, reason: "unavailable" }, 503)
-      : json({ subscribed: false, reason: "rate_limited" }, 429);
+    return limit.reason === "rate_limited"
+      ? json({ subscribed: false, reason: "rate_limited" }, 429)
+      : json({ subscribed: false, reason: "unavailable" }, 503);
   }
 
-  // Per-address limit too, so rotating IPs cannot bury one inbox in
-  // confirmation emails.
+  // Per-inbox limit too, so rotating IPs cannot bury one inbox in
+  // confirmation emails. Keyed on the canonical mailbox (aliases like
+  // victim+1@gmail.com and v.ictim@gmail.com fold together); delivery below
+  // still uses the address exactly as submitted.
   const addressKey = createHash("sha256")
-    .update(parsed.data.email)
+    .update(canonicalMailboxKey(parsed.data.email))
     .digest("hex");
   const addressLimit = await checkNewsletterRateLimit(
     `newsletter-address:${addressKey}`,
   );
   if (!addressLimit.allowed) {
-    return addressLimit.reason === "misconfigured"
-      ? json({ subscribed: false, reason: "unavailable" }, 503)
-      : json({ subscribed: false, reason: "rate_limited" }, 429);
+    return addressLimit.reason === "rate_limited"
+      ? json({ subscribed: false, reason: "rate_limited" }, 429)
+      : json({ subscribed: false, reason: "unavailable" }, 503);
+  }
+
+  // Aggregate ceiling: per-IP and per-inbox limits can both be rotated past.
+  const budget = await checkNewsletterSendBudget();
+  if (!budget.allowed) {
+    return budget.reason === "budget_exhausted"
+      ? json({ subscribed: false, reason: "rate_limited" }, 429)
+      : json({ subscribed: false, reason: "unavailable" }, 503);
   }
 
   try {

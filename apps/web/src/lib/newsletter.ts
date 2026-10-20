@@ -170,3 +170,28 @@ export async function confirmNewsletterSubscription(
   }
   return { ok: true };
 }
+
+const GMAIL_DOMAINS = new Set(["gmail.com", "googlemail.com"]);
+
+/**
+ * Canonical mailbox for RATE-LIMIT KEYS ONLY. Delivery always uses the
+ * submitted address. Providers deliver `victim+1@x`, `victim+2@x` to the
+ * same inbox, and Gmail also ignores dots in the local part, so a limiter
+ * keyed on the literal address gives every alias its own allowance.
+ * Lowercases, strips a `+tag` for every provider, and strips dots plus
+ * folds googlemail.com into gmail.com for Gmail.
+ */
+export function canonicalMailboxKey(email: string): string {
+  const lowered = email.trim().toLowerCase();
+  const at = lowered.lastIndexOf("@");
+  if (at < 1) return lowered;
+  let local = lowered.slice(0, at);
+  let domain = lowered.slice(at + 1);
+  const plus = local.indexOf("+");
+  if (plus > 0) local = local.slice(0, plus);
+  if (GMAIL_DOMAINS.has(domain)) {
+    local = local.replaceAll(".", "");
+    domain = "gmail.com";
+  }
+  return `${local}@${domain}`;
+}
