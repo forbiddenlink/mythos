@@ -26,7 +26,8 @@ const JSON_KEY = /"((?:[^"\\]|\\.){1,64})"\s*:\s*/g;
 const KEY_CHAR = /[A-Za-z0-9_.-]/;
 const SENSITIVE_WORD =
   /pass|pwd|secret|token|api[_-]?key|authorization|session|cookie/i;
-const USERINFO = /(\b[A-Za-z][A-Za-z0-9+.-]{0,16}:\/\/)[^\s/@]{1,2048}@/g;
+const USERINFO =
+  /(\b[A-Za-z][A-Za-z0-9+.-]{0,16}:\/\/)[A-Za-z0-9._~%!$&()*+;=-]{0,256}(?::[^\s/@"',{}<>]{0,2048})?@/g;
 const SSN = /\b\d{3}[- ]\d{2}[- ]\d{4}\b/g;
 const CARD = /\b(?:\d[ -]?){13,19}\b/g;
 const IPV4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
@@ -214,7 +215,8 @@ function keyBefore(
   last: number,
 ): { key: string; long: boolean } | undefined {
   let end = at;
-  while (end > last && /\s/.test(text.charAt(end - 1))) end--;
+  // password[] and creds[password] name their key before the brackets close.
+  while (end > last && /[\s[\]]/.test(text.charAt(end - 1))) end--;
   if (end <= last) return undefined;
   const close = text.charAt(end - 1);
   if (close === '"' || close === "'") {

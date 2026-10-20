@@ -855,3 +855,22 @@ describe("sentry-scrub: review round 4", () => {
     expect(out.environment).not.toContain("sk_live_ROUN");
   });
 });
+
+describe("sentry-scrub: review round 5", () => {
+  const gone = (input: string, canary: string) =>
+    expect(redactText(input)).not.toContain(canary);
+
+  it("redacts bracketed keys", () => {
+    gone("password[]=R5_CANARY", "R5_CANARY");
+    gone("creds[password]=R5_CANARY", "R5_CANARY");
+    gone('creds[password]="R5 CANARY two"', "CANARY two");
+  });
+
+  it("does not let url userinfo swallow a key in surrounding text", () => {
+    gone('{"u":"http://a","password":"R5_CANARY@x"}', "R5_CANARY");
+    gone("see http://a, password=R5_CANARY@x", "R5_CANARY");
+    expect(redactText("https://user:pw@example.test/p")).toBe(
+      "https://example.test/p",
+    );
+  });
+});
