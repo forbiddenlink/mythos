@@ -15,7 +15,7 @@ const TEXT_PATTERNS: [RegExp, string][] = [
   [/\beyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g, "[JWT]"],
   [/\b(sk|pk|rk)_(live|test)_[A-Za-z0-9]{10,}/g, "[API_KEY]"],
   [
-    /([?&](?:token|access_token|api_key|apikey|key|secret|password|code)=)[^&\s"']+/gi,
+    /([?&][^=&\s"']*(?:token|secret|key|pass|auth|sig|session|jwt|code)[^=&\s"']*=)[^&\s"']+/gi,
     "$1[REDACTED]",
   ],
 ];
@@ -48,17 +48,38 @@ export function scrub(value: unknown, depth = 0): unknown {
   );
 }
 
+/** Header names are redacted when the normalized name looks sensitive (token, secret, key, cookie...). */
+function isSensitiveHeader(name: string): boolean {
+  const normalized = name.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return SENSITIVE_KEY.test(normalized) || /key|setcookie/.test(normalized);
+}
+
+function redactQueryString(qs: string): string {
+  return redactText(`?${qs}`).slice(1);
+}
+
 interface ScrubbableEvent {
   message?: string;
   exception?: { values?: { value?: string }[] };
   extra?: Record<string, unknown>;
   contexts?: Record<string, unknown>;
-  request?: { headers?: Record<string, string> };
+  tags?: Record<string, unknown>;
+  user?: Record<string, unknown>;
+  breadcrumbs?: { message?: string; data?: Record<string, unknown> }[];
+  request?: {
+    url?: string;
+    query_string?: unknown;
+    data?: unknown;
+    cookies?: unknown;
+    headers?: Record<string, string>;
+  };
 }
 
 /**
- * beforeSend helper: redacts the message, exception text, extras, contexts and the
- * authorization/cookie headers. The real Error still groups by its stack frames.
+ * beforeSend helper. Redacts the message, exception text, extras, contexts, tags, user,
+ * breadcrumbs, and the request URL, query string, body, cookies and sensitive headers.
+ * Stack frames (filename, function, lineno) are left alone so grouping still works, and the
+ * real Error still groups by its stack.
  */
 export function scrubEvent<T extends ScrubbableEvent>(event: T): T {
   if (event.message) event.message = redactText(event.message);
@@ -67,11 +88,32 @@ export function scrubEvent<T extends ScrubbableEvent>(event: T): T {
   }
   if (event.extra) event.extra = scrub(event.extra) as T["extra"];
   if (event.contexts) event.contexts = scrub(event.contexts) as T["contexts"];
-  const headers = event.request?.headers;
-  if (headers) {
-    for (const name of Object.keys(headers)) {
-      if (["authorization", "cookie"].includes(name.toLowerCase())) {
-        headers[name] = "[REDACTED]";
+  if (event.tags) event.tags = scrub(event.tags) as T["tags"];
+  if (event.user) event.user = scrub(event.user) as T["user"];
+  for (const crumb of event.breadcrumbs ?? []) {
+    if (crumb.message) crumb.message = redactText(crumb.message);
+    if (crumb.data) crumb.data = scrub(crumb.data) as typeof crumb.data;
+  }
+  const req = event.request;
+  if (req) {
+    if (req.url) req.url = redactText(req.url);
+    if (typeof req.query_string === "string") {
+      req.query_string = redactQueryString(req.query_string);
+    } else if (req.query_string) {
+      req.query_string = scrub(req.query_string);
+    }
+    if (req.data !== undefined) req.data = scrub(req.data);
+    // Cookie names rarely look sensitive but their values always are: keep names only.
+    if (req.cookies && typeof req.cookies === "object") {
+      req.cookies = Object.fromEntries(
+        Object.keys(req.cookies).map((name) => [name, "[REDACTED]"]),
+      );
+    } else if (req.cookies) {
+      req.cookies = "[REDACTED]";
+    }
+    if (req.headers) {
+      for (const name of Object.keys(req.headers)) {
+        if (isSensitiveHeader(name)) req.headers[name] = "[REDACTED]";
       }
     }
   }

@@ -104,6 +104,55 @@ describe("logger.error -> Sentry", () => {
     ).toBe("retry for [EMAIL]");
   });
 
+  it("scrubEvent redacts the query string, breadcrumb data, headers, body, user and tags, and leaves stack frames", () => {
+    const frames = [{ filename: "app/x.ts", function: "run", lineno: 7 }];
+    const event = scrubEvent({
+      request: {
+        url: "https://mythos.test/api/x?token=abc123&page=2",
+        query_string: "access_token=abc123&page=2",
+        data: { password: "pw-1", note: "hi jane@example.com" },
+        cookies: { session: "cookie-1" },
+        headers: {
+          "X-API-Key": "key-1",
+          "x-custom-token": "t-1",
+          accept: "json",
+        },
+      },
+      user: { id: "u1", email: "jane@example.com" },
+      tags: { contact: "jane@example.com" },
+      breadcrumbs: [
+        {
+          message: "GET /x?secret=s-1",
+          data: { apiKey: "key-2", url: "/x?code=c-1" },
+        },
+      ],
+      exception: { values: [{ value: "x", stacktrace: { frames } } as never] },
+    });
+    const json = JSON.stringify(event);
+    for (const leaked of [
+      "abc123",
+      "pw-1",
+      "jane@example.com",
+      "cookie-1",
+      "key-1",
+      "t-1",
+      "s-1",
+      "key-2",
+      "c-1",
+    ]) {
+      expect(json).not.toContain(leaked);
+    }
+    expect(event.request?.headers?.accept).toBe("json");
+    expect(event.request?.url).toContain("page=2");
+    expect(
+      (
+        event.exception?.values?.[0] as unknown as {
+          stacktrace: { frames: unknown[] };
+        }
+      ).stacktrace.frames,
+    ).toEqual(frames);
+  });
+
   it("exception() captures the given Error once", async () => {
     const logger = await loadLogger();
     const err = new Error("boom");
