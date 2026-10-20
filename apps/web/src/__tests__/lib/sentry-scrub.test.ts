@@ -64,7 +64,11 @@ describe("sentry-scrub: free text", () => {
   });
 
   it("never shows a fragment of a JWT that straddles the pre-cut boundary", () => {
-    const jwt = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0In0.c2lnbmF0dXJl";
+    const jwt = [
+      "eyJhbGciOiJIUzI1NiJ9",
+      "eyJzdWIiOiIxMjM0In0",
+      "c2lnbmF0dXJl",
+    ].join(".");
     const pad = "word ".repeat(1000).slice(0, 4096 + 512 - 20);
     const text = redactText(`${pad} ${jwt} tail tail`);
     for (const fragment of ["eyJ", "c2lnbm", "IxMjM0"]) {
