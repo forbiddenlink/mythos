@@ -4,6 +4,7 @@ import { scrubEvent } from "@/lib/sentry-scrub";
 
 vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
 
+const FAKE_KEY = ["sk", "live", "ABCDEFGHIJKL"].join("_");
 const capture = vi.mocked(Sentry.captureException);
 
 async function loadLogger(env: "production" | "development" = "production") {
@@ -34,38 +35,46 @@ describe("logger.error -> Sentry", () => {
   it("wraps the message when no Error is supplied and redacts emails", async () => {
     const logger = await loadLogger();
     logger.error("Newsletter sign-up failed for jane@example.com", {
-      error: "upstream said jane@example.com bounced",
+      provider: "upstream jane@example.com bounced",
     });
     await vi.waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
     expect((capture.mock.calls[0][0] as Error).message).toBe(
       "Newsletter sign-up failed for [EMAIL]",
     );
-    expect(opts().tags["ctx.error"]).toBe("upstream said [EMAIL] bounced");
+    expect(opts().tags["ctx.provider"]).toBe("upstream [EMAIL] bounced");
   });
 
-  it("redacts nested secrets in the context tags, whatever the key casing", async () => {
+  it("only allowlisted context keys become tags, values redacted", async () => {
     const logger = await loadLogger();
-    logger.error("Deep", {
-      user: { password: "p", profile: { accessToken: "tok-1" } },
-      headers: { Authorization: "Bearer x", "x-api-key": "key-1" },
-      list: [{ access_token: "tok-2" }, { "refresh-token": "tok-3" }],
-      deep: { a: { b: { c: { d: { e: "too-deep" } } } } },
+    logger.error("Ctx", {
+      [FAKE_KEY]: "x",
+      "alice@example.com": "y",
+      password: "canary-secret",
+      route: "/api?token=abc123",
+      op: "Bearer abc.def-123",
+      status: 500,
+      deep: { a: "nested-secret" },
     });
     await vi.waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
-    const json = JSON.stringify(opts().tags);
+    const tags = opts().tags;
+    expect(Object.keys(tags).sort()).toEqual([
+      "ctx.op",
+      "ctx.route",
+      "ctx.status",
+      "source",
+    ]);
+    const json = JSON.stringify(tags);
     for (const leaked of [
-      '\\"p\\"',
-      "tok-1",
-      "Bearer x",
-      "key-1",
-      "tok-2",
-      "tok-3",
-      "too-deep",
+      FAKE_KEY,
+      "alice@",
+      "canary-secret",
+      "abc123",
+      "abc.def",
+      "nested-secret",
     ]) {
       expect(json).not.toContain(leaked);
     }
-    expect(json).toContain("[REDACTED]");
-    expect(json).toContain("[MAX_DEPTH]");
+    expect(tags["ctx.status"]).toBe("500");
   });
 
   it("an Error with an email and bearer token comes out clean through scrubEvent", async () => {

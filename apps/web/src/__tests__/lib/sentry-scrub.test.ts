@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { redactText, scrub, scrubEvent } from "@/lib/sentry-scrub";
+import { redactText, scrub, scrubEvent, stripUrl } from "@/lib/sentry-scrub";
 
 // Built at runtime so secret scanners do not flag the fixture.
 const FAKE_KEY = ["sk", "live", "ABCDEFGHIJKL"].join("_");
@@ -363,13 +363,124 @@ describe("sentry-scrub: allowlist rebuild", () => {
         route: "/api/x",
         contact: "jane@example.com",
         "ctx.note": "jane@example.com",
+        "ctx.alice@example.com": "x",
+        [`ctx.${FAKE_KEY}`]: "x",
+        "ctx.provider": "jane@example.com",
         runtime: "node",
       },
     }) as { tags: Record<string, string> };
     expect(event.tags).toEqual({
       route: "/api/x",
-      "ctx.note": "[EMAIL]",
+      "ctx.provider": "[EMAIL]",
       runtime: "node",
     });
+  });
+});
+
+describe("sentry-scrub: Codex round 2", () => {
+  const cardNumber = ["4242", "4242", "4242", "4242"].join(" ");
+  const ssn = ["123", "45", "6789"].join("-");
+
+  it("redacts key: value and key = value, including exception, breadcrumb, span, transaction", () => {
+    const event = scrubEvent({
+      transaction: "job password: canary-secret",
+      exception: {
+        values: [{ type: "Error", value: "failed, password: canary-secret" }],
+      },
+      breadcrumbs: [{ message: "retry token = canary-secret", category: "x" }],
+      spans: [{ description: "run secret:canary-secret", op: "x" }],
+    });
+    expect(JSON.stringify(event)).not.toContain("canary-secret");
+  });
+
+  it("redacts escaped JSON, non-string scalars, and ssn / card / ip", () => {
+    const text = redactText(
+      `body {\\"password\\":\\"canary-secret\\"} {"pin":1,"token":12345678} ssn ${ssn} card ${cardNumber} ip 10.20.30.40 order 1234 5678 9012 3456`,
+    );
+    for (const leaked of [
+      "canary-secret",
+      "12345678",
+      ssn,
+      cardNumber,
+      "10.20.30.40",
+    ]) {
+      expect(text).not.toContain(leaked);
+    }
+    expect(text).toContain("1234 5678 9012 3456"); // fails Luhn, left alone
+  });
+
+  it("never copies URL userinfo, in parsed and fallback paths", () => {
+    expect(stripUrl("https://bob:hunter2@example.test/a?x=1")).toBe(
+      "https://example.test/a",
+    );
+    expect(stripUrl("https://bob:p@ss@example.test:8080/a#f")).toBe(
+      "https://example.test:8080/a",
+    );
+    expect(stripUrl("https://a:b@@c d/x?y=1")).toBe("https://c d/x");
+    expect(redactText("see https://bob:hunter2@example.test/a")).not.toContain(
+      "hunter2",
+    );
+  });
+
+  it("rebuilds debug_meta without file paths, drops context lines, scrubs user id and fingerprint", () => {
+    const event = scrubEvent({
+      debug_meta: {
+        images: [
+          {
+            type: "sourcemap",
+            debug_id: "abc-123",
+            code_file: "https://example.test/a.js?token=canary-secret",
+            debug_file: "/Users/alice/a.map",
+          },
+        ],
+        sdk_info: { sdk_name: "sentry.javascript.nextjs" },
+      },
+      exception: {
+        values: [
+          {
+            stacktrace: {
+              frames: [
+                {
+                  function: "f",
+                  context_line: "password: canary-secret",
+                  pre_context: ["a@b.com"],
+                  post_context: ["c"],
+                },
+              ],
+            },
+          },
+        ],
+      },
+      user: { id: "alice@example.com" },
+      fingerprint: ["Bearer abc.def-123", "{{ default }}"],
+    }) as {
+      debug_meta: { images: Record<string, unknown>[] };
+      user: { id: string };
+    };
+    const json = JSON.stringify(event);
+    for (const leaked of ["canary-secret", "alice", "a@b.com", "abc.def-123"]) {
+      expect(json).not.toContain(leaked);
+    }
+    expect(event.debug_meta.images[0]).toEqual({
+      type: "sourcemap",
+      debug_id: "abc-123",
+    });
+    expect(event.user.id).toBe("[EMAIL]");
+  });
+
+  it("stays linear on the new patterns", () => {
+    const inputs = [
+      `"${"a".repeat(4500)}`,
+      `{"k":"${"\\\\".repeat(2200)}`,
+      `password${" ".repeat(4500)}`,
+      "1 ".repeat(2250),
+      "1.".repeat(2250),
+      `://${"a".repeat(4500)}`,
+    ];
+    for (const input of inputs) {
+      const start = performance.now();
+      redactText(input);
+      expect(performance.now() - start).toBeLessThan(50);
+    }
   });
 });

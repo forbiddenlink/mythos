@@ -7,7 +7,7 @@
  * - Structured log format with timestamps and context
  */
 
-import { scrub } from "@/lib/sentry-scrub";
+import { CTX_TAG_KEYS, redactText, scrub } from "@/lib/sentry-scrub";
 
 type LogLevel = "debug" | "info" | "warn" | "error";
 
@@ -73,18 +73,17 @@ function reportToErrorTracking(
   const cause =
     error ??
     [context?.error, context?.err].find((v): v is Error => v instanceof Error);
-  // scrubEvent drops `extra`, so logger context travels as redacted tags (ctx.<key>).
+  // scrubEvent drops `extra`, so only allowlisted context keys travel, as redacted tags.
   const tags: Record<string, string> = { source: "logger" };
-  const entries = Object.entries(context ?? {}).filter(
-    ([, v]) => !(v instanceof Error),
-  );
-  for (const [key, value] of entries.slice(0, 10)) {
-    const safeKey = key.replace(/[^A-Za-z0-9_.-]/g, "_").slice(0, 32);
-    // scrub() redacts by key name and runs redactText over every string value.
-    const redacted = Object.values(scrub({ [key]: value }) as LogContext)[0];
-    const rendered =
-      typeof redacted === "string" ? redacted : JSON.stringify(redacted);
-    tags[`ctx.${safeKey}`] = (rendered ?? "").slice(0, 200);
+  for (const key of CTX_TAG_KEYS) {
+    const value = context?.[key];
+    if (
+      typeof value === "string" ||
+      typeof value === "number" ||
+      typeof value === "boolean"
+    ) {
+      tags[`ctx.${key}`] = redactText(String(value)).slice(0, 200);
+    }
   }
 
   void import("@sentry/nextjs")

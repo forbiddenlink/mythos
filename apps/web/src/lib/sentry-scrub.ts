@@ -22,8 +22,15 @@ const SENSITIVE_PARAM =
 const BEARER = /\bBearer\s+[A-Za-z0-9._~+/=-]+/gi;
 const BASIC = /\bBasic\s+[A-Za-z0-9+/]{8,}={0,2}/g;
 const AUTH_HEADER = /\bAuthorization\s*:[^\n\r]{0,200}/gi;
-const JSON_STRING_PAIR = /"([^"\\]{1,64})"\s*:\s*"[^"\\]{0,256}"/g;
-const PHONE = /(?<!\w)\+?\d[\d\s().-]{8,18}\d(?![\w:])/g;
+const JSON_PAIR =
+  /"((?:[^"\\]|\\.){1,64})"\s*:\s*("(?:[^"\\]|\\.){0,2048}"|[^,}\s]{1,256})/g;
+const KEY_VALUE_TEXT =
+  /\b(pass\w{0,32}|secret|token|api[_-]?key|authorization|session|cookie)(\s{0,4}[:=]\s{0,4})[^\s"',;&]{1,256}/gi;
+const USERINFO = /(\b[A-Za-z][A-Za-z0-9+.-]{0,16}:\/\/)[^\s/@]{1,128}@/g;
+const SSN = /\b\d{3}-\d{2}-\d{4}\b/g;
+const CARD = /\b(?:\d[ -]?){13,19}\b/g;
+const IPV4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
+const PHONE = /(?<![^\s(])\+?\d[\d\s().-]{8,18}\d(?![\w:])/g;
 const JWT =
   /(?<![A-Za-z0-9_-])eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g;
 const API_KEY = /(?<![A-Za-z0-9_])(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{10,}/g;
@@ -60,11 +67,56 @@ function redactKeyValues(text: string): string {
   });
 }
 
-/** "key":"value" pairs (serialized JSON) whose key looks sensitive. */
+/** "key": value pairs (serialized JSON, string-aware) whose key looks sensitive. */
 function redactJsonPairs(text: string): string {
-  return text.replace(JSON_STRING_PAIR, (pair, key: string) =>
+  return text.replace(JSON_PAIR, (pair, key: string) =>
     SENSITIVE_PARAM.test(key) ? `"${key}":"[REDACTED]"` : pair,
   );
+}
+
+/** `key: value` and `key = value` for sensitive keys, in plain text. */
+function redactKeyValueText(text: string): string {
+  return text.replace(KEY_VALUE_TEXT, (_m, key: string, sep: string) => {
+    return `${key}${sep}[REDACTED]`;
+  });
+}
+
+function luhn(digits: string): boolean {
+  let sum = 0;
+  for (let i = 0; i < digits.length; i++) {
+    let d = Number(digits.charAt(digits.length - 1 - i));
+    if (i % 2 === 1) {
+      d *= 2;
+      if (d > 9) d -= 9;
+    }
+    sum += d;
+  }
+  return sum % 10 === 0;
+}
+
+function redactCards(text: string): string {
+  return text.replace(CARD, (match) => {
+    const digits = match.replace(/\D/g, "");
+    return digits.length >= 13 && digits.length <= 19 && luhn(digits)
+      ? "[CARD]"
+      : match;
+  });
+}
+
+function redactIps(text: string): string {
+  return text.replace(IPV4, (match) =>
+    match.split(".").every((o) => Number(o) <= 255) ? "[IP]" : match,
+  );
+}
+
+/** Token-shaped secrets: highest priority, run before any key/value handling. */
+function redactTokens(text: string): string {
+  return text
+    .replace(AUTH_HEADER, "Authorization: [REDACTED]")
+    .replace(BEARER, "Bearer [TOKEN]")
+    .replace(BASIC, "Basic [TOKEN]")
+    .replace(JWT, "[JWT]")
+    .replace(API_KEY, "[API_KEY]");
 }
 
 /** Phone numbers (E.164 and US formats): a digit run of 10 to 15 digits with separators. */
@@ -115,18 +167,22 @@ function dropPartialRun(text: string): string {
 export function redactText(text: string): string {
   const input =
     text.length > PRE_CUT ? dropPartialRun(text.slice(0, PRE_CUT)) : text;
-  let current = input;
+  // Escaped JSON (\\"password\\":\\"x\\") is unescaped so the pair pass can see it.
+  let current = input.replace(/\\+"/g, '"');
   for (let round = 0; round < 2; round++) {
-    current = percentDecode(redactKeyValues(current));
+    current = percentDecode(redactKeyValues(redactTokens(current)));
   }
   const redacted = redactPhones(
-    redactEmails(redactJsonPairs(redactKeyValues(current))),
-  )
-    .replace(AUTH_HEADER, "Authorization: [REDACTED]")
-    .replace(BEARER, "Bearer [TOKEN]")
-    .replace(BASIC, "Basic [TOKEN]")
-    .replace(JWT, "[JWT]")
-    .replace(API_KEY, "[API_KEY]");
+    redactIps(
+      redactCards(
+        redactEmails(
+          redactJsonPairs(
+            redactKeyValueText(redactKeyValues(redactTokens(current))),
+          ),
+        ).replace(SSN, "[SSN]"),
+      ),
+    ),
+  ).replace(USERINFO, "$1");
   if (text.length <= MAX_TEXT && redacted.length <= MAX_TEXT) return redacted;
   return `${dropPartialRun(redacted.slice(0, MAX_TEXT))}[TRUNCATED]`;
 }
@@ -154,25 +210,27 @@ export function scrub(value: unknown, depth = 0): unknown {
   );
 }
 
-/** Keep origin and path only; everything from the first ? or # (and any userinfo) goes. */
+/** Keep protocol, host and path only; userinfo, query and fragment never get copied. */
 export function stripUrl(url: string): string {
   let stripped: string;
   try {
     const parsed = new URL(url);
-    stripped =
-      parsed.origin === "null"
-        ? splitUrl(url)
-        : parsed.origin + parsed.pathname;
+    stripped = parsed.host
+      ? `${parsed.protocol}//${parsed.host}${parsed.pathname}`
+      : splitUrl(url);
   } catch {
     stripped = splitUrl(url);
   }
   return redactText(stripped);
 }
 
-/** Fallback when URL parsing is unavailable or fails: cut at ? or #, drop any userinfo. */
+/** Fallback when URL parsing fails: drop userinfo up to the LAST "@" in the authority, then cut at ? or #. */
 function splitUrl(url: string): string {
-  const [head = ""] = url.split(/[?#]/);
-  return head.replace(/^([A-Za-z][A-Za-z0-9+.-]*:\/\/)[^/@]*@/, "$1");
+  const m = /^([A-Za-z][A-Za-z0-9+.-]*:\/\/)([^/]*)([\s\S]*)$/.exec(url);
+  const rebuilt = m
+    ? `${m[1]}${(m[2] ?? "").slice((m[2] ?? "").lastIndexOf("@") + 1)}${m[3]}`
+    : url;
+  return rebuilt.split(/[?#]/)[0] ?? "";
 }
 
 /** Strip a query or fragment out of text such as "GET /x?y=1" or "/a -> /b#c". */
@@ -196,13 +254,30 @@ const PASSTHROUGH = [
   "release",
   "dist",
   "server_name",
-  "fingerprint",
   "sdk",
   "type",
   "start_timestamp",
-  // Debug IDs only (no user data); needed to symbolicate minified frames.
-  "debug_meta",
 ] as const;
+/** Logger context keys that may become Sentry tags (ctx.<key>). Everything else is dropped. */
+export const CTX_TAG_KEYS = [
+  "route",
+  "op",
+  "status",
+  "method",
+  "requestId",
+  "component",
+  "durationMs",
+  "provider",
+] as const;
+const CTX_TAG_SET = new Set<string>(CTX_TAG_KEYS);
+const IMAGE_FIELDS = [
+  "type",
+  "debug_id",
+  "code_id",
+  "image_addr",
+  "image_size",
+  "image_vmaddr",
+];
 const ALLOWED_TAGS = new Set([
   "environment",
   "release",
@@ -211,7 +286,7 @@ const ALLOWED_TAGS = new Set([
   "level",
   "source",
 ]);
-const TAG_PREFIX = "ctx."; // the logger puts its redacted context here
+const TAG_PREFIX = "ctx.";
 const SAFE_CONTEXTS = ["os", "runtime", "browser", "device", "app"];
 const TRACE_FIELDS = [
   "trace_id",
@@ -261,12 +336,7 @@ function rebuildFrame(frame: Bag): Bag {
     if (typeof v === "string") out[field] = stripUrl(v);
   }
   // vars (local variable values) are dropped on purpose.
-  if (frame.context_line !== undefined)
-    out.context_line = text(frame.context_line);
-  if (frame.pre_context !== undefined)
-    out.pre_context = textList(frame.pre_context);
-  if (frame.post_context !== undefined)
-    out.post_context = textList(frame.post_context);
+  // context_line, pre_context and post_context are dropped on purpose.
   return out;
 }
 
@@ -330,7 +400,11 @@ function rebuildContexts(contexts: Bag): Bag {
 function rebuildTags(tags: Bag): Record<string, string> {
   const out: Record<string, string> = {};
   for (const [key, value] of Object.entries(tags)) {
-    if (!ALLOWED_TAGS.has(key) && !key.startsWith(TAG_PREFIX)) continue;
+    const allowed =
+      ALLOWED_TAGS.has(key) ||
+      (key.startsWith(TAG_PREFIX) &&
+        CTX_TAG_SET.has(key.slice(TAG_PREFIX.length)));
+    if (!allowed) continue;
     out[key] = redactText(String(value));
   }
   return out;
@@ -363,7 +437,22 @@ export function scrubEvent<T>(event: T): T {
   if (values) out.exception = { values: values.map(rebuildException) };
 
   const user = src.user as Bag | undefined;
-  if (user?.id !== undefined) out.user = { id: user.id };
+  if (user?.id !== undefined) out.user = { id: redactText(String(user.id)) };
+  const fingerprint = textList(src.fingerprint);
+  if (fingerprint) out.fingerprint = fingerprint;
+
+  const meta = src.debug_meta as Bag | undefined;
+  if (meta) {
+    const kept: Bag = {};
+    const images = meta.images;
+    if (Array.isArray(images)) {
+      kept.images = images
+        .filter((i): i is Bag => typeof i === "object" && i !== null)
+        .map((i) => pick(i, IMAGE_FIELDS));
+    }
+    if (meta.sdk_info !== undefined) kept.sdk_info = scrub(meta.sdk_info);
+    out.debug_meta = kept;
+  }
 
   if (src.tags) out.tags = rebuildTags(src.tags as Bag);
   if (src.contexts) out.contexts = rebuildContexts(src.contexts as Bag);
