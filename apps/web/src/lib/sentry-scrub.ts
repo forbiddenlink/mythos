@@ -102,7 +102,7 @@ function unescapeUnicode(text: string): string {
 }
 
 function isSensitiveKey(key: string): boolean {
-  const k = unescapeUnicode(key);
+  const k = percentDecode(unescapeUnicode(key));
   return SENSITIVE_PARAM.test(k) || SENSITIVE_WORD.test(k);
 }
 
@@ -319,18 +319,50 @@ function redactIpv6(text: string): string {
   });
 }
 
-const URL_QUERY =
-  /(\b[A-Za-z][A-Za-z0-9+.-]{1,16}:\/\/[^\s?#"'<>]{0,2048}\?)([^\s#"'<>]{0,4096})/g;
+const URL_STOP = /[\s"'<>]/;
+const SCHEME_CH = /[A-Za-z0-9+.-]/;
 
-/** Query values in URLs inside free text: keep the parameter names, drop every value. */
+/**
+ * Query values in URLs inside free text: keep the parameter names, drop every value. One
+ * linear scan: a token with no "?" is skipped whole, so repeated "a://" cannot rescan it,
+ * and a query of any length is redacted to the end of its token (fail closed).
+ */
 function redactUrlQueries(text: string): string {
-  return text.replace(URL_QUERY, (_m, head: string, query: string) => {
-    const pairs = query.split("&").map((pair) => {
-      const eq = pair.indexOf("=");
-      return eq < 1 ? pair : `${pair.slice(0, eq)}=[REDACTED]`;
-    });
-    return head + pairs.join("&");
-  });
+  let out = "";
+  let last = 0;
+  let pos = 0;
+  for (let at = text.indexOf("://"); at !== -1; at = text.indexOf("://", pos)) {
+    let s = at;
+    while (s > 0 && at - s < 17 && SCHEME_CH.test(text.charAt(s - 1))) s--;
+    let q = at + 3;
+    while (
+      q < text.length &&
+      !URL_STOP.test(text.charAt(q)) &&
+      text.charAt(q) !== "?"
+    )
+      q++;
+    if (
+      at - s < 2 ||
+      !/[A-Za-z]/.test(text.charAt(s)) ||
+      text.charAt(q) !== "?"
+    ) {
+      pos = Math.max(q, at + 3);
+      continue;
+    }
+    let e = q + 1;
+    while (e < text.length && !URL_STOP.test(text.charAt(e))) e++;
+    const pairs = text
+      .slice(q + 1, e)
+      .split("&")
+      .map((pair) => {
+        const eq = pair.indexOf("=");
+        return eq < 1 ? pair : `${pair.slice(0, eq)}=[REDACTED]`;
+      });
+    out += `${text.slice(last, q + 1)}${pairs.join("&")}`;
+    last = e;
+    pos = e;
+  }
+  return out + text.slice(last);
 }
 
 /** Token-shaped secrets: highest priority, run before any key/value handling. */
@@ -402,9 +434,13 @@ export function redactText(text: string): string {
   }
   let redacted = redactPass(current);
   // Escaped JSON (\\"password\\":\\"x\\") is scanned as written first, then unescaped and
-  // scanned again, so escape information is never lost before the value is measured.
-  const unescaped = unescapeUnicode(redacted).replace(/\\+"/g, '"');
-  if (unescaped !== redacted) redacted = redactPass(unescaped);
+  // decoded and scanned again until the text stops changing, so layered encodings
+  // (\\u0025 over %40) are peeled one layer per round.
+  for (let round = 0; round < 4; round++) {
+    const next = percentDecode(unescapeUnicode(redacted)).replace(/\\+"/g, '"');
+    if (next === redacted) break;
+    redacted = redactPass(next);
+  }
   if (text.length <= MAX_TEXT && redacted.length <= MAX_TEXT) return redacted;
   return `${dropPartialRun(redacted.slice(0, MAX_TEXT))}[TRUNCATED]`;
 }

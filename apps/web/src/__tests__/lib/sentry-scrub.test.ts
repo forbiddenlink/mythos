@@ -1026,3 +1026,40 @@ describe("sentry-scrub: review round 7", () => {
     }
   });
 });
+
+describe("sentry-scrub: review round 8", () => {
+  const gone = (input: string, canary: string) =>
+    expect(redactText(input)).not.toContain(canary);
+
+  it("peels layered encodings until the text settles", () => {
+    gone("mail alice\\u0025\\u0034\\u0030example.com", "alice");
+    gone('{"pass\\u0025\\u0037\\u0037ord":"R8_CANARY"}', "R8_CANARY");
+    gone("pass%5Cu0077ord=R8_CANARY", "R8_CANARY");
+    gone("token%3Dr8canary", "r8canary");
+  });
+
+  it("redacts a url query of any length", () => {
+    const long = `https://example.test/p?a=1&${"x=1&".repeat(2500)}z=R8_CANARY`;
+    gone(long.slice(0, 4000), "R8_CANARY");
+    gone(`https://example.test/p?${"y".repeat(10000)}=R8_CANARY`, "R8_CANARY");
+    gone(`https://${"h".repeat(3000)}.test/p?z=R8_CANARY`, "R8_CANARY");
+    gone(
+      `https://example.test/p?${"a=1&".repeat(3000)}t=R8_CANARY`,
+      "R8_CANARY",
+    );
+  });
+
+  it("stays linear on url, encoding and unicode-escape floods", () => {
+    for (const input of [
+      "a://".repeat(1100),
+      `http://${"a".repeat(4400)}`,
+      "http://x?".repeat(500),
+      "\\u0025".repeat(700),
+      "%25".repeat(1400),
+    ]) {
+      const start = performance.now();
+      redactText(input);
+      expect(performance.now() - start).toBeLessThan(100);
+    }
+  });
+});
