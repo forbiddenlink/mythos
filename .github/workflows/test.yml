@@ -91,7 +91,7 @@ jobs:
 
   e2e-tests:
     name: E2E Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: unit-tests
     env:
       # Set at job level so it's available during Next.js build (inlined at build time)
