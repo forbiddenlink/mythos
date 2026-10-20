@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const budget = await checkGlobalOracleBudget();
+    const budget = await checkGlobalOracleBudget("quiz");
     if (!budget.allowed) {
       if (budget.reason === "misconfigured") {
         return NextResponse.json(
