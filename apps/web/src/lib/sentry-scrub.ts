@@ -6,7 +6,7 @@
 // Matched against the key lowercased with non-alphanumerics removed, so accessToken,
 // access_token and access-token all match.
 const SENSITIVE_KEY =
-  /password|passwd|pwd|secret|token|apikey|authorization|cookie|signature|email|phone|ssn|creditcard|cardnumber|cvv|cvc|privatekey/;
+  /pass|pwd|secret|token|apikey|authorization|cookie|signature|email|phone|ssn|creditcard|cardnumber|cvv|cvc|privatekey/;
 const MAX_DEPTH = 5;
 
 const TEXT_PATTERNS: [RegExp, string][] = [
@@ -15,14 +15,31 @@ const TEXT_PATTERNS: [RegExp, string][] = [
   [/\beyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g, "[JWT]"],
   [/\b(sk|pk|rk)_(live|test)_[A-Za-z0-9]{10,}/g, "[API_KEY]"],
   [
-    /([?&][^=&\s"']*(?:token|secret|key|pass|auth|sig|session|jwt|code)[^=&\s"']*=)[^&\s"']+/gi,
+    /([?&][^=&\s"']*(?:token|secret|key|pass|auth|sig|session|jwt|code|email|phone|ssn|card|cvv|cvc)[^=&\s"']*=)[^&\s"']+/gi,
     "$1[REDACTED]",
   ],
 ];
 
-/** Redact emails, bearer tokens, JWTs, API keys and secret query params in free text. */
+/** Decode %XX runs one at a time so a malformed sequence cannot abort the whole string. */
+function percentDecode(text: string): string {
+  return text.replace(/(?:%[0-9A-Fa-f]{2})+/g, (run) => {
+    try {
+      return decodeURIComponent(run);
+    } catch {
+      return run;
+    }
+  });
+}
+
+/**
+ * Redact emails, bearer tokens, JWTs, API keys and secret query params in free text.
+ * Percent-encoded input is decoded first so jane%40x.com cannot slip past the patterns.
+ */
 export function redactText(text: string): string {
-  return TEXT_PATTERNS.reduce((acc, [re, to]) => acc.replace(re, to), text);
+  return TEXT_PATTERNS.reduce(
+    (acc, [re, to]) => acc.replace(re, to),
+    percentDecode(text),
+  );
 }
 
 /** Recursive, depth-bounded redaction of keys and text. Nested Errors become plain objects. */
@@ -54,12 +71,18 @@ function isSensitiveHeader(name: string): boolean {
   return SENSITIVE_KEY.test(normalized) || /key|setcookie/.test(normalized);
 }
 
+// Span data fields that carry a URL or query. db.statement is left as is.
+const SPAN_QUERY_KEYS = ["http.query", "url.query"];
+const SPAN_URL_KEYS = ["http.url", "url.full", "url", "http.target"];
+
 function redactQueryString(qs: string): string {
   return redactText(`?${qs}`).slice(1);
 }
 
 interface ScrubbableEvent {
   message?: string;
+  transaction?: string;
+  spans?: { description?: string; data?: Record<string, unknown> }[];
   exception?: { values?: { value?: string }[] };
   extra?: Record<string, unknown>;
   contexts?: Record<string, unknown>;
@@ -90,6 +113,20 @@ export function scrubEvent<T extends ScrubbableEvent>(event: T): T {
   if (event.contexts) event.contexts = scrub(event.contexts) as T["contexts"];
   if (event.tags) event.tags = scrub(event.tags) as T["tags"];
   if (event.user) event.user = scrub(event.user) as T["user"];
+  if (event.transaction) event.transaction = redactText(event.transaction);
+  for (const span of event.spans ?? []) {
+    if (span.description) span.description = redactText(span.description);
+    for (const key of SPAN_URL_KEYS) {
+      const v = span.data?.[key];
+      if (span.data && typeof v === "string") span.data[key] = redactText(v);
+    }
+    for (const key of SPAN_QUERY_KEYS) {
+      const v = span.data?.[key];
+      if (span.data && typeof v === "string") {
+        span.data[key] = redactQueryString(v);
+      }
+    }
+  }
   for (const crumb of event.breadcrumbs ?? []) {
     if (crumb.message) crumb.message = redactText(crumb.message);
     if (crumb.data) crumb.data = scrub(crumb.data) as typeof crumb.data;
@@ -113,7 +150,10 @@ export function scrubEvent<T extends ScrubbableEvent>(event: T): T {
     }
     if (req.headers) {
       for (const name of Object.keys(req.headers)) {
+        const value = req.headers[name];
         if (isSensitiveHeader(name)) req.headers[name] = "[REDACTED]";
+        else if (typeof value === "string")
+          req.headers[name] = redactText(value);
       }
     }
   }

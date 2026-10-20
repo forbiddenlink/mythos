@@ -28,6 +28,7 @@ export async function register() {
     Sentry.init({
       dsn,
       beforeSend: scrubEvent,
+      beforeSendTransaction: scrubEvent,
       tracesSampler: (context) => tracesSampler(context, rate),
       debug: false,
       environment: process.env.NODE_ENV,
