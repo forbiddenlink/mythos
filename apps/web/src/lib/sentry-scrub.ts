@@ -16,9 +16,8 @@ const MAX_TEXT = 4096;
 const SENSITIVE_PARAM =
   /token|secret|key|pass|auth|sig|session|jwt|code|email|phone|ssn|card|cvv|cvc/i;
 const BEARER = /\bBearer\s+[A-Za-z0-9._~+/=-]+/gi;
-const WORD = /[A-Za-z0-9_.-]+/g;
-const JWT_WORD = /^eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*$/;
-const API_KEY_WORD = /^(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{10,}$/;
+const JWT = /eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g;
+const API_KEY = /(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{10,}/g;
 const LOCAL_CH = /[A-Za-z0-9._%+-]/;
 const DOMAIN_CH = /[A-Za-z0-9.-]/;
 const TLD = /^[A-Za-z]{2,}$/;
@@ -42,7 +41,7 @@ function percentDecode(text: string): string {
  * encoded %26 inside a value cannot cut the redaction short.
  */
 function redactQueryParams(text: string): string {
-  return text.replace(/\?[^\s"'#]*/g, (chunk) => {
+  return text.replace(/\?[^\s"'#?]*/g, (chunk) => {
     const pairs = chunk
       .slice(1)
       .split("&")
@@ -78,26 +77,40 @@ function redactEmails(text: string): string {
   return out + text.slice(last);
 }
 
-function redactWord(word: string): string {
-  if (JWT_WORD.test(word)) return "[JWT]";
-  if (API_KEY_WORD.test(word)) return "[API_KEY]";
-  return word;
+function redactPatterns(text: string): string {
+  return redactEmails(text)
+    .replace(BEARER, "Bearer [TOKEN]")
+    .replace(JWT, "[JWT]")
+    .replace(API_KEY, "[API_KEY]");
+}
+
+/** Cut at max length, then drop the trailing partial run of non-whitespace. */
+function cutAtBoundary(text: string, max: number): string {
+  let end = Math.min(text.length, max);
+  if (end === text.length) return text;
+  while (end > 0 && !/\s/.test(text[end - 1])) end--;
+  return text.slice(0, end);
 }
 
 /**
  * Redact emails, bearer tokens, JWTs, API keys and secret query params in free text.
- * Input is capped at 4 KB (the rest is dropped and "[TRUNCATED]" appended). Query params are
- * handled on the raw text; the percent-decoded copy is used only to detect emails and tokens.
+ * Query params are redacted BEFORE each decode round (so an encoded %26 stays inside its
+ * value), repeating up to 3 rounds or until the text stops changing, which also catches
+ * double-encoded input. Only the first MAX_TEXT + 512 characters are processed; the redacted
+ * output is then cut to MAX_TEXT at a whitespace boundary and "[TRUNCATED]" appended.
  */
 export function redactText(text: string): string {
-  const truncated = text.length > MAX_TEXT;
-  const decoded = percentDecode(
-    redactQueryParams(truncated ? text.slice(0, MAX_TEXT) : text),
-  );
-  const redacted = redactEmails(decoded)
-    .replace(BEARER, "Bearer [TOKEN]")
-    .replace(WORD, redactWord);
-  return truncated ? `${redacted}[TRUNCATED]` : redacted;
+  const input =
+    text.length > MAX_TEXT + 512 ? text.slice(0, MAX_TEXT + 512) : text;
+  let current = input;
+  for (let round = 0; round < 3; round++) {
+    const next = percentDecode(redactQueryParams(current));
+    if (next === current) break;
+    current = next;
+  }
+  const redacted = redactPatterns(redactQueryParams(current));
+  if (text.length <= MAX_TEXT && redacted.length <= MAX_TEXT) return redacted;
+  return `${cutAtBoundary(redacted, MAX_TEXT)}[TRUNCATED]`;
 }
 
 /** Recursive, depth-bounded redaction of keys and text. Nested Errors become plain objects. */

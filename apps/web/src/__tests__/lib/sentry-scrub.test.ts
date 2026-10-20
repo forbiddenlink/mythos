@@ -93,4 +93,25 @@ describe("sentry-scrub hardening", () => {
       expect(out.length).toBeLessThan(4200);
     }
   });
+
+  it("redacts a query nested inside an encoded value, across decode rounds", () => {
+    const text = redactText("GET /x?next=%253Ftoken%253Dxyz-secret&page=2");
+    expect(text).not.toContain("xyz-secret");
+  });
+
+  it("finds a JWT or API key inside a larger word", () => {
+    const text = redactText(
+      "id=xeyJhbGciOi.payload.sig and prefix_sk_live_ABCDEFGHIJKL end",
+    );
+    expect(text).not.toContain("eyJhbGciOi");
+    expect(text).not.toContain("ABCDEFGHIJ");
+  });
+
+  it("redacts before truncating, so a secret straddling the cut cannot leak a fragment", () => {
+    const text = redactText(`${"a ".repeat(2045)}sk_live_ABCDEFGHIJKL tail`);
+    expect(text).not.toContain("sk_li");
+    expect(text).not.toContain("ABCDE");
+    expect(text.endsWith("[TRUNCATED]")).toBe(true);
+    expect(text.length).toBeLessThanOrEqual(4096 + "[TRUNCATED]".length);
+  });
 });
