@@ -136,12 +136,18 @@ export function stripUrl(url: string): string {
     const parsed = new URL(url);
     stripped =
       parsed.origin === "null"
-        ? (url.split(/[?#]/)[0] ?? "")
+        ? splitUrl(url)
         : parsed.origin + parsed.pathname;
   } catch {
-    stripped = url.split(/[?#]/)[0] ?? "";
+    stripped = splitUrl(url);
   }
   return redactText(stripped);
+}
+
+/** Fallback when URL parsing is unavailable or fails: cut at ? or #, drop any userinfo. */
+function splitUrl(url: string): string {
+  const [head = ""] = url.split(/[?#]/);
+  return head.replace(/^([A-Za-z][A-Za-z0-9+.-]*:\/\/)[^/@]*@/, "$1");
 }
 
 /** Strip a query or fragment out of text such as "GET /x?y=1" or "/a -> /b#c". */
