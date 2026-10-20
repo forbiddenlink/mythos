@@ -20,7 +20,7 @@ const PRE_CUT = MAX_TEXT + 512;
 const SENSITIVE_PARAM =
   /token|secret|key|pass|pwd|auth|sig|session|jwt|code|email|phone|ssn|card|cvv|cvc/i;
 const BEARER = /\bBearer\s+[A-Za-z0-9._~+/=-]+/gi;
-const BASIC = /\bBasic\s+[A-Za-z0-9+/]{8,}={0,2}/gi;
+const BASIC = /\bBasic\s+[A-Za-z0-9+/]{4,}={0,2}/gi;
 const AUTH_HEADER = /\bAuthorization\s*:[^\n\r]{0,200}/gi;
 const JSON_KEY = /"((?:[^"\\]|\\.){1,64})"\s*:\s*/g;
 const KEY_CHAR = /[A-Za-z0-9_.-]/;
@@ -32,12 +32,13 @@ const SSN = /\b\d{3}[- ]\d{2}[- ]\d{4}\b/g;
 const CARD = /\b(?:\d[ -]?){13,19}\b/g;
 const IPV4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
 const PHONE =
-  /(?<![^\s(:+[\]"'=,;>/])\+?\d[\d\s().-]{8,18}\d(?![A-Za-wyz0-9_:])/g;
+  /(?<![^\s(:+[\]"'=,;>/])\+?\d[\d\s()./-]{8,18}\d(?![A-Za-wyz0-9_:])/g;
 const JWT =
-  /(?<![A-Za-z0-9_-])eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g;
+  /(?<![A-Za-z0-9_-])ey[A-Za-z0-9_-]{2,}\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g;
 const API_KEY = new RegExp(
   [
     "(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{10,}",
+    "(?:sk|pk|rk)_[A-Za-z0-9]{20,}",
     "sk-[A-Za-z0-9_-]{20,}",
     "(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{20,}",
     "github_pat_[A-Za-z0-9_]{20,}",
@@ -45,7 +46,7 @@ const API_KEY = new RegExp(
     "AKIA[0-9A-Z]{16}",
     "AIza[0-9A-Za-z_-]{35}",
   ]
-    .map((p) => `(?<!\\w)${p}`)
+    .map((p) => `(?<![A-Za-z0-9])${p}`)
     .join("|"),
   "g",
 );
@@ -265,7 +266,12 @@ function redactKeyValueText(text: string): string {
       continue;
     let end = valueEnd(text, start, scalar);
     if (end === undefined) continue;
-    if (/^(?:set-)?cookie$/i.test(found.key)) {
+    const wholeLine =
+      /^(?:set-)?cookie$/i.test(found.key) ||
+      (m[0] === ":" &&
+        /pass|pwd|secret/i.test(found.key) &&
+        !/^["'\\{[]/.test(text.charAt(start)));
+    if (wholeLine) {
       // A cookie header holds several name=value pairs; redact the whole line.
       const eol = text.indexOf("\n", start);
       end = eol === -1 ? text.length : eol;
@@ -310,6 +316,20 @@ function redactIpv6(text: string): string {
   return text.replace(IPV6_RUN, (match) => {
     const colons = match.split(":").length - 1;
     return match.includes("::") || colons >= 5 ? "[IP]" : match;
+  });
+}
+
+const URL_QUERY =
+  /(\b[A-Za-z][A-Za-z0-9+.-]{1,16}:\/\/[^\s?#"\'<>]*\?)([^\s#"\'<>]*)/g;
+
+/** Query values in URLs inside free text: keep the parameter names, drop every value. */
+function redactUrlQueries(text: string): string {
+  return text.replace(URL_QUERY, (_m, head: string, query: string) => {
+    const pairs = query.split("&").map((pair) => {
+      const eq = pair.indexOf("=");
+      return eq < 1 ? pair : `${pair.slice(0, eq)}=[REDACTED]`;
+    });
+    return head + pairs.join("&");
   });
 }
 
@@ -376,7 +396,7 @@ function dropPartialRun(text: string): string {
 export function redactText(text: string): string {
   const input =
     text.length > PRE_CUT ? dropPartialRun(text.slice(0, PRE_CUT)) : text;
-  let current = input;
+  let current = unescapeUnicode(input);
   for (let round = 0; round < 3; round++) {
     current = percentDecode(redactKeyValues(redactTokens(current)));
   }
@@ -397,7 +417,12 @@ function redactPass(current: string): string {
           redactEmails(
             redactKeyValueText(
               redactJsonPairs(
-                redactKeyValues(redactTokens(current).replace(USERINFO, "$1")),
+                redactKeyValues(
+                  redactUrlQueries(redactTokens(current)).replace(
+                    USERINFO,
+                    "$1",
+                  ),
+                ),
               ),
             ),
           ).replace(SSN, "[SSN]"),

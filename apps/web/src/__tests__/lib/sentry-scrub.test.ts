@@ -874,3 +874,117 @@ describe("sentry-scrub: review round 5", () => {
     );
   });
 });
+
+describe("sentry-scrub: review round 6 (Codex inputs)", () => {
+  const gone = (input: string, canary: string) =>
+    expect(redactText(input)).not.toContain(canary);
+  const msg = (message: string) =>
+    (scrubEvent({ message }) as { message: string }).message;
+
+  it("redacts identifier fields in every retained position", () => {
+    const out = JSON.stringify(
+      scrubEvent({
+        server_name: "alice@example.com",
+        event_id: "alice@example.com",
+        release: "203.0.113.42",
+        sdk: { name: "alice@example.com", version: "Bearer abcDEF123" },
+        exception: {
+          values: [
+            {
+              type: "alice@example.com",
+              mechanism: { type: "Bearer abcDEF123" },
+              stacktrace: {
+                frames: [
+                  {
+                    function: "Bearer canary-secret",
+                    module: "sk-proj-ABCDEFGHIJKLMNOPQRSTUVWX",
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        breadcrumbs: [
+          null,
+          {
+            category: "alice@example.com",
+            type: "Bearer abcDEF123",
+            timestamp: "203.0.113.42",
+          },
+        ],
+        spans: [
+          {
+            op: "Basic YWxpY2U6c2VjcmV0",
+            status: "password: hunter2",
+            origin: "alice@example.com",
+            trace_id: "alice@example.com",
+          },
+        ],
+        contexts: { trace: { op: "Bearer abcDEF123", span_id: "a@b.co" } },
+        debug_meta: { sdk_info: { sdk_name: "alice@example.com" } },
+      }),
+    );
+    for (const leaked of [
+      "alice@",
+      "abcDEF123",
+      "203.0.113.42",
+      "canary-secret",
+      "ABCDEFGHIJKLMNOP",
+      "YWxpY2U6",
+      "hunter2",
+      "a@b.co",
+    ]) {
+      expect(out).not.toContain(leaked);
+    }
+  });
+
+  it("covers the Basic, key, phone and url cases", () => {
+    for (const [input, canary] of [
+      ["basic dXNlcjpwYXNzd29yZA==", "dXNlcjpw"],
+      ["Basic YTpi", "YTpi"],
+      ["sk_abcdefghijklmnopqrstuvwxyz012345", "abcdefghijklmnop"],
+      ["prefix_sk-proj-abcdefghijklmnopqrstuvwxyz012345", "abcdefghijklmnop"],
+      ["pwd: hunter2", "hunter2"],
+      ["pwd=hunter2", "hunter2"],
+      ["session.id: session-secret", "session-secret"],
+      ["password: hunter two words", "two words"],
+      ['{"pa\\u0073sword":"hunter2"}', "hunter2"],
+      ['{"\\u0070assword":"hunter2"}', "hunter2"],
+      ["https://example.com/a?value=canary-token", "canary-token"],
+      ["https://example.com/?t=opaqueSecret", "opaqueSecret"],
+      ["https://example.com/?credential=hunter2", "hunter2"],
+      ["[4155552671]", "4155552671"],
+      ["/4155552671", "4155552671"],
+      ["[415-555-2671]", "555-2671"],
+      ["call 415/555/2671", "555/2671"],
+      ["2001:db8::1234", "db8"],
+      ["alice@example.xn--p1ai", "alice@"],
+      ['"alice smith"@example.com', "alice smith"],
+      ["alice\\u0040example.com", "alice"],
+      ["\\u0061lice\\u0040example.com", "lice"],
+      ["用户@example.com", "用户"],
+    ] as const) {
+      expect(msg(input), input).not.toContain(canary);
+    }
+  });
+
+  it("redacts a JWT whose header has whitespace", () => {
+    gone(
+      "eyAiYWxnIjoiSFMyNTYiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSJ9.BBkMIwHwDrfsWmN4ZxcuTCrx0bygPf8euRWH9PG2BV0",
+      "eyJzdWIi",
+    );
+  });
+
+  it("redacts whole cookie lines, quoted or not", () => {
+    gone("Cookie: sid=first-cookie; csrf=second-cookie; prefs=third", "third");
+    gone('Cookie: sid="cookie-secret"; other=second-cookie', "cookie-secret");
+    gone('Cookie: sid="cookie-secret"; other=second-cookie', "second-cookie");
+  });
+
+  it("redacts whole object and array values", () => {
+    gone('{"password":{"first":"one","second":"two-secret"}}', "two-secret");
+    gone('{"password":["visible-first","visible-second"]}', "visible-second");
+    gone('password: {"value":"hunter2"}', "hunter2");
+    gone('password: ["hunter2", "otherSecret"]', "otherSecret");
+  });
+});
