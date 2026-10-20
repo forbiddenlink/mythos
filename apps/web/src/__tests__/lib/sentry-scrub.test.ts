@@ -74,4 +74,23 @@ describe("sentry-scrub hardening", () => {
     );
     expect(event.spans?.[0].data?.["http.status_code"]).toBe(200);
   });
+
+  it("fully redacts a value that contains an encoded ampersand", () => {
+    const text = redactText("GET /x?token=abc%26def&page=2");
+    expect(text).toBe("GET /x?token=[REDACTED]&page=2");
+    expect(text).not.toContain("def");
+  });
+
+  it("stays linear on adversarial input and caps text at 4 KB", () => {
+    const queryBomb = "?a=&".repeat(25_000);
+    const emailBomb = "a@".repeat(50_000);
+    const jwtBomb = "eyJ".repeat(34_000);
+    for (const input of [queryBomb, emailBomb, jwtBomb]) {
+      const start = performance.now();
+      const out = redactText(input);
+      expect(performance.now() - start).toBeLessThan(50);
+      expect(out.endsWith("[TRUNCATED]")).toBe(true);
+      expect(out.length).toBeLessThan(4200);
+    }
+  });
 });

@@ -9,37 +9,95 @@ const SENSITIVE_KEY =
   /pass|pwd|secret|token|apikey|authorization|cookie|signature|email|phone|ssn|creditcard|cardnumber|cvv|cvc|privatekey/;
 const MAX_DEPTH = 5;
 
-const TEXT_PATTERNS: [RegExp, string][] = [
-  [/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g, "[EMAIL]"],
-  [/\bBearer\s+[A-Za-z0-9._~+/=-]+/gi, "Bearer [TOKEN]"],
-  [/\beyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g, "[JWT]"],
-  [/\b(sk|pk|rk)_(live|test)_[A-Za-z0-9]{10,}/g, "[API_KEY]"],
-  [
-    /([?&][^=&\s"']*(?:token|secret|key|pass|auth|sig|session|jwt|code|email|phone|ssn|card|cvv|cvc)[^=&\s"']*=)[^&\s"']+/gi,
-    "$1[REDACTED]",
-  ],
-];
+// Free text is attacker-influenced (headers, transaction names, span descriptions), so every
+// step below is linear: single-quantifier regexes, anchored per-word tests, and a manual
+// scan for emails. No nested or adjacent overlapping quantifiers.
+const MAX_TEXT = 4096;
+const SENSITIVE_PARAM =
+  /token|secret|key|pass|auth|sig|session|jwt|code|email|phone|ssn|card|cvv|cvc/i;
+const BEARER = /\bBearer\s+[A-Za-z0-9._~+/=-]+/gi;
+const WORD = /[A-Za-z0-9_.-]+/g;
+const JWT_WORD = /^eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*$/;
+const API_KEY_WORD = /^(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{10,}$/;
+const LOCAL_CH = /[A-Za-z0-9._%+-]/;
+const DOMAIN_CH = /[A-Za-z0-9.-]/;
+const TLD = /^[A-Za-z]{2,}$/;
+
+function safeDecode(text: string): string {
+  try {
+    return decodeURIComponent(text);
+  } catch {
+    return text;
+  }
+}
 
 /** Decode %XX runs one at a time so a malformed sequence cannot abort the whole string. */
 function percentDecode(text: string): string {
-  return text.replace(/(?:%[0-9A-Fa-f]{2})+/g, (run) => {
-    try {
-      return decodeURIComponent(run);
-    } catch {
-      return run;
-    }
+  return text.replace(/(?:%[0-9A-Fa-f]{2})+/g, safeDecode);
+}
+
+/**
+ * Redact secret query params by parsing, before any decoding: split on "?", then "&", then
+ * the first "=". Only the KEY is decoded (to test it); the whole raw VALUE is replaced, so an
+ * encoded %26 inside a value cannot cut the redaction short.
+ */
+function redactQueryParams(text: string): string {
+  return text.replace(/\?[^\s"'#]*/g, (chunk) => {
+    const pairs = chunk
+      .slice(1)
+      .split("&")
+      .map((pair) => {
+        const eq = pair.indexOf("=");
+        if (eq < 0) return pair;
+        const key = pair.slice(0, eq);
+        return SENSITIVE_PARAM.test(safeDecode(key))
+          ? `${key}=[REDACTED]`
+          : pair;
+      });
+    return `?${pairs.join("&")}`;
   });
+}
+
+/** Linear email redaction: expand outward from each "@" over its own character run. */
+function redactEmails(text: string): string {
+  let out = "";
+  let last = 0;
+  for (let at = text.indexOf("@"); at !== -1; at = text.indexOf("@", at + 1)) {
+    let left = at;
+    while (left > last && LOCAL_CH.test(text[left - 1])) left--;
+    let right = at + 1;
+    while (right < text.length && DOMAIN_CH.test(text[right])) right++;
+    while (right > at + 1 && /[.-]/.test(text[right - 1])) right--;
+    const domain = text.slice(at + 1, right);
+    const dot = domain.lastIndexOf(".");
+    if (left < at && dot > 0 && TLD.test(domain.slice(dot + 1))) {
+      out += `${text.slice(last, left)}[EMAIL]`;
+      last = right;
+    }
+  }
+  return out + text.slice(last);
+}
+
+function redactWord(word: string): string {
+  if (JWT_WORD.test(word)) return "[JWT]";
+  if (API_KEY_WORD.test(word)) return "[API_KEY]";
+  return word;
 }
 
 /**
  * Redact emails, bearer tokens, JWTs, API keys and secret query params in free text.
- * Percent-encoded input is decoded first so jane%40x.com cannot slip past the patterns.
+ * Input is capped at 4 KB (the rest is dropped and "[TRUNCATED]" appended). Query params are
+ * handled on the raw text; the percent-decoded copy is used only to detect emails and tokens.
  */
 export function redactText(text: string): string {
-  return TEXT_PATTERNS.reduce(
-    (acc, [re, to]) => acc.replace(re, to),
-    percentDecode(text),
+  const truncated = text.length > MAX_TEXT;
+  const decoded = percentDecode(
+    redactQueryParams(truncated ? text.slice(0, MAX_TEXT) : text),
   );
+  const redacted = redactEmails(decoded)
+    .replace(BEARER, "Bearer [TOKEN]")
+    .replace(WORD, redactWord);
+  return truncated ? `${redacted}[TRUNCATED]` : redacted;
 }
 
 /** Recursive, depth-bounded redaction of keys and text. Nested Errors become plain objects. */
