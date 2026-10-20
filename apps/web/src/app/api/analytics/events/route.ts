@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import { captureServerEvent } from "@/lib/analytics/posthog-server";
 import { isAnalyticsEventName } from "@/lib/analytics/events";
 import { readJsonBody } from "@/lib/http/read-json-body";
+import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
+import { checkAnalyticsRateLimit } from "@/lib/oracle/rate-limit";
+import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
 
 const MAX_REQUEST_BODY_BYTES = 16 * 1024;
 
@@ -12,6 +15,21 @@ const MAX_REQUEST_BODY_BYTES = 16 * 1024;
  * and dropped.
  */
 export async function POST(request: Request) {
+  const originBlock = forbiddenUnlessSameOrigin(request);
+  if (originBlock) return originBlock;
+
+  const rateLimit = await checkAnalyticsRateLimit(
+    getOracleClientIdentity(request.headers).key,
+  );
+  if (!rateLimit.allowed) {
+    return rateLimit.reason === "misconfigured"
+      ? NextResponse.json(
+          { error: "Analytics is unavailable. Rate limiting is not configured." },
+          { status: 503 },
+        )
+      : NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   const body = await readJsonBody(request, MAX_REQUEST_BODY_BYTES);
   if (!body.ok) {
     return NextResponse.json(

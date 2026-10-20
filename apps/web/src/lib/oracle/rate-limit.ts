@@ -23,7 +23,18 @@ const ORACLE_ANONYMOUS_RATE_LIMIT = 3;
 // covers typos and shared networks while keeping list-bombing expensive.
 const NEWSLETTER_RATE_LIMIT = 5;
 
-type Bucket = "oracle" | "oracle-anon" | "quiz" | "search" | "newsletter";
+// Analytics beacons are small and frequent (quiz pulses, unload events), so
+// the ceiling is generous; it only has to stop a script from flooding the
+// PostHog quota with spoofed events.
+const ANALYTICS_RATE_LIMIT = 120;
+
+type Bucket =
+  | "oracle"
+  | "oracle-anon"
+  | "quiz"
+  | "search"
+  | "newsletter"
+  | "analytics";
 
 const BUCKET_LIMITS: Record<Bucket, number> = {
   oracle: RATE_LIMIT,
@@ -31,6 +42,7 @@ const BUCKET_LIMITS: Record<Bucket, number> = {
   quiz: RATE_LIMIT,
   search: SEARCH_RATE_LIMIT,
   newsletter: NEWSLETTER_RATE_LIMIT,
+  analytics: ANALYTICS_RATE_LIMIT,
 };
 
 const memoryStores: Record<
@@ -42,6 +54,7 @@ const memoryStores: Record<
   quiz: new Map(),
   search: new Map(),
   newsletter: new Map(),
+  analytics: new Map(),
 };
 
 const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
@@ -50,6 +63,7 @@ const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   quiz: undefined,
   search: undefined,
   newsletter: undefined,
+  analytics: undefined,
 };
 
 function isProductionRuntime(): boolean {
@@ -165,4 +179,11 @@ export async function checkNewsletterRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
   return checkBucketRateLimit("newsletter", identifier);
+}
+
+/** Analytics event sink rate limit (120/hr per client key). */
+export async function checkAnalyticsRateLimit(
+  identifier: string,
+): Promise<OracleRateLimitResult> {
+  return checkBucketRateLimit("analytics", identifier);
 }
