@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
+import { scrubEvent } from "@/lib/sentry-scrub";
 
 /**
  * Initialize/teardown client Sentry only after analytics consent (and never when GPC is on).
@@ -34,6 +35,7 @@ export function ConsentGatedSentry() {
               process.env.NEXT_PUBLIC_SENTRY_REPLAY_ENABLED === "true";
             Sentry.init({
               dsn,
+              beforeSend: scrubEvent,
               tracesSampleRate:
                 Number.parseFloat(
                   process.env.NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE ?? "0.15",

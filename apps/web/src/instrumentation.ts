@@ -19,6 +19,7 @@ export async function register() {
       return;
     }
 
+    const { scrubEvent } = await import("@/lib/sentry-scrub");
     const { tracesSampler } = await import("@/lib/sentry-sampler");
     const rate =
       Number.parseFloat(process.env.SENTRY_TRACES_SAMPLE_RATE ?? "0.15") ||
@@ -26,6 +27,7 @@ export async function register() {
 
     Sentry.init({
       dsn,
+      beforeSend: scrubEvent,
       tracesSampler: (context) => tracesSampler(context, rate),
       debug: false,
       environment: process.env.NODE_ENV,

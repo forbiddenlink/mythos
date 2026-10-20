@@ -1,4 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
+import { scrubEvent } from "@/lib/sentry-scrub";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
@@ -68,6 +69,39 @@ describe("logger.error -> Sentry", () => {
     }
     expect(json).toContain("[REDACTED]");
     expect(json).toContain("[MAX_DEPTH]");
+  });
+
+  it("an Error with an email and bearer token is redacted by beforeSend, and nested Errors are plain objects", async () => {
+    const logger = await loadLogger();
+    const cause = new Error(
+      "upstream rejected jane@example.com with Bearer abc.def-123",
+    );
+    logger.error("Upstream failed", {
+      error: cause,
+      attempt: { lastError: new Error("retry for jane@example.com") },
+    });
+    await vi.waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
+    const [captured, opts] = capture.mock.calls[0] as [
+      Error,
+      { extra: Record<string, unknown> },
+    ];
+    expect(captured).toBe(cause); // real Error kept so grouping works
+    // What the SDK builds from the capture, then beforeSend:
+    const event = scrubEvent({
+      message: captured.message,
+      exception: { values: [{ value: captured.message }] },
+      extra: opts.extra,
+    });
+    const json = JSON.stringify(event);
+    expect(json).not.toContain("jane@example.com");
+    expect(json).not.toContain("abc.def-123");
+    expect(event.exception?.values?.[0].value).toBe(
+      "upstream rejected [EMAIL] with Bearer [TOKEN]",
+    );
+    expect(
+      (opts.extra.attempt as { lastError: { message: string } }).lastError
+        .message,
+    ).toBe("retry for [EMAIL]");
   });
 
   it("exception() captures the given Error once", async () => {

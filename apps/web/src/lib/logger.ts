@@ -7,6 +7,8 @@
  * - Structured log format with timestamps and context
  */
 
+import { scrub } from "@/lib/sentry-scrub";
+
 type LogLevel = "debug" | "info" | "warn" | "error";
 
 interface LogContext {
@@ -52,31 +54,6 @@ function sentryEnabled(): boolean {
   return (
     process.env.NODE_ENV === "production" &&
     Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN)
-  );
-}
-
-// Matched against the key lowercased with non-alphanumerics removed, so accessToken,
-// access_token and access-token all match.
-const SENSITIVE_KEY =
-  /password|passwd|pwd|secret|token|apikey|authorization|cookie|signature|email|phone|ssn|creditcard|cardnumber|cvv|cvc|privatekey/;
-const EMAIL_PATTERN = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
-const MAX_DEPTH = 5;
-
-/** Recursive, depth-bounded redaction of keys and email addresses in strings. */
-export function scrub(value: unknown, depth = 0): unknown {
-  if (typeof value === "string") return value.replace(EMAIL_PATTERN, "[EMAIL]");
-  if (value === null || typeof value !== "object" || value instanceof Error) {
-    return value;
-  }
-  if (depth >= MAX_DEPTH) return "[MAX_DEPTH]";
-  if (Array.isArray(value)) return value.map((v) => scrub(v, depth + 1));
-  return Object.fromEntries(
-    Object.entries(value as Record<string, unknown>).map(([key, v]) => [
-      key,
-      SENSITIVE_KEY.test(key.toLowerCase().replace(/[^a-z0-9]/g, ""))
-        ? "[REDACTED]"
-        : scrub(v, depth + 1),
-    ]),
   );
 }
 
