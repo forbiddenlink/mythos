@@ -5,6 +5,10 @@ import { trackEvent } from "@/lib/analytics/events";
 import { Button } from "@/components/ui/button";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import type { OracleSourcesPayload } from "@/lib/oracle/citations";
+import {
+  ORACLE_MAX_MESSAGE_CONTENT_CHARS,
+  ORACLE_MAX_REQUEST_MESSAGES,
+} from "@/lib/oracle/constants";
 import { isNotInSourcesAnswer } from "@/lib/oracle/coverage";
 import { readOracleStream } from "@/lib/oracle/stream-client";
 import {
@@ -24,6 +28,20 @@ interface Message {
   sources?: OracleSourcesPayload | null;
   /** Set once the reply has finished streaming. */
   done?: boolean;
+}
+
+/**
+ * The server rejects more than ORACLE_MAX_REQUEST_MESSAGES messages (and any
+ * message over the per-message cap) with a 400, and only uses the last few
+ * turns anyway. Send just the tail so a long conversation keeps working.
+ */
+export function toOracleRequestMessages(
+  messages: readonly Pick<Message, "role" | "content">[],
+): { role: "user" | "assistant"; content: string }[] {
+  return messages.slice(-ORACLE_MAX_REQUEST_MESSAGES).map((m) => ({
+    role: m.role,
+    content: m.content.slice(0, ORACLE_MAX_MESSAGE_CONTENT_CHARS),
+  }));
 }
 
 export function OracleChat() {
@@ -110,10 +128,7 @@ export function OracleChat() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             locale,
-            messages: [...messages, userMessage].map((m) => ({
-              role: m.role,
-              content: m.content,
-            })),
+            messages: toOracleRequestMessages([...messages, userMessage]),
           }),
         });
 

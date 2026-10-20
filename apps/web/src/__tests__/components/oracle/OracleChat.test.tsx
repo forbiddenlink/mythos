@@ -2,7 +2,14 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import type { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { OracleChat } from "@/components/oracle/OracleChat";
+import {
+  OracleChat,
+  toOracleRequestMessages,
+} from "@/components/oracle/OracleChat";
+import {
+  ORACLE_MAX_MESSAGE_CONTENT_CHARS,
+  ORACLE_MAX_REQUEST_MESSAGES,
+} from "@/lib/oracle/constants";
 import enMessages from "../../../../messages/en.json";
 
 vi.mock("framer-motion", () => ({
@@ -182,5 +189,28 @@ describe("OracleChat", () => {
     expect(
       await screen.findByTestId("oracle-not-in-sources"),
     ).toHaveTextContent(enMessages.oracle.notInSourcesTitle);
+  });
+});
+
+describe("toOracleRequestMessages", () => {
+  it("keeps a long conversation under the server message cap, newest last", () => {
+    const history = Array.from({ length: 31 }, (_, i) => ({
+      role: i % 2 === 0 ? ("user" as const) : ("assistant" as const),
+      content: `m${i}`,
+    }));
+    const out = toOracleRequestMessages(history);
+    expect(out).toHaveLength(ORACLE_MAX_REQUEST_MESSAGES);
+    expect(out.at(-1)).toEqual({ role: "user", content: "m30" });
+  });
+
+  it("clamps over-long replies so the next turn is not rejected", () => {
+    const out = toOracleRequestMessages([
+      {
+        role: "assistant",
+        content: "x".repeat(ORACLE_MAX_MESSAGE_CONTENT_CHARS + 500),
+      },
+      { role: "user", content: "next" },
+    ]);
+    expect(out[0]!.content).toHaveLength(ORACLE_MAX_MESSAGE_CONTENT_CHARS);
   });
 });
