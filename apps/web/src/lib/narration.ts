@@ -3,10 +3,13 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
 /** Approximate speech duration at 150 words per minute, adjusted for playback rate. */
-export function estimateNarrationDuration(text: string, speed: number = 1): number {
+export function estimateNarrationDuration(
+  text: string,
+  speed: number = 1,
+): number {
   const words = text.match(/\S+/g)?.length ?? 0;
   const rate = Number.isFinite(speed) && speed > 0 ? speed : 1;
-  return Math.ceil((words / 150) * 60 / rate);
+  return Math.ceil(((words / 150) * 60) / rate);
 }
 
 /**

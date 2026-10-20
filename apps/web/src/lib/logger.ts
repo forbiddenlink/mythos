@@ -7,6 +7,8 @@
  * - Structured log format with timestamps and context
  */
 
+import { CTX_TAG_KEYS, redactText, scrub } from "@/lib/sentry-scrub";
+
 type LogLevel = "debug" | "info" | "warn" | "error";
 
 interface LogContext {
@@ -56,17 +58,38 @@ function sentryEnabled(): boolean {
 }
 
 /**
- * Send error to Sentry when DSN is configured (production only).
+ * Send an error to Sentry when a DSN is configured (production only). Uses the
+ * real Error from context.error / context.err when present so the stack is kept,
+ * otherwise wraps the message. Context is redacted first. Never throws.
+ * This is the single logger-to-Sentry path; captureConsoleIntegration is not enabled.
  */
-function reportToErrorTracking(entry: LogEntry): void {
-  if (isDevelopment || entry.level !== "error") return;
-  if (!sentryEnabled()) return;
+function reportToErrorTracking(
+  message: string,
+  context?: LogContext,
+  error?: Error,
+): void {
+  if (isDevelopment || !sentryEnabled()) return;
+
+  const cause =
+    error ??
+    [context?.error, context?.err].find((v): v is Error => v instanceof Error);
+  // scrubEvent drops `extra`, so only allowlisted context keys travel, as redacted tags.
+  const tags: Record<string, string> = { source: "logger" };
+  for (const key of CTX_TAG_KEYS) {
+    const value = context?.[key];
+    if (
+      typeof value === "string" ||
+      typeof value === "number" ||
+      typeof value === "boolean"
+    ) {
+      tags[`ctx.${key}`] = redactText(String(value)).slice(0, 200);
+    }
+  }
 
   void import("@sentry/nextjs")
     .then((Sentry) => {
-      Sentry.captureException(new Error(entry.message), {
-        extra: entry.context,
-        tags: { source: "logger" },
+      Sentry.captureException(cause ?? new Error(scrub(message) as string), {
+        tags,
       });
     })
     .catch(() => {
@@ -119,7 +142,7 @@ export const logger = {
     }
 
     // In production, send to error tracking
-    reportToErrorTracking(entry);
+    reportToErrorTracking(message, context);
   },
 
   /**
@@ -137,15 +160,6 @@ export const logger = {
       console.error(error.stack);
     }
 
-    if (!isDevelopment && sentryEnabled()) {
-      const extra = { ...context, stack: error.stack, name: error.name };
-      void import("@sentry/nextjs")
-        .then((Sentry) => {
-          Sentry.captureException(error, { extra, tags: { source: "logger" } });
-        })
-        .catch(() => {});
-    } else if (!isDevelopment) {
-      reportToErrorTracking(entry);
-    }
+    reportToErrorTracking(error.message, context, error);
   },
 };
