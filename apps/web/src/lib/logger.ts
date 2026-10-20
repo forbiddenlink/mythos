@@ -55,17 +55,57 @@ function sentryEnabled(): boolean {
   );
 }
 
+// Matched against the key lowercased with non-alphanumerics removed, so accessToken,
+// access_token and access-token all match.
+const SENSITIVE_KEY =
+  /password|passwd|pwd|secret|token|apikey|authorization|cookie|signature|email|phone|ssn|creditcard|cardnumber|cvv|cvc|privatekey/;
+const EMAIL_PATTERN = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+const MAX_DEPTH = 5;
+
+/** Recursive, depth-bounded redaction of keys and email addresses in strings. */
+export function scrub(value: unknown, depth = 0): unknown {
+  if (typeof value === "string") return value.replace(EMAIL_PATTERN, "[EMAIL]");
+  if (value === null || typeof value !== "object" || value instanceof Error) {
+    return value;
+  }
+  if (depth >= MAX_DEPTH) return "[MAX_DEPTH]";
+  if (Array.isArray(value)) return value.map((v) => scrub(v, depth + 1));
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>).map(([key, v]) => [
+      key,
+      SENSITIVE_KEY.test(key.toLowerCase().replace(/[^a-z0-9]/g, ""))
+        ? "[REDACTED]"
+        : scrub(v, depth + 1),
+    ]),
+  );
+}
+
 /**
- * Send error to Sentry when DSN is configured (production only).
+ * Send an error to Sentry when a DSN is configured (production only). Uses the
+ * real Error from context.error / context.err when present so the stack is kept,
+ * otherwise wraps the message. Context is redacted first. Never throws.
+ * This is the single logger-to-Sentry path; captureConsoleIntegration is not enabled.
  */
-function reportToErrorTracking(entry: LogEntry): void {
-  if (isDevelopment || entry.level !== "error") return;
-  if (!sentryEnabled()) return;
+function reportToErrorTracking(
+  message: string,
+  context?: LogContext,
+  error?: Error,
+): void {
+  if (isDevelopment || !sentryEnabled()) return;
+
+  const cause =
+    error ??
+    [context?.error, context?.err].find((v): v is Error => v instanceof Error);
+  const extra = scrub(
+    Object.fromEntries(
+      Object.entries(context ?? {}).filter(([, v]) => !(v instanceof Error)),
+    ),
+  ) as LogContext;
 
   void import("@sentry/nextjs")
     .then((Sentry) => {
-      Sentry.captureException(new Error(entry.message), {
-        extra: entry.context,
+      Sentry.captureException(cause ?? new Error(scrub(message) as string), {
+        extra,
         tags: { source: "logger" },
       });
     })
@@ -119,7 +159,7 @@ export const logger = {
     }
 
     // In production, send to error tracking
-    reportToErrorTracking(entry);
+    reportToErrorTracking(message, context);
   },
 
   /**
@@ -137,15 +177,10 @@ export const logger = {
       console.error(error.stack);
     }
 
-    if (!isDevelopment && sentryEnabled()) {
-      const extra = { ...context, stack: error.stack, name: error.name };
-      void import("@sentry/nextjs")
-        .then((Sentry) => {
-          Sentry.captureException(error, { extra, tags: { source: "logger" } });
-        })
-        .catch(() => {});
-    } else if (!isDevelopment) {
-      reportToErrorTracking(entry);
-    }
+    reportToErrorTracking(
+      error.message,
+      { ...context, stack: error.stack, name: error.name },
+      error,
+    );
   },
 };
