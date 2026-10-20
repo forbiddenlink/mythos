@@ -5,13 +5,14 @@ name: Dependabot auto-merge
 # (required for dependabot/fetch-metadata to read commit metadata without a 403).
 # Safe: gated on github.actor == 'dependabot[bot]'; no PR code is checked out or executed.
 on: pull_request_target
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 jobs:
   automerge:
     if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Dependabot metadata
         id: meta

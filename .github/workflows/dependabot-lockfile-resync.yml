@@ -11,13 +11,19 @@ name: Dependabot lockfile resync
 
 on: pull_request_target
 
-permissions:
-  contents: write
+permissions: {}
 
 jobs:
   resync:
-    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    # Dependabot's own in-repo branch only. A fork PR, or a human-authored PR,
+    # never gets this write token.
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.actor == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out the pull request branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -40,7 +46,7 @@ jobs:
         run: |
           set -uo pipefail
           before=$(sha256sum pnpm-lock.yaml | cut -d' ' -f1)
-          pnpm install --lockfile-only --ignore-scripts
+          pnpm install --lockfile-only --ignore-scripts --ignore-pnpmfile
           after=$(sha256sum pnpm-lock.yaml | cut -d' ' -f1)
           if [ "$before" = "$after" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -50,7 +56,7 @@ jobs:
 
       - name: Verify a frozen install now succeeds
         if: steps.resync.outputs.changed == 'true'
-        run: pnpm install --frozen-lockfile --lockfile-only
+        run: pnpm install --frozen-lockfile --lockfile-only --ignore-scripts --ignore-pnpmfile
 
       - name: Push the corrected lockfile
         if: steps.resync.outputs.changed == 'true'
