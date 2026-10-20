@@ -808,3 +808,50 @@ describe("sentry-scrub: review round 3", () => {
     expect(out.exception.values.length).toBeLessThanOrEqual(20);
   });
 });
+
+describe("sentry-scrub: review round 4", () => {
+  const gone = (input: string, canary: string) =>
+    expect(redactText(input)).not.toContain(canary);
+
+  it("redacts a quoted value that holds spaces or delimiters", () => {
+    gone('password="R2_HEAD R2_TAIL"', "R2_TAIL");
+    gone('password="R2_HEAD;R2_TAIL"', "R2_TAIL");
+    gone('"password=\\"R2_HEAD R2_TAIL\\""', "R2_TAIL");
+  });
+
+  it("does not let a [REDACTED] prefix hide the rest of a value", () => {
+    gone('password: "[REDACTED]R2_CANARY"', "R2_CANARY");
+    expect(redactText('{"password":"x"}')).toBe('{"password":"[REDACTED]"}');
+  });
+
+  it("redacts every pair on a cookie line and dotted sensitive keys", () => {
+    gone("Cookie: a=ok; sid=R2_CANARY", "R2_CANARY");
+    gone("session.id: R2_CANARY", "R2_CANARY");
+  });
+
+  it("drops url credentials before email handling, whatever their length", () => {
+    gone("https://user:R2_CANARY!x@example.test/p", "R2_CANARY");
+    gone(`https://u:R2_CANARY${"A".repeat(300)}@localhost/p`, "R2_CANARY");
+  });
+
+  it("catches quoted and international emails, extensions and spaced SSNs", () => {
+    gone('Contact: "r2 canary"@example.test', "canary");
+    gone("Contact: r2canary@例え.テスト", "r2canary");
+    gone("Call /202-555-0173", "555-0173");
+    gone("Call 2025550173x123", "2025550173");
+    gone("SSN 219 09 9999", "9999");
+  });
+
+  it("decodes malformed and triple percent encodings", () => {
+    gone("mail r2canary%FF%40example.test", "r2canary");
+    gone("mail r2canary%252540example.test", "r2canary");
+  });
+
+  it("redacts identifier fields before truncating them", () => {
+    const key = ["sk", "live", "ROUND2CANARY123456789"].join("_");
+    const out = scrubEvent({ environment: `${"x ".repeat(122)}${key}` }) as {
+      environment: string;
+    };
+    expect(out.environment).not.toContain("sk_live_ROUN");
+  });
+});

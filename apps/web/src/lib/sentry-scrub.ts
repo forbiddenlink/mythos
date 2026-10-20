@@ -23,14 +23,15 @@ const BEARER = /\bBearer\s+[A-Za-z0-9._~+/=-]+/gi;
 const BASIC = /\bBasic\s+[A-Za-z0-9+/]{8,}={0,2}/gi;
 const AUTH_HEADER = /\bAuthorization\s*:[^\n\r]{0,200}/gi;
 const JSON_KEY = /"((?:[^"\\]|\\.){1,64})"\s*:\s*/g;
-const KEY_CHAR = /[A-Za-z0-9_-]/;
+const KEY_CHAR = /[A-Za-z0-9_.-]/;
 const SENSITIVE_WORD =
   /pass|pwd|secret|token|api[_-]?key|authorization|session|cookie/i;
-const USERINFO = /(\b[A-Za-z][A-Za-z0-9+.-]{0,16}:\/\/)[^\s/@]{1,128}@/g;
-const SSN = /\b\d{3}-\d{2}-\d{4}\b/g;
+const USERINFO = /(\b[A-Za-z][A-Za-z0-9+.-]{0,16}:\/\/)[^\s/@]{1,2048}@/g;
+const SSN = /\b\d{3}[- ]\d{2}[- ]\d{4}\b/g;
 const CARD = /\b(?:\d[ -]?){13,19}\b/g;
 const IPV4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
-const PHONE = /(?<![^\s(:+[\]"'=,;>])\+?\d[\d\s().-]{8,18}\d(?![\w:])/g;
+const PHONE =
+  /(?<![^\s(:+[\]"'=,;>/])\+?\d[\d\s().-]{8,18}\d(?![A-Za-wyz0-9_:])/g;
 const JWT =
   /(?<![A-Za-z0-9_-])eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g;
 const API_KEY = new RegExp(
@@ -48,9 +49,9 @@ const API_KEY = new RegExp(
   "g",
 );
 const KV_SEGMENT = /[^?#&;\s]+/g;
-const LOCAL_CH = /[A-Za-z0-9._%+-]/;
-const DOMAIN_CH = /[A-Za-z0-9.-]/;
-const TLD = /^(?:xn--[A-Za-z0-9-]{2,}|[A-Za-z]{2,})$/;
+const LOCAL_CH = /[\p{L}\p{N}._%+-]/u;
+const DOMAIN_CH = /[\p{L}\p{N}.-]/u;
+const TLD = /^(?:xn--[A-Za-z0-9-]{2,}|\p{L}{2,})$/u;
 const IPV6_RUN = /(?<![\w:])[0-9A-Fa-f:]{3,39}(?![\w:])/g;
 const MAX_QUOTED_KEY = 512;
 const MAX_STRUCT = 4096;
@@ -61,7 +62,10 @@ function safeDecode(text: string): string {
   try {
     return decodeURIComponent(text);
   } catch {
-    return text;
+    // Invalid UTF-8 (such as %FF): decode the ASCII bytes one at a time.
+    return text.replace(/%([0-7][0-9A-Fa-f])/g, (_m, hex: string) =>
+      String.fromCharCode(Number.parseInt(hex, 16)),
+    );
   }
 }
 
@@ -79,6 +83,8 @@ function redactKeyValues(text: string): string {
     const eq = segment.indexOf("=");
     if (eq < 1) return segment;
     const key = segment.slice(0, eq);
+    // A quoted value can contain spaces and delimiters; the text pass measures it.
+    if (/^\\?["']/.test(segment.slice(eq + 1))) return segment;
     return SENSITIVE_PARAM.test(safeDecode(key))
       ? `${key}=[REDACTED]`
       : segment;
@@ -249,9 +255,19 @@ function redactKeyValueText(text: string): string {
     if (!found || !(found.long || isSensitiveKey(found.key))) continue;
     let start = at + 1;
     while (start < text.length && /\s/.test(text.charAt(start))) start++;
-    if (/^"?\[REDACTED\]/.test(text.slice(start, start + 12))) continue;
-    const end = valueEnd(text, start, scalar);
+    if (
+      /^\\?"?\[REDACTED\]\\?"?(?![\p{L}\p{N}_])/u.test(
+        text.slice(start, start + 16),
+      )
+    )
+      continue;
+    let end = valueEnd(text, start, scalar);
     if (end === undefined) continue;
+    if (/^(?:set-)?cookie$/i.test(found.key)) {
+      // A cookie header holds several name=value pairs; redact the whole line.
+      const eol = text.indexOf("\n", start);
+      end = eol === -1 ? text.length : eol;
+    }
     out += `${text.slice(last, start)}[REDACTED]`;
     last = end;
     sep.lastIndex = end;
@@ -321,6 +337,11 @@ function redactEmails(text: string): string {
   let last = 0;
   for (let at = text.indexOf("@"); at !== -1; at = text.indexOf("@", at + 1)) {
     let left = at;
+    if (text.charAt(left - 1) === '"' && left - 1 > last) {
+      // Quoted local part: "any text"@host
+      const open = text.lastIndexOf('"', left - 2);
+      if (open >= last && left - open <= 66) left = open;
+    }
     while (left > last && LOCAL_CH.test(text.charAt(left - 1))) left--;
     let right = at + 1;
     while (right < text.length && DOMAIN_CH.test(text.charAt(right))) right++;
@@ -354,7 +375,7 @@ export function redactText(text: string): string {
   const input =
     text.length > PRE_CUT ? dropPartialRun(text.slice(0, PRE_CUT)) : text;
   let current = input;
-  for (let round = 0; round < 2; round++) {
+  for (let round = 0; round < 3; round++) {
     current = percentDecode(redactKeyValues(redactTokens(current)));
   }
   let redacted = redactPass(current);
@@ -373,13 +394,15 @@ function redactPass(current: string): string {
         redactCards(
           redactEmails(
             redactKeyValueText(
-              redactJsonPairs(redactKeyValues(redactTokens(current))),
+              redactJsonPairs(
+                redactKeyValues(redactTokens(current).replace(USERINFO, "$1")),
+              ),
             ),
           ).replace(SSN, "[SSN]"),
         ),
       ),
     ),
-  ).replace(USERINFO, "$1");
+  );
 }
 
 /** Recursive, depth-bounded redaction of keys and text. Nested Errors become plain objects. */
@@ -490,7 +513,7 @@ function bags(v: unknown, max = MAX_ITEMS): Bag[] {
 
 /** A short identifier string; anything else is dropped. */
 function id(v: unknown): string | undefined {
-  return typeof v === "string" ? redactText(v.slice(0, MAX_ID)) : undefined;
+  return typeof v === "string" ? redactText(v).slice(0, MAX_ID) : undefined;
 }
 
 function num(v: unknown): number | undefined {
