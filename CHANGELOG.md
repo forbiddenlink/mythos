@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.1](https://github.com/forbiddenlink/mythos/compare/v1.11.0...v1.11.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* **deps:** cap unbounded pnpm overrides at the next major ([#189](https://github.com/forbiddenlink/mythos/issues/189)) ([f537226](https://github.com/forbiddenlink/mythos/commit/f537226da35e15cc63863928bfe506a06f496aaa))
+
 ## [1.11.0](https://github.com/forbiddenlink/mythos/compare/v1.10.0...v1.11.0) (2026-10-19)
 
 
