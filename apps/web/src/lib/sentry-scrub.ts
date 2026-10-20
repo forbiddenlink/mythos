@@ -81,16 +81,24 @@ function percentDecode(text: string): string {
  * string); a segment whose key looks sensitive has its whole value replaced.
  */
 function redactKeyValues(text: string): string {
-  return text.replace(KV_SEGMENT, (segment) => {
+  let out = "";
+  let last = 0;
+  KV_SEGMENT.lastIndex = 0;
+  for (let m = KV_SEGMENT.exec(text); m; m = KV_SEGMENT.exec(text)) {
+    const segment = m[0];
     const eq = segment.indexOf("=");
-    if (eq < 1) return segment;
-    const key = segment.slice(0, eq);
-    // A quoted value can contain spaces and delimiters; the text pass measures it.
-    if (/^\\?["']/.test(segment.slice(eq + 1))) return segment;
-    return SENSITIVE_PARAM.test(safeDecode(key))
-      ? `${key}=[REDACTED]`
-      : segment;
-  });
+    if (eq < 1 || !isSensitiveKey(segment.slice(0, eq))) continue;
+    const start = m.index + eq + 1;
+    let end = m.index + segment.length;
+    // A quoted value runs to its closing quote, spaces and delimiters included.
+    if (/^\\?["']/.test(text.slice(start, start + 2))) {
+      end = Math.max(end, valueEnd(text, start, /\S+/y) ?? end);
+    }
+    out += `${text.slice(last, start)}[REDACTED]`;
+    last = end;
+    KV_SEGMENT.lastIndex = end;
+  }
+  return out + text.slice(last);
 }
 
 /** One key test for JSON pairs, key=value and key: value. */
@@ -320,7 +328,6 @@ function redactIpv6(text: string): string {
 }
 
 const URL_STOP = /[\s"'<>]/;
-const SCHEME_CH = /[A-Za-z0-9+.-]/;
 
 /**
  * Query values in URLs inside free text: keep the parameter names, drop every value. One
@@ -332,8 +339,6 @@ function redactUrlQueries(text: string): string {
   let last = 0;
   let pos = 0;
   for (let at = text.indexOf("://"); at !== -1; at = text.indexOf("://", pos)) {
-    let s = at;
-    while (s > 0 && at - s < 17 && SCHEME_CH.test(text.charAt(s - 1))) s--;
     let q = at + 3;
     while (
       q < text.length &&
@@ -341,11 +346,7 @@ function redactUrlQueries(text: string): string {
       text.charAt(q) !== "?"
     )
       q++;
-    if (
-      at - s < 2 ||
-      !/[A-Za-z]/.test(text.charAt(s)) ||
-      text.charAt(q) !== "?"
-    ) {
+    if (text.charAt(q) !== "?") {
       pos = Math.max(q, at + 3);
       continue;
     }

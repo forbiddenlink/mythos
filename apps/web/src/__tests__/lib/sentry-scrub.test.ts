@@ -1063,3 +1063,33 @@ describe("sentry-scrub: review round 8", () => {
     }
   });
 });
+
+describe("sentry-scrub: review round 9", () => {
+  it("redacts a quoted value under a sensitive key=value pair", () => {
+    for (const [input, canary] of [
+      ['password="hunter9"', "hunter9"],
+      ["token='hunter9'", "hunter9"],
+      ['password=\\"hunter9\\"', "hunter9"],
+      ["token=\\'hunter9\\'", "hunter9"],
+      ['password="hunter9 tail9"', "tail9"],
+      ["?password='hunter9 tail9'&z=1", "tail9"],
+      ['x.api_key="hunter9;tail9"', "tail9"],
+    ] as const) {
+      expect(redactText(input)).not.toContain(canary);
+    }
+    expect(redactText("?password='x y'&z=1")).toContain("z=1");
+  });
+});
+
+describe("sentry-scrub: review round 10", () => {
+  it("redacts the query of any :// token whatever precedes the scheme", () => {
+    for (const input of [
+      "1https://x.test/p?a=R10_CANARY",
+      "_https://x.test/p?a=R10_CANARY",
+      "://x.test/p?a=R10_CANARY",
+      "(https://x.test/p?a=R10_CANARY)",
+    ]) {
+      expect(redactText(input)).not.toContain("R10_CANARY");
+    }
+  });
+});
