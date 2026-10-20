@@ -46,3 +46,12 @@ it("allows crawlers to fetch the resources required to render public pages", () 
     }
   }
 });
+
+it("lists the self-canonical cinematic story pages but not the /read duplicates", () => {
+  const urls = sitemap().map((entry) => entry.url);
+  expect(urls).toContain("https://mythosatlas.com/stories/ragnarok/cinematic");
+  expect(urls).toContain(
+    "https://mythosatlas.com/stories/titanomachy/cinematic",
+  );
+  expect(urls.some((url) => url.endsWith("/read"))).toBe(false);
+});
