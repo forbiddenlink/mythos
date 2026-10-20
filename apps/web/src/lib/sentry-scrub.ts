@@ -320,7 +320,7 @@ function redactIpv6(text: string): string {
 }
 
 const URL_QUERY =
-  /(\b[A-Za-z][A-Za-z0-9+.-]{1,16}:\/\/[^\s?#"\'<>]*\?)([^\s#"\'<>]*)/g;
+  /(\b[A-Za-z][A-Za-z0-9+.-]{1,16}:\/\/[^\s?#"'<>]{0,2048}\?)([^\s#"'<>]{0,4096})/g;
 
 /** Query values in URLs inside free text: keep the parameter names, drop every value. */
 function redactUrlQueries(text: string): string {
@@ -396,7 +396,7 @@ function dropPartialRun(text: string): string {
 export function redactText(text: string): string {
   const input =
     text.length > PRE_CUT ? dropPartialRun(text.slice(0, PRE_CUT)) : text;
-  let current = unescapeUnicode(input);
+  let current = input;
   for (let round = 0; round < 3; round++) {
     current = percentDecode(redactKeyValues(redactTokens(current)));
   }
@@ -418,9 +418,8 @@ function redactPass(current: string): string {
             redactKeyValueText(
               redactJsonPairs(
                 redactKeyValues(
-                  redactUrlQueries(redactTokens(current)).replace(
-                    USERINFO,
-                    "$1",
+                  redactUrlQueries(
+                    redactTokens(current).replace(USERINFO, "$1"),
                   ),
                 ),
               ),

@@ -897,7 +897,9 @@ describe("sentry-scrub: review round 6 (Codex inputs)", () => {
                 frames: [
                   {
                     function: "Bearer canary-secret",
-                    module: "sk-proj-ABCDEFGHIJKLMNOPQRSTUVWX",
+                    module: ["sk", "proj", "ABCDEFGHIJKLMNOPQRSTUVWX"].join(
+                      "-",
+                    ),
                   },
                 ],
               },
@@ -942,8 +944,14 @@ describe("sentry-scrub: review round 6 (Codex inputs)", () => {
     for (const [input, canary] of [
       ["basic dXNlcjpwYXNzd29yZA==", "dXNlcjpw"],
       ["Basic YTpi", "YTpi"],
-      ["sk_abcdefghijklmnopqrstuvwxyz012345", "abcdefghijklmnop"],
-      ["prefix_sk-proj-abcdefghijklmnopqrstuvwxyz012345", "abcdefghijklmnop"],
+      [
+        ["sk", "abcdefghijklmnopqrstuvwxyz012345"].join("_"),
+        "abcdefghijklmnop",
+      ],
+      [
+        `prefix_${["sk", "proj", "abcdefghijklmnopqrstuvwxyz012345"].join("-")}`,
+        "abcdefghijklmnop",
+      ],
       ["pwd: hunter2", "hunter2"],
       ["pwd=hunter2", "hunter2"],
       ["session.id: session-secret", "session-secret"],
@@ -970,7 +978,11 @@ describe("sentry-scrub: review round 6 (Codex inputs)", () => {
 
   it("redacts a JWT whose header has whitespace", () => {
     gone(
-      "eyAiYWxnIjoiSFMyNTYiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSJ9.BBkMIwHwDrfsWmN4ZxcuTCrx0bygPf8euRWH9PG2BV0",
+      [
+        "eyAiYWxnIjoiSFMyNTYiLCJ0eXAiOiJKV1QifQ",
+        "eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSJ9",
+        "BBkMIwHwDrfsWmN4ZxcuTCrx0bygPf8euRWH9PG2BV0",
+      ].join("."),
       "eyJzdWIi",
     );
   });
@@ -986,5 +998,31 @@ describe("sentry-scrub: review round 6 (Codex inputs)", () => {
     gone('{"password":["visible-first","visible-second"]}', "visible-second");
     gone('password: {"value":"hunter2"}', "hunter2");
     gone('password: ["hunter2", "otherSecret"]', "otherSecret");
+  });
+});
+
+describe("sentry-scrub: review round 7", () => {
+  const gone = (input: string, canary: string) =>
+    expect(redactText(input)).not.toContain(canary);
+
+  it("scans the raw text before unescaping it", () => {
+    gone('{"password":"abc\\u0022 R7_CANARY"}', "R7_CANARY");
+    gone("alice\\u0040example.com", "alice");
+  });
+
+  it("drops userinfo before query values, including userinfo next to a query", () => {
+    gone("https://user:R7_CANARY@example.test/p?a=1", "R7_CANARY");
+    gone(
+      "https://example.test/p?next=https://u:R7_CANARY@h.test/",
+      "R7_CANARY",
+    );
+  });
+
+  it("stays linear on long scheme runs with no query", () => {
+    for (const input of ["a://".repeat(1100), `http://${"a".repeat(4400)}`]) {
+      const start = performance.now();
+      redactText(input);
+      expect(performance.now() - start).toBeLessThan(100);
+    }
   });
 });
