@@ -55,4 +55,28 @@ describe("POST /api/search", () => {
     const res = await POST(req);
     expect(res.status).toBe(403);
   });
+
+  it("keys header-less requests per client instead of one shared anonymous bucket", async () => {
+    const checkSearchRateLimit = vi
+      .fn()
+      .mockResolvedValue({ allowed: true, remaining: 1 });
+    vi.doMock("@/lib/oracle/rate-limit", () => ({ checkSearchRateLimit }));
+    const { POST } = await import("@/app/api/search/route");
+    const searchAs = (userAgent: string) =>
+      POST(
+        new NextRequest("http://localhost:3000/api/search", {
+          method: "POST",
+          headers: { ...sameOriginHeaders, "user-agent": userAgent },
+          body: JSON.stringify({ query: "Zeus" }),
+        }),
+      );
+
+    await searchAs("agent-a");
+    await searchAs("agent-b");
+
+    const keys = checkSearchRateLimit.mock.calls.map(([key]) => key as string);
+    expect(keys).not.toContain("anonymous");
+    expect(new Set(keys).size).toBe(2);
+    vi.doUnmock("@/lib/oracle/rate-limit");
+  });
 });

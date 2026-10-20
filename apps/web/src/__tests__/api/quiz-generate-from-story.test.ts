@@ -96,4 +96,20 @@ describe("POST /api/quiz/generate-from-story", () => {
     const res = await POST(req);
     expect(res.status).toBe(404);
   });
+
+  it("keys header-less requests per client instead of one shared anonymous bucket", async () => {
+    vi.stubEnv("ANTHROPIC_API_KEY", "test-key");
+    const checkQuizRateLimit = vi
+      .fn()
+      .mockResolvedValue({ allowed: false, reason: "limited" });
+    vi.doMock("@/lib/oracle/rate-limit", () => ({ checkQuizRateLimit }));
+
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
+    const res = await POST(postRequest({ storySlug: "aeneid", count: 2 }));
+
+    expect(res.status).toBe(429);
+    expect(checkQuizRateLimit).toHaveBeenCalledTimes(1);
+    expect(checkQuizRateLimit.mock.calls[0]![0]).toMatch(/^anon:/);
+    vi.doUnmock("@/lib/oracle/rate-limit");
+  });
 });

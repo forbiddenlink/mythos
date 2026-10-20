@@ -4,6 +4,7 @@ import stories from "@/data/stories.json";
 import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
 import { logger } from "@/lib/logger";
 import { readJsonBody } from "@/lib/http/read-json-body";
+import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkQuizRateLimit } from "@/lib/oracle/rate-limit";
 import {
   forbiddenUnlessSameOrigin,
@@ -96,13 +97,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Story not found" }, { status: 404 });
     }
 
-    const ip =
-      req.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
-      req.headers.get("x-real-ip") ||
-      req.headers.get("x-forwarded-for")?.split(",").at(-1)?.trim() ||
-      "anonymous";
-
-    const rateLimit = await checkQuizRateLimit(ip);
+    const rateLimit = await checkQuizRateLimit(
+      getOracleClientIdentity(req.headers).key,
+    );
     if (!rateLimit.allowed) {
       if (rateLimit.reason === "misconfigured") {
         return NextResponse.json(

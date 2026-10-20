@@ -2,6 +2,7 @@ import { mergeLexicalAndSemantic } from "@/lib/search-merge";
 import { searchAll, type SearchResult } from "@/lib/search";
 import { semanticSearchResults } from "@/lib/oracle/semantic";
 import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
+import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkSearchRateLimit } from "@/lib/oracle/rate-limit";
 import { logger } from "@/lib/logger";
 import { readJsonBody } from "@/lib/http/read-json-body";
@@ -14,28 +15,6 @@ const BodySchema = z.object({
 });
 const MAX_REQUEST_BODY_BYTES = 4 * 1024;
 
-function getClientIp(req: NextRequest): string {
-  const vercelForwarded = req.headers
-    .get("x-vercel-forwarded-for")
-    ?.split(",")[0]
-    ?.trim();
-  if (vercelForwarded) return vercelForwarded;
-
-  const realIp = req.headers.get("x-real-ip")?.trim();
-  if (realIp) return realIp;
-
-  const forwarded = req.headers.get("x-forwarded-for");
-  if (forwarded) {
-    const hops = forwarded
-      .split(",")
-      .map((part) => part.trim())
-      .filter(Boolean);
-    if (hops.length > 0) return hops[hops.length - 1]!;
-  }
-
-  return "anonymous";
-}
-
 /**
  * Unified search: lexical match over local JSON + optional semantic retrieval
  * when embeddings index and OpenAI key are available (same pipeline as Oracle).
@@ -45,7 +24,9 @@ export async function POST(req: NextRequest) {
     const originBlock = forbiddenUnlessSameOrigin(req);
     if (originBlock) return originBlock;
 
-    const rateLimit = await checkSearchRateLimit(getClientIp(req));
+    const rateLimit = await checkSearchRateLimit(
+      getOracleClientIdentity(req.headers).key,
+    );
     if (!rateLimit.allowed) {
       if (rateLimit.reason === "misconfigured") {
         return NextResponse.json(
