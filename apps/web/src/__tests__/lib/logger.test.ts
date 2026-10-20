@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
-import { scrubEvent } from "@/lib/sentry-scrub";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { scrubEvent } from "@/lib/sentry-scrub";
 
 vi.mock("@sentry/nextjs", () => ({ captureException: vi.fn() }));
 
@@ -13,20 +13,22 @@ async function loadLogger(env: "production" | "development" = "production") {
   return (await import("@/lib/logger")).logger;
 }
 
+type CaptureOpts = { tags: Record<string, string>; extra?: unknown };
+const opts = () => capture.mock.calls[0][1] as unknown as CaptureOpts;
+
 describe("logger.error -> Sentry", () => {
   beforeEach(() => {
     capture.mockReset();
   });
 
-  it("captures once, using the real Error from context.error", async () => {
+  it("captures once with the real Error and puts context in ctx.* tags, not extra", async () => {
     const logger = await loadLogger();
     const cause = new Error("quiz failed");
     logger.error("[api/quiz]", { error: cause, route: "/api/quiz" });
     await vi.waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
     expect(capture.mock.calls[0][0]).toBe(cause);
-    expect(
-      (capture.mock.calls[0][1] as { extra: Record<string, unknown> }).extra,
-    ).toEqual({ route: "/api/quiz" });
+    expect(opts().tags).toEqual({ source: "logger", "ctx.route": "/api/quiz" });
+    expect(opts().extra).toBeUndefined();
   });
 
   it("wraps the message when no Error is supplied and redacts emails", async () => {
@@ -38,13 +40,10 @@ describe("logger.error -> Sentry", () => {
     expect((capture.mock.calls[0][0] as Error).message).toBe(
       "Newsletter sign-up failed for [EMAIL]",
     );
-    expect(
-      (capture.mock.calls[0][1] as { extra: Record<string, unknown> }).extra
-        .error,
-    ).toBe("upstream said [EMAIL] bounced");
+    expect(opts().tags["ctx.error"]).toBe("upstream said [EMAIL] bounced");
   });
 
-  it("redacts nested secrets in objects and arrays, whatever the key casing", async () => {
+  it("redacts nested secrets in the context tags, whatever the key casing", async () => {
     const logger = await loadLogger();
     logger.error("Deep", {
       user: { password: "p", profile: { accessToken: "tok-1" } },
@@ -53,11 +52,9 @@ describe("logger.error -> Sentry", () => {
       deep: { a: { b: { c: { d: { e: "too-deep" } } } } },
     });
     await vi.waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
-    const json = JSON.stringify(
-      (capture.mock.calls[0][1] as { extra: unknown }).extra,
-    );
+    const json = JSON.stringify(opts().tags);
     for (const leaked of [
-      '"p"',
+      '\\"p\\"',
       "tok-1",
       "Bearer x",
       "key-1",
@@ -71,37 +68,21 @@ describe("logger.error -> Sentry", () => {
     expect(json).toContain("[MAX_DEPTH]");
   });
 
-  it("an Error with an email and bearer token is redacted by beforeSend, and nested Errors are plain objects", async () => {
+  it("an Error with an email and bearer token comes out clean through scrubEvent", async () => {
     const logger = await loadLogger();
     const cause = new Error(
-      "upstream rejected jane@example.com with Bearer abc.def-123",
+      "rejected jane@example.com with Bearer abc.def-123",
     );
-    logger.error("Upstream failed", {
-      error: cause,
-      attempt: { lastError: new Error("retry for jane@example.com") },
-    });
+    logger.error("Upstream failed", { error: cause });
     await vi.waitFor(() => expect(capture).toHaveBeenCalledTimes(1));
-    const [captured, opts] = capture.mock.calls[0] as [
-      Error,
-      { extra: Record<string, unknown> },
-    ];
+    const captured = capture.mock.calls[0][0] as Error;
     expect(captured).toBe(cause); // real Error kept so grouping works
-    // What the SDK builds from the capture, then beforeSend:
     const event = scrubEvent({
-      message: captured.message,
-      exception: { values: [{ value: captured.message }] },
-      extra: opts.extra,
+      exception: { values: [{ type: "Error", value: captured.message }] },
     });
     const json = JSON.stringify(event);
     expect(json).not.toContain("jane@example.com");
     expect(json).not.toContain("abc.def-123");
-    expect(event.exception?.values?.[0].value).toBe(
-      "upstream rejected [EMAIL] with Bearer [TOKEN]",
-    );
-    expect(
-      (opts.extra.attempt as { lastError: { message: string } }).lastError
-        .message,
-    ).toBe("retry for [EMAIL]");
   });
 
   it("exception() captures the given Error once", async () => {

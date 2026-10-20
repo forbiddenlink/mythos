@@ -73,17 +73,24 @@ function reportToErrorTracking(
   const cause =
     error ??
     [context?.error, context?.err].find((v): v is Error => v instanceof Error);
-  const extra = scrub(
-    Object.fromEntries(
-      Object.entries(context ?? {}).filter(([, v]) => !(v instanceof Error)),
-    ),
-  ) as LogContext;
+  // scrubEvent drops `extra`, so logger context travels as redacted tags (ctx.<key>).
+  const tags: Record<string, string> = { source: "logger" };
+  const entries = Object.entries(context ?? {}).filter(
+    ([, v]) => !(v instanceof Error),
+  );
+  for (const [key, value] of entries.slice(0, 10)) {
+    const safeKey = key.replace(/[^A-Za-z0-9_.-]/g, "_").slice(0, 32);
+    // scrub() redacts by key name and runs redactText over every string value.
+    const redacted = Object.values(scrub({ [key]: value }) as LogContext)[0];
+    const rendered =
+      typeof redacted === "string" ? redacted : JSON.stringify(redacted);
+    tags[`ctx.${safeKey}`] = (rendered ?? "").slice(0, 200);
+  }
 
   void import("@sentry/nextjs")
     .then((Sentry) => {
       Sentry.captureException(cause ?? new Error(scrub(message) as string), {
-        extra,
-        tags: { source: "logger" },
+        tags,
       });
     })
     .catch(() => {
@@ -154,10 +161,6 @@ export const logger = {
       console.error(error.stack);
     }
 
-    reportToErrorTracking(
-      error.message,
-      { ...context, stack: error.stack, name: error.name },
-      error,
-    );
+    reportToErrorTracking(error.message, context, error);
   },
 };

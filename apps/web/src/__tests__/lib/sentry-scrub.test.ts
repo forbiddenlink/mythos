@@ -92,50 +92,165 @@ describe("sentry-scrub: free text", () => {
       expect(out.length).toBeLessThan(4200);
     }
   });
+
+  it("redacts serialized JSON secrets, phone numbers and Authorization headers", () => {
+    const text = redactText(
+      '{"password":"demo-secret"} Call +1-202-555-0123 or (202) 555-0199. Authorization: Basic YWxpY2U6c2VjcmV0',
+    );
+    for (const leaked of [
+      "demo-secret",
+      "555-0123",
+      "555-0199",
+      "YWxpY2U6c2VjcmV0",
+    ]) {
+      expect(text).not.toContain(leaked);
+    }
+    expect(redactText("Basic YWxpY2U6c2VjcmV0")).toBe("Basic [TOKEN]");
+    expect(redactText("order 2026-10-20 12:34 id 12345")).toContain(
+      "2026-10-20",
+    );
+  });
 });
 
-describe("sentry-scrub: events", () => {
-  it("keeps origin and path only for the request URL, dropping query and hash", () => {
+describe("sentry-scrub: allowlist rebuild", () => {
+  const dump = (event: unknown) => JSON.stringify(scrubEvent(event));
+  const clean = (event: unknown, leaks: string[]) => {
+    const json = dump(event);
+    for (const leaked of leaks) expect(json).not.toContain(leaked);
+  };
+
+  it("drops span data entirely (authorization header and email in span data)", () => {
+    clean(
+      {
+        spans: [
+          {
+            span_id: "s1",
+            data: {
+              authorization: "Bearer demo-secret",
+              contact: "alice@example.test",
+            },
+          },
+        ],
+      },
+      ["demo-secret", "alice@example.test", "authorization"],
+    );
+  });
+
+  it("keeps only user.id, and drops extra entirely", () => {
+    const event = scrubEvent({
+      user: { id: "u1", name: "Alice Example", ip_address: "192.0.2.7" },
+      extra: { session: "demo-secret" },
+    }) as { user: unknown; extra?: unknown };
+    expect(event.user).toEqual({ id: "u1" });
+    expect(event.extra).toBeUndefined();
+    clean(
+      {
+        user: { name: "Alice Example", ip_address: "192.0.2.7" },
+        extra: { session: "demo-secret" },
+      },
+      ["Alice", "192.0.2.7", "demo-secret"],
+    );
+  });
+
+  it("redacts JSON secrets and phone numbers in the message", () => {
+    clean({ message: '{"password":"demo-secret"} Call +1-202-555-0123' }, [
+      "demo-secret",
+      "555-0123",
+    ]);
+  });
+
+  it("redacts an Authorization header in free text", () => {
+    clean({ message: "Authorization: Basic YWxpY2U6c2VjcmV0" }, [
+      "YWxpY2U6c2VjcmV0",
+    ]);
+  });
+
+  it("redacts logentry, drops stack frame vars, and strips frame filename queries", () => {
+    const event = scrubEvent({
+      logentry: {
+        formatted: "alice@example.test",
+        message: "alice@example.test",
+        params: ["alice@example.test"],
+      },
+      exception: {
+        values: [
+          {
+            type: "Error",
+            value: "error",
+            stacktrace: {
+              frames: [
+                {
+                  filename: "https://example.test/a.js?token=demo-secret",
+                  abs_path:
+                    "https://example.test/a.js#access_token=demo-secret",
+                  function: "run",
+                  lineno: 7,
+                  colno: 3,
+                  in_app: true,
+                  context_line: "call(alice@example.test)",
+                  vars: { password: "demo-secret" },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    }) as {
+      logentry: Record<string, unknown>;
+      exception: {
+        values: { stacktrace: { frames: Record<string, unknown>[] } }[];
+      };
+    };
+    const json = JSON.stringify(event);
+    expect(json).not.toContain("alice@example.test");
+    expect(json).not.toContain("demo-secret");
+    expect(event.logentry.params).toBeUndefined();
+    const frame = event.exception.values[0]?.stacktrace.frames[0];
+    expect(frame?.vars).toBeUndefined();
+    expect(frame?.filename).toBe("https://example.test/a.js");
+    expect(frame).toMatchObject({
+      function: "run",
+      lineno: 7,
+      colno: 3,
+      in_app: true,
+    });
+  });
+
+  it("drops an email used as an object key (extra) and in contexts", () => {
+    clean(
+      {
+        extra: { "alice@example.test": "value" },
+        contexts: { device: { "alice@example.test": "x" } },
+      },
+      ["alice@example.test"],
+    );
+  });
+
+  it("drops unknown top-level fields", () => {
+    const event = scrubEvent({
+      foo: "secret",
+      level: "error",
+      event_id: "e1",
+    }) as Record<string, unknown>;
+    expect(event.foo).toBeUndefined();
+    expect(event).toMatchObject({ level: "error", event_id: "e1" });
+  });
+
+  it("keeps origin and path only for the request URL, drops body, query string and cookies", () => {
     const event = scrubEvent({
       request: {
+        method: "POST",
         url: "https://user:pw@app.test/api/x?token=abc123&page=2#frag=zz",
+        data: "password=form-1",
+        query_string: { token: "obj-1" },
+        cookies: { session: "cookie-1" },
+        env: { REMOTE_ADDR: "192.0.2.7" },
       },
+    }) as { request: Record<string, unknown> };
+    expect(event.request).toEqual({
+      method: "POST",
+      url: "https://app.test/api/x",
     });
-    expect(event.request?.url).toBe("https://app.test/api/x");
-  });
-
-  it("strips breadcrumb fetch and navigation URLs, and drops query data", () => {
-    const event = scrubEvent({
-      breadcrumbs: [
-        {
-          category: "fetch",
-          message: "GET https://api.test/x?api_key=k-1",
-          data: { url: "https://api.test/x?api_key=k-1", query: "api_key=k-1" },
-        },
-        {
-          category: "navigation",
-          data: { from: "/a?token=t-1", to: "/b#access_token=t-2" },
-        },
-      ],
-    });
-    const json = JSON.stringify(event);
-    for (const leaked of ["k-1", "t-1", "t-2"]) {
-      expect(json).not.toContain(leaked);
-    }
-    expect(event.breadcrumbs?.[0]?.data?.url).toBe("https://api.test/x");
-    expect(event.breadcrumbs?.[1]?.data?.to).toBe("/b");
-  });
-
-  it("deletes a JSON string body, a form body, a query_string object and cookies", () => {
-    const events = [
-      { request: { data: '{"password":"json-1"}' } },
-      { request: { data: "password=form-1&a=2" } },
-      { request: { query_string: { token: "obj-1" } } },
-      { request: { cookies: { session: "cookie-1" } } },
-    ].map((e) => scrubEvent(e));
-    for (const e of events) {
-      expect(e.request).toEqual({});
-    }
   });
 
   it("keeps only allowlisted headers and strips the referer query", () => {
@@ -150,73 +265,111 @@ describe("sentry-scrub: events", () => {
           "X-API-Key": "k-2",
         },
       },
-    });
-    expect(event.request?.headers).toEqual({
+    }) as { request: { headers: Record<string, string> } };
+    expect(event.request.headers).toEqual({
       Accept: "json",
       "User-Agent": "UA/1.0",
       Referer: "https://app.test/p",
     });
   });
 
-  it("strips transaction names, span descriptions and span URL data, leaving db.statement", () => {
+  it("rebuilds breadcrumbs: url path only, data limited to method, status_code and url", () => {
     const event = scrubEvent({
+      breadcrumbs: [
+        {
+          category: "fetch",
+          type: "http",
+          level: "info",
+          timestamp: 1,
+          message: "GET https://api.test/x?api_key=k-1",
+          data: {
+            url: "https://api.test/x?api_key=k-1",
+            method: "GET",
+            status_code: 200,
+            body: "secret-body",
+          },
+        },
+        {
+          category: "navigation",
+          message: "go /b#access_token=t-2",
+          data: { from: "/a?token=t-1", to: "/b" },
+        },
+      ],
+    }) as {
+      breadcrumbs: { message?: string; data?: Record<string, unknown> }[];
+    };
+    const json = JSON.stringify(event);
+    for (const leaked of ["k-1", "t-1", "t-2", "secret-body"]) {
+      expect(json).not.toContain(leaked);
+    }
+    expect(event.breadcrumbs[0]?.data).toEqual({
+      url: "https://api.test/x",
+      method: "GET",
+      status_code: 200,
+    });
+    expect(event.breadcrumbs[1]?.data).toEqual({});
+  });
+
+  it("rebuilds transactions and spans: path-only names, no span data, trace data dropped", () => {
+    const event = scrubEvent({
+      type: "transaction",
       transaction: "GET /u/jane@example.com?token=abc123",
       contexts: {
         trace: {
-          data: {
-            "http.url": "https://api.test/root?token=root-1",
-            "url.full": "https://api.test/root?token=root-2#h",
-          },
+          trace_id: "t",
+          span_id: "s",
+          op: "http.server",
+          data: { "http.url": "https://api.test/root?token=root-1" },
         },
+        os: { name: "macOS" },
       },
       spans: [
         {
-          description: "fetch https://api.test/x?api_key=k-1",
+          span_id: "s2",
+          op: "http.client",
+          description: "GET https://api.test/x?api_key=k-1",
           data: {
             "http.url": "https://api.test/x?access_token=t-1",
-            "url.full": "https://api.test/y?secret=s-1#h",
-            "http.query": "code=c-1",
-            "db.statement": "select * from users where id = $1",
-            "http.status_code": 200,
+            "db.statement": "select 1",
           },
         },
+        {
+          span_id: "s3",
+          op: "db",
+          description: "select * from users where id = ?",
+        },
       ],
-    });
+    }) as {
+      contexts: { trace: Record<string, unknown>; os: unknown };
+      spans: { description: string; data?: unknown }[];
+    };
     const json = JSON.stringify(event);
-    for (const leaked of [
-      "example.com",
-      "abc123",
-      "k-1",
-      "t-1",
-      "s-1",
-      "c-1",
-      "root-1",
-      "root-2",
-    ]) {
+    for (const leaked of ["example.com", "abc123", "k-1", "t-1", "root-1"]) {
       expect(json).not.toContain(leaked);
     }
-    expect(event.spans?.[0]?.data?.["db.statement"]).toBe(
-      "select * from users where id = $1",
+    expect(event.contexts.trace.data).toBeUndefined();
+    expect(event.contexts.trace.op).toBe("http.server");
+    expect(event.contexts.os).toEqual({ name: "macOS" });
+    expect(event.spans[0]?.data).toBeUndefined();
+    expect(event.spans[0]?.description).toBe("GET https://api.test/x");
+    expect(event.spans[1]?.description).toBe(
+      "select * from users where id = ?",
     );
-    expect(event.spans?.[0]?.data?.["http.status_code"]).toBe(200);
   });
 
-  it("redacts the user, tags and nested breadcrumb data, and leaves stack frames", () => {
-    const frames = [{ filename: "app/x.ts", function: "run", lineno: 7 }];
+  it("allowlists tags and redacts their values", () => {
     const event = scrubEvent({
-      user: { id: "u1", email: "jane@example.com" },
-      tags: { contact: "jane@example.com" },
-      breadcrumbs: [{ category: "console", data: { apiKey: "key-2" } }],
-      exception: { values: [{ value: "x", stacktrace: { frames } } as never] },
+      tags: {
+        route: "/api/x",
+        contact: "jane@example.com",
+        "ctx.note": "jane@example.com",
+        runtime: "node",
+      },
+    }) as { tags: Record<string, string> };
+    expect(event.tags).toEqual({
+      route: "/api/x",
+      "ctx.note": "[EMAIL]",
+      runtime: "node",
     });
-    const json = JSON.stringify(event);
-    for (const leaked of ["jane@example.com", "key-2"]) {
-      expect(json).not.toContain(leaked);
-    }
-    const [first] = event.exception?.values ?? [];
-    expect(
-      (first as unknown as { stacktrace: { frames: unknown[] } }).stacktrace
-        .frames,
-    ).toEqual(frames);
   });
 });
