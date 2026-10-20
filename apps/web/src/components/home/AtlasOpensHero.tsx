@@ -193,6 +193,7 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
           >
             <h2 className="runhead mb-1 text-parchment/80">
               <span>Index of traditions</span>
+              <span className="sr-only">, </span>
               <span>Deities</span>
             </h2>
             <ol className="columns-[8rem] gap-x-6 sm:gap-x-10 xl:columns-3 [&>li]:break-inside-avoid">

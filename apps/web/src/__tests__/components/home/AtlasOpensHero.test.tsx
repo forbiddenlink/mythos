@@ -35,4 +35,17 @@ describe("homepage hero image discovery", () => {
     expect(image?.getAttribute("loading")).toBe("eager");
     expect(image?.getAttribute("fetchpriority")).toBe("high");
   });
+
+  it("reads the running head as separate phrases", () => {
+    const html = renderToStaticMarkup(
+      <AtlasOpensHero
+        counts={{ pantheons: 40, deities: 200, stories: 100 }}
+        index={[]}
+      />,
+    );
+    const document = new DOMParser().parseFromString(html, "text/html");
+    const head = document.querySelector("nav h2");
+    expect(head?.textContent).toBe("Index of traditions, Deities");
+    expect(head?.textContent).not.toContain("traditionsDeities");
+  });
 });
