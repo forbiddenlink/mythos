@@ -22,18 +22,31 @@ const SENSITIVE_PARAM =
 const BEARER = /\bBearer\s+[A-Za-z0-9._~+/=-]+/gi;
 const BASIC = /\bBasic\s+[A-Za-z0-9+/]{8,}={0,2}/g;
 const AUTH_HEADER = /\bAuthorization\s*:[^\n\r]{0,200}/gi;
-const JSON_PAIR =
-  /"((?:[^"\\]|\\.){1,64})"\s*:\s*("(?:[^"\\]|\\.){0,2048}"|[^,}\s]{1,256})/g;
-const KEY_VALUE_TEXT =
-  /\b(pass\w{0,32}|secret|token|api[_-]?key|authorization|session|cookie)(\s{0,4}[:=]\s{0,4})[^\s"',;&]{1,256}/gi;
+const JSON_KEY = /"((?:[^"\\]|\\.){1,64})"\s*:\s*/g;
+const KEY_CHAR = /[A-Za-z0-9_-]/;
+const SENSITIVE_WORD =
+  /pass|secret|token|api[_-]?key|authorization|session|cookie/i;
 const USERINFO = /(\b[A-Za-z][A-Za-z0-9+.-]{0,16}:\/\/)[^\s/@]{1,128}@/g;
 const SSN = /\b\d{3}-\d{2}-\d{4}\b/g;
 const CARD = /\b(?:\d[ -]?){13,19}\b/g;
 const IPV4 = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
-const PHONE = /(?<![^\s(])\+?\d[\d\s().-]{8,18}\d(?![\w:])/g;
+const PHONE = /(?<![^\s(:+])\+?\d[\d\s().-]{8,18}\d(?![\w:])/g;
 const JWT =
   /(?<![A-Za-z0-9_-])eyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]*/g;
-const API_KEY = /(?<![A-Za-z0-9_])(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{10,}/g;
+const API_KEY = new RegExp(
+  [
+    "(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{10,}",
+    "sk-[A-Za-z0-9_-]{20,}",
+    "(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{20,}",
+    "github_pat_[A-Za-z0-9_]{20,}",
+    "xox[baprs]-[A-Za-z0-9-]{10,}",
+    "AKIA[0-9A-Z]{16}",
+    "AIza[0-9A-Za-z_-]{35}",
+  ]
+    .map((p) => `(?<!\\w)${p}`)
+    .join("|"),
+  "g",
+);
 const KV_SEGMENT = /[^?#&;\s]+/g;
 const LOCAL_CH = /[A-Za-z0-9._%+-]/;
 const DOMAIN_CH = /[A-Za-z0-9.-]/;
@@ -67,18 +80,108 @@ function redactKeyValues(text: string): string {
   });
 }
 
+/** One key test for JSON pairs, key=value and key: value. */
+function isSensitiveKey(key: string): boolean {
+  return SENSITIVE_PARAM.test(key) || SENSITIVE_WORD.test(key);
+}
+
+/** End index of a quoted string that starts at `start` (a quote), or text.length. */
+function quotedEnd(text: string, start: number): number {
+  const quote = text.charAt(start);
+  for (let i = start + 1; i < text.length; i++) {
+    const ch = text.charAt(i);
+    if (ch === "\\") i++;
+    else if (ch === quote) return i + 1;
+  }
+  return text.length;
+}
+
+/**
+ * Replace the value that follows each sensitive key. `pattern` matches `key sep` only and
+ * the value is measured here, so a non-sensitive key never swallows a pair nested in its
+ * value. Quoted values run to the matching closing quote; unquoted ones to a delimiter.
+ */
+function redactAfterKeys(
+  text: string,
+  pattern: RegExp,
+  keyOf: (m: RegExpExecArray) => string,
+  scalar: RegExp,
+  render: (m: RegExpExecArray) => string,
+): string {
+  let out = "";
+  let last = 0;
+  pattern.lastIndex = 0;
+  for (let m = pattern.exec(text); m; m = pattern.exec(text)) {
+    const start = m.index + m[0].length;
+    if (!isSensitiveKey(keyOf(m))) continue;
+    const first = text.charAt(start);
+    let end: number;
+    if (first === '"' || first === "'") {
+      end = quotedEnd(text, start);
+    } else {
+      scalar.lastIndex = start;
+      const v = scalar.exec(text);
+      if (!v || v.index !== start) continue;
+      end = start + v[0].length;
+    }
+    out += text.slice(last, m.index) + render(m);
+    last = end;
+    pattern.lastIndex = end;
+  }
+  return out + text.slice(last);
+}
+
 /** "key": value pairs (serialized JSON, string-aware) whose key looks sensitive. */
 function redactJsonPairs(text: string): string {
-  return text.replace(JSON_PAIR, (pair, key: string) =>
-    SENSITIVE_PARAM.test(key) ? `"${key}":"[REDACTED]"` : pair,
+  return redactAfterKeys(
+    text,
+    JSON_KEY,
+    (m) => m[1] ?? "",
+    /[^,}\s]+/g,
+    (m) => `"${m[1]}":"[REDACTED]"`,
   );
 }
 
-/** `key: value` and `key = value` for sensitive keys, in plain text. */
+/**
+ * `key: value` and `key = value` for sensitive keys, quoted or not, in plain text. At each
+ * separator the key is the (up to 64) key characters before it, so a long prefix cannot
+ * hide the sensitive word. Cost per separator is bounded, so the pass is linear.
+ */
 function redactKeyValueText(text: string): string {
-  return text.replace(KEY_VALUE_TEXT, (_m, key: string, sep: string) => {
-    return `${key}${sep}[REDACTED]`;
-  });
+  const scalar = /[^\s,;&"']+/y;
+  let out = "";
+  let last = 0;
+  const sep = /[:=]/g;
+  for (let m = sep.exec(text); m; m = sep.exec(text)) {
+    const at = m.index;
+    let keyEnd = at;
+    while (keyEnd > last && /\s/.test(text.charAt(keyEnd - 1))) keyEnd--;
+    let keyStart = keyEnd;
+    while (
+      keyStart > last &&
+      keyEnd - keyStart < 64 &&
+      KEY_CHAR.test(text.charAt(keyStart - 1))
+    )
+      keyStart--;
+    if (keyStart === keyEnd) continue;
+    if (!isSensitiveKey(text.slice(keyStart, keyEnd))) continue;
+    let start = at + 1;
+    while (start < text.length && /\s/.test(text.charAt(start))) start++;
+    const first = text.charAt(start);
+    let end: number;
+    if (first === '"' || first === "'") {
+      end = quotedEnd(text, start);
+    } else {
+      scalar.lastIndex = start;
+      const v = scalar.exec(text);
+      if (!v) continue;
+      end = start + v[0].length;
+    }
+    out += `${text.slice(last, start)}[REDACTED]`;
+    last = end;
+    sep.lastIndex = end;
+  }
+  return out + text.slice(last);
 }
 
 function luhn(digits: string): boolean {
@@ -176,8 +279,8 @@ export function redactText(text: string): string {
     redactIps(
       redactCards(
         redactEmails(
-          redactJsonPairs(
-            redactKeyValueText(redactKeyValues(redactTokens(current))),
+          redactKeyValueText(
+            redactJsonPairs(redactKeyValues(redactTokens(current))),
           ),
         ).replace(SSN, "[SSN]"),
       ),
@@ -245,19 +348,6 @@ const ALLOWED_HEADERS = new Set([
   "user-agent",
   "referer",
 ]);
-const PASSTHROUGH = [
-  "event_id",
-  "timestamp",
-  "level",
-  "platform",
-  "environment",
-  "release",
-  "dist",
-  "server_name",
-  "sdk",
-  "type",
-  "start_timestamp",
-] as const;
 /** Logger context keys that may become Sentry tags (ctx.<key>). Everything else is dropped. */
 export const CTX_TAG_KEYS = [
   "route",
@@ -270,14 +360,6 @@ export const CTX_TAG_KEYS = [
   "provider",
 ] as const;
 const CTX_TAG_SET = new Set<string>(CTX_TAG_KEYS);
-const IMAGE_FIELDS = [
-  "type",
-  "debug_id",
-  "code_id",
-  "image_addr",
-  "image_size",
-  "image_vmaddr",
-];
 const ALLOWED_TAGS = new Set([
   "environment",
   "release",
@@ -288,35 +370,45 @@ const ALLOWED_TAGS = new Set([
 ]);
 const TAG_PREFIX = "ctx.";
 const SAFE_CONTEXTS = ["os", "runtime", "browser", "device", "app"];
-const TRACE_FIELDS = [
-  "trace_id",
-  "span_id",
-  "parent_span_id",
-  "op",
-  "status",
-  "origin",
-];
-const SPAN_FIELDS = [
-  "span_id",
-  "parent_span_id",
-  "trace_id",
-  "op",
-  "status",
-  "start_timestamp",
-  "timestamp",
-  "origin",
-];
-const FRAME_FIELDS = ["function", "module", "lineno", "colno", "in_app"];
-const BREADCRUMB_FIELDS = ["category", "level", "timestamp", "type"];
+const METHODS = new Set([
+  "GET",
+  "POST",
+  "PUT",
+  "PATCH",
+  "DELETE",
+  "HEAD",
+  "OPTIONS",
+]);
+const LEVELS = new Set(["fatal", "error", "warning", "log", "info", "debug"]);
+const IMAGE_ID = /^[0-9a-fA-F-]{8,64}$/;
+const IMAGE_ADDR = /^0x[0-9a-fA-F]{1,16}$/;
 const HAS_URL = /https?:\/\/|^[A-Z]+ \//;
+const MAX_ITEMS = 500;
+const MAX_ID = 256;
 
 type Bag = Record<string, unknown>;
 
-function pick(source: Bag, fields: readonly string[], into: Bag = {}): Bag {
-  for (const field of fields) {
-    if (source[field] !== undefined) into[field] = source[field];
-  }
-  return into;
+function isBag(v: unknown): v is Bag {
+  return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+/** Array entries that are plain objects, capped. Anything else is skipped. */
+function bags(v: unknown): Bag[] {
+  return Array.isArray(v) ? v.slice(0, MAX_ITEMS).filter(isBag) : [];
+}
+
+/** A short identifier string; anything else is dropped. */
+function id(v: unknown): string | undefined {
+  return typeof v === "string" ? v.slice(0, MAX_ID) : undefined;
+}
+
+function num(v: unknown): number | undefined {
+  return typeof v === "number" && Number.isFinite(v) ? v : undefined;
+}
+
+/** Timestamps arrive as epoch numbers or ISO strings. */
+function time(v: unknown): number | string | undefined {
+  return num(v) ?? id(v);
 }
 
 function text(value: unknown): string | undefined {
@@ -325,35 +417,87 @@ function text(value: unknown): string | undefined {
 
 function textList(value: unknown): string[] | undefined {
   return Array.isArray(value)
-    ? value.filter((v): v is string => typeof v === "string").map(redactText)
+    ? value
+        .slice(0, MAX_ITEMS)
+        .filter((v): v is string => typeof v === "string")
+        .map(redactText)
     : undefined;
 }
 
+/** Copy only fields whose value passes the reader; the rest are dropped. */
+function take(
+  source: Bag,
+  readers: Record<string, (v: unknown) => unknown>,
+): Bag {
+  const out: Bag = {};
+  for (const [field, read] of Object.entries(readers)) {
+    const v = read(source[field]);
+    if (v !== undefined) out[field] = v;
+  }
+  return out;
+}
+
+const bool = (v: unknown): boolean | undefined =>
+  typeof v === "boolean" ? v : undefined;
+
+function enumOf(allowed: Set<string>) {
+  return (v: unknown): string | undefined =>
+    typeof v === "string" && allowed.has(v) ? v : undefined;
+}
+
+function rebuildImage(image: Bag): Bag {
+  const idCheck = (v: unknown) =>
+    typeof v === "string" && IMAGE_ID.test(v) ? v : undefined;
+  const addr = (v: unknown) =>
+    typeof v === "string" && IMAGE_ADDR.test(v) ? v : (num(v) ?? undefined);
+  return take(image, {
+    type: (v) =>
+      typeof v === "string" && /^[a-z_]{1,32}$/.test(v) ? v : undefined,
+    debug_id: idCheck,
+    code_id: idCheck,
+    image_addr: addr,
+    image_size: addr,
+    image_vmaddr: addr,
+  });
+}
+
 function rebuildFrame(frame: Bag): Bag {
-  const out = pick(frame, FRAME_FIELDS);
+  const out = take(frame, {
+    function: id,
+    module: id,
+    lineno: num,
+    colno: num,
+    in_app: bool,
+  });
   for (const field of ["filename", "abs_path"]) {
     const v = frame[field];
     if (typeof v === "string") out[field] = stripUrl(v);
   }
-  // vars (local variable values) are dropped on purpose.
-  // context_line, pre_context and post_context are dropped on purpose.
+  // vars, context_line, pre_context and post_context are dropped on purpose.
   return out;
 }
 
 function rebuildException(value: Bag): Bag {
   const out: Bag = {};
-  if (value.type !== undefined) out.type = value.type;
-  if (value.value !== undefined) out.value = text(value.value);
-  const mech = value.mechanism as Bag | undefined;
-  if (mech) out.mechanism = pick(mech, ["type", "handled", "synthetic"]);
-  const frames = (value.stacktrace as { frames?: Bag[] } | undefined)?.frames;
-  if (frames) out.stacktrace = { frames: frames.map(rebuildFrame) };
+  const type = id(value.type);
+  if (type !== undefined) out.type = type;
+  const v = text(value.value);
+  if (v !== undefined) out.value = v;
+  if (isBag(value.mechanism)) {
+    out.mechanism = take(value.mechanism, {
+      type: id,
+      handled: bool,
+      synthetic: bool,
+    });
+  }
+  const stack = value.stacktrace;
+  if (isBag(stack) && Array.isArray(stack.frames)) {
+    out.stacktrace = { frames: bags(stack.frames).map(rebuildFrame) };
+  }
   return out;
 }
 
-function rebuildHeaders(
-  headers: Record<string, string>,
-): Record<string, string> {
+function rebuildHeaders(headers: Bag): Record<string, string> {
   const kept: Record<string, string> = {};
   for (const [name, value] of Object.entries(headers)) {
     const lower = name.toLowerCase();
@@ -364,20 +508,36 @@ function rebuildHeaders(
 }
 
 function rebuildBreadcrumb(crumb: Bag): Bag {
-  const out = pick(crumb, BREADCRUMB_FIELDS);
+  const out = take(crumb, {
+    category: id,
+    level: enumOf(LEVELS),
+    timestamp: time,
+    type: id,
+  });
   if (typeof crumb.message === "string")
     out.message = stripQueriesInText(crumb.message);
-  const data = crumb.data as Bag | undefined;
-  if (data) {
-    const kept = pick(data, ["method", "status_code"]);
-    if (typeof data.url === "string") kept.url = stripUrl(data.url);
+  if (isBag(crumb.data)) {
+    const kept = take(crumb.data, {
+      method: enumOf(METHODS),
+      status_code: num,
+    });
+    if (typeof crumb.data.url === "string") kept.url = stripUrl(crumb.data.url);
     out.data = kept;
   }
   return out;
 }
 
 function rebuildSpan(span: Bag): Bag {
-  const out = pick(span, SPAN_FIELDS);
+  const out = take(span, {
+    span_id: id,
+    parent_span_id: id,
+    trace_id: id,
+    op: id,
+    status: id,
+    start_timestamp: time,
+    timestamp: time,
+    origin: id,
+  });
   const description = span.description;
   if (typeof description === "string") {
     out.description = HAS_URL.test(description)
@@ -390,10 +550,18 @@ function rebuildSpan(span: Bag): Bag {
 function rebuildContexts(contexts: Bag): Bag {
   const out: Bag = {};
   for (const key of SAFE_CONTEXTS) {
-    if (contexts[key] !== undefined) out[key] = scrub(contexts[key]);
+    if (isBag(contexts[key])) out[key] = scrub(contexts[key]);
   }
-  const trace = contexts.trace as Bag | undefined;
-  if (trace) out.trace = pick(trace, TRACE_FIELDS);
+  if (isBag(contexts.trace)) {
+    out.trace = take(contexts.trace, {
+      trace_id: id,
+      span_id: id,
+      parent_span_id: id,
+      op: id,
+      status: id,
+      origin: id,
+    });
+  }
   return out;
 }
 
@@ -405,75 +573,121 @@ function rebuildTags(tags: Bag): Record<string, string> {
       (key.startsWith(TAG_PREFIX) &&
         CTX_TAG_SET.has(key.slice(TAG_PREFIX.length)));
     if (!allowed) continue;
+    if (
+      typeof value !== "string" &&
+      typeof value !== "number" &&
+      typeof value !== "boolean"
+    )
+      continue;
     out[key] = redactText(String(value));
   }
   return out;
 }
 
-/**
- * beforeSend / beforeSendTransaction helper. ALLOWLIST rebuild: builds a new event from
- * known-safe fields and drops everything else (extra, request body/query/cookies, user
- * fields other than id, span and breadcrumb data, stack frame vars, unknown top-level
- * fields). Free text goes through redactText; URLs keep origin and path only.
- */
-export function scrubEvent<T>(event: T): T {
-  const src = event as unknown as Bag;
-  const out = pick(src, PASSTHROUGH);
+function rebuildEvent(src: Bag): Bag {
+  const out = take(src, {
+    event_id: id,
+    timestamp: time,
+    level: enumOf(LEVELS),
+    platform: id,
+    environment: id,
+    release: id,
+    dist: id,
+    server_name: id,
+    type: id,
+    start_timestamp: time,
+  });
+  if (isBag(src.sdk)) out.sdk = take(src.sdk, { name: id, version: id });
 
   if (typeof src.transaction === "string")
     out.transaction = stripQueriesInText(src.transaction);
   if (typeof src.message === "string") out.message = redactText(src.message);
 
-  const logentry = src.logentry as Bag | undefined;
-  if (logentry) {
-    const kept: Bag = {};
-    if (logentry.message !== undefined) kept.message = text(logentry.message);
-    if (logentry.formatted !== undefined)
-      kept.formatted = text(logentry.formatted);
-    out.logentry = kept; // params are dropped on purpose.
+  if (isBag(src.logentry)) {
+    out.logentry = take(src.logentry, { message: text, formatted: text }); // params dropped
   }
 
-  const values = (src.exception as { values?: Bag[] } | undefined)?.values;
-  if (values) out.exception = { values: values.map(rebuildException) };
+  if (isBag(src.exception) && Array.isArray(src.exception.values)) {
+    out.exception = {
+      values: bags(src.exception.values).map(rebuildException),
+    };
+  }
 
-  const user = src.user as Bag | undefined;
-  if (user?.id !== undefined) out.user = { id: redactText(String(user.id)) };
+  if (isBag(src.user)) {
+    const uid = src.user.id;
+    if (typeof uid === "string" || typeof uid === "number")
+      out.user = { id: redactText(String(uid)) };
+  }
   const fingerprint = textList(src.fingerprint);
   if (fingerprint) out.fingerprint = fingerprint;
 
-  const meta = src.debug_meta as Bag | undefined;
-  if (meta) {
+  if (isBag(src.debug_meta)) {
     const kept: Bag = {};
-    const images = meta.images;
-    if (Array.isArray(images)) {
-      kept.images = images
-        .filter((i): i is Bag => typeof i === "object" && i !== null)
-        .map((i) => pick(i, IMAGE_FIELDS));
+    if (Array.isArray(src.debug_meta.images))
+      kept.images = bags(src.debug_meta.images).map(rebuildImage);
+    if (isBag(src.debug_meta.sdk_info)) {
+      kept.sdk_info = take(src.debug_meta.sdk_info, {
+        sdk_name: id,
+        version_major: num,
+        version_minor: num,
+        version_patchlevel: num,
+      });
     }
-    if (meta.sdk_info !== undefined) kept.sdk_info = scrub(meta.sdk_info);
     out.debug_meta = kept;
   }
 
-  if (src.tags) out.tags = rebuildTags(src.tags as Bag);
-  if (src.contexts) out.contexts = rebuildContexts(src.contexts as Bag);
+  if (isBag(src.tags)) out.tags = rebuildTags(src.tags);
+  if (isBag(src.contexts)) out.contexts = rebuildContexts(src.contexts);
 
-  const req = src.request as {
-    method?: string;
-    url?: string;
-    headers?: Record<string, string>;
-  };
-  if (req) {
+  if (isBag(src.request)) {
+    const req = src.request;
     const kept: Bag = {};
-    if (req.method !== undefined) kept.method = req.method;
+    const method = enumOf(METHODS)(req.method);
+    if (method !== undefined) kept.method = method;
     if (typeof req.url === "string") kept.url = stripUrl(req.url);
-    if (req.headers) kept.headers = rebuildHeaders(req.headers);
+    if (isBag(req.headers)) kept.headers = rebuildHeaders(req.headers);
     out.request = kept;
   }
 
-  const crumbs = src.breadcrumbs as Bag[] | undefined;
-  if (crumbs) out.breadcrumbs = crumbs.map(rebuildBreadcrumb);
-  const spans = src.spans as Bag[] | undefined;
-  if (spans) out.spans = spans.map(rebuildSpan);
+  if (Array.isArray(src.breadcrumbs))
+    out.breadcrumbs = bags(src.breadcrumbs).map(rebuildBreadcrumb);
+  if (Array.isArray(src.spans)) out.spans = bags(src.spans).map(rebuildSpan);
+  return out;
+}
 
-  return out as unknown as T;
+/** Last resort when rebuilding throws: nothing from the original beyond ids and a type. */
+function minimalEvent(src: unknown): Bag {
+  const out: Bag = { message: "[scrub-error]" };
+  try {
+    if (isBag(src)) {
+      Object.assign(
+        out,
+        take(src, { event_id: id, timestamp: time, level: enumOf(LEVELS) }),
+      );
+      const values = isBag(src.exception) ? src.exception.values : undefined;
+      const first = Array.isArray(values) ? values[0] : undefined;
+      const type = isBag(first) ? id(first.type) : undefined;
+      if (type !== undefined) out.exception = { values: [{ type }] };
+    }
+  } catch {
+    // keep the bare message
+  }
+  return out;
+}
+
+/**
+ * beforeSend / beforeSendTransaction helper. ALLOWLIST rebuild: every field is type-checked
+ * and copied into a new event; everything else is dropped (extra, request body/query/
+ * cookies, user fields other than id, span and breadcrumb data, stack frame vars, unknown
+ * top-level fields). Free text goes through redactText; URLs keep origin and path only.
+ * Never throws and never returns the original event: on any error it returns a minimal
+ * safe event.
+ */
+export function scrubEvent<T>(event: T): T {
+  try {
+    if (!isBag(event)) return minimalEvent(event) as unknown as T;
+    return rebuildEvent(event) as unknown as T;
+  } catch {
+    return minimalEvent(event) as unknown as T;
+  }
 }

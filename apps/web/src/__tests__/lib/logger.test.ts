@@ -50,7 +50,7 @@ describe("logger.error -> Sentry", () => {
       [FAKE_KEY]: "x",
       "alice@example.com": "y",
       password: "canary-secret",
-      route: "/api?token=abc123",
+      route: "/api?token=abc123 access_token: leakleakleak",
       op: "Bearer abc.def-123",
       status: 500,
       deep: { a: "nested-secret" },

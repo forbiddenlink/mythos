@@ -428,7 +428,7 @@ describe("sentry-scrub: Codex round 2", () => {
         images: [
           {
             type: "sourcemap",
-            debug_id: "abc-123",
+            debug_id: "abcdef12-3456",
             code_file: "https://example.test/a.js?token=canary-secret",
             debug_file: "/Users/alice/a.map",
           },
@@ -463,7 +463,7 @@ describe("sentry-scrub: Codex round 2", () => {
     }
     expect(event.debug_meta.images[0]).toEqual({
       type: "sourcemap",
-      debug_id: "abc-123",
+      debug_id: "abcdef12-3456",
     });
     expect(event.user.id).toBe("[EMAIL]");
   });
@@ -476,6 +476,218 @@ describe("sentry-scrub: Codex round 2", () => {
       "1 ".repeat(2250),
       "1.".repeat(2250),
       `://${"a".repeat(4500)}`,
+    ];
+    for (const input of inputs) {
+      const start = performance.now();
+      redactText(input);
+      expect(performance.now() - start).toBeLessThan(50);
+    }
+  });
+});
+
+describe("sentry-scrub: Codex round 3", () => {
+  it("redacts quoted values, whole, for key: value and key = value", () => {
+    for (const input of [
+      'password: "hunter2 with spaces"',
+      "password = 'hunter2 x'",
+      'login failed password: "hunter2" for user',
+    ]) {
+      const out = redactText(input);
+      expect(out).not.toContain("hunter2");
+      expect(out).not.toContain("spaces");
+      expect(out).toContain("password");
+    }
+    expect(redactText('note: "hello" password: "x y"')).toContain(
+      'note: "hello"',
+    );
+  });
+
+  it("matches the sensitive word anywhere in the key token", () => {
+    for (const input of [
+      "access_token: leakleakleak",
+      "x_api_key=leakleakleak",
+      "refreshToken: leakleakleak",
+      '{"refreshToken":"leakleakleak","sessionId":"leakleakleak"}',
+    ]) {
+      expect(redactText(input)).not.toContain("leakleakleak");
+    }
+  });
+
+  it("redacts tel: and + phone numbers", () => {
+    for (const input of [
+      "tel:+14155552671",
+      "call +14155552671 now",
+      "x+14155552671",
+    ]) {
+      expect(redactText(input)).not.toContain("4155552671");
+    }
+  });
+
+  it("redacts a 2048+ character JSON password whole, and a nested pair", () => {
+    const long = `{"password":"${"a".repeat(2100)}LEAKME"}`;
+    expect(redactText(long)).not.toContain("LEAKME");
+    const nested = redactText('{"payload":"{\\"password\\":\\"nested-pw\\"}"}');
+    expect(nested).not.toContain("nested-pw");
+  });
+
+  it("keeps image ids only when they look like hex ids", () => {
+    const event = scrubEvent({
+      debug_meta: {
+        images: [
+          {
+            type: "sourcemap",
+            debug_id: "alice@example.com",
+            code_id: "deadbeef-1234",
+          },
+          {
+            type: "macho",
+            image_addr: "0x1000",
+            image_size: "alice@example.com",
+          },
+        ],
+      },
+    }) as { debug_meta: { images: Record<string, unknown>[] } };
+    const json = JSON.stringify(event);
+    expect(json).not.toContain("alice");
+    expect(event.debug_meta.images[0]).toEqual({
+      type: "sourcemap",
+      code_id: "deadbeef-1234",
+    });
+    expect(event.debug_meta.images[1]).toEqual({
+      type: "macho",
+      image_addr: "0x1000",
+    });
+  });
+
+  it("stays linear on long key tokens and unclosed quotes", () => {
+    const inputs = [
+      "a".repeat(4500),
+      `${"a_".repeat(2200)}:`,
+      `password: "${"x".repeat(4500)}`,
+      `{"password":"${"\\".repeat(2200)}`,
+      '"k":"'.repeat(700),
+      "tel:".repeat(1100),
+    ];
+    for (const input of inputs) {
+      const start = performance.now();
+      redactText(input);
+      expect(performance.now() - start).toBeLessThan(50);
+    }
+  });
+
+  it("redacts a JSON password after a token: inside an earlier string value", () => {
+    const text = `{"msg":"retry token: \\"","note":"${"x ".repeat(300)}","password":"hunter2-leak"}`;
+    expect(redactText(text)).not.toContain("hunter2-leak");
+    const open = '{"msg":"token: \'","password":"hunter2-leak"}';
+    expect(redactText(open)).not.toContain("hunter2-leak");
+  });
+
+  it("detects a sensitive key behind a very long prefix", () => {
+    const out = redactText(`${"a".repeat(100)}_token: leak-me`);
+    expect(out).not.toContain("leak-me");
+    expect(redactText(`${"a".repeat(100)}_pass = "leak me"`)).not.toContain(
+      "leak",
+    );
+  });
+});
+
+describe("sentry-scrub: Codex round 4", () => {
+  const joinKey = (...parts: string[]) => parts.join("");
+
+  it("never throws on malformed shapes and never returns the original", () => {
+    const shapes: unknown[] = [
+      { breadcrumbs: [null, 1, "x", [], { message: 5 }] },
+      { spans: [null, { description: {} }] },
+      {
+        exception: {
+          values: [
+            null,
+            { type: {}, value: 5, stacktrace: { frames: [null, 3] } },
+          ],
+        },
+      },
+      { request: { method: { email: "a@b.co" }, url: 5, headers: [] } },
+      { request: { method: "post" } },
+      { tags: { route: { email: "a@b.co" }, source: "x" } },
+      { user: { id: { email: "a@b.co" } } },
+      { debug_meta: { images: [null, 1], sdk_info: "x" } },
+      { contexts: { os: "x", trace: 5 } },
+      { sdk: { name: { a: 1 }, version: 3 } },
+      { timestamp: Number.NaN, level: "weird" },
+      null,
+      "string",
+      42,
+    ];
+    for (const shape of shapes) {
+      const out = scrubEvent(shape);
+      expect(JSON.stringify(out)).not.toContain("a@b.co");
+      expect(out).not.toBe(shape);
+    }
+    const evt = scrubEvent({ request: { method: "post" } }) as {
+      request: Record<string, unknown>;
+    };
+    expect(evt.request.method).toBeUndefined();
+    const ok = scrubEvent({ request: { method: "POST" } }) as {
+      request: { method: string };
+    };
+    expect(ok.request.method).toBe("POST");
+  });
+
+  it("returns a minimal safe event when rebuilding throws", () => {
+    const hostile = {
+      event_id: "abc",
+      level: "error",
+      exception: { values: [{ type: "TypeError" }] },
+      get message(): string {
+        throw new Error("boom");
+      },
+    };
+    expect(scrubEvent(hostile)).toEqual({
+      event_id: "abc",
+      level: "error",
+      exception: { values: [{ type: "TypeError" }] },
+      message: "[scrub-error]",
+    });
+  });
+
+  it("redacts a value of any length and any whitespace around the separator", () => {
+    expect(redactText(`password: ${"Z".repeat(300)}`)).not.toContain("Z");
+    expect(
+      redactText(
+        `password${" ".repeat(50)}:${" ".repeat(50)}${"a".repeat(300)}`,
+      ),
+    ).not.toContain("aaa");
+    expect(redactText(`{"token":${"9".repeat(400)}}`)).not.toContain("999");
+  });
+
+  it("redacts the wider API key families", () => {
+    const keys = [
+      joinKey("sk-proj-", "A1b2C3d4E5f6G7h8I9j0K1l2"),
+      joinKey("sk-ant-", "api03-A1b2C3d4E5f6G7h8I9j0"),
+      joinKey("ghp_", "A1b2C3d4E5f6G7h8I9j0K1l2M3"),
+      joinKey("gho_", "A1b2C3d4E5f6G7h8I9j0K1l2M3"),
+      joinKey("github_pat_", "A1b2C3d4E5f6G7h8I9j0K1l2"),
+      joinKey("xox", "b-123456789012-abcdefghij"),
+      joinKey("AKI", "A", "ABCDEFGHIJKLMNOP"),
+      joinKey("AI", "za", "SyA1b2C3d4E5f6G7h8I9j0K1l2M3n4O5p6Q"),
+    ];
+    for (const key of keys) {
+      expect(redactText(`failed with ${key} today`)).not.toContain(
+        key.slice(4),
+      );
+    }
+    expect(redactText("task-abcdefghijklmnopqrstuvwxyz stays")).toContain(
+      "task-abcdefghijklmnopqrstuvwxyz",
+    );
+  });
+
+  it("stays linear on the new patterns and long keys", () => {
+    const inputs = [
+      `password${" ".repeat(4500)}`,
+      `${"a: ".repeat(1500)}`,
+      `${"sk-".repeat(1500)}`,
+      `password: ${"a".repeat(20000)}`,
+      "a.".repeat(16000) + "@",
     ];
     for (const input of inputs) {
       const start = performance.now();
