@@ -28,6 +28,10 @@ export async function register() {
     Sentry.init({
       dsn,
       beforeSend: scrubEvent,
+      // Never capture request bodies.
+      integrations: [
+        Sentry.httpIntegration({ maxIncomingRequestBodySize: "none" }),
+      ],
       beforeSendTransaction: scrubEvent,
       tracesSampler: (context) => tracesSampler(context, rate),
       debug: false,

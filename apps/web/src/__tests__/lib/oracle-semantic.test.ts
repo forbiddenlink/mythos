@@ -56,18 +56,21 @@ describe("semanticSearchResults", () => {
   it.each([
     ["relevant", [1, 0], 1],
     ["unrelated", [0.1, 1], 0],
-  ])("applies the relevance floor (%s query)", async (_label, embedding, hits) => {
-    process.env.OPENAI_API_KEY = "test-key";
-    vi.stubGlobal(
-      "fetch",
-      vi.fn().mockResolvedValue({
-        ok: true,
-        json: async () => ({ data: [{ embedding }] }),
-      }),
-    );
+  ])(
+    "applies the relevance floor (%s query)",
+    async (_label, embedding, hits) => {
+      process.env.OPENAI_API_KEY = "test-key";
+      vi.stubGlobal(
+        "fetch",
+        vi.fn().mockResolvedValue({
+          ok: true,
+          json: async () => ({ data: [{ embedding }] }),
+        }),
+      );
 
-    const { semanticSearchResults } = await import("@/lib/oracle/semantic");
-    const out = await semanticSearchResults("king of the gods", 5);
-    expect(out).toHaveLength(hits);
-  });
+      const { semanticSearchResults } = await import("@/lib/oracle/semantic");
+      const out = await semanticSearchResults("king of the gods", 5);
+      expect(out).toHaveLength(hits);
+    },
+  );
 });

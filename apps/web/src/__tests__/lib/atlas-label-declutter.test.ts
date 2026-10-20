@@ -85,9 +85,9 @@ describe("hiddenSetsDiffer", () => {
   });
 
   it("is false for equal sets regardless of insertion order", () => {
-    expect(
-      hiddenSetsDiffer(new Set(["a", "b"]), new Set(["b", "a"])),
-    ).toBe(false);
+    expect(hiddenSetsDiffer(new Set(["a", "b"]), new Set(["b", "a"]))).toBe(
+      false,
+    );
   });
 
   it("is true when sizes differ", () => {

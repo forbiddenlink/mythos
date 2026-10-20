@@ -8,12 +8,53 @@ import {
 
 function progress() {
   return {
-    deitiesViewed: ["zeus"], storiesRead: ["iliad"], pantheonsExplored: ["greek-pantheon"], locationsVisited: [], quizScores: { quick: 80 }, achievements: ["first-step"], dailyStreak: 2, lastVisit: "2026-09-18", totalXP: 120, streakFreezes: 1, quickQuizHighScore: 8, dailyChallengeStreak: 1, lastDailyChallengeDate: "2026-09-18", claimedDailyChallenges: ["2026-09-18:zeus"], todayActivity: { date: "2026-09-18", deitiesViewed: ["zeus"], storiesRead: [], pantheonsViewed: [], quizCompleted: true, quizScore: 80 },
+    deitiesViewed: ["zeus"],
+    storiesRead: ["iliad"],
+    pantheonsExplored: ["greek-pantheon"],
+    locationsVisited: [],
+    quizScores: { quick: 80 },
+    achievements: ["first-step"],
+    dailyStreak: 2,
+    lastVisit: "2026-09-18",
+    totalXP: 120,
+    streakFreezes: 1,
+    quickQuizHighScore: 8,
+    dailyChallengeStreak: 1,
+    lastDailyChallengeDate: "2026-09-18",
+    claimedDailyChallenges: ["2026-09-18:zeus"],
+    todayActivity: {
+      date: "2026-09-18",
+      deitiesViewed: ["zeus"],
+      storiesRead: [],
+      pantheonsViewed: [],
+      quizCompleted: true,
+      quizScore: 80,
+    },
   };
 }
 
 function review() {
-  return { cards: { "domain-match:zeus": { interval: 2, nextReview: "2026-09-20", easeFactor: 2.5, reviews: 1, lapses: 0 } }, todayReviewed: ["domain-match:zeus"], lastReviewDate: "2026-09-18", stats: { totalReviewed: 1, currentStreak: 1, longestStreak: 1, averageAccuracy: 100, correctToday: 1, incorrectToday: 0 } };
+  return {
+    cards: {
+      "domain-match:zeus": {
+        interval: 2,
+        nextReview: "2026-09-20",
+        easeFactor: 2.5,
+        reviews: 1,
+        lapses: 0,
+      },
+    },
+    todayReviewed: ["domain-match:zeus"],
+    lastReviewDate: "2026-09-18",
+    stats: {
+      totalReviewed: 1,
+      currentStreak: 1,
+      longestStreak: 1,
+      averageAccuracy: 100,
+      correctToday: 1,
+      incorrectToday: 0,
+    },
+  };
 }
 
 function memoryStorage(): Storage {
@@ -24,13 +65,23 @@ function memoryStorage(): Storage {
     removeItem: (key: string) => values.delete(key),
     clear: () => values.clear(),
     key: () => null,
-    get length() { return values.size; },
+    get length() {
+      return values.size;
+    },
   } as Storage;
 }
 
 function seed(storage: Storage) {
-  storage.setItem("mythos-atlas-bookmarks", JSON.stringify([{ type: "deity", id: "zeus", timestamp: 1 }]));
-  storage.setItem("mythos-atlas-reading-progress", JSON.stringify({ iliad: { storyId: "iliad", percentage: 50, updatedAt: 1 } }));
+  storage.setItem(
+    "mythos-atlas-bookmarks",
+    JSON.stringify([{ type: "deity", id: "zeus", timestamp: 1 }]),
+  );
+  storage.setItem(
+    "mythos-atlas-reading-progress",
+    JSON.stringify({
+      iliad: { storyId: "iliad", percentage: 50, updatedAt: 1 },
+    }),
+  );
   storage.setItem("mythos-atlas-progress", JSON.stringify(progress()));
   storage.setItem("mythos-atlas-review", JSON.stringify(review()));
 }
@@ -48,7 +99,9 @@ describe("learning backup", () => {
     expect(parsed.preview.reviewCards).toBe(1);
     storage.setItem("mythos-atlas-bookmarks", "[]");
     expect(restoreLearningBackup(storage, parsed.backup).success).toBe(true);
-    expect(JSON.parse(storage.getItem("mythos-atlas-bookmarks")!)).toHaveLength(1);
+    expect(JSON.parse(storage.getItem("mythos-atlas-bookmarks")!)).toHaveLength(
+      1,
+    );
     expect(storage.getItem("locale")).toBe("fr");
   });
 
@@ -62,14 +115,20 @@ describe("learning backup", () => {
     expect(parseLearningBackup(JSON.stringify(versioned)).success).toBe(false);
 
     const invalidProgress = createLearningBackup(storage);
-    invalidProgress.data["mythos-atlas-progress"] = JSON.stringify({ nope: true });
-    expect(parseLearningBackup(JSON.stringify(invalidProgress)).success).toBe(false);
+    invalidProgress.data["mythos-atlas-progress"] = JSON.stringify({
+      nope: true,
+    });
+    expect(parseLearningBackup(JSON.stringify(invalidProgress)).success).toBe(
+      false,
+    );
 
     const extraNestedField = createLearningBackup(storage);
     extraNestedField.data["mythos-atlas-bookmarks"] = JSON.stringify([
       { type: "source", id: "iliad", timestamp: 1, unexpected: true },
     ]);
-    expect(parseLearningBackup(JSON.stringify(extraNestedField)).success).toBe(false);
+    expect(parseLearningBackup(JSON.stringify(extraNestedField)).success).toBe(
+      false,
+    );
 
     const invalidReviewDate = createLearningBackup(storage);
     invalidReviewDate.data["mythos-atlas-review"] = JSON.stringify({
@@ -81,7 +140,9 @@ describe("learning backup", () => {
         },
       },
     });
-    expect(parseLearningBackup(JSON.stringify(invalidReviewDate)).success).toBe(false);
+    expect(parseLearningBackup(JSON.stringify(invalidReviewDate)).success).toBe(
+      false,
+    );
   });
 
   it("accepts source bookmarks", () => {
@@ -107,13 +168,17 @@ describe("learning backup", () => {
   it("restores the same valid backup deterministically more than once", () => {
     const storage = memoryStorage();
     seed(storage);
-    const parsed = parseLearningBackup(JSON.stringify(createLearningBackup(storage)));
+    const parsed = parseLearningBackup(
+      JSON.stringify(createLearningBackup(storage)),
+    );
     expect(parsed.success).toBe(true);
     if (!parsed.success) return;
 
     storage.setItem("mythos-atlas-bookmarks", "[]");
     expect(restoreLearningBackup(storage, parsed.backup).success).toBe(true);
-    const afterFirstRestore = LEARNING_STORAGE_KEYS.map((key) => storage.getItem(key));
+    const afterFirstRestore = LEARNING_STORAGE_KEYS.map((key) =>
+      storage.getItem(key),
+    );
 
     expect(restoreLearningBackup(storage, parsed.backup).success).toBe(true);
     expect(LEARNING_STORAGE_KEYS.map((key) => storage.getItem(key))).toEqual(
@@ -127,13 +192,16 @@ describe("learning backup", () => {
     const storage = {
       getItem: (key: string) => values.get(key) ?? null,
       setItem: (key: string, value: string) => {
-        if (key === "mythos-atlas-progress" && value === replacement) throw new Error("quota");
+        if (key === "mythos-atlas-progress" && value === replacement)
+          throw new Error("quota");
         values.set(key, value);
       },
       removeItem: (key: string) => values.delete(key),
       clear: () => values.clear(),
       key: () => null,
-      get length() { return values.size; },
+      get length() {
+        return values.size;
+      },
     } as Storage;
     seed(storage);
     const backup = createLearningBackup(storage);
@@ -148,7 +216,10 @@ describe("learning backup", () => {
     const storage = memoryStorage();
     seed(storage);
     const backup = createLearningBackup(storage);
-    const unsafeBackup = { ...backup, unexpected: true } as unknown as typeof backup;
+    const unsafeBackup = {
+      ...backup,
+      unexpected: true,
+    } as unknown as typeof backup;
     const original = storage.getItem("mythos-atlas-bookmarks");
 
     expect(restoreLearningBackup(storage, unsafeBackup).success).toBe(false);
