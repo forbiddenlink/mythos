@@ -212,6 +212,11 @@ export function scrubEvent<T extends ScrubbableEvent>(event: T): T {
     if (ex.value) ex.value = redactText(ex.value);
   }
   if (event.extra) event.extra = scrub(event.extra) as T["extra"];
+  // The root transaction span keeps its http.url / url.full in contexts.trace.data.
+  const traceData = (
+    event.contexts?.trace as { data?: Record<string, unknown> } | undefined
+  )?.data;
+  if (traceData) stripUrlData(traceData);
   if (event.contexts) event.contexts = scrub(event.contexts) as T["contexts"];
   if (event.tags) event.tags = scrub(event.tags) as T["tags"];
   if (event.user) event.user = scrub(event.user) as T["user"];

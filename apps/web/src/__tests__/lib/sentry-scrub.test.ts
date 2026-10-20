@@ -157,6 +157,14 @@ describe("sentry-scrub: events", () => {
   it("strips transaction names, span descriptions and span URL data, leaving db.statement", () => {
     const event = scrubEvent({
       transaction: "GET /u/jane@example.com?token=abc123",
+      contexts: {
+        trace: {
+          data: {
+            "http.url": "https://api.test/root?token=root-1",
+            "url.full": "https://api.test/root?token=root-2#h",
+          },
+        },
+      },
       spans: [
         {
           description: "fetch https://api.test/x?api_key=k-1",
@@ -178,6 +186,8 @@ describe("sentry-scrub: events", () => {
       "t-1",
       "s-1",
       "c-1",
+      "root-1",
+      "root-2",
     ]) {
       expect(json).not.toContain(leaked);
     }
