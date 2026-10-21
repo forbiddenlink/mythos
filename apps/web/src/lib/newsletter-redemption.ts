@@ -13,7 +13,9 @@ import { Redis } from "@upstash/redis";
 
 export type RedemptionClaim =
   | { status: "claimed"; claimId: string }
-  | { status: "done" | "pending" | "unavailable" };
+  | { status: "done" }
+  | { status: "pending" }
+  | { status: "unavailable" };
 
 /** How long an in-flight claim blocks retries if its owner vanishes. */
 export const PENDING_TTL_SECONDS = 60;
