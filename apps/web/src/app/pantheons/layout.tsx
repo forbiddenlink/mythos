@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import pantheons from "@/data/pantheons.json";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: "Pantheons of Ancient Civilizations",
-  description:
-    "Compare Greek, Norse, Egyptian, Roman, Hindu, Japanese, Celtic, Aztec, Chinese, and other major mythological pantheons in one reference hub.",
+  title: `Pantheons of the World: ${pantheons.length} Mythologies`,
+  description: `Compare ${pantheons.length} pantheons side by side, from Greek, Norse, Egyptian and Hindu to Haudenosaunee and Inuit: their gods, myths and sources in one reference.`,
   url: "/pantheons",
   keywords: [
     "pantheons",

@@ -14,7 +14,7 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
-import { truncateDescription } from "@/lib/seo/description";
+import { entryDescription } from "@/lib/seo/description";
 import { getEntryMentions } from "@/lib/entry-mentions";
 import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { ArtifactJsonLd } from "@/components/seo/JsonLd";
@@ -112,7 +112,8 @@ export async function generateMetadata({
 
   // Create a rich description
   const powers = artifact.powers?.slice(0, 3).join(", ") || "";
-  const description = truncateDescription(
+  const description = entryDescription(
+    artifact.name,
     artifact.description ||
       `Learn about ${artifact.name}, a legendary ${artifact.type} from ${pantheonName} mythology. Powers: ${powers}.`,
   );

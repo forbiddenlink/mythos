@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { truncateDescription } from "@/lib/seo/description";
+import { entryDescription, truncateDescription } from "@/lib/seo/description";
 
 describe("truncateDescription", () => {
   it("returns short text unchanged, with whitespace collapsed", () => {
@@ -54,5 +54,54 @@ describe("truncateDescription short first sentence", () => {
   it("keeps more text rather than stopping after a very short sentence", () => {
     const out = truncateDescription(`Hi. ${"word ".repeat(60)}`);
     expect(out.length).toBeGreaterThan(100);
+  });
+});
+
+describe("truncateDescription at a clause", () => {
+  it("cuts at a semicolon and ends with a period, not an ellipsis", () => {
+    const text =
+      "The crater lake near Cumae in Campania that Roman poets placed at the entrance to the underworld; in the Aeneid, the Sibyl leads Aeneas down to the dead through the cave beside it.";
+    expect(truncateDescription(text)).toBe(
+      "The crater lake near Cumae in Campania that Roman poets placed at the entrance to the underworld.",
+    );
+  });
+});
+
+describe("entryDescription", () => {
+  it("names the entry first when the text opens with an article", () => {
+    expect(
+      entryDescription("Lake Avernus", "The crater lake near Cumae."),
+    ).toBe("Lake Avernus: the crater lake near Cumae.");
+    expect(entryDescription("Melinoë", "A chthonic goddess of ghosts.")).toBe(
+      "Melinoë: a chthonic goddess of ghosts.",
+    );
+  });
+
+  it("leaves text alone when it already mentions the entry or opens otherwise", () => {
+    expect(entryDescription("Zeus", "Zeus rules the sky.")).toBe(
+      "Zeus rules the sky.",
+    );
+    expect(entryDescription("Loki", "Norse trickster who shapeshifts.")).toBe(
+      "Norse trickster who shapeshifts.",
+    );
+  });
+
+  it("skips the prefix when the text already names the shorter form", () => {
+    expect(
+      entryDescription(
+        "Haudenosaunee Mythology",
+        "A living tradition of the Haudenosaunee nations.",
+        { mentions: "Haudenosaunee" },
+      ),
+    ).toBe("A living tradition of the Haudenosaunee nations.");
+  });
+
+  it("reserves room for a suffix so it is never the part that is cut", () => {
+    const long = `The ${"word ".repeat(60)}`;
+    const out = entryDescription("Entry", long, {
+      suffix: "5 deities, 9 stories.",
+    });
+    expect(out.length).toBeLessThanOrEqual(160);
+    expect(out.endsWith(" 5 deities, 9 stories.")).toBe(true);
   });
 });

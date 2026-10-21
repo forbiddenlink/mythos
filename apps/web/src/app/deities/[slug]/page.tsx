@@ -12,7 +12,7 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
-import { truncateDescription } from "@/lib/seo/description";
+import { entryDescription } from "@/lib/seo/description";
 import { deityTitle } from "@/lib/seo/entry-titles";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 import { EditorialByline } from "@/components/content/EditorialByline";
@@ -146,7 +146,7 @@ export async function generateMetadata({
 
   return generateBaseMetadata({
     title: deityTitle(deity, pantheonName),
-    description: truncateDescription(description),
+    description: entryDescription(deity.name, description),
     url: `/deities/${deity.slug}`,
     // The generated opengraph-image card for this route supplies og:image.
     image: null,

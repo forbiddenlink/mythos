@@ -49,7 +49,7 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
-import { truncateDescription } from "@/lib/seo/description";
+import { entryDescription } from "@/lib/seo/description";
 import { heroTitle } from "@/lib/seo/entry-titles";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 import { readableParallelNote } from "@/lib/parallel-notes";
@@ -133,7 +133,7 @@ export async function generateMetadata({
 
   return generateBaseMetadata({
     title: heroTitle(hero, pantheonName),
-    description: truncateDescription(description),
+    description: entryDescription(hero.name, description),
     url: `/heroes/${hero.slug}`,
     // The generated opengraph-image card for this route supplies og:image.
     image: null,

@@ -12,7 +12,8 @@ import {
   generateNotFoundMetadata,
   shortPantheonName,
 } from "@/lib/metadata";
-import { truncateDescription } from "@/lib/seo/description";
+import { entryDescription } from "@/lib/seo/description";
+import { locationTitle } from "@/lib/seo/entry-titles";
 import { getEntryMentions } from "@/lib/entry-mentions";
 import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { PlaceJsonLd } from "@/components/seo/JsonLd";
@@ -109,7 +110,8 @@ export async function generateMetadata({
   const locationType =
     location.locationType?.replaceAll("_", " ") || "location";
 
-  const description = truncateDescription(
+  const description = entryDescription(
+    location.name,
     location.description ||
       `Explore ${location.name}, a mythological ${locationType} from ${pantheonName} traditions.`,
   );
@@ -117,7 +119,7 @@ export async function generateMetadata({
   return generateBaseMetadata({
     // "Location" is site jargon; the reader wants to know which myths the
     // place belongs to ("lake avernus" searchers see "in Roman Mythology").
-    title: `${location.name} in ${pantheonName} Mythology`,
+    title: locationTitle(location, pantheon),
     description,
     url: `/locations/${location.id}`,
     // The generated opengraph-image card for this route supplies og:image.

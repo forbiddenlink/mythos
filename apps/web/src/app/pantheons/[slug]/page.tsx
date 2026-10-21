@@ -41,9 +41,11 @@ import { generateEntityAlt } from "@/lib/image-provenance";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
+  shortPantheonName,
   traditionHubTitle,
 } from "@/lib/metadata";
-import { truncateDescription } from "@/lib/seo/description";
+import { entryDescription } from "@/lib/seo/description";
+import { mythologyName } from "@/lib/seo/entry-titles";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getCreatureHub, getGoddessHub } from "@/lib/pantheon-hubs";
 
@@ -102,8 +104,29 @@ export async function generateMetadata({
   const baseDescription =
     pantheon.description ||
     `Explore the ${pantheon.name} from ${pantheon.culture} mythology. Discover the gods, goddesses, and myths of ${pantheon.region}.`;
-  const description = truncateDescription(
-    `${baseDescription} See major deities, stories, and cultural context in Mythos Atlas.`,
+  // Lead with the phrase searchers type ("greek mythology"), and end on counts
+  // taken from the catalog so the snippet says what the page holds.
+  const deityCount = getDeities().filter(
+    (d) => d.pantheonId === pantheon.id,
+  ).length;
+  const storyCount = getStories().filter(
+    (s) => s.pantheonId === pantheon.id,
+  ).length;
+  const holdings = [
+    deityCount > 0
+      ? `${deityCount} ${pantheon.figuresLabel ? "figures" : "deities"}`
+      : "",
+    storyCount > 0
+      ? `${storyCount} ${storyCount === 1 ? "story" : "stories"}`
+      : "",
+  ].filter(Boolean);
+  const description = entryDescription(
+    mythologyName(pantheon),
+    baseDescription,
+    {
+      suffix: holdings.length ? `${holdings.join(", ")}.` : "",
+      mentions: shortPantheonName(pantheon),
+    },
   );
 
   return generateBaseMetadata({
