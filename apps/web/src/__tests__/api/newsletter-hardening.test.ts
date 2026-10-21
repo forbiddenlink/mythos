@@ -6,6 +6,8 @@ const resend = vi.hoisted(() => ({
   update: vi.fn(),
   add: vi.fn(),
   send: vi.fn(),
+  get: vi.fn(),
+  list: vi.fn(),
 }));
 
 const upstash = vi.hoisted(() => ({
@@ -16,6 +18,8 @@ const upstash = vi.hoisted(() => ({
   incrFails: false,
   /** Next set() commits but throws, like a lost acknowledgement. */
   lostAck: false,
+  /** The next eval() (pending -> done) throws. */
+  evalFails: false,
 }));
 
 vi.mock("resend", () => ({
@@ -23,7 +27,8 @@ vi.mock("resend", () => ({
     contacts = {
       create: resend.create,
       update: resend.update,
-      segments: { add: resend.add },
+      get: resend.get,
+      segments: { add: resend.add, list: resend.list },
     };
     emails = { send: resend.send };
   },
@@ -53,6 +58,8 @@ vi.mock("@upstash/redis", () => ({
       upstash.kv.set(key, value);
       if (upstash.lostAck) {
         upstash.lostAck = false;
+  upstash.evalFails = false;
+  vi.useFakeTimers({ toFake: ["Date"] });
         throw new Error("ack lost");
       }
       return "OK";
@@ -61,14 +68,14 @@ vi.mock("@upstash/redis", () => ({
       return upstash.kv.get(key) ?? null;
     }
     async eval(_script: string, keys: string[], args: string[]) {
-      if (upstash.kv.get(keys[0]!) === args[0]) {
-        upstash.kv.delete(keys[0]!);
-        return 1;
+      if (upstash.evalFails && args.length === 3) {
+        upstash.evalFails = false;
+        throw new Error("redis down");
       }
-      return 0;
-    }
-    async del(key: string) {
-      upstash.kv.delete(key);
+      const key = keys[0]!;
+      if (upstash.kv.get(key) !== args[0]) return 0;
+      if (args.length === 3) upstash.kv.set(key, args[1]!);
+      else upstash.kv.delete(key);
       return 1;
     }
     async incr(key: string) {
@@ -129,9 +136,12 @@ beforeEach(() => {
   for (const fn of Object.values(resend)) fn.mockReset();
   resend.create.mockResolvedValue({ error: null });
   resend.send.mockResolvedValue({ error: null });
+  resend.get.mockResolvedValue({ error: null, data: { unsubscribed: true } });
+  resend.list.mockResolvedValue({ error: null, data: { data: [] } });
 });
 
 afterEach(() => {
+  vi.useRealTimers();
   process.env = { ...ORIGINAL_ENV };
 });
 
@@ -222,19 +232,68 @@ describe("confirm: single-use redemption", () => {
     expect(resend.create).toHaveBeenCalledTimes(2);
   });
 
-  it("lets a retry through once an abandoned pending claim expires", async () => {
+  it("takes over a stale pending claim and then confirms", async () => {
     const token = createConfirmToken("expiry@example.com", "re_test");
     upstash.lostAck = true;
     await CONFIRM(post("/api/newsletter/confirm", { token }));
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(409);
-    // The 60s pending TTL elapses.
-    upstash.kv.clear();
+    vi.setSystemTime(Date.now() + 61_000);
+    // Never confirmed: unsubscribed, but not in the segment.
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(200);
     expect(resend.create).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not re-mutate a leaver when the done-write fails and the claim goes stale", async () => {
+    const token = createConfirmToken("leaver2@example.com", "re_test");
+    upstash.evalFails = true;
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+    ).toBe(200);
+    expect(resend.create).toHaveBeenCalledTimes(1);
+
+    // The claim stayed pending (it did not lapse), the reader then
+    // unsubscribed, and the claim goes stale.
+    vi.setSystemTime(Date.now() + 61_000);
+    resend.list.mockResolvedValue({
+      error: null,
+      data: { data: [{ id: DEFAULT_RESEND_SEGMENT_ID }] },
+    });
+    resend.create.mockClear();
+    const retry = await CONFIRM(post("/api/newsletter/confirm", { token }));
+    expect(retry.status).toBe(200);
+    expect(resend.create).not.toHaveBeenCalled();
+    expect(resend.update).not.toHaveBeenCalled();
+    expect(resend.add).not.toHaveBeenCalled();
+    // And the claim is now done for the rest of the token's life.
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+    ).toBe(200);
+    expect(resend.get).toHaveBeenCalledTimes(1);
+  });
+
+  it("only the claim owner can mark it done", async () => {
+    const { claimConfirmToken, completeConfirmToken } = await import(
+      "@/lib/newsletter-redemption"
+    );
+    const claim = await claimConfirmToken("owner-check-token", 3600);
+    expect(claim.status).toBe("claimed");
+    if (claim.status !== "claimed") return;
+    expect(
+      await completeConfirmToken(
+        "owner-check-token",
+        "pending:someone-else:1",
+        3600,
+      ),
+    ).toBe(false);
+    expect([...upstash.kv.values()]).toEqual([claim.marker]);
+    expect(
+      await completeConfirmToken("owner-check-token", claim.marker, 3600),
+    ).toBe(true);
+    expect([...upstash.kv.values()]).toEqual(["done"]);
   });
 
   it("rate limits confirm attempts per client", async () => {

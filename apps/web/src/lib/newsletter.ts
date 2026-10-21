@@ -67,8 +67,16 @@ export interface NewsletterClient {
       email: string;
       unsubscribed?: boolean;
     }): Promise<ResendResult>;
+    get(
+      options: { email: string },
+    ): Promise<ResendResult & { data: { unsubscribed?: boolean } | null }>;
     segments: {
       add(options: { email: string; segmentId: string }): Promise<ResendResult>;
+      list(
+        options: { email: string },
+      ): Promise<
+        ResendResult & { data: { data: Array<{ id: string }> } | null }
+      >;
     };
   };
   emails: {
@@ -194,4 +202,26 @@ export function canonicalMailboxKey(email: string): string {
     domain = "gmail.com";
   }
   return `${local}@${domain}`;
+}
+
+/**
+ * True when the contact confirmed earlier and has since unsubscribed: it is
+ * unsubscribed AND still in the digest segment (a never-confirmed contact is
+ * unsubscribed but was never added to the segment). Used before replaying a
+ * possibly-completed confirmation, so a replay cannot re-subscribe a leaver.
+ * Returns null when Resend cannot answer.
+ */
+export async function hasUnsubscribedAfterConfirming(
+  client: NewsletterClient,
+  email: string,
+  segmentId: string,
+): Promise<boolean | null> {
+  const contact = await client.contacts.get({ email });
+  if (contact.error) {
+    return contact.error.statusCode === 404 ? false : null;
+  }
+  if (contact.data?.unsubscribed !== true) return false;
+  const segments = await client.contacts.segments.list({ email });
+  if (segments.error) return null;
+  return (segments.data?.data ?? []).some((s) => s.id === segmentId);
 }

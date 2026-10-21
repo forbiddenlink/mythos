@@ -7,6 +7,7 @@ import { logger } from "@/lib/logger";
 import {
   confirmNewsletterSubscription,
   getNewsletterConfig,
+  hasUnsubscribedAfterConfirming,
 } from "@/lib/newsletter";
 import {
   claimConfirmToken,
@@ -21,6 +22,20 @@ import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
 
 const MAX_REQUEST_BODY_BYTES = 2 * 1024;
 const bodySchema = z.strictObject({ token: z.string().min(1).max(1024) });
+
+/** Well under the 60s staleness window, so a hung call cannot outlive its claim. */
+const RESEND_TIMEOUT_MS = 20_000;
+
+function withTimeout<T>(work: Promise<T>): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(
+      () => reject(new Error("Resend call timed out")),
+      RESEND_TIMEOUT_MS,
+    );
+  });
+  return Promise.race([work, timeout]).finally(() => clearTimeout(timer));
+}
 
 function json(body: Record<string, unknown>, status: number): Response {
   return Response.json(body, {
@@ -77,7 +92,7 @@ export async function POST(req: NextRequest) {
   // confirming). A replay that finds the claim still pending is told to retry:
   // the first request may yet fail, so it cannot be answered as success.
   const ttl = secondsUntilTokenExpiry(parsed.data.token);
-  const claim = await claimConfirmToken(parsed.data.token);
+  const claim = await claimConfirmToken(parsed.data.token, ttl);
   if (claim.status === "unavailable") {
     return json({ confirmed: false, reason: "unavailable" }, 503);
   }
@@ -85,16 +100,32 @@ export async function POST(req: NextRequest) {
     return json({ confirmed: false, reason: "in_progress" }, 409);
   }
   if (claim.status === "done") return json({ confirmed: true }, 200);
-  const { claimId } = claim;
+  const { marker, takeover } = claim;
 
   try {
-    const result = await confirmNewsletterSubscription(
-      new Resend(config.apiKey),
-      verified.email,
-      config.segmentId,
+    const client = new Resend(config.apiKey);
+    // Taking over an abandoned claim: the first attempt may have finished at
+    // Resend (only its done-write was lost) and the reader may have left
+    // since. Never replay the mutation onto an unsubscribed leaver.
+    if (takeover) {
+      const left = await withTimeout(
+        hasUnsubscribedAfterConfirming(
+          client,
+          verified.email,
+          config.segmentId,
+        ),
+      );
+      if (left === null) throw new Error("contact state unavailable");
+      if (left) {
+        await completeConfirmToken(parsed.data.token, marker, ttl);
+        return json({ confirmed: true }, 200);
+      }
+    }
+    const result = await withTimeout(
+      confirmNewsletterSubscription(client, verified.email, config.segmentId),
     );
     if (result.ok) {
-      await completeConfirmToken(parsed.data.token, ttl);
+      await completeConfirmToken(parsed.data.token, marker, ttl);
       return json({ confirmed: true }, 200);
     }
   } catch (error) {
@@ -103,6 +134,6 @@ export async function POST(req: NextRequest) {
     });
   }
   // Hand the claim back so the reader can retry the same link.
-  await releaseConfirmToken(parsed.data.token, claimId);
+  await releaseConfirmToken(parsed.data.token, marker);
   return json({ confirmed: false, reason: "upstream_error" }, 502);
 }
