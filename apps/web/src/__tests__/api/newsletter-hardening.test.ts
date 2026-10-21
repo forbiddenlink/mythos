@@ -322,6 +322,9 @@ describe("confirm: single-use redemption", () => {
       vi.setSystemTime(Date.now() + 61_000);
       resend.get.mockRejectedValue(new Error("resend down"));
       resend.create.mockClear();
+      const recordKey = () =>
+        [...upstash.kv.entries()].find(([k]) => k.includes(":redeemed:"));
+      const before = recordKey();
 
       for (let i = 0; i < 3; i++) {
         const retry = await CONFIRM(post("/api/newsletter/confirm", { token }));
@@ -331,10 +334,8 @@ describe("confirm: single-use redemption", () => {
       expect(resend.update).not.toHaveBeenCalled();
       expect(resend.add).not.toHaveBeenCalled();
       // Replay protection is still in place, not erased.
-      const record = [...upstash.kv.entries()].find(([k]) =>
-        k.includes(":redeemed:"),
-      );
-      expect(record?.[1]).toMatch(/^pending:/);
+      expect(recordKey()).toEqual(before);
+      expect(before?.[1]).toMatch(/^pending:/);
     });
 
     it("never calls a stale retry confirmed because the contact once joined the segment", async () => {
