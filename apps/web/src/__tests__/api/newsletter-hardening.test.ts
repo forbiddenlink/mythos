@@ -72,6 +72,20 @@ vi.mock("@upstash/redis", () => ({
         upstash.evalFails = false;
         throw new Error("redis down");
       }
+      if (keys.length === 2) {
+        // Mutation guard: 0 claim lost, 2 reader unsubscribed, 1 ok.
+        if (upstash.kv.get(keys[0]!) !== args[0]) return 0;
+        const unsub = upstash.kv.get(keys[1]!);
+        if (unsub !== undefined && Number(unsub) >= Number(args[1])) return 2;
+        return 1;
+      }
+      if (_script.includes("tonumber(cur)")) {
+        const cur = upstash.kv.get(keys[0]!);
+        if (cur === undefined || Number(cur) < Number(args[0])) {
+          upstash.kv.set(keys[0]!, args[0]!);
+        }
+        return 1;
+      }
       const key = keys[0]!;
       if (upstash.kv.get(key) !== args[0]) return 0;
       if (args.length === 3) upstash.kv.set(key, args[1]!);
@@ -96,7 +110,11 @@ import {
   canonicalMailboxKey,
   DEFAULT_RESEND_SEGMENT_ID,
 } from "@/lib/newsletter";
-import { createConfirmToken } from "@/lib/newsletter-token";
+import { recordNewsletterUnsubscribe } from "@/lib/newsletter-redemption";
+import {
+  confirmTokenIssuedAtMs,
+  createConfirmToken,
+} from "@/lib/newsletter-token";
 import { checkOracleRateLimit } from "@/lib/oracle/rate-limit";
 
 const ORIGINAL_ENV = { ...process.env };
@@ -184,7 +202,7 @@ describe("confirm: single-use redemption", () => {
     expect(resend.add).not.toHaveBeenCalled();
   });
 
-  it("releases the claim after an upstream failure so the link can be retried", async () => {
+  it("keeps the claim after an upstream failure: a retry waits instead of re-running", async () => {
     const token = createConfirmToken("retry@example.com", "re_test");
     resend.create.mockResolvedValueOnce({
       error: { message: "boom", statusCode: 500 },
@@ -194,8 +212,8 @@ describe("confirm: single-use redemption", () => {
     ).toBe(502);
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
-    ).toBe(200);
-    expect(resend.create).toHaveBeenCalledTimes(2);
+    ).toBe(409);
+    expect(resend.create).toHaveBeenCalledTimes(1);
   });
 
   it("does not report success to a retry after a lost acknowledgement", async () => {
@@ -210,7 +228,7 @@ describe("confirm: single-use redemption", () => {
     expect(resend.create).not.toHaveBeenCalled();
   });
 
-  it("answers a concurrent retry with 409, then lets it succeed after the first fails", async () => {
+  it("answers a concurrent retry with 409 and never hands the claim to it after the first fails", async () => {
     const token = createConfirmToken("racefail@example.com", "re_test");
     let failFirst!: () => void;
     resend.create.mockImplementationOnce(
@@ -225,54 +243,122 @@ describe("confirm: single-use redemption", () => {
     expect(concurrent.status).toBe(409);
     failFirst();
     expect((await first).status).toBe(502);
-    // The failed owner released its own marker, so the retry now runs.
-    expect(
-      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
-    ).toBe(200);
-    expect(resend.create).toHaveBeenCalledTimes(2);
-  });
-
-  it("takes over a stale pending claim and then confirms", async () => {
-    const token = createConfirmToken("expiry@example.com", "re_test");
-    upstash.lostAck = true;
-    await CONFIRM(post("/api/newsletter/confirm", { token }));
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(409);
-    vi.setSystemTime(Date.now() + 61_000);
-    // Never confirmed: unsubscribed, but not in the segment.
+    expect(resend.create).toHaveBeenCalledTimes(1);
+  });
+
+  it("lets a link issued after an old unsubscribe confirm", async () => {
+    const token = createConfirmToken("returning@example.com", "re_test");
+    await recordNewsletterUnsubscribe(
+      "returning@example.com",
+      confirmTokenIssuedAtMs(token) - 1_000,
+    );
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(200);
     expect(resend.create).toHaveBeenCalledTimes(1);
   });
 
-  it("does not re-mutate a leaver when the done-write fails and the claim goes stale", async () => {
-    const token = createConfirmToken("leaver2@example.com", "re_test");
-    upstash.evalFails = true;
-    expect(
-      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
-    ).toBe(200);
-    expect(resend.create).toHaveBeenCalledTimes(1);
+  describe("unsubscribe races", () => {
+    const settle = async () => {
+      for (let i = 0; i < 25; i++) await Promise.resolve();
+    };
 
-    // The claim stayed pending (it did not lapse), the reader then
-    // unsubscribed, and the claim goes stale.
-    vi.setSystemTime(Date.now() + 61_000);
-    resend.list.mockResolvedValue({
-      error: null,
-      data: { data: [{ id: DEFAULT_RESEND_SEGMENT_ID }] },
+    it("does not undo an unsubscribe when a timed-out create resolves late", async () => {
+      vi.useFakeTimers({ toFake: ["Date", "setTimeout", "clearTimeout"] });
+      const token = createConfirmToken("late@example.com", "re_test");
+      let resolveCreate!: (v: unknown) => void;
+      resend.create.mockImplementationOnce(
+        () =>
+          new Promise((resolve) => {
+            resolveCreate = resolve;
+          }),
+      );
+      const pending = CONFIRM(post("/api/newsletter/confirm", { token }));
+      await settle();
+      expect(resend.create).toHaveBeenCalledTimes(1);
+
+      // Longer than the old 20s timeout, then the reader unsubscribes.
+      await vi.advanceTimersByTimeAsync(25_000);
+      await recordNewsletterUnsubscribe("late@example.com", Date.now());
+      resolveCreate({ error: { message: "already exists", statusCode: 409 } });
+
+      const response = await pending;
+      expect(response.status).toBe(409);
+      expect(resend.update).not.toHaveBeenCalled();
+      expect(resend.add).not.toHaveBeenCalled();
     });
-    resend.create.mockClear();
-    const retry = await CONFIRM(post("/api/newsletter/confirm", { token }));
-    expect(retry.status).toBe(200);
-    expect(resend.create).not.toHaveBeenCalled();
-    expect(resend.update).not.toHaveBeenCalled();
-    expect(resend.add).not.toHaveBeenCalled();
-    // And the claim is now done for the rest of the token's life.
-    expect(
-      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
-    ).toBe(200);
-    expect(resend.get).toHaveBeenCalledTimes(1);
+
+    it("stops before the next mutation when the claim is gone", async () => {
+      const token = createConfirmToken("gone@example.com", "re_test");
+      let resolveCreate!: (v: unknown) => void;
+      resend.create.mockImplementationOnce(
+        () =>
+          new Promise((resolve) => {
+            resolveCreate = resolve;
+          }),
+      );
+      const pending = CONFIRM(post("/api/newsletter/confirm", { token }));
+      await vi.waitFor(() => expect(resend.create).toHaveBeenCalledTimes(1));
+      upstash.kv.clear();
+      resolveCreate({ error: { message: "already exists", statusCode: 409 } });
+      expect((await pending).status).toBe(409);
+      expect(resend.update).not.toHaveBeenCalled();
+    });
+
+    it("keeps a pending record that nobody can read the contact for", async () => {
+      const token = createConfirmToken("leaver2@example.com", "re_test");
+      upstash.evalFails = true; // the done-write fails
+      expect(
+        (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+      ).toBe(200);
+      expect(resend.create).toHaveBeenCalledTimes(1);
+
+      // The reader unsubscribes, the claim ages past the old 60s staleness
+      // window, and Resend cannot answer a contact lookup.
+      await recordNewsletterUnsubscribe("leaver2@example.com", Date.now());
+      vi.setSystemTime(Date.now() + 61_000);
+      resend.get.mockRejectedValue(new Error("resend down"));
+      resend.create.mockClear();
+
+      for (let i = 0; i < 3; i++) {
+        const retry = await CONFIRM(post("/api/newsletter/confirm", { token }));
+        expect(retry.status).toBe(409);
+      }
+      expect(resend.create).not.toHaveBeenCalled();
+      expect(resend.update).not.toHaveBeenCalled();
+      expect(resend.add).not.toHaveBeenCalled();
+      // Replay protection is still in place, not erased.
+      const record = [...upstash.kv.entries()].find(([k]) =>
+        k.includes(":redeemed:"),
+      );
+      expect(record?.[1]).toMatch(/^pending:/);
+    });
+
+    it("never calls a stale retry confirmed because the contact once joined the segment", async () => {
+      const token = createConfirmToken("fresh@example.com", "re_test");
+      upstash.lostAck = true; // claim commits, confirm never ran
+      expect(
+        (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+      ).toBe(503);
+
+      // Historical segment membership plus a fresh unsubscribe: exactly what
+      // used to be read as "this token already completed".
+      vi.setSystemTime(Date.now() + 61_000);
+      resend.get.mockResolvedValue({ error: null, data: { unsubscribed: true } });
+      resend.list.mockResolvedValue({
+        error: null,
+        data: { data: [{ id: DEFAULT_RESEND_SEGMENT_ID }] },
+      });
+      const retry = await CONFIRM(post("/api/newsletter/confirm", { token }));
+      expect(retry.status).toBe(409);
+      expect(await retry.json()).toMatchObject({ confirmed: false });
+      expect(resend.create).not.toHaveBeenCalled();
+      expect(resend.update).not.toHaveBeenCalled();
+      expect(resend.add).not.toHaveBeenCalled();
+    });
   });
 
   it("only the claim owner can mark it done", async () => {

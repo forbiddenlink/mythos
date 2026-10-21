@@ -31,6 +31,17 @@ export function createConfirmToken(
   return `${payload}.${sign(deriveKey(apiKey), payload)}`;
 }
 
+/**
+ * When a verified token was issued, in ms. The token carries only its expiry,
+ * and every token is minted with CONFIRM_TOKEN_TTL_SECONDS, so issue time is
+ * expiry minus that TTL. Used to ask "did the reader unsubscribe after this
+ * link was sent".
+ */
+export function confirmTokenIssuedAtMs(token: string): number {
+  const expires = Number(token.split(".")[1]);
+  return (expires - CONFIRM_TOKEN_TTL_SECONDS) * 1000;
+}
+
 export type VerifyResult =
   { ok: true; email: string } | { ok: false; reason: "invalid" | "expired" };
 

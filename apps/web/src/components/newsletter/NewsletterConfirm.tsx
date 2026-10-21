@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 type Status =
-  "idle" | "submitting" | "confirmed" | "expired" | "invalid" | "error";
+  "idle" | "submitting" | "confirmed" | "expired" | "invalid" | "busy" | "error";
 
 const MESSAGES: Partial<Record<Status, string>> = {
   confirmed:
@@ -13,6 +13,7 @@ const MESSAGES: Partial<Record<Status, string>> = {
     "This link has expired. Sign up again from the footer and we will send a fresh one.",
   invalid:
     "This link is not valid. Sign up again from the footer and we will send a fresh one.",
+  busy: "We could not finish this confirmation. Check your inbox, or sign up again from the footer and we will send a fresh link.",
   error: "Something went wrong on our side. Please try again later.",
 };
 
@@ -39,6 +40,7 @@ export function NewsletterConfirm({ token }: Readonly<{ token: string }>) {
       const body = (await res.json().catch(() => ({}))) as { reason?: string };
       if (body.reason === "expired") setStatus("expired");
       else if (res.status === 400) setStatus("invalid");
+      else if (res.status === 409 || res.status === 502) setStatus("busy");
       else setStatus("error");
     } catch {
       setStatus("error");

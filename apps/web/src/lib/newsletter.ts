@@ -67,16 +67,8 @@ export interface NewsletterClient {
       email: string;
       unsubscribed?: boolean;
     }): Promise<ResendResult>;
-    get(
-      options: { email: string },
-    ): Promise<ResendResult & { data: { unsubscribed?: boolean } | null }>;
     segments: {
       add(options: { email: string; segmentId: string }): Promise<ResendResult>;
-      list(
-        options: { email: string },
-      ): Promise<
-        ResendResult & { data: { data: Array<{ id: string }> } | null }
-      >;
     };
   };
   emails: {
@@ -150,16 +142,44 @@ export async function requestNewsletterConfirmation(
   return sent.error ? { ok: false, reason: "upstream_error" } : { ok: true };
 }
 
+export type MutationGuardVerdict =
+  "ok" | "lost" | "unsubscribed" | "unavailable";
+
+/**
+ * Called immediately before EVERY Resend mutation in the confirm sequence.
+ * Anything but "ok" aborts the sequence before the call is made.
+ */
+export type MutationGuard = () => Promise<MutationGuardVerdict>;
+
+export type ConfirmResult =
+  | { ok: true }
+  | { ok: false; reason: "upstream_error" }
+  | { ok: false; reason: "aborted"; verdict: Exclude<MutationGuardVerdict, "ok"> };
+
 /**
  * Step two, run only after the signed link checks out: mark the contact
  * subscribed and put it in the digest segment, which is all the weekly
  * broadcast sends to.
+ *
+ * Resend has no conditional write, so the only defence against a stale writer
+ * is to re-check right before each mutation. `mayMutate` is that check and
+ * it runs before create, update and segments.add alike. The calls are awaited
+ * to completion (no timeout abandons one mid-flight), so nothing from this
+ * function can run after it returns.
  */
 export async function confirmNewsletterSubscription(
   client: NewsletterClient,
   email: string,
   segmentId: string,
-): Promise<SubscribeResult> {
+  mayMutate: MutationGuard,
+): Promise<ConfirmResult> {
+  const abort = async (): Promise<ConfirmResult | null> => {
+    const verdict = await mayMutate();
+    return verdict === "ok" ? null : { ok: false, reason: "aborted", verdict };
+  };
+
+  const blockedCreate = await abort();
+  if (blockedCreate) return blockedCreate;
   const created = await client.contacts.create({
     email,
     unsubscribed: false,
@@ -170,8 +190,13 @@ export async function confirmNewsletterSubscription(
     return { ok: false, reason: "upstream_error" };
   }
 
+  const blockedUpdate = await abort();
+  if (blockedUpdate) return blockedUpdate;
   const updated = await client.contacts.update({ email, unsubscribed: false });
   if (updated.error) return { ok: false, reason: "upstream_error" };
+
+  const blockedAdd = await abort();
+  if (blockedAdd) return blockedAdd;
   const added = await client.contacts.segments.add({ email, segmentId });
   if (added.error && !isAlreadyExists(added.error)) {
     return { ok: false, reason: "upstream_error" };
@@ -202,26 +227,4 @@ export function canonicalMailboxKey(email: string): string {
     domain = "gmail.com";
   }
   return `${local}@${domain}`;
-}
-
-/**
- * True when the contact confirmed earlier and has since unsubscribed: it is
- * unsubscribed AND still in the digest segment (a never-confirmed contact is
- * unsubscribed but was never added to the segment). Used before replaying a
- * possibly-completed confirmation, so a replay cannot re-subscribe a leaver.
- * Returns null when Resend cannot answer.
- */
-export async function hasUnsubscribedAfterConfirming(
-  client: NewsletterClient,
-  email: string,
-  segmentId: string,
-): Promise<boolean | null> {
-  const contact = await client.contacts.get({ email });
-  if (contact.error) {
-    return contact.error.statusCode === 404 ? false : null;
-  }
-  if (contact.data?.unsubscribed !== true) return false;
-  const segments = await client.contacts.segments.list({ email });
-  if (segments.error) return null;
-  return (segments.data?.data ?? []).some((s) => s.id === segmentId);
 }

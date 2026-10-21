@@ -7,12 +7,11 @@ import { logger } from "@/lib/logger";
 import {
   confirmNewsletterSubscription,
   getNewsletterConfig,
-  hasUnsubscribedAfterConfirming,
 } from "@/lib/newsletter";
 import {
+  checkConfirmMutationAllowed,
   claimConfirmToken,
   completeConfirmToken,
-  releaseConfirmToken,
   secondsUntilTokenExpiry,
 } from "@/lib/newsletter-redemption";
 import { verifyConfirmToken } from "@/lib/newsletter-token";
@@ -23,19 +22,12 @@ import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
 const MAX_REQUEST_BODY_BYTES = 2 * 1024;
 const bodySchema = z.strictObject({ token: z.string().min(1).max(1024) });
 
-/** Well under the 60s staleness window, so a hung call cannot outlive its claim. */
-const RESEND_TIMEOUT_MS = 20_000;
-
-function withTimeout<T>(work: Promise<T>): Promise<T> {
-  let timer: ReturnType<typeof setTimeout> | undefined;
-  const timeout = new Promise<never>((_, reject) => {
-    timer = setTimeout(
-      () => reject(new Error("Resend call timed out")),
-      RESEND_TIMEOUT_MS,
-    );
-  });
-  return Promise.race([work, timeout]).finally(() => clearTimeout(timer));
-}
+/**
+ * The platform ends the request here, which really stops it. We do not race
+ * the Resend calls against our own timer: a timer cannot cancel a call, so
+ * the abandoned call would go on to mutate after we had answered.
+ */
+export const maxDuration = 30;
 
 function json(body: Record<string, unknown>, status: number): Response {
   return Response.json(body, {
@@ -86,11 +78,13 @@ export async function POST(req: NextRequest) {
     return json({ confirmed: false, reason: verified.reason }, 400);
   }
 
-  // Single use. The first request to redeem this token wins a pending claim.
-  // A replay of a completed confirmation gets the same success answer without
-  // reaching Resend (so it cannot re-subscribe someone who unsubscribed after
-  // confirming). A replay that finds the claim still pending is told to retry:
-  // the first request may yet fail, so it cannot be answered as success.
+  // Single use. The first request to redeem this token wins a pending claim
+  // that lives until the token itself expires. A replay of a completed
+  // confirmation gets the same success answer without reaching Resend. A
+  // replay that finds the claim pending is told to check their inbox or ask
+  // for a new link: that claim may still be running, or may have died, and
+  // there is no safe way to tell, so it is never answered as success and
+  // never taken over or deleted.
   const ttl = secondsUntilTokenExpiry(parsed.data.token);
   const claim = await claimConfirmToken(parsed.data.token, ttl);
   if (claim.status === "unavailable") {
@@ -100,40 +94,38 @@ export async function POST(req: NextRequest) {
     return json({ confirmed: false, reason: "in_progress" }, 409);
   }
   if (claim.status === "done") return json({ confirmed: true }, 200);
-  const { marker, takeover } = claim;
+  const { marker } = claim;
 
   try {
-    const client = new Resend(config.apiKey);
-    // Taking over an abandoned claim: the first attempt may have finished at
-    // Resend (only its done-write was lost) and the reader may have left
-    // since. Never replay the mutation onto an unsubscribed leaver.
-    if (takeover) {
-      const left = await withTimeout(
-        hasUnsubscribedAfterConfirming(
-          client,
-          verified.email,
-          config.segmentId,
-        ),
-      );
-      if (left === null) throw new Error("contact state unavailable");
-      if (left) {
-        await completeConfirmToken(parsed.data.token, marker, ttl);
-        return json({ confirmed: true }, 200);
-      }
-    }
-    const result = await withTimeout(
-      confirmNewsletterSubscription(client, verified.email, config.segmentId),
+    const result = await confirmNewsletterSubscription(
+      new Resend(config.apiKey),
+      verified.email,
+      config.segmentId,
+      () =>
+        checkConfirmMutationAllowed(parsed.data.token, marker, verified.email),
     );
     if (result.ok) {
       await completeConfirmToken(parsed.data.token, marker, ttl);
       return json({ confirmed: true }, 200);
+    }
+    if (result.reason === "aborted") {
+      if (result.verdict === "unavailable") {
+        return json({ confirmed: false, reason: "unavailable" }, 503);
+      }
+      return json(
+        {
+          confirmed: false,
+          reason:
+            result.verdict === "unsubscribed" ? "superseded" : "in_progress",
+        },
+        409,
+      );
     }
   } catch (error) {
     logger.error("Newsletter confirmation failed", {
       error: error instanceof Error ? error.message : String(error),
     });
   }
-  // Hand the claim back so the reader can retry the same link.
-  await releaseConfirmToken(parsed.data.token, marker);
+  // The claim stays pending on purpose; see above.
   return json({ confirmed: false, reason: "upstream_error" }, 502);
 }

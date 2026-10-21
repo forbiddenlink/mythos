@@ -181,11 +181,13 @@ describe("requestNewsletterConfirmation", () => {
   });
 });
 
+const allow = async () => "ok" as const;
+
 describe("confirmNewsletterSubscription", () => {
   it("creates a subscribed contact in the segment", async () => {
     const c = fakeClient();
     await expect(
-      confirmNewsletterSubscription(c, "a@b.co", "seg"),
+      confirmNewsletterSubscription(c, "a@b.co", "seg", allow),
     ).resolves.toEqual({ ok: true });
     expect(c.contacts.create).toHaveBeenCalledWith({
       email: "a@b.co",
@@ -197,7 +199,7 @@ describe("confirmNewsletterSubscription", () => {
   it("re-subscribes an existing contact and adds it to the segment", async () => {
     const c = fakeClient({ create: EXISTS });
     await expect(
-      confirmNewsletterSubscription(c, "a@b.co", "seg"),
+      confirmNewsletterSubscription(c, "a@b.co", "seg", allow),
     ).resolves.toEqual({ ok: true });
     expect(c.contacts.update).toHaveBeenCalledWith({
       email: "a@b.co",
@@ -207,6 +209,43 @@ describe("confirmNewsletterSubscription", () => {
       email: "a@b.co",
       segmentId: "seg",
     });
+  });
+});
+
+describe("confirmNewsletterSubscription guard", () => {
+  it("asks the guard before create, update and segment add, and stops on a no", async () => {
+    // Allow the first n checks, deny the rest; a denied check must prevent
+    // exactly the mutation it precedes.
+    const run = async (allowed: number) => {
+      let calls = 0;
+      const c = fakeClient({ create: EXISTS });
+      const result = await confirmNewsletterSubscription(
+        c,
+        "a@b.co",
+        "seg",
+        async () => (++calls <= allowed ? "ok" : "unsubscribed"),
+      );
+      return { c, result };
+    };
+
+    const none = await run(0);
+    expect(none.result).toEqual({
+      ok: false,
+      reason: "aborted",
+      verdict: "unsubscribed",
+    });
+    expect(none.c.contacts.create).not.toHaveBeenCalled();
+
+    const afterCreate = await run(1);
+    expect(afterCreate.c.contacts.create).toHaveBeenCalledTimes(1);
+    expect(afterCreate.c.contacts.update).not.toHaveBeenCalled();
+
+    const afterUpdate = await run(2);
+    expect(afterUpdate.c.contacts.update).toHaveBeenCalledTimes(1);
+    expect(afterUpdate.c.contacts.segments.add).not.toHaveBeenCalled();
+
+    const all = await run(3);
+    expect(all.result).toEqual({ ok: true });
   });
 });
 
