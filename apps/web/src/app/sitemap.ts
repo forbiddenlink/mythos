@@ -311,6 +311,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    // Self-canonical cinematic retellings (the /read pages canonicalize to the
+    // story entry, so they stay out of the sitemap).
+    {
+      url: `${BASE_URL}/stories/ragnarok/cinematic`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${BASE_URL}/stories/titanomachy/cinematic`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
     ...branchingStories.map((story) => ({
       url: `${BASE_URL}/stories/interactive/${story.slug}`,
       changeFrequency: "monthly" as const,

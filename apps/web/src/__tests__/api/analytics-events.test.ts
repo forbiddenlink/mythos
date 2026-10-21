@@ -1,12 +1,23 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { POST } from "@/app/api/analytics/events/route";
+import { checkAnalyticsRateLimit } from "@/lib/oracle/rate-limit";
+
+vi.mock("@/lib/oracle/rate-limit", () => ({
+  checkAnalyticsRateLimit: vi.fn(async () => ({ allowed: true })),
+}));
 
 const ORIGINAL_ENV = { ...process.env };
 
-function postEvent(body: unknown): Request {
+function postEvent(
+  body: unknown,
+  headers: Record<string, string> = {
+    origin: "http://localhost:3000",
+    host: "localhost:3000",
+  },
+): Request {
   return new Request("http://localhost:3000/api/analytics/events", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...headers },
     body: JSON.stringify(body),
   });
 }
@@ -14,6 +25,8 @@ function postEvent(body: unknown): Request {
 describe("POST /api/analytics/events", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
+    vi.mocked(checkAnalyticsRateLimit).mockReset();
+    vi.mocked(checkAnalyticsRateLimit).mockResolvedValue({ allowed: true });
     process.env = { ...ORIGINAL_ENV };
     delete process.env.POSTHOG_KEY;
     delete process.env.NEXT_PUBLIC_POSTHOG_KEY;
@@ -21,6 +34,38 @@ describe("POST /api/analytics/events", () => {
 
   afterEach(() => {
     process.env = { ...ORIGINAL_ENV };
+  });
+
+  it("rejects a cross-origin or origin-less request before any work", async () => {
+    const crossOrigin = await POST(
+      postEvent(
+        { type: "pmf_survey_answered", rating: "very", quizId: "q" },
+        { origin: "https://evil.example", host: "localhost:3000" },
+      ),
+    );
+    expect(crossOrigin.status).toBe(403);
+
+    const noOrigin = await POST(
+      postEvent(
+        { type: "pmf_survey_answered", rating: "very", quizId: "q" },
+        { host: "localhost:3000" },
+      ),
+    );
+    expect(noOrigin.status).toBe(403);
+    expect(checkAnalyticsRateLimit).not.toHaveBeenCalled();
+  });
+
+  it("answers 429 when the client is over the rate limit", async () => {
+    vi.mocked(checkAnalyticsRateLimit).mockResolvedValueOnce({
+      allowed: false,
+      reason: "rate_limited",
+    });
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const response = await POST(
+      postEvent({ type: "pmf_survey_answered", rating: "very", quizId: "q" }),
+    );
+    expect(response.status).toBe(429);
+    expect(fetchSpy).not.toHaveBeenCalled();
   });
 
   it("rejects a body without an event name", async () => {

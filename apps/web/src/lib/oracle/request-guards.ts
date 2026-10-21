@@ -1,10 +1,8 @@
-import type { NextRequest } from "next/server";
-
 /**
  * Reject cross-origin POSTs that omit Origin or mismatch Host.
  * Returns a Response to send, or null if the request is allowed.
  */
-export function forbiddenUnlessSameOrigin(req: NextRequest): Response | null {
+export function forbiddenUnlessSameOrigin(req: { headers: Headers }): Response | null {
   const origin = req.headers.get("origin");
   const host = req.headers.get("host");
   if (!origin || !host) {
