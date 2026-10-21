@@ -1,6 +1,7 @@
 /**
- * Global daily request guard for both providers (Oracle + story quiz).
- * Caps total successful admissions across all IPs for a UTC day.
+ * Global daily request guard for the paid AI routes (Oracle + story quiz).
+ * Caps total successful admissions across all IPs for a UTC day. Each scope
+ * has its own counter, so heavy quiz use cannot take the Oracle offline.
  */
 
 import { Redis } from "@upstash/redis";
@@ -25,6 +26,8 @@ function utcDayKey(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+export type GlobalBudgetScope = "oracle" | "quiz";
+
 export type GlobalOracleBudgetResult =
   | { allowed: true }
   | { allowed: false; reason: "budget_exhausted" | "misconfigured" };
@@ -33,7 +36,9 @@ export type GlobalOracleBudgetResult =
  * Increment and check the global daily request counter.
  * Dev without Upstash: always allow (per-IP in-memory still applies).
  */
-export async function checkGlobalOracleBudget(): Promise<GlobalOracleBudgetResult> {
+export async function checkGlobalOracleBudget(
+  scope: GlobalBudgetScope = "oracle",
+): Promise<GlobalOracleBudgetResult> {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) {
@@ -48,7 +53,11 @@ export async function checkGlobalOracleBudget(): Promise<GlobalOracleBudgetResul
   }
 
   const redis = new Redis({ url, token });
-  const key = `mythos:oracle:daily:${utcDayKey()}`;
+  // The oracle key keeps its historical name so a deploy does not reset today's count.
+  const key =
+    scope === "oracle"
+      ? `mythos:oracle:daily:${utcDayKey()}`
+      : `mythos:${scope}:daily:${utcDayKey()}`;
   const count = await redis.incr(key);
   if (count === 1) {
     // Expire shortly after the UTC day ends (+1h slack)

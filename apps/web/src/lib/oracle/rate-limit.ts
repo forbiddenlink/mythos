@@ -23,17 +23,23 @@ const ORACLE_ANONYMOUS_RATE_LIMIT = 3;
 // covers typos and shared networks while keeping list-bombing expensive.
 const NEWSLETTER_RATE_LIMIT = 5;
 
+// Analytics beacons are small and frequent (quiz pulses, unload events), so
+// the ceiling is generous; it only has to stop a script from flooding the
+// PostHog quota with spoofed events.
+const ANALYTICS_RATE_LIMIT = 120;
+
+// Confirmation links are single-use, so a person confirms once. The ceiling
+// only bounds token-guessing and replay traffic from one client.
+const NEWSLETTER_CONFIRM_RATE_LIMIT = 20;
+
 type Bucket =
   | "oracle"
   | "oracle-anon"
   | "quiz"
   | "search"
   | "newsletter"
-  | "newsletter-confirm";
-
-// Confirmation links are single-use, so a person confirms once. The ceiling
-// only bounds token-guessing and replay traffic from one client.
-const NEWSLETTER_CONFIRM_RATE_LIMIT = 20;
+  | "newsletter-confirm"
+  | "analytics";
 
 const BUCKET_LIMITS: Record<Bucket, number> = {
   oracle: RATE_LIMIT,
@@ -42,6 +48,7 @@ const BUCKET_LIMITS: Record<Bucket, number> = {
   search: SEARCH_RATE_LIMIT,
   newsletter: NEWSLETTER_RATE_LIMIT,
   "newsletter-confirm": NEWSLETTER_CONFIRM_RATE_LIMIT,
+  analytics: ANALYTICS_RATE_LIMIT,
 };
 
 const memoryStores: Record<
@@ -54,6 +61,7 @@ const memoryStores: Record<
   search: new Map(),
   newsletter: new Map(),
   "newsletter-confirm": new Map(),
+  analytics: new Map(),
 };
 
 const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
@@ -63,6 +71,7 @@ const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   search: undefined,
   newsletter: undefined,
   "newsletter-confirm": undefined,
+  analytics: undefined,
 };
 
 function isProductionRuntime(): boolean {
@@ -217,4 +226,11 @@ export async function checkNewsletterConfirmRateLimit(
   return checkBucketRateLimit("newsletter-confirm", identifier, {
     failClosed: true,
   });
+}
+
+/** Analytics event sink rate limit (120/hr per client key). */
+export async function checkAnalyticsRateLimit(
+  identifier: string,
+): Promise<OracleRateLimitResult> {
+  return checkBucketRateLimit("analytics", identifier);
 }

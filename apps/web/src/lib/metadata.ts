@@ -33,7 +33,10 @@ export function traditionHubTitle(pantheon: { name: string }): string {
   // "African Traditions", "Canaanite Pantheon (Ugarit)": no "Mythology" suffix.
   return /(?:Traditions|\))$/.test(short)
     ? `${short}: Gods and Myths`
-    : `${short} Mythology: Gods and Myths`;
+    : /Pantheon$/.test(pantheon.name)
+      ? // "greek pantheon" (138 impressions, 0 clicks) never saw its own words.
+        `${short} Mythology: Gods, Pantheon and Myths`
+      : `${short} Mythology: Gods and Myths`;
 }
 
 /** Map UI locale to Open Graph locale (cookie-based locale; URLs are not locale-prefixed). */

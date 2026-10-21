@@ -115,6 +115,58 @@ test.describe("structured data in server HTML", () => {
 });
 
 test.describe("hub pages", () => {
+  test("search snippets lead with the query phrase and a concrete hook", async ({
+    request,
+  }) => {
+    async function snippet(path: string) {
+      const html = await (await request.get(path)).text();
+      const title = /<title>([^<]*)<\/title>/.exec(html)?.[1] ?? "";
+      const description =
+        /<meta name="description" content="([^"]*)"/.exec(html)?.[1] ?? "";
+      return { title: title.replaceAll("&#x27;", "'"), description };
+    }
+    const cases: Array<[string, RegExp, RegExp]> = [
+      [
+        "/gods-of/wisdom",
+        /^Gods of Wisdom in World Mythology: \d+ Deities/,
+        /^God of wisdom\? \d+ gods/,
+      ],
+      [
+        "/locations/lake-avernus",
+        /^Lake Avernus in Roman Mythology/,
+        /^Lake Avernus: the crater lake.*underworld/,
+      ],
+      [
+        "/locations/pohjola",
+        /^Pohjola: Realm in Finnish Mythology/,
+        /^Pohjola: /,
+      ],
+      [
+        "/pantheons/greek",
+        /^Greek Mythology: Gods, Pantheon and Myths/,
+        // The catalog text already names "Greek" up front, so entryDescription()
+        // adds no prefix (description.test.ts "skips the prefix"). The snippet
+        // must still end on the catalog counts.
+        /^The Greek pantheon.*\d+ deities, \d+ stories\.$/,
+      ],
+      [
+        "/pantheons",
+        /^Pantheons of the World: \d+ Mythologies/,
+        /^Compare \d+ pantheons/,
+      ],
+    ];
+    for (const [path, titleRe, descRe] of cases) {
+      const { title, description } = await snippet(path);
+      expect(title, path).toMatch(titleRe);
+      expect(
+        title.replace(/ \| Mythos Atlas$/, "").length,
+        path,
+      ).toBeLessThanOrEqual(60);
+      expect(description, path).toMatch(descRe);
+      expect(description.length, path).toBeLessThanOrEqual(160);
+    }
+  });
+
   test("gods of war lists deities by tradition and links to them", async ({
     page,
     request,

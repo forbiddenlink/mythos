@@ -17,7 +17,7 @@ describe("shortPantheonName", () => {
 
 describe("traditionHubTitle", () => {
   it.each([
-    ["Greek Pantheon", "Greek Mythology: Gods and Myths"],
+    ["Greek Pantheon", "Greek Mythology: Gods, Pantheon and Myths"],
     ["Haudenosaunee Tradition", "Haudenosaunee Mythology: Gods and Myths"],
     ["African Traditions", "African Traditions: Gods and Myths"],
     [

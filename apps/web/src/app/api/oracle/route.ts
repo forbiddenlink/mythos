@@ -11,7 +11,11 @@ import { z } from "zod";
 import type { Locale } from "@/i18n/config";
 import type { OracleSourcesPayload } from "@/lib/oracle/citations";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
-import { ORACLE_SOURCES_CHUNK_TYPE } from "@/lib/oracle/constants";
+import {
+  ORACLE_MAX_MESSAGE_CONTENT_CHARS,
+  ORACLE_MAX_REQUEST_MESSAGES,
+  ORACLE_SOURCES_CHUNK_TYPE,
+} from "@/lib/oracle/constants";
 import { notInSourcesReply } from "@/lib/oracle/coverage";
 import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
 import { getOracleGroundingForConversation } from "@/lib/oracle/grounding";
@@ -39,8 +43,8 @@ import { readJsonBody } from "@/lib/http/read-json-body";
 // answer, so keep effort low for short grounded replies and leave headroom.
 const MAX_OUTPUT_TOKENS = 1_200;
 
-const MAX_MESSAGE_CONTENT_CHARS = 4_000;
-const MAX_MESSAGES = 20;
+const MAX_MESSAGE_CONTENT_CHARS = ORACLE_MAX_MESSAGE_CONTENT_CHARS;
+const MAX_MESSAGES = ORACLE_MAX_REQUEST_MESSAGES;
 // A UTF-8 character can consume four bytes; leave room for JSON structure.
 const MAX_REQUEST_BODY_BYTES = 384 * 1024;
 

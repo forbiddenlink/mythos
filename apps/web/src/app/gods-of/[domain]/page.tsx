@@ -20,6 +20,8 @@ import {
 } from "@/lib/gods-of";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { truncateDescription } from "@/lib/seo/description";
+import { godsOfPageTitle } from "@/lib/seo/entry-titles";
 
 interface PageProps {
   params: Promise<{ domain: string }>;
@@ -56,14 +58,17 @@ export async function generateMetadata({
       "No domain page exists for this name.",
     );
   }
-  const title = `${godsOfTitle(page)} in World Mythology`;
+  const title = godsOfPageTitle(
+    godsOfTitle(page),
+    page.deityCount,
+    page.traditions.length,
+  );
   return generateBaseMetadata({
     title,
-    description:
-      `${listNames(page, 6)} and more: ${page.deityCount} gods and goddesses of ${page.domain} from ${page.traditions.length} traditions, with their parallels and sources.`.slice(
-        0,
-        300,
-      ),
+    // Opens with the singular query ("god of wisdom") and names real deities.
+    description: truncateDescription(
+      `God of ${page.domain}? ${page.deityCount} gods and goddesses of ${page.domain} from ${page.traditions.length} traditions, including ${listNames(page, 4)}. Compare their parallels and sources.`,
+    ),
     url: `/gods-of/${page.slug}`,
     image: null,
     keywords: [
