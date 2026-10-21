@@ -61,3 +61,69 @@ export function creatureTitle(
 export function heroTitle(hero: { name: string }, tradition: string): string {
   return `${hero.name}: ${tradition} Hero`;
 }
+
+/**
+ * "Roman Mythology", "Persian Mythology": the phrase searchers type. Drops a
+ * parenthetical ("Persian (Iranian) Tradition", "Finnish Tradition (Kalevala)")
+ * and the terminal "Pantheon"/"Tradition" label. Plural "Traditions" names
+ * ("African Traditions") already read as a whole phrase and stay as they are.
+ */
+export function mythologyName(pantheon: { name: string } | undefined): string {
+  const base =
+    pantheon?.name
+      .replace(/\s*\([^)]*\)/g, "")
+      .replace(/\s+(?:Pantheon|Tradition)$/, "")
+      .trim() || "Ancient";
+  return /Traditions$/.test(base) ? base : `${base} Mythology`;
+}
+
+/** What kind of place it is, for the location types where the label adds information. */
+const LOCATION_LABELS: Record<string, { label: string; inName: RegExp }> = {
+  mountain: {
+    label: "Mountain",
+    inName: /\b(?:Mount|Mountain|Mountains|Peak|Hill)\b/i,
+  },
+  realm: { label: "Realm", inName: /\b(?:Realm|Land|Kingdom)\b/i },
+  mythical_realm: { label: "Realm", inName: /\b(?:Realm|Land|Kingdom)\b/i },
+  sacred_site: {
+    label: "Sacred Site",
+    inName: /\b(?:Sanctuary|Shrine|Temple|Oracle)\b/i,
+  },
+  underworld: { label: "Underworld", inName: /\b(?:Underworld|Hades|Hell)\b/i },
+  island: { label: "Island", inName: /\b(?:Island|Isle)\b/i },
+  city: { label: "City", inName: /\bCity\b/i },
+  temple: { label: "Temple", inName: /\bTemple\b/i },
+  tomb: { label: "Tomb", inName: /\bTomb\b/i },
+  cave: { label: "Cave", inName: /\bCave\b/i },
+  palace: { label: "Palace", inName: /\bPalace\b/i },
+};
+
+/** "Pohjola: Realm in Finnish Mythology"; "Lake Avernus in Roman Mythology". */
+export function locationTitle(
+  location: { name: string; locationType?: string },
+  pantheon: { name: string } | undefined,
+): string {
+  const plain = `${location.name} in ${mythologyName(pantheon)}`;
+  const typed = location.locationType
+    ? LOCATION_LABELS[location.locationType]
+    : undefined;
+  if (!typed || typed.inName.test(location.name)) return plain;
+  return firstFitting([
+    `${location.name}: ${typed.label} in ${mythologyName(pantheon)}`,
+    plain,
+  ]);
+}
+
+/** "Gods of Wisdom in World Mythology: 19 Deities", shortened to fit the budget. */
+export function godsOfPageTitle(
+  label: string,
+  deityCount: number,
+  traditionCount: number,
+): string {
+  const deities = `${deityCount} ${deityCount === 1 ? "Deity" : "Deities"}`;
+  return firstFitting([
+    `${label} in World Mythology: ${deities}`,
+    `${label}: ${deities} in ${traditionCount} Traditions`,
+    `${label} in World Mythology`,
+  ]);
+}
