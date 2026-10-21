@@ -1,8 +1,15 @@
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 import { logger } from "@/lib/logger";
-import { getNewsletterConfig } from "@/lib/newsletter";
-import { recordNewsletterUnsubscribe } from "@/lib/newsletter-redemption";
+import {
+  getNewsletterConfig,
+  getNewsletterWebhookSecret,
+  reassertUnsubscribed,
+} from "@/lib/newsletter";
+import {
+  recordNewsletterUnsubscribe,
+  unsubscribeNeedsRepair,
+} from "@/lib/newsletter-redemption";
 
 function json(body: Record<string, unknown>, status: number): Response {
   return Response.json(body, {
@@ -16,6 +23,8 @@ function json(body: Record<string, unknown>, status: number): Response {
  * this is the only way the app learns of it. A contact.updated event that
  * leaves the contact unsubscribed is recorded, and the confirm route then
  * refuses any link issued before that moment (see newsletter-redemption).
+ * A confirm that was running around the unsubscribe may have committed over
+ * it, so the contact is set unsubscribed again when one is found.
  *
  * contact.created is ignored on purpose: step one creates the contact as
  * unsubscribed, which is not a reader leaving. Requests are authenticated by
@@ -23,15 +32,16 @@ function json(body: Record<string, unknown>, status: number): Response {
  */
 export async function POST(req: NextRequest) {
   const config = getNewsletterConfig();
-  const secret = process.env.RESEND_WEBHOOK_SECRET?.trim();
+  const secret = getNewsletterWebhookSecret();
   if (!config || !secret) {
     return json({ ok: false, reason: "not_configured" }, 501);
   }
 
   const payload = await req.text();
+  const resend = new Resend(config.apiKey);
   let event: ReturnType<Resend["webhooks"]["verify"]>;
   try {
-    event = new Resend(config.apiKey).webhooks.verify({
+    event = resend.webhooks.verify({
       payload,
       headers: {
         id: req.headers.get("svix-id") ?? "",
@@ -55,6 +65,29 @@ export async function POST(req: NextRequest) {
     logger.error("Newsletter unsubscribe could not be recorded", {});
     // Non-2xx so Resend retries the delivery.
     return json({ ok: false, reason: "unavailable" }, 503);
+  }
+
+  // Record first, then look for a confirm: the confirm side does the reverse
+  // (lists itself, then checks for an unsubscribe), so one of us always sees
+  // the other. Both outcomes below are safe to repeat.
+  const needsRepair = await unsubscribeNeedsRepair(event.data.email, atMs);
+  if (needsRepair === null) {
+    logger.error("Newsletter confirm activity could not be read", {});
+    return json({ ok: false, reason: "unavailable" }, 503);
+  }
+  if (needsRepair) {
+    let repaired = false;
+    try {
+      repaired = (await reassertUnsubscribed(resend, event.data.email)).ok;
+    } catch (error) {
+      logger.error("Newsletter unsubscribe repair threw", {
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+    if (!repaired) {
+      logger.error("Newsletter unsubscribe could not be re-applied", {});
+      return json({ ok: false, reason: "unavailable" }, 503);
+    }
   }
   return json({ ok: true, recorded: true }, 200);
 }

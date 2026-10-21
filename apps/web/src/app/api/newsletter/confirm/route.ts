@@ -11,6 +11,7 @@ import {
 } from "@/lib/newsletter";
 import {
   checkConfirmMutationAllowed,
+  checkUnsubscribeAfterMutation,
   claimConfirmToken,
   completeConfirmToken,
   secondsUntilTokenExpiry,
@@ -96,7 +97,11 @@ export async function POST(req: NextRequest) {
   // there is no safe way to tell, so it is never answered as success and
   // never taken over or deleted.
   const ttl = secondsUntilTokenExpiry(parsed.data.token);
-  const claim = await claimConfirmToken(parsed.data.token, ttl);
+  const claim = await claimConfirmToken(
+    parsed.data.token,
+    ttl,
+    verified.email,
+  );
   if (claim.status === "unavailable") {
     return json({ confirmed: false, reason: "unavailable" }, 503);
   }
@@ -113,9 +118,10 @@ export async function POST(req: NextRequest) {
       config.segmentId,
       () =>
         checkConfirmMutationAllowed(parsed.data.token, marker, verified.email),
+      () => checkUnsubscribeAfterMutation(parsed.data.token, verified.email),
     );
     if (result.ok) {
-      await completeConfirmToken(parsed.data.token, marker, ttl);
+      await completeConfirmToken(parsed.data.token, marker, ttl, verified.email);
       return json({ confirmed: true }, 200);
     }
     if (result.reason === "aborted") {

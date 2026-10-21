@@ -1,11 +1,16 @@
 import type { NextRequest } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const resend = vi.hoisted(() => ({ verify: vi.fn() }));
+const resend = vi.hoisted(() => ({
+  verify: vi.fn(),
+  get: vi.fn(),
+  update: vi.fn(),
+}));
 
 vi.mock("resend", () => ({
   Resend: class {
     webhooks = { verify: resend.verify };
+    contacts = { get: resend.get, update: resend.update };
   },
 }));
 
@@ -43,7 +48,7 @@ function contactEvent(
 /** A confirm attempt for `email` that has claimed its token. */
 async function claimedAttempt(email: string) {
   const token = createConfirmToken(email, "re_test");
-  const claim = await claimConfirmToken(token, 3600);
+  const claim = await claimConfirmToken(token, 3600, email);
   if (claim.status !== "claimed") throw new Error("claim failed");
   return () => checkConfirmMutationAllowed(token, claim.marker, email);
 }
@@ -57,6 +62,10 @@ beforeEach(() => {
   delete process.env.UPSTASH_REDIS_REST_TOKEN;
   __resetNewsletterRedemptionForTests();
   resend.verify.mockReset();
+  resend.get.mockReset();
+  resend.update.mockReset();
+  resend.get.mockResolvedValue({ error: null, data: { unsubscribed: true } });
+  resend.update.mockResolvedValue({ error: null });
 });
 
 afterEach(() => {

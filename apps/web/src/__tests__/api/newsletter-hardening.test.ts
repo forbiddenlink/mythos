@@ -14,6 +14,7 @@ const upstash = vi.hoisted(() => ({
   /** What the mocked Ratelimit.limit() does next; undefined = allow. */
   limit: undefined as undefined | (() => Promise<Record<string, unknown>>),
   kv: new Map<string, string>(),
+  hashes: new Map<string, Map<string, string>>(),
   counters: new Map<string, number>(),
   incrFails: false,
   /** Next set() commits but throws, like a lost acknowledgement. */
@@ -67,7 +68,17 @@ vi.mock("@upstash/redis", () => ({
     async get(key: string) {
       return upstash.kv.get(key) ?? null;
     }
+    async hgetall(key: string) {
+      const hash = upstash.hashes.get(key);
+      return hash ? Object.fromEntries(hash) : null;
+    }
     async eval(_script: string, keys: string[], args: string[]) {
+      if (_script.includes('"hset"')) {
+        const hash = upstash.hashes.get(keys[0]!) ?? new Map<string, string>();
+        hash.set(args[0]!, args[1]!);
+        upstash.hashes.set(keys[0]!, hash);
+        return 1;
+      }
       if (upstash.evalFails && args.length === 3) {
         upstash.evalFails = false;
         throw new Error("redis down");
@@ -149,6 +160,7 @@ beforeEach(() => {
   process.env.UPSTASH_REDIS_REST_TOKEN = "token";
   upstash.limit = undefined;
   upstash.kv.clear();
+  upstash.hashes.clear();
   upstash.counters.clear();
   upstash.incrFails = false;
   upstash.lostAck = false;
@@ -367,7 +379,11 @@ describe("confirm: single-use redemption", () => {
     const { claimConfirmToken, completeConfirmToken } = await import(
       "@/lib/newsletter-redemption"
     );
-    const claim = await claimConfirmToken("owner-check-token", 3600);
+    const claim = await claimConfirmToken(
+      "owner-check-token",
+      3600,
+      "owner@example.com",
+    );
     expect(claim.status).toBe("claimed");
     if (claim.status !== "claimed") return;
     expect(
@@ -375,11 +391,17 @@ describe("confirm: single-use redemption", () => {
         "owner-check-token",
         "pending:someone-else:1",
         3600,
+        "owner@example.com",
       ),
     ).toBe(false);
     expect([...upstash.kv.values()]).toEqual([claim.marker]);
     expect(
-      await completeConfirmToken("owner-check-token", claim.marker, 3600),
+      await completeConfirmToken(
+        "owner-check-token",
+        claim.marker,
+        3600,
+        "owner@example.com",
+      ),
     ).toBe(true);
     expect([...upstash.kv.values()]).toEqual(["done"]);
   });

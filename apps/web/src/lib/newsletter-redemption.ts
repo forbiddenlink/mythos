@@ -16,6 +16,15 @@
  *
  * Unsubscribes happen on Resend's hosted page, so the app learns of them from
  * the contact.updated webhook, which calls recordNewsletterUnsubscribe.
+ *
+ * Resend has no conditional write, so an update already in flight can still
+ * commit `unsubscribed: false` over an unsubscribe that lands mid-call. Every
+ * claim is therefore also listed in a per-address index (issued-at, and the
+ * time the confirm finished or "p" while it is still running). Two checks read
+ * it so consent converges on the reader's latest intent: the webhook asks
+ * unsubscribeNeedsRepair after recording, and a confirm asks
+ * checkUnsubscribeAfterMutation after its last mutation. Each side writes
+ * before it reads, so at least one of them always sees the other.
  */
 import { createHash, randomUUID } from "node:crypto";
 import { Redis } from "@upstash/redis";
@@ -32,6 +41,13 @@ export type RedemptionClaim =
   | { status: "unavailable" };
 
 export type MutationVerdict = "ok" | "lost" | "unsubscribed" | "unavailable";
+
+/**
+ * How far an unsubscribe's timestamp may sit after a finished confirm's end
+ * time and still count as overlapping it. Resend stamps the event, we stamp
+ * the end, and the two clocks are not the same clock.
+ */
+export const CONFIRM_OVERLAP_SKEW_MS = 2 * 60 * 1000;
 
 const DONE = "done";
 
@@ -62,12 +78,44 @@ export function secondsUntilTokenExpiry(
   return Number.isFinite(left) && left > 0 ? left : 1;
 }
 
+/** Keyed on the address; one field per token (its hash). */
+function confirmIndexKey(email: string): string {
+  const normalized = email.trim().toLowerCase();
+  return `mythos:newsletter:confirms:${createHash("sha256").update(normalized).digest("hex")}`;
+}
+
+function tokenField(token: string): string {
+  return createHash("sha256").update(token).digest("hex");
+}
+
+/** "<issuedAtMs>:p" while running, "<issuedAtMs>:<endMs>" once finished. */
+function indexValue(token: string, end: number | "p"): string {
+  return `${confirmTokenIssuedAtMs(token)}:${end}`;
+}
+
+interface ConfirmActivity {
+  issuedAtMs: number;
+  /** Infinity while the confirm has not finished. */
+  endMs: number;
+}
+
+function parseActivity(raw: unknown): ConfirmActivity | null {
+  const [issued, end] = String(raw).split(":");
+  const issuedAtMs = Number(issued);
+  if (!Number.isFinite(issuedAtMs)) return null;
+  if (end === "p") return { issuedAtMs, endMs: Number.POSITIVE_INFINITY };
+  const endMs = Number(end);
+  return Number.isFinite(endMs) ? { issuedAtMs, endMs } : null;
+}
+
 const memoryClaims = new Map<string, { value: string; until: number }>();
 const memoryUnsubs = new Map<string, number>();
+const memoryConfirms = new Map<string, Map<string, string>>();
 
 export function __resetNewsletterRedemptionForTests(): void {
   memoryClaims.clear();
   memoryUnsubs.clear();
+  memoryConfirms.clear();
 }
 
 function getRedis(): Redis | null {
@@ -82,6 +130,8 @@ const CAS_SET = `if redis.call("get", KEYS[1]) == ARGV[1] then redis.call("set",
 // after the link was issued": 0 lost, 2 unsubscribed, 1 ok.
 const GUARD = `if redis.call("get", KEYS[1]) ~= ARGV[1] then return 0 end local u = redis.call("get", KEYS[2]) if u and tonumber(u) >= tonumber(ARGV[2]) then return 2 end return 1`;
 // Keep the newest unsubscribe time, so a late event cannot move it backwards.
+// Write one index field and keep the whole index no longer than a token lives.
+const INDEX_SET = `redis.call("hset", KEYS[1], ARGV[1], ARGV[2]) redis.call("expire", KEYS[1], ARGV[3]) return 1`;
 const MAX_SET = `local cur = redis.call("get", KEYS[1]) if (not cur) or tonumber(cur) < tonumber(ARGV[1]) then redis.call("set", KEYS[1], ARGV[1], "EX", ARGV[2]) end return 1`;
 
 /**
@@ -92,6 +142,7 @@ const MAX_SET = `local cur = redis.call("get", KEYS[1]) if (not cur) or tonumber
 export async function claimConfirmToken(
   token: string,
   ttlSeconds: number,
+  email: string,
 ): Promise<RedemptionClaim> {
   const key = redemptionKey(token);
   const now = Date.now();
@@ -105,16 +156,80 @@ export async function claimConfirmToken(
       return existing.value === DONE ? { status: "done" } : { status: "pending" };
     }
     memoryClaims.set(key, { value: marker, until: now + ttlSeconds * 1000 });
+    writeMemoryIndex(email, token, "p");
     return { status: "claimed", marker };
   }
   try {
     const set = await redis.set(key, marker, { nx: true, ex: ttlSeconds });
-    if (set === "OK") return { status: "claimed", marker };
+    if (set === "OK") {
+      // List the confirm BEFORE its first guard, so a webhook that records an
+      // unsubscribe after this point is guaranteed to see it. If the index
+      // cannot be written the claim stays pending (nothing was mutated) and
+      // the reader asks for a new link.
+      if (!(await writeRedisIndex(redis, email, token, "p"))) {
+        return { status: "unavailable" };
+      }
+      return { status: "claimed", marker };
+    }
     const current = await redis.get<string>(key);
     return current === DONE ? { status: "done" } : { status: "pending" };
   } catch {
     return { status: "unavailable" };
   }
+}
+
+function writeMemoryIndex(
+  email: string,
+  token: string,
+  end: number | "p",
+): void {
+  const key = confirmIndexKey(email);
+  const index = memoryConfirms.get(key) ?? new Map<string, string>();
+  index.set(tokenField(token), indexValue(token, end));
+  memoryConfirms.set(key, index);
+}
+
+async function writeRedisIndex(
+  redis: Redis,
+  email: string,
+  token: string,
+  end: number | "p",
+): Promise<boolean> {
+  try {
+    await redis.eval(
+      INDEX_SET,
+      [confirmIndexKey(email)],
+      [tokenField(token), indexValue(token, end), String(CONFIRM_TOKEN_TTL_SECONDS)],
+    );
+    return true;
+  } catch (error) {
+    logger.error("Newsletter confirm index write failed", {
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return false;
+  }
+}
+
+/** Every confirm listed for the address; null when the store cannot be read. */
+async function readConfirmActivity(
+  email: string,
+): Promise<ConfirmActivity[] | null> {
+  const key = confirmIndexKey(email);
+  const redis = getRedis();
+  let raw: Record<string, unknown> | Map<string, string> | null;
+  if (!redis) {
+    if (isProductionRuntime()) return null;
+    raw = memoryConfirms.get(key) ?? null;
+  } else {
+    try {
+      raw = await redis.hgetall<Record<string, unknown>>(key);
+    } catch {
+      return null;
+    }
+  }
+  if (!raw) return [];
+  const values = raw instanceof Map ? [...raw.values()] : Object.values(raw);
+  return values.flatMap((v) => parseActivity(v) ?? []);
 }
 
 /**
@@ -125,6 +240,7 @@ export async function completeConfirmToken(
   token: string,
   marker: string,
   ttlSeconds: number,
+  email: string,
 ): Promise<boolean> {
   const key = redemptionKey(token);
   const redis = getRedis();
@@ -134,6 +250,7 @@ export async function completeConfirmToken(
       value: DONE,
       until: Date.now() + ttlSeconds * 1000,
     });
+    writeMemoryIndex(email, token, Date.now());
     return true;
   }
   try {
@@ -142,7 +259,11 @@ export async function completeConfirmToken(
       [key],
       [marker, DONE, String(ttlSeconds)],
     );
-    if (Number(ok) === 1) return true;
+    if (Number(ok) === 1) {
+      // A failed write leaves the entry "p", which only over-repairs.
+      await writeRedisIndex(redis, email, token, Date.now());
+      return true;
+    }
     logger.error("Newsletter confirm claim lost before completion", {});
     return false;
   } catch (error) {
@@ -211,4 +332,57 @@ export async function checkConfirmMutationAllowed(
   } catch {
     return "unavailable";
   }
+}
+
+export type PostMutationVerdict = "ok" | "unsubscribed" | "unavailable";
+
+/**
+ * Run after a confirm's last Resend mutation. "unsubscribed" means the reader
+ * left after this token was issued and has not asked for a newer link since,
+ * so the caller must set the contact unsubscribed again: the mutation that
+ * just finished may have committed over the unsubscribe. An unreadable store
+ * answers "unavailable" (fail closed).
+ */
+export async function checkUnsubscribeAfterMutation(
+  token: string,
+  email: string,
+): Promise<PostMutationVerdict> {
+  const unsubKey = unsubscribeKey(email);
+  const issuedAtMs = confirmTokenIssuedAtMs(token);
+  const redis = getRedis();
+  let unsubAt: number | null;
+  if (!redis) {
+    if (isProductionRuntime()) return "unavailable";
+    unsubAt = memoryUnsubs.get(unsubKey) ?? null;
+  } else {
+    try {
+      const raw = await redis.get<string | number>(unsubKey);
+      unsubAt = raw === null || raw === undefined ? null : Number(raw);
+    } catch {
+      return "unavailable";
+    }
+  }
+  if (unsubAt === null || !(unsubAt >= issuedAtMs)) return "ok";
+  const activity = await readConfirmActivity(email);
+  if (!activity) return "unavailable";
+  // A link requested after the unsubscribe is a newer intent to subscribe.
+  return activity.some((a) => a.issuedAtMs > unsubAt) ? "ok" : "unsubscribed";
+}
+
+/**
+ * Run by the webhook after it recorded an unsubscribe at `atMs`. True when a
+ * confirm whose link predates the unsubscribe was running or finished around
+ * it, so its mutation may have committed over it and the contact must be set
+ * unsubscribed again. False when no such confirm exists, or when the reader
+ * has asked for a newer link since (a late retry of an old event must not undo
+ * a deliberate re-subscribe). Null when the store cannot be read.
+ */
+export async function unsubscribeNeedsRepair(
+  email: string,
+  atMs: number,
+): Promise<boolean | null> {
+  const activity = await readConfirmActivity(email);
+  if (!activity) return null;
+  if (activity.some((a) => a.issuedAtMs > atMs)) return false;
+  return activity.some((a) => a.endMs >= atMs - CONFIRM_OVERLAP_SKEW_MS);
 }

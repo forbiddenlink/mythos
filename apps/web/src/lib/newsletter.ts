@@ -78,6 +78,9 @@ export interface NewsletterClient {
       email: string;
       unsubscribed?: boolean;
     }): Promise<ResendResult>;
+    get(options: { email: string }): Promise<
+      ResendResult & { data?: { unsubscribed?: boolean | null } | null }
+    >;
     segments: {
       add(options: { email: string; segmentId: string }): Promise<ResendResult>;
     };
@@ -162,27 +165,85 @@ export type MutationGuardVerdict =
  */
 export type MutationGuard = () => Promise<MutationGuardVerdict>;
 
+/**
+ * Called once after the last mutation. "unsubscribed" means the reader left
+ * while the mutation was running, so the contact must be set unsubscribed again.
+ */
+export type PostMutationCheck = () => Promise<
+  "ok" | "unsubscribed" | "unavailable"
+>;
+
 export type ConfirmResult =
   | { ok: true }
   | { ok: false; reason: "upstream_error" }
   | { ok: false; reason: "aborted"; verdict: Exclude<MutationGuardVerdict, "ok"> };
+
+const REASSERT_ATTEMPTS = 3;
+
+/**
+ * Set a contact unsubscribed, only if it is not already. Idempotent: the read
+ * first means a repair that is already in place makes no write, and so emits
+ * no contact.updated event for the webhook to answer with another repair. A
+ * contact Resend does not know has nothing to repair. The write is retried a
+ * few times because nobody else will retry it.
+ */
+export async function reassertUnsubscribed(
+  client: NewsletterClient,
+  email: string,
+): Promise<{ ok: boolean }> {
+  for (let attempt = 0; attempt < REASSERT_ATTEMPTS; attempt += 1) {
+    const current = await client.contacts.get({ email });
+    if (current.error) {
+      if (current.error.statusCode === 404) return { ok: true };
+      continue;
+    }
+    if (current.data?.unsubscribed === true) return { ok: true };
+    const updated = await client.contacts.update({ email, unsubscribed: true });
+    if (!updated.error) return { ok: true };
+  }
+  return { ok: false };
+}
 
 /**
  * Step two, run only after the signed link checks out: mark the contact
  * subscribed and put it in the digest segment, which is all the weekly
  * broadcast sends to.
  *
- * Resend has no conditional write, so the only defence against a stale writer
- * is to re-check right before each mutation. `mayMutate` is that check and
- * it runs before create, update and segments.add alike. The calls are awaited
- * to completion (no timeout abandons one mid-flight), so nothing from this
- * function can run after it returns.
+ * Resend has no conditional write, so a stale writer is handled from both
+ * sides. `mayMutate` runs before create, update and segments.add alike and
+ * aborts before the call is made. `afterMutation` runs once the last call has
+ * returned (calls are awaited to completion, so nothing runs after this
+ * function returns) and catches an unsubscribe that landed while a call was
+ * already in flight, which no pre-check can: it sets the contact unsubscribed
+ * again, so consent ends on the reader's latest intent.
  */
 export async function confirmNewsletterSubscription(
   client: NewsletterClient,
   email: string,
   segmentId: string,
   mayMutate: MutationGuard,
+  afterMutation?: PostMutationCheck,
+): Promise<ConfirmResult> {
+  let mutated = false;
+  const result = await runConfirm(client, email, segmentId, mayMutate, () => {
+    mutated = true;
+  });
+  if (!mutated || !afterMutation) return result;
+
+  const verdict = await afterMutation();
+  if (verdict === "ok") return result;
+  // "unavailable" cannot tell whether the reader left, so it fails closed too.
+  const repaired = await reassertUnsubscribed(client, email);
+  if (!repaired.ok) return { ok: false, reason: "upstream_error" };
+  return { ok: false, reason: "aborted", verdict };
+}
+
+async function runConfirm(
+  client: NewsletterClient,
+  email: string,
+  segmentId: string,
+  mayMutate: MutationGuard,
+  markMutated: () => void,
 ): Promise<ConfirmResult> {
   const abort = async (): Promise<ConfirmResult | null> => {
     const verdict = await mayMutate();
@@ -191,6 +252,7 @@ export async function confirmNewsletterSubscription(
 
   const blockedCreate = await abort();
   if (blockedCreate) return blockedCreate;
+  markMutated();
   const created = await client.contacts.create({
     email,
     unsubscribed: false,
@@ -203,11 +265,13 @@ export async function confirmNewsletterSubscription(
 
   const blockedUpdate = await abort();
   if (blockedUpdate) return blockedUpdate;
+  markMutated();
   const updated = await client.contacts.update({ email, unsubscribed: false });
   if (updated.error) return { ok: false, reason: "upstream_error" };
 
   const blockedAdd = await abort();
   if (blockedAdd) return blockedAdd;
+  markMutated();
   const added = await client.contacts.segments.add({ email, segmentId });
   if (added.error && !isAlreadyExists(added.error)) {
     return { ok: false, reason: "upstream_error" };
