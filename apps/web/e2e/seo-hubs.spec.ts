@@ -144,7 +144,10 @@ test.describe("hub pages", () => {
       [
         "/pantheons/greek",
         /^Greek Mythology: Gods, Pantheon and Myths/,
-        /^Greek Mythology: /,
+        // The catalog text already names "Greek" up front, so entryDescription()
+        // adds no prefix (description.test.ts "skips the prefix"). The snippet
+        // must still end on the catalog counts.
+        /^The Greek pantheon.*\d+ deities, \d+ stories\.$/,
       ],
       [
         "/pantheons",
