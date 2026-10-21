@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.12.0](https://github.com/forbiddenlink/mythos/compare/v1.11.1...v1.12.0) (2026-10-21)
+
+
+### Features
+
+* **seo:** lead snippets with the query phrase and a concrete hook ([#201](https://github.com/forbiddenlink/mythos/issues/201)) ([9050e88](https://github.com/forbiddenlink/mythos/commit/9050e8867856f3c4b3c07d18db50f70b7e310c7b))
+
+
+### Bug Fixes
+
+* **a11y:** name the search dialog input and split the home running head ([#196](https://github.com/forbiddenlink/mythos/issues/196)) ([130c748](https://github.com/forbiddenlink/mythos/commit/130c74845a6f00f437fe096c8b07805436ff2d03))
+* **analytics:** stop forwarding cookies through the PostHog proxy ([#197](https://github.com/forbiddenlink/mythos/issues/197)) ([9b8e60d](https://github.com/forbiddenlink/mythos/commit/9b8e60d0038686787e0e6523c2d67f846bc9d083))
+* **csp:** allow the US Sentry ingest host so browser errors reach Sentry ([#194](https://github.com/forbiddenlink/mythos/issues/194)) ([d0c5d2c](https://github.com/forbiddenlink/mythos/commit/d0c5d2cac4421c1da78100b42d0a30d32ff8d697))
+* **deps:** clear vite advisories via bounded override + direct dep ([#202](https://github.com/forbiddenlink/mythos/issues/202)) ([7fc34f8](https://github.com/forbiddenlink/mythos/commit/7fc34f8ba0062a1b25b486d3a2187913a769180a))
+* **logger:** keep the real error and redact context sent to sentry ([#192](https://github.com/forbiddenlink/mythos/issues/192)) ([9de1002](https://github.com/forbiddenlink/mythos/commit/9de10022ebe1c26dd3cab5fd3ab361f140249243))
+* **newsletter:** make consent durable under concurrent confirm and unsubscribe ([#206](https://github.com/forbiddenlink/mythos/issues/206)) ([09c36b9](https://github.com/forbiddenlink/mythos/commit/09c36b9bc58e3f5d222b031764bccfb0aa8311ba))
+* per-client rate limits, quiz counter, event sink origin check, chat tail ([#200](https://github.com/forbiddenlink/mythos/issues/200)) ([6559b38](https://github.com/forbiddenlink/mythos/commit/6559b38431009169a2e33c0e883122c9689b6fbc))
+* **sentry:** close redaction gaps in the event scrubber ([#198](https://github.com/forbiddenlink/mythos/issues/198)) ([eca63d4](https://github.com/forbiddenlink/mythos/commit/eca63d4c6bd0c8271ab3c65090514c7eb33dba39))
+
 ## [1.11.1](https://github.com/forbiddenlink/mythos/compare/v1.11.0...v1.11.1) (2026-10-20)
 
 
