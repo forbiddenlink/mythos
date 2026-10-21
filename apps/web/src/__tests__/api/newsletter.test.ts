@@ -288,6 +288,8 @@ describe("POST /api/newsletter", () => {
     delete process.env.RESEND_API_KEY;
     delete process.env.RESEND_SEGMENT_ID;
     delete process.env.NEWSLETTER_FROM;
+    // Sign-up needs the secret too, or the emailed link could never work.
+    process.env.RESEND_WEBHOOK_SECRET = "whsec_test";
     delete process.env.UPSTASH_REDIS_REST_URL;
     delete process.env.UPSTASH_REDIS_REST_TOKEN;
     resend.create.mockReset();

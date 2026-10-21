@@ -6,6 +6,7 @@ import { logger } from "@/lib/logger";
 import { siteConfig } from "@/lib/metadata";
 import {
   canonicalMailboxKey,
+  ensureConfirmationEnabled,
   getNewsletterConfig,
   newsletterRequestSchema,
   requestNewsletterConfirmation,
@@ -31,6 +32,7 @@ function json(body: Record<string, unknown>, status: number): Response {
  * is added to the digest segment until /api/newsletter/confirm checks the
  * link. A 200 answer means "check your inbox", never "subscribed".
  *
+ * Without RESEND_WEBHOOK_SECRET confirmation is disabled, so this answers 503.
  * Without RESEND_API_KEY or NEWSLETTER_FROM this answers 501 `not_configured` (like
  * /api/analytics without a PostHog key) instead of pretending to store an
  * address it cannot keep; the form then shows "sign-ups open soon".
@@ -42,6 +44,11 @@ export async function POST(req: NextRequest) {
   const config = getNewsletterConfig();
   if (!config) {
     return json({ subscribed: false, reason: "not_configured" }, 501);
+  }
+  // The emailed link is useless (confirm answers 503) without the webhook
+  // secret, so refuse before spending rate-limit or send budget on it.
+  if (!ensureConfirmationEnabled()) {
+    return json({ subscribed: false, reason: "unavailable" }, 503);
   }
 
   const body = await readJsonBody(req, MAX_REQUEST_BODY_BYTES);

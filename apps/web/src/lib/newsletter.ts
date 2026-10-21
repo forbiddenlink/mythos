@@ -6,6 +6,7 @@
  */
 import "@/lib/zod-jitless";
 import { z } from "zod";
+import { logger } from "@/lib/logger";
 
 /** The Resend segment the digest is sent to. Not a secret. */
 export const DEFAULT_RESEND_SEGMENT_ID = "ef4d9db5-a6ff-4f30-adf3-be3576e3fe42";
@@ -60,6 +61,22 @@ export function getNewsletterWebhookSecret(
   env: Record<string, string | undefined> = process.env,
 ): string | null {
   return env.RESEND_WEBHOOK_SECRET?.trim() || null;
+}
+
+/**
+ * The one prerequisite check for double opt-in, shared by sign-up and confirm
+ * so neither can run while the other is disabled. Returns false (after logging
+ * why) when RESEND_WEBHOOK_SECRET is missing; callers answer 503.
+ */
+export function ensureConfirmationEnabled(
+  env: Record<string, string | undefined> = process.env,
+): boolean {
+  if (getNewsletterWebhookSecret(env)) return true;
+  logger.error(
+    "Newsletter confirmation disabled: RESEND_WEBHOOK_SECRET is not set, so unsubscribes cannot be tracked",
+    {},
+  );
+  return false;
 }
 
 interface ResendResult {
