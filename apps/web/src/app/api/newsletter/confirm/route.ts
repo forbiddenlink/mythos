@@ -14,6 +14,7 @@ import {
   checkUnsubscribeAfterMutation,
   claimConfirmToken,
   completeConfirmToken,
+  recordConsentRepair,
   secondsUntilTokenExpiry,
 } from "@/lib/newsletter-redemption";
 import { verifyConfirmToken } from "@/lib/newsletter-token";
@@ -119,6 +120,13 @@ export async function POST(req: NextRequest) {
     if (result.ok) {
       await completeConfirmToken(parsed.data.token, marker, ttl, verified.email);
       return json({ confirmed: true }, 200);
+    }
+    if (result.reason === "upstream_error" && result.repairNeeded) {
+      // Resend may still hold the reader subscribed and no webhook is coming
+      // (it already fired). Persist the repair so the cron retries it.
+      if (!(await recordConsentRepair(verified.email, Date.now()))) {
+        logger.error("Newsletter consent repair could not be persisted", {});
+      }
     }
     if (result.reason === "aborted") {
       if (result.verdict === "unavailable") {

@@ -192,7 +192,16 @@ export type PostMutationCheck = () => Promise<
 
 export type ConfirmResult =
   | { ok: true }
-  | { ok: false; reason: "upstream_error" }
+  | {
+      ok: false;
+      reason: "upstream_error";
+      /**
+       * True when the reader's unsubscribe could not be re-applied, so Resend
+       * may still hold the contact subscribed. The caller must persist that
+       * repair; nothing else will retry it.
+       */
+      repairNeeded?: true;
+    }
   | { ok: false; reason: "aborted"; verdict: Exclude<MutationGuardVerdict, "ok"> };
 
 const REASSERT_ATTEMPTS = 3;
@@ -250,8 +259,15 @@ export async function confirmNewsletterSubscription(
   const verdict = await afterMutation();
   if (verdict === "ok") return result;
   // "unavailable" cannot tell whether the reader left, so it fails closed too.
-  const repaired = await reassertUnsubscribed(client, email);
-  if (!repaired.ok) return { ok: false, reason: "upstream_error" };
+  let repaired = false;
+  try {
+    repaired = (await reassertUnsubscribed(client, email)).ok;
+  } catch {
+    // A throwing client is a failed repair, not a reason to lose the signal.
+  }
+  if (!repaired) {
+    return { ok: false, reason: "upstream_error", repairNeeded: true };
+  }
   return { ok: false, reason: "aborted", verdict };
 }
 

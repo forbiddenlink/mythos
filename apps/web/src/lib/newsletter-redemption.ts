@@ -116,6 +116,7 @@ export function __resetNewsletterRedemptionForTests(): void {
   memoryClaims.clear();
   memoryUnsubs.clear();
   memoryConfirms.clear();
+  memoryRepairs.clear();
 }
 
 function getRedis(): Redis | null {
@@ -385,4 +386,119 @@ export async function unsubscribeNeedsRepair(
   if (!activity) return null;
   if (activity.some((a) => a.issuedAtMs > atMs)) return false;
   return activity.some((a) => a.endMs >= atMs - CONFIRM_OVERLAP_SKEW_MS);
+}
+
+/**
+ * Durable consent repairs. When re-applying an unsubscribe fails (Resend down
+ * for every retry), the contact may stay subscribed with nobody left to fix
+ * it: the webhook was already acknowledged and the confirm token is spent. The
+ * repair is therefore its own work item, independent of token redemption, and
+ * the cron retries it until it sticks. One field per address (its hash), value
+ * `<atMs>:<email>`; `atMs` is when the reader's unsubscribe intent was seen.
+ */
+const REPAIR_HASH = "mythos:newsletter:consent-repair";
+const REPAIR_TTL_SECONDS = 30 * 24 * 60 * 60;
+// Delete the field only if it still holds the value we repaired, so a newer
+// record written meanwhile survives.
+const REPAIR_CLEAR = `if redis.call("hget", KEYS[1], ARGV[1]) == ARGV[2] then return redis.call("hdel", KEYS[1], ARGV[1]) end return 0`;
+
+export interface ConsentRepair {
+  email: string;
+  atMs: number;
+}
+
+const memoryRepairs = new Map<string, string>();
+
+function repairField(email: string): string {
+  return createHash("sha256").update(email.trim().toLowerCase()).digest("hex");
+}
+
+function repairValue(repair: ConsentRepair): string {
+  return `${repair.atMs}:${repair.email.trim().toLowerCase()}`;
+}
+
+function parseRepair(raw: unknown): ConsentRepair | null {
+  const text = String(raw);
+  const split = text.indexOf(":");
+  if (split < 1) return null;
+  const atMs = Number(text.slice(0, split));
+  const email = text.slice(split + 1);
+  return Number.isFinite(atMs) && email ? { email, atMs } : null;
+}
+
+/** Persist "this address must end up unsubscribed". True once it is stored. */
+export async function recordConsentRepair(
+  email: string,
+  atMs: number,
+): Promise<boolean> {
+  const field = repairField(email);
+  const value = repairValue({ email, atMs });
+  const redis = getRedis();
+  if (!redis) {
+    if (isProductionRuntime()) return false;
+    memoryRepairs.set(field, value);
+    return true;
+  }
+  try {
+    await redis.eval(
+      INDEX_SET,
+      [REPAIR_HASH],
+      [field, value, String(REPAIR_TTL_SECONDS)],
+    );
+    return true;
+  } catch (error) {
+    logger.error("Newsletter consent repair write failed", {
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return false;
+  }
+}
+
+/** Every pending repair; null when the store cannot be read. */
+export async function listConsentRepairs(): Promise<ConsentRepair[] | null> {
+  const redis = getRedis();
+  if (!redis) {
+    if (isProductionRuntime()) return null;
+    return [...memoryRepairs.values()].flatMap((v) => parseRepair(v) ?? []);
+  }
+  try {
+    const raw = await redis.hgetall<Record<string, unknown>>(REPAIR_HASH);
+    return Object.values(raw ?? {}).flatMap((v) => parseRepair(v) ?? []);
+  } catch {
+    return null;
+  }
+}
+
+/** Remove a repair that is done, unless a newer one replaced it. */
+export async function clearConsentRepair(
+  repair: ConsentRepair,
+): Promise<boolean> {
+  const field = repairField(repair.email);
+  const value = repairValue(repair);
+  const redis = getRedis();
+  if (!redis) {
+    if (memoryRepairs.get(field) === value) memoryRepairs.delete(field);
+    return true;
+  }
+  try {
+    await redis.eval(REPAIR_CLEAR, [REPAIR_HASH], [field, value]);
+    return true;
+  } catch (error) {
+    logger.error("Newsletter consent repair clear failed", {
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return false;
+  }
+}
+
+/**
+ * False when the reader asked for a newer link after the unsubscribe (a
+ * deliberate re-subscribe the repair must not undo). Null when unreadable.
+ */
+export async function consentRepairStillWanted(
+  repair: ConsentRepair,
+): Promise<boolean | null> {
+  const activity = await readConfirmActivity(repair.email);
+  if (!activity) return null;
+  return !activity.some((a) => a.issuedAtMs > repair.atMs);
 }

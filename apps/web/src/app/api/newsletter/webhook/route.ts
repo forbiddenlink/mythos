@@ -7,6 +7,7 @@ import {
   reassertUnsubscribed,
 } from "@/lib/newsletter";
 import {
+  recordConsentRepair,
   recordNewsletterUnsubscribe,
   unsubscribeNeedsRepair,
 } from "@/lib/newsletter-redemption";
@@ -86,6 +87,10 @@ export async function POST(req: NextRequest) {
     }
     if (!repaired) {
       logger.error("Newsletter unsubscribe could not be re-applied", {});
+      // Persist it too: Resend gives up retrying after a while, the cron does not.
+      if (!(await recordConsentRepair(event.data.email, atMs))) {
+        logger.error("Newsletter consent repair could not be persisted", {});
+      }
       return json({ ok: false, reason: "unavailable" }, 503);
     }
   }
