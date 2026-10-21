@@ -32,10 +32,6 @@ export type NewsletterBudgetResult =
 
 const memoryCounts = new Map<string, number>();
 
-export function __resetNewsletterBudgetForTests(): void {
-  memoryCounts.clear();
-}
-
 export async function checkNewsletterSendBudget(
   now: Date = new Date(),
 ): Promise<NewsletterBudgetResult> {
