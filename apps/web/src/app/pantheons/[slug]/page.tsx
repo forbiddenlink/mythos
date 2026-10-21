@@ -41,7 +41,6 @@ import { generateEntityAlt } from "@/lib/image-provenance";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
-  shortPantheonName,
   traditionHubTitle,
 } from "@/lib/metadata";
 import { entryDescription } from "@/lib/seo/description";
@@ -125,7 +124,6 @@ export async function generateMetadata({
     baseDescription,
     {
       suffix: holdings.length ? `${holdings.join(", ")}.` : "",
-      mentions: shortPantheonName(pantheon),
     },
   );
 
