@@ -83,7 +83,7 @@ describe("NewsletterSignup", () => {
     });
     fireEvent.click(screen.getByRole("checkbox"));
     fireEvent.click(screen.getByRole("button", { name: "Subscribe" }));
-    expect(await screen.findByText(/on the list/)).toBeInTheDocument();
+    expect(await screen.findByText(/Check your inbox/)).toBeInTheDocument();
     const body = JSON.parse(String(fetchSpy.mock.calls[0][1]?.body));
     expect(body).toMatchObject({
       email: "a@b.co",

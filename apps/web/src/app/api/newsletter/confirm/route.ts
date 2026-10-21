@@ -1,0 +1,198 @@
+import type { NextRequest } from "next/server";
+import { Resend } from "resend";
+import "@/lib/zod-jitless";
+import { z } from "zod";
+import { readJsonBody } from "@/lib/http/read-json-body";
+import { logger } from "@/lib/logger";
+import {
+  confirmNewsletterSubscription,
+  ensureConfirmationEnabled,
+  getNewsletterConfig,
+} from "@/lib/newsletter";
+import {
+  armConfirmReconcile,
+  checkConfirmMutationAllowed,
+  checkUnsubscribeAfterMutation,
+  claimConfirmToken,
+  clearConsentRepair,
+  completeConfirmToken,
+  secondsUntilTokenExpiry,
+  ConsentLockLostError,
+  withConsentLock,
+  type ConsentLockHandle,
+} from "@/lib/newsletter-redemption";
+import { verifyConfirmToken } from "@/lib/newsletter-token";
+import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
+import { checkNewsletterConfirmRateLimit } from "@/lib/oracle/rate-limit";
+import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
+
+const MAX_REQUEST_BODY_BYTES = 2 * 1024;
+const bodySchema = z.strictObject({ token: z.string().min(1).max(1024) });
+
+/**
+ * The platform ends the request here, which really stops it. We do not race
+ * the Resend calls against our own timer: a timer cannot cancel a call, so
+ * the abandoned call would go on to mutate after we had answered.
+ */
+export const maxDuration = 30;
+
+function json(body: Record<string, unknown>, status: number): Response {
+  return Response.json(body, {
+    status,
+    headers: { "Cache-Control": "no-store" },
+  });
+}
+
+/**
+ * Double opt-in, step two. POST only, and only from our own confirm page:
+ * mail scanners prefetch GET links, so a GET that subscribed would confirm
+ * addresses nobody clicked. A valid, unexpired signed token adds the address
+ * to the digest segment.
+ */
+export async function POST(req: NextRequest) {
+  const forbidden = forbiddenUnlessSameOrigin(req);
+  if (forbidden) return forbidden;
+
+  const config = getNewsletterConfig();
+  if (!config) {
+    return json({ confirmed: false, reason: "not_configured" }, 501);
+  }
+  // Without the webhook nothing records unsubscribes, so a link issued before
+  // one could resubscribe the reader. Fail closed.
+  if (!ensureConfirmationEnabled()) {
+    return json({ confirmed: false, reason: "unavailable" }, 503);
+  }
+
+  const identity = getOracleClientIdentity(req.headers);
+  const limit = await checkNewsletterConfirmRateLimit(
+    `newsletter-confirm:${identity.key}`,
+  );
+  if (!limit.allowed) {
+    return limit.reason === "rate_limited"
+      ? json({ confirmed: false, reason: "rate_limited" }, 429)
+      : json({ confirmed: false, reason: "unavailable" }, 503);
+  }
+
+  const body = await readJsonBody(req, MAX_REQUEST_BODY_BYTES);
+  if (!body.ok) {
+    return json(
+      { confirmed: false, reason: body.reason },
+      body.reason === "too_large" ? 413 : 400,
+    );
+  }
+  const parsed = bodySchema.safeParse(body.value);
+  if (!parsed.success) {
+    return json({ confirmed: false, reason: "invalid" }, 400);
+  }
+
+  const verified = verifyConfirmToken(parsed.data.token, config.apiKey);
+  if (!verified.ok) {
+    return json({ confirmed: false, reason: verified.reason }, 400);
+  }
+
+  // The whole claim-arm-mutate-complete sequence runs under the address's
+  // consent lock, so a cron repair, a webhook or a second confirm can never
+  // act between our read and our write. A busy lock is retryable.
+  const locked = await withConsentLock(verified.email, (lock) =>
+    redeem(parsed.data.token, verified.email, config, lock),
+  );
+  if (!locked.locked) {
+    return json({ confirmed: false, reason: "unavailable" }, 503);
+  }
+  return locked.value;
+}
+
+async function redeem(
+  token: string,
+  email: string,
+  config: NonNullable<ReturnType<typeof getNewsletterConfig>>,
+  lock: ConsentLockHandle,
+): Promise<Response> {
+  // A lease can lapse under a slow request. Throwing leaves every record in
+  // place (the catch below answers 503) instead of mutating or deleting
+  // without the lock.
+  const requireLock = async () => {
+    if (!(await lock.held())) throw new ConsentLockLostError();
+  };
+
+  // Single use. The first request to redeem this token wins a pending claim
+  // that lives until the token itself expires. A replay of a completed
+  // confirmation gets the same success answer without reaching Resend. A
+  // replay that finds the claim pending is told to check their inbox or ask
+  // for a new link: that claim may still be running, or may have died, and
+  // there is no safe way to tell, so it is never answered as success and
+  // never taken over or deleted.
+  const ttl = secondsUntilTokenExpiry(token);
+  const claim = await claimConfirmToken(token, ttl, email);
+  if (claim.status === "unavailable") {
+    return json({ confirmed: false, reason: "unavailable" }, 503);
+  }
+  if (claim.status === "pending") {
+    return json({ confirmed: false, reason: "in_progress" }, 409);
+  }
+  if (claim.status === "done") return json({ confirmed: true }, 200);
+  const { marker } = claim;
+
+  // Write-ahead: no Resend mutation without a durable reconcile record the
+  // cron can find. If this write fails nothing has been mutated yet, so refuse
+  // rather than risk a resubscribe nobody is left to undo.
+  const arm = await armConfirmReconcile(email, token);
+  if (!arm) {
+    return json({ confirmed: false, reason: "unavailable" }, 503);
+  }
+
+  try {
+    const result = await confirmNewsletterSubscription(
+      new Resend(config.apiKey),
+      email,
+      config.segmentId,
+      async () => {
+        await requireLock();
+        return checkConfirmMutationAllowed(token, marker, email);
+      },
+      async () => {
+        await requireLock();
+        return checkUnsubscribeAfterMutation(token, email);
+      },
+    );
+    if (result.ok) {
+      await requireLock();
+      await completeConfirmToken(token, marker, ttl, email);
+      await clearConsentRepair(arm);
+      return json({ confirmed: true }, 200);
+    }
+    // When a repair is needed (and when this throws) the write-ahead record
+    // stays: Resend may still hold the reader subscribed and no webhook is
+    // coming. Every other outcome leaves nothing for the cron to do.
+    const repairPending =
+      result.reason === "upstream_error" && result.repairNeeded === true;
+    if (!repairPending) {
+      await requireLock();
+      await clearConsentRepair(arm);
+    }
+    if (result.reason === "aborted") {
+      if (result.verdict === "unavailable") {
+        return json({ confirmed: false, reason: "unavailable" }, 503);
+      }
+      return json(
+        {
+          confirmed: false,
+          reason:
+            result.verdict === "unsubscribed" ? "superseded" : "in_progress",
+        },
+        409,
+      );
+    }
+  } catch (error) {
+    if (error instanceof ConsentLockLostError) {
+      logger.error("Newsletter consent lock lost during confirmation", {});
+      // Retryable; the claim and write-ahead record stay for the cron.
+      return json({ confirmed: false, reason: "unavailable" }, 503);
+    }
+    logger.error("Newsletter confirmation failed", {
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+  // The claim stays pending on purpose; see above.
+  return json({ confirmed: false, reason: "upstream_error" }, 502);
+}

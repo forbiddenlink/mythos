@@ -19,7 +19,7 @@ type Status =
 
 const MESSAGES: Partial<Record<Status, string>> = {
   subscribed:
-    "You're on the list. The digest is one email a week, and every email has an unsubscribe link.",
+    "Check your inbox. We sent a link to confirm the subscription; nothing arrives until you click it.",
   unavailable:
     "Sign-ups open soon. Thank you for your interest; nothing was stored.",
   rate_limited: "Too many attempts from this connection. Try again later.",
