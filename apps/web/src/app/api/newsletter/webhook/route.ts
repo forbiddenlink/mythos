@@ -8,6 +8,7 @@ import {
 } from "@/lib/newsletter";
 import {
   recordConsentRepair,
+  type ConsentLockHandle,
   recordNewsletterUnsubscribe,
   unsubscribeNeedsRepair,
   withConsentLock,
@@ -63,24 +64,10 @@ export async function POST(req: NextRequest) {
   const email = event.data.email;
   const parsedAt = Date.parse(event.created_at);
   const atMs = Number.isFinite(parsedAt) ? parsedAt : Date.now();
-  // The record step, the look for an overlapping confirm and the re-apply all
-  // run under the address's consent lock, so no confirm or cron repair can
-  // slip between them. A busy lock is a non-2xx so Resend retries the delivery.
-  const locked = await withConsentLock(email, () =>
-    applyUnsubscribe(resend, email, atMs),
-  );
-  if (!locked.locked) {
-    logger.error("Newsletter consent lock unavailable for unsubscribe", {});
-    return json({ ok: false, reason: "unavailable" }, 503);
-  }
-  return locked.value;
-}
 
-async function applyUnsubscribe(
-  resend: Resend,
-  email: string,
-  atMs: number,
-): Promise<Response> {
+  // Record first and outside the lock: the record is monotonic and atomic, and
+  // it must land even when the lock is busy, or the unsubscribe is lost once
+  // Resend stops retrying. Only a failed write is a 503.
   const recorded = await recordNewsletterUnsubscribe(email, atMs);
   if (!recorded) {
     logger.error("Newsletter unsubscribe could not be recorded", {});
@@ -88,6 +75,42 @@ async function applyUnsubscribe(
     return json({ ok: false, reason: "unavailable" }, 503);
   }
 
+  // Looking for an overlapping confirm and re-applying run under the
+  // address's consent lock, so no confirm or cron repair slips between them.
+  const locked = await withConsentLock(email, (lock) =>
+    applyUnsubscribe(resend, email, atMs, lock),
+  );
+  if (!locked.locked) {
+    logger.error("Newsletter consent lock unavailable for unsubscribe", {});
+    return deferRepair(email, atMs, 200);
+  }
+  return locked.value;
+}
+
+/**
+ * Queue the re-apply for the cron (monotonic, so a newer intent is never
+ * replaced). 200 when the work is durably queued, 503 when even that failed.
+ */
+async function deferRepair(
+  email: string,
+  atMs: number,
+  queuedStatus: 200 | 503,
+): Promise<Response> {
+  if (!(await recordConsentRepair(email, atMs))) {
+    logger.error("Newsletter consent repair could not be persisted", {});
+    return json({ ok: false, reason: "unavailable" }, 503);
+  }
+  return queuedStatus === 200
+    ? json({ ok: true, recorded: true, queued: true }, 200)
+    : json({ ok: false, reason: "unavailable" }, 503);
+}
+
+async function applyUnsubscribe(
+  resend: Resend,
+  email: string,
+  atMs: number,
+  lock: ConsentLockHandle,
+): Promise<Response> {
   // Record first, then look for a confirm: the confirm side does the reverse
   // (lists itself, then checks for an unsubscribe), so one of us always sees
   // the other. Both outcomes below are safe to repeat.
@@ -97,6 +120,8 @@ async function applyUnsubscribe(
     return json({ ok: false, reason: "unavailable" }, 503);
   }
   if (needsRepair) {
+    // A lapsed lease must not be followed by a write; queue it and let Resend retry.
+    if (!(await lock.held())) return deferRepair(email, atMs, 503);
     let repaired = false;
     try {
       repaired = (await reassertUnsubscribed(resend, email)).ok;

@@ -97,9 +97,13 @@ interface LockTiming {
   retryMs: number;
 }
 
-/** The lease outlasts a Resend round trip, and expires if the holder dies. */
+/**
+ * The lease must outlast the longest critical section. The confirm route caps
+ * a request at 30s (its maxDuration) and the webhook and cron set none, so 60s
+ * covers all three; it still expires on its own if the holder dies.
+ */
 const DEFAULT_LOCK_TIMING: LockTiming = {
-  leaseMs: 15_000,
+  leaseMs: 60_000,
   waitMs: 5_000,
   retryMs: 50,
 };
@@ -159,6 +163,37 @@ async function unlock(key: string, token: string): Promise<void> {
   }
 }
 
+/** Proof-of-ownership check handed to the code running under the lock. */
+export interface ConsentLockHandle {
+  /**
+   * True while this holder still owns the lock. Call it immediately before
+   * each Resend mutation and before deleting any repair or write-ahead record:
+   * a lease can lapse under a slow request, and nothing may then be changed.
+   * An unreadable store answers false (fail closed).
+   */
+  held(): Promise<boolean>;
+}
+
+/** Thrown from inside a locked section when the lease was lost. */
+export class ConsentLockLostError extends Error {
+  constructor() {
+    super("consent lock lost");
+  }
+}
+
+async function isLockHeld(key: string, token: string): Promise<boolean> {
+  const redis = getRedis();
+  if (!redis) {
+    const held = memoryLocks.get(key);
+    return held?.token === token && held.until > Date.now();
+  }
+  try {
+    return (await redis.get<string>(key)) === token;
+  } catch {
+    return false;
+  }
+}
+
 export type ConsentLockResult<T> =
   | { locked: true; value: T }
   | { locked: false };
@@ -173,7 +208,7 @@ export type ConsentLockResult<T> =
  */
 export async function withConsentLock<T>(
   email: string,
-  fn: () => Promise<T>,
+  fn: (lock: ConsentLockHandle) => Promise<T>,
 ): Promise<ConsentLockResult<T>> {
   const key = consentLockKey(email);
   const token = randomUUID();
@@ -192,7 +227,10 @@ export async function withConsentLock<T>(
   }
   if (!acquired) return { locked: false };
   try {
-    return { locked: true, value: await fn() };
+    return {
+      locked: true,
+      value: await fn({ held: () => isLockHeld(key, token) }),
+    };
   } finally {
     await unlock(key, token);
   }

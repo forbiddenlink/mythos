@@ -6,7 +6,10 @@ const resend = vi.hoisted(() => ({
   update: vi.fn(),
   add: vi.fn(),
 }));
-const redis = vi.hoisted(() => ({ touched: false }));
+const redis = vi.hoisted(() => ({
+  touched: false,
+  values: new Map<string, string>(),
+}));
 
 vi.mock("resend", () => ({
   Resend: class {
@@ -34,11 +37,12 @@ vi.mock("@upstash/redis", () => ({
     constructor() {
       redis.touched = true;
     }
-    async set() {
+    async set(key: string, value: string) {
+      redis.values.set(key, value);
       return "OK";
     }
-    async get() {
-      return null;
+    async get(key: string) {
+      return redis.values.get(key) ?? null;
     }
     async eval() {
       return 1;
@@ -75,6 +79,7 @@ beforeEach(() => {
   process.env.UPSTASH_REDIS_REST_URL = "https://example.upstash.io";
   process.env.UPSTASH_REDIS_REST_TOKEN = "token";
   redis.touched = false;
+  redis.values.clear();
   for (const fn of Object.values(resend)) fn.mockReset();
   resend.create.mockResolvedValue({ error: null });
 });

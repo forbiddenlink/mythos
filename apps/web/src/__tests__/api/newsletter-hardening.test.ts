@@ -317,7 +317,10 @@ describe("confirm: single-use redemption", () => {
       );
       const pending = CONFIRM(post("/api/newsletter/confirm", { token }));
       await vi.waitFor(() => expect(resend.create).toHaveBeenCalledTimes(1));
-      upstash.kv.clear();
+      // Only the claim goes; the consent lock stays held.
+      for (const k of [...upstash.kv.keys()]) {
+        if (k.includes(":redeemed:")) upstash.kv.delete(k);
+      }
       resolveCreate({ error: { message: "already exists", statusCode: 409 } });
       expect((await pending).status).toBe(409);
       expect(resend.update).not.toHaveBeenCalled();

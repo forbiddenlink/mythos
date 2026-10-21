@@ -17,7 +17,9 @@ import {
   clearConsentRepair,
   completeConfirmToken,
   secondsUntilTokenExpiry,
+  ConsentLockLostError,
   withConsentLock,
+  type ConsentLockHandle,
 } from "@/lib/newsletter-redemption";
 import { verifyConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
@@ -91,8 +93,8 @@ export async function POST(req: NextRequest) {
   // The whole claim-arm-mutate-complete sequence runs under the address's
   // consent lock, so a cron repair, a webhook or a second confirm can never
   // act between our read and our write. A busy lock is retryable.
-  const locked = await withConsentLock(verified.email, () =>
-    redeem(parsed.data.token, verified.email, config),
+  const locked = await withConsentLock(verified.email, (lock) =>
+    redeem(parsed.data.token, verified.email, config, lock),
   );
   if (!locked.locked) {
     return json({ confirmed: false, reason: "unavailable" }, 503);
@@ -104,7 +106,15 @@ async function redeem(
   token: string,
   email: string,
   config: NonNullable<ReturnType<typeof getNewsletterConfig>>,
+  lock: ConsentLockHandle,
 ): Promise<Response> {
+  // A lease can lapse under a slow request. Throwing leaves every record in
+  // place (the catch below answers 503) instead of mutating or deleting
+  // without the lock.
+  const requireLock = async () => {
+    if (!(await lock.held())) throw new ConsentLockLostError();
+  };
+
   // Single use. The first request to redeem this token wins a pending claim
   // that lives until the token itself expires. A replay of a completed
   // confirmation gets the same success answer without reaching Resend. A
@@ -136,10 +146,17 @@ async function redeem(
       new Resend(config.apiKey),
       email,
       config.segmentId,
-      () => checkConfirmMutationAllowed(token, marker, email),
-      () => checkUnsubscribeAfterMutation(token, email),
+      async () => {
+        await requireLock();
+        return checkConfirmMutationAllowed(token, marker, email);
+      },
+      async () => {
+        await requireLock();
+        return checkUnsubscribeAfterMutation(token, email);
+      },
     );
     if (result.ok) {
+      await requireLock();
       await completeConfirmToken(token, marker, ttl, email);
       await clearConsentRepair(arm);
       return json({ confirmed: true }, 200);
@@ -149,7 +166,10 @@ async function redeem(
     // coming. Every other outcome leaves nothing for the cron to do.
     const repairPending =
       result.reason === "upstream_error" && result.repairNeeded === true;
-    if (!repairPending) await clearConsentRepair(arm);
+    if (!repairPending) {
+      await requireLock();
+      await clearConsentRepair(arm);
+    }
     if (result.reason === "aborted") {
       if (result.verdict === "unavailable") {
         return json({ confirmed: false, reason: "unavailable" }, 503);
@@ -164,6 +184,11 @@ async function redeem(
       );
     }
   } catch (error) {
+    if (error instanceof ConsentLockLostError) {
+      logger.error("Newsletter consent lock lost during confirmation", {});
+      // Retryable; the claim and write-ahead record stay for the cron.
+      return json({ confirmed: false, reason: "unavailable" }, 503);
+    }
     logger.error("Newsletter confirmation failed", {
       error: error instanceof Error ? error.message : String(error),
     });

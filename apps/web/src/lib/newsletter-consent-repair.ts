@@ -15,6 +15,7 @@ import {
   isConsentRepairCurrent,
   listConsentRepairs,
   withConsentLock,
+  type ConsentLockHandle,
   type ConsentRepair,
 } from "@/lib/newsletter-redemption";
 
@@ -34,6 +35,7 @@ type RepairOutcome =
   | "settled"
   | "failed"
   | "gone"
+  | "lost"
   | "in_flight";
 
 /**
@@ -41,10 +43,13 @@ type RepairOutcome =
  * confirm or webhook can mutate this address between the supersession check
  * and the write, and a confirm still mutating is never mistaken for a finished
  * one. The record is re-read first: it was listed before the lock was taken.
+ * The lease is re-checked before the write and before any delete; a lapsed
+ * lease leaves the record for the next run.
  */
 async function reconcileRepair(
   client: NewsletterClient,
   repair: ConsentRepair,
+  lock: ConsentLockHandle,
 ): Promise<RepairOutcome> {
   const current = await isConsentRepairCurrent(repair);
   if (current === null) return "failed";
@@ -53,16 +58,20 @@ async function reconcileRepair(
   if (verdict === null) return "failed";
   if (verdict === "in_flight") return "in_flight";
   if (verdict === "superseded" || verdict === "settled") {
+    if (!(await lock.held())) return "lost";
     await clearConsentRepair(repair);
     return verdict;
   }
+  if (!(await lock.held())) return "lost";
   let ok = false;
   try {
     ok = (await reassertUnsubscribed(client, repair.email)).ok;
   } catch {
     // Retried on the next run.
   }
-  return ok && (await clearConsentRepair(repair)) ? "repaired" : "failed";
+  if (!ok) return "failed";
+  if (!(await lock.held())) return "lost";
+  return (await clearConsentRepair(repair)) ? "repaired" : "failed";
 }
 
 /**
@@ -85,10 +94,10 @@ export async function runConsentRepairs(
     skipped: 0,
   };
   for (const repair of repairs) {
-    const locked = await withConsentLock(repair.email, () =>
-      reconcileRepair(client, repair),
+    const locked = await withConsentLock(repair.email, (lock) =>
+      reconcileRepair(client, repair, lock),
     );
-    if (!locked.locked) {
+    if (!locked.locked || locked.value === "lost") {
       summary.skipped += 1;
       continue;
     }

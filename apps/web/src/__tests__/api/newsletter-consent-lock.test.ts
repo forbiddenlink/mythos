@@ -17,6 +17,9 @@ const fake = vi.hoisted(() => ({
   unsubGate: null as null | Promise<void>,
   onUnsubUpdateStarted: null as null | (() => void),
   failUnsubscribeWrites: false,
+  /** While true, every write to the consent-repair store fails. */
+  failRepairWrites: false,
+  segmentAdds: 0,
   /** While true, taking any consent lock fails as if another holder had it. */
   lockContended: false,
   updates: [] as Array<{ email: string; unsubscribed?: boolean }>,
@@ -69,6 +72,7 @@ vi.mock("resend", () => ({
       },
       segments: {
         async add() {
+          fake.segmentAdds += 1;
           return { error: null };
         },
       },
@@ -115,6 +119,9 @@ vi.mock("@upstash/redis", () => ({
     }
     async eval(script: string, keys: string[], args: string[]) {
       await Promise.resolve();
+      if (keys[0] === "mythos:newsletter:consent-repair" && fake.failRepairWrites) {
+        throw new Error("repair store down");
+      }
       if (script.includes('"del"')) {
         // Lock release: compare-and-delete.
         if (fake.kv.get(keys[0]!) !== args[0]) return 0;
@@ -213,6 +220,12 @@ function deferred() {
 }
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+/** Simulates every consent lease lapsing (the holder ran past its lease). */
+const expireLocks = () => {
+  for (const key of [...fake.kv.keys()]) {
+    if (key.startsWith("mythos:newsletter:lock:")) fake.kv.delete(key);
+  }
+};
 const pendingRepairs = () => fake.hashes.get(REPAIR_HASH)?.size ?? 0;
 const contactUnsubscribed = () => fake.contacts.get(EMAIL)?.unsubscribed;
 
@@ -233,6 +246,8 @@ beforeEach(() => {
   fake.onUnsubUpdateStarted = null;
   fake.failUnsubscribeWrites = false;
   fake.lockContended = false;
+  fake.failRepairWrites = false;
+  fake.segmentAdds = 0;
   fake.updates.length = 0;
   fake.event = null;
   fake.kv.clear();
@@ -315,7 +330,7 @@ describe("an older repair never undoes a newer confirmation", () => {
 });
 
 describe("an unsubscribe webhook that arrives mid-confirm", () => {
-  it("waits for the confirm, then re-applies the unsubscribe", async () => {
+  it("records at once and leaves the re-apply to whoever holds the lock", async () => {
     const token = createConfirmToken(EMAIL, "re_test", new Date(T0));
     const gate = deferred();
     const started = deferred();
@@ -333,11 +348,13 @@ describe("an unsubscribe webhook that arrives mid-confirm", () => {
     };
     const hook = WEBHOOK(webhookRequest());
     await sleep(20);
-    // Nothing of the webhook has run: the confirm owns the address.
+    // The webhook's write step is waiting: the confirm owns the address.
     expect(fake.updates).toEqual([{ email: EMAIL, unsubscribed: false }]);
 
     gate.release();
-    expect((await confirm).status).toBe(200);
+    // The unsubscribe is recorded before the lock is taken, so the confirm's
+    // post-check sees it and re-applies; the webhook then finds it applied.
+    expect((await confirm).status).toBe(409);
     expect((await hook).status).toBe(200);
     expect(fake.updates).toEqual([
       { email: EMAIL, unsubscribed: false },
@@ -362,14 +379,33 @@ describe("when the per-address lock cannot be taken", () => {
     expect(pendingRepairs()).toBe(0);
   });
 
-  it("makes the webhook answer 503 so Resend retries", async () => {
+  it("makes the webhook queue the unsubscribe and answer 200", async () => {
+    fake.contacts.set(EMAIL, { unsubscribed: false });
     fake.event = {
       type: "contact.updated",
       created_at: new Date(T0 + 5_000).toISOString(),
       data: { email: EMAIL, unsubscribed: true },
     };
+    // Resend's retries are exhausted: this is the only delivery there will be.
     const res = await WEBHOOK(webhookRequest());
-    expect(res.status).toBe(503);
+    expect(res.status).toBe(200);
+    expect(pendingRepairs()).toBe(1);
+
+    // The lock frees up and the cron still unsubscribes the reader.
+    fake.lockContended = false;
+    expect((await REPAIR_CRON(cronRequest())).status).toBe(200);
+    expect(contactUnsubscribed()).toBe(true);
+    expect(pendingRepairs()).toBe(0);
+  });
+
+  it("makes the webhook answer 503 only when nothing could be persisted", async () => {
+    fake.failRepairWrites = true;
+    fake.event = {
+      type: "contact.updated",
+      created_at: new Date(T0 + 5_000).toISOString(),
+      data: { email: EMAIL, unsubscribed: true },
+    };
+    expect((await WEBHOOK(webhookRequest())).status).toBe(503);
   });
 
   it("makes the cron skip the record and keep it", async () => {
@@ -381,5 +417,42 @@ describe("when the per-address lock cannot be taken", () => {
     expect(await res.json()).toMatchObject({ skipped: 1, failed: 0 });
     expect(pendingRepairs()).toBe(1);
     expect(fake.updates).toHaveLength(0);
+  });
+});
+
+describe("a lease that lapses mid-flight", () => {
+  it("stops the confirm before its next mutation and keeps its record", async () => {
+    const token = createConfirmToken(EMAIL, "re_test", new Date(T0));
+    const gate = deferred();
+    const started = deferred();
+    fake.gate = gate.promise;
+    fake.onUpdateStarted = started.release;
+    const confirm = CONFIRM(confirmRequest(token));
+    await started.promise;
+
+    expireLocks();
+    gate.release();
+    expect((await confirm).status).toBe(503);
+    // The segment add never ran, and the write-ahead record is still there.
+    expect(fake.segmentAdds).toBe(0);
+    expect(pendingRepairs()).toBe(1);
+  });
+
+  it("makes the cron keep a record whose lease lapsed during the repair", async () => {
+    await redemption.recordNewsletterUnsubscribe(EMAIL, T0 + 5_000);
+    await redemption.recordConsentRepair(EMAIL, T0 + 5_000);
+    fake.contacts.set(EMAIL, { unsubscribed: false });
+    const gate = deferred();
+    const started = deferred();
+    fake.unsubGate = gate.promise;
+    fake.onUnsubUpdateStarted = started.release;
+    const cron = REPAIR_CRON(cronRequest());
+    await started.promise;
+
+    expireLocks();
+    gate.release();
+    const res = await cron;
+    expect(await res.json()).toMatchObject({ skipped: 1, repaired: 0 });
+    expect(pendingRepairs()).toBe(1);
   });
 });
