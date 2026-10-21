@@ -10,14 +10,16 @@ import {
   type NewsletterClient,
 } from "@/lib/newsletter";
 import {
+  assessConsentRepair,
   clearConsentRepair,
-  consentRepairStillWanted,
   listConsentRepairs,
 } from "@/lib/newsletter-redemption";
 
 export interface ConsentRepairSummary {
   repaired: number;
   superseded: number;
+  /** Confirm records that turned out to owe nothing. */
+  settled: number;
   failed: number;
 }
 
@@ -31,16 +33,22 @@ export async function runConsentRepairs(
 ): Promise<ConsentRepairSummary | null> {
   const repairs = await listConsentRepairs();
   if (!repairs) return null;
-  const summary: ConsentRepairSummary = { repaired: 0, superseded: 0, failed: 0 };
+  const summary: ConsentRepairSummary = {
+    repaired: 0,
+    superseded: 0,
+    settled: 0,
+    failed: 0,
+  };
   for (const repair of repairs) {
-    const wanted = await consentRepairStillWanted(repair);
-    if (wanted === null) {
+    const verdict = await assessConsentRepair(repair);
+    if (verdict === null) {
       summary.failed += 1;
       continue;
     }
-    if (!wanted) {
+    if (verdict === "in_flight") continue;
+    if (verdict === "superseded" || verdict === "settled") {
       await clearConsentRepair(repair);
-      summary.superseded += 1;
+      summary[verdict] += 1;
       continue;
     }
     let ok = false;

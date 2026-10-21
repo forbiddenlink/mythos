@@ -389,62 +389,102 @@ export async function unsubscribeNeedsRepair(
 }
 
 /**
- * Durable consent repairs. When re-applying an unsubscribe fails (Resend down
- * for every retry), the contact may stay subscribed with nobody left to fix
- * it: the webhook was already acknowledged and the confirm token is spent. The
- * repair is therefore its own work item, independent of token redemption, and
- * the cron retries it until it sticks. One field per address (its hash), value
- * `<atMs>:<email>`; `atMs` is when the reader's unsubscribe intent was seen.
+ * Durable consent reconciliation. Resend has no conditional write, so a
+ * confirm can commit `unsubscribed: false` over an unsubscribe, and every path
+ * that re-applies it can fail. The work is therefore a record of its own, in
+ * one hash the cron drains, independent of token redemption. Two kinds:
+ *
+ * - "confirm": written BEFORE a confirm's first Resend mutation (write-ahead),
+ *   so no resubscribe can happen without a record the cron can find. Field
+ *   `confirm:<token hash>`, value `<issuedAtMs>:<armedAtMs>:<email>`. The cron
+ *   decides from the recorded unsubscribe whether anything is owed; a confirm
+ *   that finished cleanly removes its own record.
+ * - "unsubscribe": written when a webhook could not re-apply an unsubscribe.
+ *   Field is the address hash, value `<atMs>:<email>`. Only ever moves forward:
+ *   a delayed older event must not replace a newer reader intent.
  */
 const REPAIR_HASH = "mythos:newsletter:consent-repair";
 const REPAIR_TTL_SECONDS = 30 * 24 * 60 * 60;
+/** A confirm with no recorded unsubscribe is given this long to finish. */
+export const CONFIRM_ARM_GRACE_MS = 15 * 60 * 1000;
 // Delete the field only if it still holds the value we repaired, so a newer
 // record written meanwhile survives.
 const REPAIR_CLEAR = `if redis.call("hget", KEYS[1], ARGV[1]) == ARGV[2] then return redis.call("hdel", KEYS[1], ARGV[1]) end return 0`;
+// Replace the record only when the new one is not older than the stored one.
+const REPAIR_SET_NEWEST = `local cur = redis.call("hget", KEYS[1], ARGV[1]) if cur then local at = tonumber(string.match(cur, "^(%d+):")) if at and at >= tonumber(ARGV[4]) then return 0 end end redis.call("hset", KEYS[1], ARGV[1], ARGV[2]) redis.call("expire", KEYS[1], ARGV[3]) return 1`;
+
+export type ConsentRepairKind = "unsubscribe" | "confirm";
 
 export interface ConsentRepair {
   email: string;
+  /** Unsubscribe: when the reader's intent was seen. Confirm: token issued-at. */
   atMs: number;
+  kind: ConsentRepairKind;
+  field: string;
+  /** Confirm only: when the record was written. */
+  armedAtMs?: number;
 }
 
 const memoryRepairs = new Map<string, string>();
 
-function repairField(email: string): string {
+function unsubscribeRepairField(email: string): string {
   return createHash("sha256").update(email.trim().toLowerCase()).digest("hex");
 }
 
 function repairValue(repair: ConsentRepair): string {
-  return `${repair.atMs}:${repair.email.trim().toLowerCase()}`;
+  const email = repair.email.trim().toLowerCase();
+  return repair.kind === "confirm"
+    ? `${repair.atMs}:${repair.armedAtMs ?? 0}:${email}`
+    : `${repair.atMs}:${email}`;
 }
 
-function parseRepair(raw: unknown): ConsentRepair | null {
-  const text = String(raw);
-  const split = text.indexOf(":");
-  if (split < 1) return null;
-  const atMs = Number(text.slice(0, split));
-  const email = text.slice(split + 1);
-  return Number.isFinite(atMs) && email ? { email, atMs } : null;
+function parseRepair(field: string, raw: unknown): ConsentRepair | null {
+  const parts = String(raw).split(":");
+  if (field.startsWith("confirm:")) {
+    const [at, armed, ...rest] = parts;
+    const email = rest.join(":");
+    const atMs = Number(at);
+    const armedAtMs = Number(armed);
+    return Number.isFinite(atMs) && Number.isFinite(armedAtMs) && email
+      ? { email, atMs, armedAtMs, kind: "confirm", field }
+      : null;
+  }
+  const [at, ...rest] = parts;
+  const email = rest.join(":");
+  const atMs = Number(at);
+  return Number.isFinite(atMs) && email
+    ? { email, atMs, kind: "unsubscribe", field }
+    : null;
 }
 
-/** Persist "this address must end up unsubscribed". True once it is stored. */
-export async function recordConsentRepair(
-  email: string,
-  atMs: number,
+async function writeRepair(
+  repair: ConsentRepair,
+  newestOnly: boolean,
 ): Promise<boolean> {
-  const field = repairField(email);
-  const value = repairValue({ email, atMs });
+  const value = repairValue(repair);
   const redis = getRedis();
   if (!redis) {
     if (isProductionRuntime()) return false;
-    memoryRepairs.set(field, value);
+    const cur = memoryRepairs.get(repair.field);
+    const curAt = cur ? Number(cur.split(":")[0]) : Number.NaN;
+    if (newestOnly && Number.isFinite(curAt) && curAt >= repair.atMs) return true;
+    memoryRepairs.set(repair.field, value);
     return true;
   }
   try {
-    await redis.eval(
-      INDEX_SET,
-      [REPAIR_HASH],
-      [field, value, String(REPAIR_TTL_SECONDS)],
-    );
+    if (newestOnly) {
+      await redis.eval(
+        REPAIR_SET_NEWEST,
+        [REPAIR_HASH],
+        [repair.field, value, String(REPAIR_TTL_SECONDS), String(repair.atMs)],
+      );
+    } else {
+      await redis.eval(
+        INDEX_SET,
+        [REPAIR_HASH],
+        [repair.field, value, String(REPAIR_TTL_SECONDS)],
+      );
+    }
     return true;
   } catch (error) {
     logger.error("Newsletter consent repair write failed", {
@@ -454,34 +494,73 @@ export async function recordConsentRepair(
   }
 }
 
-/** Every pending repair; null when the store cannot be read. */
+/**
+ * Persist "this address must end up unsubscribed". True once a record at least
+ * as new as `atMs` is stored.
+ */
+export async function recordConsentRepair(
+  email: string,
+  atMs: number,
+): Promise<boolean> {
+  return writeRepair(
+    {
+      email,
+      atMs,
+      kind: "unsubscribe",
+      field: unsubscribeRepairField(email),
+    },
+    true,
+  );
+}
+
+/**
+ * Write-ahead record for a confirm. Call it before the first Resend mutation
+ * and refuse to mutate when it returns null: a resubscribe is then always
+ * covered by a record the cron can reconcile, whatever fails afterwards.
+ */
+export async function armConfirmReconcile(
+  email: string,
+  token: string,
+): Promise<ConsentRepair | null> {
+  const repair: ConsentRepair = {
+    email,
+    atMs: confirmTokenIssuedAtMs(token),
+    armedAtMs: Date.now(),
+    kind: "confirm",
+    field: `confirm:${tokenField(token)}`,
+  };
+  return (await writeRepair(repair, false)) ? repair : null;
+}
+
+/** Every pending record; null when the store cannot be read. */
 export async function listConsentRepairs(): Promise<ConsentRepair[] | null> {
   const redis = getRedis();
   if (!redis) {
     if (isProductionRuntime()) return null;
-    return [...memoryRepairs.values()].flatMap((v) => parseRepair(v) ?? []);
+    return [...memoryRepairs].flatMap(([f, v]) => parseRepair(f, v) ?? []);
   }
   try {
     const raw = await redis.hgetall<Record<string, unknown>>(REPAIR_HASH);
-    return Object.values(raw ?? {}).flatMap((v) => parseRepair(v) ?? []);
+    return Object.entries(raw ?? {}).flatMap(([f, v]) => parseRepair(f, v) ?? []);
   } catch {
     return null;
   }
 }
 
-/** Remove a repair that is done, unless a newer one replaced it. */
+/** Remove a record that is done, unless a newer one replaced it. */
 export async function clearConsentRepair(
   repair: ConsentRepair,
 ): Promise<boolean> {
-  const field = repairField(repair.email);
   const value = repairValue(repair);
   const redis = getRedis();
   if (!redis) {
-    if (memoryRepairs.get(field) === value) memoryRepairs.delete(field);
+    if (memoryRepairs.get(repair.field) === value) {
+      memoryRepairs.delete(repair.field);
+    }
     return true;
   }
   try {
-    await redis.eval(REPAIR_CLEAR, [REPAIR_HASH], [field, value]);
+    await redis.eval(REPAIR_CLEAR, [REPAIR_HASH], [repair.field, value]);
     return true;
   } catch (error) {
     logger.error("Newsletter consent repair clear failed", {
@@ -491,14 +570,59 @@ export async function clearConsentRepair(
   }
 }
 
+/** Latest recorded unsubscribe: a time, undefined for none, null if unreadable. */
+async function readUnsubscribeAt(
+  email: string,
+): Promise<number | undefined | null> {
+  const key = unsubscribeKey(email);
+  const redis = getRedis();
+  if (!redis) {
+    if (isProductionRuntime()) return null;
+    return memoryUnsubs.get(key);
+  }
+  try {
+    const raw = await redis.get<string | number>(key);
+    return raw === null || raw === undefined ? undefined : Number(raw);
+  } catch {
+    return null;
+  }
+}
+
+export type ConsentRepairAssessment =
+  /** Re-apply the unsubscribe. */
+  | "owed"
+  /** The reader asked for a newer link after leaving; do not undo it. */
+  | "superseded"
+  /** A confirm record with no unsubscribe behind it, past its grace period. */
+  | "settled"
+  /** A confirm record that may still be running; look again next run. */
+  | "in_flight";
+
 /**
- * False when the reader asked for a newer link after the unsubscribe (a
- * deliberate re-subscribe the repair must not undo). Null when unreadable.
+ * What the cron should do with a record, judged against the latest recorded
+ * unsubscribe and not the record's own timestamp, so neither a delayed older
+ * event nor a clock-stamped confirm record can make a deliberate resubscribe
+ * look newer or older than it was. Null when the store cannot be read.
  */
-export async function consentRepairStillWanted(
+export async function assessConsentRepair(
   repair: ConsentRepair,
-): Promise<boolean | null> {
+  now: number = Date.now(),
+): Promise<ConsentRepairAssessment | null> {
+  const unsubAt = await readUnsubscribeAt(repair.email);
+  if (unsubAt === null) return null;
+  let at: number;
+  if (repair.kind === "confirm") {
+    // Same test the mutation guard uses: left after this link was issued.
+    if (unsubAt === undefined || unsubAt < repair.atMs) {
+      return now - (repair.armedAtMs ?? 0) > CONFIRM_ARM_GRACE_MS
+        ? "settled"
+        : "in_flight";
+    }
+    at = unsubAt;
+  } else {
+    at = Math.max(repair.atMs, unsubAt ?? 0);
+  }
   const activity = await readConfirmActivity(repair.email);
   if (!activity) return null;
-  return !activity.some((a) => a.issuedAtMs > repair.atMs);
+  return activity.some((a) => a.issuedAtMs > at) ? "superseded" : "owed";
 }

@@ -13,6 +13,8 @@ const fake = vi.hoisted(() => ({
   onUpdateStarted: null as null | (() => void),
   /** While true, every write of unsubscribed:true fails (Resend is down). */
   failUnsubscribeWrites: false,
+  /** While true, every write to the consent-repair store fails. */
+  failRepairWrites: false,
   updates: [] as Array<{ email: string; unsubscribed?: boolean }>,
   event: null as unknown,
   kv: new Map<string, string>(),
@@ -100,6 +102,19 @@ vi.mock("@upstash/redis", () => ({
     }
     async eval(script: string, keys: string[], args: string[]) {
       await Promise.resolve();
+      if (keys[0] === "mythos:newsletter:consent-repair" && fake.failRepairWrites) {
+        throw new Error("repair store down");
+      }
+      if (script.includes("string.match")) {
+        // Monotonic repair record: keep the newest reader intent.
+        const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
+        const cur = hash.get(args[0]!);
+        const curAt = cur ? Number(cur.split(":")[0]) : Number.NaN;
+        if (Number.isFinite(curAt) && curAt >= Number(args[3])) return 0;
+        hash.set(args[0]!, args[1]!);
+        fake.hashes.set(keys[0]!, hash);
+        return 1;
+      }
       if (script.includes('"hdel"')) {
         const hash = fake.hashes.get(keys[0]!);
         if (hash?.get(args[0]!) !== args[1]) return 0;
@@ -217,6 +232,7 @@ beforeEach(() => {
   fake.gate = null;
   fake.onUpdateStarted = null;
   fake.failUnsubscribeWrites = false;
+  fake.failRepairWrites = false;
   fake.updates.length = 0;
   fake.event = null;
   fake.kv.clear();
@@ -323,5 +339,105 @@ describe("the webhook repair path", () => {
     expect((await REPAIR_CRON(cronRequest())).status).toBe(200);
     expect(contactUnsubscribed()).toBe(true);
     expect(pendingRepairs()).toBe(0);
+  });
+});
+
+describe("recovery never depends on one late write", () => {
+  it("recovers when persisting the repair fails along with the re-apply", async () => {
+    const token = createConfirmToken(EMAIL, "re_test", new Date(T0));
+    const { gate, response } = await startConfirmHeldAtUpdate(token);
+
+    // The unsubscribe webhook is acknowledged while the contact reads
+    // unsubscribed, so Resend will never deliver it again.
+    fake.contacts.set(EMAIL, { unsubscribed: true });
+    vi.setSystemTime(T0 + 5_000);
+    expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(200);
+
+    // The in-flight confirm then resubscribes; the re-apply fails and so does
+    // the repair store.
+    fake.failUnsubscribeWrites = true;
+    fake.failRepairWrites = true;
+    gate.release();
+    expect((await response).status).toBe(502);
+    expect(contactUnsubscribed()).toBe(false);
+
+    // Everything recovers. A replay of the spent token is refused, so the
+    // cron is the only way left; it must still have work.
+    fake.failUnsubscribeWrites = false;
+    fake.failRepairWrites = false;
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+    ).toBe(409);
+    expect((await REPAIR_CRON(cronRequest())).status).toBe(200);
+    expect(contactUnsubscribed()).toBe(true);
+    expect(pendingRepairs()).toBe(0);
+  });
+
+  it("does not resubscribe when the repair store cannot be written first", async () => {
+    fake.failRepairWrites = true;
+    const token = createConfirmToken(EMAIL, "re_test", new Date(T0));
+    const res = await CONFIRM(post("/api/newsletter/confirm", { token }));
+    expect(res.status).toBe(503);
+    expect(contactUnsubscribed()).toBe(true);
+    expect(
+      fake.updates.filter((u) => u.unsubscribed === false),
+    ).toHaveLength(0);
+  });
+
+  it("keeps the newest repair when a delayed older webhook fails too", async () => {
+    // Token A confirms and leaves the contact subscribed.
+    const tokenA = createConfirmToken(EMAIL, "re_test", new Date(T0));
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenA }))).status,
+    ).toBe(200);
+    expect(contactUnsubscribed()).toBe(false);
+
+    // Resend is down. The newer unsubscribe fails its re-apply and queues a
+    // repair; a delayed older one then fails and must not move it backwards.
+    fake.failUnsubscribeWrites = true;
+    vi.setSystemTime(T0 + 10_000);
+    expect((await deliverUnsubscribeWebhook(T0 + 9_000)).status).toBe(503);
+    expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(503);
+    const [record] = [...(fake.hashes.get(REPAIR_HASH)?.values() ?? [])];
+    expect(record).toMatch(new RegExp(`^${T0 + 9_000}:`));
+
+    // A link issued between the two, redeemed after the newer unsubscribe, is
+    // refused. It must not count as a deliberate resubscribe.
+    vi.setSystemTime(T0 + 11_000);
+    const tokenB = createConfirmToken(EMAIL, "re_test", new Date(T0 + 7_000));
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenB }))).status,
+    ).toBe(409);
+
+    fake.failUnsubscribeWrites = false;
+    expect((await REPAIR_CRON(cronRequest())).status).toBe(200);
+    expect(contactUnsubscribed()).toBe(true);
+  });
+
+  it("judges supersession against the latest recorded unsubscribe", async () => {
+    const tokenA = createConfirmToken(EMAIL, "re_test", new Date(T0));
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenA }))).status,
+    ).toBe(200);
+
+    // An early unsubscribe fails its re-apply and queues a repair at +5s.
+    fake.failUnsubscribeWrites = true;
+    vi.setSystemTime(T0 + 6_000);
+    expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(503);
+
+    // A much later unsubscribe is recorded but needs no repair by itself: the
+    // only confirm ended long before it.
+    vi.setSystemTime(T0 + 200_000);
+    expect((await deliverUnsubscribeWebhook(T0 + 190_000)).status).toBe(200);
+
+    // A link issued between the two is refused after the later unsubscribe.
+    const tokenB = createConfirmToken(EMAIL, "re_test", new Date(T0 + 100_000));
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenB }))).status,
+    ).toBe(409);
+
+    fake.failUnsubscribeWrites = false;
+    expect((await REPAIR_CRON(cronRequest())).status).toBe(200);
+    expect(contactUnsubscribed()).toBe(true);
   });
 });

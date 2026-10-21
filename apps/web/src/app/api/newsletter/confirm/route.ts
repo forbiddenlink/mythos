@@ -10,11 +10,12 @@ import {
   getNewsletterConfig,
 } from "@/lib/newsletter";
 import {
+  armConfirmReconcile,
   checkConfirmMutationAllowed,
   checkUnsubscribeAfterMutation,
   claimConfirmToken,
+  clearConsentRepair,
   completeConfirmToken,
-  recordConsentRepair,
   secondsUntilTokenExpiry,
 } from "@/lib/newsletter-redemption";
 import { verifyConfirmToken } from "@/lib/newsletter-token";
@@ -108,6 +109,14 @@ export async function POST(req: NextRequest) {
   if (claim.status === "done") return json({ confirmed: true }, 200);
   const { marker } = claim;
 
+  // Write-ahead: no Resend mutation without a durable reconcile record the
+  // cron can find. If this write fails nothing has been mutated yet, so refuse
+  // rather than risk a resubscribe nobody is left to undo.
+  const arm = await armConfirmReconcile(verified.email, parsed.data.token);
+  if (!arm) {
+    return json({ confirmed: false, reason: "unavailable" }, 503);
+  }
+
   try {
     const result = await confirmNewsletterSubscription(
       new Resend(config.apiKey),
@@ -119,15 +128,15 @@ export async function POST(req: NextRequest) {
     );
     if (result.ok) {
       await completeConfirmToken(parsed.data.token, marker, ttl, verified.email);
+      await clearConsentRepair(arm);
       return json({ confirmed: true }, 200);
     }
-    if (result.reason === "upstream_error" && result.repairNeeded) {
-      // Resend may still hold the reader subscribed and no webhook is coming
-      // (it already fired). Persist the repair so the cron retries it.
-      if (!(await recordConsentRepair(verified.email, Date.now()))) {
-        logger.error("Newsletter consent repair could not be persisted", {});
-      }
-    }
+    // When a repair is needed (and when this throws) the write-ahead record
+    // stays: Resend may still hold the reader subscribed and no webhook is
+    // coming. Every other outcome leaves nothing for the cron to do.
+    const repairPending =
+      result.reason === "upstream_error" && result.repairNeeded === true;
+    if (!repairPending) await clearConsentRepair(arm);
     if (result.reason === "aborted") {
       if (result.verdict === "unavailable") {
         return json({ confirmed: false, reason: "unavailable" }, 503);
