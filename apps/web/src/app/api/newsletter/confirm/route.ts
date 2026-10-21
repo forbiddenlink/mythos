@@ -10,6 +10,7 @@ import {
 } from "@/lib/newsletter";
 import {
   claimConfirmToken,
+  completeConfirmToken,
   releaseConfirmToken,
   secondsUntilTokenExpiry,
 } from "@/lib/newsletter-redemption";
@@ -70,18 +71,21 @@ export async function POST(req: NextRequest) {
     return json({ confirmed: false, reason: verified.reason }, 400);
   }
 
-  // Single use. The first request to redeem this token wins the claim; a
-  // replay (double click, mail-scanner retry, or an attacker reusing a link)
-  // gets the same success answer but never reaches Resend, so it cannot
-  // re-subscribe someone who unsubscribed after confirming.
-  const claim = await claimConfirmToken(
-    parsed.data.token,
-    secondsUntilTokenExpiry(parsed.data.token),
-  );
+  // Single use. The first request to redeem this token wins a pending claim.
+  // A replay of a completed confirmation gets the same success answer without
+  // reaching Resend (so it cannot re-subscribe someone who unsubscribed after
+  // confirming). A replay that finds the claim still pending is told to retry:
+  // the first request may yet fail, so it cannot be answered as success.
+  const ttl = secondsUntilTokenExpiry(parsed.data.token);
+  const claim = await claimConfirmToken(parsed.data.token);
   if (claim.status === "unavailable") {
     return json({ confirmed: false, reason: "unavailable" }, 503);
   }
-  if (claim.status === "already") return json({ confirmed: true }, 200);
+  if (claim.status === "pending") {
+    return json({ confirmed: false, reason: "in_progress" }, 409);
+  }
+  if (claim.status === "done") return json({ confirmed: true }, 200);
+  const { claimId } = claim;
 
   try {
     const result = await confirmNewsletterSubscription(
@@ -89,13 +93,16 @@ export async function POST(req: NextRequest) {
       verified.email,
       config.segmentId,
     );
-    if (result.ok) return json({ confirmed: true }, 200);
+    if (result.ok) {
+      await completeConfirmToken(parsed.data.token, ttl);
+      return json({ confirmed: true }, 200);
+    }
   } catch (error) {
     logger.error("Newsletter confirmation failed", {
       error: error instanceof Error ? error.message : String(error),
     });
   }
   // Hand the claim back so the reader can retry the same link.
-  await releaseConfirmToken(parsed.data.token);
+  await releaseConfirmToken(parsed.data.token, claimId);
   return json({ confirmed: false, reason: "upstream_error" }, 502);
 }

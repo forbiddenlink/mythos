@@ -14,6 +14,8 @@ const upstash = vi.hoisted(() => ({
   kv: new Map<string, string>(),
   counters: new Map<string, number>(),
   incrFails: false,
+  /** Next set() commits but throws, like a lost acknowledgement. */
+  lostAck: false,
 }));
 
 vi.mock("resend", () => ({
@@ -49,7 +51,21 @@ vi.mock("@upstash/redis", () => ({
       await Promise.resolve();
       if (opts.nx && upstash.kv.has(key)) return null;
       upstash.kv.set(key, value);
+      if (upstash.lostAck) {
+        upstash.lostAck = false;
+        throw new Error("ack lost");
+      }
       return "OK";
+    }
+    async get(key: string) {
+      return upstash.kv.get(key) ?? null;
+    }
+    async eval(_script: string, keys: string[], args: string[]) {
+      if (upstash.kv.get(keys[0]!) === args[0]) {
+        upstash.kv.delete(keys[0]!);
+        return 1;
+      }
+      return 0;
     }
     async del(key: string) {
       upstash.kv.delete(key);
@@ -109,6 +125,7 @@ beforeEach(() => {
   upstash.kv.clear();
   upstash.counters.clear();
   upstash.incrFails = false;
+  upstash.lostAck = false;
   for (const fn of Object.values(resend)) fn.mockReset();
   resend.create.mockResolvedValue({ error: null });
   resend.send.mockResolvedValue({ error: null });
@@ -126,8 +143,13 @@ describe("confirm: single-use redemption", () => {
         CONFIRM(post("/api/newsletter/confirm", { token })),
       ),
     );
-    expect(responses.map((r) => r.status)).toEqual(Array(20).fill(200));
-    await expect(responses[0]!.json()).resolves.toEqual({ confirmed: true });
+    // The winner confirms; racers are told to retry (409), never given a
+    // success the winner has not earned yet.
+    expect(responses.filter((r) => r.status === 200)).toHaveLength(1);
+    expect(responses.filter((r) => r.status === 409)).toHaveLength(19);
+    expect(resend.create).toHaveBeenCalledTimes(1);
+    const after = await CONFIRM(post("/api/newsletter/confirm", { token }));
+    expect(after.status).toBe(200);
     expect(resend.create).toHaveBeenCalledTimes(1);
     expect(resend.create).toHaveBeenCalledWith({
       email: "replay@example.com",
@@ -164,6 +186,55 @@ describe("confirm: single-use redemption", () => {
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(200);
     expect(resend.create).toHaveBeenCalledTimes(2);
+  });
+
+  it("does not report success to a retry after a lost acknowledgement", async () => {
+    const token = createConfirmToken("lostack@example.com", "re_test");
+    upstash.lostAck = true;
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+    ).toBe(503);
+    // The SET committed, so the retry sees a pending claim: not success.
+    const retry = await CONFIRM(post("/api/newsletter/confirm", { token }));
+    expect(retry.status).toBe(409);
+    expect(resend.create).not.toHaveBeenCalled();
+  });
+
+  it("answers a concurrent retry with 409, then lets it succeed after the first fails", async () => {
+    const token = createConfirmToken("racefail@example.com", "re_test");
+    let failFirst!: () => void;
+    resend.create.mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          failFirst = () => resolve({ error: { message: "boom" } });
+        }),
+    );
+    const first = CONFIRM(post("/api/newsletter/confirm", { token }));
+    await vi.waitFor(() => expect(resend.create).toHaveBeenCalledTimes(1));
+    const concurrent = await CONFIRM(post("/api/newsletter/confirm", { token }));
+    expect(concurrent.status).toBe(409);
+    failFirst();
+    expect((await first).status).toBe(502);
+    // The failed owner released its own marker, so the retry now runs.
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+    ).toBe(200);
+    expect(resend.create).toHaveBeenCalledTimes(2);
+  });
+
+  it("lets a retry through once an abandoned pending claim expires", async () => {
+    const token = createConfirmToken("expiry@example.com", "re_test");
+    upstash.lostAck = true;
+    await CONFIRM(post("/api/newsletter/confirm", { token }));
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+    ).toBe(409);
+    // The 60s pending TTL elapses.
+    upstash.kv.clear();
+    expect(
+      (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
+    ).toBe(200);
+    expect(resend.create).toHaveBeenCalledTimes(1);
   });
 
   it("rate limits confirm attempts per client", async () => {
