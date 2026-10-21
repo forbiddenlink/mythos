@@ -20,38 +20,39 @@ describe("truncateDescription", () => {
     );
   });
 
-  it("cuts at a word boundary with an ellipsis when no sentence fits", () => {
+  it("cuts at a clause boundary and ends with a period", () => {
     const text =
       "Zeus is the supreme deity of the Greek pantheon, ruler of Mount Olympus and god of the sky, thunder, lightning, law and order across every age of myth and across every one of the many lands that worshipped him";
     const out = truncateDescription(text);
-    expect(out.endsWith("…")).toBe(true);
+    expect(out.endsWith(".")).toBe(true);
+    expect(out).not.toContain("…");
     expect(out.length).toBeLessThanOrEqual(160);
-    // Cut on a word boundary: the text before the ellipsis is a prefix ending in a whole word.
-    const body = out.slice(0, -1);
-    expect(text.startsWith(body)).toBe(true);
-    expect(text[body.length]).toBe(" ");
+    expect(out.length).toBeGreaterThan(80);
   });
 
-  it("does not leave trailing punctuation before the ellipsis", () => {
-    const text = `${"a".repeat(100)}, ${"b".repeat(100)}`;
-    expect(truncateDescription(text)).toBe(`${"a".repeat(100)}…`);
+  it("cuts at a word and drops a dangling word when no clause fits", () => {
+    const text = `${"alpha ".repeat(26)}and the beta gamma delta`;
+    const out = truncateDescription(text, 160);
+    expect(out.endsWith(".")).toBe(true);
+    expect(out.length).toBeLessThanOrEqual(160);
+    const text2 = `${"alpha ".repeat(25)}of the ${"zeta ".repeat(20)}`;
+    const out2 = truncateDescription(text2, 160);
+    expect(out2).not.toMatch(/\b(?:of|the|and)\.$/);
+  });
+
+  it("drops several dangling words in a row", () => {
+    expect(truncateDescription(`${"ab ".repeat(8)}and the of`, 30)).toBe(
+      "ab ab ab ab ab ab ab ab.",
+    );
   });
 
   it("hard-cuts a single unbroken token", () => {
     const out = truncateDescription("x".repeat(300));
     expect(out.length).toBe(160);
-    expect(out.endsWith("…")).toBe(true);
+    expect(out.endsWith(".")).toBe(true);
   });
 
-  it("does not treat a mid-sentence abbreviation-free period in a tiny first sentence as a cut", () => {
-    const text = `Hi. ${"word ".repeat(60)}`;
-    const out = truncateDescription(text);
-    expect(out.endsWith("…")).toBe(true);
-  });
-});
-
-describe("truncateDescription short first sentence", () => {
-  it("keeps more text rather than stopping after a very short sentence", () => {
+  it("does not treat a tiny first sentence as a cut", () => {
     const out = truncateDescription(`Hi. ${"word ".repeat(60)}`);
     expect(out.length).toBeGreaterThan(100);
   });
@@ -94,6 +95,17 @@ describe("entryDescription", () => {
         { mentions: "Haudenosaunee" },
       ),
     ).toBe("A living tradition of the Haudenosaunee nations.");
+  });
+
+  it("appends the suffix as its own sentence after a complete one", () => {
+    const text =
+      "The lake sits in a crater near the coast, ringed by wooded hills and sulphurous vents that the poets feared, and the road runs on past the ancient cave for miles";
+    const out = entryDescription("Lake", text, {
+      suffix: "5 deities, 9 stories.",
+    });
+    expect(out).toMatch(/\w\. 5 deities, 9 stories\.$/);
+    expect(out).not.toContain("…");
+    expect(out.length).toBeLessThanOrEqual(160);
   });
 
   it("reserves room for a suffix so it is never the part that is cut", () => {

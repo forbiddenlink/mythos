@@ -2,14 +2,46 @@
 export const META_DESCRIPTION_MAX = 160;
 
 const SENTENCE_END = /[.!?]["')\]]?(?=\s|$)/g;
+const DANGLING = new Set([
+  "and",
+  "or",
+  "but",
+  "the",
+  "of",
+  "a",
+  "an",
+  "to",
+  "in",
+  "on",
+  "at",
+  "by",
+  "for",
+  "with",
+  "from",
+  "as",
+  "that",
+  "which",
+  "who",
+  "whose",
+  "into",
+  "than",
+]);
+
+function endWithPeriod(text: string): string {
+  const trimmed = text.replace(/[\s,;:\u2013\u2014\-.]+$/, "");
+  return `${trimmed}.`;
+}
 
 /**
- * Fit text into a meta description without cutting a word in half.
+ * Fit text into a meta description. Never emits an ellipsis: a snippet that
+ * trails off reads as a bug.
  *
- * Prefers the last complete sentence that fits (no ellipsis, since nothing
- * reads as cut), then the last complete clause before a semicolon. Failing that, cuts at the last word boundary and appends an
- * ellipsis. Text that already fits is returned unchanged apart from collapsed
- * whitespace. The result is never longer than `max` characters.
+ * Cuts, in order, at the last complete sentence, then at the last clause
+ * boundary (; , : or a dash, which becomes a period), then at the last word
+ * boundary, dropping a dangling word ("and", "the", "of"...) and ending with a
+ * period. A boundary must keep at least half the budget. Text that already
+ * fits is returned unchanged apart from collapsed whitespace. The result is
+ * never longer than `max` characters.
  */
 export function truncateDescription(
   text: string,
@@ -18,23 +50,36 @@ export function truncateDescription(
   const clean = text.replace(/\s+/g, " ").trim();
   if (clean.length <= max) return clean;
 
-  // Last sentence end inside the window, if it keeps at least half the budget.
+  const window = clean.slice(0, max);
+
   let sentenceEnd = -1;
-  for (const match of clean.slice(0, max).matchAll(SENTENCE_END)) {
+  for (const match of window.matchAll(SENTENCE_END)) {
     sentenceEnd = match.index + match[0].length;
   }
   if (sentenceEnd >= max / 2) return clean.slice(0, sentenceEnd);
 
-  // A semicolon joins two complete clauses, so cutting there stays grammatical
-  // and needs no ellipsis ("...entrance to the underworld;" -> "...underworld.").
-  const semicolon = clean.slice(0, max).lastIndexOf(";");
-  if (semicolon >= max * 0.6) return `${clean.slice(0, semicolon)}.`;
+  // Prefer a strong break (; : dash) that keeps most of the budget, then a
+  // comma that keeps half. The period replacing the break takes its place.
+  const lastMatch = (re: RegExp): number => {
+    let at = -1;
+    for (const match of window.matchAll(re)) at = match.index;
+    return at;
+  };
+  const strong = lastMatch(/[;:\u2013\u2014]/g);
+  if (strong >= max * 0.6) return endWithPeriod(clean.slice(0, strong));
+  const comma = lastMatch(/,/g);
+  if (comma >= max / 2) return endWithPeriod(clean.slice(0, comma));
 
-  // Reserve one character for the ellipsis.
-  const window = clean.slice(0, max - 1);
-  const lastSpace = window.lastIndexOf(" ");
-  const cut = lastSpace > 0 ? window.slice(0, lastSpace) : window;
-  return `${cut.replace(/[\s,;:\-–—]+$/, "")}…`;
+  // Leave one character for the closing period.
+  const room = clean.slice(0, max - 1);
+  const space = room.lastIndexOf(" ");
+  const base =
+    clean[max - 1] === " " || space <= 0 ? room : room.slice(0, space);
+  const words = base.replace(/[\s,;:\u2013\u2014\-]+$/, "").split(" ");
+  while (words.length > 1 && DANGLING.has(words.at(-1)!.toLowerCase())) {
+    words.pop();
+  }
+  return endWithPeriod(words.join(" "));
 }
 
 /**
@@ -71,5 +116,8 @@ export function entryDescription(
       : clean;
   const room = suffix ? max - suffix.length - 1 : max;
   const head = truncateDescription(body, room);
-  return suffix ? `${head} ${suffix}` : head;
+  // The counts are their own sentence, so the text before them must be whole.
+  return suffix
+    ? `${/[.!?]$/.test(head) ? head : endWithPeriod(head)} ${suffix}`
+    : head;
 }
