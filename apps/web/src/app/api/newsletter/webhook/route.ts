@@ -10,6 +10,7 @@ import {
   recordConsentRepair,
   recordNewsletterUnsubscribe,
   unsubscribeNeedsRepair,
+  withConsentLock,
 } from "@/lib/newsletter-redemption";
 
 function json(body: Record<string, unknown>, status: number): Response {
@@ -59,9 +60,28 @@ export async function POST(req: NextRequest) {
     return json({ ok: true, recorded: false }, 200);
   }
 
+  const email = event.data.email;
   const parsedAt = Date.parse(event.created_at);
   const atMs = Number.isFinite(parsedAt) ? parsedAt : Date.now();
-  const recorded = await recordNewsletterUnsubscribe(event.data.email, atMs);
+  // The record step, the look for an overlapping confirm and the re-apply all
+  // run under the address's consent lock, so no confirm or cron repair can
+  // slip between them. A busy lock is a non-2xx so Resend retries the delivery.
+  const locked = await withConsentLock(email, () =>
+    applyUnsubscribe(resend, email, atMs),
+  );
+  if (!locked.locked) {
+    logger.error("Newsletter consent lock unavailable for unsubscribe", {});
+    return json({ ok: false, reason: "unavailable" }, 503);
+  }
+  return locked.value;
+}
+
+async function applyUnsubscribe(
+  resend: Resend,
+  email: string,
+  atMs: number,
+): Promise<Response> {
+  const recorded = await recordNewsletterUnsubscribe(email, atMs);
   if (!recorded) {
     logger.error("Newsletter unsubscribe could not be recorded", {});
     // Non-2xx so Resend retries the delivery.
@@ -71,7 +91,7 @@ export async function POST(req: NextRequest) {
   // Record first, then look for a confirm: the confirm side does the reverse
   // (lists itself, then checks for an unsubscribe), so one of us always sees
   // the other. Both outcomes below are safe to repeat.
-  const needsRepair = await unsubscribeNeedsRepair(event.data.email, atMs);
+  const needsRepair = await unsubscribeNeedsRepair(email, atMs);
   if (needsRepair === null) {
     logger.error("Newsletter confirm activity could not be read", {});
     return json({ ok: false, reason: "unavailable" }, 503);
@@ -79,7 +99,7 @@ export async function POST(req: NextRequest) {
   if (needsRepair) {
     let repaired = false;
     try {
-      repaired = (await reassertUnsubscribed(resend, event.data.email)).ok;
+      repaired = (await reassertUnsubscribed(resend, email)).ok;
     } catch (error) {
       logger.error("Newsletter unsubscribe repair threw", {
         error: error instanceof Error ? error.message : String(error),
@@ -88,7 +108,7 @@ export async function POST(req: NextRequest) {
     if (!repaired) {
       logger.error("Newsletter unsubscribe could not be re-applied", {});
       // Persist it too: Resend gives up retrying after a while, the cron does not.
-      if (!(await recordConsentRepair(event.data.email, atMs))) {
+      if (!(await recordConsentRepair(email, atMs))) {
         logger.error("Newsletter consent repair could not be persisted", {});
       }
       return json({ ok: false, reason: "unavailable" }, 503);

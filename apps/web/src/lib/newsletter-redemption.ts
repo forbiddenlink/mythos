@@ -25,6 +25,12 @@
  * unsubscribeNeedsRepair after recording, and a confirm asks
  * checkUnsubscribeAfterMutation after its last mutation. Each side writes
  * before it reads, so at least one of them always sees the other.
+ *
+ * Those two checks narrow the races; they cannot close them, because every
+ * check-then-mutate sequence here spans a Resend round trip. withConsentLock
+ * closes them structurally: the confirm route, the webhook's record step, each
+ * consent repair and the cron's reconcile all run under one per-address lock,
+ * so for a given address only one of them is ever between "read" and "write".
  */
 import { createHash, randomUUID } from "node:crypto";
 import { Redis } from "@upstash/redis";
@@ -78,6 +84,120 @@ export function secondsUntilTokenExpiry(
   return Number.isFinite(left) && left > 0 ? left : 1;
 }
 
+// ---------------------------------------------------------------------------
+// Per-address consent lock
+// ---------------------------------------------------------------------------
+
+interface LockTiming {
+  /** How long a holder may keep the lock before it lapses on its own. */
+  leaseMs: number;
+  /** How long a caller waits for a busy lock before giving up. */
+  waitMs: number;
+  /** Pause between attempts (jittered). */
+  retryMs: number;
+}
+
+/** The lease outlasts a Resend round trip, and expires if the holder dies. */
+const DEFAULT_LOCK_TIMING: LockTiming = {
+  leaseMs: 15_000,
+  waitMs: 5_000,
+  retryMs: 50,
+};
+let lockTiming: LockTiming = { ...DEFAULT_LOCK_TIMING };
+
+export function __setConsentLockTimingForTests(t: Partial<LockTiming>): void {
+  lockTiming = { ...lockTiming, ...t };
+}
+
+const memoryLocks = new Map<string, { token: string; until: number }>();
+// Delete the lock only if we still hold it, so a lapsed lease that someone
+// else has since taken is never released from under them.
+const LOCK_RELEASE = `if redis.call("get", KEYS[1]) == ARGV[1] then return redis.call("del", KEYS[1]) end return 0`;
+
+function consentLockKey(email: string): string {
+  const normalized = email.trim().toLowerCase();
+  return `mythos:newsletter:lock:${createHash("sha256").update(normalized).digest("hex")}`;
+}
+
+type TryLock = "acquired" | "busy" | "unavailable";
+
+async function tryLock(key: string, token: string): Promise<TryLock> {
+  const redis = getRedis();
+  if (!redis) {
+    // Without a shared store another instance cannot be excluded.
+    if (isProductionRuntime()) return "unavailable";
+    const now = Date.now();
+    const held = memoryLocks.get(key);
+    if (held && held.until > now) return "busy";
+    memoryLocks.set(key, { token, until: now + lockTiming.leaseMs });
+    return "acquired";
+  }
+  try {
+    const set = await redis.set(key, token, { nx: true, px: lockTiming.leaseMs });
+    return set === "OK" ? "acquired" : "busy";
+  } catch (error) {
+    logger.error("Newsletter consent lock could not be taken", {
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return "unavailable";
+  }
+}
+
+async function unlock(key: string, token: string): Promise<void> {
+  const redis = getRedis();
+  if (!redis) {
+    if (memoryLocks.get(key)?.token === token) memoryLocks.delete(key);
+    return;
+  }
+  try {
+    await redis.eval(LOCK_RELEASE, [key], [token]);
+  } catch (error) {
+    // The lease lapses on its own; a failed release only delays the next holder.
+    logger.error("Newsletter consent lock release failed", {
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+}
+
+export type ConsentLockResult<T> =
+  | { locked: true; value: T }
+  | { locked: false };
+
+/**
+ * Run `fn` while holding the consent lock for `email`. Every read-check-mutate
+ * sequence over one address's consent goes through here, so two of them can
+ * never interleave. Waits a bounded time for a busy lock, then gives up with
+ * `{ locked: false }` and `fn` never runs: the caller must answer retryably
+ * (confirm 503, webhook 503) or skip the item (cron) and must not delete or
+ * "settle" anything. Re-evaluate any decision made before the lock was taken.
+ */
+export async function withConsentLock<T>(
+  email: string,
+  fn: () => Promise<T>,
+): Promise<ConsentLockResult<T>> {
+  const key = consentLockKey(email);
+  const token = randomUUID();
+  const attempts = Math.max(1, Math.ceil(lockTiming.waitMs / lockTiming.retryMs));
+  let acquired = false;
+  for (let i = 0; i < attempts; i += 1) {
+    const result = await tryLock(key, token);
+    if (result === "unavailable") return { locked: false };
+    if (result === "acquired") {
+      acquired = true;
+      break;
+    }
+    await new Promise((resolve) =>
+      setTimeout(resolve, lockTiming.retryMs * (0.5 + Math.random())),
+    );
+  }
+  if (!acquired) return { locked: false };
+  try {
+    return { locked: true, value: await fn() };
+  } finally {
+    await unlock(key, token);
+  }
+}
+
 /** Keyed on the address; one field per token (its hash). */
 function confirmIndexKey(email: string): string {
   const normalized = email.trim().toLowerCase();
@@ -117,6 +237,8 @@ export function __resetNewsletterRedemptionForTests(): void {
   memoryUnsubs.clear();
   memoryConfirms.clear();
   memoryRepairs.clear();
+  memoryLocks.clear();
+  lockTiming = { ...DEFAULT_LOCK_TIMING };
 }
 
 function getRedis(): Redis | null {
@@ -567,6 +689,30 @@ export async function clearConsentRepair(
       error: error instanceof Error ? error.message : String(error),
     });
     return false;
+  }
+}
+
+/**
+ * True while the stored record is still exactly `repair`. The cron lists
+ * records before taking the lock, so it asks again inside it: a confirm that
+ * finished meanwhile has cleared its own, and a newer repair replaced the rest.
+ * Null when the store cannot be read.
+ */
+export async function isConsentRepairCurrent(
+  repair: ConsentRepair,
+): Promise<boolean | null> {
+  const value = repairValue(repair);
+  const redis = getRedis();
+  if (!redis) {
+    if (isProductionRuntime()) return null;
+    return memoryRepairs.get(repair.field) === value;
+  }
+  try {
+    const raw = await redis.hgetall<Record<string, unknown>>(REPAIR_HASH);
+    const stored = raw?.[repair.field];
+    return stored !== undefined && String(stored) === value;
+  } catch {
+    return null;
   }
 }
 

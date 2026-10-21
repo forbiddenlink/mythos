@@ -105,6 +105,12 @@ vi.mock("@upstash/redis", () => ({
       if (keys[0] === "mythos:newsletter:consent-repair" && fake.failRepairWrites) {
         throw new Error("repair store down");
       }
+      if (script.includes('"del"')) {
+        // Consent lock release: compare-and-delete.
+        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
+        fake.kv.delete(keys[0]!);
+        return 1;
+      }
       if (script.includes("string.match")) {
         // Monotonic repair record: keep the newest reader intent.
         const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
@@ -150,6 +156,7 @@ vi.mock("@upstash/redis", () => ({
 import { GET as REPAIR_CRON } from "@/app/api/cron/newsletter-consent-repair/route";
 import { POST as CONFIRM } from "@/app/api/newsletter/confirm/route";
 import { POST as WEBHOOK } from "@/app/api/newsletter/webhook/route";
+import { recordNewsletterUnsubscribe } from "@/lib/newsletter-redemption";
 import { createConfirmToken } from "@/lib/newsletter-token";
 
 const ORIGINAL_ENV = { ...process.env };
@@ -256,7 +263,10 @@ describe("a failed consent repair is persisted and retried by cron", () => {
     // already reads unsubscribed: nothing to repair, 200, never delivered again.
     fake.contacts.set(EMAIL, { unsubscribed: true });
     vi.setSystemTime(T0 + 5_000);
-    expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(200);
+    // Recorded directly: a real webhook would queue behind the running
+    // confirm on the consent lock, which the new lock tests cover. This keeps
+    // the confirm's own post-check path exercised.
+    await recordNewsletterUnsubscribe(EMAIL, T0 + 5_000);
 
     // The update then commits over the unsubscribe, and Resend is down for
     // every repair attempt.
@@ -289,7 +299,10 @@ describe("a failed consent repair is persisted and retried by cron", () => {
     const { gate, response } = await startConfirmHeldAtUpdate(token);
     fake.contacts.set(EMAIL, { unsubscribed: true });
     vi.setSystemTime(T0 + 5_000);
-    expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(200);
+    // Recorded directly: a real webhook would queue behind the running
+    // confirm on the consent lock, which the new lock tests cover. This keeps
+    // the confirm's own post-check path exercised.
+    await recordNewsletterUnsubscribe(EMAIL, T0 + 5_000);
     fake.failUnsubscribeWrites = true;
     gate.release();
     await response;
@@ -351,7 +364,10 @@ describe("recovery never depends on one late write", () => {
     // unsubscribed, so Resend will never deliver it again.
     fake.contacts.set(EMAIL, { unsubscribed: true });
     vi.setSystemTime(T0 + 5_000);
-    expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(200);
+    // Recorded directly: a real webhook would queue behind the running
+    // confirm on the consent lock, which the new lock tests cover. This keeps
+    // the confirm's own post-check path exercised.
+    await recordNewsletterUnsubscribe(EMAIL, T0 + 5_000);
 
     // The in-flight confirm then resubscribes; the re-apply fails and so does
     // the repair store.

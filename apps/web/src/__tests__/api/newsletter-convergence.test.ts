@@ -101,6 +101,12 @@ vi.mock("@upstash/redis", () => ({
     }
     async eval(script: string, keys: string[], args: string[]) {
       await Promise.resolve();
+      if (script.includes('"del"')) {
+        // Consent lock release: compare-and-delete.
+        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
+        fake.kv.delete(keys[0]!);
+        return 1;
+      }
       if (script.includes('"hset"')) {
         const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
         hash.set(args[0]!, args[1]!);
@@ -129,6 +135,7 @@ vi.mock("@upstash/redis", () => ({
 
 import { POST as CONFIRM } from "@/app/api/newsletter/confirm/route";
 import { POST as WEBHOOK } from "@/app/api/newsletter/webhook/route";
+import { recordNewsletterUnsubscribe } from "@/lib/newsletter-redemption";
 import { createConfirmToken } from "@/lib/newsletter-token";
 
 const ORIGINAL_ENV = { ...process.env };
@@ -259,7 +266,10 @@ describe("an unsubscribe landing mid-update converges on unsubscribed", () => {
     // yet, and this is the only moment the webhook will ever run.
     readerUnsubscribesOnResend();
     vi.setSystemTime(T0 + 5_000);
-    expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(200);
+    // Recorded directly: a real webhook would queue behind the running
+    // confirm on the consent lock, which the new lock tests cover. This keeps
+    // the confirm's own post-check path exercised.
+    await recordNewsletterUnsubscribe(EMAIL, T0 + 5_000);
     expect(fake.updates).toEqual([{ email: EMAIL, unsubscribed: false }]);
 
     // Then the update commits over the unsubscribe.

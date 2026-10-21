@@ -17,6 +17,7 @@ import {
   clearConsentRepair,
   completeConfirmToken,
   secondsUntilTokenExpiry,
+  withConsentLock,
 } from "@/lib/newsletter-redemption";
 import { verifyConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
@@ -87,6 +88,23 @@ export async function POST(req: NextRequest) {
     return json({ confirmed: false, reason: verified.reason }, 400);
   }
 
+  // The whole claim-arm-mutate-complete sequence runs under the address's
+  // consent lock, so a cron repair, a webhook or a second confirm can never
+  // act between our read and our write. A busy lock is retryable.
+  const locked = await withConsentLock(verified.email, () =>
+    redeem(parsed.data.token, verified.email, config),
+  );
+  if (!locked.locked) {
+    return json({ confirmed: false, reason: "unavailable" }, 503);
+  }
+  return locked.value;
+}
+
+async function redeem(
+  token: string,
+  email: string,
+  config: NonNullable<ReturnType<typeof getNewsletterConfig>>,
+): Promise<Response> {
   // Single use. The first request to redeem this token wins a pending claim
   // that lives until the token itself expires. A replay of a completed
   // confirmation gets the same success answer without reaching Resend. A
@@ -94,12 +112,8 @@ export async function POST(req: NextRequest) {
   // for a new link: that claim may still be running, or may have died, and
   // there is no safe way to tell, so it is never answered as success and
   // never taken over or deleted.
-  const ttl = secondsUntilTokenExpiry(parsed.data.token);
-  const claim = await claimConfirmToken(
-    parsed.data.token,
-    ttl,
-    verified.email,
-  );
+  const ttl = secondsUntilTokenExpiry(token);
+  const claim = await claimConfirmToken(token, ttl, email);
   if (claim.status === "unavailable") {
     return json({ confirmed: false, reason: "unavailable" }, 503);
   }
@@ -112,7 +126,7 @@ export async function POST(req: NextRequest) {
   // Write-ahead: no Resend mutation without a durable reconcile record the
   // cron can find. If this write fails nothing has been mutated yet, so refuse
   // rather than risk a resubscribe nobody is left to undo.
-  const arm = await armConfirmReconcile(verified.email, parsed.data.token);
+  const arm = await armConfirmReconcile(email, token);
   if (!arm) {
     return json({ confirmed: false, reason: "unavailable" }, 503);
   }
@@ -120,14 +134,13 @@ export async function POST(req: NextRequest) {
   try {
     const result = await confirmNewsletterSubscription(
       new Resend(config.apiKey),
-      verified.email,
+      email,
       config.segmentId,
-      () =>
-        checkConfirmMutationAllowed(parsed.data.token, marker, verified.email),
-      () => checkUnsubscribeAfterMutation(parsed.data.token, verified.email),
+      () => checkConfirmMutationAllowed(token, marker, email),
+      () => checkUnsubscribeAfterMutation(token, email),
     );
     if (result.ok) {
-      await completeConfirmToken(parsed.data.token, marker, ttl, verified.email);
+      await completeConfirmToken(token, marker, ttl, email);
       await clearConsentRepair(arm);
       return json({ confirmed: true }, 200);
     }

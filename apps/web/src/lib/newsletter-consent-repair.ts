@@ -12,7 +12,10 @@ import {
 import {
   assessConsentRepair,
   clearConsentRepair,
+  isConsentRepairCurrent,
   listConsentRepairs,
+  withConsentLock,
+  type ConsentRepair,
 } from "@/lib/newsletter-redemption";
 
 export interface ConsentRepairSummary {
@@ -21,12 +24,53 @@ export interface ConsentRepairSummary {
   /** Confirm records that turned out to owe nothing. */
   settled: number;
   failed: number;
+  /** Left for the next run: another request held the address's lock. */
+  skipped: number;
+}
+
+type RepairOutcome =
+  | "repaired"
+  | "superseded"
+  | "settled"
+  | "failed"
+  | "gone"
+  | "in_flight";
+
+/**
+ * Assess and apply one record. Runs under the address's consent lock, so no
+ * confirm or webhook can mutate this address between the supersession check
+ * and the write, and a confirm still mutating is never mistaken for a finished
+ * one. The record is re-read first: it was listed before the lock was taken.
+ */
+async function reconcileRepair(
+  client: NewsletterClient,
+  repair: ConsentRepair,
+): Promise<RepairOutcome> {
+  const current = await isConsentRepairCurrent(repair);
+  if (current === null) return "failed";
+  if (!current) return "gone";
+  const verdict = await assessConsentRepair(repair);
+  if (verdict === null) return "failed";
+  if (verdict === "in_flight") return "in_flight";
+  if (verdict === "superseded" || verdict === "settled") {
+    await clearConsentRepair(repair);
+    return verdict;
+  }
+  let ok = false;
+  try {
+    ok = (await reassertUnsubscribed(client, repair.email)).ok;
+  } catch {
+    // Retried on the next run.
+  }
+  return ok && (await clearConsentRepair(repair)) ? "repaired" : "failed";
 }
 
 /**
  * Idempotent: reassertUnsubscribed reads the contact first and writes only
  * when it is still subscribed, and a record is deleted only after the contact
  * is confirmed unsubscribed, so a crash between the two just repeats a no-op.
+ * Each record is handled under its address's consent lock; when the lock
+ * cannot be taken the record is skipped (never deleted) until the next run.
  */
 export async function runConsentRepairs(
   client: NewsletterClient,
@@ -38,27 +82,19 @@ export async function runConsentRepairs(
     superseded: 0,
     settled: 0,
     failed: 0,
+    skipped: 0,
   };
   for (const repair of repairs) {
-    const verdict = await assessConsentRepair(repair);
-    if (verdict === null) {
-      summary.failed += 1;
+    const locked = await withConsentLock(repair.email, () =>
+      reconcileRepair(client, repair),
+    );
+    if (!locked.locked) {
+      summary.skipped += 1;
       continue;
     }
-    if (verdict === "in_flight") continue;
-    if (verdict === "superseded" || verdict === "settled") {
-      await clearConsentRepair(repair);
-      summary[verdict] += 1;
-      continue;
-    }
-    let ok = false;
-    try {
-      ok = (await reassertUnsubscribed(client, repair.email)).ok;
-    } catch {
-      // Retried on the next run.
-    }
-    if (ok && (await clearConsentRepair(repair))) summary.repaired += 1;
-    else summary.failed += 1;
+    const outcome = locked.value;
+    if (outcome === "gone" || outcome === "in_flight") continue;
+    summary[outcome] += 1;
   }
   return summary;
 }

@@ -57,7 +57,7 @@ vi.mock("@upstash/redis", () => ({
       await Promise.resolve();
       if (opts.nx && upstash.kv.has(key)) return null;
       upstash.kv.set(key, value);
-      if (upstash.lostAck) {
+      if (upstash.lostAck && !key.startsWith("mythos:newsletter:lock:")) {
         upstash.lostAck = false;
   upstash.evalFails = false;
   vi.useFakeTimers({ toFake: ["Date"] });
@@ -184,10 +184,9 @@ describe("confirm: single-use redemption", () => {
         CONFIRM(post("/api/newsletter/confirm", { token })),
       ),
     );
-    // The winner confirms; racers are told to retry (409), never given a
-    // success the winner has not earned yet.
-    expect(responses.filter((r) => r.status === 200)).toHaveLength(1);
-    expect(responses.filter((r) => r.status === 409)).toHaveLength(19);
+    // Replays queue behind the winner on the address's consent lock, so none
+    // is answered before the winner has finished; each then finds `done`.
+    expect(responses.filter((r) => r.status === 200)).toHaveLength(20);
     expect(resend.create).toHaveBeenCalledTimes(1);
     const after = await CONFIRM(post("/api/newsletter/confirm", { token }));
     expect(after.status).toBe(200);
@@ -252,10 +251,13 @@ describe("confirm: single-use redemption", () => {
     );
     const first = CONFIRM(post("/api/newsletter/confirm", { token }));
     await vi.waitFor(() => expect(resend.create).toHaveBeenCalledTimes(1));
-    const concurrent = await CONFIRM(post("/api/newsletter/confirm", { token }));
-    expect(concurrent.status).toBe(409);
+    // The retry queues behind the first on the consent lock; once the first
+    // fails its claim stays pending, so the retry is told to wait (409).
+    const concurrent = CONFIRM(post("/api/newsletter/confirm", { token }));
+    await new Promise((r) => setTimeout(r, 20));
     failFirst();
     expect((await first).status).toBe(502);
+    expect((await concurrent).status).toBe(409);
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(409);
