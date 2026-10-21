@@ -43,7 +43,8 @@ type RepairOutcome =
  * confirm or webhook can mutate this address between the supersession check
  * and the write, and a confirm still mutating is never mistaken for a finished
  * one. The record is re-read first: it was listed before the lock was taken.
- * The lease is re-checked before the write and before any delete; a lapsed
+ * The lease is re-checked before every Resend write (retries included) and
+ * before any delete; a lapsed
  * lease leaves the record for the next run.
  */
 async function reconcileRepair(
@@ -65,7 +66,11 @@ async function reconcileRepair(
   if (!(await lock.held())) return "lost";
   let ok = false;
   try {
-    ok = (await reassertUnsubscribed(client, repair.email)).ok;
+    const result = await reassertUnsubscribed(client, repair.email, () =>
+      lock.held(),
+    );
+    if (result.lost) return "lost";
+    ok = result.ok;
   } catch {
     // Retried on the next run.
   }

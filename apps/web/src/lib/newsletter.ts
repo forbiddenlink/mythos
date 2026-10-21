@@ -212,11 +212,17 @@ const REASSERT_ATTEMPTS = 3;
  * no contact.updated event for the webhook to answer with another repair. A
  * contact Resend does not know has nothing to repair. The write is retried a
  * few times because nobody else will retry it.
+ *
+ * `mayWrite` is checked immediately before every write, retries included. A
+ * caller holding a lease passes it so a read that stalled past the lease never
+ * becomes a stale unsubscribe over a newer confirmation; when it returns false
+ * nothing is written and the result is `lost`.
  */
 export async function reassertUnsubscribed(
   client: NewsletterClient,
   email: string,
-): Promise<{ ok: boolean }> {
+  mayWrite?: () => Promise<boolean>,
+): Promise<{ ok: boolean; lost?: true }> {
   for (let attempt = 0; attempt < REASSERT_ATTEMPTS; attempt += 1) {
     const current = await client.contacts.get({ email });
     if (current.error) {
@@ -224,6 +230,7 @@ export async function reassertUnsubscribed(
       continue;
     }
     if (current.data?.unsubscribed === true) return { ok: true };
+    if (mayWrite && !(await mayWrite())) return { ok: false, lost: true };
     const updated = await client.contacts.update({ email, unsubscribed: true });
     if (!updated.error) return { ok: true };
   }

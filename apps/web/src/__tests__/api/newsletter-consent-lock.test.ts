@@ -16,6 +16,9 @@ const fake = vi.hoisted(() => ({
   /** Holds the next unsubscribed:true update open. */
   unsubGate: null as null | Promise<void>,
   onUnsubUpdateStarted: null as null | (() => void),
+  /** Holds the next contacts.get open; the read returns a pre-stall snapshot. */
+  getGate: null as null | Promise<void>,
+  onGetStarted: null as null | (() => void),
   failUnsubscribeWrites: false,
   /** While true, every write to the consent-repair store fails. */
   failRepairWrites: false,
@@ -65,7 +68,14 @@ vi.mock("resend", () => ({
         return { error: null };
       },
       async get({ email }: { email: string }) {
-        const contact = fake.contacts.get(email);
+        const live = fake.contacts.get(email);
+        const contact = live ? { ...live } : live;
+        if (fake.getGate) {
+          const gate = fake.getGate;
+          fake.getGate = null;
+          fake.onGetStarted?.();
+          await gate;
+        }
         return contact
           ? { error: null, data: contact }
           : { error: { message: "not found", statusCode: 404 }, data: null };
@@ -244,6 +254,8 @@ beforeEach(() => {
   fake.onUpdateStarted = null;
   fake.unsubGate = null;
   fake.onUnsubUpdateStarted = null;
+  fake.getGate = null;
+  fake.onGetStarted = null;
   fake.failUnsubscribeWrites = false;
   fake.lockContended = false;
   fake.failRepairWrites = false;
@@ -326,6 +338,36 @@ describe("an older repair never undoes a newer confirmation", () => {
     expect((await confirm).status).toBe(200);
     expect(contactUnsubscribed()).toBe(false);
     expect(pendingRepairs()).toBe(0);
+  });
+});
+
+describe("a repair whose lease lapsed during its contact read", () => {
+  it("does not write a stale unsubscribe over a newer confirmation", async () => {
+    // A queued repair for an unsubscribe at +5s; the contact reads subscribed.
+    await redemption.recordNewsletterUnsubscribe(EMAIL, T0 + 5_000);
+    await redemption.recordConsentRepair(EMAIL, T0 + 5_000);
+    fake.contacts.set(EMAIL, { unsubscribed: false });
+
+    // The cron holds the lock and its contact read stalls (snapshot: subscribed).
+    const gate = deferred();
+    const started = deferred();
+    fake.getGate = gate.promise;
+    fake.onGetStarted = started.release;
+    vi.setSystemTime(T0 + 60_000);
+    const cron = REPAIR_CRON(cronRequest());
+    await started.promise;
+
+    // The lease lapses; the reader confirms a fresh link in the meantime.
+    expireLocks();
+    const fresh = createConfirmToken(EMAIL, "re_test", new Date(T0 + 30_000));
+    expect((await CONFIRM(confirmRequest(fresh))).status).toBe(200);
+    fake.updates.length = 0;
+
+    // The stalled read returns; the stale cron must not write unsubscribed:true.
+    gate.release();
+    await cron;
+    expect(fake.updates.filter((u) => u.unsubscribed === true)).toEqual([]);
+    expect(contactUnsubscribed()).toBe(false);
   });
 });
 
