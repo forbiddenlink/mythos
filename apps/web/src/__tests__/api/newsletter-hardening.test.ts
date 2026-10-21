@@ -142,6 +142,7 @@ beforeEach(() => {
   process.env = { ...ORIGINAL_ENV };
   process.env.RESEND_API_KEY = "re_test";
   process.env.NEWSLETTER_FROM = FROM;
+  process.env.RESEND_WEBHOOK_SECRET = "whsec_test";
   delete process.env.RESEND_SEGMENT_ID;
   delete process.env.NEWSLETTER_DAILY_SEND_CAP;
   process.env.UPSTASH_REDIS_REST_URL = "https://example.upstash.io";

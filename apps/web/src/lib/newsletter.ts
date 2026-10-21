@@ -51,6 +51,17 @@ export function getNewsletterConfig(
   };
 }
 
+/**
+ * Unsubscribe tracking depends on Resend's signed webhook. Without the secret
+ * a link issued before an unsubscribe could resubscribe the reader, so
+ * confirmation is disabled until it is set.
+ */
+export function getNewsletterWebhookSecret(
+  env: Record<string, string | undefined> = process.env,
+): string | null {
+  return env.RESEND_WEBHOOK_SECRET?.trim() || null;
+}
+
 interface ResendResult {
   error: { message: string; statusCode?: number | null; name?: string } | null;
 }

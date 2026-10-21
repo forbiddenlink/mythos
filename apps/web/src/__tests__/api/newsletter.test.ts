@@ -429,6 +429,7 @@ describe("POST /api/newsletter/confirm", () => {
     process.env = { ...ORIGINAL_ENV };
     process.env.RESEND_API_KEY = "re_test";
     process.env.NEWSLETTER_FROM = FROM;
+    process.env.RESEND_WEBHOOK_SECRET = "whsec_test";
     delete process.env.RESEND_SEGMENT_ID;
     resend.create.mockReset();
     resend.update.mockReset();

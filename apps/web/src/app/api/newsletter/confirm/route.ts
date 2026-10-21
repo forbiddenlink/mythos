@@ -7,6 +7,7 @@ import { logger } from "@/lib/logger";
 import {
   confirmNewsletterSubscription,
   getNewsletterConfig,
+  getNewsletterWebhookSecret,
 } from "@/lib/newsletter";
 import {
   checkConfirmMutationAllowed,
@@ -49,6 +50,15 @@ export async function POST(req: NextRequest) {
   const config = getNewsletterConfig();
   if (!config) {
     return json({ confirmed: false, reason: "not_configured" }, 501);
+  }
+  // Without the webhook nothing records unsubscribes, so a link issued before
+  // one could resubscribe the reader. Fail closed.
+  if (!getNewsletterWebhookSecret()) {
+    logger.error(
+      "Newsletter confirmation disabled: RESEND_WEBHOOK_SECRET is not set, so unsubscribes cannot be tracked",
+      {},
+    );
+    return json({ confirmed: false, reason: "unavailable" }, 503);
   }
 
   const identity = getOracleClientIdentity(req.headers);

@@ -104,6 +104,7 @@ From `apps/web/.env.example`:
 - `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` - trace sample rate (default 0.15); set both to keep server/client sampling in sync
 - `NEXT_PUBLIC_SENTRY_REPLAY_ENABLED` - session replay, off by default
 - `RESEND_API_KEY` - secret; lets `/api/newsletter` add weekly-digest sign-ups to Resend. Without it the route answers 501 and the footer/daily-myth forms show "sign-ups open soon". Sign-ups use the `newsletter` Upstash bucket (5/hr per client, fails closed in production like the Oracle)
+- `RESEND_WEBHOOK_SECRET` - secret; signing secret of the Resend webhook for `contact.updated` pointed at `/api/newsletter/webhook`. It is how unsubscribes are recorded, so while it is unset `/api/newsletter/confirm` answers 503 (and logs why) and the webhook answers 501. Set it before sign-up confirmation can work
 - `RESEND_SEGMENT_ID` - optional, non-secret Resend segment for the digest (defaults to `ef4d9db5-a6ff-4f30-adf3-be3576e3fe42`)
 - `NEXT_PUBLIC_STRIPE_PATRON_LINK` - optional Stripe payment link for the recurring "patron" tier on `/support`; hidden when unset
 
