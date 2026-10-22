@@ -46,7 +46,11 @@ export function GlobalClientAddons() {
   // Capture intent before the lazy search bundle has finished loading.
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey)) {
+      if (
+        typeof event.key === "string" &&
+        event.key.toLowerCase() === "k" &&
+        (event.metaKey || event.ctrlKey)
+      ) {
         event.preventDefault();
         if (!searchOpen)
           searchTrigger.current = document.activeElement as HTMLElement;

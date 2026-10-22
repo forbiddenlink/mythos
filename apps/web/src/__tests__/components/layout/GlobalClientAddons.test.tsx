@@ -18,6 +18,18 @@ vi.mock("@/components/analytics/ConsentGatedSentry", () => ({
 }));
 
 describe("GlobalClientAddons search intent", () => {
+  it("ignores keydown events without a key", () => {
+    render(<GlobalClientAddons />);
+
+    act(() => {
+      const event = new Event("keydown");
+      Object.defineProperty(event, "key", { value: undefined });
+      document.dispatchEvent(event);
+    });
+
+    expect(screen.queryByTestId("search")).not.toBeInTheDocument();
+  });
+
   it("opens lazy search from the header event and toggles it from the keyboard", () => {
     render(<GlobalClientAddons />);
     expect(screen.queryByTestId("search")).not.toBeInTheDocument();
