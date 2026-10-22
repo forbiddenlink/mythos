@@ -1,0 +1,13 @@
+# Weekly live-site link check. See .github/workflows/link-check.yml.
+max_concurrency = 8
+max_retries = 2
+retry_wait_time = 5
+timeout = 30
+# 429 = rate limited, not dead.
+accept = ["200..=299", "429"]
+exclude = [
+  '^mailto:',
+  '^tel:',
+  '^https?://(localhost|127\.0\.0\.1)',
+  '^https?://([a-z0-9-]+\.)?(linkedin\.com|x\.com|twitter\.com|instagram\.com|facebook\.com)',
+]

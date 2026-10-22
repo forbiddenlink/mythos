@@ -1,0 +1,79 @@
+name: Link check
+
+# Weekly crawl of the LIVE site so dead links on production pages get caught.
+# Not on push/PR: external link rot has nothing to do with a code change.
+on:
+  schedule:
+    - cron: "31 9 * * 4"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: link-check
+  cancel-in-progress: false
+
+env:
+  SITE_URL: https://mythosatlas.com
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Collect page URLs from the live sitemap
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 "$SITE_URL/sitemap.xml" -o sitemap.xml
+          # Follow one level of sitemap index if present.
+          if grep -q "<sitemapindex" sitemap.xml; then
+            grep -oE "<loc>[^<]+</loc>" sitemap.xml | sed -E 's#</?loc>##g' | while read -r child; do
+              curl -fsSL --retry 3 "$child"
+            done > pages.xml
+          else
+            cp sitemap.xml pages.xml
+          fi
+          grep -oE "<loc>[^<]+</loc>" pages.xml | sed -E 's#</?loc>##g' | sort -u > urls.txt
+          echo "Checking $(wc -l < urls.txt) pages"
+          test -s urls.txt
+
+      - name: Restore lychee cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --config lychee.toml
+            --cache --max-cache-age 1d
+            --format markdown
+            --output lychee-report.md
+            urls.txt
+          fail: false
+          jobSummary: true
+
+      - name: Open or update the link-check issue
+        if: steps.lychee.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh label create link-check --description "Broken links found by the weekly check" --color D93F0B 2>/dev/null || true
+          body="Weekly link check of $SITE_URL found broken links. Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"$'\n\n'"$(cat lychee-report.md)"
+          existing=$(gh issue list --label link-check --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue edit "$existing" --body "$body"
+          else
+            gh issue create --title "Broken links on $SITE_URL" --label link-check --body "$body"
+          fi
