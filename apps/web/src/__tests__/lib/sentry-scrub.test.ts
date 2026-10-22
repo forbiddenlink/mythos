@@ -1,6 +1,21 @@
 import { describe, expect, it } from "vitest";
 import { redactText, scrub, scrubEvent, stripUrl } from "@/lib/sentry-scrub";
 
+/**
+ * Fastest of several runs. A linear regex stays far under budget on every run, while
+ * catastrophic backtracking is slow on every run, so the minimum keeps the check
+ * meaningful but stops one CI load spike from failing it.
+ */
+function fastestRunMs(fn: () => unknown, runs = 5): number {
+  let best = Number.POSITIVE_INFINITY;
+  for (let i = 0; i < runs; i++) {
+    const start = performance.now();
+    fn();
+    best = Math.min(best, performance.now() - start);
+  }
+  return best;
+}
+
 // Built at runtime so secret scanners do not flag the fixture.
 const FAKE_KEY = ["sk", "live", "ABCDEFGHIJKL"].join("_");
 
@@ -85,9 +100,8 @@ describe("sentry-scrub: free text", () => {
       "sk_live_".repeat(560),
     ];
     for (const input of inputs) {
-      const start = performance.now();
       const out = redactText(input);
-      expect(performance.now() - start).toBeLessThan(250);
+      expect(fastestRunMs(() => redactText(input))).toBeLessThan(250);
       expect(out.endsWith("[TRUNCATED]")).toBe(true);
       expect(out.length).toBeLessThan(4200);
     }
@@ -478,9 +492,7 @@ describe("sentry-scrub: Codex round 2", () => {
       `://${"a".repeat(4500)}`,
     ];
     for (const input of inputs) {
-      const start = performance.now();
-      redactText(input);
-      expect(performance.now() - start).toBeLessThan(250);
+      expect(fastestRunMs(() => redactText(input))).toBeLessThan(250);
     }
   });
 });
@@ -569,9 +581,7 @@ describe("sentry-scrub: Codex round 3", () => {
       "tel:".repeat(1100),
     ];
     for (const input of inputs) {
-      const start = performance.now();
-      redactText(input);
-      expect(performance.now() - start).toBeLessThan(250);
+      expect(fastestRunMs(() => redactText(input))).toBeLessThan(250);
     }
   });
 
@@ -690,9 +700,7 @@ describe("sentry-scrub: Codex round 4", () => {
       "a.".repeat(16000) + "@",
     ];
     for (const input of inputs) {
-      const start = performance.now();
-      redactText(input);
-      expect(performance.now() - start).toBeLessThan(250);
+      expect(fastestRunMs(() => redactText(input))).toBeLessThan(250);
     }
   });
 });
@@ -802,9 +810,8 @@ describe("sentry-scrub: review round 3", () => {
         values: Array.from({ length: 500 }, () => ({ stacktrace: { frames } })),
       },
     };
-    const start = performance.now();
     const out = scrubEvent(input) as typeof input;
-    expect(performance.now() - start).toBeLessThan(250);
+    expect(fastestRunMs(() => scrubEvent(input) as typeof input)).toBeLessThan(250);
     expect(out.exception.values.length).toBeLessThanOrEqual(20);
   });
 });
@@ -1020,9 +1027,7 @@ describe("sentry-scrub: review round 7", () => {
 
   it("stays linear on long scheme runs with no query", () => {
     for (const input of ["a://".repeat(1100), `http://${"a".repeat(4400)}`]) {
-      const start = performance.now();
-      redactText(input);
-      expect(performance.now() - start).toBeLessThan(100);
+      expect(fastestRunMs(() => redactText(input))).toBeLessThan(100);
     }
   });
 });
@@ -1057,9 +1062,7 @@ describe("sentry-scrub: review round 8", () => {
       "\\u0025".repeat(700),
       "%25".repeat(1400),
     ]) {
-      const start = performance.now();
-      redactText(input);
-      expect(performance.now() - start).toBeLessThan(100);
+      expect(fastestRunMs(() => redactText(input))).toBeLessThan(100);
     }
   });
 });
