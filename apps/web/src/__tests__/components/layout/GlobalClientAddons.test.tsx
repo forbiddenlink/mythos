@@ -32,4 +32,22 @@ describe("GlobalClientAddons search intent", () => {
     });
     expect(screen.getByTestId("search")).toHaveAttribute("data-open", "false");
   });
+
+  it("ignores keydown events without a key, as Safari autofill sends", () => {
+    render(<GlobalClientAddons />);
+    // Safari autofill dispatches a plain Event named keydown: event.key is undefined.
+    // jsdom reports listener exceptions to window "error", not to dispatchEvent.
+    const errors: unknown[] = [];
+    const onError = (event: ErrorEvent) => {
+      errors.push(event.error);
+      event.preventDefault();
+    };
+    window.addEventListener("error", onError);
+    act(() => {
+      document.dispatchEvent(new Event("keydown"));
+    });
+    window.removeEventListener("error", onError);
+    expect(errors).toEqual([]);
+    expect(screen.queryByTestId("search")).not.toBeInTheDocument();
+  });
 });
