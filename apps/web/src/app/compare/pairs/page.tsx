@@ -53,6 +53,16 @@ export default function ComparisonIndexPage() {
       />
       <Container className="pt-2">
         <CompareNav current="/compare/pairs" />
+        <p className="mt-4 max-w-[68ch] type-meta text-muted-foreground">
+          Looking for Roman names? The{" "}
+          <Link
+            className="underline underline-offset-4 hover:text-gold-text"
+            href="/guides/greek-roman-gods-chart"
+          >
+            Greek and Roman gods chart
+          </Link>{" "}
+          puts every pair in one table.
+        </p>
       </Container>
       <Container className="section-space-sm">
         <nav

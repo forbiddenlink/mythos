@@ -8,6 +8,9 @@ const GUIDE_IMAGES: Record<string, string> = {
   "percy-jackson-titans-curse": "/deities/artemis.jpg",
   odyssey: "/deities/poseidon.jpg",
   "hades-ii": "/deities/hades.jpg",
+  "greek-gods-family-tree": "/deities/zeus.jpg",
+  "greek-roman-gods-chart": "/deities/jupiter.jpg",
+  "valhalla-vs-folkvangr": "/deities/freyja.jpg",
 };
 
 /**
