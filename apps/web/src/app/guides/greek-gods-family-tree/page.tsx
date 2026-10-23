@@ -132,7 +132,7 @@ const QUESTIONS = [
   {
     question: "Was Hestia or Dionysus the twelfth Olympian?",
     answer:
-      "Both appear in the twelfth seat, depending on the list. The atlas records a later story in which Hestia gave her seat to Dionysus. Hesiod's Theogony does not give a list of twelve, so the story is not an early one.",
+      "Both appear in the twelfth seat, depending on the list. Ancient lists of the twelve vary. The story that Hestia gave her seat to Dionysus is a modern retelling (Robert Graves, The Greek Myths, 1955), not an ancient myth.",
   },
   {
     question: "Who are Aphrodite's parents?",
@@ -398,13 +398,15 @@ export default function GreekGodsFamilyTreeGuide() {
               the underworld, so the usual lists leave him out.
             </p>
             <p>
-              The atlas&apos;s entry for Hestia records the later story that she
-              gave her seat to Dionysus to avoid a quarrel and tended the hearth
-              fire instead. Hesiod does not list twelve gods, and the Theogony
-              places Hestia first among Rhea&apos;s children (Theogony 453-454).
-              Treat the seat swap as a tradition about the number twelve, not as
-              part of the family tree itself: Dionysus&apos;s parents (Zeus and
-              the mortal Semele) are the same whether or not he sits among the
+              The story that Hestia gave up her seat to Dionysus is not an
+              ancient myth. No ancient source tells it; it comes from Robert
+              Graves&apos;s <em>The Greek Myths</em> (1955), and the
+              atlas&apos;s Hestia entry repeats it as a retelling. Ancient lists
+              of twelve gods vary by place and author, and there is no single
+              canonical list. Hesiod does not give one, and the Theogony places
+              Hestia first among Rhea&apos;s children (Theogony 453-454).
+              Dionysus&apos;s parents (Zeus and the mortal Semele, Theogony
+              940-942) are the same whether or not he is counted among the
               twelve.
             </p>
           </div>
