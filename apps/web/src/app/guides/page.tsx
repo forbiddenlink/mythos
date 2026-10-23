@@ -11,7 +11,7 @@ import { generateBaseMetadata } from "@/lib/metadata";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Guides: Epics, Novels and Games Read Against the Myths",
   description:
-    "Guides to Homer's Odyssey, Percy Jackson's The Titan's Curse and Hades II: the ancient sources behind each, what the modern versions invent, and links to every figure and place.",
+    "Guides to Homer's Odyssey, Percy Jackson's The Titan's Curse and Hades II, plus answer pages on the Greek gods family tree, Greek and Roman gods, and Valhalla versus Folkvangr: the ancient sources behind each, with links to every figure and place.",
   url: "/guides",
   image: null,
   keywords: [
@@ -27,6 +27,9 @@ const GUIDE_IMAGES: Record<string, string> = {
   "percy-jackson-titans-curse": "/deities/artemis.jpg",
   odyssey: "/journeys/odyssey.png",
   "hades-ii": "/deities/hades.jpg",
+  "greek-gods-family-tree": "/deities/zeus.jpg",
+  "greek-roman-gods-chart": "/deities/jupiter.jpg",
+  "valhalla-vs-folkvangr": "/deities/freyja.jpg",
 };
 
 export default function GuidesIndex() {
@@ -75,7 +78,20 @@ export default function GuidesIndex() {
         <p>
           Each guide reads a modern retelling or an ancient epic against its
           sources, then links every figure, creature and place it mentions to
-          its entry in the atlas. Looking for a single domain instead? See the{" "}
+          its entry in the atlas. The answer pages take one question and answer
+          it from the sources: the{" "}
+          <Link href="/guides/greek-gods-family-tree">
+            Greek gods family tree
+          </Link>
+          , the{" "}
+          <Link href="/guides/greek-roman-gods-chart">
+            Greek and Roman gods chart
+          </Link>{" "}
+          and{" "}
+          <Link href="/guides/valhalla-vs-folkvangr">
+            Valhalla versus Folkvangr
+          </Link>
+          . Looking for a single domain instead? See the{" "}
           <Link href="/divine-domains">gods by domain</Link>, from war and love
           to the sea and the dead.
         </p>

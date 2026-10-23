@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
 import { PageHeader } from "@/components/layout/page-header";
@@ -55,6 +56,15 @@ export default function Page() {
       </Container>
 
       <AboutThisPage title="How to read the family tree" size="wide">
+        <p>
+          Prefer plain text? The{" "}
+          <Link href="/guides/greek-gods-family-tree">
+            Greek gods family tree
+          </Link>{" "}
+          lists the primordials, Titans and 12 Olympians generation by
+          generation, with the Hesiod passage behind each link and the places
+          where the sources disagree.
+        </p>
         <p>
           Choose Connection to trace the shortest recorded chain between two
           figures in the selected tradition. Each step names its relationship

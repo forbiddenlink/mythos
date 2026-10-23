@@ -31,6 +31,10 @@ Editorial hubs that set a modern retelling or an ancient epic beside its sources
 - [The Odyssey: A Guide to Homer's Epic](https://mythosatlas.com/guides/odyssey): Odysseus's route (Troy to Ithaca, with each stop classed as real, identified or mythic), a 24-book summary, and the cast. About Homer's poem, not any film.
 - [Who's Who in Hades II](https://mythosatlas.com/guides/hades-ii): Melinoë (Orphic Hymn 71), Hecate, Chronos versus Cronus, Nyx and her children, Nemesis, Odysseus and Charon, with what the game invents.
 
+- [Greek Gods Family Tree (Simple Version)](https://mythosatlas.com/guides/greek-gods-family-tree): primordials, Titans and the 12 Olympians as plain lists with the Hesiod lines behind each link, the Hestia and Dionysus seat, and the Aphrodite and Hephaestus parentage variants.
+- [Greek and Roman Gods: Name Chart and Real Differences](https://mythosatlas.com/guides/greek-roman-gods-chart): every Greek god beside its Roman counterpart, shared domains, what Rome changed, and a comparison page for each pair.
+- [Valhalla vs Folkvangr: Who Goes Where](https://mythosatlas.com/guides/valhalla-vs-folkvangr): Odin's hall, Freyja's field and Hel's realm quoted from the Poetic Edda and Prose Edda, with where the sources differ and what they do not say.
+
 ## Gods by domain
 
 - [Divine domains](https://mythosatlas.com/divine-domains) is the hub. Each domain held by at least three deities in two or more traditions has its own page at `/gods-of/<domain>`, for example [gods of war](https://mythosatlas.com/gods-of/war), [love](https://mythosatlas.com/gods-of/love), [the sea](https://mythosatlas.com/gods-of/sea), [death](https://mythosatlas.com/gods-of/death), [wisdom](https://mythosatlas.com/gods-of/wisdom) and [the sun](https://mythosatlas.com/gods-of/sun). Every name and description on those pages comes from the deity entries.

@@ -78,6 +78,35 @@ interface PageProps {
 
 const allPantheons = pantheons as unknown as PantheonData[];
 
+/** Answer pages that belong to a tradition, shown beside its hub links. */
+const ANSWER_GUIDE_LINKS: Record<
+  string,
+  Array<{ href: string; label: string }>
+> = {
+  greek: [
+    {
+      href: "/guides/greek-gods-family-tree",
+      label: "Greek gods family tree",
+    },
+    {
+      href: "/guides/greek-roman-gods-chart",
+      label: "Greek and Roman gods chart",
+    },
+  ],
+  roman: [
+    {
+      href: "/guides/greek-roman-gods-chart",
+      label: "Greek and Roman gods chart",
+    },
+  ],
+  norse: [
+    {
+      href: "/guides/valhalla-vs-folkvangr",
+      label: "Valhalla vs Folkvangr",
+    },
+  ],
+};
+
 // Every valid param is prerendered by generateStaticParams; anything else is a
 // 404 served from the static not-found page. (On-demand rendering of unknown
 // params would cache HTML carrying one request's CSP nonce.) Alias URLs (ids,
@@ -208,6 +237,7 @@ export default async function PantheonPage({ params }: PageProps) {
   const creatureHub = getCreatureHub(pantheon.slug);
   const goddessHub = getGoddessHub(pantheon.slug);
   const hubLinks = [
+    ...(ANSWER_GUIDE_LINKS[pantheon.slug] ?? []),
     ...(creatureHub
       ? [
           {

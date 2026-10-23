@@ -86,6 +86,73 @@ export const GUIDES: readonly GuideSummary[] = [
       location: ["underworld", "tartarus", "river-styx"],
     },
   },
+  {
+    slug: "greek-gods-family-tree",
+    title: "Greek Gods Family Tree (Simple Version)",
+    shortTitle: "Greek gods family tree",
+    description:
+      "Who is whose parent among the primordials, Titans and 12 Olympians, as plain lists with the Hesiod lines behind each link, the Hestia and Dionysus seat, and the Aphrodite and Hephaestus variants.",
+    featured: {
+      deity: [
+        "gaia",
+        "uranus",
+        "nyx",
+        "cronus",
+        "rhea",
+        "zeus",
+        "hera",
+        "poseidon",
+        "hades",
+        "demeter",
+        "hestia",
+        "athena",
+        "apollo",
+        "artemis",
+        "ares",
+        "aphrodite",
+        "hephaestus",
+        "hermes",
+        "dionysus",
+        "persephone",
+      ],
+    },
+  },
+  {
+    slug: "greek-roman-gods-chart",
+    title: "Greek and Roman Gods: Name Chart and Real Differences",
+    shortTitle: "Greek and Roman gods chart",
+    description:
+      "Every Greek god and its Roman counterpart in one table, with the domains they share, what Rome changed, and a link to each head-to-head comparison.",
+    featured: {
+      deity: [
+        "jupiter",
+        "juno",
+        "neptune",
+        "mars",
+        "venus",
+        "minerva",
+        "apollo-roman",
+        "diana",
+        "mercury",
+        "bacchus",
+        "vulcan",
+        "ceres",
+        "vesta",
+        "janus",
+      ],
+    },
+  },
+  {
+    slug: "valhalla-vs-folkvangr",
+    title: "Valhalla vs Folkvangr: Who Goes Where",
+    shortTitle: "Valhalla vs Folkvangr",
+    description:
+      "Odin's hall, Freyja's field and Hel's realm: who the Norse sources send to each, quoted from the Poetic Edda and the Prose Edda, and what they leave unsaid.",
+    featured: {
+      deity: ["odin", "freyja", "hel"],
+      location: ["asgard", "helheim"],
+    },
+  },
 ];
 
 export function getGuide(slug: string): GuideSummary | undefined {

@@ -33,9 +33,11 @@ describe("guides registry", () => {
   });
 
   it("finds the guides that feature an entry", () => {
-    expect(guidesFeaturing("deity", "artemis").map((g) => g.slug)).toEqual([
-      "percy-jackson-titans-curse",
-    ]);
+    expect(
+      guidesFeaturing("deity", "artemis")
+        .map((g) => g.slug)
+        .sort(),
+    ).toEqual(["greek-gods-family-tree", "percy-jackson-titans-curse"]);
     expect(
       guidesFeaturing("hero", "odysseus")
         .map((g) => g.slug)
