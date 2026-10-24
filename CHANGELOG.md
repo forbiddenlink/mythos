@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.0](https://github.com/forbiddenlink/mythos/compare/v1.12.0...v1.13.0) (2026-10-24)
+
+
+### Features
+
+* **guides:** add three static answer pages for top search questions ([#216](https://github.com/forbiddenlink/mythos/issues/216)) ([e687fc8](https://github.com/forbiddenlink/mythos/commit/e687fc8d61129e7e86c966387d130d052b71b2ed))
+
+
+### Bug Fixes
+
+* **data:** drop wrong Oskorei label from Freyja bio ([#217](https://github.com/forbiddenlink/mythos/issues/217)) ([30c983b](https://github.com/forbiddenlink/mythos/commit/30c983b91f88a0185c11681f1e205edc423b7f1b))
+* **deps:** raise override floors so dompurify and @vitest/mocker resolve to patched versions ([#218](https://github.com/forbiddenlink/mythos/issues/218)) ([eb33ce9](https://github.com/forbiddenlink/mythos/commit/eb33ce98430892ce22c3ac12ded91b2e94b2ced0))
+* **deps:** upgrade next to 16.4.1 for GHSA-2464-fhr4-w9xw ([#212](https://github.com/forbiddenlink/mythos/issues/212)) ([577a50f](https://github.com/forbiddenlink/mythos/commit/577a50f75617341c306d217296bb72ef8e2e0b76))
+* **search:** ignore keydown events with no key ([#211](https://github.com/forbiddenlink/mythos/issues/211)) ([8152526](https://github.com/forbiddenlink/mythos/commit/815252601e91575d384592e12fcfc1105eb25a1f))
+
 ## [1.12.0](https://github.com/forbiddenlink/mythos/compare/v1.11.1...v1.12.0) (2026-10-21)
 
 
