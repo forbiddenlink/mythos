@@ -24,7 +24,14 @@ export async function generateMetadata({ searchParams }: ChangelogPageProps) {
           ? "Content Updates"
           : "Release Notes";
 
-  return generateBaseMetadata({
+  // A filter with no entries (or an unknown type) renders an empty list, which
+  // Google reports as a soft 404. Point it at the full changelog and keep it out
+  // of the index until entries of that type exist.
+  const hasEntries =
+    !type ||
+    (changelogData as ChangelogEntryData[]).some((entry) => entry.type === type);
+
+  const metadata = generateBaseMetadata({
     title: `Mythos Atlas Changelog: ${suffix}`,
     description:
       type === "feature"
@@ -34,7 +41,7 @@ export async function generateMetadata({ searchParams }: ChangelogPageProps) {
           : type === "content"
             ? "Track new Mythos Atlas content releases including deities, stories, locations, and expanded mythology reference material."
             : "Follow Mythos Atlas releases with new features, content updates, bug fixes, release notes, product improvements, and reference-library expansions.",
-    url: type ? `/changelog?type=${type}` : "/changelog",
+    url: type && hasEntries ? `/changelog?type=${type}` : "/changelog",
     keywords: [
       "changelog",
       "updates",
@@ -43,6 +50,10 @@ export async function generateMetadata({ searchParams }: ChangelogPageProps) {
       "mythology app updates",
     ],
   });
+
+  return hasEntries
+    ? metadata
+    : { ...metadata, robots: { index: false, follow: true } };
 }
 
 export default async function ChangelogPage({
