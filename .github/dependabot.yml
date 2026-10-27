@@ -62,3 +62,5 @@ updates:
         patterns: ["*"]
     commit-message:
       prefix: "chore(deps):"
+    cooldown:
+      default-days: 7
