@@ -2,7 +2,7 @@ import { test, expect, devices } from "@playwright/test";
 
 // Helper to wait for Oracle button (has 1s animation delay + dynamic loading)
 const waitForOracleButton = async (page: import("@playwright/test").Page) => {
-  const oracleButton = page.locator('button[aria-label="Ask the Oracle"]');
+  const oracleButton = page.locator('button[aria-label$="Ask the Oracle"]');
   await expect(oracleButton).toBeVisible({ timeout: 10000 });
   return oracleButton;
 };
@@ -202,7 +202,7 @@ test.describe("Phase 7: Layout Effects", () => {
       await page.waitForLoadState("domcontentloaded");
 
       // Oracle has 1s animation delay + dynamic loading
-      const oracleButton = page.locator('button[aria-label="Ask the Oracle"]');
+      const oracleButton = page.locator('button[aria-label$="Ask the Oracle"]');
       await expect(oracleButton).toBeVisible({ timeout: 10000 });
     }
   });
@@ -226,7 +226,7 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
     await page.waitForLoadState("domcontentloaded");
 
     // Oracle has 1s animation delay + dynamic loading
-    const oracleButton = page.locator('button[aria-label="Ask the Oracle"]');
+    const oracleButton = page.locator('button[aria-label$="Ask the Oracle"]');
     await expect(oracleButton).toBeVisible({ timeout: 10000 });
 
     await context.close();
@@ -249,7 +249,7 @@ test.describe("Phase 7: Mobile Viewport Tests", () => {
     await page.waitForLoadState("domcontentloaded");
 
     // Wait for Oracle button
-    const oracleButton = page.locator('button[aria-label="Ask the Oracle"]');
+    const oracleButton = page.locator('button[aria-label$="Ask the Oracle"]');
     await expect(oracleButton).toBeVisible({ timeout: 10000 });
     await oracleButton.click();
 
@@ -323,7 +323,7 @@ test.describe("Phase 7: Tablet Viewport Tests", () => {
     await page.waitForLoadState("domcontentloaded");
 
     // Wait for Oracle button
-    const oracleButton = page.locator('button[aria-label="Ask the Oracle"]');
+    const oracleButton = page.locator('button[aria-label$="Ask the Oracle"]');
     await expect(oracleButton).toBeVisible({ timeout: 10000 });
     await oracleButton.click();
 

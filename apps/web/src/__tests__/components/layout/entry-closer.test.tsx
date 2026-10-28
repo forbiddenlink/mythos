@@ -23,7 +23,9 @@ describe("EntryCloser", () => {
       pantheonId: "greek-pantheon",
     });
     expect(screen.getByTestId("entry-closer")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Save Zeus" })).toBeVisible();
+    expect(
+      screen.getByRole("button", { name: "Save this: Zeus" }),
+    ).toBeVisible();
     expect(
       screen.getByRole("link", { name: /Walk a journey: / }),
     ).toHaveAttribute("href", expect.stringMatching(/^\/journeys\//));
@@ -46,7 +48,7 @@ describe("EntryCloser", () => {
       name: "The Titanomachy",
     });
     fireEvent.click(
-      screen.getByRole("button", { name: /Save The Titanomachy/ }),
+      screen.getByRole("button", { name: /Save this: The Titanomachy/ }),
     );
     expect(
       screen.getByRole("button", { name: /Remove The Titanomachy from saved/ }),

@@ -19,7 +19,9 @@ describe("museum inspection", () => {
   it("opens a labelled viewer, explains a documented detail and restores focus", async () => {
     const user = userEvent.setup();
     render(<MuseumInspector object={object} />);
-    const trigger = screen.getByRole("button", { name: /Inspect Shiva/ });
+    const trigger = screen.getByRole("button", {
+      name: /Inspect artwork: Shiva/,
+    });
     await user.click(trigger);
     expect(screen.getByRole("dialog", { name: object.title })).toBeVisible();
     await user.click(screen.getByRole("button", { name: "Hand drum" }));
@@ -39,7 +41,9 @@ describe("museum inspection", () => {
   it("keeps a museum recovery link when the image cannot load", async () => {
     const user = userEvent.setup();
     render(<MuseumInspector object={{ ...object, id: "unknown" }} />);
-    await user.click(screen.getByRole("button", { name: /Inspect Shiva/ }));
+    await user.click(
+      screen.getByRole("button", { name: /Inspect artwork: Shiva/ }),
+    );
     fireEvent.error(screen.getByRole("img"));
     expect(screen.getByText(/image could not be loaded/)).toBeVisible();
     expect(

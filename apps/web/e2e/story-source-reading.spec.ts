@@ -218,7 +218,7 @@ test.describe("Story and source reading", () => {
       }),
     ).toHaveCount(1);
     await expect(
-      page.getByRole("link", { name: /Read Book of the Dead online/ }),
+      page.getByRole("link", { name: /Read online: Book of the Dead/ }),
     ).toBeVisible();
   });
 });
