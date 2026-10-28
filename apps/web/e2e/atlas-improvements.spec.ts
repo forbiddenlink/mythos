@@ -57,7 +57,7 @@ for (const width of [390, 1440]) {
       await page.goto("/deities/shiva");
       await page
         .getByRole("button", {
-          name: "Inspect Shiva as Lord of Dance (Nataraja)",
+          name: "Inspect artwork: Shiva as Lord of Dance (Nataraja)",
           exact: true,
         })
         .click();
@@ -114,7 +114,7 @@ for (const width of [390, 1440]) {
       );
       await page.goto("/deities/shiva");
       const trigger = page.getByRole("button", {
-        name: "Inspect Shiva as Lord of Dance (Nataraja)",
+        name: "Inspect artwork: Shiva as Lord of Dance (Nataraja)",
         exact: true,
       });
       await trigger.click();

@@ -18,7 +18,7 @@ export function EntryCloserSave({
       type="button"
       onClick={() => toggleBookmark(type, id)}
       aria-pressed={saved}
-      aria-label={saved ? `Remove ${name} from saved` : `Save ${name}`}
+      aria-label={saved ? `Remove ${name} from saved` : `Save this: ${name}`}
       className={cn(
         "inline-flex min-h-11 items-center gap-2 type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold",
       )}

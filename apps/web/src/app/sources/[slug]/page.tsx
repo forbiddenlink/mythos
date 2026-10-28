@@ -336,7 +336,7 @@ export default async function SourcePage({ params }: PageProps) {
                     href={source.externalUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Read ${source.title} online (opens in new tab)`}
+                    aria-label={`Read online: ${source.title} (opens in new tab)`}
                     className="inline-flex h-10 items-center gap-2 rounded-full bg-gold px-5 text-[0.9375rem] font-semibold text-midnight transition-colors hover:bg-gold-light"
                   >
                     Read online
