@@ -119,3 +119,13 @@ dist/
 
 # Design research screenshots (large, regenerable)
 design-research/screens/
+
+# Design-research / functional-review audit run output
+design-research/baseline-results.json
+design-research/final-audit.json
+design-research/focused-results.json
+design-research/interactions.json
+design-research/journeys.json
+design-research/narrow-*.json
+design-research/second-*.json
+functional-review/page-evidence.json
