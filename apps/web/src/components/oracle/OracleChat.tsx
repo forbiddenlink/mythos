@@ -199,7 +199,7 @@ export function OracleChat() {
         variant="ghost"
         className="min-h-11 px-0 text-muted-foreground"
         onClick={() => setIsOpen(true)}
-        aria-label={t("fabOpen")}
+        aria-label={`${t("title")}: ${t("fabOpen")}`}
       >
         {t("title")}
       </Button>

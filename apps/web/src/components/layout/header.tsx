@@ -87,10 +87,9 @@ export function Header() {
             onClick={handleSearchClick}
             lang={locale}
             className="group inline-flex h-10 items-center gap-2 rounded-md px-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold md:border md:border-border md:bg-card/60 md:pr-1.5 md:pl-3"
-            aria-label={t("actions.search")}
           >
             <Search className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden w-20 text-left lg:inline">
+            <span className="w-20 text-left max-lg:sr-only lg:inline">
               {t("actions.search")}
             </span>
             <kbd

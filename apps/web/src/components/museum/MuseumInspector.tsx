@@ -58,7 +58,7 @@ export function MuseumInspector({ object }: { object: MuseumObject }) {
         <button
           type="button"
           className="mb-4 inline-flex min-h-11 items-center self-start rounded-md border border-border px-3 text-sm font-medium text-gold-text hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-          aria-label={`Inspect ${object.title}`}
+          aria-label={`Inspect artwork: ${object.title}`}
         >
           Inspect artwork
         </button>
