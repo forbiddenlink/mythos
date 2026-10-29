@@ -58,8 +58,8 @@ jobs:
             --config lychee.toml
             --cache --max-cache-age 1d
             --format markdown
-            --output lychee-report.md
             urls.txt
+          output: lychee-report.md
           fail: false
           jobSummary: true
 
