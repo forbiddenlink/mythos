@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.1](https://github.com/forbiddenlink/mythos/compare/v1.13.0...v1.13.1) (2026-10-29)
+
+
+### Bug Fixes
+
+* **a11y:** make accessible names contain their visible text ([#230](https://github.com/forbiddenlink/mythos/issues/230)) ([2feb013](https://github.com/forbiddenlink/mythos/commit/2feb013f35d51671dc0a0a9d2493ec696ee17c39))
+* **deps:** clear Dependabot alerts for undici ([#224](https://github.com/forbiddenlink/mythos/issues/224)) ([7b651d9](https://github.com/forbiddenlink/mythos/commit/7b651d9cd6657daf5ae6ae88b940fe72751c2f71))
+* **deps:** raise undici override floor to 7.30.1 ([#220](https://github.com/forbiddenlink/mythos/issues/220)) ([59642c1](https://github.com/forbiddenlink/mythos/commit/59642c10a3c0601f1c666feb0d470b0661b1a4bf))
+* **deps:** update non-major (automerge) ([#223](https://github.com/forbiddenlink/mythos/issues/223)) ([882d1ce](https://github.com/forbiddenlink/mythos/commit/882d1ce8fca358c5545e5ddbf6c100678c7efb9e))
+* **seo:** keep empty changelog filters out of the index ([#227](https://github.com/forbiddenlink/mythos/issues/227)) ([2873fc1](https://github.com/forbiddenlink/mythos/commit/2873fc1d45587fa7bdef10ce4cf96ff598493b0d))
+
 ## [1.13.0](https://github.com/forbiddenlink/mythos/compare/v1.12.0...v1.13.0) (2026-10-24)
 
 
