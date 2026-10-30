@@ -29,40 +29,80 @@ beforeEach(() => {
   hits.list = [];
 });
 
+function noResultCalls() {
+  return track.mock.calls.filter(([n]) => n === "search_no_results");
+}
+
 describe("GlobalSearch zero-result logging", () => {
-  it("records the term once when a search finds nothing", () => {
+  it("sends nothing while the visitor is still typing", () => {
     render(<GlobalSearch open onOpenChange={() => {}} />);
+    typeQuery("za");
+    typeQuery("zalg");
     typeQuery("Zalgo Prince");
-    const calls = track.mock.calls.filter(([n]) => n === "search_no_results");
-    expect(calls).toEqual([["search_no_results", { term: "zalgo prince" }]]);
+    expect(noResultCalls()).toEqual([]);
   });
 
-  it("does not record the term when there are results", () => {
+  it("sends the final term once when the dialog closes on zero results", () => {
+    const { rerender } = render(<GlobalSearch open onOpenChange={() => {}} />);
+    typeQuery("za");
+    typeQuery("Zalgo Prince");
+    rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+    expect(noResultCalls()).toEqual([
+      ["search_no_results", { term: "zalgo prince" }],
+    ]);
+    rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+    expect(noResultCalls()).toHaveLength(1);
+  });
+
+  it("sends one term per open, not one per session", () => {
+    const { rerender } = render(<GlobalSearch open onOpenChange={() => {}} />);
+    typeQuery("zalgo");
+    rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+    rerender(<GlobalSearch open onOpenChange={() => {}} />);
+    typeQuery("morgoth");
+    rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+    expect(noResultCalls().map(([, p]) => p)).toEqual([
+      { term: "zalgo" },
+      { term: "morgoth" },
+    ]);
+  });
+
+  it("sends nothing on close when the final query had results", () => {
     hits.list = [
-      {
-        type: "deity",
-        id: "x",
-        title: "Loki",
-        description: "",
-        matchScore: 1,
-      },
+      { type: "deity", id: "x", title: "Loki", description: "", matchScore: 1 },
     ];
-    render(<GlobalSearch open onOpenChange={() => {}} />);
+    const { rerender } = render(<GlobalSearch open onOpenChange={() => {}} />);
     typeQuery("loki");
-    expect(track.mock.calls.some(([n]) => n === "search_no_results")).toBe(
-      false,
-    );
+    rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+    expect(noResultCalls()).toEqual([]);
     expect(track).toHaveBeenCalledWith("search_performed", {
       queryLength: 4,
       resultCount: 1,
     });
   });
 
-  it("never records an email-shaped term", () => {
-    render(<GlobalSearch open onOpenChange={() => {}} />);
-    typeQuery("me@example.com");
-    expect(track.mock.calls.some(([n]) => n === "search_no_results")).toBe(
-      false,
-    );
+  it("sends nothing on close when no query was typed", () => {
+    const { rerender } = render(<GlobalSearch open onOpenChange={() => {}} />);
+    rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+    expect(noResultCalls()).toEqual([]);
+  });
+
+  it("never sends an email, link, domain or numeric term", () => {
+    for (const raw of ["me@example.com", "example.com", "5551234567"]) {
+      const { rerender, unmount } = render(
+        <GlobalSearch open onOpenChange={() => {}} />,
+      );
+      typeQuery(raw);
+      rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+      unmount();
+    }
+    expect(noResultCalls()).toEqual([]);
+  });
+
+  it("keeps a Greek or Devanagari name", () => {
+    const { rerender } = render(<GlobalSearch open onOpenChange={() => {}} />);
+    typeQuery("Ζεύς");
+    rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
+    expect(noResultCalls()).toEqual([["search_no_results", { term: "ζεύς" }]]);
   });
 });

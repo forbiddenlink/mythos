@@ -188,9 +188,43 @@ describe("learning click event contracts", () => {
 });
 
 describe("zero-result search term", () => {
-  it("normalises a term to lowercase, collapsed whitespace, capped length", () => {
+  it("normalises a term to lowercase and collapsed whitespace", () => {
     expect(normalizeSearchTerm("  Maui   Hook ")).toBe("maui hook");
-    expect(normalizeSearchTerm("x".repeat(200))).toHaveLength(60);
+    expect(normalizeSearchTerm("Ｚｅｕｓ")).toBe("zeus");
+  });
+
+  it("refuses over-long input instead of truncating it", () => {
+    expect(normalizeSearchTerm("x".repeat(60))).toBe("x".repeat(60));
+    expect(normalizeSearchTerm("x".repeat(61))).toBeNull();
+    // An email whose "@" would sit past the cap must not leak its prefix.
+    expect(normalizeSearchTerm(`${"a".repeat(70)}@example.com`)).toBeNull();
+    expect(normalizeSearchTerm(`${"b".repeat(65)}://evil.example`)).toBeNull();
+  });
+
+  it.each(["example.com", "loki@x", "a/b", "q=loki", "what?", "zeus2", "r2d2"])(
+    "rejects punctuation and digits: %j",
+    (raw) => {
+      expect(normalizeSearchTerm(raw)).toBeNull();
+    },
+  );
+
+  it("rejects digits split by letters and too many words", () => {
+    expect(normalizeSearchTerm("call five five 5 5 5 1 2 3")).toBeNull();
+    expect(normalizeSearchTerm("a1b2c3d4e5f6")).toBeNull();
+    expect(normalizeSearchTerm("one two three four five six")).toBeNull();
+    expect(normalizeSearchTerm("one two three four five")).toBe(
+      "one two three four five",
+    );
+  });
+
+  it.each([
+    ["Ζεύς", "ζεύς"],
+    ["Ἀθηνᾶ", "ἀθηνᾶ"],
+    ["इन्द्र", "इन्द्र"],
+    ["Ma'ui", "ma'ui"],
+    ["Ra-Horakhty", "ra-horakhty"],
+  ])("keeps mythology names in any script: %j", (raw, expected) => {
+    expect(normalizeSearchTerm(raw)).toBe(expected);
   });
 
   it.each([
@@ -201,6 +235,7 @@ describe("zero-result search term", () => {
     "https://example.com/page",
     "www.example.com",
     "call 5551234567",
+    "x".repeat(200),
   ])("refuses to record %j", (raw) => {
     expect(normalizeSearchTerm(raw)).toBeNull();
   });
@@ -217,9 +252,9 @@ describe("zero-result search term", () => {
       { term: 5 },
       {},
     ]) {
-      expect(hasValidLearningEventProperties("search_no_results", invalid)).toBe(
-        false,
-      );
+      expect(
+        hasValidLearningEventProperties("search_no_results", invalid),
+      ).toBe(false);
     }
   });
 

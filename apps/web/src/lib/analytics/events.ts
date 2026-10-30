@@ -8,9 +8,12 @@
  *
  * Privacy contract: no event carries free text a visitor typed, no identifiers,
  * and no entity beyond a public slug, with ONE exception: `search_no_results`
- * carries the normalised search term, and only when a search found nothing, so
- * the content gaps can be named. `normalizeSearchTerm` refuses anything shaped
- * like an email address, a link or a long number. Property values are
+ * carries the normalised search term, only when the visitor closes the search
+ * dialog on a query that found nothing (one term per open, never per keystroke),
+ * so the content gaps can be named. `normalizeSearchTerm` is an allowlist:
+ * letters, marks, apostrophes, hyphens and spaces, at most 5 words and 60
+ * characters, so an email, link, domain or number can never pass and over-long
+ * input is refused rather than truncated. Property values are
  * restricted to primitives so an object can never smuggle a payload through by
  * accident.
  */
@@ -156,24 +159,27 @@ export function sanitizeProperties(
 }
 
 const MAX_SEARCH_TERM_LENGTH = 60;
+const MAX_SEARCH_TERM_WORDS = 5;
+/** Letters (any script), combining marks, apostrophes, hyphens, single spaces. */
+const SEARCH_TERM_ALLOWLIST =
+  /^[\p{L}\p{M}'\u2019-]+(?: [\p{L}\p{M}'\u2019-]+)*$/u;
 
 /**
  * The only visitor-typed text that may leave the browser: a search that found
- * nothing. Lowercased, whitespace collapsed, capped. Returns null for anything
- * too short or shaped like personal data (email address, link, 6+ digit run).
+ * nothing. The term is NFKC-normalised, lowercased and whitespace-collapsed,
+ * then checked against an ALLOWLIST: letters in any script (Latin, Greek,
+ * Devanagari and so on), combining marks, apostrophes, hyphens and spaces, at
+ * most 5 words. That
+ * rejects every digit, "@", "/", ".", "=" and "?", so an email address, a link,
+ * a bare domain or a phone number can never pass. Input over 60 characters is
+ * refused whole, never truncated: truncation could cut off the "@" that would
+ * have exposed the rest. Returns null for anything refused.
  */
 export function normalizeSearchTerm(raw: string): string | null {
-  const term = raw
-    .trim()
-    .replace(/\s+/g, " ")
-    .toLowerCase()
-    .slice(0, MAX_SEARCH_TERM_LENGTH)
-    .trim();
-  if (term.length < 2) return null;
-  if (term.includes("@") || term.includes("://") || term.includes("www.")) {
-    return null;
-  }
-  if (/\d{6,}/.test(term.replace(/[\s().-]/g, ""))) return null;
+  const term = raw.normalize("NFKC").trim().replace(/\s+/g, " ").toLowerCase();
+  if (term.length < 2 || term.length > MAX_SEARCH_TERM_LENGTH) return null;
+  if (!SEARCH_TERM_ALLOWLIST.test(term)) return null;
+  if (term.split(" ").length > MAX_SEARCH_TERM_WORDS) return null;
   return term;
 }
 
