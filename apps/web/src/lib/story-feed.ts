@@ -6,6 +6,7 @@ export interface FeedStory {
 }
 
 // Characters XML 1.0 does not allow, which would make a reader reject the feed.
+// biome-ignore lint/suspicious/noControlCharactersInRegex: stripping these exact characters is the purpose.
 const FORBIDDEN_XML = /[\u0000-\u0008\u000B\u000C\u000E-\u001F￾￿]/g;
 
 function escapeXml(value: string): string {
