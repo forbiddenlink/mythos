@@ -48,6 +48,7 @@ import { entryDescription } from "@/lib/seo/description";
 import { mythologyName } from "@/lib/seo/entry-titles";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getCreatureHub, getGoddessHub } from "@/lib/pantheon-hubs";
+import { storyHrefIn } from "@/lib/story-context";
 
 interface PantheonData {
   id: string;
@@ -432,7 +433,7 @@ export default async function PantheonPage({ params }: PageProps) {
                   columns={2}
                   items={stories.map((story) => ({
                     name: story.title,
-                    href: `/stories/${story.slug}`,
+                    href: storyHrefIn(story.slug, "pantheon", pantheon.slug),
                     imageUrl: story.imageUrl,
                     meta: story.category,
                     description: story.summary,

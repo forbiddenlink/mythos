@@ -3,6 +3,7 @@ import {
   ANALYTICS_EVENTS,
   isAnalyticsEventName,
   hasValidLearningEventProperties,
+  normalizeSearchTerm,
   resetAnalyticsSink,
   setAnalyticsSink,
   trackEvent,
@@ -183,5 +184,50 @@ describe("learning click event contracts", () => {
         hasValidLearningEventProperties("learning_path_step_selected", invalid),
       ).toBe(false);
     }
+  });
+});
+
+describe("zero-result search term", () => {
+  it("normalises a term to lowercase, collapsed whitespace, capped length", () => {
+    expect(normalizeSearchTerm("  Maui   Hook ")).toBe("maui hook");
+    expect(normalizeSearchTerm("x".repeat(200))).toHaveLength(60);
+  });
+
+  it.each([
+    "",
+    " ",
+    "a",
+    "me@example.com",
+    "https://example.com/page",
+    "www.example.com",
+    "call 5551234567",
+  ])("refuses to record %j", (raw) => {
+    expect(normalizeSearchTerm(raw)).toBeNull();
+  });
+
+  it("accepts a plain term and rejects extra fields or oversize terms", () => {
+    expect(
+      hasValidLearningEventProperties("search_no_results", { term: "loki" }),
+    ).toBe(true);
+    for (const invalid of [
+      { term: "loki", raw: "x" },
+      { term: "" },
+      { term: "a".repeat(61) },
+      { term: "me@example.com" },
+      { term: 5 },
+      {},
+    ]) {
+      expect(hasValidLearningEventProperties("search_no_results", invalid)).toBe(
+        false,
+      );
+    }
+  });
+
+  it("sends the term through the sink as a plain string property", () => {
+    const sink = vi.fn();
+    setAnalyticsSink(sink);
+    trackEvent("search_no_results", { term: "loki" });
+    expect(sink).toHaveBeenCalledWith("search_no_results", { term: "loki" });
+    resetAnalyticsSink();
   });
 });

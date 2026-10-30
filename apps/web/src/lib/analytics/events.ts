@@ -7,8 +7,12 @@
  * browser.
  *
  * Privacy contract: no event carries free text a visitor typed, no identifiers,
- * and no entity beyond a public slug. Property values are restricted to
- * primitives so an object can never smuggle a payload through by accident.
+ * and no entity beyond a public slug, with ONE exception: `search_no_results`
+ * carries the normalised search term, and only when a search found nothing, so
+ * the content gaps can be named. `normalizeSearchTerm` refuses anything shaped
+ * like an email address, a link or a long number. Property values are
+ * restricted to primitives so an object can never smuggle a payload through by
+ * accident.
  */
 
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
@@ -17,6 +21,7 @@ export const ANALYTICS_EVENTS = [
   // Discovery
   "entry_viewed",
   "search_performed",
+  "search_no_results",
   "share_clicked",
   // Engagement
   "quiz_started",
@@ -49,6 +54,7 @@ export type AnalyticsProperties = Record<string, AnalyticsPropertyValue>;
 export interface AnalyticsEventMap {
   entry_viewed: { entityType: string; slug: string; pantheon?: string };
   search_performed: { queryLength: number; resultCount: number };
+  search_no_results: { term: string };
   share_clicked: { surface: string; method: string };
   quiz_started: { quizId: string };
   quiz_completed: { quizId: string; score: number; total: number };
@@ -149,6 +155,28 @@ export function sanitizeProperties(
   return clean;
 }
 
+const MAX_SEARCH_TERM_LENGTH = 60;
+
+/**
+ * The only visitor-typed text that may leave the browser: a search that found
+ * nothing. Lowercased, whitespace collapsed, capped. Returns null for anything
+ * too short or shaped like personal data (email address, link, 6+ digit run).
+ */
+export function normalizeSearchTerm(raw: string): string | null {
+  const term = raw
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase()
+    .slice(0, MAX_SEARCH_TERM_LENGTH)
+    .trim();
+  if (term.length < 2) return null;
+  if (term.includes("@") || term.includes("://") || term.includes("www.")) {
+    return null;
+  }
+  if (/\d{6,}/.test(term.replace(/[\s().-]/g, ""))) return null;
+  return term;
+}
+
 /** Runtime contracts for learning clicks: never accept text or extra fields. */
 export function hasValidLearningEventProperties(
   name: AnalyticsEventName,
@@ -190,6 +218,14 @@ export function hasValidLearningEventProperties(
       ["start", "continue", "review", "step", "practice"].includes(
         properties.action,
       )
+    );
+  }
+  if (name === "search_no_results") {
+    return (
+      Object.keys(properties).every((key) => key === "term") &&
+      typeof properties.term === "string" &&
+      properties.term.length <= MAX_SEARCH_TERM_LENGTH &&
+      normalizeSearchTerm(properties.term) === properties.term
     );
   }
   return true;

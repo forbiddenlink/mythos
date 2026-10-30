@@ -26,6 +26,7 @@ import { formatPantheonLabel } from "@/lib/deity-page";
 import { getImageProvenance } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
+import { storyHrefIn } from "@/lib/story-context";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 
 interface PageProps {
@@ -296,7 +297,7 @@ export default async function CollectionPage({ params }: PageProps) {
                 columns={2}
                 items={collectionStories.map((story) => ({
                   name: story.title,
-                  href: `/stories/${story.slug}`,
+                  href: storyHrefIn(story.slug, "collection", collection.slug),
                   imageUrl: story.imageUrl,
                   pantheonId: story.pantheonId,
                   meta: pantheonName(story.pantheonId),

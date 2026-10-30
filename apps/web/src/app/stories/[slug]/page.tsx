@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { notFound, redirect } from "next/navigation";
 import { ArrowDown, Headphones, Play, ScrollText } from "lucide-react";
 import { TrackPageView } from "@/components/analytics/TrackPageView";
@@ -38,6 +39,7 @@ import {
   type MythVariant,
 } from "@/components/stories/MythVariants";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
+import { StoryReadingContext } from "@/components/stories/StoryReadingContext";
 import { StoryRecording } from "@/components/stories/StoryRecording";
 import { VersionMatrix } from "@/components/stories/VersionMatrix";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
@@ -66,6 +68,7 @@ import { getMuseumObjectsForStory } from "@/lib/museum";
 import { getMythVersions } from "@/lib/myth-versions";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { canonicalStorySlug } from "@/lib/story-aliases";
+import { getStoryContexts } from "@/lib/story-contexts";
 import { StoryProgressTracker } from "./_components/StoryProgressTracker";
 
 interface StoryData {
@@ -263,6 +266,9 @@ export default async function StoryPage({ params }: PageProps) {
   const museumObjects = getMuseumObjectsForStory(story.id);
   const variants = story.variants ?? [];
   const hasSources = hasEntitySources(story);
+  // Lists this story can be read in; `?in=` picks one on the client so the
+  // page stays static and its canonical URL stays parameter-free.
+  const readingContexts = getStoryContexts(story.slug);
 
   const toc: TocItem[] = [
     { id: "story-narrative", label: "The story" },
@@ -440,6 +446,9 @@ export default async function StoryPage({ params }: PageProps) {
         }
       >
         <ArticleStack>
+          <Suspense fallback={null}>
+            <StoryReadingContext contexts={readingContexts} placement="top" />
+          </Suspense>
           <ArticleSection
             id="story-narrative"
             eyebrow="An editorial retelling"
@@ -487,6 +496,12 @@ export default async function StoryPage({ params }: PageProps) {
                 </div>
               </div>
             </details>
+            <Suspense fallback={null}>
+              <StoryReadingContext
+                contexts={readingContexts}
+                placement="bottom"
+              />
+            </Suspense>
           </ArticleSection>
 
           {story.keyExcerpts ? (

@@ -118,10 +118,13 @@ export default function PrivacyPolicyPage() {
           Analytics data is processed by third-party services (Vercel Analytics
           and PostHog) only after you accept non-essential cookies (or never,
           when Global Privacy Control is on). PostHog also records anonymized
-          session replays of how pages are used, with everything typed into
-          form fields masked. Browser error monitoring via Sentry is likewise
-          gated behind that consent. Server-side error logs for API
-          routes may still be recorded without browser cookies for reliability.
+          session replays of how pages are used, with everything typed into form
+          fields masked. When a site search finds nothing, the search term is
+          also sent (only after you accept analytics) so we can see which topics
+          are missing; terms that look like an email address, a link or a long
+          number are never sent. Browser error monitoring via Sentry is likewise
+          gated behind that consent. Server-side error logs for API routes may
+          still be recorded without browser cookies for reliability.
         </p>
       </section>
 

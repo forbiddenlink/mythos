@@ -8,7 +8,7 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
-import { trackEvent } from "@/lib/analytics/events";
+import { normalizeSearchTerm, trackEvent } from "@/lib/analytics/events";
 import { useDebounce } from "@/hooks/use-debounce";
 import {
   clearRecentSearches,
@@ -183,14 +183,19 @@ export function GlobalSearch({
     ][];
   }, [results]);
 
-  // Zero-result searches name the content gaps worth filling next; the query
-  // itself is never sent, only its length.
+  // Zero-result searches name the content gaps worth filling next. Only the
+  // query length is sent for a search that found something; the term itself
+  // is sent solely when nothing matched (see `search_no_results`).
   useEffect(() => {
     if (!index || !debouncedSearch || debouncedSearch.length < 2) return;
     trackEvent("search_performed", {
       queryLength: debouncedSearch.length,
       resultCount: results.length,
     });
+    if (results.length === 0) {
+      const term = normalizeSearchTerm(debouncedSearch);
+      if (term) trackEvent("search_no_results", { term });
+    }
   }, [index, debouncedSearch, results.length]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
