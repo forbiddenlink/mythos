@@ -20,12 +20,19 @@ test.beforeEach(async ({ page }) => {
 async function atSection(section: Locator): Promise<void> {
   await expect(section).toBeVisible();
   await section.evaluate((element) => {
-    const header = document.querySelector("body header");
-    const offset = (header?.getBoundingClientRect().height ?? 0) + 24;
-    scrollTo({
-      top: scrollY + element.getBoundingClientRect().top - offset,
-      behavior: "instant",
-    });
+    // Layout above the section can settle after a one-shot scroll, which left
+    // 390px scenes exactly 24px low on hosted runners. Re-align every frame so
+    // the capture does not depend on that timing.
+    const align = () => {
+      const header = document.querySelector("body header");
+      const offset = (header?.getBoundingClientRect().height ?? 0) + 24;
+      scrollTo({
+        top: scrollY + element.getBoundingClientRect().top - offset,
+        behavior: "instant",
+      });
+      requestAnimationFrame(align);
+    };
+    align();
   });
 }
 
