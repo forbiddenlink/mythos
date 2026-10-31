@@ -13,6 +13,7 @@ import {
   shortPantheonName,
   siteConfig,
 } from "@/lib/metadata";
+import { EDITORIAL_AUTHOR } from "@/lib/cite-page";
 import { entryDescription } from "@/lib/seo/description";
 import { deityTitle } from "@/lib/seo/entry-titles";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
@@ -551,6 +552,7 @@ export default async function DeityPage({ params }: PageProps) {
             title={deity.name}
             url={`${siteConfig.url}/deities/${deity.slug}`}
             siteName={siteConfig.name}
+            author={EDITORIAL_AUTHOR}
           />
 
           <AboutThisPage title="About this entry" size={false}>

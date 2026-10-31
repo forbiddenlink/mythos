@@ -1,9 +1,9 @@
 /**
- * Citation strings for a page. No author and no publication date are recorded
- * for any page, so every format uses "n.d." and the date the reader accessed
- * it. The site name stands in as the corporate author only where a format
- * needs an author slot (Chicago). Never read the JSON-LD date defaults: they
- * are placeholders, not real dates.
+ * Citation strings for a page. No publication date is recorded for any page,
+ * so every format uses "n.d." and the date the reader accessed it. Pages that
+ * render the editorial byline pass its author; a page without one gets the
+ * site name as corporate author in Chicago only. Never read the JSON-LD date
+ * defaults: they are placeholders, not real dates.
  */
 
 export interface AccessedDate {
@@ -13,11 +13,18 @@ export interface AccessedDate {
   day: number;
 }
 
+export interface CitationAuthor {
+  given: string;
+  family: string;
+}
+
 export interface CitationInput {
   title: string;
   url: string;
   siteName: string;
   accessed: AccessedDate;
+  /** Only when the page itself credits this person. */
+  author?: CitationAuthor;
 }
 
 export interface Citations {
@@ -66,14 +73,31 @@ export function formatCitations({
   url,
   siteName,
   accessed,
+  author,
 }: CitationInput): Citations {
   const { year, month, day } = accessed;
   const longDate = `${MONTHS[month - 1]} ${day}, ${year}`;
   const quotedTitle = `"${withPeriod(title)}"`;
 
+  const mlaLead = author
+    ? `${withPeriod(`${author.family}, ${author.given}`)} ${quotedTitle}`
+    : quotedTitle;
+  const apaLead = author
+    ? `${author.family}, ${author.given.charAt(0)}. (n.d.). ${withPeriod(title)}`
+    : `${withPeriod(title)} (n.d.).`;
+  const chicagoLead = author
+    ? `${withPeriod(`${author.family}, ${author.given}`)} ${quotedTitle} ${withPeriod(siteName)}`
+    : `${withPeriod(siteName)} ${quotedTitle}`;
+
   return {
-    mla: `${quotedTitle} ${siteName}, n.d., ${url}. Accessed ${day} ${MLA_MONTHS[month - 1]} ${year}.`,
-    apa: `${withPeriod(title)} (n.d.). ${siteName}. Retrieved ${longDate}, from ${url}`,
-    chicago: `${withPeriod(siteName)} ${quotedTitle} n.d. Accessed ${longDate}. ${url}.`,
+    mla: `${mlaLead} ${siteName}, n.d., ${url}. Accessed ${day} ${MLA_MONTHS[month - 1]} ${year}.`,
+    apa: `${apaLead} ${siteName}. Retrieved ${longDate}, from ${url}`,
+    chicago: `${chicagoLead} n.d. Accessed ${longDate}. ${url}.`,
   };
 }
+
+/** The person EditorialByline credits ("By Elizabeth Stein for Mythos Atlas"). */
+export const EDITORIAL_AUTHOR: CitationAuthor = {
+  given: "Elizabeth",
+  family: "Stein",
+};

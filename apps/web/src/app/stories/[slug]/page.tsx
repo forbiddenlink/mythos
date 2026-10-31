@@ -61,6 +61,7 @@ import {
   shortPantheonName,
   siteConfig,
 } from "@/lib/metadata";
+import { EDITORIAL_AUTHOR } from "@/lib/cite-page";
 import { truncateDescription } from "@/lib/seo/description";
 import { storyFaq } from "@/lib/entry-faq";
 import { getEntryMentions } from "@/lib/entry-mentions";
@@ -560,6 +561,7 @@ export default async function StoryPage({ params }: PageProps) {
                 title={story.title}
                 url={`${siteConfig.url}/stories/${story.slug}`}
                 siteName={siteConfig.name}
+                author={EDITORIAL_AUTHOR}
               />
             </div>
           </ArticleSection>

@@ -43,9 +43,40 @@ describe("formatCitations", () => {
     expect(out.chicago).toContain('"Who Is Hel?" n.d.');
   });
 
-  it("never emits a fabricated publication year or a person", () => {
+  it("never emits a fabricated publication year or a person without an author", () => {
     const all = Object.values(formatCitations(base)).join("\n");
     expect(all).not.toMatch(/2026-0[12]|Elizabeth|Stein/);
     expect(all.match(/2026/g)).toHaveLength(3);
+  });
+
+  describe("with an author", () => {
+    const withAuthor = {
+      ...base,
+      author: { given: "Elizabeth", family: "Stein" },
+    };
+
+    it("formats MLA", () => {
+      expect(formatCitations(withAuthor).mla).toBe(
+        'Stein, Elizabeth. "Zeus." Mythos Atlas, n.d., https://mythosatlas.com/deities/zeus. Accessed 31 Oct. 2026.',
+      );
+    });
+
+    it("formats APA", () => {
+      expect(formatCitations(withAuthor).apa).toBe(
+        "Stein, E. (n.d.). Zeus. Mythos Atlas. Retrieved October 31, 2026, from https://mythosatlas.com/deities/zeus",
+      );
+    });
+
+    it("formats Chicago", () => {
+      expect(formatCitations(withAuthor).chicago).toBe(
+        'Stein, Elizabeth. "Zeus." Mythos Atlas. n.d. Accessed October 31, 2026. https://mythosatlas.com/deities/zeus.',
+      );
+    });
+
+    it("still records no publication date", () => {
+      const all = Object.values(formatCitations(withAuthor)).join("\n");
+      expect(all).not.toMatch(/2026-0[12]/);
+      expect(all.match(/2026/g)).toHaveLength(3);
+    });
   });
 });

@@ -9,7 +9,11 @@ import {
   useSyncExternalStore,
 } from "react";
 import { Check, ChevronDown, Copy } from "lucide-react";
-import { formatCitations, type AccessedDate } from "@/lib/cite-page";
+import {
+  formatCitations,
+  type AccessedDate,
+  type CitationAuthor,
+} from "@/lib/cite-page";
 import { cn } from "@/lib/utils";
 
 interface CitePageProps {
@@ -18,6 +22,8 @@ interface CitePageProps {
   /** Absolute canonical URL of the page. */
   url: string;
   siteName: string;
+  /** Pass only on pages that render the editorial byline. */
+  author?: CitationAuthor;
   className?: string;
 }
 
@@ -49,7 +55,13 @@ const serverSnapshot = () => null;
  * the server render and hydration match and the date is never baked into
  * cached HTML.
  */
-export function CitePage({ title, url, siteName, className }: CitePageProps) {
+export function CitePage({
+  title,
+  url,
+  siteName,
+  author,
+  className,
+}: CitePageProps) {
   const dayKey = useSyncExternalStore(subscribe, todayKey, serverSnapshot);
   const [, refreshDate] = useReducer((n: number) => n + 1, 0);
   const accessed = dayKey ? parseKey(dayKey) : null;
@@ -64,7 +76,7 @@ export function CitePage({ title, url, siteName, className }: CitePageProps) {
   }, []);
 
   const citations = accessed
-    ? formatCitations({ title, url, siteName, accessed })
+    ? formatCitations({ title, url, siteName, accessed, author })
     : null;
 
   const copy = useCallback(
@@ -107,8 +119,9 @@ export function CitePage({ title, url, siteName, className }: CitePageProps) {
       </summary>
       <div className="max-w-reading space-y-4 pb-2 pt-2">
         <p className="text-sm leading-6">
-          No author or publication date is recorded for this page, so each
-          citation uses n.d. and today&apos;s date as the access date.
+          {author
+            ? "No publication date is recorded for this page, so each citation uses n.d. and today's date as the access date."
+            : "No author or publication date is recorded for this page, so each citation uses n.d. and today's date as the access date."}
         </p>
         {citations ? (
           <ul className="space-y-4">
