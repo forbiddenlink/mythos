@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type ChangelogType = "feature" | "fix" | "content";
@@ -46,8 +48,9 @@ export function ChangelogEntry({
 
   return (
     <article
+      id={entry.id}
       aria-labelledby={`release-${entry.id}`}
-      className="relative grid gap-3 pb-12 pl-8 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-10 md:pl-0"
+      className="relative grid scroll-mt-24 gap-3 pb-12 pl-8 md:grid-cols-[10rem_minmax(0,1fr)] md:gap-10 md:pl-0"
     >
       {/* Rail: a line through the dots on phones, beside the dates on desktop */}
       {!isLast ? (
@@ -76,12 +79,23 @@ export function ChangelogEntry({
       </div>
 
       <div className="min-w-0 max-w-reading md:pl-10">
-        <h2
-          id={`release-${entry.id}`}
-          className="font-serif text-xl font-semibold leading-snug text-foreground md:text-2xl"
-        >
-          {entry.title}
-        </h2>
+        <div className="flex items-start gap-2">
+          <h2
+            id={`release-${entry.id}`}
+            className="font-serif text-xl font-semibold leading-snug text-foreground md:text-2xl"
+          >
+            {entry.title}
+          </h2>
+          {/* No query string: the link must show the entry whatever filter is active. */}
+          <Link
+            href={`/changelog#${entry.id}`}
+            aria-label="Link to this entry"
+            title="Link to this entry"
+            className="-m-2 mt-0 inline-flex size-11 shrink-0 items-center justify-center rounded-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          >
+            <Link2 className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
         <p className="mt-2 type-reading text-muted-foreground">
           {entry.description}
         </p>
