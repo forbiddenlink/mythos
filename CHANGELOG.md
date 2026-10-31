@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.14.0](https://github.com/forbiddenlink/mythos/compare/v1.13.1...v1.14.0) (2026-10-31)
+
+
+### Features
+
+* add Cite this page control to deity and story pages ([#234](https://github.com/forbiddenlink/mythos/issues/234)) ([fccc01e](https://github.com/forbiddenlink/mythos/commit/fccc01e8cea3410d1b7805a9db6e21fd91c6190d))
+* **changelog:** give each release its own linkable anchor ([#238](https://github.com/forbiddenlink/mythos/issues/238)) ([0bf2b9c](https://github.com/forbiddenlink/mythos/commit/0bf2b9c4db255d669ddbdf9fa3c06b3b3ad7f4e5))
+* reading context for story links, zero-result search logging, A to Z and RSS ([#232](https://github.com/forbiddenlink/mythos/issues/232)) ([12d5d49](https://github.com/forbiddenlink/mythos/commit/12d5d49ece1ea31b08047907fa71e2968b5960e3))
+* **stories:** show reading time in the story hero ([#240](https://github.com/forbiddenlink/mythos/issues/240)) ([6fa7bbb](https://github.com/forbiddenlink/mythos/commit/6fa7bbb83e2ea8a8fd1e85d3a65130a383721191))
+
 ## [1.13.1](https://github.com/forbiddenlink/mythos/compare/v1.13.0...v1.13.1) (2026-10-29)
 
 
