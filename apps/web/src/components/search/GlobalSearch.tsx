@@ -8,7 +8,7 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
-import { trackEvent } from "@/lib/analytics/events";
+import { normalizeSearchTerm, trackEvent } from "@/lib/analytics/events";
 import { useDebounce } from "@/hooks/use-debounce";
 import {
   clearRecentSearches,
@@ -40,6 +40,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type PointerEvent,
 } from "react";
@@ -183,8 +184,16 @@ export function GlobalSearch({
     ][];
   }, [results]);
 
-  // Zero-result searches name the content gaps worth filling next; the query
-  // itself is never sent, only its length.
+  // Only the query length is sent per search. The term itself is sent at most
+  // once per dialog open, when the visitor closes the dialog on a query that
+  // found nothing (see `search_no_results`): never per keystroke or debounce,
+  // so half-typed input is not captured.
+  const lastQueryRef = useRef<{
+    typed: string;
+    debounced: string;
+    noResults: boolean;
+  } | null>(null);
+
   useEffect(() => {
     if (!index || !debouncedSearch || debouncedSearch.length < 2) return;
     trackEvent("search_performed", {
@@ -192,6 +201,28 @@ export function GlobalSearch({
       resultCount: results.length,
     });
   }, [index, debouncedSearch, results.length]);
+
+  // Snapshot the live query only while open; the close commit has already
+  // cleared `searchQuery`, so the close effect reads the last open snapshot.
+  useEffect(() => {
+    if (!open) return;
+    lastQueryRef.current = {
+      typed: searchQuery,
+      debounced: debouncedSearch,
+      noResults: !!index && results.length === 0,
+    };
+  }, [open, searchQuery, debouncedSearch, index, results.length]);
+
+  useEffect(() => {
+    if (open) return;
+    const last = lastQueryRef.current;
+    lastQueryRef.current = null;
+    if (!last || !last.noResults) return;
+    // Skip if the debounce had not caught up: the results are for another query.
+    const term = normalizeSearchTerm(last.typed);
+    if (!term || term !== normalizeSearchTerm(last.debounced)) return;
+    trackEvent("search_no_results", { term });
+  }, [open]);
 
   const popularSearches = useMemo(() => getPopularSearches().slice(0, 6), []);
 

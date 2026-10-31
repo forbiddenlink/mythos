@@ -7,8 +7,16 @@
  * browser.
  *
  * Privacy contract: no event carries free text a visitor typed, no identifiers,
- * and no entity beyond a public slug. Property values are restricted to
- * primitives so an object can never smuggle a payload through by accident.
+ * and no entity beyond a public slug, with ONE exception: `search_no_results`
+ * carries the normalised search term, only when the visitor closes the search
+ * dialog on a query that found nothing (one term per open, never per keystroke),
+ * so the content gaps can be named. `normalizeSearchTerm` is an allowlist:
+ * letters, marks, apostrophes and hyphens, a SINGLE word of at most 60
+ * characters, so an email, link, domain or number can never pass, a typed
+ * full name (two or more words) is never sent, and over-long input is refused
+ * rather than truncated. Property values are
+ * restricted to primitives so an object can never smuggle a payload through by
+ * accident.
  */
 
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
@@ -17,6 +25,7 @@ export const ANALYTICS_EVENTS = [
   // Discovery
   "entry_viewed",
   "search_performed",
+  "search_no_results",
   "share_clicked",
   // Engagement
   "quiz_started",
@@ -49,6 +58,7 @@ export type AnalyticsProperties = Record<string, AnalyticsPropertyValue>;
 export interface AnalyticsEventMap {
   entry_viewed: { entityType: string; slug: string; pantheon?: string };
   search_performed: { queryLength: number; resultCount: number };
+  search_no_results: { term: string };
   share_clicked: { surface: string; method: string };
   quiz_started: { quizId: string };
   quiz_completed: { quizId: string; score: number; total: number };
@@ -149,6 +159,32 @@ export function sanitizeProperties(
   return clean;
 }
 
+const MAX_SEARCH_TERM_LENGTH = 60;
+/** One word only: a multi-word term could be a person's full name. */
+const MAX_SEARCH_TERM_WORDS = 1;
+/** Letters (any script), combining marks, apostrophes, hyphens, single spaces. */
+const SEARCH_TERM_ALLOWLIST =
+  /^[\p{L}\p{M}'\u2019-]+(?: [\p{L}\p{M}'\u2019-]+)*$/u;
+
+/**
+ * The only visitor-typed text that may leave the browser: a search that found
+ * nothing. The term is NFKC-normalised, lowercased and whitespace-collapsed,
+ * then checked against an ALLOWLIST: letters in any script (Latin, Greek,
+ * Devanagari and so on), combining marks, apostrophes, hyphens and spaces, but
+ * only ONE word, because a multi-word term could be a person's full name. That
+ * rejects every digit, "@", "/", ".", "=" and "?", so an email address, a link,
+ * a bare domain or a phone number can never pass. Input over 60 characters is
+ * refused whole, never truncated: truncation could cut off the "@" that would
+ * have exposed the rest. Returns null for anything refused.
+ */
+export function normalizeSearchTerm(raw: string): string | null {
+  const term = raw.normalize("NFKC").trim().replace(/\s+/g, " ").toLowerCase();
+  if (term.length < 2 || term.length > MAX_SEARCH_TERM_LENGTH) return null;
+  if (!SEARCH_TERM_ALLOWLIST.test(term)) return null;
+  if (term.split(" ").length > MAX_SEARCH_TERM_WORDS) return null;
+  return term;
+}
+
 /** Runtime contracts for learning clicks: never accept text or extra fields. */
 export function hasValidLearningEventProperties(
   name: AnalyticsEventName,
@@ -190,6 +226,14 @@ export function hasValidLearningEventProperties(
       ["start", "continue", "review", "step", "practice"].includes(
         properties.action,
       )
+    );
+  }
+  if (name === "search_no_results") {
+    return (
+      Object.keys(properties).every((key) => key === "term") &&
+      typeof properties.term === "string" &&
+      properties.term.length <= MAX_SEARCH_TERM_LENGTH &&
+      normalizeSearchTerm(properties.term) === properties.term
     );
   }
   return true;

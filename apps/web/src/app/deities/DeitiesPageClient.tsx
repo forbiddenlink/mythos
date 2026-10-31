@@ -334,6 +334,10 @@ export function DeitiesPageClient({
           broader mythology graph.
         </p>
         <p>
+          Looking for a name? The <Link href="/deities/a-z">A to Z index</Link>{" "}
+          lists every deity alphabetically.
+        </p>
+        <p>
           Good next stops after the major sky and underworld gods broaden the
           atlas into hearth cults, agricultural religion, Egyptian protection
           deities, and Norse family life:

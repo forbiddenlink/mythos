@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { generateBaseMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = generateBaseMetadata({
+const baseMetadata = generateBaseMetadata({
   title: "Mythological Stories and Legends",
   description:
     "Read creation stories, heroic quests, divine conflicts, and foundational legends from Greek, Norse, Egyptian, and other ancient mythologies.",
@@ -17,6 +17,15 @@ export const metadata: Metadata = generateBaseMetadata({
     "Osiris myth",
   ],
 });
+
+// Lets feed readers and browsers discover the stories feed from /stories.
+export const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...baseMetadata.alternates,
+    types: { "application/rss+xml": "/stories/feed.xml" },
+  },
+};
 
 export default function StoriesLayout({
   children,
