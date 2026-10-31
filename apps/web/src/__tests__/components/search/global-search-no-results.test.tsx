@@ -45,10 +45,10 @@ describe("GlobalSearch zero-result logging", () => {
   it("sends the final term once when the dialog closes on zero results", () => {
     const { rerender } = render(<GlobalSearch open onOpenChange={() => {}} />);
     typeQuery("za");
-    typeQuery("Zalgo Prince");
+    typeQuery("Zalgo");
     rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
     expect(noResultCalls()).toEqual([
-      ["search_no_results", { term: "zalgo prince" }],
+      ["search_no_results", { term: "zalgo" }],
     ]);
     rerender(<GlobalSearch open={false} onOpenChange={() => {}} />);
     expect(noResultCalls()).toHaveLength(1);

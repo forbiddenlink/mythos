@@ -121,8 +121,9 @@ export default function PrivacyPolicyPage() {
           session replays of how pages are used, with everything typed into form
           fields masked. When you close site search on a query that found
           nothing, that final search term is also sent once (only after you
-          accept analytics) so we can see which topics are missing. Only short
-          terms made of letters, spaces, hyphens and apostrophes are sent;
+          accept analytics) so we can see which topics are missing. Only a
+          single word made of letters, hyphens and apostrophes is sent; a
+          search of two or more words is never sent, and
           anything containing digits or punctuation, such as an email address, a
           link or a number, is never sent. Browser error monitoring via Sentry
           is likewise gated behind that consent. Server-side error logs for API

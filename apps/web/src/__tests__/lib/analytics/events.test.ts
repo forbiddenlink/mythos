@@ -189,7 +189,7 @@ describe("learning click event contracts", () => {
 
 describe("zero-result search term", () => {
   it("normalises a term to lowercase and collapsed whitespace", () => {
-    expect(normalizeSearchTerm("  Maui   Hook ")).toBe("maui hook");
+    expect(normalizeSearchTerm("  Maui  ")).toBe("maui");
     expect(normalizeSearchTerm("Ｚｅｕｓ")).toBe("zeus");
   });
 
@@ -208,13 +208,21 @@ describe("zero-result search term", () => {
     },
   );
 
-  it("rejects digits split by letters and too many words", () => {
+  it("rejects digits split by letters and any multi-word term", () => {
     expect(normalizeSearchTerm("call five five 5 5 5 1 2 3")).toBeNull();
     expect(normalizeSearchTerm("a1b2c3d4e5f6")).toBeNull();
     expect(normalizeSearchTerm("one two three four five six")).toBeNull();
-    expect(normalizeSearchTerm("one two three four five")).toBe(
-      "one two three four five",
-    );
+    expect(normalizeSearchTerm("maui hook")).toBeNull();
+  });
+
+  it("never sends a typed full name", () => {
+    expect(normalizeSearchTerm("jane doe")).toBeNull();
+    expect(normalizeSearchTerm("Jane  Doe")).toBeNull();
+    expect(
+      hasValidLearningEventProperties("search_no_results", {
+        term: "jane doe",
+      }),
+    ).toBe(false);
   });
 
   it.each([

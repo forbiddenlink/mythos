@@ -11,9 +11,10 @@
  * carries the normalised search term, only when the visitor closes the search
  * dialog on a query that found nothing (one term per open, never per keystroke),
  * so the content gaps can be named. `normalizeSearchTerm` is an allowlist:
- * letters, marks, apostrophes, hyphens and spaces, at most 5 words and 60
- * characters, so an email, link, domain or number can never pass and over-long
- * input is refused rather than truncated. Property values are
+ * letters, marks, apostrophes and hyphens, a SINGLE word of at most 60
+ * characters, so an email, link, domain or number can never pass, a typed
+ * full name (two or more words) is never sent, and over-long input is refused
+ * rather than truncated. Property values are
  * restricted to primitives so an object can never smuggle a payload through by
  * accident.
  */
@@ -159,7 +160,8 @@ export function sanitizeProperties(
 }
 
 const MAX_SEARCH_TERM_LENGTH = 60;
-const MAX_SEARCH_TERM_WORDS = 5;
+/** One word only: a multi-word term could be a person's full name. */
+const MAX_SEARCH_TERM_WORDS = 1;
 /** Letters (any script), combining marks, apostrophes, hyphens, single spaces. */
 const SEARCH_TERM_ALLOWLIST =
   /^[\p{L}\p{M}'\u2019-]+(?: [\p{L}\p{M}'\u2019-]+)*$/u;
@@ -168,8 +170,8 @@ const SEARCH_TERM_ALLOWLIST =
  * The only visitor-typed text that may leave the browser: a search that found
  * nothing. The term is NFKC-normalised, lowercased and whitespace-collapsed,
  * then checked against an ALLOWLIST: letters in any script (Latin, Greek,
- * Devanagari and so on), combining marks, apostrophes, hyphens and spaces, at
- * most 5 words. That
+ * Devanagari and so on), combining marks, apostrophes, hyphens and spaces, but
+ * only ONE word, because a multi-word term could be a person's full name. That
  * rejects every digit, "@", "/", ".", "=" and "?", so an email address, a link,
  * a bare domain or a phone number can never pass. Input over 60 characters is
  * refused whole, never truncated: truncation could cut off the "@" that would
