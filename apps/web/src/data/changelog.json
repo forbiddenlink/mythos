@@ -1,5 +1,106 @@
 [
   {
+    "id": "v1.13.1",
+    "date": "2026-10-29",
+    "version": "1.13.1",
+    "title": "Clearer control names",
+    "description": "A small accessibility fix for people who use screen readers or voice control.",
+    "changes": [
+      "Buttons and links now have accessible names that contain the text you see on screen, so voice commands like \"click Search\" match what is displayed."
+    ],
+    "type": "fix"
+  },
+  {
+    "id": "v1.13.0",
+    "date": "2026-10-24",
+    "version": "1.13.0",
+    "title": "Guides to the Myths Behind the Story",
+    "description": "Three new guide pages answer common questions about Greek and Norse mythology, and one deity entry was corrected.",
+    "changes": [
+      "Added guide pages for the Greek gods family tree, a Greek and Roman gods chart, and Valhalla versus Folkvangr",
+      "Removed a wrong label from the Freyja entry"
+    ],
+    "type": "content"
+  },
+  {
+    "id": "v1.12.0",
+    "date": "2026-10-21",
+    "version": "1.12.0",
+    "title": "Accessibility and Newsletter Reliability",
+    "description": "Fixes to the search dialog and to how newsletter confirmations and unsubscribes are recorded.",
+    "changes": [
+      "The search dialog input now has a name for screen readers",
+      "Newsletter confirmations and unsubscribes are now recorded reliably when they arrive at the same moment"
+    ],
+    "type": "fix"
+  },
+  {
+    "id": "v1.10.0",
+    "date": "2026-10-19",
+    "version": "1.10.0",
+    "title": "Connections, Artwork and Sources",
+    "description": "New ways to browse figures, trace how they are related and check where a claim comes from.",
+    "changes": [
+      "Deity pages can be browsed by grouped categories",
+      "The family tree shows a connection path between two figures",
+      "Museum artwork opens in a keyboard-accessible inspector with object details",
+      "Journey maps keep working without JavaScript or map tiles, and the Odyssey journey links to source locators",
+      "Relationship notes show passage evidence where a source has been checked, and not every relationship has one yet"
+    ],
+    "type": "feature"
+  },
+  {
+    "id": "v1.9.0",
+    "date": "2026-10-17",
+    "version": "1.9.0",
+    "title": "Audio, Better Search and an Illustrated Atlas",
+    "description": "Hear names and stories, find figures with fewer misses, and see the atlas in a new visual style.",
+    "changes": [
+      "Added recorded name pronunciations for many deities and heroes, with the browser voice as a fallback",
+      "Added narration for five stories: the Aeneid, Mahabharata, Ramayana, Epic of Gilgamesh and Cath Maige Tuired",
+      "Added ambient sound for eight more traditions",
+      "Search now matches multi-word queries such as \"norse god of war\" and related words such as \"dead\" and \"death\"",
+      "Search covers more cited works, and more citations link to the atlas page for that text",
+      "Bookmarks now cover creatures, artifacts and places",
+      "Entry pages end with a Keep exploring block, and /newsletter shows a sample weekly issue",
+      "New brand mark, and an engraved star chart behind headers in place of the old glow",
+      "Progress on a learning streak is kept across midnight"
+    ],
+    "type": "feature"
+  },
+  {
+    "id": "v1.7.2",
+    "date": "2026-10-02",
+    "version": "1.7.2",
+    "title": "Search Fixes and Lighter Fonts",
+    "description": "Search now finds the figure you typed, including names with accents.",
+    "changes": [
+      "An exact name now ranks first in search, so Hera no longer lists Heracles above her",
+      "Names with accents or special letters can be found by plain spelling, such as Cu Chulainn and Vainamoinen",
+      "Fixed heading order on the deities and heroes pages",
+      "The Source Sans 3 body font is split by language range, so pages download only the characters they need"
+    ],
+    "type": "fix"
+  },
+  {
+    "id": "v1.7.0",
+    "date": "2026-09-28",
+    "version": "1.7.0",
+    "title": "Atlas Overhaul",
+    "description": "A redesign of the whole atlas, with more traditions and answers from the Oracle that cite their sources.",
+    "changes": [
+      "Redesigned the site with a new grid, type scale and engraved plates for entries",
+      "The Oracle cites Atlas pages and sources in its answers",
+      "Added more traditions and expanded entries",
+      "Added guides for Percy Jackson, the Odyssey and Hades II, and /gods-of pages",
+      "Added a daily quiz and a newsletter sign-up",
+      "Bespoke artwork replaces placeholder plates, and the Greek pantheon has a new hero image",
+      "Navigation was consolidated, and old links redirect to the new pages",
+      "Fixed overlapping tradition labels on the star map"
+    ],
+    "type": "feature"
+  },
+  {
     "id": "v1.6.0",
     "date": "2026-02-12",
     "version": "1.6.0",
