@@ -41,6 +41,7 @@ import {
 } from "@/components/stories/MythVariants";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
 import { StoryReadingContext } from "@/components/stories/StoryReadingContext";
+import { readingMinutes } from "@/lib/reading-time";
 import { StoryRecording } from "@/components/stories/StoryRecording";
 import { VersionMatrix } from "@/components/stories/VersionMatrix";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
@@ -375,6 +376,16 @@ export default async function StoryPage({ params }: PageProps) {
                 <span className="capitalize text-parchment/85">
                   {story.category}
                 </span>
+                {story.fullNarrative ? (
+                  <>
+                    <span className="text-gold/50" aria-hidden="true">
+                      ·
+                    </span>
+                    <span className="text-parchment/85">
+                      about {readingMinutes(story.fullNarrative)} min
+                    </span>
+                  </>
+                ) : null}
               </>
             }
             title={story.title}
