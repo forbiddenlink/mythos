@@ -11,12 +11,14 @@ import {
   generateBaseMetadata,
   generateNotFoundMetadata,
   shortPantheonName,
+  siteConfig,
 } from "@/lib/metadata";
 import { entryDescription } from "@/lib/seo/description";
 import { deityTitle } from "@/lib/seo/entry-titles";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
 import { EditorialByline } from "@/components/content/EditorialByline";
 import { AboutThisPage } from "@/components/layout/about-this-page";
+import { CitePage } from "@/components/sharing/CitePage";
 import {
   ArticleSection,
   AsideLinks,
@@ -544,6 +546,12 @@ export default async function DeityPage({ params }: PageProps) {
               />
             </ArticleSection>
           ) : null}
+
+          <CitePage
+            title={deity.name}
+            url={`${siteConfig.url}/deities/${deity.slug}`}
+            siteName={siteConfig.name}
+          />
 
           <AboutThisPage title="About this entry" size={false}>
             <EditorialByline />
