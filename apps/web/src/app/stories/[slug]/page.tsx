@@ -26,6 +26,7 @@ import {
 } from "@/components/layout/detail-layout";
 import { MuseumGallery } from "@/components/museum/MuseumGallery";
 import { ArticleJsonLd } from "@/components/seo/JsonLd";
+import { CitePage } from "@/components/sharing/CitePage";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import {
   EntitySources,
@@ -58,7 +59,9 @@ import {
   generateBaseMetadata,
   generateNotFoundMetadata,
   shortPantheonName,
+  siteConfig,
 } from "@/lib/metadata";
+import { EDITORIAL_AUTHOR } from "@/lib/cite-page";
 import { truncateDescription } from "@/lib/seo/description";
 import { storyFaq } from "@/lib/entry-faq";
 import { getEntryMentions } from "@/lib/entry-mentions";
@@ -554,6 +557,12 @@ export default async function StoryPage({ params }: PageProps) {
               {hasSources ? (
                 <EntitySources {...story} provenance={false} />
               ) : null}
+              <CitePage
+                title={story.title}
+                url={`${siteConfig.url}/stories/${story.slug}`}
+                siteName={siteConfig.name}
+                author={EDITORIAL_AUTHOR}
+              />
             </div>
           </ArticleSection>
         </ArticleStack>
