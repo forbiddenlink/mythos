@@ -8,10 +8,16 @@ import { InfoColumns } from "@/components/layout/info-page";
 import deitiesData from "@/data/deities.json";
 import storiesData from "@/data/stories.json";
 import locationsData from "@/data/locations.json";
+import changelog from "@/data/changelog.json";
 import { getTraditionCount } from "@/lib/data/catalog";
 import { countImagesByKind } from "@/lib/image-provenance";
 
 const IMAGE_COUNTS = countImagesByKind();
+const LAST_UPDATED = new Date(changelog[0].date).toLocaleDateString("en-US", {
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
 // Derived from the data files so the About copy can never drift from the atlas
 // again (it previously undercounted locations by 38 and overstated deities).
@@ -61,7 +67,7 @@ const STACK = [
   "React 19",
   "TypeScript",
   "Tailwind CSS",
-  "A static JSON content layer",
+  "a static JSON content layer",
   "ReactFlow and D3",
   "Vercel hosting",
 ];
@@ -232,7 +238,7 @@ export default function AboutPage() {
               works every entry draws on.
             </p>
             <p className="type-ui text-muted-foreground">
-              Built with {STACK.join(", ")}. Last updated August 2026.
+              Built with {STACK.join(", ")}. Last updated {LAST_UPDATED}.
             </p>
           </section>
         </InfoColumns>

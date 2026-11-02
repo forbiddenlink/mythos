@@ -282,7 +282,7 @@ describe("relationship claim citations", () => {
   it("shows the specific claim, source title, edition, passage and direct source URL", () => {
     expect(relationshipCitations("ares", [edge], deities, works)).toEqual([
       {
-        title: "Theogony — Zeus parent of Ares",
+        title: "Theogony (Zeus parent of Ares)",
         author: "Hesiod",
         url: evidence.sourceUrl,
         lines: evidence.locator,
@@ -309,10 +309,10 @@ describe("relationship claim citations", () => {
     );
     expect(citations).toHaveLength(4);
     expect(citations.map((citation) => citation.title)).toContain(
-      "Theogony — Zeus spouse of Hera",
+      "Theogony (Zeus spouse of Hera)",
     );
     expect(citations.map((citation) => citation.title)).toContain(
-      "Theogony — Zeus parent of Ares: A variant claim",
+      "Theogony (Zeus parent of Ares: A variant claim)",
     );
   });
 
@@ -340,7 +340,7 @@ describe("relationship claim citations", () => {
       ).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
-            title: "Theogony — Rhea parent of Zeus",
+            title: "Theogony (Rhea parent of Zeus)",
             lines: expect.stringContaining("453"),
           }),
         ]),

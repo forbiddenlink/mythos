@@ -1,19 +1,19 @@
 [
   {
     "id": "zeus-jupiter-same",
-    "fact": "Zeus and Jupiter are essentially the same deity — when Rome conquered Greece, they merged their gods. Jupiter even kept Zeus's eagle and thunderbolt.",
+    "fact": "Zeus and Jupiter share an Indo-European root name, and the Romans identified the two under Greek influence. Jupiter was an Italic god before that, not a copy of Zeus.",
     "category": "connections",
     "relatedDeities": ["zeus", "jupiter"]
   },
   {
     "id": "odin-wednesday",
-    "fact": "Wednesday is named after Odin (Woden's Day). Thursday is Thor's Day, Tuesday is Tyr's Day, and Friday is Frigg's Day.",
+    "fact": "Wednesday is named after Odin (Woden's Day). Thursday is Thor's Day, Tuesday is Tyr's Day, and Friday is usually traced to Frigg.",
     "category": "language",
     "relatedDeities": ["odin", "thor", "tyr", "frigg"]
   },
   {
     "id": "prometheus-liver",
-    "fact": "The ancient Greeks knew the liver could regenerate. That's why Prometheus's punishment — having his liver eaten daily by an eagle — was eternal torment.",
+    "fact": "Hesiod says Prometheus's liver grew back each night, so the eagle could eat it again. Some modern writers think the Greeks knew the liver regenerates. Others say the myth does not show that.",
     "category": "science",
     "relatedDeities": ["prometheus"]
   },
@@ -43,7 +43,7 @@
   },
   {
     "id": "hades-not-evil",
-    "fact": "Hades wasn't evil — he was just the god who drew the short straw and got the underworld. He was actually one of the more fair and just Greek gods.",
+    "fact": "Hades wasn't evil. He drew the underworld by lot, and Greek poets describe him as stern and unbending, not wicked.",
     "category": "misconceptions",
     "relatedDeities": ["hades"]
   },
@@ -115,8 +115,8 @@
   },
   {
     "id": "quetzalcoatl-return",
-    "fact": "The Aztecs believed Quetzalcoatl would return from the east. When Cortés arrived from the east in 1519, some thought the prophecy was being fulfilled.",
-    "category": "history",
+    "fact": "Spanish accounts written after the conquest say the Aztecs expected Quetzalcoatl to return and took Cortés for him in 1519. Many historians now doubt this and treat it as a later story.",
+    "category": "misconceptions",
     "relatedDeities": ["quetzalcoatl"]
   },
   {
@@ -163,7 +163,7 @@
   },
   {
     "id": "bastet-cats",
-    "fact": "Killing a cat in ancient Egypt was punishable by death. When a household cat died, the family would shave their eyebrows in mourning.",
+    "fact": "Diodorus Siculus wrote that killing a cat in Egypt was punishable by death. Herodotus wrote that a household shaved its eyebrows when its cat died.",
     "category": "history",
     "relatedDeities": ["bastet"]
   },
@@ -211,7 +211,7 @@
   },
   {
     "id": "ishtar-gate-blue",
-    "fact": "The Ishtar Gate of Babylon was covered in deep blue glazed bricks and golden dragons (mušḫuššu) and aurochs — a monumental hymn in clay to the goddess of love and war.",
+    "fact": "The Ishtar Gate of Babylon was covered in deep blue glazed bricks with golden dragons (mušḫuššu) and aurochs. Nebuchadnezzar II dedicated it to Ishtar, goddess of love and war.",
     "category": "history",
     "relatedDeities": ["inanna"]
   },
@@ -325,7 +325,7 @@
   },
   {
     "id": "hanuman-swallowing-sun",
-    "fact": "As a divine child, Hanuman saw the rising sun and mistook it for a sweet ripe mango fruit. He leaped millions of miles into space to eat it, prompting the thunder god Indra to strike him with a vajra that fractured his jaw — originating his name from 'hanu' (jaw).",
+    "fact": "As a divine child, Hanuman mistook the rising sun for a ripe fruit and leaped into the sky to eat it. Indra struck him with a vajra and fractured his jaw. Tradition derives his name from 'hanu' (jaw).",
     "category": "language",
     "relatedDeities": ["hanuman", "indra"]
   },

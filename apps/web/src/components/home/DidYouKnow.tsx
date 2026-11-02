@@ -83,7 +83,7 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
 
   const handleCopyFact = useCallback(() => {
     if (!currentFact) return;
-    const shareText = `"${currentFact.fact}" — Mythos Atlas (https://mythosatlas.com/facts)`;
+    const shareText = `Mythos Atlas: "${currentFact.fact}" (https://mythosatlas.com/facts)`;
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard.writeText(shareText);
       setIsCopied(true);

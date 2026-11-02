@@ -5,13 +5,14 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Command, Heart, Search } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useMemo } from "react";
 
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 import { MegaMenu } from "@/components/layout/mega-menu";
 import { MOBILE_MORE_NAV, PRIMARY_NAV } from "@/components/layout/nav-config";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { QuickActions } from "@/components/layout/quick-actions";
+import { useIsMac } from "@/hooks/use-is-mac";
 import { BookmarksContext } from "@/providers/bookmarks-provider";
 
 /** Shared look for the square icon controls on the right of the header. */
@@ -24,8 +25,7 @@ export function Header() {
   const locale = useLocale();
   // Optional: the header also renders where no bookmarks provider exists.
   const savedCount = useContext(BookmarksContext)?.bookmarks.length ?? 0;
-  const [isMac, setIsMac] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const isMac = useIsMac();
 
   // Mobile menu: the same primary IA plus a "More" section.
   const mobileNavSections = useMemo(
@@ -39,12 +39,6 @@ export function Header() {
       })),
     [t],
   );
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-    setIsMac(/(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent));
-  }, []);
 
   const handleSearchClick = () => {
     document.dispatchEvent(new CustomEvent("open-command-palette"));
@@ -96,8 +90,8 @@ export function Header() {
               aria-hidden="true"
               className="hidden h-6 min-w-11 items-center justify-center gap-0.5 rounded border border-border bg-background px-1.5 font-sans text-xs text-muted-foreground md:inline-flex"
             >
-              {mounted && isMac ? <Command className="h-3 w-3" /> : null}
-              {mounted && !isMac ? "Ctrl" : null}
+              {isMac === true ? <Command className="h-3 w-3" /> : null}
+              {isMac === false ? "Ctrl" : null}
               <span>K</span>
             </kbd>
           </button>

@@ -82,7 +82,7 @@ export default function OraclePage() {
           {[
             {
               title: "Grounded in the Atlas",
-              body: "Each petition is answered from the encyclopedia's own deities, stories, and primary sources — not free invention.",
+              body: "Each petition is answered from the encyclopedia's own deities, stories, and primary sources, not free invention.",
             },
             {
               title: "Cited, not asserted",
