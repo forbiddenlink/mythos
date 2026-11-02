@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.15.1](https://github.com/forbiddenlink/mythos/compare/v1.15.0...v1.15.1) (2026-11-02)
+
+
+### Bug Fixes
+
+* **content:** correct overstated facts and clean up visible copy ([#248](https://github.com/forbiddenlink/mythos/issues/248)) ([bb2d7c4](https://github.com/forbiddenlink/mythos/commit/bb2d7c4e5e65b0030ce396e49126e779d528aecc))
+* **content:** remove em dashes from catalog prose ([#249](https://github.com/forbiddenlink/mythos/issues/249)) ([8be43ff](https://github.com/forbiddenlink/mythos/commit/8be43ff58d69026a80c709dfb0bdc61f57d9feb5))
+* **ingest:** forward only the paths the PostHog SDK calls ([#252](https://github.com/forbiddenlink/mythos/issues/252)) ([c61dbb4](https://github.com/forbiddenlink/mythos/commit/c61dbb4d4c1938a7dedda2c195bb9f03e4a0a500))
+* **newsletter:** label the digest excerpt as a retelling, not a quotation ([#246](https://github.com/forbiddenlink/mythos/issues/246)) ([ad9fd58](https://github.com/forbiddenlink/mythos/commit/ad9fd58f7ac5738aeabd80c9e4dfa10255cd0686))
+* **security:** keep the confirm token out of analytics and tighten site-path and CSP checks ([#247](https://github.com/forbiddenlink/mythos/issues/247)) ([2a0adc3](https://github.com/forbiddenlink/mythos/commit/2a0adc3e6f8c3fe731698e414fb147708156c7f3))
+* **timeline:** make every deity reachable without a mouse ([#251](https://github.com/forbiddenlink/mythos/issues/251)) ([30f1ada](https://github.com/forbiddenlink/mythos/commit/30f1ada73da428aa37886e0e3d007ff1c9d00d91))
+
 ## [1.15.0](https://github.com/forbiddenlink/mythos/compare/v1.14.0...v1.15.0) (2026-11-02)
 
 
