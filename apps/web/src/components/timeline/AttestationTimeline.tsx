@@ -146,6 +146,8 @@ export function AttestationTimeline({
                       key={p.slug}
                       href={`/deities/${p.slug}`}
                       aria-label={`${p.name}: ${formatYear(p.year)}`}
+                      onFocus={() => setHover(p)}
+                      onBlur={() => setHover(null)}
                     >
                       <circle
                         cx={xOf(p.year)}
@@ -179,6 +181,38 @@ export function AttestationTimeline({
           </div>
         )}
       </div>
+
+      {/* The dots are too small and close together to tap, so every one is
+          also a plain link here. */}
+      <details className="mt-4" data-testid="timeline-list">
+        <summary className="cursor-pointer type-ui text-foreground">
+          List all {points.length} deities by tradition
+        </summary>
+        <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {lanes.map((pid) => (
+            <section key={pid}>
+              <h3 className="font-serif text-foreground">
+                {pantheonLabel(pid)}
+              </h3>
+              <ul className="mt-1">
+                {points
+                  .filter((p) => p.pantheonId === pid)
+                  .sort((a, b) => a.year - b.year)
+                  .map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        href={`/deities/${p.slug}`}
+                        className="inline-flex min-h-11 items-center type-ui text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                      >
+                        {p.name}, {formatYear(p.year)}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </details>
     </div>
   );
 }
