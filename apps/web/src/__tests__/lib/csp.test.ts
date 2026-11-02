@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   buildCsp,
@@ -18,6 +20,20 @@ const manifest: CspManifest = {
     "/_not-found": ["sha256-404"],
   },
 };
+
+describe("page rendering modes", () => {
+  it("has no ISR pages, whose regenerated HTML misses the build-time hashes", () => {
+    const appDir = join(process.cwd(), "src/app");
+    const isrPages = readdirSync(appDir, { recursive: true, encoding: "utf8" })
+      .filter((file) => /(^|\/)(page|layout)\.tsx$/.test(file))
+      .filter((file) =>
+        /export const revalidate\b/.test(
+          readFileSync(join(appDir, file), "utf8"),
+        ),
+      );
+    expect(isrPages).toEqual([]);
+  }, 30_000);
+});
 
 describe("hashesForPath", () => {
   it("combines common hashes with the page's own", () => {
