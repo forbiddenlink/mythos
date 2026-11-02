@@ -19,13 +19,13 @@
   },
   {
     "id": "aphrodite-foam",
-    "fact": "Aphrodite's name likely comes from 'aphros' (foam) — she was born from sea foam after Cronus threw Uranus's severed body parts into the ocean.",
+    "fact": "Aphrodite's name likely comes from 'aphros' (foam); she was born from sea foam after Cronus threw Uranus's severed body parts into the ocean.",
     "category": "origins",
     "relatedDeities": ["aphrodite"]
   },
   {
     "id": "anubis-embalming",
-    "fact": "Anubis was depicted with a jackal head because jackals were often seen near cemeteries — Egyptians associated them with protecting the dead.",
+    "fact": "Anubis was depicted with a jackal head because jackals were often seen near cemeteries; Egyptians associated them with protecting the dead.",
     "category": "symbolism",
     "relatedDeities": ["anubis"]
   },
@@ -61,7 +61,7 @@
   },
   {
     "id": "dionysus-twice-born",
-    "fact": "Dionysus was 'twice-born' — after his mother Semele died, Zeus sewed the fetal Dionysus into his own thigh until he was ready to be born.",
+    "fact": "Dionysus was 'twice-born': after his mother Semele died, Zeus sewed the fetal Dionysus into his own thigh until he was ready to be born.",
     "category": "origins",
     "relatedDeities": ["dionysus", "zeus"]
   },
@@ -73,7 +73,7 @@
   },
   {
     "id": "cerberus-meaning",
-    "fact": "Cerberus may simply mean 'spotted' — the fearsome three-headed guardian of the underworld might just be named 'Spot.'",
+    "fact": "Cerberus may simply mean 'spotted': the fearsome three-headed guardian of the underworld might just be named 'Spot.'",
     "category": "language",
     "relatedDeities": ["hades"]
   },
@@ -85,7 +85,7 @@
   },
   {
     "id": "apollo-sun",
-    "fact": "Apollo wasn't originally the sun god — that was Helios. Apollo was god of music, poetry, and prophecy. They merged over time in popular imagination.",
+    "fact": "Apollo wasn't originally the sun god; that was Helios. Apollo was god of music, poetry, and prophecy. They merged over time in popular imagination.",
     "category": "misconceptions",
     "relatedDeities": ["apollo"]
   },
@@ -103,7 +103,7 @@
   },
   {
     "id": "valkyries-choosers",
-    "fact": "Valkyrie means 'chooser of the slain.' They didn't just collect dead warriors — they decided who would die in battle in the first place.",
+    "fact": "Valkyrie means 'chooser of the slain.' They didn't just collect dead warriors; they decided who would die in battle in the first place.",
     "category": "language",
     "relatedDeities": ["odin", "freyja"]
   },
@@ -127,25 +127,25 @@
   },
   {
     "id": "seth-red-hair",
-    "fact": "Set (Seth) was associated with red — chaos, the desert, and foreigners. Ancient Egyptians with red hair were sometimes viewed with suspicion because of this.",
+    "fact": "Set (Seth) was associated with red: chaos, the desert, and foreigners. Ancient Egyptians with red hair were sometimes viewed with suspicion because of this.",
     "category": "symbolism",
     "relatedDeities": ["set"]
   },
   {
     "id": "hephaestus-robots",
-    "fact": "Hephaestus created the first robots in mythology — golden maidens who could think and speak, and Talos, a giant bronze automaton that guarded Crete.",
+    "fact": "Hephaestus created the first robots in mythology: golden maidens who could think and speak, and Talos, a giant bronze automaton that guarded Crete.",
     "category": "stories",
     "relatedDeities": ["hephaestus"]
   },
   {
     "id": "ragnarok-survival",
-    "fact": "Ragnarok isn't the end — it's a cycle. After the gods die and the world burns, two humans survive to repopulate a fresh, green earth.",
+    "fact": "Ragnarok isn't the end: it's a cycle. After the gods die and the world burns, two humans survive to repopulate a fresh, green earth.",
     "category": "stories",
     "relatedDeities": ["odin", "thor"]
   },
   {
     "id": "ganesh-head",
-    "fact": "Ganesh got his elephant head because Shiva beheaded him (not recognizing his own son), then replaced it with the first head he found — an elephant's.",
+    "fact": "Ganesh got his elephant head because Shiva beheaded him (not recognizing his own son), then replaced it with the first head he found, an elephant's.",
     "category": "origins",
     "relatedDeities": ["ganesha", "shiva"]
   },
@@ -181,25 +181,25 @@
   },
   {
     "id": "eshu-crossroads",
-    "fact": "In Yoruba tradition, Eshu (Elegba) is the divine messenger who opens the road between humans and the orisha — offerings at the crossroads honor him before any other deity is addressed.",
+    "fact": "In Yoruba tradition, Eshu (Elegba) is the divine messenger who opens the road between humans and the orisha; offerings at the crossroads honor him before any other deity is addressed.",
     "category": "symbolism",
     "relatedDeities": ["eshu"]
   },
   {
     "id": "oshun-brass",
-    "fact": "Oshun, the Yoruba orisha of rivers and sweet waters, is closely associated with brass and gold. Devotees wear yellow and offer honey — never salt — at her shrines.",
+    "fact": "Oshun, the Yoruba orisha of rivers and sweet waters, is closely associated with brass and gold. Devotees wear yellow and offer honey, never salt, at her shrines.",
     "category": "symbolism",
     "relatedDeities": ["oshun"]
   },
   {
     "id": "dagda-cauldron",
-    "fact": "The Dagda of the Tuatha Dé Danann carried an enormous cauldron that never ran empty — one of the Four Treasures of Ireland, a symbol of endless hospitality and abundance.",
+    "fact": "The Dagda of the Tuatha Dé Danann carried an enormous cauldron that never ran empty, one of the Four Treasures of Ireland, a symbol of endless hospitality and abundance.",
     "category": "stories",
     "relatedDeities": ["dagda"]
   },
   {
     "id": "morrigan-crow",
-    "fact": "The Morrígan often appears as a crow or raven over Irish battlefields. Seeing her foretold victory or doom — she was not merely a war goddess but a sovereignty figure who could make or unmake kings.",
+    "fact": "The Morrígan often appears as a crow or raven over Irish battlefields. Seeing her foretold victory or doom; she was not merely a war goddess but a sovereignty figure who could make or unmake kings.",
     "category": "symbolism",
     "relatedDeities": ["morrigan"]
   },
@@ -217,7 +217,7 @@
   },
   {
     "id": "maui-fishhook",
-    "fact": "In Māori tradition, Maui's fishhook Manaiakalani hauled up Te Ika-a-Māui — the North Island of New Zealand — from the ocean floor. The South Island is his canoe.",
+    "fact": "In Māori tradition, Maui's fishhook Manaiakalani hauled up Te Ika-a-Māui, the North Island of New Zealand, from the ocean floor. The South Island is his canoe.",
     "category": "stories",
     "relatedDeities": ["maui"]
   },
@@ -229,13 +229,13 @@
   },
   {
     "id": "journey-west-allegory",
-    "fact": "Journey to the West is not only adventure — Sun Wukong's pilgrimage with the monk Xuanzang allegorizes the Buddhist path from ego and chaos toward enlightenment.",
+    "fact": "Journey to the West is not only adventure: Sun Wukong's pilgrimage with the monk Xuanzang allegorizes the Buddhist path from ego and chaos toward enlightenment.",
     "category": "connections",
     "relatedDeities": ["sun-wukong"]
   },
   {
     "id": "gilgamesh-flood",
-    "fact": "The Epic of Gilgamesh contains a flood story that predates the biblical Noah account by centuries — Utnapishtim survives a world-drowning storm in a sealed boat, guided by the god Ea.",
+    "fact": "The Epic of Gilgamesh contains a flood story that predates the biblical Noah account by centuries: Utnapishtim survives a world-drowning storm in a sealed boat, guided by the god Ea.",
     "category": "connections",
     "relatedDeities": ["gilgamesh"]
   },
@@ -319,7 +319,7 @@
   },
   {
     "id": "durga-weapons",
-    "fact": "Durga was manifested from the pooled fiery energy (tejas) of all the Hindu deities when the buffalo demon Mahishasura could not be conquered by any individual god. Each deity gifted her their supreme weapon — Shiva's trident, Vishnu's discus, and Indra's thunderbolt.",
+    "fact": "Durga was manifested from the pooled fiery energy (tejas) of all the Hindu deities when the buffalo demon Mahishasura could not be conquered by any individual god. Each deity gifted her their supreme weapon: Shiva's trident, Vishnu's discus, and Indra's thunderbolt.",
     "category": "origins",
     "relatedDeities": ["durga", "shiva", "vishnu", "indra"]
   },
@@ -349,7 +349,7 @@
   },
   {
     "id": "lugh-samhain",
-    "fact": "Lugh of the Long Arm was hailed as 'Samildánach' (skilled in all the arts). When seeking entry to the high king's court at Tara, he was denied as a carpenter, smith, and warrior because the hall already had them — but was welcomed when he proved no single man possessed all arts at once.",
+    "fact": "Lugh of the Long Arm was hailed as 'Samildánach' (skilled in all the arts). When seeking entry to the high king's court at Tara, he was denied as a carpenter, smith, and warrior because the hall already had them, but was welcomed when he proved no single man possessed all arts at once.",
     "category": "stories",
     "relatedDeities": ["lug"]
   },
