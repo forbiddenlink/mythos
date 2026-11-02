@@ -138,7 +138,7 @@ export function FactsPageClient({
   );
 
   const handleCopyFact = useCallback((fact: Fact) => {
-    const shareText = `"${fact.fact}" — Mythos Atlas (https://mythosatlas.com/facts)`;
+    const shareText = `Mythos Atlas: "${fact.fact}" (https://mythosatlas.com/facts)`;
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard.writeText(shareText);
       setCopiedId(fact.id);

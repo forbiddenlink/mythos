@@ -602,7 +602,7 @@ function relationshipHintsForDeityHits(hits: SearchResult[]): string {
     const nameA = nameById.get(a) ?? a;
     const nameB = nameById.get(b) ?? b;
     lines.push(
-      `• ${nameA} — ${formatRelationshipType(rel.relationshipType)} — ${nameB}`,
+      `• ${nameA}: ${formatRelationshipType(rel.relationshipType)}: ${nameB}`,
     );
   }
 
@@ -610,7 +610,7 @@ function relationshipHintsForDeityHits(hits: SearchResult[]): string {
 
   return [
     "",
-    "FAMILY / RELATIONSHIP EDGES (from the Mythos Atlas graph — use for ties between figures above):",
+    "FAMILY / RELATIONSHIP EDGES (from the Mythos Atlas graph; use for ties between figures above):",
     ...lines,
   ].join("\n");
 }
@@ -653,7 +653,7 @@ function snippetForResult(r: SearchResult): Snippet | null {
     if (!source) return null;
     return {
       body: truncate(
-        `${source.title}${source.author ? ` — ${source.author}` : ""}: ${source.description}`,
+        `${source.title}${source.author ? ` by ${source.author}` : ""}: ${source.description}`,
         MAX_SNIPPET,
       ),
       primarySources: [
@@ -747,7 +747,7 @@ export async function getOracleGrounding(
   if (blocks.length === 0) return EMPTY_GROUNDING;
 
   const context = [
-    "REFERENCE (from Mythos Atlas — the ONLY facts you may use; Path values are site routes you can link):",
+    "REFERENCE (from Mythos Atlas, the ONLY facts you may use; Path values are site routes you can link):",
     ...blocks,
     relationshipHintsForDeityHits(usedHits),
   ]

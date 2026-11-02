@@ -1,6 +1,7 @@
 "use client";
 
-import { Search } from "lucide-react";
+import { Command, Search } from "lucide-react";
+import { useIsMac } from "@/hooks/use-is-mac";
 import { cn } from "@/lib/utils";
 
 /**
@@ -14,6 +15,8 @@ export function OpenSearchButton({
   label?: string;
   className?: string;
 }) {
+  const isMac = useIsMac();
+
   return (
     <button
       type="button"
@@ -27,8 +30,10 @@ export function OpenSearchButton({
     >
       <Search className="size-5 shrink-0 text-gold-text" aria-hidden="true" />
       <span className="flex-1">{label}</span>
-      <kbd className="hidden rounded border border-border bg-muted px-1.5 py-0.5 font-sans text-xs text-muted-foreground sm:inline">
-        Ctrl K
+      <kbd className="hidden items-center gap-0.5 rounded border border-border bg-muted px-1.5 py-0.5 font-sans text-xs text-muted-foreground sm:inline-flex">
+        {isMac === true ? <Command className="h-3 w-3" aria-hidden="true" /> : null}
+        {isMac === false ? "Ctrl" : null}
+        <span>K</span>
       </kbd>
     </button>
   );

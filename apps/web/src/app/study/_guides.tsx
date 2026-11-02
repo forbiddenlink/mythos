@@ -165,7 +165,7 @@ const GUIDES: StudyGuide[] = [
     steps: [
       {
         title: "Browse parallels",
-        body: "Start on the cross-pantheon parallels index — editorial analogies, not forced equivalences.",
+        body: "Start on the cross-pantheon parallels index. These are editorial analogies, not forced equivalences.",
         href: "/compare/parallels",
       },
       {

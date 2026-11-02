@@ -365,7 +365,7 @@ export function relationshipCitations(
       if (seen.has(key)) continue;
       seen.add(key);
       citations.push({
-        title: `${source.title} — ${claim}`,
+        title: `${source.title} (${claim})`,
         url: evidence.sourceUrl,
         author: source.author,
         lines: evidence.locator,
