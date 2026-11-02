@@ -50,7 +50,7 @@
     "abilities": ["Eight Heads", "Size Manipulation", "Regeneration"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/yamata-no-orochi.jpg",
-    "detailedBio": "## Eight Heads in the River\n\nThe Kojiki and Nihon Shoki tell how Susanoo found a family in Izumo whose daughters were being eaten, year by year, by an eight-headed, eight-tailed serpent that filled eight valleys. He stupefied it with eight vats of sake, cut it apart, and drew the sword **Kusanagi** from the tail.\n\nThe monster is local and hydrological — a Koshi-province terror — before it becomes an imperial relic in the grass-cutting sword.\n\n## The sword and the bride\n\nThe girl Susanoo saves, Kushinadahime, becomes his wife; in the *Kojiki* he turns her into a comb and wears it in his hair during the fight. He presents the sword to his sister Amaterasu, and it passes down to become one of the three imperial regalia. The story is one of the founding narratives of Izumo, and the serpent's red eyes and moss-grown back fit a reading of it as a flooding river.",
+    "detailedBio": "## Eight Heads in the River\n\nThe Kojiki and Nihon Shoki tell how Susanoo found a family in Izumo whose daughters were being eaten, year by year, by an eight-headed, eight-tailed serpent that filled eight valleys. He stupefied it with eight vats of sake, cut it apart, and drew the sword **Kusanagi** from the tail.\n\nThe monster is local and hydrological, a Koshi-province terror, before it becomes an imperial relic in the grass-cutting sword.\n\n## The sword and the bride\n\nThe girl Susanoo saves, Kushinadahime, becomes his wife; in the *Kojiki* he turns her into a comb and wears it in his hair during the fight. He presents the sword to his sister Amaterasu, and it passes down to become one of the three imperial regalia. The story is one of the founding narratives of Izumo, and the serpent's red eyes and moss-grown back fit a reading of it as a flooding river.",
     "primarySources": [
       {
         "text": "Its eyes were like winter cherries, and it had eight heads and eight tails. On its body grew moss and trees.",
@@ -176,7 +176,7 @@
     "abilities": ["Immense Strength", "Master Craftsmanship", "Stone Throwing"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/cyclops.png",
-    "detailedBio": "## One Eye, Two Stories\n\nHesiod's Cyclopes — Brontes, Steropes, Arges — forge Zeus's thunderbolt. Homer's Polyphemus is a pastoral giant who cages Odysseus and is blinded for it. Later myth tries to join the smiths to the shepherds; the poems keep them apart.\n\nThe Odyssey episode is the one travelers remember: no wine-guest law, a cave, and a name stolen as 'Nobody.'\n\n## Makers of the thunderbolt\n\nIn the *Theogony* the three Cyclopes are sons of Gaia and Uranus, imprisoned by their father and freed by Zeus, to whom they give thunder and lightning in gratitude. Callimachus and Virgil later put them to work as Hephaestus's smiths under Etna. Homer's Cyclopes are a lawless people who neither plough nor hold assemblies; Polyphemus, son of Poseidon, is one of them, and his blinding is the cause of Poseidon's anger that keeps Odysseus from home.",
+    "detailedBio": "## One Eye, Two Stories\n\nHesiod's Cyclopes (Brontes, Steropes, Arges) forge Zeus's thunderbolt. Homer's Polyphemus is a pastoral giant who cages Odysseus and is blinded for it. Later myth tries to join the smiths to the shepherds; the poems keep them apart.\n\nThe Odyssey episode is the one travelers remember: no wine-guest law, a cave, and a name stolen as 'Nobody.'\n\n## Makers of the thunderbolt\n\nIn the *Theogony* the three Cyclopes are sons of Gaia and Uranus, imprisoned by their father and freed by Zeus, to whom they give thunder and lightning in gratitude. Callimachus and Virgil later put them to work as Hephaestus's smiths under Etna. Homer's Cyclopes are a lawless people who neither plough nor hold assemblies; Polyphemus, son of Poseidon, is one of them, and his blinding is the cause of Poseidon's anger that keeps Odysseus from home.",
     "primarySources": [
       {
         "text": "They have no assemblies for making council, nor appointed laws, but they dwell on the peaks of lofty mountains in hollow caves.",
@@ -197,7 +197,7 @@
     "abilities": ["Petrifying Gaze", "Serpent Hair", "Immortal Blood"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/medusa.png",
-    "detailedBio": "## The Mortal Gorgon\n\nOf the three Gorgons only Medusa is mortal. Perseus beheads her with Athena's aid; Pegasus and Chrysaor spring from the neck. Ovid adds the later tale that Athena punished Medusa's beauty after Poseidon's assault in the temple — a Roman overlay on an older beheading myth.\n\nThe head remains a weapon: the aegis, the apotropaic face on shields.\n\n## After the beheading\n\nPerseus carries the head in a kibisis (wallet), turns the sea-monster and Polydectes' court to stone with it, and gives it to Athena, who sets it on her aegis. Ovid (*Metamorphoses* 4) adds that drops of blood falling over Libya became its snakes and that the head, laid on seaweed, turned the plants to coral. The Gorgoneion, the staring face with tongue and tusks, was painted on shields, pediments, and pottery as a protective sign long before Ovid's tragic backstory.",
+    "detailedBio": "## The Mortal Gorgon\n\nOf the three Gorgons only Medusa is mortal. Perseus beheads her with Athena's aid; Pegasus and Chrysaor spring from the neck. Ovid adds the later tale that Athena punished Medusa's beauty after Poseidon's assault in the temple, a Roman overlay on an older beheading myth.\n\nThe head remains a weapon: the aegis, the apotropaic face on shields.\n\n## After the beheading\n\nPerseus carries the head in a kibisis (wallet), turns the sea-monster and Polydectes' court to stone with it, and gives it to Athena, who sets it on her aegis. Ovid (*Metamorphoses* 4) adds that drops of blood falling over Libya became its snakes and that the head, laid on seaweed, turned the plants to coral. The Gorgoneion, the staring face with tongue and tusks, was painted on shields, pediments, and pottery as a protective sign long before Ovid's tragic backstory.",
     "primarySources": [
       {
         "text": "And from the Gorgon the horse Pegasus sprang, and Chrysaor the hero, when Perseus cut off her head.",
@@ -238,7 +238,7 @@
     "abilities": ["Realm Travel", "Supernatural Speed", "Flight"],
     "dangerLevel": 3,
     "imageUrl": "/creatures/sleipnir.jpg",
-    "detailedBio": "## Eight Legs to Hel\n\nSleipnir is Odin's grey, the best of horses, born when Loki as a mare lured the stallion Svadilfari away from the mason who nearly won the sun and Freyja. Hermod rides him to Hel after Baldr's death. The eight legs are in the poems; they are not a later cartoon.\n\nDanger is low because he is a mount, not a hunter — speed between worlds, not a bite.\n\n## The builder's wager\n\nSnorri tells the story in *Gylfaginning*: a giant builder offers to wall Asgard in one winter in return for Freyja, the sun, and the moon, and nearly succeeds with the help of his stallion Svaðilfari. Loki, who advised the bargain, lures the stallion away in the shape of a mare and later gives birth to Sleipnir. Gotland picture stones, such as Tjängvide I, show an eight-legged horse with a rider, usually read as Odin.",
+    "detailedBio": "## Eight Legs to Hel\n\nSleipnir is Odin's grey, the best of horses, born when Loki as a mare lured the stallion Svadilfari away from the mason who nearly won the sun and Freyja. Hermod rides him to Hel after Baldr's death. The eight legs are in the poems; they are not a later cartoon.\n\nDanger is low because he is a mount, not a hunter; speed between worlds, not a bite.\n\n## The builder's wager\n\nSnorri tells the story in *Gylfaginning*: a giant builder offers to wall Asgard in one winter in return for Freyja, the sun, and the moon, and nearly succeeds with the help of his stallion Svaðilfari. Loki, who advised the bargain, lures the stallion away in the shape of a mare and later gives birth to Sleipnir. Gotland picture stones, such as Tjängvide I, show an eight-legged horse with a rider, usually read as Odin.",
     "primarySources": [
       {
         "text": "The best of all horses is Sleipnir; he has eight legs. He belongs to Odin.",
@@ -259,7 +259,7 @@
     "abilities": ["Corpse Consumption", "Root Gnawing", "Decay Aura"],
     "dangerLevel": 8,
     "imageUrl": "/creatures/nidhogg.png",
-    "detailedBio": "## Gnawer at the Root\n\nNidhogg is the dragon under Yggdrasil who chews the tree's root and, in Voluspa, flies up from Nidafjoll bearing corpses at the end of the world. Snorri parks him at Nastrond among oath-breakers. He is decay with a name, not a hoard-dragon of the Sigurd type.\n\nThe squirrel Ratatoskr carries insults between Nidhogg and the eagle above — a postal service of spite.\n\n## Under the tree\n\nThe Eddic poem *Grímnismál* lists Níðhöggr among the serpents gnawing Yggdrasil's roots and names Ratatoskr as the squirrel who runs up and down the trunk carrying the words of the eagle above to the dragon below. In the last stanza of *Völuspá* the seeress sees the dark dragon flying up, bearing corpses in its feathers, even as the new world rises; readers still debate whether its appearance marks a lingering threat or the dragon's own end.",
+    "detailedBio": "## Gnawer at the Root\n\nNidhogg is the dragon under Yggdrasil who chews the tree's root and, in Voluspa, flies up from Nidafjoll bearing corpses at the end of the world. Snorri parks him at Nastrond among oath-breakers. He is decay with a name, not a hoard-dragon of the Sigurd type.\n\nThe squirrel Ratatoskr carries insults between Nidhogg and the eagle above, a postal service of spite.\n\n## Under the tree\n\nThe Eddic poem *Grímnismál* lists Níðhöggr among the serpents gnawing Yggdrasil's roots and names Ratatoskr as the squirrel who runs up and down the trunk carrying the words of the eagle above to the dragon below. In the last stanza of *Völuspá* the seeress sees the dark dragon flying up, bearing corpses in its feathers, even as the new world rises; readers still debate whether its appearance marks a lingering threat or the dragon's own end.",
     "primarySources": [
       {
         "text": "There Nidhogg sucks the corpses of the dead; the wolf tears men.",
@@ -322,7 +322,7 @@
     "abilities": ["Soul Consumption", "Heart Detection", "Eternal Hunger"],
     "dangerLevel": 9,
     "imageUrl": "/creatures/ammit.png",
-    "detailedBio": "## Eater of the Unjust Heart\n\nAmmit waits beside the balance in the Hall of Two Truths. If the heart outweighs Maat's feather, she eats it; the person dies a second death. She compounds crocodile, lion, and hippopotamus — Egypt's three most lethal waterside animals — into one judicial mouth.\n\nShe is not worshipped. Spell 125 of the Book of the Dead is a plea not to meet her.\n\n## In the vignette\n\nAmmit's name means 'Devourer of the Dead'. She appears in the judgment vignettes of New Kingdom *Book of the Dead* papyri, most famously the Papyrus of Ani in the British Museum, crouching by the scale beside Thoth as the heart is weighed. She has no temple or offerings, and no Egyptian text tells a story about her: her whole existence is the threat of the second death in that one scene.",
+    "detailedBio": "## Eater of the Unjust Heart\n\nAmmit waits beside the balance in the Hall of Two Truths. If the heart outweighs Maat's feather, she eats it; the person dies a second death. She compounds crocodile, lion, and hippopotamus, Egypt's three most lethal waterside animals, into one judicial mouth.\n\nShe is not worshipped. Spell 125 of the Book of the Dead is a plea not to meet her.\n\n## In the vignette\n\nAmmit's name means 'Devourer of the Dead'. She appears in the judgment vignettes of New Kingdom *Book of the Dead* papyri, most famously the Papyrus of Ani in the British Museum, crouching by the scale beside Thoth as the heart is weighed. She has no temple or offerings, and no Egyptian text tells a story about her: her whole existence is the threat of the second death in that one scene.",
     "primarySources": [
       {
         "text": "The Devourer sits beside the scale; the heart that is heavy with wrong is given to her, and that person shall not exist.",
@@ -973,7 +973,7 @@
     ],
     "dangerLevel": 10,
     "imageUrl": "/creatures/tzitzimime.webp",
-    "detailedBio": "## Star-Demons at the Eclipse\n\nTzitzimime are female stellar beings who threaten to devour people when the sun fails — eclipses, the New Fire year's panic. Itzpapalotl is their best-known leader. Codex and Sahagún notices dress them in skulls and claws; they are cosmology, not a swamp cryptid.\n\nThe Fifth Sun's contract is that they wait. Ritual keeps the sun fed so they stay aloft.\n\n## When the sun fails\n\nSahagún's informants (Book 7) record that during solar eclipses people feared the tzitzimime would come down to eat humans, and that at the New Fire Ceremony every 52 years, if the fire could not be drilled, the sun would not rise and they would descend. Pregnant women were masked with maguey leaves and shut away in granaries in case they turned into beasts. Colonial writers equated the tzitzimime with devils, a distortion scholars now try to correct.",
+    "detailedBio": "## Star-Demons at the Eclipse\n\nTzitzimime are female stellar beings who threaten to devour people when the sun fails: eclipses, the New Fire year's panic. Itzpapalotl is their best-known leader. Codex and Sahagún notices dress them in skulls and claws; they are cosmology, not a swamp cryptid.\n\nThe Fifth Sun's contract is that they wait. Ritual keeps the sun fed so they stay aloft.\n\n## When the sun fails\n\nSahagún's informants (Book 7) record that during solar eclipses people feared the tzitzimime would come down to eat humans, and that at the New Fire Ceremony every 52 years, if the fire could not be drilled, the sun would not rise and they would descend. Pregnant women were masked with maguey leaves and shut away in granaries in case they turned into beasts. Colonial writers equated the tzitzimime with devils, a distortion scholars now try to correct.",
     "primarySources": [
       {
         "text": "When the sun is eclipsed, the tzitzimime, the star-demons, descend to devour people; women in labor were thought especially exposed.",
@@ -1013,7 +1013,7 @@
     "pantheonId": "chinese-pantheon",
     "name": "Fenghuang",
     "slug": "fenghuang",
-    "description": "The Chinese phoenix — an auspicious bird embodying yin-yang harmony, virtue, and the union of heaven and earth. Its appearance heralds a peaceful, just age.",
+    "description": "The Chinese phoenix, an auspicious bird embodying yin-yang harmony, virtue, and the union of heaven and earth. Its appearance heralds a peaceful, just age.",
     "habitat": "Paulownia groves and high celestial peaks",
     "abilities": ["Auspicious Presence", "Harmonic Song", "Foresight"],
     "dangerLevel": 2,
@@ -1055,7 +1055,7 @@
     "pantheonId": "chinese-pantheon",
     "name": "Bai Ze",
     "slug": "bai-ze",
-    "description": "A wise white beast that taught the Yellow Emperor the names and natures of all supernatural creatures — knowledge used to protect humanity from spirits.",
+    "description": "A wise white beast that taught the Yellow Emperor the names and natures of all supernatural creatures, knowledge used to protect humanity from spirits.",
     "habitat": "Holy mountains and imperial courts of legend",
     "abilities": ["Omniscient Lore", "Spirit Identification", "Counsel"],
     "dangerLevel": 1,
@@ -1074,7 +1074,7 @@
     "pantheonId": "polynesian-pantheon",
     "name": "Moʻo",
     "slug": "moo",
-    "description": "Hawaiian lizard or dragon spirits that guard freshwater ponds and fishponds. They can appear as beautiful women or as great reptiles — dangerous if disrespected.",
+    "description": "Hawaiian lizard or dragon spirits that guard freshwater ponds and fishponds. They can appear as beautiful women or as great reptiles, dangerous if disrespected.",
     "habitat": "Fishponds, springs, and mountain pools of Hawaiʻi",
     "abilities": ["Shapeshifting", "Water Guardianship", "Illusion"],
     "dangerLevel": 6,
@@ -1112,7 +1112,7 @@
     "pantheonId": "chinese-pantheon",
     "name": "Nian",
     "slug": "nian",
-    "description": "A mountain and sea beast that once terrorized villages at the turn of the year. Driven off by loud noise, fire, and the color red — the origin of Lunar New Year customs.",
+    "description": "A mountain and sea beast that once terrorized villages at the turn of the year. Driven off by loud noise, fire, and the color red, the origin of Lunar New Year customs.",
     "habitat": "Mountains and coastal depths",
     "abilities": ["Seasonal Raid", "Fear Aura", "Great Strength"],
     "dangerLevel": 7,
@@ -1150,7 +1150,7 @@
     "pantheonId": "aztec-pantheon",
     "name": "Itzpapalotl's Obsidian Host",
     "slug": "itzpapalotl-obsidian-host",
-    "description": "Obsidian-butterfly warriors of the paradise Tamoanchan — beautiful, jagged, and lethal to the uninitiated.",
+    "description": "Obsidian-butterfly warriors of the paradise Tamoanchan, beautiful, jagged, and lethal to the uninitiated.",
     "habitat": "Tamoanchan",
     "abilities": ["Obsidian Wings", "Star Terror", "Paradise Gate"],
     "dangerLevel": 8,
@@ -1169,7 +1169,7 @@
     "pantheonId": "mesopotamian-pantheon",
     "name": "Mušḫuššu",
     "slug": "mushussu",
-    "description": "The snaked-headed dragon of Marduk, later emblem of Babylon — horns, lion forelegs, and bird hind talons.",
+    "description": "The snaked-headed dragon of Marduk, later emblem of Babylon: horns, lion forelegs, and bird hind talons.",
     "habitat": "Babylon / sacred precincts",
     "abilities": ["Sacred Terror", "Royal Emblem", "Venom Strike"],
     "dangerLevel": 8,
@@ -1188,7 +1188,7 @@
     "pantheonId": "mesopotamian-pantheon",
     "name": "Ugallu",
     "slug": "ugallu",
-    "description": "Lion-demon storm spirits of Mesopotamian ritual art — fierce guardians who also threaten the unprotected.",
+    "description": "Lion-demon storm spirits of Mesopotamian ritual art, fierce guardians who also threaten the unprotected.",
     "habitat": "Storm fronts / temple thresholds",
     "abilities": ["Storm Roar", "Threshold Guard", "Demon Strength"],
     "dangerLevel": 7,
@@ -1216,7 +1216,7 @@
       "leading travelers in circles"
     ],
     "dangerLevel": 4,
-    "detailedBio": "## A 19th-century folk figure, not a pagan-era god\n\nThe leshy (\"forest one\") belongs to the lower mythology recorded from East Slavic peasants by 19th-century ethnographers, chiefly Alexander Afanasyev's collections of folktales and his study *Poeticheskie vozzreniya slavyan na prirodu* (\"The Poetic Outlook of the Slavs upon Nature,\" 1865–1869). No medieval chronicle or missionary account names him; he survives only in this much later oral record, alongside domovoi, vodyanoy, and rusalka, as part of a household-and-wilderness spirit system that coexisted with official Orthodox Christianity (*dvoeverie*, \"double-faith\").\n\n## Character\n\nPeasant tellers described the leshy as the forest's owner and caretaker: he can appear human-sized or taller than the trees, walk without casting a shadow, and wear his coat buttoned right-over-left (opposite the human custom) as a telltale sign. He punishes those who abuse the forest or curse carelessly (a careless \"go to the leshy\" was thought risky to say aloud) and can reward respectful hunters and shepherds with good fortune, but is best known for leading lost travelers in senseless circles until they lose their bearings entirely — a fate reversible, in the folklore, by turning one's clothes inside out.",
+    "detailedBio": "## A 19th-century folk figure, not a pagan-era god\n\nThe leshy (\"forest one\") belongs to the lower mythology recorded from East Slavic peasants by 19th-century ethnographers, chiefly Alexander Afanasyev's collections of folktales and his study *Poeticheskie vozzreniya slavyan na prirodu* (\"The Poetic Outlook of the Slavs upon Nature,\" 1865–1869). No medieval chronicle or missionary account names him; he survives only in this much later oral record, alongside domovoi, vodyanoy, and rusalka, as part of a household-and-wilderness spirit system that coexisted with official Orthodox Christianity (*dvoeverie*, \"double-faith\").\n\n## Character\n\nPeasant tellers described the leshy as the forest's owner and caretaker: he can appear human-sized or taller than the trees, walk without casting a shadow, and wear his coat buttoned right-over-left (opposite the human custom) as a telltale sign. He punishes those who abuse the forest or curse carelessly (a careless \"go to the leshy\" was thought risky to say aloud) and can reward respectful hunters and shepherds with good fortune, but is best known for leading lost travelers in senseless circles until they lose their bearings entirely, a fate reversible, in the folklore, by turning one's clothes inside out.",
     "primarySources": [
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
@@ -1264,7 +1264,7 @@
       "causing mischief when disrespected"
     ],
     "dangerLevel": 1,
-    "detailedBio": "## A 19th-century folk figure, not a pagan-era god\n\nThe domovoi (\"house one\") is documented in East Slavic peasant belief recorded by 19th-century ethnographers, including Afanasyev, as the guardian spirit of a specific household, tied to the family that lives there rather than to the building itself. No pagan-era chronicle mentions him; he belongs to the folklore of household spirits alongside the leshy of the forest and the vodyanoy of the water.\n\n## Character\n\nUsually imagined as a small, hairy, old-man-like figure who lives behind the stove, under the threshold, or in the cellar, the domovoi was believed to look after the house and its livestock, sometimes braiding a favored horse's mane, and to warn the family of coming misfortune through strange noises or by appearing briefly before a death. He was treated with small, regular courtesies — a bit of bread and salt left out, greetings when moving to a new house (inviting him along by leaving the old stove's embers for him to \"ride\") — and thought to turn mischievous, hiding objects or making noise at night, if neglected or insulted.",
+    "detailedBio": "## A 19th-century folk figure, not a pagan-era god\n\nThe domovoi (\"house one\") is documented in East Slavic peasant belief recorded by 19th-century ethnographers, including Afanasyev, as the guardian spirit of a specific household, tied to the family that lives there rather than to the building itself. No pagan-era chronicle mentions him; he belongs to the folklore of household spirits alongside the leshy of the forest and the vodyanoy of the water.\n\n## Character\n\nUsually imagined as a small, hairy, old-man-like figure who lives behind the stove, under the threshold, or in the cellar, the domovoi was believed to look after the house and its livestock, sometimes braiding a favored horse's mane, and to warn the family of coming misfortune through strange noises or by appearing briefly before a death. He was treated with small, regular courtesies (a bit of bread and salt left out, greetings when moving to a new house (inviting him along by leaving the old stove's embers for him to \"ride\")) and thought to turn mischievous, hiding objects or making noise at night, if neglected or insulted.",
     "primarySources": [
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",
@@ -1368,7 +1368,7 @@
       "granting or withholding magical aid"
     ],
     "dangerLevel": 7,
-    "detailedBio": "## A fairy-tale figure, not a pagan-era goddess\n\nBaba Yaga is documented almost entirely in East Slavic fairy tales collected in the 19th century, above all by Afanasyev, whose collection preserves her best-known appearance in *Vasilisa the Beautiful*. No pagan-era chronicle or missionary account describes her; claims that she descends from a specific ancient goddess are modern speculation, not attested continuity, and this site does not present her as a pagan deity.\n\n## An ambiguous figure, not a simple villain\n\nWhat makes Baba Yaga distinctive within the fairy-tale corpus is her moral ambiguity: in some tales she is a straightforward threat who eats children who wander into her hut; in others, including *Vasilisa the Beautiful*, she is a difficult but ultimately fair gatekeeper who sets the protagonist an impossible-seeming household task and rewards honest, respectful effort. Her hut, famously set on chicken legs and able to turn to face the visitor, and her mode of travel — flying in a mortar, rowing with a pestle, sweeping away her tracks with a birch broom — are consistent across tellings and mark her as a liminal figure standing at the boundary between the everyday world and the world of the dead.",
+    "detailedBio": "## A fairy-tale figure, not a pagan-era goddess\n\nBaba Yaga is documented almost entirely in East Slavic fairy tales collected in the 19th century, above all by Afanasyev, whose collection preserves her best-known appearance in *Vasilisa the Beautiful*. No pagan-era chronicle or missionary account describes her; claims that she descends from a specific ancient goddess are modern speculation, not attested continuity, and this site does not present her as a pagan deity.\n\n## An ambiguous figure, not a simple villain\n\nWhat makes Baba Yaga distinctive within the fairy-tale corpus is her moral ambiguity: in some tales she is a straightforward threat who eats children who wander into her hut; in others, including *Vasilisa the Beautiful*, she is a difficult but ultimately fair gatekeeper who sets the protagonist an impossible-seeming household task and rewards honest, respectful effort. Her hut, famously set on chicken legs and able to turn to face the visitor, and her mode of travel (flying in a mortar, rowing with a pestle, sweeping away her tracks with a birch broom) are consistent across tellings and mark her as a liminal figure standing at the boundary between the everyday world and the world of the dead.",
     "primarySources": [
       {
         "text": "Collected as part of the largest 19th-century corpus of East Slavic oral folklore.",

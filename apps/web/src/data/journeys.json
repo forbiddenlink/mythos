@@ -774,7 +774,7 @@
         "name": "Cedar Forest",
         "coordinates": [34.0, 36.0],
         "order": 2,
-        "description": "The sacred forest of Humbaba, guardian appointed by Enlil. Gilgamesh and Enkidu had earlier slain the monster here — the victory that sealed Enkidu's fate.",
+        "description": "The sacred forest of Humbaba, guardian appointed by Enlil. Gilgamesh and Enkidu had earlier slain the monster here, the victory that sealed Enkidu's fate.",
         "events": ["Memory of Humbaba", "Sacred cedars", "Divine warning"],
         "creatures": ["Humbaba"],
         "deities": ["Enlil"],
@@ -799,7 +799,7 @@
         "name": "Siduri's Tavern",
         "coordinates": [30.0, 48.0],
         "order": 4,
-        "description": "The wise alewife at the edge of the waters advises Gilgamesh to cherish mortal joys rather than chase immortality — advice he cannot yet accept.",
+        "description": "The wise alewife at the edge of the waters advises Gilgamesh to cherish mortal joys rather than chase immortality, advice he cannot yet accept.",
         "events": [
           "Counsel of Siduri",
           "Directions to Urshanabi",
@@ -822,7 +822,7 @@
         "name": "Utnapishtim's Shore",
         "coordinates": [26.0, 52.0],
         "order": 6,
-        "description": "The flood survivor tells Gilgamesh how the gods granted him eternal life — a gift not meant for other mortals. Gilgamesh fails the test of staying awake and loses the plant of youth to a serpent.",
+        "description": "The flood survivor tells Gilgamesh how the gods granted him eternal life, a gift not meant for other mortals. Gilgamesh fails the test of staying awake and loses the plant of youth to a serpent.",
         "events": [
           "Flood tale",
           "Sleep test failed",
@@ -864,7 +864,7 @@
         "name": "Crossroads of Xibalba",
         "coordinates": [15.2, -90.5],
         "order": 2,
-        "description": "Four roads — red, white, yellow, black — try to deceive travelers. The twins send a mosquito ahead to learn the lords’ names.",
+        "description": "Four roads (red, white, yellow, black) try to deceive travelers. The twins send a mosquito ahead to learn the lords’ names.",
         "events": ["False greetings", "Naming the death lords"],
         "duration": "First trial"
       },
@@ -873,7 +873,7 @@
         "name": "Dark House",
         "coordinates": [15.0, -90.7],
         "order": 3,
-        "description": "A house of absolute darkness where the twins keep a torch and cigar lit only by fireflies — returning them unburned at dawn.",
+        "description": "A house of absolute darkness where the twins keep a torch and cigar lit only by fireflies, returning them unburned at dawn.",
         "events": ["Firefly ruse", "Surviving darkness"],
         "duration": "One night"
       },
@@ -920,7 +920,7 @@
         "name": "Ballcourt of Xibalba",
         "coordinates": [14.5, -91.2],
         "order": 8,
-        "description": "The twins defeat the death lords at their own game, refuse false sacrifices, and rise as sun and moon — light over death.",
+        "description": "The twins defeat the death lords at their own game, refuse false sacrifices, and rise as sun and moon, light over death.",
         "events": [
           "Final ballgame",
           "Defeat of death lords",
@@ -937,7 +937,7 @@
     "heroName": "Maui",
     "title": "Fishing Up the Islands",
     "slug": "maui-island-fishing",
-    "description": "Maui sails with his brothers, baits his ancestral hook Manaiakalani, and hauls a great fish from the deep — land that becomes islands when the brothers carve it too soon.",
+    "description": "Maui sails with his brothers, baits his ancestral hook Manaiakalani, and hauls a great fish from the deep, land that becomes islands when the brothers carve it too soon.",
     "pantheonId": "polynesian-pantheon",
     "duration": "One legendary voyage",
     "imageUrl": "/journeys/maui-island-fishing.png",
@@ -976,7 +976,7 @@
         "name": "The Raised Fish",
         "coordinates": [-38.5, 178.0],
         "order": 4,
-        "description": "A vast fish — Te Ika-a-Māui — breaks the surface as new land. Maui warns his brothers not to cut it yet.",
+        "description": "A vast fish, Te Ika-a-Māui, breaks the surface as new land. Maui warns his brothers not to cut it yet.",
         "events": ["Land appears", "Warning ignored"],
         "duration": "Revelation"
       },
