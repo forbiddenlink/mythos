@@ -34,6 +34,14 @@ const ASSET_ORIGIN = origin(
   "https://us-assets.i.posthog.com",
 );
 
+/**
+ * Paths the browser SDK calls. Anything else stays off the proxy, so the site's
+ * origin cannot be used to reach the rest of PostHog's API. Encoded characters are
+ * refused because the upstream could decode them into a different path.
+ */
+const SDK_PATH =
+  /^\/(?:(?:e|s|flags|decide|batch|capture|engage|track)(?:\/|$)|i\/v\d+\/(?:e|logs|metrics)(?:\/|$)|api\/(?:surveys|early_access_features|web_experiments)(?:\/|$)|(?:static|array)\/)/;
+
 const FORWARDED_REQUEST_HEADERS = [
   "content-type",
   "content-encoding",
@@ -55,11 +63,12 @@ const DROPPED_RESPONSE_HEADERS = [
   "keep-alive",
 ] as const;
 
-function upstreamUrl(request: NextRequest): URL {
-  const { pathname, search } = request.nextUrl;
-  const path = pathname.startsWith(PREFIX)
-    ? pathname.slice(PREFIX.length)
-    : pathname;
+function sdkPath(request: NextRequest): string {
+  const { pathname } = request.nextUrl;
+  return pathname.startsWith(PREFIX) ? pathname.slice(PREFIX.length) : pathname;
+}
+
+function upstreamUrl(path: string, search: string): URL {
   const base =
     path.startsWith("/static/") || path.startsWith("/array/")
       ? ASSET_ORIGIN
@@ -76,6 +85,11 @@ function clientIp(request: NextRequest): string | null {
 }
 
 async function proxy(request: NextRequest): Promise<Response> {
+  const path = sdkPath(request);
+  if (!SDK_PATH.test(path) || path.includes("%")) {
+    return new Response(null, { status: 404 });
+  }
+
   const headers = new Headers();
   for (const name of FORWARDED_REQUEST_HEADERS) {
     const value = request.headers.get(name);
@@ -95,7 +109,7 @@ async function proxy(request: NextRequest): Promise<Response> {
     init.duplex = "half";
   }
 
-  const upstream = await fetch(upstreamUrl(request), init);
+  const upstream = await fetch(upstreamUrl(path, request.nextUrl.search), init);
 
   const responseHeaders = new Headers(upstream.headers);
   for (const name of DROPPED_RESPONSE_HEADERS) responseHeaders.delete(name);
