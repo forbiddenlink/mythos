@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { AboutThisPage } from "@/components/layout/about-this-page";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import type { CatalogQuery } from "@/lib/catalog-query";
 import locations from "@/data/locations.json";
@@ -73,6 +75,12 @@ export default async function LocationsPage({
         deities={deityLinks}
         stories={storyLinks}
       />
+      <AboutThisPage title="About the places" className="mb-12">
+        <p>
+          Looking for a name? The <Link href="/locations/a-z">A to Z index</Link>{" "}
+          lists every place alphabetically.
+        </p>
+      </AboutThisPage>
     </>
   );
 }

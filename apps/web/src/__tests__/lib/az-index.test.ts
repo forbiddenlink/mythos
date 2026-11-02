@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { getDeityListItems } from "@/lib/data/catalog";
-import { groupDeitiesAlphabetically } from "@/lib/deity-az";
+import { groupAlphabetically } from "@/lib/az-index";
 
-describe("groupDeitiesAlphabetically", () => {
+describe("groupAlphabetically", () => {
   it("groups by first letter, ignoring diacritics and case", () => {
-    const groups = groupDeitiesAlphabetically([
+    const groups = groupAlphabetically([
       {
         name: "Ōkuninushi",
         slug: "okuninushi",
@@ -21,7 +21,7 @@ describe("groupDeitiesAlphabetically", () => {
   });
 
   it("sorts entries inside a letter by name", () => {
-    const [group] = groupDeitiesAlphabetically([
+    const [group] = groupAlphabetically([
       { name: "Zeus", slug: "zeus", pantheonId: "greek-pantheon" },
       { name: "Zephyrus", slug: "zephyrus", pantheonId: "greek-pantheon" },
     ]);
@@ -30,17 +30,17 @@ describe("groupDeitiesAlphabetically", () => {
 
   it("keeps every deity in the catalog exactly once", () => {
     const all = getDeityListItems();
-    const grouped = groupDeitiesAlphabetically(all).flatMap((g) => g.entries);
+    const grouped = groupAlphabetically(all).flatMap((g) => g.entries);
     expect(grouped).toHaveLength(all.length);
     expect(new Set(grouped.map((e) => e.slug)).size).toBe(all.length);
   });
 
   it("puts a name that does not start with a letter under #", () => {
-    const groups = groupDeitiesAlphabetically([
+    const groups = groupAlphabetically([
       { name: "'Oro", slug: "oro", pantheonId: "polynesian-pantheon" },
     ]);
     expect(groups[0].letter).toBe("O");
-    const odd = groupDeitiesAlphabetically([
+    const odd = groupAlphabetically([
       { name: "123", slug: "x", pantheonId: "p" },
     ]);
     expect(odd[0].letter).toBe("#");

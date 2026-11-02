@@ -54,6 +54,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${BASE_URL}/stories/a-z`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
       url: `${BASE_URL}/stories`,
       changeFrequency: "weekly",
       priority: 0.9,
@@ -64,9 +69,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/creatures/a-z`,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
       url: `${BASE_URL}/creatures`,
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/artifacts/a-z`,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
     {
       url: `${BASE_URL}/artifacts`,
@@ -122,6 +137,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/games/memory`,
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/locations/a-z`,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
     {
       url: `${BASE_URL}/locations`,

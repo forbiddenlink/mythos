@@ -144,7 +144,9 @@ test("era filtering is applied to actual server-rendered location cards", async 
   const html = await response.text();
   const actual = [
     ...html.matchAll(/<a\b[^>]*href="(\/locations\/[^"?#]+)"/g),
-  ].map((match) => match[1]);
+  ]
+    .map((match) => match[1])
+    .filter((href) => href !== "/locations/a-z");
   const expected = locations
     .filter((location) =>
       ["greek-pantheon", "roman-pantheon"].includes(location.pantheonId),
