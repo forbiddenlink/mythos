@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CatalogGallery } from "@/components/entities/CatalogGallery";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
@@ -87,6 +88,10 @@ export default function ArtifactsPage() {
         />
       </Container>
       <AboutThisPage title="About the artifacts">
+        <p>
+          Looking for a name? The <Link href="/artifacts/a-z">A to Z index</Link>{" "}
+          lists every artifact alphabetically.
+        </p>
         <p>
           Mythic artifacts matter because they carry ownership, symbolism, and
           narrative consequences. Use this catalog to compare how different

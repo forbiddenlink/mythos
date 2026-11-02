@@ -95,6 +95,10 @@ export default function CreaturesPage() {
       </Container>
       <AboutThisPage title="About the bestiary">
         <p>
+          Looking for a name? The <Link href="/creatures/a-z">A to Z index</Link>{" "}
+          lists every creature alphabetically.
+        </p>
+        <p>
           Mythological creatures often repeat the same narrative jobs across
           cultures: guarding thresholds, testing heroes, embodying chaos, or
           enforcing divine punishment. Use the grid view when you want quick

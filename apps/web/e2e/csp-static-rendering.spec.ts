@@ -11,6 +11,7 @@ const ROUTES = [
   "/", // static
   "/deities/zeus", // SSG entity page
   "/stories/titanomachy", // SSG entity page
+  "/stories/a-z", // static index beside a [slug] route
   "/heroes", // dynamic (searchParams)
   "/deities/not-a-real-deity", // static 404
 ];

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { foldForSearch } from "@/lib/search-fold";
 import { useMemo } from "react";
 import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
@@ -240,6 +241,10 @@ export function StoriesPageClient({
       </Container>
 
       <AboutThisPage title="About the story index">
+        <p>
+          Looking for a name? The <Link href="/stories/a-z">A to Z index</Link>{" "}
+          lists every story alphabetically.
+        </p>
         <p>
           The story index is organized to help you move from foundational myths
           into more specialized tales. Start with creation stories, succession
