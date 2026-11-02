@@ -1,10 +1,8 @@
-export interface AzDeity {
+export interface AzEntry {
   name: string;
-  slug: string;
-  pantheonId: string;
 }
 
-export interface AzGroup<T extends AzDeity> {
+export interface AzGroup<T extends AzEntry> {
   letter: string;
   entries: T[];
 }
@@ -18,17 +16,17 @@ function plain(name: string): string {
     .toLowerCase();
 }
 
-/** Deities grouped under A to Z headings; names with no leading letter go under "#". */
-export function groupDeitiesAlphabetically<T extends AzDeity>(
-  deities: readonly T[],
+/** Entries grouped under A to Z headings; names with no leading letter go under "#". */
+export function groupAlphabetically<T extends AzEntry>(
+  items: readonly T[],
 ): AzGroup<T>[] {
   const groups = new Map<string, T[]>();
-  for (const deity of deities) {
-    const first = plain(deity.name).charAt(0).toUpperCase();
+  for (const item of items) {
+    const first = plain(item.name).charAt(0).toUpperCase();
     const letter = /^[A-Z]$/.test(first) ? first : "#";
     const bucket = groups.get(letter);
-    if (bucket) bucket.push(deity);
-    else groups.set(letter, [deity]);
+    if (bucket) bucket.push(item);
+    else groups.set(letter, [item]);
   }
   return [...groups.entries()]
     .sort(([a], [b]) => (a === "#" ? 1 : b === "#" ? -1 : a.localeCompare(b)))
