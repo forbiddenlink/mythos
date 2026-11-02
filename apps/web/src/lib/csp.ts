@@ -101,6 +101,7 @@ export function buildCsp(options: {
     "media-src 'self'",
     "frame-ancestors 'none'",
     "base-uri 'self'",
+    "form-action 'self'",
     "object-src 'none'",
     "report-to csp-endpoint",
   ].join("; ");

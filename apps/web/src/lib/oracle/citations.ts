@@ -145,11 +145,19 @@ export function dedupePrimarySources(
   return out;
 }
 
-/** Same-site absolute path (rejects protocol-relative "//host" and schemes). */
+const SITE_PATH_BASE = "https://site.invalid";
+
+/**
+ * Same-site absolute path. Parsed the way a browser does, so "//host", "/\\host"
+ * and "/<tab>/host" are all rejected, not only the first.
+ */
 export function isSitePath(path: unknown): path is string {
-  return (
-    typeof path === "string" && path.startsWith("/") && !path.startsWith("//")
-  );
+  if (typeof path !== "string" || !path.startsWith("/")) return false;
+  try {
+    return new URL(path, SITE_PATH_BASE).origin === SITE_PATH_BASE;
+  } catch {
+    return false;
+  }
 }
 
 /** Validate an untrusted `data-oracle-sources` payload from the stream. */

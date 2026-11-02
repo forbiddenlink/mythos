@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { resetAnalyticsSink, setAnalyticsSink } from "@/lib/analytics/events";
 import { isProductionHostname } from "@/lib/analytics/production-host";
+import { redactConfirmToken } from "@/lib/analytics/redact-url";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 
 type PostHogClient = {
@@ -87,6 +88,7 @@ export function ConsentGatedPostHog() {
           disable_session_recording: false,
           session_recording: { maskAllInputs: true },
           person_profiles: "identified_only",
+          before_send: redactConfirmToken,
         });
         // Identifies this app in its configured PostHog project.
         posthog.register({
