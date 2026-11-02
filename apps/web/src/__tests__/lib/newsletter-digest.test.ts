@@ -161,3 +161,33 @@ describe("buildWeeklyDigest with the real catalog", () => {
     }
   });
 });
+
+describe("buildWeeklyDigest retelling", () => {
+  const digest = buildWeeklyDigest(
+    [
+      story("retold", {
+        summary: "A god appears — and acts.",
+        keyExcerpts: "He emerges from the pillar—neither man nor beast.",
+      }),
+    ],
+    [],
+    new Date("2026-11-02T13:00:00Z"),
+  );
+
+  it("does not present the catalog retelling as a quotation", () => {
+    expect(digest?.text).not.toContain('"He emerges');
+    expect(digest?.text).toContain("Retold from:");
+    expect(digest?.text).not.toContain("Source:");
+    expect(digest?.html).not.toContain("<blockquote");
+    expect(digest?.html).toContain("Retold from:");
+  });
+
+  it("sends no em dashes", () => {
+    expect(digest?.text).not.toContain("—");
+    expect(digest?.html).not.toContain("—");
+    expect(digest?.parts.excerpt).toBe(
+      "He emerges from the pillar, neither man nor beast.",
+    );
+    expect(digest?.parts.summary).toBe("A god appears, and acts.");
+  });
+});

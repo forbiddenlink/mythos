@@ -154,6 +154,11 @@ export function reflectionPrompt(themes: readonly string[]): string {
   return `The themes of this story include ${quoted.join(" and ")}. Which do you see most clearly in the telling, and why?`;
 }
 
+/** Catalog prose may carry em dashes; the email never does. */
+function withoutEmDashes(value: string): string {
+  return value.replace(/\s*—\s*/g, ", ");
+}
+
 function escapeHtml(value: string): string {
   return value
     .replaceAll("&", "&amp;")
@@ -177,8 +182,9 @@ export function buildWeeklyDigest(
   const citation = formatCitation(story.citationSources) as string;
   const journey = findJourneyForPantheon(journeys, story.pantheonId);
   // Eligibility (pickStoryOfTheWeek) guarantees these are present.
-  const summary = story.summary ?? "";
-  const excerpt = story.keyExcerpts ?? "";
+  const summary = withoutEmDashes(story.summary ?? "");
+  // keyExcerpts are the catalog's own retelling, never a translated quotation.
+  const excerpt = withoutEmDashes(story.keyExcerpts ?? "");
   const prompt = reflectionPrompt(story.moralThemes ?? []);
   const storyPath = `/stories/${story.slug}`;
   const journeyPath = journey ? `/journeys/${journey.slug}` : null;
@@ -191,7 +197,7 @@ export function buildWeeklyDigest(
     `<p style="font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:#78350f">Mythos Atlas · The weekly myth</p>`,
     `<h1 style="font-size:1.6rem;margin:0.25rem 0 1rem">${escapeHtml(story.title)}</h1>`,
     `<p>${escapeHtml(summary)}</p>`,
-    `<blockquote style="margin:1.25rem 0;padding-left:1rem;border-left:3px solid #b45309">${escapeHtml(excerpt)}<br><span style="font-size:0.85rem;color:#57534e">Source: ${escapeHtml(citation)}</span></blockquote>`,
+    `<div style="margin:1.25rem 0;padding-left:1rem;border-left:3px solid #b45309">${escapeHtml(excerpt)}<br><span style="font-size:0.85rem;color:#57534e">Retold from: ${escapeHtml(citation)}</span></div>`,
     `<p><strong>To think about:</strong> ${escapeHtml(prompt)}</p>`,
     `<p><a href="${storyUrl}">Read the full story and its sources</a></p>`,
     journey && journeyUrl
@@ -211,8 +217,8 @@ export function buildWeeklyDigest(
     "",
     summary,
     "",
-    `"${excerpt}"`,
-    `Source: ${citation}`,
+    excerpt,
+    `Retold from: ${citation}`,
     "",
     `To think about: ${prompt}`,
     "",
