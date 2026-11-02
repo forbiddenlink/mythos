@@ -127,6 +127,31 @@ describe("PostHog proxy", () => {
     expect(init.body).toBeTruthy();
   });
 
+  it.each([
+    "/ingest/e/",
+    "/ingest/s/",
+    "/ingest/flags/",
+    "/ingest/i/v1/logs",
+    "/ingest/api/surveys/",
+    "/ingest/array/phc_key/config.js",
+    "/ingest/static/array.js",
+  ])("forwards the SDK path %s", async (path) => {
+    const res = await GET(new NextRequest(`https://example.com${path}`));
+    expect(res.status).toBe(200);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it.each([
+    "/ingest/api/projects/1/persons/",
+    "/ingest/admin/",
+    "/ingest/e%2f..%2fapi/projects/",
+    "/ingest/",
+  ])("refuses %s without calling upstream", async (path) => {
+    const res = await GET(new NextRequest(`https://example.com${path}`));
+    expect(res.status).toBe(404);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it("strips set-cookie from the response and keeps status and content-type", async () => {
     fetchMock.mockImplementation(async () => {
       const h = new Headers({ "content-type": "application/json" });
