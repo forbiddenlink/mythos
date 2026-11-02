@@ -102,7 +102,12 @@ export function NewsletterSignup({
         .
       </p>
       {done ? null : (
-        <form onSubmit={onSubmit} className="mt-3 space-y-3" noValidate>
+        <form
+          method="post"
+          onSubmit={onSubmit}
+          className="mt-3 space-y-3"
+          noValidate
+        >
           <div className="flex flex-col gap-2 sm:flex-row">
             <label htmlFor={`${id}-email`} className="sr-only">
               Email address

@@ -12,8 +12,10 @@ export const metadata = generateBaseMetadata({
   url: "/newsletter",
 });
 
-// The sample is this week's issue; refresh hourly so it rolls over on Monday.
-export const revalidate = 3600;
+// The sample is this week's issue. Render per request, not with `revalidate`:
+// regenerated HTML carries new inline scripts that miss the build-time CSP
+// hashes, so the browser blocks them and the page never hydrates.
+export const dynamic = "force-dynamic";
 
 const linkClass =
   "text-gold-text underline decoration-gold/45 underline-offset-4 hover:decoration-current";

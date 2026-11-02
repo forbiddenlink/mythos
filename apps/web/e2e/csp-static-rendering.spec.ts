@@ -12,6 +12,7 @@ const ROUTES = [
   "/deities/zeus", // SSG entity page
   "/stories/titanomachy", // SSG entity page
   "/heroes", // dynamic (searchParams)
+  "/newsletter", // dynamic (this week's sample issue)
   "/deities/not-a-real-deity", // static 404
 ];
 
