@@ -1,6 +1,7 @@
 import { act, cleanup, render, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { resetAnalyticsSink, trackEvent } from "@/lib/analytics/events";
+import { redactConfirmToken } from "@/lib/analytics/redact-url";
 import { notifyCookieConsentChanged } from "@/lib/privacy-consent";
 import { ConsentGatedPostHog } from "@/components/analytics/ConsentGatedPostHog";
 
@@ -76,6 +77,7 @@ describe("PostHog consent lifecycle", () => {
     expect(posthog.init.mock.calls[0]?.[1]).toMatchObject({
       disable_session_recording: false,
       session_recording: { maskAllInputs: true },
+      before_send: redactConfirmToken,
     });
     trackEvent("support_click", { placement: "first" });
     expect(posthog.capture).toHaveBeenLastCalledWith("support_click", {

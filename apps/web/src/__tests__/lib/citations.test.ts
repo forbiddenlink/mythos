@@ -131,6 +131,8 @@ describe("parseOracleSourcesPayload", () => {
     expect(isSitePath("/deities/zeus")).toBe(true);
     expect(isSitePath("//evil.example")).toBe(false);
     expect(isSitePath("https://evil.example")).toBe(false);
+    expect(isSitePath("/\\evil.example")).toBe(false);
+    expect(isSitePath("/\t/evil.example")).toBe(false);
     expect(isSitePath(undefined)).toBe(false);
   });
 });

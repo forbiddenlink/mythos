@@ -88,6 +88,7 @@ describe("buildScriptSrc", () => {
 
   it("keeps the rest of the policy intact", () => {
     const csp = buildCsp({ mode: "strict", nonce: "n", hashes: [] });
+    expect(csp).toContain("form-action 'self'");
     expect(csp).toContain("frame-ancestors 'none'");
     expect(csp).toContain("object-src 'none'");
     expect(csp).toContain("connect-src 'self' https://va.vercel-scripts.com");

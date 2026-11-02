@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 type Status =
@@ -23,6 +23,12 @@ const MESSAGES: Partial<Record<Status, string>> = {
  */
 export function NewsletterConfirm({ token }: Readonly<{ token: string }>) {
   const [status, setStatus] = useState<Status>(token ? "idle" : "invalid");
+
+  // The token encodes the email address; session replay and page history must
+  // not keep it. `token` stays in state for the confirm request.
+  useEffect(() => {
+    window.history.replaceState(null, "", window.location.pathname);
+  }, []);
 
   const confirm = async () => {
     setStatus("submitting");
