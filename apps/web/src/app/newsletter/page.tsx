@@ -38,12 +38,12 @@ export default function NewsletterPage() {
             </p>
             <h2 className="page-section-title">{digest.parts.title}</h2>
             <p className="type-reading">{digest.parts.summary}</p>
-            <blockquote className="border-l-2 border-gold/50 pl-4 type-reading">
+            <div className="border-l-2 border-gold/50 pl-4 type-reading">
               {digest.parts.excerpt}
-              <footer className="mt-2 type-meta text-muted-foreground">
-                Source: {digest.parts.citation}
-              </footer>
-            </blockquote>
+              <p className="mt-2 type-meta text-muted-foreground">
+                Retold from: {digest.parts.citation}
+              </p>
+            </div>
             <p className="type-reading">
               <strong>To think about:</strong> {digest.parts.prompt}
             </p>
