@@ -35,6 +35,8 @@ export default defineConfig({
         'src/lib/**/*.{ts,tsx}',
         'src/hooks/use-debounce.ts',
         'src/providers/progress-provider.tsx',
+        'src/providers/bookmarks-provider.tsx',
+        'src/providers/review-provider.tsx',
       ],
       exclude: ['**/*.d.ts', '**/types/**', '**/__tests__/**'],
       thresholds: {
@@ -55,6 +57,22 @@ export default defineConfig({
           functions: 80,
           branches: 70,
           statements: 80,
+        },
+        // Both persist learner data to localStorage. Gated a couple of points
+        // under their measured coverage (Nov 2026: bookmarks lines 81.9,
+        // statements 79.0, functions 88.5, branches 73.8; review lines 90.0,
+        // statements 87.9, functions 72.5, branches 76.1).
+        'src/providers/bookmarks-provider.tsx': {
+          lines: 80,
+          functions: 86,
+          branches: 71,
+          statements: 77,
+        },
+        'src/providers/review-provider.tsx': {
+          lines: 88,
+          functions: 70,
+          branches: 74,
+          statements: 85,
         },
         'src/lib/analytics/**': {
           lines: 90,
