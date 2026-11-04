@@ -1,0 +1,45 @@
+name: Live CSP smoke
+
+# proxy.ts falls back to a degraded policy with 'unsafe-inline' when
+# csp-manifest.json cannot load, and marks it with `x-csp-mode: degraded`.
+# That fallback only logs once per instance, so check the live site after
+# each production deploy and on a schedule. A failed run emails the owner.
+on:
+  workflow_dispatch:
+  deployment_status:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  csp:
+    name: Production CSP is not degraded
+    if: >-
+      github.event_name != 'deployment_status' ||
+      (github.event.deployment_status.state == 'success' &&
+       github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check CSP headers on key routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          fail=0
+          for path in / /deities/zeus /stories /pantheons /creatures; do
+            headers=$(curl -sS -D - -o /dev/null --max-time 20 \
+              -A "mythos-csp-smoke" "https://mythosatlas.com${path}")
+            status=$(printf '%s' "$headers" | head -1 | awk '{print $2}')
+            if printf '%s' "$headers" | grep -qi '^x-csp-mode: *degraded'; then
+              echo "::error::${path} is serving the degraded CSP (unsafe-inline)"
+              fail=1
+            elif ! printf '%s' "$headers" | grep -qi '^content-security-policy:'; then
+              echo "::error::${path} has no Content-Security-Policy header (HTTP ${status})"
+              fail=1
+            else
+              echo "${path}: HTTP ${status}, CSP enforced"
+            fi
+          done
+          exit "$fail"
