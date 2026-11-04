@@ -1038,18 +1038,34 @@ html.cookie-banner-open {
     border: 1px solid rgba(0, 0, 0, 0.08);
   }
 
+  /* Leaflet paints popups white; use the surface tokens so they follow the
+     theme instead of glaring in dark mode. */
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    background: var(--popover);
+    color: var(--popover-foreground);
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-color: var(--border);
+  }
+
+  .leaflet-popup-content-wrapper * {
+    scrollbar-color: var(--border) transparent;
+  }
+
   .leaflet-popup-tip {
     box-shadow: none;
   }
 
   .leaflet-popup-close-button {
-    color: #64748b !important;
+    color: var(--muted-foreground) !important;
     font-size: 20px !important;
     padding: 6px 8px 0 0 !important;
   }
 
   .leaflet-popup-close-button:hover {
-    color: #1e293b !important;
+    color: var(--popover-foreground) !important;
   }
 
   .leaflet-control-zoom a {
