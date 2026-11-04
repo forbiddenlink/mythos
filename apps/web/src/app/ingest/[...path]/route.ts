@@ -42,6 +42,10 @@ const ASSET_ORIGIN = origin(
 const SDK_PATH =
   /^\/(?:(?:e|s|flags|decide|batch|capture|engage|track)(?:\/|$)|i\/v\d+\/(?:e|logs|metrics)(?:\/|$)|api\/(?:surveys|early_access_features|web_experiments)(?:\/|$)|(?:static|array)\/)/;
 
+/** SDK batches are small; refuse anything larger instead of streaming it upstream. */
+const MAX_BODY_BYTES = 512 * 1024;
+const UPSTREAM_TIMEOUT_MS = 5000;
+
 const FORWARDED_REQUEST_HEADERS = [
   "content-type",
   "content-encoding",
@@ -90,6 +94,11 @@ async function proxy(request: NextRequest): Promise<Response> {
     return new Response(null, { status: 404 });
   }
 
+  const declaredLength = Number(request.headers.get("content-length"));
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+    return new Response(null, { status: 413 });
+  }
+
   const headers = new Headers();
   for (const name of FORWARDED_REQUEST_HEADERS) {
     const value = request.headers.get(name);
@@ -103,13 +112,20 @@ async function proxy(request: NextRequest): Promise<Response> {
     method: request.method,
     headers,
     redirect: "manual",
+    signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
   };
   if (hasBody) {
     init.body = request.body;
     init.duplex = "half";
   }
 
-  const upstream = await fetch(upstreamUrl(path, request.nextUrl.search), init);
+  let upstream: Response;
+  try {
+    upstream = await fetch(upstreamUrl(path, request.nextUrl.search), init);
+  } catch {
+    // Timeout or network failure: analytics must never surface as a 500.
+    return new Response(null, { status: 502 });
+  }
 
   const responseHeaders = new Headers(upstream.headers);
   for (const name of DROPPED_RESPONSE_HEADERS) responseHeaders.delete(name);

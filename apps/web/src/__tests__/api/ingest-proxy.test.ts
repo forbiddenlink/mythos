@@ -169,4 +169,44 @@ describe("PostHog proxy", () => {
     expect(res.headers.get("content-type")).toBe("application/json");
     expect(await res.text()).toBe('{"status":1}');
   });
+
+  it("rejects a body whose content-length exceeds 512 KB with 413", async () => {
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: "{}",
+        headers: { "content-length": String(512 * 1024 + 1) },
+      }),
+    );
+    expect(res.status).toBe(413);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("accepts a body at exactly 512 KB", async () => {
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: "{}",
+        headers: { "content-length": String(512 * 1024) },
+      }),
+    );
+    expect(res.status).toBe(200);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("passes an abort signal with a timeout to the upstream fetch", async () => {
+    await GET(new NextRequest("https://example.com/ingest/static/a.js"));
+    expect(lastCall().init.signal).toBeInstanceOf(AbortSignal);
+  });
+
+  it("answers 502 instead of throwing when the upstream fetch fails or times out", async () => {
+    fetchMock.mockRejectedValue(new DOMException("timed out", "TimeoutError"));
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: "{}",
+      }),
+    );
+    expect(res.status).toBe(502);
+  });
 });
