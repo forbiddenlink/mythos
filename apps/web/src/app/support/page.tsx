@@ -7,7 +7,12 @@ import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import { SupportButton } from "@/components/support/SupportButton";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { getPatronLink } from "@/lib/support-links";
-import { getTraditionCount } from "@/lib/data/catalog";
+import { getDeities, getStories, getTraditionCount } from "@/lib/data/catalog";
+import {
+  formatReleaseDate,
+  type ChangelogEntryData,
+} from "@/components/changelog/ChangelogEntry";
+import changelogData from "@/data/changelog.json";
 
 export const metadata = generateBaseMetadata({
   title: "Support Mythos Atlas",
@@ -33,6 +38,9 @@ const HELPS_WITH: Array<{ mark: MythosMarkId; title: string; body: string }> = [
     body: "Keeping the atlas fast, free of ads and online, and fixing what breaks.",
   },
 ];
+
+/** Newest first, as the changelog page lists them. */
+const RECENT_RELEASES = (changelogData as ChangelogEntryData[]).slice(0, 3);
 
 const OTHER_WAYS = [
   {
@@ -188,6 +196,45 @@ export default function SupportPage() {
                   </li>
                 ))}
               </ul>
+            </section>
+
+            <section aria-labelledby="support-recent" className="mt-12">
+              <h2 id="support-recent" className="page-section-title">
+                Recent work on the atlas
+              </h2>
+              <p className="mt-4 type-reading text-muted-foreground">
+                The atlas now covers {getDeities().length} deities,{" "}
+                {getStories().length} stories and {getTraditionCount()}{" "}
+                traditions. Support keeps work like this going:
+              </p>
+              <ol className="mt-6 divide-y divide-border/70 border-y border-border/70">
+                {RECENT_RELEASES.map((release) => (
+                  <li key={release.id} className="py-5">
+                    <p className="type-meta text-muted-foreground">
+                      <time dateTime={release.date}>
+                        {formatReleaseDate(release.date)}
+                      </time>
+                    </p>
+                    <h3 className="mt-1 type-h3 text-foreground">
+                      <Link
+                        href={`/changelog#${release.id}`}
+                        className="underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+                      >
+                        {release.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-1 type-reading text-muted-foreground">
+                      {release.description}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+              <Link
+                href="/changelog"
+                className="mt-4 inline-flex min-h-11 items-center type-ui font-medium text-gold-text underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+              >
+                Full changelog
+              </Link>
             </section>
           </div>
         </div>
