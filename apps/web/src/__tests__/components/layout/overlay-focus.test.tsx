@@ -22,12 +22,20 @@ describe("mobile menu focus", () => {
         ]}
       />,
     );
-    const opener = screen.getByRole("button", { name: "Open Menu" });
+    const opener = screen.getByRole("button", { name: "Open menu" });
     await user.click(opener);
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     await user.keyboard("{Escape}");
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(opener).toHaveFocus();
+  });
+});
+
+describe("mobile menu label", () => {
+  it("uses the translated label the header passes in", () => {
+    render(<MobileNav sections={[]} lang="es" openLabel="Abrir menú" />);
+    const opener = screen.getByRole("button", { name: "Abrir menú" });
+    expect(opener).toHaveAttribute("lang", "es");
   });
 });
 
