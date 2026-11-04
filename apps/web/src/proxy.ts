@@ -76,7 +76,7 @@ async function cspFor(
   };
 }
 
-// Cookie-based locale detection + CSP (build-time hashes for static pages,
+// Cookie-based locale + CSP (build-time hashes for static pages,
 // per-request nonce for dynamically rendered ones).
 export async function proxy(request: NextRequest) {
   // Entity aliases (ids, alternate names, casing) → canonical prerendered page.
@@ -102,31 +102,12 @@ export async function proxy(request: NextRequest) {
 
   const localeCookie = request.cookies.get("locale")?.value;
 
+  // Accept-Language is deliberately ignored: only a few UI surfaces are
+  // translated, so auto-selecting es/fr/de would wrap English content in
+  // translated chrome. A locale is only non-English by explicit choice
+  // (LanguageSwitcher writes the cookie).
   if (!localeCookie || !isValidLocale(localeCookie)) {
-    const acceptLanguage = request.headers.get("accept-language");
-    let detectedLocale = defaultLocale;
-
-    if (acceptLanguage) {
-      const languages = acceptLanguage
-        .split(",")
-        .map((lang) => {
-          const [code, q = "q=1"] = lang.trim().split(";");
-          return {
-            code: code.split("-")[0].toLowerCase(),
-            quality: Number.parseFloat(q.replace("q=", "")) || 1,
-          };
-        })
-        .sort((a, b) => b.quality - a.quality);
-
-      for (const lang of languages) {
-        if (isValidLocale(lang.code)) {
-          detectedLocale = lang.code;
-          break;
-        }
-      }
-    }
-
-    response.cookies.set("locale", detectedLocale, {
+    response.cookies.set("locale", defaultLocale, {
       path: "/",
       maxAge: 60 * 60 * 24 * 365,
       sameSite: "lax",
@@ -141,6 +122,6 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|ingest/|monitoring|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|manifest.json|csp-manifest.json|sw.js|workbox-.*|robots.txt|sitemap.xml).*)",
+    "/((?!api|ingest/|monitoring|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|manifest.json|csp-manifest.json|sw.js|workbox-.*|robots.txt|sitemap.xml|.*\\.(?:png|jpe?g|gif|webp|avif|svg|ico|mp3|woff2?)$).*)",
   ],
 };
