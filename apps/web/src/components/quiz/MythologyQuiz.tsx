@@ -10,7 +10,15 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Trophy, RefreshCw, ArrowRight, Check, X, Crown } from "lucide-react";
+import {
+  Trophy,
+  RefreshCw,
+  ArrowRight,
+  Check,
+  X,
+  Crown,
+  BookmarkPlus,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShareButton } from "@/components/sharing/ShareButton";
@@ -19,6 +27,7 @@ import { SupportNudge } from "@/components/support/SupportNudge";
 import { trackEvent } from "@/lib/analytics/events";
 import { quizResultPath } from "@/lib/quiz-share";
 import { useProgress } from "@/hooks/use-progress";
+import { useReview } from "@/providers/review-provider";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
 import { shuffle } from "@/lib/shuffle";
 type SourceHint = Array<{ source?: string; text?: string }>;
@@ -91,10 +100,20 @@ interface Question {
   learnMoreHref: string;
   learnMoreLabel: string;
   sourceCite?: string;
+  /** The deity the question is about, so a miss can join the review deck. */
+  deity?: QuizPoolDeity;
 }
 
 export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
   const { recordQuizScore, trackQuizCompletion } = useProgress();
+  const { queueDeityForReview } = useReview();
+  const [missed, setMissed] = useState<Question[]>([]);
+  const [queuedIds, setQueuedIds] = useState<ReadonlySet<string>>(new Set());
+
+  const queueForReview = (targets: QuizPoolDeity[]) => {
+    for (const deity of targets) queueDeityForReview(deity);
+    setQueuedIds((prev) => new Set([...prev, ...targets.map((d) => d.id)]));
+  };
   const recordedCompletion = useRef(false);
   const startedQuiz = useRef(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -237,6 +256,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           correctAnswer: target.name,
           explanation: `This is ${target.name}, the deity of ${target.domain.join(", ")}.`,
           ...quizLearnMore(target, "deities"),
+          deity: target,
         });
       }
     }
@@ -265,6 +285,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           correctAnswer: fromDeity.name,
           explanation: `${fromDeity.name} is the ${relLabel} ${toDeity.name}.`,
           ...quizLearnMore(fromDeity),
+          deity: fromDeity,
         });
       }
     }
@@ -287,6 +308,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           correctAnswer: target.name,
           explanation: `${target.name} is the deity of ${target.domain.join(", ")}.`,
           ...quizLearnMore(target),
+          deity: target,
         });
       } else if (target.symbols.length > 0) {
         usedIds.add(target.id + "_symbol");
@@ -301,6 +323,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           correctAnswer: target.name,
           explanation: `${target.name}'s symbols include ${target.symbols.join(", ")}.`,
           ...quizLearnMore(target),
+          deity: target,
         });
       }
     }
@@ -320,6 +343,9 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
     setSelectedAnswer(answer);
     setShowResult(true);
 
+    if (answer !== questions[currentQuestion].correctAnswer) {
+      setMissed((prev) => [...prev, questions[currentQuestion]]);
+    }
     if (answer === questions[currentQuestion].correctAnswer) {
       const newScore = score + 1;
       setScore(newScore);
@@ -346,6 +372,20 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
     // We can just refetch queries or manual logic.
     // Let's just reload the page or trigger state update.
     globalThis.location.reload();
+  };
+
+  // One entry per deity, in the order they were missed.
+  const missedDeities = [
+    ...new Map(
+      missed.flatMap((q) => (q.deity ? [[q.deity.id, q.deity] as const] : [])),
+    ).values(),
+  ];
+
+  /** Name what the wrong pick is actually known for, when it is a deity. */
+  const missNote = (picked: string | null): string => {
+    const deity = picked ? deities.find((d) => d.name === picked) : undefined;
+    if (!deity || deity.domain.length === 0) return "";
+    return ` ${deity.name} is associated with ${deity.domain.slice(0, 3).join(", ")}.`;
   };
 
   if (questions.length === 0) return <QuizSkeleton />;
@@ -409,6 +449,54 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           </div>
 
           <div className="text-center max-w-sm mx-auto">{resultMessage}</div>
+
+          {missedDeities.length > 0 ? (
+            <section
+              aria-labelledby="quiz-missed-heading"
+              className="rounded-xl border border-border bg-muted/40 p-4"
+            >
+              <h3
+                id="quiz-missed-heading"
+                className="font-serif text-lg text-foreground"
+              >
+                Review what you missed
+              </h3>
+              <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-sm">
+                {missedDeities.map((deity) => (
+                  <li key={deity.id}>
+                    <Link
+                      href={`/deities/${deity.slug}`}
+                      className="text-gold-text underline underline-offset-4"
+                    >
+                      {deity.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-3">
+                {missedDeities.every((d) => queuedIds.has(d.id)) ? (
+                  <Link
+                    href="/review"
+                    className="text-sm font-medium text-gold-text underline underline-offset-4"
+                  >
+                    All in your review deck. Start reviewing
+                  </Link>
+                ) : (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="gap-2"
+                    onClick={() => queueForReview(missedDeities)}
+                  >
+                    <BookmarkPlus className="size-4" aria-hidden="true" />
+                    {missedDeities.length === 1
+                      ? `Add ${missedDeities[0].name} to my review deck`
+                      : `Add all ${missedDeities.length} to my review deck`}
+                  </Button>
+                )}
+              </div>
+            </section>
+          ) : null}
 
           <QuizRetentionSurvey score={score} total={questions.length} />
 
@@ -570,9 +658,42 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
                       ? "Correct! "
                       : "Incorrect. "}
                   </span>
+                  {selectedAnswer !== question.correctAnswer ? (
+                    <span className="block font-medium text-foreground">
+                      Not quite: the answer is {question.correctAnswer}.
+                      {missNote(selectedAnswer)}
+                    </span>
+                  ) : null}
                   {question.explanation}
                 </p>
               </div>
+              {selectedAnswer !== question.correctAnswer && question.deity ? (
+                <p className="mt-3 pl-10 text-sm">
+                  {queuedIds.has(question.deity.id) ? (
+                    <span className="text-muted-foreground">
+                      {question.deity.name} is in your{" "}
+                      <Link
+                        href="/review"
+                        className="text-gold-text underline underline-offset-4"
+                      >
+                        review deck
+                      </Link>
+                      .
+                    </span>
+                  ) : (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => queueForReview([question.deity!])}
+                    >
+                      <BookmarkPlus className="size-4" aria-hidden="true" />
+                      Add {question.deity.name} to my review deck
+                    </Button>
+                  )}
+                </p>
+              ) : null}
               <p className="mt-3 pl-10">
                 <Link
                   href={question.learnMoreHref}
