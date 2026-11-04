@@ -1039,23 +1039,20 @@ html.cookie-banner-open {
   }
 
   /* Leaflet paints popups white; use the surface tokens so they follow the
-     theme instead of glaring in dark mode. */
+     theme instead of glaring in dark mode. leaflet.css is unlayered and beats
+     this utilities layer, hence !important, as on the other overrides here. */
   .leaflet-popup-content-wrapper,
   .leaflet-popup-tip {
-    background: var(--popover);
-    color: var(--popover-foreground);
+    background: var(--popover) !important;
+    color: var(--popover-foreground) !important;
   }
 
   .leaflet-popup-content-wrapper {
-    border-color: var(--border);
+    border-color: var(--border) !important;
   }
 
   .leaflet-popup-content-wrapper * {
     scrollbar-color: var(--border) transparent;
-  }
-
-  .leaflet-popup-tip {
-    box-shadow: none;
   }
 
   .leaflet-popup-close-button {
