@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState, type FormEvent } from "react";
+import { useId, useRef, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { trackEvent } from "@/lib/analytics/events";
@@ -14,7 +14,8 @@ type Status =
   | "subscribed"
   | "unavailable"
   | "rate_limited"
-  | "invalid"
+  | "invalid_email"
+  | "invalid_consent"
   | "error";
 
 const MESSAGES: Partial<Record<Status, string>> = {
@@ -23,7 +24,9 @@ const MESSAGES: Partial<Record<Status, string>> = {
   unavailable:
     "Sign-ups open soon. Thank you for your interest; nothing was stored.",
   rate_limited: "Too many attempts from this connection. Try again later.",
-  invalid: "Enter a valid email address and tick the box to subscribe.",
+  invalid_email: "Enter a valid email address, like you@example.com.",
+  invalid_consent:
+    "To subscribe, tick the box to confirm you want the weekly email.",
   error: "Something went wrong on our side. Please try again later.",
 };
 
@@ -50,11 +53,24 @@ export function NewsletterSignup({
   const [consent, setConsent] = useState(false);
   const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const emailRef = useRef<HTMLInputElement>(null);
+  const consentRef = useRef<HTMLInputElement>(null);
+  const messageId = `${id}-message`;
+  const emailInvalid = status === "invalid_email";
+  const consentInvalid = status === "invalid_consent";
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!consent || !email.trim()) {
-      setStatus("invalid");
+    // noValidate keeps the browser's own bubbles away, but the input still
+    // computes its validity: empty (required) or not an address (type=email).
+    if (!email.trim() || emailRef.current?.validity.valid === false) {
+      setStatus("invalid_email");
+      emailRef.current?.focus();
+      return;
+    }
+    if (!consent) {
+      setStatus("invalid_consent");
+      consentRef.current?.focus();
       return;
     }
     setStatus("submitting");
@@ -72,8 +88,10 @@ export function NewsletterSignup({
       }
       if (res.status === 501 || res.status === 503) setStatus("unavailable");
       else if (res.status === 429) setStatus("rate_limited");
-      else if (res.status === 400) setStatus("invalid");
-      else setStatus("error");
+      else if (res.status === 400) {
+        setStatus("invalid_email");
+        emailRef.current?.focus();
+      } else setStatus("error");
     } catch {
       setStatus("error");
     }
@@ -113,6 +131,7 @@ export function NewsletterSignup({
               Email address
             </label>
             <Input
+              ref={emailRef}
               id={`${id}-email`}
               type="email"
               name="email"
@@ -122,7 +141,13 @@ export function NewsletterSignup({
               maxLength={254}
               placeholder="you@example.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              aria-invalid={emailInvalid || undefined}
+              aria-describedby={emailInvalid ? messageId : undefined}
+              className="aria-invalid:border-destructive"
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (emailInvalid) setStatus("idle");
+              }}
             />
             <Button
               type="submit"
@@ -150,11 +175,17 @@ export function NewsletterSignup({
           </div>
           <div className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
             <input
+              ref={consentRef}
               id={`${id}-consent`}
               type="checkbox"
               checked={consent}
-              onChange={(e) => setConsent(e.target.checked)}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-gold"
+              aria-invalid={consentInvalid || undefined}
+              aria-describedby={consentInvalid ? messageId : undefined}
+              onChange={(e) => {
+                setConsent(e.target.checked);
+                if (consentInvalid) setStatus("idle");
+              }}
+              className="mt-0.5 h-4 w-4 shrink-0 accent-gold aria-invalid:outline-2 aria-invalid:outline-offset-2 aria-invalid:outline-destructive"
               required
             />
             <label htmlFor={`${id}-consent`}>
@@ -170,6 +201,7 @@ export function NewsletterSignup({
         </form>
       )}
       <p
+        id={messageId}
         role="status"
         aria-live="polite"
         className={cn(
