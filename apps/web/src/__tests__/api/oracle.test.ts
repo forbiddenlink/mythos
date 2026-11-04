@@ -117,6 +117,7 @@ describe("Oracle API route", () => {
   beforeEach(() => {
     vi.stubEnv("ANTHROPIC_API_KEY", "test-key");
     vi.stubEnv("ORACLE_PROVIDER", "");
+    vi.stubEnv("NEXT_PUBLIC_ORACLE_ENABLED", "true");
     state.calls.length = 0;
     state.reply = "The ancients knew. [Zeus](/deities/zeus) rules Olympus.";
     __resetOracleTokenBudgetForTests();
@@ -128,6 +129,13 @@ describe("Oracle API route", () => {
 
   afterEach(() => {
     vi.unstubAllEnvs();
+  });
+
+  it("refuses with 503 while the Oracle flag is off, even with a provider key", async () => {
+    vi.stubEnv("NEXT_PUBLIC_ORACLE_ENABLED", "false");
+    const res = await POST(oracleRequest({}));
+    expect(res.status).toBe(503);
+    expect(state.calls).toHaveLength(0);
   });
 
   it("returns 400 for invalid body", async () => {
