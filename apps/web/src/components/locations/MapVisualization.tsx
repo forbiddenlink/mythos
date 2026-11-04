@@ -12,6 +12,9 @@ import { mergeCrowdedGroups } from "@/components/locations/cluster-spacing";
 import { MAP_TILE_OPTIONS, MAP_TILE_URL } from "@/lib/map-tiles";
 
 // ─── Types ──────────────────────────────────────────────────────────────
+/** Clusters larger than this zoom in on click instead of listing places. */
+const CLUSTER_LIST_MAX = 12;
+
 interface Location {
   id: string;
   name: string;
@@ -342,17 +345,17 @@ export function MapVisualization({
           const titleBlock = document.createElement("div");
           const h3 = document.createElement("h3");
           h3.style.cssText =
-            "font-family:serif; font-weight:600; font-size:14px; line-height:1.3; color:#1e293b; margin:0;";
+            "font-family:serif; font-weight:600; font-size:14px; line-height:1.3; color:var(--popover-foreground); margin:0;";
           h3.textContent = location.name;
           const meta = document.createElement("div");
           meta.style.cssText =
             "display:flex; align-items:center; gap:8px; margin-top:2px;";
           const typeSpan = document.createElement("span");
           typeSpan.style.cssText =
-            "font-size:11px; font-weight:500; color:#64748b; text-transform:uppercase; letter-spacing:0.05em;";
+            "font-size:11px; font-weight:500; color:var(--muted-foreground); text-transform:uppercase; letter-spacing:0.05em;";
           typeSpan.textContent = typeLabel;
           const sep = document.createElement("span");
-          sep.style.cssText = "color:#cbd5e1;";
+          sep.style.cssText = "color:var(--border);";
           sep.textContent = "|";
           const pantheonSpan = document.createElement("span");
           pantheonSpan.style.cssText = `font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.05em; color:${colors.bg};`;
@@ -369,7 +372,7 @@ export function MapVisualization({
           // Description
           const descP = document.createElement("p");
           descP.style.cssText =
-            "font-size:13px; color:#475569; line-height:1.5; margin:0 0 4px;";
+            "font-size:13px; color:var(--muted-foreground); line-height:1.5; margin:0 0 4px;";
           descP.textContent = location.description;
           popupContent.appendChild(descP);
 
@@ -377,10 +380,10 @@ export function MapVisualization({
           if (locationDeities.length > 0) {
             const deitiesSection = document.createElement("div");
             deitiesSection.style.cssText =
-              "margin-top:12px; padding-top:12px; border-top:1px solid #e2e8f0;";
+              "margin-top:12px; padding-top:12px; border-top:1px solid var(--border);";
             const deitiesLabel = document.createElement("div");
             deitiesLabel.style.cssText =
-              "font-size:10px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;";
+              "font-size:10px; font-weight:600; color:var(--muted-foreground); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;";
             deitiesLabel.textContent = "Figures in this tradition";
             deitiesSection.appendChild(deitiesLabel);
             const deityLinks = document.createElement("div");
@@ -389,7 +392,7 @@ export function MapVisualization({
               const a = document.createElement("a");
               a.href = `/deities/${deity.slug}`;
               a.style.cssText =
-                "display:inline-flex; align-items:center; gap:4px; padding:2px 8px; background:#f1f5f9; border-radius:4px; font-size:12px; color:#475569; text-decoration:none;";
+                "display:inline-flex; align-items:center; gap:4px; padding:2px 8px; background:var(--muted); border-radius:4px; font-size:12px; color:var(--muted-foreground); text-decoration:none;";
               a.textContent = deity.name;
               deityLinks.appendChild(a);
             });
@@ -403,14 +406,14 @@ export function MapVisualization({
             storiesSection.style.cssText = "margin-top:8px;";
             const storiesLabel = document.createElement("div");
             storiesLabel.style.cssText =
-              "font-size:10px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;";
+              "font-size:10px; font-weight:600; color:var(--muted-foreground); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;";
             storiesLabel.textContent = "Stories in this tradition";
             storiesSection.appendChild(storiesLabel);
             locationStories.forEach((story) => {
               const a = document.createElement("a");
               a.href = `/stories/${story.slug}`;
               a.style.cssText =
-                "display:block; font-size:12px; color:#2563eb; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:2px;";
+                "display:block; font-size:12px; color:var(--gold-text); text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:2px;";
               a.textContent = story.title;
               storiesSection.appendChild(a);
             });
@@ -420,11 +423,11 @@ export function MapVisualization({
           // Learn More link
           const footer = document.createElement("div");
           footer.style.cssText =
-            "margin-top:12px; padding-top:8px; border-top:1px solid #e2e8f0;";
+            "margin-top:12px; padding-top:8px; border-top:1px solid var(--border);";
           const learnMore = document.createElement("a");
           learnMore.href = `/locations/${location.id}`;
           learnMore.style.cssText =
-            "display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:500; color:#D4AF37; text-decoration:none;";
+            "display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:500; color:var(--gold-text); text-decoration:none;";
           learnMore.textContent = "Learn More →";
           footer.appendChild(learnMore);
           popupContent.appendChild(footer);
@@ -450,7 +453,7 @@ export function MapVisualization({
 
           const clusterHeader = document.createElement("div");
           clusterHeader.style.cssText =
-            "font-size:11px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;";
+            "font-size:11px; font-weight:600; color:var(--muted-foreground); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;";
           clusterHeader.textContent = `${cluster.locations.length} Locations`;
           clusterPopup.appendChild(clusterHeader);
 
@@ -465,12 +468,12 @@ export function MapVisualization({
             const item = document.createElement("button");
             item.type = "button";
             item.style.cssText =
-              "display:flex; align-items:center; gap:8px; width:100%; text-align:left; padding:4px 8px; background:#f8fafc; border:0; border-radius:4px; font-size:12px; cursor:pointer;";
+              "display:flex; align-items:center; gap:8px; width:100%; text-align:left; padding:4px 8px; background:transparent; border:0; border-radius:4px; font-size:12px; cursor:pointer;";
             item.addEventListener("mouseenter", () => {
-              item.style.background = "#f1f5f9";
+              item.style.background = "var(--muted)";
             });
             item.addEventListener("mouseleave", () => {
-              item.style.background = "#f8fafc";
+              item.style.background = "transparent";
             });
             item.addEventListener("click", () => {
               globalThis.dispatchEvent(
@@ -483,7 +486,7 @@ export function MapVisualization({
             colorDot.style.cssText = `width:8px; height:8px; border-radius:50%; flex-shrink:0; background-color:${locColors.bg};`;
             const nameSpan = document.createElement("span");
             nameSpan.style.cssText =
-              "color:#334155; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;";
+              "color:var(--popover-foreground); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;";
             nameSpan.textContent = loc.name;
             item.appendChild(colorDot);
             item.appendChild(nameSpan);
@@ -493,20 +496,45 @@ export function MapVisualization({
 
           const clusterFooter = document.createElement("div");
           clusterFooter.style.cssText =
-            "font-size:10px; color:#94a3b8; margin-top:8px; padding-top:8px; border-top:1px solid #e2e8f0;";
+            "font-size:10px; color:var(--muted-foreground); margin-top:8px; padding-top:8px; border-top:1px solid var(--border);";
           clusterFooter.textContent = "Zoom in or click a location";
           clusterPopup.appendChild(clusterFooter);
 
+          const clusterBounds = L.latLngBounds(
+            cluster.locations.map(
+              (loc) => [loc.latitude!, loc.longitude!] as [number, number],
+            ),
+          );
+          // A big cluster at world zoom is a long list nobody reads: zoom in
+          // until it splits. Small clusters, or ones whose places share a
+          // spot, still open the list.
+          const zoomsIn =
+            cluster.locations.length > CLUSTER_LIST_MAX &&
+            clusterBounds.isValid() &&
+            map.getBoundsZoom(clusterBounds, false, L.point(50, 50)) >
+              map.getZoom();
           const marker = L.marker([cluster.center.lat, cluster.center.lng], {
             icon: clusterIcon,
             title: `Cluster of ${cluster.locations.length} locations`,
-          }).bindPopup(clusterPopup, { maxWidth: 300 });
+          });
+          if (zoomsIn) {
+            marker.on("click", () => {
+              map.flyToBounds(clusterBounds, {
+                padding: [50, 50],
+                duration: 0.8,
+              });
+            });
+          } else {
+            marker.bindPopup(clusterPopup, { maxWidth: 300 });
+          }
           marker.on("add", () => {
             marker
               .getElement()
               ?.setAttribute(
                 "aria-label",
-                `Cluster of ${cluster.locations.length} locations. Open locations.`,
+                zoomsIn
+                  ? `Cluster of ${cluster.locations.length} locations. Zoom in.`
+                  : `Cluster of ${cluster.locations.length} locations. Open locations.`,
               );
           });
           marker.addTo(markersLayer);

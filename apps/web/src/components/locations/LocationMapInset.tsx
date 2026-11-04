@@ -129,7 +129,7 @@ export function LocationMapInset({
     );
     const primaryPopup = document.createElement("div");
     primaryPopup.style.cssText =
-      "font-family: ui-serif, Georgia, serif; font-weight: 600; color: #1e293b; font-size: 13px;";
+      "font-family: ui-serif, Georgia, serif; font-weight: 600; color: var(--popover-foreground); font-size: 13px;";
     primaryPopup.textContent = location.name;
     const primaryMarker = L.marker([location.latitude!, location.longitude!], {
       icon: primaryIcon,
@@ -150,7 +150,7 @@ export function LocationMapInset({
       link.href = `/locations/${loc.id}`;
       link.textContent = loc.name;
       link.style.cssText =
-        "color:#B8860B; font-weight:600; text-decoration:none; font-family: ui-serif, Georgia, serif; font-size: 13px;";
+        "color:var(--gold-text); font-weight:600; text-decoration:none; font-family: ui-serif, Georgia, serif; font-size: 13px;";
       const marker = L.marker([loc.latitude!, loc.longitude!], {
         icon,
         title: loc.name,
