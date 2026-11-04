@@ -8,6 +8,8 @@ import { reviewSchema } from "@/lib/learning-backup";
 import {
   calculateAccuracy,
   createInitialCardState,
+  deityCardIds,
+  deityIdsWithCards,
   generateCardId,
   getToday,
   getYesterday,
@@ -35,9 +37,17 @@ export interface ReviewContextValue {
   dueCount: number;
   generateCardsFromProgress: () => Promise<void>;
   reviewCard: (cardId: string, rating: DifficultyRating) => void;
+  /** Add a deity's cards to the deck, due today, without marking it viewed. */
+  queueDeityForReview: (deity: QueuedDeity) => void;
   getCardState: (cardId: string) => CardState | undefined;
   getTodayStats: () => { reviewed: number; correct: number; accuracy: number };
   resetTodayProgress: () => void;
+}
+
+export interface QueuedDeity {
+  id: string;
+  domain?: string[];
+  symbols?: string[];
 }
 
 const REVIEW_STORAGE_KEY = "mythos-atlas-review";
@@ -208,7 +218,14 @@ export function ReviewProvider({
   // Generate cards from user's viewed content
   const generateCardsFromProgress = useCallback(async () => {
     const { deityIndex, storyIndex } = await loadCardSources();
-    const viewedDeities = progressContext?.progress.deitiesViewed || [];
+    // Viewed deities plus any deity queued from a quiz miss (it has cards
+    // in the deck but was never opened).
+    const viewedDeities = [
+      ...new Set([
+        ...(progressContext?.progress.deitiesViewed || []),
+        ...deityIdsWithCards(Object.keys(reviewState.cards)),
+      ]),
+    ];
     const readStories = progressContext?.progress.storiesRead || [];
     const generatedCards: ReviewCard[] = [];
 
@@ -371,6 +388,16 @@ export function ReviewProvider({
     [updateVisitStreak],
   );
 
+  const queueDeityForReview = useCallback((deity: QueuedDeity) => {
+    setReviewState((prev) => {
+      const missing = deityCardIds(deity).filter((id) => !prev.cards[id]);
+      if (missing.length === 0) return prev;
+      const cards = { ...prev.cards };
+      for (const id of missing) cards[id] = createInitialCardState();
+      return { ...prev, cards };
+    });
+  }, []);
+
   const getCardState = useCallback(
     (cardId: string) => reviewState.cards[cardId],
     [reviewState.cards],
@@ -414,6 +441,7 @@ export function ReviewProvider({
       ).length,
       generateCardsFromProgress,
       reviewCard,
+      queueDeityForReview,
       getCardState,
       getTodayStats,
       resetTodayProgress,
@@ -423,6 +451,7 @@ export function ReviewProvider({
       dueCards,
       generateCardsFromProgress,
       reviewCard,
+      queueDeityForReview,
       getCardState,
       getTodayStats,
       resetTodayProgress,
@@ -443,6 +472,7 @@ const DEFAULT_REVIEW_CONTEXT: ReviewContextValue = {
   dueCount: 0,
   generateCardsFromProgress: async () => {},
   reviewCard: () => {},
+  queueDeityForReview: () => {},
   getCardState: () => undefined,
   getTodayStats: () => ({ reviewed: 0, correct: 0, accuracy: 0 }),
   resetTodayProgress: () => {},

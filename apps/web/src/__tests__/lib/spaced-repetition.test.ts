@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import {
+  deityCardIds,
+  deityIdsWithCards,
   calculateNextReview,
   isCardDue,
   updateCardState,
@@ -351,5 +353,30 @@ describe("spaced-repetition", () => {
         "pantheon-match:apollo",
       );
     });
+  });
+});
+
+describe("deity card ids", () => {
+  it("builds domain and symbol cards only when the deity has them", () => {
+    expect(
+      deityCardIds({ id: "zeus", domain: ["sky"], symbols: ["thunderbolt"] }),
+    ).toEqual([
+      "domain-match:zeus",
+      "symbol-match:zeus",
+      "pantheon-match:zeus",
+    ]);
+    expect(deityCardIds({ id: "nyx" })).toEqual(["pantheon-match:nyx"]);
+  });
+
+  it("recovers deity ids from deity cards and ignores story cards", () => {
+    expect(
+      deityIdsWithCards([
+        "domain-match:zeus",
+        "pantheon-match:zeus",
+        "symbol-match:hera",
+        "story-character:odyssey",
+        "malformed",
+      ]).sort(),
+    ).toEqual(["hera", "zeus"]);
   });
 });

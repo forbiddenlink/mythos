@@ -232,4 +232,25 @@ describe("ReviewProvider", () => {
       expect(result.current.reviewState.stats.currentStreak).toBe(0);
     });
   });
+  it("queues a missed deity's cards as due today without marking it viewed", async () => {
+    const { result } = renderHook(() => useReview(), { wrapper: Providers });
+    await waitFor(() => expect(result.current.reviewState).toBeDefined());
+    act(() => {
+      result.current.queueDeityForReview({
+        id: "hera",
+        domain: ["marriage"],
+        symbols: [],
+      });
+    });
+    expect(Object.keys(result.current.reviewState.cards).sort()).toEqual([
+      "domain-match:hera",
+      "pantheon-match:hera",
+    ]);
+    expect(result.current.dueCount).toBe(2);
+    // Queuing twice adds nothing.
+    act(() => {
+      result.current.queueDeityForReview({ id: "hera", domain: ["marriage"] });
+    });
+    expect(Object.keys(result.current.reviewState.cards)).toHaveLength(2);
+  });
 });

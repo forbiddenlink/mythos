@@ -231,3 +231,46 @@ export function calculateAccuracy(correct: number, total: number): number {
   if (total === 0) return 0;
   return Math.round((correct / total) * 100);
 }
+
+/** Card types the review deck builds for one deity. */
+const DEITY_CARD_TYPES = new Set<FlashcardType>([
+  "domain-match",
+  "symbol-match",
+  "pantheon-match",
+]);
+
+/**
+ * Card ids the review deck would build for a deity, matching the cards
+ * `generateCardsFromProgress` creates: domain and symbol cards only when the
+ * deity has domains or symbols, a pantheon card always.
+ */
+export function deityCardIds(deity: {
+  id: string;
+  domain?: string[];
+  symbols?: string[];
+}): string[] {
+  const ids: string[] = [];
+  if ((deity.domain ?? []).length > 0) {
+    ids.push(generateCardId("domain-match", deity.id));
+  }
+  if ((deity.symbols ?? []).length > 0) {
+    ids.push(generateCardId("symbol-match", deity.id));
+  }
+  ids.push(generateCardId("pantheon-match", deity.id));
+  return ids;
+}
+
+/**
+ * Deity ids that already have a card in the deck. A deity missed in a quiz
+ * is queued this way without being marked as viewed.
+ */
+export function deityIdsWithCards(cardIds: Iterable<string>): string[] {
+  const ids = new Set<string>();
+  for (const cardId of cardIds) {
+    const sep = cardId.indexOf(":");
+    if (sep <= 0) continue;
+    const type = cardId.slice(0, sep) as FlashcardType;
+    if (DEITY_CARD_TYPES.has(type)) ids.add(cardId.slice(sep + 1));
+  }
+  return [...ids];
+}
