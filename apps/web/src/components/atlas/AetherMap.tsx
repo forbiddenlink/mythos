@@ -236,7 +236,12 @@ export function AetherMap({ layout }: { layout: AtlasLayout }) {
       />
 
       <p className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-[#0a0a19] to-transparent px-4 pt-10 pb-4 text-center type-meta uppercase tracking-[0.2em] text-parchment/90">
-        Drag to orbit · scroll to zoom · click a star
+        <span className="pointer-coarse:hidden">
+          Drag to orbit · Ctrl + scroll to zoom · click a star
+        </span>
+        <span className="hidden pointer-coarse:inline">
+          Two fingers to orbit and zoom · tap a star
+        </span>
       </p>
     </div>
   );

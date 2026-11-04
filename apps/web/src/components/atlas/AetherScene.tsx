@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Line, Html, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import {
@@ -125,6 +125,28 @@ function useLabelDeclutter({
 
 /* ------------------------------- the scene ------------------------------- */
 
+/**
+ * The stage is most of a phone screen, so it must not trap the page. Plain
+ * wheel scrolling passes through to the page (Ctrl/Cmd + wheel, or a trackpad
+ * pinch, still zooms), and a one-finger vertical swipe scrolls the page instead
+ * of orbiting. OrbitControls sets touch-action: none when it connects, so this
+ * runs after it and loosens that to pan-y.
+ */
+function usePageScrollPassthrough() {
+  const canvas = useThree((state) => state.gl.domElement);
+  useEffect(() => {
+    canvas.style.touchAction = "pan-y";
+    const wrapper = canvas.parentElement;
+    if (!wrapper) return;
+    const onWheel = (event: WheelEvent) => {
+      if (!event.ctrlKey && !event.metaKey) event.stopPropagation();
+    };
+    wrapper.addEventListener("wheel", onWheel, { capture: true });
+    return () =>
+      wrapper.removeEventListener("wheel", onWheel, { capture: true });
+  }, [canvas]);
+}
+
 function Scene({
   layout,
   onSelect,
@@ -138,6 +160,7 @@ function Scene({
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const hovered = hoveredId ? nodes.find((n) => n.id === hoveredId) : undefined;
   const hoveredPantheonId = hovered?.pantheonId ?? null;
+  usePageScrollPassthrough();
 
   // Bigger clusters (more figures) win a label collision by default; the
   // hovered star's own tradition always wins regardless of size.
@@ -258,6 +281,9 @@ function Scene({
       )}
 
       <OrbitControls
+        // One finger scrolls the page (see usePageScrollPassthrough); two
+        // fingers pinch to zoom and drag to orbit.
+        touches={{ ONE: undefined, TWO: THREE.TOUCH.DOLLY_ROTATE }}
         enablePan
         enableDamping
         dampingFactor={0.08}
