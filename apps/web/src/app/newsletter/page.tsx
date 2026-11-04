@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { Container } from "@/components/layout/container";
 import { PageHeader } from "@/components/layout/page-header";
 import { getJourneys, getStories } from "@/lib/data/catalog";
@@ -66,14 +67,12 @@ export default function NewsletterPage() {
             A sample issue is not available right now.
           </p>
         )}
-        <p className="mt-10 type-ui text-muted-foreground">
-          To get the next issue, use the sign-up form just below. Your address
-          is stored with our email provider, Resend; see the{" "}
-          <Link href="/privacy#newsletter" className={linkClass}>
-            privacy policy
-          </Link>
-          .
-        </p>
+        <NewsletterSignup
+          placement="newsletter_page"
+          className="mt-10 border-t border-border pt-6"
+          title="Get the next issue"
+          description="One email a week: one myth, its sources and a question to think about. Unsubscribe any time."
+        />
       </Container>
     </div>
   );
