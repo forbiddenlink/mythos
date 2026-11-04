@@ -6,6 +6,7 @@ import {
   GuideContents,
   GuideFaq,
   GuideNextSteps,
+  GuideReading,
   GuideSection,
   MythComparison,
 } from "@/components/guides/GuideParts";
@@ -445,6 +446,7 @@ export default function PercyJacksonTitansCurseGuide() {
         </GuideSection>
 
         <GuideSection id="next" title="Keep exploring">
+          <GuideReading slug="percy-jackson-titans-curse" />
           <GuideNextSteps
             links={[
               {
