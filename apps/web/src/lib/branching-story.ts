@@ -159,7 +159,7 @@ export function getEndingTypeColor(type: StoryEnding["type"]): string {
     case "tragic":
       return "text-red-400 border-red-500/30 bg-red-500/10";
     default:
-      return "text-gray-400 border-gray-500/30 bg-gray-500/10";
+      return "text-muted-foreground border-border bg-muted/40";
   }
 }
 

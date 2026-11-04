@@ -32,7 +32,7 @@ export function OriginalLanguageName({
     return (
       <span
         className={cn(
-          'inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400',
+          'inline-flex items-center gap-1.5 text-muted-foreground',
           className
         )}
       >
@@ -40,7 +40,7 @@ export function OriginalLanguageName({
           {data.text}
         </span>
         {data.transliteration && (
-          <span className="text-sm text-slate-500 dark:text-slate-500">
+          <span className="text-sm text-muted-foreground">
             ({data.transliteration})
           </span>
         )}
@@ -51,7 +51,7 @@ export function OriginalLanguageName({
   return (
     <div
       className={cn(
-        'p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700',
+        'p-4 rounded-lg bg-muted/50 border border-border',
         className
       )}
     >
@@ -59,18 +59,18 @@ export function OriginalLanguageName({
         <div>
           <div className="flex items-center gap-2 mb-2">
             <Languages className="h-4 w-4 text-teal-600 dark:text-teal-400" aria-hidden="true" />
-            <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
+            <span className="text-sm font-medium text-muted-foreground">
               {data.language}
             </span>
           </div>
           <p
-            className="font-serif text-2xl text-slate-800 dark:text-slate-200"
+            className="font-serif text-2xl text-foreground"
             lang={getLanguageCode(data.language)}
           >
             {data.text}
           </p>
           {data.transliteration && (
-            <p className="text-sm text-slate-500 dark:text-slate-500 mt-1 italic">
+            <p className="text-sm text-muted-foreground mt-1 italic">
               {data.transliteration}
             </p>
           )}
@@ -83,7 +83,7 @@ export function OriginalLanguageName({
               'p-2 rounded-lg transition-colors',
               showDetails
                 ? 'bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300'
-                : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-300 dark:hover:bg-slate-600'
+                : 'bg-muted text-muted-foreground hover:bg-accent'
             )}
             aria-pressed={showDetails}
             aria-label={showDetails ? 'Hide etymology' : 'Show etymology'}
@@ -94,9 +94,9 @@ export function OriginalLanguageName({
       </div>
 
       {data.meaning && showDetails && (
-        <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            <span className="font-medium text-slate-700 dark:text-slate-300">Etymology:</span>{' '}
+        <div className="mt-3 pt-3 border-t border-border">
+          <p className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Etymology:</span>{' '}
             {data.meaning}
           </p>
         </div>

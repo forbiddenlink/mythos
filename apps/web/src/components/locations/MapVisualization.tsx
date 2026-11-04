@@ -565,7 +565,7 @@ export function MapVisualization({
   ]);
 
   return (
-    <div className="relative w-full h-full min-h-125 bg-slate-950 rounded-xl overflow-hidden border border-slate-800">
+    <div className="relative w-full h-full min-h-125 bg-midnight rounded-xl overflow-hidden border border-midnight-light">
       {/* Pantheon Filter Pills - Above Map */}
       <div
         className={

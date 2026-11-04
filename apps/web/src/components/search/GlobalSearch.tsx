@@ -123,7 +123,7 @@ const navigationItems = [
     title: "Pantheons",
     href: "/pantheons",
     icon: Globe,
-    iconColor: "text-slate-600",
+    iconColor: "text-muted-foreground",
   },
 ];
 

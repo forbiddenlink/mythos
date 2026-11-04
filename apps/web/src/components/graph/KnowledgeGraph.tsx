@@ -252,7 +252,7 @@ const DeityNode = memo(function DeityNode({
       <span className="pointer-events-none flex flex-col leading-tight">
         <span
           className={`whitespace-nowrap font-serif ${isMajor ? "text-[13px]" : "text-[11px]"} ${
-            isHighlighted ? "text-gold" : "text-slate-100"
+            isHighlighted ? "text-gold" : "text-parchment"
           }`}
           style={{ textShadow: "0 1px 4px rgba(11,12,20,0.95)" }}
         >
@@ -260,7 +260,7 @@ const DeityNode = memo(function DeityNode({
         </span>
         {isMajor && deity.domain && deity.domain.length > 0 && (
           <span
-            className="whitespace-nowrap text-[9px] text-slate-400"
+            className="whitespace-nowrap text-[9px] text-parchment-dark"
             style={{ textShadow: "0 1px 3px rgba(11,12,20,0.95)" }}
           >
             {deity.domain[0]}

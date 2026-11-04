@@ -173,7 +173,7 @@ export function PronunciationDisplay({
           type="button"
           aria-label={`Pronunciation guide: ${pronunciation.phonetic}`}
           className={cn(
-            "inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer",
+            "inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer",
             className,
           )}
         >
@@ -183,56 +183,56 @@ export function PronunciationDisplay({
       <PopoverContent className="w-72" align="start">
         <div className="space-y-3">
           <div>
-            <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100 mb-1">
+            <h4 className="text-sm font-medium text-foreground mb-1">
               Pronunciation Guide
             </h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="type-meta text-muted-foreground">
               Tap Listen to hear the name
             </p>
           </div>
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-slate-500 dark:text-slate-400">
+              <span className="type-meta text-muted-foreground">
                 Phonetic
               </span>
-              <span className="font-mono text-sm font-medium text-slate-800 dark:text-slate-200">
+              <span className="font-mono text-sm font-medium text-foreground">
                 {pronunciation.phonetic}
               </span>
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="text-xs text-slate-500 dark:text-slate-400">
+              <span className="type-meta text-muted-foreground">
                 IPA
               </span>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-sm text-slate-800 dark:text-slate-200">
+                <span className="font-mono text-sm text-foreground">
                   {pronunciation.ipa}
                 </span>
                 <button
                   onClick={handleCopyIPA}
-                  className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="p-1 rounded hover:bg-muted transition-colors"
                   aria-label="Copy IPA to clipboard"
                 >
                   {copied ? (
                     <Check className="h-3.5 w-3.5 text-green-600" />
                   ) : (
-                    <Copy className="h-3.5 w-3.5 text-slate-400" />
+                    <Copy className="h-3.5 w-3.5 text-muted-foreground" />
                   )}
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+          <div className="pt-2 border-t border-border">
             <button
               onClick={handlePlayAudio}
               disabled={!audioSupported || isPlaying || isLoading}
               className={cn(
                 "w-full flex items-center justify-center gap-2 py-1.5 px-3 rounded text-sm transition-colors",
                 audioSupported
-                  ? "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300"
-                  : "bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 cursor-not-allowed",
+                  ? "bg-muted hover:bg-accent text-foreground"
+                  : "bg-muted/50 text-muted-foreground cursor-not-allowed",
               )}
               title={audioAriaLabel}
             >

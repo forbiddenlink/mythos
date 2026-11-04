@@ -228,7 +228,7 @@ export function OracleChat() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: 20 }}
                   transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                  className="fixed inset-4 md:inset-auto md:bottom-24 md:right-6 md:w-96 md:h-[32rem] bg-gradient-to-b from-slate-900 to-midnight border border-gold/30 rounded-2xl shadow-2xl shadow-gold/20 z-50 flex flex-col overflow-hidden"
+                  className="fixed inset-4 md:inset-auto md:bottom-24 md:right-6 md:w-96 md:h-[32rem] bg-gradient-to-b from-midnight-light to-midnight border border-gold/30 rounded-2xl shadow-2xl shadow-gold/20 z-50 flex flex-col overflow-hidden"
                 >
                   {/* Header */}
                   <div className="flex items-center justify-between p-4 border-b border-gold/20">
@@ -301,7 +301,7 @@ export function OracleChat() {
                             className={`max-w-[85%] rounded-2xl px-4 py-3 ${
                               message.role === "user"
                                 ? "bg-gold/20 text-parchment rounded-br-sm"
-                                : "bg-slate-800/80 text-parchment/90 rounded-bl-sm border border-gold/10"
+                                : "bg-midnight-light/80 text-parchment/90 rounded-bl-sm border border-gold/10"
                             }`}
                           >
                             <p className="text-sm leading-relaxed whitespace-pre-wrap">
@@ -383,7 +383,7 @@ export function OracleChat() {
                         disabled={isLoading}
                         aria-label={t("inputLabel")}
                         maxLength={4000}
-                        className="flex-1 bg-slate-800/50 border border-gold/20 rounded-xl px-4 py-3 text-parchment placeholder:text-parchment/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors disabled:opacity-50"
+                        className="flex-1 bg-midnight-light/50 border border-gold/20 rounded-xl px-4 py-3 text-parchment placeholder:text-parchment/40 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30 transition-colors disabled:opacity-50"
                       />
                       <Button
                         type="submit"
