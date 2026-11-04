@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { EntryCloserSave } from "@/components/layout/EntryCloserSave";
+import { ReadEndNudge } from "@/components/support/ReadEndNudge";
 import { getJourneys } from "@/lib/data/catalog";
 import { findJourneyForPantheon } from "@/lib/journeys";
 import type { BookmarkType } from "@/providers/bookmarks-provider";
@@ -73,6 +74,16 @@ export function EntryCloser({
           </Link>
         </li>
       </ul>
+      {entityType === "story" ? null : (
+        // Stories count their own ending (StoryEndNudge); everything else
+        // counts here, so search visitors who read entries can see the ask.
+        <ReadEndNudge
+          moment="entry_read"
+          momentKey={`${entityType}:${id}`}
+          placement="entry_read_end"
+          className="mt-6"
+        />
+      )}
       <p className="mt-6 type-ui text-muted-foreground">
         <Link href="/newsletter" className={linkClass}>
           One myth a week, with its sources
