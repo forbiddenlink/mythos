@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.16.0](https://github.com/forbiddenlink/mythos/compare/v1.15.1...v1.16.0) (2026-11-04)
+
+
+### Features
+
+* **support:** count reading an entry to its end as a support moment ([#255](https://github.com/forbiddenlink/mythos/issues/255)) ([9ddbf47](https://github.com/forbiddenlink/mythos/commit/9ddbf47d5736b11366922c7901b7bd246265889c))
+
+
+### Bug Fixes
+
+* **a11y:** keep keyboard focus visible in forced-colors mode ([#265](https://github.com/forbiddenlink/mythos/issues/265)) ([6215c1c](https://github.com/forbiddenlink/mythos/commit/6215c1c141920f3c4ef7d2f0d82232aeac9836e4))
+* **a11y:** make framer animations honour prefers-reduced-motion ([#259](https://github.com/forbiddenlink/mythos/issues/259)) ([27e7fe7](https://github.com/forbiddenlink/mythos/commit/27e7fe7bd2bcd27e9ece66d2747da161240a9745))
+* **a11y:** open the pronunciation guide on tap and keyboard ([#263](https://github.com/forbiddenlink/mythos/issues/263)) ([7118f91](https://github.com/forbiddenlink/mythos/commit/7118f9114ecee90d15f6bad11657c0d8c580f416))
+* **charts:** let the timeline and star map scroll the page ([#270](https://github.com/forbiddenlink/mythos/issues/270)) ([93fc940](https://github.com/forbiddenlink/mythos/commit/93fc9403b967c3b79261209faa0969eef880f414))
+* **copy:** stop pointing entry readers at a form that is not just below ([#261](https://github.com/forbiddenlink/mythos/issues/261)) ([4d81b0d](https://github.com/forbiddenlink/mythos/commit/4d81b0d38b6955217500f34daea13ef2d4fbccb5))
+* **family-tree:** open on the focus deity at a readable zoom ([#266](https://github.com/forbiddenlink/mythos/issues/266)) ([8730f3a](https://github.com/forbiddenlink/mythos/commit/8730f3a2aacf11746a90fb5c272c58b683abe400))
+* **header:** keep the mobile header to one row ([#268](https://github.com/forbiddenlink/mythos/issues/268)) ([9fe6a9d](https://github.com/forbiddenlink/mythos/commit/9fe6a9db4b707f27cab9b02fc9a51c9abd1733d3))
+* **i18n:** translate the mobile menu button label ([#260](https://github.com/forbiddenlink/mythos/issues/260)) ([1003604](https://github.com/forbiddenlink/mythos/commit/10036043ac986b9fcd971383a98dc9cb0537d102))
+* **map:** theme location popups and zoom into large clusters ([#267](https://github.com/forbiddenlink/mythos/issues/267)) ([63b479f](https://github.com/forbiddenlink/mythos/commit/63b479faa46666dbf62b26c7ae7c9870d7280592))
+* **newsletter:** point the error at the field that caused it ([#269](https://github.com/forbiddenlink/mythos/issues/269)) ([6a87d0e](https://github.com/forbiddenlink/mythos/commit/6a87d0ea3dea27a31656403c55906d3d719b6ddc))
+* **oracle:** refuse Oracle and quiz-generation requests server-side while the public flag is off ([#257](https://github.com/forbiddenlink/mythos/issues/257)) ([c3d8301](https://github.com/forbiddenlink/mythos/commit/c3d8301bcb2855bdf0fbe3da230cbdd50ddd2132))
+* **privacy:** make the cookie banner opaque and its link AA gold ([#262](https://github.com/forbiddenlink/mythos/issues/262)) ([83c720d](https://github.com/forbiddenlink/mythos/commit/83c720dc0574ac233a034ebad8e87362b6edf545))
+* **progress:** include interactive-story progress in the learning backup ([#264](https://github.com/forbiddenlink/mythos/issues/264)) ([eaa2488](https://github.com/forbiddenlink/mythos/commit/eaa2488c9f645f3da888ddc1ccae745814bc2a07))
+* **rate-limit:** fail closed on Redis trouble for Oracle, quiz and search ([#271](https://github.com/forbiddenlink/mythos/issues/271)) ([3c29459](https://github.com/forbiddenlink/mythos/commit/3c2945901424186003489fc1e063f8adaaf154f1))
+* **routing:** redirect /index to / instead of aliasing its CSP hashes ([#253](https://github.com/forbiddenlink/mythos/issues/253)) ([43729af](https://github.com/forbiddenlink/mythos/commit/43729af62556a548cd77a4cfaf8d56e67ffeccee))
+
 ## [1.15.1](https://github.com/forbiddenlink/mythos/compare/v1.15.0...v1.15.1) (2026-11-02)
 
 
