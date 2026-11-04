@@ -211,9 +211,8 @@ export function AchievementToast({
       {/* Progress bar for auto-dismiss (optional visual indicator) */}
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold/20 overflow-hidden">
         <div
-          className="h-full bg-linear-to-r from-gold-dark via-gold to-gold-light transition-none"
+          className="h-full w-full origin-left bg-linear-to-r from-gold-dark via-gold to-gold-light transition-none"
           style={{
-            width: "100%",
             animation: `achievement-toast-shrink ${autoHideDuration}ms linear forwards`,
           }}
         />
