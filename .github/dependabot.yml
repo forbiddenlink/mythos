@@ -48,6 +48,18 @@ updates:
     labels: ["dependencies"]
     commit-message:
       prefix: "chore(deps):"
+  - package-ecosystem: "pip"
+    directory: "/scripts"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 0
+    groups:
+      security-updates:
+        applies-to: security-updates
+        patterns: ["*"]
+    commit-message:
+      prefix: "chore(deps):"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

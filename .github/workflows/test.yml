@@ -53,7 +53,7 @@ jobs:
 
       - name: Test image generation guards
         run: |
-          python3 -m pip install --quiet pytest pillow
+          python3 -m pip install --quiet --require-hashes -r scripts/requirements-ci.txt
           python3 -m pytest scripts/tests
 
   unit-tests:
