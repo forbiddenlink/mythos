@@ -62,6 +62,7 @@ interface PantheonData {
   timePeriodEnd: number | null;
   imageUrl?: string | null;
   figuresLabel?: string | null;
+  livingTradition?: boolean;
   citationSources?: CitationSourceItem[];
 }
 
@@ -334,7 +335,21 @@ export default async function PantheonPage({ params }: PageProps) {
             }
             eyebrow={<span>{pantheon.region}</span>}
             title={pantheon.name}
-            lede={pantheon.description ? <p>{pantheon.description}</p> : null}
+            lede={
+              pantheon.description || pantheon.livingTradition ? (
+                <>
+                  {pantheon.description ? <p>{pantheon.description}</p> : null}
+                  {pantheon.livingTradition ? (
+                    <p className="mt-3 border-l-2 border-gold/60 pl-3 text-base">
+                      A living tradition. People practise this religion today,
+                      and many of these figures are still worshipped or
+                      honoured. The entries here retell the stories for readers;
+                      they do not speak for the communities who keep them.
+                    </p>
+                  ) : null}
+                </>
+              ) : null
+            }
             actions={
               <>
                 <ShareButton

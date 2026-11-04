@@ -148,7 +148,8 @@
       }
     ],
     "imageUrl": "/pantheons/hindu.jpg",
-    "detailedHistory": "## Many texts, many traditions\n\nHinduism is not a single religion with one founder or scripture but a family of traditions developing over more than three thousand years and practised today by over a billion people. This site's entries follow the principal textual sources while recognising that devotional and regional traditions often tell the stories differently.\n\n## The Vedas\n\nThe oldest layer is the *Rigveda*, hymns in Vedic Sanskrit composed in the northwest of the subcontinent in roughly the later second millennium BCE and transmitted orally with extraordinary precision long before being written down. Its prominent gods are Indra, slayer of the serpent Vritra, Agni the fire, Soma, Varuna, and the dawn goddess Ushas; Vishnu and Rudra, later Shiva, are comparatively minor. Later Vedic texts, the Brahmanas and the Upanishads, turned to the meaning of sacrifice and to the identity of the self (atman) with ultimate reality (brahman).\n\n## Epics and Puranas\n\nThe two Sanskrit epics, the *Mahabharata*, which contains the *Bhagavad Gita*, and the *Ramayana*, took shape over centuries around the turn of the common era and remain the most widely known stories in South and Southeast Asia. The Puranas, compiled from roughly the 3rd century CE into the second millennium, organise the gods around great deities: Vishnu and his avatars, including Rama and Krishna; Shiva with Parvati and their sons Ganesha and Kartikeya; and the Goddess, Devi, in forms such as Durga and Kali. The idea of the Trimurti, Brahma as creator, Vishnu as preserver, and Shiva as destroyer, is a Puranic scheme; in practice most devotees worship Vishnu, Shiva, or the Goddess as supreme.\n\n## Living worship\n\nHindu worship centres on temples, household shrines, pilgrimage, and festivals such as Diwali, Holi, and Navaratri. Tamil devotional poetry, regional epics, and local goddess traditions are as much part of Hindu mythology as the Sanskrit texts. The start date of 1500 BCE given here is a conventional marker for the Vedic period; the tradition has no end date."
+    "detailedHistory": "## Many texts, many traditions\n\nHinduism is not a single religion with one founder or scripture but a family of traditions developing over more than three thousand years and practised today by over a billion people. This site's entries follow the principal textual sources while recognising that devotional and regional traditions often tell the stories differently.\n\n## The Vedas\n\nThe oldest layer is the *Rigveda*, hymns in Vedic Sanskrit composed in the northwest of the subcontinent in roughly the later second millennium BCE and transmitted orally with extraordinary precision long before being written down. Its prominent gods are Indra, slayer of the serpent Vritra, Agni the fire, Soma, Varuna, and the dawn goddess Ushas; Vishnu and Rudra, later Shiva, are comparatively minor. Later Vedic texts, the Brahmanas and the Upanishads, turned to the meaning of sacrifice and to the identity of the self (atman) with ultimate reality (brahman).\n\n## Epics and Puranas\n\nThe two Sanskrit epics, the *Mahabharata*, which contains the *Bhagavad Gita*, and the *Ramayana*, took shape over centuries around the turn of the common era and remain the most widely known stories in South and Southeast Asia. The Puranas, compiled from roughly the 3rd century CE into the second millennium, organise the gods around great deities: Vishnu and his avatars, including Rama and Krishna; Shiva with Parvati and their sons Ganesha and Kartikeya; and the Goddess, Devi, in forms such as Durga and Kali. The idea of the Trimurti, Brahma as creator, Vishnu as preserver, and Shiva as destroyer, is a Puranic scheme; in practice most devotees worship Vishnu, Shiva, or the Goddess as supreme.\n\n## Living worship\n\nHindu worship centres on temples, household shrines, pilgrimage, and festivals such as Diwali, Holi, and Navaratri. Tamil devotional poetry, regional epics, and local goddess traditions are as much part of Hindu mythology as the Sanskrit texts. The start date of 1500 BCE given here is a conventional marker for the Vedic period; the tradition has no end date.",
+    "livingTradition": true
   },
   {
     "id": "japanese-pantheon",
@@ -175,7 +176,9 @@
       }
     ],
     "imageUrl": "/pantheons/japanese.jpg",
-    "detailedHistory": "## Kami\n\nKami are the sacred powers of Japanese religion: the great deities of the classical myths, but also mountains, waterfalls, ancient trees, ancestors, and remarkable people. Shinto, 'the way of the kami', names the practices that honour them at shrines across Japan. The name took on its modern sense relatively late, and for most of Japanese history kami worship was closely combined with Buddhism, the two separated by government order only in 1868.\n\n## The written myths\n\nThe classical myths are known from two court histories compiled in the early 8th century: the *Kojiki* ('Record of Ancient Matters', 712), written down by Ō no Yasumaro, and the *Nihon Shoki* ('Chronicles of Japan', 720), which records many variant versions side by side. Both begin with the creation of the islands by Izanagi and Izanami, tell of Amaterasu, the sun goddess, and her unruly brother Susanoo, the Izumo cycle of Ōkuninushi, and the descent of Amaterasu's grandson Ninigi to rule the land. They then run on into the reigns of legendary and historical emperors. Both were compiled to support the authority of the imperial house, which claims descent from Amaterasu, and they should be read with that purpose in mind. The provincial *Fudoki* gazetteers of the same period preserve local myths the court histories leave out.\n\n## Shrines and practice\n\nThe Ise Grand Shrine, dedicated to Amaterasu and rebuilt every twenty years, and Izumo Taisha, dedicated to Ōkuninushi, are the most important shrines associated with the myths. Practice centres on purification, offerings, seasonal festivals (matsuri), and prayer at shrines. The conventional date of 660 BCE for the first emperor, Jimmu, comes from the *Nihon Shoki* and is legendary, not historical."
+    "detailedHistory": "## Kami\n\nKami are the sacred powers of Japanese religion: the great deities of the classical myths, but also mountains, waterfalls, ancient trees, ancestors, and remarkable people. Shinto, 'the way of the kami', names the practices that honour them at shrines across Japan. The name took on its modern sense relatively late, and for most of Japanese history kami worship was closely combined with Buddhism, the two separated by government order only in 1868.\n\n## The written myths\n\nThe classical myths are known from two court histories compiled in the early 8th century: the *Kojiki* ('Record of Ancient Matters', 712), written down by Ō no Yasumaro, and the *Nihon Shoki* ('Chronicles of Japan', 720), which records many variant versions side by side. Both begin with the creation of the islands by Izanagi and Izanami, tell of Amaterasu, the sun goddess, and her unruly brother Susanoo, the Izumo cycle of Ōkuninushi, and the descent of Amaterasu's grandson Ninigi to rule the land. They then run on into the reigns of legendary and historical emperors. Both were compiled to support the authority of the imperial house, which claims descent from Amaterasu, and they should be read with that purpose in mind. The provincial *Fudoki* gazetteers of the same period preserve local myths the court histories leave out.\n\n## Shrines and practice\n\nThe Ise Grand Shrine, dedicated to Amaterasu and rebuilt every twenty years, and Izumo Taisha, dedicated to Ōkuninushi, are the most important shrines associated with the myths. Practice centres on purification, offerings, seasonal festivals (matsuri), and prayer at shrines. The conventional date of 660 BCE for the first emperor, Jimmu, comes from the *Nihon Shoki* and is legendary, not historical.",
+    "figuresLabel": "Kami",
+    "livingTradition": true
   },
   {
     "id": "celtic-pantheon",
@@ -259,7 +262,8 @@
         "type": "primary"
       }
     ],
-    "imageUrl": "/pantheons/chinese.jpg"
+    "imageUrl": "/pantheons/chinese.jpg",
+    "livingTradition": true
   },
   {
     "id": "mesopotamian-pantheon",
@@ -326,7 +330,8 @@
     ],
     "imageUrl": "/pantheons/african.jpg",
     "isCollection": true,
-    "figuresLabel": "Figures"
+    "figuresLabel": "Figures",
+    "livingTradition": true
   },
   {
     "id": "polynesian-pantheon",
@@ -361,7 +366,8 @@
         "type": "secondary"
       }
     ],
-    "imageUrl": "/pantheons/polynesian.jpg"
+    "imageUrl": "/pantheons/polynesian.jpg",
+    "livingTradition": true
   },
   {
     "id": "mesoamerican-pantheon",
@@ -520,7 +526,8 @@
       }
     ],
     "imageUrl": "/pantheons/haudenosaunee.webp",
-    "figuresLabel": "Sacred Beings & Ancestors"
+    "figuresLabel": "Sacred Beings & Ancestors",
+    "livingTradition": true
   },
   {
     "id": "tlingit-haida-pantheon",
@@ -565,7 +572,8 @@
       }
     ],
     "imageUrl": "/pantheons/tlingit-haida.webp",
-    "figuresLabel": "Ancestral Spirits & Transformers"
+    "figuresLabel": "Ancestral Spirits & Transformers",
+    "livingTradition": true
   },
   {
     "id": "yoruba-pantheon",
@@ -604,7 +612,8 @@
       }
     ],
     "imageUrl": "/pantheons/yoruba.webp",
-    "figuresLabel": "Olodumare & the Orisha"
+    "figuresLabel": "Olodumare & the Orisha",
+    "livingTradition": true
   },
   {
     "id": "akan-pantheon",
@@ -643,7 +652,8 @@
       }
     ],
     "imageUrl": "/pantheons/akan.webp",
-    "figuresLabel": "Nyame, the Abosom & Ananse"
+    "figuresLabel": "Nyame, the Abosom & Ananse",
+    "livingTradition": true
   },
   {
     "id": "hittite-pantheon",
@@ -786,7 +796,8 @@
       }
     ],
     "imageUrl": "/pantheons/inuit.webp",
-    "figuresLabel": "Spirits & Powers"
+    "figuresLabel": "Spirits & Powers",
+    "livingTradition": true
   },
   {
     "id": "aboriginal-australian-pantheon",
@@ -834,7 +845,8 @@
       }
     ],
     "imageUrl": "/pantheons/aboriginal-australian.webp",
-    "figuresLabel": "Ancestral Beings"
+    "figuresLabel": "Ancestral Beings",
+    "livingTradition": true
   },
   {
     "id": "dine-pantheon",
@@ -881,7 +893,8 @@
       }
     ],
     "imageUrl": "/pantheons/dine.webp",
-    "figuresLabel": "Holy People (Diyin Dineʼé)"
+    "figuresLabel": "Holy People (Diyin Dineʼé)",
+    "livingTradition": true
   },
   {
     "id": "inca-pantheon",
@@ -994,7 +1007,8 @@
       }
     ],
     "imageUrl": "/pantheons/persian.webp",
-    "figuresLabel": "Divine Beings & Kings"
+    "figuresLabel": "Divine Beings & Kings",
+    "livingTradition": true
   },
   {
     "id": "finnish-pantheon",
@@ -1099,6 +1113,7 @@
       }
     ],
     "imageUrl": "/pantheons/korean.webp",
-    "figuresLabel": "Gods, Founders & Shamanic Deities"
+    "figuresLabel": "Gods, Founders & Shamanic Deities",
+    "livingTradition": true
   }
 ]

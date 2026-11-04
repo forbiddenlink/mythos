@@ -268,6 +268,11 @@ export interface Pantheon extends BaseEntity {
   imageUrl?: string;
   figuresLabel?: string;
   /**
+   * People practise this religion today. The pantheon page says so, and the
+   * entries are framed as retellings rather than the tradition's own teaching.
+   */
+  livingTradition?: boolean;
+  /**
    * A regional collection page rather than a pantheon: it groups figures from
    * several unrelated peoples and may have no deities or stories of its own.
    */
