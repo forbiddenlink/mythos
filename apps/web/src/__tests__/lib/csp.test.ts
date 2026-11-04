@@ -58,6 +58,16 @@ describe("hashesForPath", () => {
     expect(normalizeCspPath("/")).toBe("/");
     expect(normalizeCspPath("/a//")).toBe("/a");
   });
+
+  it("gives /index the home page's hashes, since Next serves the root there", () => {
+    expect(normalizeCspPath("/index")).toBe("/");
+    expect(normalizeCspPath("/index/")).toBe("/");
+    expect(hashesForPath(manifest, "/index")).toEqual([
+      "sha256-common",
+      "sha256-home",
+    ]);
+    expect(normalizeCspPath("/stories/index")).toBe("/stories/index");
+  });
 });
 
 describe("buildScriptSrc", () => {
@@ -99,12 +109,13 @@ describe("buildScriptSrc", () => {
     // CSP "*.a.b" only matches hosts ending in ".a.b", so *.ingest.sentry.io
     // silently blocked every client event sent to o<org>.ingest.us.sentry.io.
     const csp = buildCsp({ mode: "strict", nonce: "n", hashes: [] });
-    const connect = csp
-      .split(";")
-      .map((d) => d.trim())
-      .find((d) => d.startsWith("connect-src"))
-      ?.split(" ")
-      .slice(1) ?? [];
+    const connect =
+      csp
+        .split(";")
+        .map((d) => d.trim())
+        .find((d) => d.startsWith("connect-src"))
+        ?.split(" ")
+        .slice(1) ?? [];
     const host = "o4509096111112192.ingest.us.sentry.io";
     const allowed = connect.some((src) => {
       const m = /^https:\/\/\*\.(.+)$/.exec(src);

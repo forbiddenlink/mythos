@@ -34,10 +34,12 @@ const VERCEL_SCRIPTS = "https://va.vercel-scripts.com";
 
 /** "/deities/zeus/" → "/deities/zeus"; "/" stays "/". */
 export function normalizeCspPath(pathname: string): string {
-  if (pathname.length > 1 && pathname.endsWith("/")) {
-    return pathname.replace(/\/+$/, "") || "/";
-  }
-  return pathname;
+  const trimmed =
+    pathname.length > 1 && pathname.endsWith("/")
+      ? pathname.replace(/\/+$/, "") || "/"
+      : pathname;
+  // Next serves the root page at /index too; it carries the root's scripts.
+  return trimmed === "/index" ? "/" : trimmed;
 }
 
 /** Hashes allowed for a pathname: common ones plus the page's own, if prerendered. */
