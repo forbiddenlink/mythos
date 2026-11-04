@@ -113,11 +113,16 @@ export function NewsletterSignup({
         {title}
       </h2>
       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-        {description}{" "}
-        <Link href="/newsletter" className="underline">
-          See a sample issue
-        </Link>
-        .
+        {description}
+        {placement === "newsletter_page" ? null : (
+          <>
+            {" "}
+            <Link href="/newsletter" className="underline">
+              See a sample issue
+            </Link>
+            .
+          </>
+        )}
       </p>
       {done ? null : (
         <form

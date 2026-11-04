@@ -11,7 +11,11 @@ import { logger } from "@/lib/logger";
 /** The Resend segment the digest is sent to. Not a secret. */
 export const DEFAULT_RESEND_SEGMENT_ID = "ef4d9db5-a6ff-4f30-adf3-be3576e3fe42";
 
-export const NEWSLETTER_PLACEMENTS = ["footer", "daily_myth"] as const;
+export const NEWSLETTER_PLACEMENTS = [
+  "footer",
+  "daily_myth",
+  "newsletter_page",
+] as const;
 export type NewsletterPlacement = (typeof NEWSLETTER_PLACEMENTS)[number];
 
 export const newsletterRequestSchema = z.strictObject({
@@ -95,7 +99,9 @@ export interface NewsletterClient {
       email: string;
       unsubscribed?: boolean;
     }): Promise<ResendResult>;
-    get(options: { email: string }): Promise<
+    get(options: {
+      email: string;
+    }): Promise<
       ResendResult & { data?: { unsubscribed?: boolean | null } | null }
     >;
     segments: {
@@ -202,7 +208,11 @@ export type ConfirmResult =
        */
       repairNeeded?: true;
     }
-  | { ok: false; reason: "aborted"; verdict: Exclude<MutationGuardVerdict, "ok"> };
+  | {
+      ok: false;
+      reason: "aborted";
+      verdict: Exclude<MutationGuardVerdict, "ok">;
+    };
 
 const REASSERT_ATTEMPTS = 3;
 
