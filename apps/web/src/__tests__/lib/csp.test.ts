@@ -28,7 +28,7 @@ describe("page rendering modes", () => {
       .filter((file) => /(^|\/)(page|layout)\.tsx$/.test(file))
       .filter((file) =>
         /export const revalidate\b/.test(
-          readFileSync(join(ppDir, file), "utf8"),
+          readFileSync(join(appDir, file), "utf8"),
         ),
       );
     expect(isrPages).toEqual([]);
@@ -97,53 +97,48 @@ describe("buildScriptSrc", () => {
   });
 
   it("lets the browser SDK reach the US Sentry ingest host", () => {
-    // CSP "*.a.b" only matches hosts ending in ".a.b", so *.ingest.sentry.io  // silently blocked every client event sent to o<org>.ingest.us.sentry.io.
-    const csp = buildCsp({ mode: "strict", nonce: "n", hashes: []JNÂˆÛÛœÝÛÛ›™XÝHÜÜˆœÜ]
-ŽÈŠBˆ›X\
+    // CSP "*.a.b" only matches hosts ending in ".a.b", so *.ingest.sentry.io
+    // silently blocked every client event sent to o<org>.ingest.us.sentry.io.
+    const csp = buildCsp({ mode: "strict", nonce: "n", hashes: [] });
+    const connect = csp
+      .split(";")
+      .map((d) => d.trim())
+      .find((d) => d.startsWith("connect-src"))
+      ?.split(" ")
+      .slice(1) ?? [];
+    const host = "o4509096111112192.ingest.us.sentry.io";
+    const allowed = connect.some((src) => {
+      const m = /^https:\/\/\*\.(.+)$/.exec(src);
+      return m ? host.endsWith(`.${m[1]}`) : src === `https://${host}`;
+    });
+    expect(allowed).toBe(true);
+  });
+});
 
-
-HOˆš[J
-JBˆ™š[™
+describe("csp-hashes build script", () => {
+  it("hashes inline executable scripts only", () => {
+    const html = [
+      '<script src="/a.js"></script>',
+      "<script>self.__next_f.push([1])</script>",
+      '<script type="application/ld+json">{"@type":"Thing"}</script>',
+      '<script nonce="x">console.log(1)</script>',
+    ].join("");
+    expect(inlineScripts(html)).toEqual([
+      "self.__next_f.push([1])",
+      "console.log(1)",
+    ]);
+  });
 
-
-HOˆœÝ\ÕÚ]
-˜ÛÛ›™XÝ\Ü˜ÈŠJBˆËœÜ]
-ˆŠBˆœÛXÙJJHÏÈ×NÂˆÛÛœÝÜÝH›ÍLLMŒLLLLLŒNL‹š[™Ù\Ý\ËœÙ[žKš[ÈŽÂˆÛÛœÝ[ÝÙYHÛÛ›™XÝœÛÛYJ
-Ü˜ÊHOˆÂˆÛÛœÝHH×šÎ—××
-—ŠŠÊIË™^XÊÜ˜ÊNÂˆ™]\›ˆHÈÜÝ™[™ÕÚ]
-‰ÛVÌW_X
-HˆÜ˜ÈOOHÎ‹ËÉÚÜÝXÂˆJNÂˆ^XÝ
-[ÝÙY
-KÐ™JYJNÂˆJNÂŸJNÂ‚™\ØÜšX™J˜ÜÜZ\Ú\ÈZ[ØÜš\‹
+  it("finds scripts whose end tag carries whitespace or attributes", () => {
+    const html =
+      "<script>first()</script ><script>second()</script\n foo><p>x</p>";
+    expect(inlineScripts(html)).toEqual(["first()", "second()"]);
+  });
 
-HOˆÂˆ]
-š\Ú\È[›[™H^XÝ]X›HØÜš\ÈÛ›H‹
-
-HOˆÂˆÛÛœÝ[HÂˆ	ÏØÜš\Ü˜ÏH‹ØKšœÈÜØÜš\‰ËˆØÜš\œÙ[‹—×Û™^Ù‹œ\Ú
-ÌWJOÜØÜš\ˆ‹ˆ	ÏØÜš\\OH˜\XØ][Û‹Û
-ÚœÛÛˆžÈ\HŽˆ•[™ÈŸOÜØÜš\‰Ëˆ	ÏØÜš\›Û˜ÙOHž˜ÛÛœÛÛK›ÙÊJOÜØÜš\‰ËˆKš›Ú[ŠˆŠNÂˆ^XÝ
-[›[™TØÜš\Ê[
-JKÑ\]X[
-ÂˆœÙ[‹—×Û™^Ù‹œ\Ú
-ÌWJH‹ˆ˜ÛÛœÛÛK›ÙÊJH‹ˆJNÂˆJNÂ‚ˆ]
-™š[™ÈØÜš\ÈÚÜÙH[™YÈØ\œšY\ÈÚ]\ÜXÙHÜˆ]šX]\È‹
-
-HOˆÂˆÛÛœÝ[BˆØÜš\™š\œÝ
-
-OÜØÜš\ØÜš\œÙXÛÛ™
-
-OÜØÜš\ˆ›ÛÏžÜˆŽÂˆ^XÝ
-[›[™TØÜš\Ê[
-JKÑ\]X[
-È™š\œÝ
-
-H‹œÙXÛÛ™
-
-H—JNÂˆJNÂ‚ˆ]
-œ›ÙXÙ\ÈÔÔXÛÛ\]X›HÒKLMˆÛÝ\˜Ù\È‹
-
-HOˆÂˆËÈXÚÈ[ˆ˜[\
-JHˆÜ[œÜÛÜÝ\ÚLMˆXš[˜\žH˜\ÙMˆ^XÝ
-ÚLMŠ˜[\
-JHŠJKÐ™JˆœÚLM‹XšÞŒ‘Þ]ÌÙÔSÜœœØÛYL–M\ÓÍÑŠÜOH‹ˆ
-NÂˆJNÂŸJNÂ
+  it("produces CSP-compatible SHA-256 sources", () => {
+    // echo -n "alert(1)" | openssl dgst -sha256 -binary | base64
+    expect(sha256("alert(1)")).toBe(
+      "sha256-bhHHL3z2vDgxUt0W3dWQOrprscmda2Y5pLsLg4GF+pI=",
+    );
+  });
+});
