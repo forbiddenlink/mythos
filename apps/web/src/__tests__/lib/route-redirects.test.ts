@@ -21,6 +21,15 @@ function pageExists(pathname: string): boolean {
 }
 
 describe("consolidation redirects", () => {
+  it("send /index to the canonical home page", () => {
+    // Vercel serves / at /index too; the CSP hash manifest only knows "/".
+    expect(CONSOLIDATION_REDIRECTS).toContainEqual({
+      source: "/index",
+      destination: "/",
+      permanent: true,
+    });
+  });
+
   it("are all permanent", () => {
     for (const redirect of CONSOLIDATION_REDIRECTS) {
       expect(redirect.permanent).toBe(true);
