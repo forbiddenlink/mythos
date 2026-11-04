@@ -119,7 +119,7 @@ export function CookieConsent() {
       aria-describedby="cookie-consent-description"
       className="fixed bottom-0 left-0 right-0 z-[60] p-3 md:p-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pointer-events-none"
     >
-      <div className="pointer-events-auto mx-auto max-w-3xl rounded-md border border-border/80 bg-background/92 px-3 py-3 shadow-lg backdrop-blur-md md:px-4 md:py-3">
+      <div className="pointer-events-auto mx-auto max-w-3xl rounded-md border border-border/80 bg-background px-3 py-3 shadow-lg md:px-4 md:py-3">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <div className="min-w-0 flex-1">
             <div className="flex items-start justify-between gap-2">
@@ -144,7 +144,7 @@ export function CookieConsent() {
               Cookies help improve Mythos Atlas.{" "}
               <Link
                 href="/privacy"
-                className="text-gold underline hover:text-gold/80"
+                className="text-gold-text underline hover:decoration-2"
               >
                 Privacy Policy
               </Link>
