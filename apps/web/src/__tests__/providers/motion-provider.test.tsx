@@ -1,9 +1,15 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { render, screen, waitFor } from "@testing-library/react";
-import { m } from "framer-motion";
+import { m, MotionConfigContext } from "framer-motion";
+import { useContext } from "react";
 import { describe, expect, it } from "vitest";
 import { MotionProvider } from "@/providers/motion-provider";
+
+/** Shows the reduced-motion policy MotionProvider hands to framer. */
+function ReducedMotionProbe() {
+  return <span>{useContext(MotionConfigContext).reducedMotion}</span>;
+}
 
 // The full `motion` component bundles every animation feature (drag, layout
 // projection) into the first-load JS. The components rendered on every page
@@ -27,6 +33,15 @@ describe("MotionProvider", () => {
     await waitFor(() =>
       expect(screen.getByTestId("box").textContent).toBe("hello"),
     );
+  });
+
+  it("tells framer animations to follow the reader's reduced-motion setting", () => {
+    render(
+      <MotionProvider>
+        <ReducedMotionProbe />
+      </MotionProvider>,
+    );
+    expect(screen.getByText("user")).toBeTruthy();
   });
 
   it("renders m.* children without a provider (as in isolated component tests)", () => {
