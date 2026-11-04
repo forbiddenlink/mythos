@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
+// Pin the clock's timezone so date tests run the production code path
+// (local calendar fields) and still get the same day on every machine.
+process.env.TZ = 'UTC';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
