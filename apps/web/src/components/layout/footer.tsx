@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Github } from "@/components/icons/brand";
 import { CorrectionLink } from "@/components/layout/CorrectionLink";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { CurrentYear } from "@/components/layout/CurrentYear";
 
 // `asset: true` marks a static file (served from public/), not an app route.
 // next/link would prefetch its RSC payload, get a 404 and log a console error
@@ -140,8 +141,8 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col gap-3 border-t border-border/70 pt-5 text-[0.8125rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} Mythos Atlas · Built by Elizabeth Stein
-            with Next.js, TypeScript and React
+            © <CurrentYear buildYear={new Date().getFullYear()} /> Mythos Atlas
+            · Built by Elizabeth Stein with Next.js, TypeScript and React
           </p>
           <div className="flex items-center gap-4">
             <CorrectionLink />

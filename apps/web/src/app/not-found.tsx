@@ -21,7 +21,8 @@ export const metadata = {
   robots: { index: false, follow: true },
 };
 
-// Well-known figures with portraits; the page shows three, rotating hourly.
+// Well-known figures with portraits; the page shows three. The page is
+// prerendered, so the pick is fixed per build and changes with each deploy.
 const FEATURED_SLUGS = [
   "athena",
   "odin",
