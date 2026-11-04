@@ -88,6 +88,36 @@ function clientIp(request: NextRequest): string | null {
   );
 }
 
+/**
+ * Read the body, counting real bytes, and give up once it passes the cap.
+ * Content-Length can be absent (chunked) or wrong, so it is only a fast path.
+ */
+async function readCappedBody(
+  body: ReadableStream<Uint8Array> | null,
+): Promise<Uint8Array<ArrayBuffer> | null> {
+  if (!body) return new Uint8Array(new ArrayBuffer(0));
+  const reader = body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > MAX_BODY_BYTES) {
+      await reader.cancel();
+      return null;
+    }
+    chunks.push(value);
+  }
+  const out = new Uint8Array(new ArrayBuffer(total));
+  let offset = 0;
+  for (const chunk of chunks) {
+    out.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return out;
+}
+
 async function proxy(request: NextRequest): Promise<Response> {
   const path = sdkPath(request);
   if (!SDK_PATH.test(path) || path.includes("%")) {
@@ -108,15 +138,16 @@ async function proxy(request: NextRequest): Promise<Response> {
   if (ip) headers.set("x-forwarded-for", ip);
 
   const hasBody = request.method !== "GET" && request.method !== "HEAD";
-  const init: RequestInit & { duplex?: "half" } = {
+  const init: RequestInit = {
     method: request.method,
     headers,
     redirect: "manual",
     signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
   };
   if (hasBody) {
-    init.body = request.body;
-    init.duplex = "half";
+    const body = await readCappedBody(request.body);
+    if (body === null) return new Response(null, { status: 413 });
+    init.body = body;
   }
 
   let upstream: Response;
