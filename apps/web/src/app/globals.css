@@ -1552,10 +1552,22 @@ html.cookie-banner-open {
     border: 1px solid var(--plate-keyline);
     pointer-events: none;
   }
+  /* Resting fill before a lazy image paints: the tradition colour washed
+     into midnight, so a slow scroll shows a tinted slot, not a flat navy tile. */
   .plate-art {
     position: relative;
     overflow: hidden;
-    background: var(--midnight);
+    background:
+      radial-gradient(
+        120% 90% at 30% 20%,
+        color-mix(in oklch, var(--plate-accent, var(--gold)) 28%, var(--midnight-light)),
+        transparent 70%
+      ),
+      linear-gradient(
+        165deg,
+        color-mix(in oklch, var(--plate-accent, var(--gold)) 12%, var(--midnight-light)),
+        var(--midnight)
+      );
   }
   /* Single-element plate: the mat is a border, so a fill image sits inside it. */
   .plate-flat {
