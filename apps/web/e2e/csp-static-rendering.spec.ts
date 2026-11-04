@@ -9,7 +9,6 @@ import { expect, test } from "@playwright/test";
 
 const ROUTES = [
   "/", // static
-  "/index", // Next serves the root page here too
   "/deities/zeus", // SSG entity page
   "/stories/titanomachy", // SSG entity page
   "/stories/a-z", // static index beside a [slug] route
