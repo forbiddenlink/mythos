@@ -1,5 +1,45 @@
 [
   {
+    "id": "v1.15.1",
+    "date": "2026-11-02",
+    "version": "1.15.1",
+    "title": "Accuracy and keyboard fixes",
+    "description": "A round of corrections to catalog text, plus fixes for keyboard users and privacy.",
+    "changes": [
+      "Corrected overstated facts and cleaned up wording across catalog entries",
+      "Every deity on the timeline can now be reached with the keyboard alone",
+      "The weekly digest now labels its story excerpt as a retelling, not a quotation",
+      "Newsletter confirmation links no longer reach analytics, and security checks were tightened"
+    ],
+    "type": "fix"
+  },
+  {
+    "id": "v1.15.0",
+    "date": "2026-11-02",
+    "version": "1.15.0",
+    "title": "A to Z indexes for the whole atlas",
+    "description": "Stories, places, creatures and artifacts each get an alphabetical index page.",
+    "changes": [
+      "Added A to Z index pages for stories, places, creatures and artifacts",
+      "The newsletter sample page now loads correctly"
+    ],
+    "type": "feature"
+  },
+  {
+    "id": "v1.14.0",
+    "date": "2026-10-31",
+    "version": "1.14.0",
+    "title": "Cite this page and reading time",
+    "description": "New tools for students and readers who want to reference or plan their reading.",
+    "changes": [
+      "Added a Cite this page control to deity and story pages",
+      "Story pages now show an estimated reading time",
+      "Story links explain where they lead, and an RSS feed is available",
+      "Each release on this page has its own link you can share"
+    ],
+    "type": "feature"
+  },
+  {
     "id": "v1.13.1",
     "date": "2026-10-29",
     "version": "1.13.1",
