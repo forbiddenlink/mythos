@@ -56,18 +56,28 @@ export function Header() {
           />
         </div>
 
-        {/* Logo */}
-        <Link
-          href="/"
-          className="group mr-auto flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:mr-6"
-        >
-          <span className="text-foreground transition-colors duration-200 group-hover:text-gold-text">
-            <Logo className="h-8 w-8" />
-          </span>
-          <span className="whitespace-nowrap font-serif text-base max-[359px]:sr-only font-semibold leading-none tracking-wide text-foreground transition-colors duration-200 group-hover:text-gold-text sm:text-lg">
-            Mythos Atlas
-          </span>
-        </Link>
+        {/* Logo. On a narrow phone there is no room for the wordmark: the
+            row breaks lines by this wrapper's 32px basis, so the row stays
+            one 64px line, and the wordmark wraps below a zero-width spacer
+            inside its fixed-height box and is clipped. Only when even the
+            mark does not fit (enlarged text) does the row wrap. The clip sits
+            on the wordmark box only, so the mark renders exactly as before. */}
+        <div className="mr-auto flex min-w-0 grow basis-8 lg:mr-6 lg:grow-0 lg:basis-auto">
+          <Link
+            href="/"
+            className="group flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+          >
+            <span className="shrink-0 text-foreground transition-colors duration-200 group-hover:text-gold-text">
+              <Logo className="h-8 w-8" />
+            </span>
+            <span className="flex h-8 min-w-0 flex-wrap overflow-hidden">
+              <span aria-hidden="true" className="h-8 w-0" />
+              <span className="flex h-8 items-center whitespace-nowrap font-serif text-base font-semibold leading-none tracking-wide text-foreground transition-colors duration-200 group-hover:text-gold-text sm:text-lg">
+                Mythos Atlas
+              </span>
+            </span>
+          </Link>
+        </div>
 
         {/* Desktop Navigation with Mega Menu */}
         <div className="hidden flex-1 lg:block">
