@@ -35,4 +35,9 @@ export const CONSOLIDATION_REDIRECTS: readonly RouteRedirect[] = [
 
   // One timeline page with a view toggle.
   permanent("/story-timeline", "/timeline#stories"),
+
+  // Vercel serves the home page at /index too, but its CSP hashes are keyed by
+  // "/" and `next start` answers 404 there. One canonical URL removes both the
+  // duplicate page and the mismatch.
+  permanent("/index", "/"),
 ];
