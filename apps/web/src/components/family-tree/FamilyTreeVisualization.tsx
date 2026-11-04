@@ -17,6 +17,7 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   useReactFlow,
+  useNodesInitialized,
   ReactFlowProvider,
   MarkerType,
   Position,
@@ -397,7 +398,7 @@ function FamilyTreeInner({
   deityMap: Map<string, Deity>;
   navigationMap: Map<string, NavigationMap>;
 }>) {
-  const { setCenter, getNodes } = useReactFlow();
+  const { setCenter, getNodes, getNode, getZoom, fitView } = useReactFlow();
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -612,9 +613,13 @@ function FamilyTreeInner({
   // Fitting the whole graph at once shrank a big family to unreadable 5px
   // labels. Open on the focus deity and its direct relatives instead, never
   // below a readable zoom; readers can still zoom out to the full tree.
+  // Without a focus deity (the full /family-tree page) the overview stays a
+  // fit of the whole graph.
   const fitViewOptions = useMemo(() => {
     const nodes = focusFitNodes(focusDeityId, initialNodes, initialEdges);
-    return { padding: 0.2, maxZoom: 1.1, minZoom: INITIAL_MIN_ZOOM, nodes };
+    return nodes
+      ? { padding: 0.2, maxZoom: 1.1, minZoom: INITIAL_MIN_ZOOM, nodes }
+      : { padding: 0.2, maxZoom: 1.1 };
   }, [focusDeityId, initialNodes, initialEdges]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -633,6 +638,33 @@ function FamilyTreeInner({
       })),
     );
   }, [keyboardFocusedId, searchMatchIds, setNodes]);
+
+  // A wide family (Zeus has a row of children) cannot fit at the readable
+  // floor, and fitView then centres the row, pushing the focus deity off the
+  // edge. In that case centre on the focus deity at the floor instead.
+  const nodesInitialized = useNodesInitialized();
+  const focusCentered = useRef(false);
+  useEffect(() => {
+    if (!nodesInitialized || focusCentered.current || !focusDeityId) return;
+    focusCentered.current = true;
+    fitView(fitViewOptions);
+    if (getZoom() > INITIAL_MIN_ZOOM + 0.001) return;
+    const focus = getNode(focusDeityId);
+    if (!focus) return;
+    setCenter(
+      focus.position.x + (focus.width ?? 200) / 2,
+      focus.position.y + (focus.height ?? 72) / 2,
+      { zoom: INITIAL_MIN_ZOOM },
+    );
+  }, [
+    nodesInitialized,
+    focusDeityId,
+    fitView,
+    fitViewOptions,
+    getZoom,
+    getNode,
+    setCenter,
+  ]);
 
   // Center on first search match when there is one
   useEffect(() => {
