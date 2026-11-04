@@ -5,10 +5,11 @@ import {
 } from "@/lib/date";
 
 /**
- * FSRS (Free Spaced Repetition Scheduler) - Simplified Implementation
+ * SM-2 style spaced repetition (the SuperMemo 2 family Anki descends from).
  *
- * This implements a spaced repetition algorithm based on the FSRS model,
- * which optimizes review timing based on difficulty ratings.
+ * Each card keeps an ease factor and an interval; the 1-4 rating adjusts the
+ * ease and multiplies the interval. This is not FSRS: there is no memory
+ * stability/difficulty model or per-reader parameter fitting.
  */
 
 export type DifficultyRating = 1 | 2 | 3 | 4;
