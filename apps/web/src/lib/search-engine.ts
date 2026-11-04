@@ -301,9 +301,11 @@ function calculateMatchScore(
     ) {
       totalScore += 60 * field.weight;
     }
-    // Contains query
+    // Contains query mid-word ("thor" in "Hathor"). Kept, so partial
+    // typing still finds something, but weighted well under a whole-word
+    // match in a lower-weight field.
     else if (normalizedValue.includes(normalizedQuery)) {
-      totalScore += 40 * field.weight;
+      totalScore += 10 * field.weight;
     }
   }
 

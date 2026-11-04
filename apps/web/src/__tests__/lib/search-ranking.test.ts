@@ -22,6 +22,18 @@ describe("foldForSearch", () => {
 });
 
 describe("search ranking", () => {
+  it("ranks whole-word matches above mid-word substrings", () => {
+    const titles = searchAll("thor", 20).map((r) => r.title);
+    const hathor = titles.indexOf("Hathor");
+    // Entries about Thor mention him as a word; Hathor only contains "thor".
+    for (const related of ["Sif", "Mjolnir", "Megingjord"]) {
+      expect(titles.indexOf(related), related).toBeGreaterThan(-1);
+      if (hathor > -1) {
+        expect(titles.indexOf(related), related).toBeLessThan(hathor);
+      }
+    }
+  });
+
   it.each([
     ["Hera", "deity", "hera"],
     ["Prometheus", "deity", "prometheus"],
