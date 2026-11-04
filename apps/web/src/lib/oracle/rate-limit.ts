@@ -133,7 +133,8 @@ export interface RateLimitOptions {
    * Opt-in. Upstash reports `success: true` with `reason: "timeout"` when
    * Redis is slow, and `limit()` throws when Redis errors. Both normally let
    * the request through. With `failClosed` they deny with "unavailable", for
-   * paths that send mail or otherwise cost real money per admission.
+   * paths that send mail or otherwise cost real money per admission: Oracle,
+   * quiz generation, search and newsletter. Only analytics stays open.
    */
   failClosed?: boolean;
 }
@@ -182,7 +183,7 @@ async function checkBucketRateLimit(
 export async function checkOracleRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
-  return checkBucketRateLimit("oracle", identifier);
+  return checkBucketRateLimit("oracle", identifier, { failClosed: true });
 }
 
 /**
@@ -192,21 +193,21 @@ export async function checkOracleRateLimit(
 export async function checkOracleAnonymousRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
-  return checkBucketRateLimit("oracle-anon", identifier);
+  return checkBucketRateLimit("oracle-anon", identifier, { failClosed: true });
 }
 
 /** Story quiz generation rate limit (separate from Oracle). */
 export async function checkQuizRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
-  return checkBucketRateLimit("quiz", identifier);
+  return checkBucketRateLimit("quiz", identifier, { failClosed: true });
 }
 
 /** Search rate limit (60/hr per IP) — guards billed embedding lookups. */
 export async function checkSearchRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
-  return checkBucketRateLimit("search", identifier);
+  return checkBucketRateLimit("search", identifier, { failClosed: true });
 }
 
 /**

@@ -28,6 +28,15 @@ export async function POST(req: NextRequest) {
       getOracleClientIdentity(req.headers).key,
     );
     if (!rateLimit.allowed) {
+      if (rateLimit.reason === "unavailable") {
+        return NextResponse.json(
+          {
+            error:
+              "Search is briefly unavailable. Please try again in a moment.",
+          },
+          { status: 503 },
+        );
+      }
       if (rateLimit.reason === "misconfigured") {
         return NextResponse.json(
           { error: "Search is unavailable. Rate limiting is not configured." },

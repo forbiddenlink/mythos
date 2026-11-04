@@ -103,6 +103,15 @@ export async function POST(req: NextRequest) {
       getOracleClientIdentity(req.headers).key,
     );
     if (!rateLimit.allowed) {
+      if (rateLimit.reason === "unavailable") {
+        return NextResponse.json(
+          {
+            error:
+              "Quiz generation is briefly unavailable. Try again in a moment.",
+          },
+          { status: 503 },
+        );
+      }
       if (rateLimit.reason === "misconfigured") {
         return NextResponse.json(
           {

@@ -125,12 +125,19 @@ export async function POST(req: NextRequest) {
         ? await checkOracleRateLimit(client.key)
         : await checkOracleAnonymousRateLimit(client.key);
     if (!rateLimit.allowed) {
-      return rateLimit.reason === "misconfigured"
-        ? jsonError(
-            503,
-            "The Oracle is unavailable. Rate limiting is not configured.",
-          )
-        : jsonError(429, "The Oracle must rest. Please return in an hour.");
+      if (rateLimit.reason === "misconfigured") {
+        return jsonError(
+          503,
+          "The Oracle is unavailable. Rate limiting is not configured.",
+        );
+      }
+      if (rateLimit.reason === "unavailable") {
+        return jsonError(
+          503,
+          "The Oracle is briefly unavailable. Please try again in a moment.",
+        );
+      }
+      return jsonError(429, "The Oracle must rest. Please return in an hour.");
     }
 
     const selection = getOracleModelSelection();
