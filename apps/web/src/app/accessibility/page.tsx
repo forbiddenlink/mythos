@@ -24,7 +24,7 @@ export default function AccessibilityPage() {
       title="Accessibility Statement"
       lede="How the atlas is built to be usable by everyone, where it still falls short, and how to report a barrier."
       toc={TOC}
-      meta="Last updated: July 23, 2026"
+      meta="Last updated: November 4, 2026"
     >
       <section id="commitment">
         <h2>Commitment</h2>
@@ -34,6 +34,13 @@ export default function AccessibilityPage() {
           with keyboard navigation and automated checks; interactive
           visualizations (knowledge graph, maps, family trees) may have
           remaining gaps.
+        </p>
+        <p>
+          Animations follow your device&apos;s reduced-motion setting, keyboard
+          focus stays visible in Windows high-contrast (forced colors) mode, and
+          the pronunciation guide opens on tap and from the keyboard. On the
+          timeline and the star map, a normal scroll or one-finger swipe moves
+          the page instead of the chart.
         </p>
       </section>
 
@@ -47,6 +54,11 @@ export default function AccessibilityPage() {
           </li>
           <li>
             Some quiz and language controls need improved arrow-key patterns.
+          </li>
+          <li>
+            On touch screens the 3D star map orbits and zooms only with two
+            fingers; it has no on-screen zoom buttons yet. The timeline has zoom
+            buttons.
           </li>
           <li>
             Encyclopedia body content is primarily English; UI chrome has
