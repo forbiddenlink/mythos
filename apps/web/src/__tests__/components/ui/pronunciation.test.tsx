@@ -49,7 +49,7 @@ describe("PronunciationDisplay audio", () => {
   async function openAndClickListen(slug?: string) {
     const user = userEvent.setup();
     render(<PronunciationDisplay pronunciation={pron} audioSlug={slug} />);
-    await user.hover(screen.getByText("[ZYOOS]"));
+    await user.click(screen.getByText("[ZYOOS]"));
     fireEvent.click(await screen.findByRole("button", { name: /^Listen/i }));
   }
 
@@ -78,9 +78,7 @@ describe("PronunciationDisplay audio", () => {
     );
     await openAndClickListen("zeus");
     // Button is disabled while the clip loads, so a second click is ignored.
-    expect(
-      screen.getByRole("button", { name: /^Listen/i }),
-    ).toBeDisabled();
+    expect(screen.getByRole("button", { name: /^Listen/i })).toBeDisabled();
     rejectFirst(new DOMException("interrupted", "AbortError"));
     await Promise.resolve();
     await Promise.resolve();
@@ -96,12 +94,36 @@ describe("PronunciationDisplay audio", () => {
     const { unmount } = render(
       <PronunciationDisplay pronunciation={pron} audioSlug="zeus" />,
     );
-    await user.hover(screen.getByText("[ZYOOS]"));
+    await user.click(screen.getByText("[ZYOOS]"));
     fireEvent.click(await screen.findByRole("button", { name: /^Listen/i }));
     unmount();
     rejectFirst(new Error("failed after unmount"));
     await Promise.resolve();
     await Promise.resolve();
     expect(speak).not.toHaveBeenCalled();
+  });
+});
+
+describe("PronunciationDisplay opening", () => {
+  it("opens on a tap or click, not only on hover", async () => {
+    const user = userEvent.setup();
+    render(<PronunciationDisplay pronunciation={pron} />);
+    const trigger = screen.getByRole("button", {
+      name: "Pronunciation guide: ZYOOS",
+    });
+    expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await user.click(trigger);
+    expect(trigger).toHaveAttribute("aria-expanded", "true");
+    expect(await screen.findByText("Pronunciation Guide")).toBeInTheDocument();
+  });
+
+  it("opens from the keyboard and closes on Escape", async () => {
+    const user = userEvent.setup();
+    render(<PronunciationDisplay pronunciation={pron} />);
+    await user.tab();
+    await user.keyboard("{Enter}");
+    expect(await screen.findByText("Pronunciation Guide")).toBeInTheDocument();
+    await user.keyboard("{Escape}");
+    expect(screen.queryByText("Pronunciation Guide")).not.toBeInTheDocument();
   });
 });

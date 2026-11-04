@@ -5,10 +5,10 @@ import { Volume2, VolumeX, Copy, Check, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import nameAudio from "@/data/name-audio.json";
 import {
-  HoverCard,
-  HoverCardTrigger,
-  HoverCardContent,
-} from "@/components/ui/hover-card";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export interface Pronunciation {
   ipa: string;
@@ -167,25 +167,27 @@ export function PronunciationDisplay({
   }
 
   return (
-    <HoverCard>
-      <HoverCardTrigger asChild>
+    <Popover>
+      <PopoverTrigger asChild>
         <button
+          type="button"
+          aria-label={`Pronunciation guide: ${pronunciation.phonetic}`}
           className={cn(
-            "inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-help",
+            "inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer",
             className,
           )}
         >
           <span className="font-mono text-sm">[{pronunciation.phonetic}]</span>
         </button>
-      </HoverCardTrigger>
-      <HoverCardContent className="w-72" align="start">
+      </PopoverTrigger>
+      <PopoverContent className="w-72" align="start">
         <div className="space-y-3">
           <div>
             <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100 mb-1">
               Pronunciation Guide
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Click the phonetic spelling for more details
+              Tap Listen to hear the name
             </p>
           </div>
 
@@ -238,8 +240,8 @@ export function PronunciationDisplay({
             </button>
           </div>
         </div>
-      </HoverCardContent>
-    </HoverCard>
+      </PopoverContent>
+    </Popover>
   );
 }
 
