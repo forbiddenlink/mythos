@@ -1664,3 +1664,31 @@ main:has(#atlas-title) .page-section-title::before {
     outline-offset: 2px;
   }
 }
+
+/* ReactFlow 11 has no dark mode of its own: its controls and minimap stay
+   white. Use the surface tokens so they follow the theme. The extra
+   `.react-flow` ancestor outranks reactflow/dist/style.css, which loads
+   later with the lazy chunk. */
+.react-flow .react-flow__controls {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.react-flow .react-flow__controls-button {
+  background: var(--card);
+  border-bottom-color: var(--border);
+  color: var(--foreground);
+  fill: currentColor;
+}
+
+.react-flow .react-flow__controls-button:hover {
+  background: var(--muted);
+}
+
+.react-flow .react-flow__controls-button svg {
+  fill: currentColor;
+}
+
+.react-flow .react-flow__minimap {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
