@@ -28,7 +28,7 @@ describe("page rendering modes", () => {
       .filter((file) => /(^|\/)(page|layout)\.tsx$/.test(file))
       .filter((file) =>
         /export const revalidate\b/.test(
-          readFileSync(join(appDir, file), "utf8"),
+          readFileSync(join(ppDir, file), "utf8"),
         ),
       );
     expect(isrPages).toEqual([]);
@@ -61,16 +61,17 @@ describe("hashesForPath", () => {
 });
 
 describe("buildScriptSrc", () => {
-  it("strict mode allows only self, the nonce, hashes and the analytics host", () => {
+  it("strict mode permits WebAssembly without permitting JavaScript eval", () => {
     const src = buildScriptSrc({
       mode: "strict",
       nonce: "abc",
       hashes: ["sha256-x"],
     });
     expect(src).toBe(
-      "'self' 'nonce-abc' 'sha256-x' blob: https://va.vercel-scripts.com",
+      "'self' 'nonce-abc' 'sha256-x' 'wasm-unsafe-eval' blob: https://va.vercel-scripts.com",
     );
-    expect(src).not.toContain("unsafe");
+    expect(src.split(" ")).toContain("'wasm-unsafe-eval'");
+    expect(src.split(" ")).not.toContain("'unsafe-eval'");
     expect(src).not.toContain("strict-dynamic");
   });
 
@@ -96,48 +97,53 @@ describe("buildScriptSrc", () => {
   });
 
   it("lets the browser SDK reach the US Sentry ingest host", () => {
-    // CSP "*.a.b" only matches hosts ending in ".a.b", so *.ingest.sentry.io
-    // silently blocked every client event sent to o<org>.ingest.us.sentry.io.
-    const csp = buildCsp({ mode: "strict", nonce: "n", hashes: [] });
-    const connect = csp
-      .split(";")
-      .map((d) => d.trim())
-      .find((d) => d.startsWith("connect-src"))
-      ?.split(" ")
-      .slice(1) ?? [];
-    const host = "o4509096111112192.ingest.us.sentry.io";
-    const allowed = connect.some((src) => {
-      const m = /^https:\/\/\*\.(.+)$/.exec(src);
-      return m ? host.endsWith(`.${m[1]}`) : src === `https://${host}`;
-    });
-    expect(allowed).toBe(true);
-  });
-});
+    // CSP "*.a.b" only matches hosts ending in ".a.b", so *.ingest.sentry.io  // silently blocked every client event sent to o<org>.ingest.us.sentry.io.
+    const csp = buildCsp({ mode: "strict", nonce: "n", hashes: []JNВ€ЫЫњЭЫЫ›™XЭHЬЬ€њЬ]
+ЋИЉB€›X\
 
-describe("csp-hashes build script", () => {
-  it("hashes inline executable scripts only", () => {
-    const html = [
-      '<script src="/a.js"></script>',
-      "<script>self.__next_f.push([1])</script>",
-      '<script type="application/ld+json">{"@type":"Thing"}</script>',
-      '<script nonce="x">console.log(1)</script>',
-    ].join("");
-    expect(inlineScripts(html)).toEqual([
-      "self.__next_f.push([1])",
-      "console.log(1)",
-    ]);
-  });
+
+HO€ќљ[J
+JB€™љ[™
 
-  it("finds scripts whose end tag carries whitespace or attributes", () => {
-    const html =
-      "<script>first()</script ><script>second()</script\n foo><p>x</p>";
-    expect(inlineScripts(html)).toEqual(["first()", "second()"]);
-  });
+
+HO€њЭ\ќХЪ]
+ЫЫ›™XЭ\ЬИЉJB€ЛњЬ]
+€ЉB€њЫXЩJJHПИЧNВ€ЫЫњЭЬЭH›НLLMЊLLLLLЊNL‹љ[™Щ\Эќ\ЛњЩ[ќћKљ[ИЋВ€ЫЫњЭ[ЭЩYHЫЫ›™XЭњЫЫYJ
+ЬКHO€В€ЫЫњЭHHЧљО—ЧЧ
+—ЉЉКIЛ™^XКЬКNВ€™]\›€HИЬЭ™[™ХЪ]
+‰ЫVМW_X
+H€ЬИOOHО‹ЛЙЪЬЭXВ€JNВ€^XЭ
+[ЭЩY
+KќР™JќYJNВ€JNВџJNВ‚™\ШЬљX™JЬЬZ\Ъ\ИќZ[ШЬљ\‹
 
-  it("produces CSP-compatible SHA-256 sources", () => {
-    // echo -n "alert(1)" | openssl dgst -sha256 -binary | base64
-    expect(sha256("alert(1)")).toBe(
-      "sha256-bhHHL3z2vDgxUt0W3dWQOrprscmda2Y5pLsLg4GF+pI=",
-    );
-  });
-});
+HO€В€]
+љ\Ъ\И[›[™H^XЭ]X›HШЬљ\ИЫ›H‹
+
+HO€В€ЫЫњЭ[HВ€	ПШЬљ\ЬПH‹ШKљњИЏЏЬШЬљ\‰Л€ЏШЬљ\њЩ[‹—ЧЫ™^Щ‹њ\Ъ
+МWJOЬШЬљ\€‹€	ПШЬљ\\OH\XШ][Ы‹Ы
+ЪњЫЫ€ЏћИђ\HЋ€•[™ИџOЬШЬљ\‰Л€	ПШЬљ\›ЫЩOHћЏЫЫњЫЫK›ЩКJOЬШЬљ\‰Л€Kљ›Ъ[Љ€ЉNВ€^XЭ
+[›[™TШЬљ\К[
+JKќС\]X[
+В€њЩ[‹—ЧЫ™^Щ‹њ\Ъ
+МWJH‹€ЫЫњЫЫK›ЩКJH‹€JNВ€JNВ‚€]
+™љ[™ИШЬљ\ИЪЬЩH[™YИШ\њљY\ИЪ]\ЬXЩHЬ€]љXќ]\И‹
+
+HO€В€ЫЫњЭ[B€ЏШЬљ\™љ\њЭ
+
+OЬШЬљ\ЏШЬљ\њЩXЫЫ™
+
+OЬШЬљ\€›ЫПЏћЬ€ЋВ€^XЭ
+[›[™TШЬљ\К[
+JKќС\]X[
+И™љ\њЭ
+
+H‹њЩXЫЫ™
+
+H—JNВ€JNВ‚€]
+њ›ЩXЩ\ИФФXЫЫ\]X›HТKLЌM€ЫЭ\Щ\И‹
+
+HO€В€ЛИXЪИ[€[\ќ
+JH€Ь[њЬЫЬЭ\ЪLЌM€Xљ[\ћH\ЩMЌ€^XЭ
+ЪLЌMЉ[\ќ
+JHЉJKќР™J€њЪLЌM‹XљЮЊќ‘Ю]МЩФSЬњњШЫYL–M\УНСЉЬOH‹€
+NВ€JNВџJNВ

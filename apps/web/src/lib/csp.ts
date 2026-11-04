@@ -33,76 +33,9 @@ export type CspMode = "development" | "strict" | "degraded";
 const VERCEL_SCRIPTS = "https://va.vercel-scripts.com";
 
 /** "/deities/zeus/" → "/deities/zeus"; "/" stays "/". */
-export function normalizeCspPath(pathname: string): string {
+export function normalizeCspPath(pathname: string): {
   if (pathname.length > 1 && pathname.endsWith("/")) {
     return pathname.replace(/\/+$/, "") || "/";
   }
   return pathname;
-}
-
-/** Hashes allowed for a pathname: common ones plus the page's own, if prerendered. */
-export function hashesForPath(
-  manifest: CspManifest,
-  pathname: string,
-): string[] {
-  const own = manifest.routes[normalizeCspPath(pathname)];
-  // Unknown paths may render the static not-found page.
-  const extra = own ?? manifest.routes["/_not-found"] ?? [];
-  return [...manifest.common, ...extra];
-}
-
-export function buildScriptSrc(options: {
-  mode: CspMode;
-  nonce: string;
-  hashes?: readonly string[];
-}): string {
-  const { mode, nonce, hashes = [] } = options;
-  if (mode === "development") {
-    return `'self' 'unsafe-inline' 'unsafe-eval' blob: ${VERCEL_SCRIPTS}`;
-  }
-  if (mode === "degraded") {
-    return `'self' 'unsafe-inline' blob: ${VERCEL_SCRIPTS}`;
-  }
-  const hashSources = hashes.map((hash) => `'${hash}'`).join(" ");
-  return [`'self'`, `'nonce-${nonce}'`, hashSources, "blob:", VERCEL_SCRIPTS]
-    .filter(Boolean)
-    .join(" ");
-}
-
-export function buildCsp(options: {
-  mode: CspMode;
-  nonce: string;
-  hashes?: readonly string[];
-}): string {
-  // Analytics beacons + optional Sentry in prod. Upstash and the Oracle/quiz
-  // AI providers are called server-side only (rate-limit.ts, global-budget.ts,
-  // token-budget.ts, the /api/oracle and /api/quiz routes) and are never
-  // fetched from the browser, so they do not belong in this client policy.
-  // cdn.jsdelivr.net: browser speechSynthesis voice data / unicode font resolver
-  const connectSrc = [
-    "'self'",
-    "https://va.vercel-scripts.com",
-    "https://vitals.vercel-insights.com",
-    "https://*.ingest.sentry.io",
-    // The DSN lives on the US region host (o<org>.ingest.us.sentry.io), which
-    // *.ingest.sentry.io does not match.
-    "https://*.ingest.us.sentry.io",
-    "https://cdn.jsdelivr.net",
-  ].join(" ");
-
-  return [
-    "default-src 'self'",
-    `script-src ${buildScriptSrc(options)}`,
-    "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: https: blob:",
-    "font-src 'self' data:",
-    `connect-src ${connectSrc}`,
-    "worker-src 'self' blob:",
-    "media-src 'self'",
-    "frame-ancestors 'none'",
-    "base-uri 'self'",
-    "form-action 'self'",
-    "object-src 'none'",
-    "report-to csp-endpoint",
-  ].join("; ");
 }
