@@ -71,4 +71,27 @@ describe("buildTreeData", () => {
     expect(tethys.find((n) => n.alsoUnder)?.children).toBeUndefined();
     expect(all.filter((n) => n.deity.id === "oceanus")).toHaveLength(1);
   });
+
+  it("does not repeat a couple's children under the second partner", () => {
+    const deities = ["root", "cronus", "rhea", "zeus", "hera"].map(d);
+    const relationships = [
+      rel("root", "cronus", "parent"),
+      rel("root", "rhea", "parent"),
+      rel("cronus", "rhea", "spouse"),
+      rel("cronus", "zeus", "parent"),
+      rel("cronus", "hera", "parent"),
+      rel("rhea", "zeus", "parent"),
+      rel("rhea", "hera", "parent"),
+    ];
+    const tree = buildTreeData(deities, relationships, "root");
+    const all: RawNodeDatum[] = [];
+    const walk = (n: RawNodeDatum) => {
+      all.push(n);
+      (n.children ?? []).forEach(walk);
+    };
+    if (tree) walk(tree);
+    const ids = idsOf(all);
+    expect(ids.filter((id) => id === "zeus")).toHaveLength(1);
+    expect(ids.filter((id) => id === "hera")).toHaveLength(1);
+  });
 });
