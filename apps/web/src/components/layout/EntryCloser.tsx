@@ -51,7 +51,7 @@ export function EntryCloser({
       <h2 id={`entry-closer-${id}`} className="type-h3 text-foreground">
         Keep exploring
       </h2>
-      <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-1">
+      <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
         {canSave ? (
           <li>
             <EntryCloserSave
