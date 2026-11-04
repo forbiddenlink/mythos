@@ -9,7 +9,18 @@ export const LEARNING_STORAGE_KEYS = [
   "mythos-atlas-reading-progress",
   "mythos-atlas-progress",
   "mythos-atlas-review",
+  "mythos-story-progress",
+  "mythos-story-endings",
 ] as const;
+
+/**
+ * Keys added after the first v1 backups were written. A backup without them
+ * still restores, and leaves the reader's current values for them untouched.
+ */
+const LATER_STORAGE_KEYS = new Set<LearningStorageKey>([
+  "mythos-story-progress",
+  "mythos-story-endings",
+]);
 
 export type LearningStorageKey = (typeof LEARNING_STORAGE_KEYS)[number];
 
@@ -92,11 +103,30 @@ export const reviewSchema = z.strictObject({
   }),
 });
 
+const idSchema = z.string().min(1).max(200);
+
+/** Interactive-story positions, keyed by story id (src/lib/branching-story.ts). */
+const storyProgressSchema = z.record(
+  idSchema,
+  z.strictObject({
+    storyId: idSchema,
+    currentNodeId: idSchema,
+    pathTaken: z.array(idSchema),
+    endingsDiscovered: z.array(idSchema),
+    lastPlayed: z.string().max(64),
+  }),
+);
+
+/** Endings found per interactive story. */
+const storyEndingsSchema = z.record(idSchema, z.array(idSchema));
+
 const storedValueSchemas: Record<LearningStorageKey, z.ZodType> = {
   "mythos-atlas-bookmarks": z.array(bookmarkSchema),
   "mythos-atlas-reading-progress": readingProgressSchema,
   "mythos-atlas-progress": progressSchema,
   "mythos-atlas-review": reviewSchema,
+  "mythos-story-progress": storyProgressSchema,
+  "mythos-story-endings": storyEndingsSchema,
 };
 
 const backupSchema = z.strictObject({
@@ -108,6 +138,8 @@ const backupSchema = z.strictObject({
     "mythos-atlas-reading-progress": z.string().nullable(),
     "mythos-atlas-progress": z.string().nullable(),
     "mythos-atlas-review": z.string().nullable(),
+    "mythos-story-progress": z.string().nullable().optional(),
+    "mythos-story-endings": z.string().nullable().optional(),
   }),
 });
 
@@ -115,7 +147,8 @@ export interface LearningBackup {
   format: "mythos-atlas-learning-backup";
   version: typeof LEARNING_BACKUP_VERSION;
   exportedAt: string;
-  data: LearningStorageValues;
+  /** Keys in LATER_STORAGE_KEYS may be absent from older backups. */
+  data: Partial<LearningStorageValues>;
 }
 
 export interface BackupPreview {
@@ -132,8 +165,11 @@ export type BackupParseResult =
   | { success: true; backup: LearningBackup; preview: BackupPreview }
   | { success: false; error: string };
 
-function validateStoredValue(key: LearningStorageKey, value: string | null) {
-  if (value === null) return { success: true as const };
+function validateStoredValue(
+  key: LearningStorageKey,
+  value: string | null | undefined,
+) {
+  if (value === null || value === undefined) return { success: true as const };
 
   try {
     return storedValueSchemas[key].safeParse(JSON.parse(value));
@@ -186,7 +222,7 @@ function checkedBackup(candidate: unknown): BackupParseResult {
     backup: parsed.data,
     preview: {
       exportedAt: parsed.data.exportedAt,
-      savedCategories: LEARNING_STORAGE_KEYS.filter((key) => data[key] !== null)
+      savedCategories: LEARNING_STORAGE_KEYS.filter((key) => data[key] != null)
         .length,
       bookmarks,
       readingProgress,
@@ -235,7 +271,7 @@ export function parseLearningBackup(raw: string): BackupParseResult {
   }
 }
 
-/** Replace only the four documented learning keys and attempt rollback on failure. */
+/** Replace only the documented learning keys and attempt rollback on failure. */
 export function restoreLearningBackup(
   storage: Storage,
   backup: LearningBackup,
@@ -260,7 +296,8 @@ export function restoreLearningBackup(
   try {
     for (const key of LEARNING_STORAGE_KEYS) {
       const value = validated.backup.data[key];
-      if (value === null) storage.removeItem(key);
+      if (value === undefined && LATER_STORAGE_KEYS.has(key)) continue;
+      if (value == null) storage.removeItem(key);
       else storage.setItem(key, value);
     }
     return { success: true };
