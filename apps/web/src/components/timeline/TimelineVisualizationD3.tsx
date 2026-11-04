@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import { motion, AnimatePresence } from "framer-motion";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, ZoomIn, ZoomOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { PANTHEON_HEX as PANTHEON_COLORS } from "@/lib/pantheon-colors";
@@ -125,6 +125,15 @@ export function TimelineVisualizationD3({
   > | null>(null);
   const xScaleRef = useRef<d3.ScaleLinear<number, number> | null>(null);
 
+  const zoomBy = (factor: number) => {
+    const zoom = zoomBehaviorRef.current;
+    if (!svgRef.current || !zoom) return;
+    d3.select(svgRef.current)
+      .transition()
+      .duration(300)
+      .call(zoom.scaleBy, factor);
+  };
+
   // Handle View Range Updates (Programmatic Zoom)
   useEffect(() => {
     if (!svgRef.current || !xScaleRef.current || !zoomBehaviorRef.current)
@@ -228,6 +237,18 @@ export function TimelineVisualizationD3({
         [0, 0],
         [width, height],
       ])
+      // The chart spans the page, so it must not trap scrolling: a plain wheel
+      // scrolls the page (Ctrl/Cmd + wheel or a trackpad pinch zooms), and one
+      // finger scrolls on touch screens (two fingers pan). The buttons below
+      // zoom without any gesture.
+      .filter((event: Event) => {
+        if (event instanceof WheelEvent) return event.ctrlKey || event.metaKey;
+        if (typeof TouchEvent !== "undefined" && event instanceof TouchEvent) {
+          return event.touches.length >= 2;
+        }
+        const mouse = event as MouseEvent;
+        return !mouse.ctrlKey && !mouse.button;
+      })
       .on("zoom", (event) => {
         xScale = event.transform.rescaleX(xScaleOriginal);
         update();
@@ -578,7 +599,7 @@ export function TimelineVisualizationD3({
           ref={svgRef}
           width="100%"
           height="100%"
-          className="w-full h-full touch-none select-none"
+          className="w-full h-full touch-pan-y select-none"
         />
 
         {/* Tooltip Overlay */}
@@ -603,27 +624,53 @@ export function TimelineVisualizationD3({
       {/* Footer Info */}
       <div className="flex items-center justify-between gap-4 border-t border-parchment/10 px-4 py-2">
         <p className="type-meta text-muted-foreground">
-          Scroll to zoom &middot; Drag to pan &middot; Hover events for details
+          <span className="pointer-coarse:hidden">
+            Ctrl + scroll to zoom &middot; Drag to pan &middot; Hover events for
+            details
+          </span>
+          <span className="hidden pointer-coarse:inline">
+            Two fingers to pan &middot; Buttons to zoom &middot; Tap events for
+            details
+          </span>
         </p>
-        <Button
-          size="icon-sm"
-          aria-label="Reset timeline zoom"
-          variant="outline"
-          className="h-9 w-9 bg-midnight/80"
-          onClick={() => {
-            // Logic to reset zoom would involve re-selecting svg and invoking zoom.transform
-            if (svgRef.current) {
-              const svg = d3.select(svgRef.current);
-              svg
+        <div className="flex shrink-0 items-center gap-1">
+          <Button
+            size="icon-sm"
+            aria-label="Zoom out"
+            variant="outline"
+            className="h-9 w-9 bg-midnight/80"
+            onClick={() => zoomBy(1 / 2)}
+          >
+            <ZoomOut className="h-3.5 w-3.5" />
+          </Button>
+          <Button
+            size="icon-sm"
+            aria-label="Zoom in"
+            variant="outline"
+            className="h-9 w-9 bg-midnight/80"
+            onClick={() => zoomBy(2)}
+          >
+            <ZoomIn className="h-3.5 w-3.5" />
+          </Button>
+          <Button
+            size="icon-sm"
+            aria-label="Reset timeline zoom"
+            variant="outline"
+            className="h-9 w-9 bg-midnight/80"
+            onClick={() => {
+              // Use the chart's own zoom behaviour: a fresh d3.zoom() resets
+              // the stored transform without redrawing the axis or bars.
+              const zoom = zoomBehaviorRef.current;
+              if (!svgRef.current || !zoom) return;
+              d3.select(svgRef.current)
                 .transition()
                 .duration(750)
-                // @ts-expect-error - d3.zoom().transform type mismatch with call signature
-                .call(d3.zoom().transform, d3.zoomIdentity);
-            }
-          }}
-        >
-          <RotateCcw className="h-3.5 w-3.5" />
-        </Button>
+                .call(zoom.transform, d3.zoomIdentity);
+            }}
+          >
+            <RotateCcw className="h-3.5 w-3.5" />
+          </Button>
+        </div>
       </div>
     </div>
   );
