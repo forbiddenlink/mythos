@@ -107,6 +107,7 @@ From `apps/web/.env.example`:
 - `RESEND_WEBHOOK_SECRET` - secret; signing secret of the Resend webhook for `contact.updated` pointed at `/api/newsletter/webhook`. It is how unsubscribes are recorded, so while it is unset `/api/newsletter/confirm` answers 503 (and logs why) and the webhook answers 501. Set it before sign-up confirmation can work
 - `RESEND_SEGMENT_ID` - optional, non-secret Resend segment for the digest (defaults to `ef4d9db5-a6ff-4f30-adf3-be3576e3fe42`)
 - `NEXT_PUBLIC_STRIPE_PATRON_LINK` - optional Stripe payment link for the recurring "patron" tier on `/support`; hidden when unset
+- `NEXT_PUBLIC_BOOKSHOP_AFFILIATE_ID` - optional numeric Bookshop.org affiliate id; adds a "Read the book" list with a commission disclosure to the guides listed in `src/lib/bookshop.ts`. Hidden when unset or not a plain number
 
 ## Gotchas
 

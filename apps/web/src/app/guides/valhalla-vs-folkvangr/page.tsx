@@ -4,6 +4,7 @@ import {
   GuideContents,
   GuideFaq,
   GuideNextSteps,
+  GuideReading,
   GuideSection,
 } from "@/components/guides/GuideParts";
 import { PageHero } from "@/components/layout/page-hero";
@@ -421,6 +422,7 @@ export default function ValhallaVsFolkvangrGuide() {
         </GuideSection>
 
         <GuideSection id="next" title="Keep exploring">
+          <GuideReading slug="valhalla-vs-folkvangr" />
           <GuideNextSteps
             links={[
               {

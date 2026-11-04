@@ -2,6 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { FAQJsonLd } from "@/components/seo/JsonLd";
+import {
+  bookshopUrl,
+  GUIDE_READING,
+  getBookshopAffiliateId,
+} from "@/lib/bookshop";
 import type { GuideEntity } from "@/lib/guide-entities";
 
 /**
@@ -262,5 +267,47 @@ export function GuideNextSteps({
         </li>
       ))}
     </ul>
+  );
+}
+
+/**
+ * "Read the sources" list of Bookshop.org affiliate links. Renders nothing
+ * unless NEXT_PUBLIC_BOOKSHOP_AFFILIATE_ID holds a valid id and the guide has
+ * books listed in src/lib/bookshop.ts.
+ */
+export function GuideReading({ slug }: Readonly<{ slug: string }>) {
+  const affiliateId = getBookshopAffiliateId();
+  const books = GUIDE_READING[slug];
+  if (!affiliateId || !books?.length) return null;
+  return (
+    <div className="mb-8">
+      <h3 className="font-serif text-xl text-foreground">Read the book</h3>
+      <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+        {books.map((book) => (
+          <li key={book.isbn}>
+            <a
+              href={bookshopUrl(affiliateId, book.isbn)}
+              rel="sponsored noopener"
+              className="block h-full rounded-lg border border-border/60 bg-card/40 p-4 transition-colors hover:border-gold/60"
+            >
+              <span className="font-serif text-lg text-foreground">
+                {book.title}
+              </span>
+              <span className="block text-sm text-muted-foreground">
+                {book.author}
+              </span>
+              <span className="mt-1 block font-body text-muted-foreground">
+                {book.note}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-sm text-muted-foreground">
+        These links go to Bookshop.org, which shares sales with independent
+        bookshops. Mythos Atlas earns a small commission on purchases made
+        through them, at no extra cost to you.
+      </p>
+    </div>
   );
 }

@@ -6,6 +6,7 @@ import {
   GuideContents,
   GuideFaq,
   GuideNextSteps,
+  GuideReading,
   GuideSection,
 } from "@/components/guides/GuideParts";
 import { GuideJsonLd, ItemListJsonLd } from "@/components/seo/JsonLd";
@@ -494,6 +495,7 @@ export default function OdysseyGuide() {
         </GuideSection>
 
         <GuideSection id="next" title="Keep exploring">
+          <GuideReading slug="odyssey" />
           <GuideNextSteps
             links={[
               {
