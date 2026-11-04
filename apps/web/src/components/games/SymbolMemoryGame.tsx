@@ -14,6 +14,7 @@ import {
   Crown,
   Zap,
 } from "lucide-react";
+import { shuffle } from "@/lib/shuffle";
 export interface MemoryGameDeity {
   id: string;
   name: string;
@@ -151,15 +152,6 @@ function getSymbolDisplay(symbol: string): string {
   );
 }
 
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
 function formatTime(seconds: number): string {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
@@ -274,10 +266,7 @@ export function SymbolMemoryGame({
     );
 
     // Shuffle and pick deities for the game
-    const selectedDeities = shuffleArray(deitiesWithSymbols).slice(
-      0,
-      config.pairs,
-    );
+    const selectedDeities = shuffle(deitiesWithSymbols).slice(0, config.pairs);
 
     // Create card pairs
     const cardPairs: MemoryCard[] = [];
@@ -309,7 +298,7 @@ export function SymbolMemoryGame({
     });
 
     // Shuffle all cards
-    setCards(shuffleArray(cardPairs));
+    setCards(shuffle(cardPairs));
     setFlippedCards([]);
     setMoves(0);
     setMatches(0);
