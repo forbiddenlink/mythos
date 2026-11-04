@@ -46,7 +46,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
-      <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
+      <div className="layout-container layout-container-content flex min-h-16 items-center gap-2">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">
           <MobileNav
@@ -56,16 +56,24 @@ export function Header() {
           />
         </div>
 
-        {/* Logo */}
+        {/* Logo. On a narrow phone, or once the streak and review badges
+            appear, there is no room for the wordmark: the link shrinks, the
+            wordmark wraps below a zero-width spacer onto a second line, and
+            its fixed-height box clips it, so the header stays one 64px row
+            instead of growing a second. The clip sits on the wordmark box
+            only, so the mark renders exactly as before. */}
         <Link
           href="/"
-          className="group mr-auto flex items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:mr-6"
+          className="group mr-auto flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold lg:mr-6"
         >
-          <span className="text-foreground transition-colors duration-200 group-hover:text-gold-text">
+          <span className="shrink-0 text-foreground transition-colors duration-200 group-hover:text-gold-text">
             <Logo className="h-8 w-8" />
           </span>
-          <span className="whitespace-nowrap font-serif text-base max-[359px]:sr-only font-semibold leading-none tracking-wide text-foreground transition-colors duration-200 group-hover:text-gold-text sm:text-lg">
-            Mythos Atlas
+          <span className="flex h-8 min-w-0 flex-wrap overflow-hidden">
+            <span aria-hidden="true" className="h-8 w-0" />
+            <span className="flex h-8 items-center whitespace-nowrap font-serif text-base font-semibold leading-none tracking-wide text-foreground transition-colors duration-200 group-hover:text-gold-text sm:text-lg">
+              Mythos Atlas
+            </span>
           </span>
         </Link>
 
@@ -75,7 +83,7 @@ export function Header() {
         </div>
 
         {/* Right Actions */}
-        <div className="flex max-w-full flex-wrap items-center gap-1">
+        <div className="flex shrink-0 items-center gap-1">
           {/* Quick Actions (Streak & Review Count) */}
           <QuickActions />
 
