@@ -156,7 +156,8 @@ export function LearningBackup() {
         </CardTitle>
         <CardDescription>
           Download or restore bookmarks, reading progress, discovery progress,
-          and review scheduling from this browser only.
+          interactive-story endings and review scheduling from this browser
+          only.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">

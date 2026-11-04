@@ -296,3 +296,63 @@ describe("learning backup", () => {
     expect(result.error).toContain("could not be fully restored");
   });
 });
+
+describe("learning backup: interactive stories", () => {
+  const storyProgress = JSON.stringify({
+    "persephone-choice": {
+      storyId: "persephone-choice",
+      currentNodeId: "pomegranate",
+      pathTaken: ["start", "pomegranate"],
+      endingsDiscovered: ["spring-return"],
+      lastPlayed: "2026-11-04T12:00:00.000Z",
+    },
+  });
+  const storyEndings = JSON.stringify({
+    "persephone-choice": ["spring-return"],
+  });
+
+  it("exports, then restores story progress and discovered endings", () => {
+    const storage = memoryStorage();
+    seed(storage);
+    storage.setItem("mythos-story-progress", storyProgress);
+    storage.setItem("mythos-story-endings", storyEndings);
+    const parsed = parseLearningBackup(
+      JSON.stringify(createLearningBackup(storage)),
+    );
+    expect(parsed.success).toBe(true);
+    if (!parsed.success) return;
+
+    storage.clear();
+    expect(restoreLearningBackup(storage, parsed.backup).success).toBe(true);
+    expect(storage.getItem("mythos-story-progress")).toBe(storyProgress);
+    expect(storage.getItem("mythos-story-endings")).toBe(storyEndings);
+  });
+
+  it("restores an older backup without story keys and keeps current endings", () => {
+    const storage = memoryStorage();
+    seed(storage);
+    const older = createLearningBackup(storage);
+    delete older.data["mythos-story-progress"];
+    delete older.data["mythos-story-endings"];
+    const parsed = parseLearningBackup(JSON.stringify(older));
+    expect(parsed.success).toBe(true);
+    if (!parsed.success) return;
+
+    storage.setItem("mythos-story-endings", storyEndings);
+    expect(restoreLearningBackup(storage, parsed.backup).success).toBe(true);
+    expect(storage.getItem("mythos-story-endings")).toBe(storyEndings);
+  });
+
+  it("rejects malformed story data", () => {
+    const storage = memoryStorage();
+    seed(storage);
+    storage.setItem(
+      "mythos-story-endings",
+      JSON.stringify({ "persephone-choice": "not-a-list" }),
+    );
+    const parsed = parseLearningBackup(
+      JSON.stringify(createLearningBackup(storage)),
+    );
+    expect(parsed.success).toBe(false);
+  });
+});
