@@ -20,6 +20,7 @@ import { trackEvent } from "@/lib/analytics/events";
 import { quizResultPath } from "@/lib/quiz-share";
 import { useProgress } from "@/hooks/use-progress";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
+import { shuffle } from "@/lib/shuffle";
 type SourceHint = Array<{ source?: string; text?: string }>;
 
 /**
@@ -138,10 +139,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
     const usedIds = new Set<string>();
 
     const getRandomDeities = (count: number, excludeId: string) =>
-      deities
-        .filter((d) => d.id !== excludeId)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, count);
+      shuffle(deities.filter((d) => d.id !== excludeId)).slice(0, count);
 
     // 1. Visual Questions (Randomly select among Deity, Creature, Artifact, or Location)
     const visualPool = ["deity", "creature", "artifact", "location"];
@@ -154,10 +152,9 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
       if (valid.length > 0) {
         const target = valid[Math.floor(Math.random() * valid.length)];
         usedIds.add(target.id + "_visual");
-        const others = creatures
-          .filter((c) => c.id !== target.id)
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 3);
+        const others = shuffle(
+          creatures.filter((c) => c.id !== target.id),
+        ).slice(0, 3);
         newQuestions.push({
           id: 1,
           type: "visual",
@@ -177,10 +174,9 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
       if (valid.length > 0) {
         const target = valid[Math.floor(Math.random() * valid.length)];
         usedIds.add(target.id + "_visual");
-        const others = artifacts
-          .filter((a) => a.id !== target.id)
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 3);
+        const others = shuffle(
+          artifacts.filter((a) => a.id !== target.id),
+        ).slice(0, 3);
         newQuestions.push({
           id: 1,
           type: "visual",
@@ -200,10 +196,9 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
       if (valid.length > 0) {
         const target = valid[Math.floor(Math.random() * valid.length)];
         usedIds.add(target.id + "_visual");
-        const others = locations
-          .filter((l) => l.id !== target.id)
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 3);
+        const others = shuffle(
+          locations.filter((l) => l.id !== target.id),
+        ).slice(0, 3);
         newQuestions.push({
           id: 1,
           type: "visual",
@@ -235,10 +230,10 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           type: "visual",
           question: "Which deity is depicted in this image?",
           imageUrl: target.imageUrl,
-          options: [
+          options: shuffle([
             target.name,
             ...getRandomDeities(3, target.id).map((d) => d.name),
-          ].sort(() => Math.random() - 0.5),
+          ]),
           correctAnswer: target.name,
           explanation: `This is ${target.name}, the deity of ${target.domain.join(", ")}.`,
           ...quizLearnMore(target, "deities"),
@@ -263,10 +258,10 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           id: 2,
           type: "relationship",
           question: `Who is the ${relLabel.split(" ")[0]} of ${toDeity.name}?`, // Who is the parent of Ares?
-          options: [
+          options: shuffle([
             fromDeity.name,
             ...getRandomDeities(3, fromDeity.id).map((d) => d.name),
-          ].sort(() => Math.random() - 0.5),
+          ]),
           correctAnswer: fromDeity.name,
           explanation: `${fromDeity.name} is the ${relLabel} ${toDeity.name}.`,
           ...quizLearnMore(fromDeity),
@@ -285,10 +280,10 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           id: newQuestions.length + 1,
           type: "text",
           question: `Which deity is associated with ${target.domain[0]}?`,
-          options: [
+          options: shuffle([
             target.name,
             ...getRandomDeities(3, target.id).map((d) => d.name),
-          ].sort(() => Math.random() - 0.5),
+          ]),
           correctAnswer: target.name,
           explanation: `${target.name} is the deity of ${target.domain.join(", ")}.`,
           ...quizLearnMore(target),
@@ -299,10 +294,10 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           id: newQuestions.length + 1,
           type: "text",
           question: `Which deity is symbolized by ${target.symbols[0]}?`,
-          options: [
+          options: shuffle([
             target.name,
             ...getRandomDeities(3, target.id).map((d) => d.name),
-          ].sort(() => Math.random() - 0.5),
+          ]),
           correctAnswer: target.name,
           explanation: `${target.name}'s symbols include ${target.symbols.join(", ")}.`,
           ...quizLearnMore(target),
@@ -310,7 +305,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
       }
     }
 
-    const shuffled = newQuestions.toSorted(() => Math.random() - 0.5); // Shuffle order
+    const shuffled = shuffle(newQuestions); // Shuffle order
     // eslint-disable-next-line react-hooks/set-state-in-effect -- generate questions when data loads
     setQuestions(shuffled);
   }, [deities, relationships, pool]);
