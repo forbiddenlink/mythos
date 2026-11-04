@@ -18,6 +18,7 @@ import {
 import Link from "next/link";
 import { ProgressContext } from "@/providers/progress-provider";
 import { useAchievements } from "@/hooks/useAchievements";
+import { shuffle } from "@/lib/shuffle";
 
 interface Deity {
   id: string;
@@ -37,15 +38,13 @@ function generateQuestion(deities: Deity[]): Question {
   const target = deities[Math.floor(Math.random() * deities.length)];
   const domain =
     target.domain[Math.floor(Math.random() * target.domain.length)];
-  const wrongAnswers = deities
-    .filter((d) => d.id !== target.id)
-    .sort(() => Math.random() - 0.5)
+  const wrongAnswers = shuffle(deities.filter((d) => d.id !== target.id))
     .slice(0, 3)
     .map((d) => d.name);
 
   return {
     question: `Which deity is associated with "${domain}"?`,
-    options: [target.name, ...wrongAnswers].sort(() => Math.random() - 0.5),
+    options: shuffle([target.name, ...wrongAnswers]),
     correctAnswer: target.name,
     deityName: target.name,
   };

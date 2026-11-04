@@ -1,3 +1,5 @@
+import { shuffle } from "@/lib/shuffle";
+
 /** The deity fields quiz generation reads (a slim projection is enough). */
 export interface QuizDeity {
   id: string;
@@ -51,17 +53,8 @@ export const TIME_LIMITS: Record<Difficulty, number> = {
   hard: 15,
 };
 
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
 function getRandomItems<T>(array: T[], count: number): T[] {
-  return shuffleArray(array).slice(0, count);
+  return shuffle(array).slice(0, count);
 }
 
 function generateQuestionText(
@@ -228,7 +221,7 @@ function generateRelationshipQuestion({
     correctAnswer: answer.name,
     correctDeityId: answer.id,
     correctDeitySlug: answer.slug,
-    options: shuffleArray([answer.name, ...wrongOptions.slice(0, 3)]),
+    options: shuffle([answer.name, ...wrongOptions.slice(0, 3)]),
     difficulty,
   };
 }
@@ -267,7 +260,7 @@ function generateDomainQuestion(
     correctAnswer: correctDomain,
     correctDeityId: deity.id,
     correctDeitySlug: deity.slug,
-    options: shuffleArray([correctDomain, ...wrongOptions]),
+    options: shuffle([correctDomain, ...wrongOptions]),
     difficulty,
   };
 }
@@ -306,7 +299,7 @@ export function generateRelationshipQuiz(
   const deityMap = new Map(deities.map((d) => [d.id, d]));
 
   // Generate relationship-based questions
-  const shuffledRels = shuffleArray(validRelationships);
+  const shuffledRels = shuffle(validRelationships);
 
   for (const rel of shuffledRels) {
     if (questions.length >= count) break;
@@ -339,7 +332,7 @@ export function generateRelationshipQuiz(
   const deitiesWithDomains = deities.filter(
     (d) => d.domain && d.domain.length > 0,
   );
-  const shuffledDeities = shuffleArray(deitiesWithDomains);
+  const shuffledDeities = shuffle(deitiesWithDomains);
 
   for (const deity of shuffledDeities) {
     if (questions.length >= count) break;
@@ -359,7 +352,7 @@ export function generateRelationshipQuiz(
     if (question) questions.push(question);
   }
 
-  return shuffleArray(questions).slice(0, count);
+  return shuffle(questions).slice(0, count);
 }
 
 export function calculateQuizXP(
