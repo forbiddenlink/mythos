@@ -1,22 +1,23 @@
 import { NextRequest } from "next/server";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 function postRequest(body: Record<string, unknown>) {
-  return new NextRequest(
-    "http://localhost:3000/api/quiz/generate-from-story",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        origin: "http://localhost:3000",
-        host: "localhost:3000",
-      },
-      body: JSON.stringify(body),
+  return new NextRequest("http://localhost:3000/api/quiz/generate-from-story", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      origin: "http://localhost:3000",
+      host: "localhost:3000",
     },
-  );
+    body: JSON.stringify(body),
+  });
 }
 
 describe("POST /api/quiz/generate-from-story", () => {
+  beforeEach(() => {
+    vi.stubEnv("NEXT_PUBLIC_ORACLE_ENABLED", "true");
+  });
+
   afterEach(() => {
     vi.unstubAllEnvs();
     vi.resetModules();
@@ -57,6 +58,14 @@ describe("POST /api/quiz/generate-from-story", () => {
     const { POST } = await import("@/app/api/quiz/generate-from-story/route");
     const res = await POST(postRequest({ storySlug: "aeneid", count: 2 }));
 
+    expect(res.status).toBe(503);
+  });
+
+  it("refuses with 503 while the Oracle flag is off, before any model call", async () => {
+    vi.stubEnv("NEXT_PUBLIC_ORACLE_ENABLED", "false");
+    vi.stubEnv("ANTHROPIC_API_KEY", "test-key");
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
+    const res = await POST(postRequest({ storySlug: "titanomachy" }));
     expect(res.status).toBe(503);
   });
 

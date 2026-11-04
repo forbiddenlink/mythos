@@ -27,6 +27,7 @@ import {
   checkOracleAnonymousRateLimit,
   checkOracleRateLimit,
 } from "@/lib/oracle/rate-limit";
+import { isOracleFlagEnabled } from "@/lib/oracle/availability";
 import {
   forbiddenUnlessSameOrigin,
   isOracleKillSwitchOn,
@@ -94,7 +95,9 @@ function staticReplyResponse(
 
 export async function POST(req: NextRequest) {
   try {
-    if (isOracleKillSwitchOn()) {
+    // The public flag hides the UI, but the route must refuse too, or a
+    // script could still spend the provider budget while the Oracle is "off".
+    if (isOracleKillSwitchOn() || !isOracleFlagEnabled()) {
       return jsonError(503, "The Oracle is temporarily offline.");
     }
 

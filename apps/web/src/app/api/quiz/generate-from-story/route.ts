@@ -1,6 +1,7 @@
 import { anthropic } from "@ai-sdk/anthropic";
 import { generateObject } from "ai";
 import stories from "@/data/stories.json";
+import { isOracleFlagEnabled } from "@/lib/oracle/availability";
 import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
 import { logger } from "@/lib/logger";
 import { readJsonBody } from "@/lib/http/read-json-body";
@@ -56,7 +57,8 @@ function stripMarkdownLite(s: string): string {
  */
 export async function POST(req: NextRequest) {
   try {
-    if (isOracleKillSwitchOn()) {
+    // Same server-side gate as the Oracle: the flag off means no model spend.
+    if (isOracleKillSwitchOn() || !isOracleFlagEnabled()) {
       return NextResponse.json(
         { error: "Quiz generation is temporarily offline." },
         { status: 503 },
