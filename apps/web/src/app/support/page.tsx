@@ -150,9 +150,7 @@ export default function SupportPage() {
                 <ul className="space-y-2 border-t border-border/70 pt-6 type-ui text-muted-foreground">
                   {[
                     "Secure checkout hosted by Stripe",
-                    patronLink
-                      ? "Once or recurring, your choice"
-                      : "A single payment, nothing recurring",
+                    ...(patronLink ? ["Once or recurring, your choice"] : []),
                     "No paid content, no ads",
                   ].map((line) => (
                     <li key={line} className="flex items-start gap-2">
@@ -164,12 +162,10 @@ export default function SupportPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="type-meta text-muted-foreground">
-                  Support is optional
-                  {patronLink ? "" : " and there’s no subscription"}, and
-                  contributing doesn’t unlock paid content. You’ll choose your
-                  amount and enter payment details on Stripe’s checkout page for
-                  ImKindaGeeky, the account used for this project.
+                <p className="type-ui text-muted-foreground">
+                  You choose the amount and pay on Stripe’s checkout page. It
+                  names the payee as ImKindaGeeky, the Stripe account this
+                  project is run under.
                 </p>
               </div>
             </div>

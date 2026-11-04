@@ -32,7 +32,8 @@ describe("support page", () => {
       screen.getByRole("link", { name: /Support through Stripe/ }),
     ).toHaveAttribute("href", SUPPORT_CHECKOUT_URL);
     expect(screen.queryByRole("link", { name: /Become a patron/ })).toBeNull();
-    expect(screen.getByText(/no subscription/)).toBeInTheDocument();
+    expect(screen.queryByText(/Once or recurring/)).toBeNull();
+    expect(screen.getByText(/ImKindaGeeky/)).toBeInTheDocument();
   });
 
   it("adds the patron tier when configured", () => {
@@ -44,7 +45,7 @@ describe("support page", () => {
     expect(
       screen.getByRole("link", { name: /Support through Stripe/ }),
     ).toHaveAttribute("href", SUPPORT_CHECKOUT_URL);
-    expect(screen.queryByText(/no subscription/)).toBeNull();
+    expect(screen.getByText(/Once or recurring/)).toBeInTheDocument();
   });
 
   it("shows live catalog counts and links the three newest releases", () => {
