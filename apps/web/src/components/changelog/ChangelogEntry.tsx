@@ -19,6 +19,16 @@ interface ChangelogEntryProps {
   isLast?: boolean;
 }
 
+/** "November 2, 2026" for a YYYY-MM-DD release date, read as UTC. */
+export function formatReleaseDate(date: string): string {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
+
 const TYPE_LABEL: Record<ChangelogType, string> = {
   feature: "Feature",
   fix: "Fix",
@@ -39,12 +49,7 @@ export function ChangelogEntry({
   entry,
   isLast = false,
 }: Readonly<ChangelogEntryProps>) {
-  const formattedDate = new Date(entry.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
+  const formattedDate = formatReleaseDate(entry.date);
 
   return (
     <article

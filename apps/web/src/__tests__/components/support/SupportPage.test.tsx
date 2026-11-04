@@ -6,6 +6,8 @@ vi.mock("next/navigation", () => ({ usePathname: () => "/support" }));
 import SupportPage from "@/app/support/page";
 import { SUPPORT_CHECKOUT_URL } from "@/components/support/SupportButton";
 import { getPatronLink } from "@/lib/support-links";
+import changelog from "@/data/changelog.json";
+import { getDeities } from "@/lib/data/catalog";
 
 const PATRON = "https://buy.stripe.com/test_patron";
 
@@ -43,5 +45,19 @@ describe("support page", () => {
       screen.getByRole("link", { name: /Support through Stripe/ }),
     ).toHaveAttribute("href", SUPPORT_CHECKOUT_URL);
     expect(screen.queryByText(/no subscription/)).toBeNull();
+  });
+
+  it("shows live catalog counts and links the three newest releases", () => {
+    render(<SupportPage />);
+    expect(
+      screen.getByText(new RegExp(`${getDeities().length} deities`)),
+    ).toBeInTheDocument();
+    const recent = screen.getByRole("heading", {
+      name: "Recent work on the atlas",
+    }).parentElement!;
+    const links = [...recent.querySelectorAll("ol a")];
+    expect(links.map((a) => a.getAttribute("href"))).toEqual(
+      changelog.slice(0, 3).map((r) => `/changelog#${r.id}`),
+    );
   });
 });
