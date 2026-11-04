@@ -259,7 +259,10 @@ export default async function DeityPage({ params }: PageProps) {
   }
 
   const familyAnswers = familyFaq(deity.name, bloodline);
-  const hasFamily = hasLineage(bloodline) || familyAnswers.length > 0;
+  const hasFamily =
+    hasLineage(bloodline) ||
+    familyAnswers.length > 0 ||
+    familyTreeRelationships.length > 0;
   const interactiveStories = interactiveStoriesFeaturing(
     deity.id,
     getBranchingStories(),
@@ -287,9 +290,6 @@ export default async function DeityPage({ params }: PageProps) {
     ...(museumObjects.length > 0 ? [{ id: "in-art", label: "In art" }] : []),
     ...(hasSources
       ? [{ id: "deity-sources", label: "Sources and further reading" }]
-      : []),
-    ...(familyTreeRelationships.length > 0
-      ? [{ id: "family-tree", label: "Family tree" }]
       : []),
   ];
 
@@ -433,16 +433,6 @@ export default async function DeityPage({ params }: PageProps) {
           pantheonId: deity.pantheonId,
         }}
         asideLabel={`${deity.name} at a glance`}
-        after={
-          familyTreeRelationships.length > 0 ? (
-            <DeityFamilyTree
-              deityId={deity.id}
-              deityName={deity.name}
-              deities={familyTreeDeities}
-              relationships={familyTreeRelationships}
-            />
-          ) : null
-        }
       >
         <div className="space-y-16 md:space-y-20">
           <ArticleSection id="deity-about" title={`About ${deity.name}`}>
@@ -485,6 +475,12 @@ export default async function DeityPage({ params }: PageProps) {
                   deityImageUrl={deity.imageUrl}
                   pantheonId={deity.pantheonId}
                   bloodline={bloodline}
+                />
+                <DeityFamilyTree
+                  deityId={deity.id}
+                  deityName={deity.name}
+                  deities={familyTreeDeities}
+                  relationships={familyTreeRelationships}
                 />
                 {relationshipSources.length > 0 ? (
                   <CitationSourcesList
