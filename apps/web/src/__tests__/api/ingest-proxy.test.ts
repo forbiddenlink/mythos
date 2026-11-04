@@ -115,7 +115,7 @@ describe("PostHog proxy", () => {
     expect(lastCall().init.headers.get("x-forwarded-for")).toBe("203.0.113.9");
   });
 
-  it("streams the POST body upstream with duplex half", async () => {
+  it("forwards the exact POST body bytes upstream", async () => {
     await POST(
       new NextRequest("https://example.com/ingest/e/", {
         method: "POST",
@@ -123,8 +123,39 @@ describe("PostHog proxy", () => {
       }),
     );
     const { init } = lastCall();
-    expect(init.duplex).toBe("half");
-    expect(init.body).toBeTruthy();
+    expect(new TextDecoder().decode(init.body as Uint8Array)).toBe('{"a":1}');
+  });
+
+  it("rejects an oversized body that declares no content-length", async () => {
+    const big = new Uint8Array(512 * 1024 + 1);
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(big.subarray(0, 300 * 1024));
+        controller.enqueue(big.subarray(300 * 1024));
+        controller.close();
+      },
+    });
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: stream,
+        duplex: "half",
+      } as unknown as ConstructorParameters<typeof NextRequest>[1]),
+    );
+    expect(res.status).toBe(413);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("rejects a body that is larger than its declared content-length", async () => {
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: "x".repeat(512 * 1024 + 1),
+        headers: { "content-length": "10" },
+      }),
+    );
+    expect(res.status).toBe(413);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it.each([
@@ -168,5 +199,45 @@ describe("PostHog proxy", () => {
     expect(res.headers.get("set-cookie")).toBeNull();
     expect(res.headers.get("content-type")).toBe("application/json");
     expect(await res.text()).toBe('{"status":1}');
+  });
+
+  it("rejects a body whose content-length exceeds 512 KB with 413", async () => {
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: "{}",
+        headers: { "content-length": String(512 * 1024 + 1) },
+      }),
+    );
+    expect(res.status).toBe(413);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("accepts a body at exactly 512 KB", async () => {
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: "{}",
+        headers: { "content-length": String(512 * 1024) },
+      }),
+    );
+    expect(res.status).toBe(200);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("passes an abort signal with a timeout to the upstream fetch", async () => {
+    await GET(new NextRequest("https://example.com/ingest/static/a.js"));
+    expect(lastCall().init.signal).toBeInstanceOf(AbortSignal);
+  });
+
+  it("answers 502 instead of throwing when the upstream fetch fails or times out", async () => {
+    fetchMock.mockRejectedValue(new DOMException("timed out", "TimeoutError"));
+    const res = await POST(
+      new NextRequest("https://example.com/ingest/e/", {
+        method: "POST",
+        body: "{}",
+      }),
+    );
+    expect(res.status).toBe(502);
   });
 });

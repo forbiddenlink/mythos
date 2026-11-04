@@ -126,6 +126,21 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // Static files skip src/proxy.ts (see its matcher), so they never get the
+        // per-request CSP. Give them a locked-down policy instead: an SVG opened
+        // directly can run script, and any page route that ends in one of these
+        // extensions would otherwise be served with no CSP at all. Keep this
+        // extension list in sync with the proxy matcher.
+        source: "/:file(.*\\.(?:png|jpe?g|gif|webp|avif|svg|ico|mp3|woff2?))",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'; frame-ancestors 'none'; sandbox",
+          },
+        ],
+      },
     ];
   },
   async redirects() {

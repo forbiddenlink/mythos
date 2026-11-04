@@ -1466,6 +1466,31 @@ html.cookie-banner-open {
   background: #2c363b;
 }
 
+/* Generic print: browsers drop backgrounds by default, so the dark theme's
+   light text would print near-invisible. Force black on white and hide chrome
+   and fixed overlays. Scoped away from the worksheet route, which has its own
+   block below. */
+@media print {
+  html:not(:has([data-print-page="worksheet"])),
+  body:not(:has([data-print-page="worksheet"])) {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  body:not(:has([data-print-page="worksheet"])) * {
+    color: #000 !important;
+    background-color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+  body:not(:has([data-print-page="worksheet"])) header,
+  body:not(:has([data-print-page="worksheet"])) footer,
+  body:not(:has([data-print-page="worksheet"])) [role="dialog"],
+  body:not(:has([data-print-page="worksheet"])) a[href="#main-content"],
+  body:not(:has([data-print-page="worksheet"])) .fixed {
+    display: none !important;
+  }
+}
+
 /* Printable worksheets (/pantheons/[slug]/worksheet): print only the sheet,
    in black on white, with the answer key starting on its own page. */
 @media print {
