@@ -203,7 +203,7 @@ test("learn menu offers the Paths hub on desktop and mobile", async ({
   await paths.click();
   await expect(page).toHaveURL(/\/paths$/);
   await page.setViewportSize({ width: 320, height: 800 });
-  await page.getByRole("button", { name: "Open Menu", exact: true }).click();
+  await page.getByRole("button", { name: "Open menu", exact: true }).click();
   await page.getByRole("button", { name: "Visualize", exact: true }).click();
   const region = page.getByRole("region", { name: "Visualize", exact: true });
   await expect(region.getByRole("link").first()).toHaveAttribute(
@@ -213,7 +213,7 @@ test("learn menu offers the Paths hub on desktop and mobile", async ({
   await region.locator('a[href="/timeline"]').click();
   await expect(page).toHaveURL(/\/timeline$/);
   await expect(
-    page.getByRole("button", { name: "Open Menu", exact: true }),
+    page.getByRole("button", { name: "Open menu", exact: true }),
   ).toBeVisible();
 });
 

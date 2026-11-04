@@ -32,6 +32,8 @@ interface MobileNavProps {
   sections: NavSection[];
   /** Locale of the translated section titles and links. */
   lang?: string;
+  /** Translated label for the menu button; English when rendered alone. */
+  openLabel?: string;
 }
 
 function MobileQuickStats() {
@@ -136,7 +138,11 @@ function CollapsibleSection({
   );
 }
 
-export function MobileNav({ sections, lang }: Readonly<MobileNavProps>) {
+export function MobileNav({
+  sections,
+  lang,
+  openLabel = "Open menu",
+}: Readonly<MobileNavProps>) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -147,7 +153,8 @@ export function MobileNav({ sections, lang }: Readonly<MobileNavProps>) {
           variant="ghost"
           size="icon"
           className="size-10 shrink-0 lg:hidden"
-          aria-label="Open Menu"
+          aria-label={openLabel}
+          lang={lang}
         >
           <Menu className="h-5 w-5" />
         </Button>

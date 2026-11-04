@@ -49,7 +49,11 @@ export function Header() {
       <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">
-          <MobileNav sections={mobileNavSections} lang={locale} />
+          <MobileNav
+            sections={mobileNavSections}
+            lang={locale}
+            openLabel={t("accessibility.openMenu")}
+          />
         </div>
 
         {/* Logo */}
