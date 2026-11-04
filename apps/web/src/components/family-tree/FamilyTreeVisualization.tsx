@@ -29,6 +29,29 @@ import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+/** Lowest zoom the tree opens at; node labels stay legible above it. */
+const INITIAL_MIN_ZOOM = 0.55;
+
+/**
+ * Nodes the tree first fits to: the focus deity and its direct relatives, or
+ * undefined (fit everything) when there is no focus deity in the graph.
+ */
+export function focusFitNodes(
+  focusDeityId: string | undefined,
+  nodes: ReadonlyArray<Pick<Node, "id">>,
+  edges: ReadonlyArray<Pick<Edge, "source" | "target">>,
+): Array<{ id: string }> | undefined {
+  if (!focusDeityId || !nodes.some((n) => n.id === focusDeityId)) {
+    return undefined;
+  }
+  const ids = new Set([focusDeityId]);
+  for (const edge of edges) {
+    if (edge.source === focusDeityId) ids.add(edge.target);
+    if (edge.target === focusDeityId) ids.add(edge.source);
+  }
+  return [...ids].map((id) => ({ id }));
+}
+
 // Navigation map for finding connected nodes by direction
 interface NavigationMap {
   parents: string[];
@@ -586,6 +609,14 @@ function FamilyTreeInner({
     keyboardFocusedId,
   ]);
 
+  // Fitting the whole graph at once shrank a big family to unreadable 5px
+  // labels. Open on the focus deity and its direct relatives instead, never
+  // below a readable zoom; readers can still zoom out to the full tree.
+  const fitViewOptions = useMemo(() => {
+    const nodes = focusFitNodes(focusDeityId, initialNodes, initialEdges);
+    return { padding: 0.2, maxZoom: 1.1, minZoom: INITIAL_MIN_ZOOM, nodes };
+  }, [focusDeityId, initialNodes, initialEdges]);
+
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
 
@@ -697,7 +728,7 @@ function FamilyTreeInner({
         onNodeClick={onNodeClick}
         nodeTypes={nodeTypes}
         fitView
-        fitViewOptions={{ padding: 0.2, maxZoom: 1.1 }}
+        fitViewOptions={fitViewOptions}
         minZoom={0.2}
         attributionPosition="bottom-right"
       >
