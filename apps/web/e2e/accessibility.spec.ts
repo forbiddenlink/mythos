@@ -135,3 +135,17 @@ test.describe("Reading pages at narrow widths", () => {
     }
   }
 });
+
+test("keyboard focus stays visible in forced-colors mode", async ({ page }) => {
+  // Focus rings are box-shadows, which Windows High Contrast drops.
+  await page.emulateMedia({ forcedColors: "active" });
+  await page.goto("/");
+  await page.keyboard.press("Tab");
+  const outline = await page.evaluate(() => {
+    const el = document.activeElement;
+    if (!el || el === document.body) return null;
+    const style = getComputedStyle(el);
+    return { style: style.outlineStyle, width: style.outlineWidth };
+  });
+  expect(outline).toEqual({ style: "solid", width: "2px" });
+});

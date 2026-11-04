@@ -1653,3 +1653,14 @@ main:has(#atlas-title) .page-section-title::before {
     position: relative;
   }
 }
+
+/* Windows High Contrast (forced colors) drops box-shadow, and every focus ring
+   here is a box-shadow over `outline-none`, so keyboard focus vanished. Give
+   focus a real system-colour outline there. Unlayered so it outranks the
+   Tailwind `outline-none` utilities. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px solid CanvasText !important;
+    outline-offset: 2px;
+  }
+}
