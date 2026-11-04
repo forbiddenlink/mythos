@@ -88,7 +88,7 @@ export function EntryCloser({
         <Link href="/newsletter" className={linkClass}>
           One myth a week, with its sources
         </Link>{" "}
-        in a short email. The sign-up form is just below.
+        in a short email. The sign-up form is at the foot of the page.
       </p>
       <p className="mt-4 type-meta text-muted-foreground">
         Free to read, no ads.{" "}
