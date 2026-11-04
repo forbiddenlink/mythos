@@ -48,19 +48,15 @@ vi.mock("@upstash/ratelimit", () => ({
 
 vi.mock("@upstash/redis", () => ({
   Redis: class {
-    async set(
-      key: string,
-      value: string,
-      opts: { nx?: boolean; ex?: number },
-    ) {
+    async set(key: string, value: string, opts: { nx?: boolean; ex?: number }) {
       // Yield so concurrent callers genuinely interleave.
       await Promise.resolve();
       if (opts.nx && upstash.kv.has(key)) return null;
       upstash.kv.set(key, value);
       if (upstash.lostAck && !key.startsWith("mythos:newsletter:lock:")) {
         upstash.lostAck = false;
-  upstash.evalFails = false;
-  vi.useFakeTimers({ toFake: ["Date"] });
+        upstash.evalFails = false;
+        vi.useFakeTimers({ toFake: ["Date"] });
         throw new Error("ack lost");
       }
       return "OK";
@@ -126,7 +122,13 @@ import {
   confirmTokenIssuedAtMs,
   createConfirmToken,
 } from "@/lib/newsletter-token";
-import { checkOracleRateLimit } from "@/lib/oracle/rate-limit";
+import {
+  checkAnalyticsRateLimit,
+  checkOracleAnonymousRateLimit,
+  checkOracleRateLimit,
+  checkQuizRateLimit,
+  checkSearchRateLimit,
+} from "@/lib/oracle/rate-limit";
 
 const ORIGINAL_ENV = { ...process.env };
 const FROM = "Mythos Atlas <digest@example.com>";
@@ -366,7 +368,10 @@ describe("confirm: single-use redemption", () => {
       // Historical segment membership plus a fresh unsubscribe: exactly what
       // used to be read as "this token already completed".
       vi.setSystemTime(Date.now() + 61_000);
-      resend.get.mockResolvedValue({ error: null, data: { unsubscribed: true } });
+      resend.get.mockResolvedValue({
+        error: null,
+        data: { unsubscribed: true },
+      });
       resend.list.mockResolvedValue({
         error: null,
         data: { data: [{ id: DEFAULT_RESEND_SEGMENT_ID }] },
@@ -381,9 +386,8 @@ describe("confirm: single-use redemption", () => {
   });
 
   it("only the claim owner can mark it done", async () => {
-    const { claimConfirmToken, completeConfirmToken } = await import(
-      "@/lib/newsletter-redemption"
-    );
+    const { claimConfirmToken, completeConfirmToken } =
+      await import("@/lib/newsletter-redemption");
     const claim = await claimConfirmToken(
       "owner-check-token",
       3600,
@@ -460,9 +464,34 @@ describe("send path: fail closed on Redis trouble", () => {
     expect(resend.send).not.toHaveBeenCalled();
   });
 
-  it("leaves other callers' behaviour alone (opt-in flag only)", async () => {
+  it("fails closed for every bucket that costs money per admission", async () => {
+    const paid = [
+      checkOracleRateLimit,
+      checkOracleAnonymousRateLimit,
+      checkQuizRateLimit,
+      checkSearchRateLimit,
+    ];
     upstash.limit = async () => ({ success: true, reason: "timeout" });
-    await expect(checkOracleRateLimit("someone")).resolves.toEqual({
+    for (const check of paid) {
+      await expect(check("someone")).resolves.toEqual({
+        allowed: false,
+        reason: "unavailable",
+      });
+    }
+    upstash.limit = async () => {
+      throw new Error("ECONNRESET");
+    };
+    for (const check of paid) {
+      await expect(check("someone")).resolves.toEqual({
+        allowed: false,
+        reason: "unavailable",
+      });
+    }
+  });
+
+  it("keeps the analytics beacon bucket fail-open", async () => {
+    upstash.limit = async () => ({ success: true, reason: "timeout" });
+    await expect(checkAnalyticsRateLimit("someone")).resolves.toEqual({
       allowed: true,
     });
   });
@@ -495,18 +524,13 @@ describe("per-inbox key and aggregate budget", () => {
     vi.resetModules();
     const { POST: freshPost } = await import("@/app/api/newsletter/route");
     const variants = Array.from({ length: 30 }, (_, i) =>
-      i % 2 === 0
-        ? `victim+${i}@gmail.com`
-        : `v.i.c.t.i.m+${i}@googlemail.com`,
+      i % 2 === 0 ? `victim+${i}@gmail.com` : `v.i.c.t.i.m+${i}@googlemail.com`,
     );
     const statuses: number[] = [];
     for (const email of variants) {
       statuses.push(
-        (
-          await freshPost(
-            post("/api/newsletter", { email, consent: true }),
-          )
-        ).status,
+        (await freshPost(post("/api/newsletter", { email, consent: true })))
+          .status,
       );
     }
     expect(statuses.filter((s) => s === 200)).toHaveLength(5);
