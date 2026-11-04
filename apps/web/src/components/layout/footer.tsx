@@ -33,6 +33,7 @@ const footerLinks = {
   ],
   learn: [
     { label: "Paths", href: "/paths" },
+    { label: "For Teachers", href: "/teachers" },
     { label: "Journeys", href: "/journeys" },
     { label: "Quiz", href: "/quiz" },
     { label: "Symbol Memory", href: "/games/memory" },

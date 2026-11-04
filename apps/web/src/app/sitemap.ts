@@ -358,6 +358,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Editorial guides and the programmatic "gods of <domain>" pages.
   const guidePages: MetadataRoute.Sitemap = [
     { url: `${BASE_URL}/guides`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/teachers`, changeFrequency: "monthly", priority: 0.7 },
     ...GUIDES.map((guide) => ({
       url: `${BASE_URL}/guides/${guide.slug}`,
       changeFrequency: "monthly" as const,
