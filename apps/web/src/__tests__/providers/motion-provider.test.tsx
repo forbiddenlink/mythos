@@ -6,6 +6,11 @@ import { useContext } from "react";
 import { describe, expect, it } from "vitest";
 import { MotionProvider } from "@/providers/motion-provider";
 
+/** Shows the reduced-motion policy MotionProvider hands to framer. */
+function ReducedMotionProbe() {
+  return <span>{useContext(MotionConfigContext).reducedMotion}</span>;
+}
+
 // The full `motion` component bundles every animation feature (drag, layout
 // projection) into the first-load JS. The components rendered on every page
 // use the slim `m` component, with features loaded after hydration by
@@ -31,12 +36,9 @@ describe("MotionProvider", () => {
   });
 
   it("tells framer animations to follow the reader's reduced-motion setting", () => {
-    function Probe() {
-      return <span>{useContext(MotionConfigContext).reducedMotion}</span>;
-    }
     render(
       <MotionProvider>
-        <Probe />
+        <ReducedMotionProbe />
       </MotionProvider>,
     );
     expect(screen.getByText("user")).toBeTruthy();
