@@ -28,7 +28,9 @@ export type ValueMoment =
   | "quiz_completed"
   | "export_generated"
   | "study_session_completed"
-  | "story_finished";
+  | "story_finished"
+  /** Read an encyclopedia entry (deity, pantheon, creature...) to its end. */
+  | "entry_read";
 
 function readNumber(key: string): number {
   if (globalThis.window === undefined) return 0;
