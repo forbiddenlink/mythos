@@ -2,6 +2,13 @@ name: Reader browser smoke
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - "apps/web/**"
+      - "packages/**"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/browser-smoke.yml"
   schedule:
     - cron: "30 10 * * 1"
 
@@ -58,8 +65,9 @@ jobs:
           e2e/learning-recovery.spec.ts
           e2e/learning-backup.spec.ts
           e2e/sharing-recovery.spec.ts
+          e2e/quick-quiz-reliability.spec.ts
           --project=firefox --project=webkit
-          --grep='First reading visit|should navigate to result on selection|offers direct reading and one optional narration interface|failed local saves remain recoverable|stages and restores a valid backup|clipboard failure offers a real recovery|successful .* copying reports success'
+          --grep='First reading visit|should navigate to result on selection|offers direct reading and one optional narration interface|failed local saves remain recoverable|stages and restores a valid backup|clipboard failure offers a real recovery|successful .* copying reports success|Quick Quiz expires'
 
       - name: Upload failure evidence
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

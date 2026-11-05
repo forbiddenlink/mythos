@@ -73,8 +73,36 @@ export default function TeachersPage() {
         count={`${traditions.length} worksheets`}
       />
       <Container className="pt-8 pb-12 md:pt-10">
+        <nav
+          aria-label="Classroom resources"
+          className="mb-8 flex flex-wrap gap-x-6 gap-y-2 border-b border-border pb-4"
+        >
+          <a
+            href="#teachers-worksheets"
+            className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+          >
+            Worksheets
+          </a>
+          <a
+            href="#teachers-tools"
+            className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+          >
+            Classroom tools
+          </a>
+          {studyGuides.length > 0 && (
+            <a
+              href="#teachers-study"
+              className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+            >
+              Study guides
+            </a>
+          )}
+        </nav>
         <section aria-labelledby="teachers-worksheets" className="mb-14">
-          <h2 id="teachers-worksheets" className="page-section-title">
+          <h2
+            id="teachers-worksheets"
+            className="page-section-title scroll-mt-24"
+          >
             Printable worksheets
           </h2>
           <p className="mt-2 mb-6 max-w-prose text-muted-foreground">
@@ -105,7 +133,7 @@ export default function TeachersPage() {
         </section>
 
         <section aria-labelledby="teachers-tools" className="mb-14">
-          <h2 id="teachers-tools" className="page-section-title">
+          <h2 id="teachers-tools" className="page-section-title scroll-mt-24">
             Classroom tools
           </h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -130,7 +158,7 @@ export default function TeachersPage() {
 
         {studyGuides.length > 0 ? (
           <section aria-labelledby="teachers-study">
-            <h2 id="teachers-study" className="page-section-title">
+            <h2 id="teachers-study" className="page-section-title scroll-mt-24">
               Study guides
             </h2>
             <p className="mt-2 mb-6 max-w-prose text-muted-foreground">

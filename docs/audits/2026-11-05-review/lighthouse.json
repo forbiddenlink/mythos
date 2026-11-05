@@ -1,0 +1,207 @@
+{
+  "scope": "Production baseline, before local changes; mobile Lighthouse lab audits, not field data or a full WCAG audit.",
+  "audits": [
+    {
+      "url": "https://mythosatlas.com/",
+      "fetchTime": "2026-11-05T12:02:17.420Z",
+      "version": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "scores": {
+        "performance": {
+          "title": "Performance",
+          "score": 0.83
+        },
+        "accessibility": {
+          "title": "Accessibility",
+          "score": 1,
+          "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged."
+        },
+        "best-practices": {
+          "title": "Best Practices",
+          "score": 1
+        },
+        "seo": {
+          "title": "SEO",
+          "score": 1,
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769)."
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "title": "First Contentful Paint",
+          "value": 1707.0349999999999,
+          "displayValue": "1.7 s",
+          "score": 0.92
+        },
+        "largest-contentful-paint": {
+          "title": "Largest Contentful Paint",
+          "value": 4511.035,
+          "displayValue": "4.5 s",
+          "score": 0.37
+        },
+        "total-blocking-time": {
+          "title": "Total Blocking Time",
+          "value": 63,
+          "displayValue": "60 ms",
+          "score": 1
+        },
+        "cumulative-layout-shift": {
+          "title": "Cumulative Layout Shift",
+          "value": 0.0028759765625,
+          "displayValue": "0.003",
+          "score": 1
+        },
+        "speed-index": {
+          "title": "Speed Index",
+          "value": 1707.0349999999999,
+          "displayValue": "1.7 s",
+          "score": 1
+        },
+        "interactive": {
+          "title": "Time to Interactive",
+          "value": 4515.635,
+          "displayValue": "4.5 s",
+          "score": 0.82
+        }
+      }
+    },
+    {
+      "url": "https://mythosatlas.com/quiz/quick",
+      "fetchTime": "2026-11-05T12:03:31.976Z",
+      "version": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "scores": {
+        "accessibility": {
+          "title": "Accessibility",
+          "score": 1,
+          "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged."
+        },
+        "best-practices": {
+          "title": "Best Practices",
+          "score": 1
+        },
+        "seo": {
+          "title": "SEO",
+          "score": 1,
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769)."
+        }
+      },
+      "metrics": {}
+    },
+    {
+      "url": "https://mythosatlas.com/teachers",
+      "fetchTime": "2026-11-05T12:03:38.470Z",
+      "version": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "scores": {
+        "accessibility": {
+          "title": "Accessibility",
+          "score": 1,
+          "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged."
+        },
+        "best-practices": {
+          "title": "Best Practices",
+          "score": 1
+        },
+        "seo": {
+          "title": "SEO",
+          "score": 1,
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769)."
+        }
+      },
+      "metrics": {}
+    },
+    {
+      "url": "https://mythosatlas.com/deities/zeus",
+      "fetchTime": "2026-11-05T12:03:46.924Z",
+      "version": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "scores": {
+        "accessibility": {
+          "title": "Accessibility",
+          "score": 1,
+          "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged."
+        },
+        "best-practices": {
+          "title": "Best Practices",
+          "score": 1
+        },
+        "seo": {
+          "title": "SEO",
+          "score": 1,
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769)."
+        }
+      },
+      "metrics": {}
+    },
+    {
+      "url": "https://mythosatlas.com/compare",
+      "fetchTime": "2026-11-05T12:04:04.747Z",
+      "version": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "scores": {
+        "accessibility": {
+          "title": "Accessibility",
+          "score": 1,
+          "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged."
+        },
+        "best-practices": {
+          "title": "Best Practices",
+          "score": 1
+        },
+        "seo": {
+          "title": "SEO",
+          "score": 1,
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769)."
+        }
+      },
+      "metrics": {}
+    },
+    {
+      "url": "https://mythosatlas.com/sources",
+      "fetchTime": "2026-11-05T12:03:57.804Z",
+      "version": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "scores": {
+        "accessibility": {
+          "title": "Accessibility",
+          "score": 0.98,
+          "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged."
+        },
+        "best-practices": {
+          "title": "Best Practices",
+          "score": 1
+        },
+        "seo": {
+          "title": "SEO",
+          "score": 1,
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769)."
+        }
+      },
+      "metrics": {}
+    },
+    {
+      "url": "https://mythosatlas.com/locations",
+      "fetchTime": "2026-11-05T12:03:14.257Z",
+      "version": "13.4.1",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "scores": {
+        "accessibility": {
+          "title": "Accessibility",
+          "score": 1,
+          "description": "These checks highlight opportunities to [improve the accessibility of your web app](https://developer.chrome.com/docs/lighthouse/accessibility/). Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so [manual testing](https://web.dev/articles/how-to-review) is also encouraged."
+        },
+        "best-practices": {
+          "title": "Best Practices",
+          "score": 1
+        },
+        "seo": {
+          "title": "SEO",
+          "score": 1,
+          "description": "These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on [Core Web Vitals](https://web.dev/explore/vitals). [Learn more about Google Search Essentials](https://support.google.com/webmasters/answer/35769)."
+        }
+      },
+      "metrics": {}
+    }
+  ]
+}
