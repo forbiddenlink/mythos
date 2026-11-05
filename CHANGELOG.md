@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.17.0](https://github.com/forbiddenlink/mythos/compare/v1.16.0...v1.17.0) (2026-11-05)
+
+
+### Features
+
+* **guides:** add optional Bookshop.org reading links to four guides ([#281](https://github.com/forbiddenlink/mythos/issues/281)) ([36df2e8](https://github.com/forbiddenlink/mythos/commit/36df2e8577a6e5dc8ba82f7180183b81877dbc7c))
+* **pantheons:** mark living traditions and label Shinto figures as kami ([#277](https://github.com/forbiddenlink/mythos/issues/277)) ([498110c](https://github.com/forbiddenlink/mythos/commit/498110c89f3e5bda9d66101f60bd6b6a3709b044))
+* **quiz:** correct a miss in place and send missed deities to the review deck ([#274](https://github.com/forbiddenlink/mythos/issues/274)) ([d4cd8bf](https://github.com/forbiddenlink/mythos/commit/d4cd8bfdbb4a9685f79886fb733b312ca3798e76))
+* **support:** show live catalog counts and recent releases on /support ([#282](https://github.com/forbiddenlink/mythos/issues/282)) ([d05402f](https://github.com/forbiddenlink/mythos/commit/d05402fc7aff52cdd0cf725385533f0a228287e1))
+* **teachers:** add a /teachers hub that indexes the printable worksheets ([#280](https://github.com/forbiddenlink/mythos/issues/280)) ([87e6190](https://github.com/forbiddenlink/mythos/commit/87e619068ad5e10bf118529ffaf288c21c32b908))
+
+
+### Bug Fixes
+
+* audit code findings (proxy matcher, ingest relay, msw, print, locale) ([#289](https://github.com/forbiddenlink/mythos/issues/289)) ([b988e10](https://github.com/forbiddenlink/mythos/commit/b988e108ea4aa077f8460c842f2aef393849a0db))
+* **csp:** forward violation reports to Sentry and watch for degraded CSP ([#273](https://github.com/forbiddenlink/mythos/issues/273)) ([e305c8a](https://github.com/forbiddenlink/mythos/commit/e305c8aa3916dda50bfc6d73b1f3602c42bfd611))
+* **deps:** pin patched glob and minimatch for two transitive advisories ([#279](https://github.com/forbiddenlink/mythos/issues/279)) ([64cdc82](https://github.com/forbiddenlink/mythos/commit/64cdc824a4b6debd7e3a5fc8208c470d86560760))
+* **footer:** correct the copyright year in the browser ([#272](https://github.com/forbiddenlink/mythos/issues/272)) ([98a0cfb](https://github.com/forbiddenlink/mythos/commit/98a0cfb11e851815c8fa9527f561ef9b5b5d08b7))
+* four small audit findings (date tests, toast motion, coverage gate, CI token scope) ([#284](https://github.com/forbiddenlink/mythos/issues/284)) ([9a5139a](https://github.com/forbiddenlink/mythos/commit/9a5139a1b314e81d0bbeb5a88c99a297c3ca506e))
+* **newsletter:** cap the webhook body before verifying its signature ([#290](https://github.com/forbiddenlink/mythos/issues/290)) ([2bd7631](https://github.com/forbiddenlink/mythos/commit/2bd763137856b56e22382607c16320278952b4a7))
+* **newsletter:** put a sign-up form on the sample-issue page ([#283](https://github.com/forbiddenlink/mythos/issues/283)) ([53a53bd](https://github.com/forbiddenlink/mythos/commit/53a53bdb5df0d5da7eb4b27e5218df21502ce84b))
+* **search:** rank whole-word matches above mid-word substrings ([#285](https://github.com/forbiddenlink/mythos/issues/285)) ([744f81e](https://github.com/forbiddenlink/mythos/commit/744f81e2c75bd0901cf3bd065fbec01745f25468))
+* **support:** say each reassurance once and explain the Stripe payee ([#286](https://github.com/forbiddenlink/mythos/issues/286)) ([e5ea500](https://github.com/forbiddenlink/mythos/commit/e5ea500b9ea16471343d7702d794980f6799d457))
+* **visual:** close the audit visual findings ([#288](https://github.com/forbiddenlink/mythos/issues/288)) ([1a6f721](https://github.com/forbiddenlink/mythos/commit/1a6f7219822bb01f2f3e153dae9a0b1a254e1557))
+
 ## [1.16.0](https://github.com/forbiddenlink/mythos/compare/v1.15.1...v1.16.0) (2026-11-04)
 
 
