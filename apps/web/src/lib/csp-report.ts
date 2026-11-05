@@ -44,6 +44,42 @@ function pagePath(raw: string | undefined): string {
   }
 }
 
+const EXTENSION_SCHEMES = [
+  "moz-extension:",
+  "chrome-extension:",
+  "safari-extension:",
+  "safari-web-extension:",
+  "ms-browser-extension:",
+];
+
+function isExtensionUrl(raw: string | undefined): boolean {
+  return !!raw && EXTENSION_SCHEMES.some((s) => raw.startsWith(s));
+}
+
+/**
+ * Reports we cannot act on, dropped before they reach Sentry.
+ *
+ * - Anything an extension caused: its script is the source file or the
+ *   blocked URL. The visitor's browser injected it, not our code.
+ * - `wasm-eval` under script-src: no first-party code or dependency compiles
+ *   WebAssembly (verified in production 2026-11-04: every inline script on the
+ *   affected pages matches a hash or nonce, and the dependency tree has no
+ *   WASM), so the compile comes from an injected script or the browser.
+ *   If we ever ship WASM, add 'wasm-unsafe-eval' to script-src and remove
+ *   this clause.
+ */
+export function isBrowserNoise(body: Record<string, unknown>): boolean {
+  const source = str(body.sourceFile) ?? str(body["source-file"]);
+  const blocked = str(body.blockedURL) ?? str(body["blocked-uri"]);
+  if (isExtensionUrl(source) || isExtensionUrl(blocked)) return true;
+  const directive =
+    str(body.effectiveDirective) ?? str(body["effective-directive"]);
+  return (
+    directive === "script-src" &&
+    (blocked === "wasm-eval" || blocked === "wasm-unsafe-eval")
+  );
+}
+
 function toViolation(body: Record<string, unknown>): CspViolation | null {
   const directive =
     str(body.effectiveDirective) ??
@@ -78,7 +114,9 @@ export function parseCspReports(payload: unknown): CspViolation[] {
   } else if (isRecord(payload) && isRecord(payload["csp-report"])) {
     bodies.push(payload["csp-report"]);
   }
-  return bodies.map(toViolation).filter((v): v is CspViolation => v !== null);
+  return bodies
+    .filter((body) => !isBrowserNoise(body))
+    .map(toViolation).filter((v): v is CspViolation => v !== null);
 }
 
 /** One Sentry issue per directive + blocked origin, regardless of page. */
