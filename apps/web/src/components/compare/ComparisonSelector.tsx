@@ -17,6 +17,8 @@ interface ComparisonSelectorProps {
   pantheons: { id: string; name: string }[];
 }
 
+const TOP_PANTHEON_CHIPS = 6;
+
 export function ComparisonSelector({
   deities,
   selectedDeities,
@@ -28,6 +30,24 @@ export function ComparisonSelector({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPantheon, setSelectedPantheon] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [showAllPantheons, setShowAllPantheons] = useState(false);
+
+  // The traditions with the most deities lead; the rest sit behind "More".
+  const rankedPantheons = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const deity of deities) {
+      counts.set(deity.pantheonId, (counts.get(deity.pantheonId) ?? 0) + 1);
+    }
+    return pantheons.toSorted(
+      (a, b) => (counts.get(b.id) ?? 0) - (counts.get(a.id) ?? 0),
+    );
+  }, [deities, pantheons]);
+  const visiblePantheons = showAllPantheons
+    ? rankedPantheons
+    : rankedPantheons.filter(
+        (p, index) => index < TOP_PANTHEON_CHIPS || p.id === selectedPantheon,
+      );
+  const hiddenCount = rankedPantheons.length - visiblePantheons.length;
 
   const selectedIds = useMemo(
     () => new Set(selectedDeities.map((d) => d.id)),
@@ -110,8 +130,8 @@ export function ComparisonSelector({
       {/* Search and Filter */}
       {selectedDeities.length < maxSelection && (
         <div className="space-y-4">
-          {/* Pantheon Filter: one scrolling row on phones */}
-          <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [&>button]:shrink-0">
+          {/* Pantheon filter: the six largest traditions, the rest behind "More" */}
+          <div className="flex flex-wrap gap-2">
             <Button
               variant={selectedPantheon === null ? "default" : "outline"}
               size="sm"
@@ -119,7 +139,7 @@ export function ComparisonSelector({
             >
               All Pantheons
             </Button>
-            {pantheons.map((pantheon) => (
+            {visiblePantheons.map((pantheon) => (
               <Button
                 key={pantheon.id}
                 variant={
@@ -131,6 +151,16 @@ export function ComparisonSelector({
                 {pantheon.name.replace(" Pantheon", "")}
               </Button>
             ))}
+            {hiddenCount > 0 || showAllPantheons ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                aria-expanded={showAllPantheons}
+                onClick={() => setShowAllPantheons((open) => !open)}
+              >
+                {showAllPantheons ? "Fewer" : `More (${hiddenCount})`}
+              </Button>
+            ) : null}
           </div>
 
           {/* Search Input */}

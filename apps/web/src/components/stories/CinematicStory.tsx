@@ -29,11 +29,11 @@ interface CinematicStoryProps {
 // Mood to gradient mapping
 const moodGradients: Record<string, string> = {
   calm: "from-midnight via-midnight-light to-midnight",
-  dramatic: "from-red-950 via-slate-900 to-orange-950",
+  dramatic: "from-red-950 via-midnight-light to-orange-950",
   mysterious: "from-midnight via-bronze/30 to-midnight",
   triumphant: "from-midnight via-gold/20 to-midnight",
-  tragic: "from-gray-950 via-slate-900 to-zinc-950",
-  default: "from-midnight via-slate-900 to-midnight-light",
+  tragic: "from-midnight via-midnight-light to-midnight",
+  default: "from-midnight via-midnight-light to-midnight-light",
 };
 
 function Scene({ scene, index }: { scene: StoryScene; index: number }) {
@@ -75,7 +75,7 @@ function Scene({ scene, index }: { scene: StoryScene; index: number }) {
             fill
             className="object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight/50" />
         </motion.div>
       )}
 
@@ -117,7 +117,7 @@ export function CinematicStory({
   return (
     <div className={`relative ${className}`}>
       {/* Story Title */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-midnight to-slate-900 relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-midnight to-midnight-light relative overflow-hidden">
         {/* Atmospheric background */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
@@ -163,7 +163,7 @@ export function CinematicStory({
       ))}
 
       {/* Story End */}
-      <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-slate-900 to-midnight">
+      <section className="min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-midnight-light to-midnight">
         <div className="min-w-0 max-w-full text-center px-6">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-24 h-px bg-gold/40" />

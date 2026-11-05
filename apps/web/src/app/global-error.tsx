@@ -66,11 +66,11 @@ export default function GlobalError({
           </p>
 
           {process.env.NODE_ENV === "development" && (
-            <div className="mb-6 rounded-lg border border-red-500/20 bg-slate-800/60 p-4 text-left">
+            <div className="mb-6 rounded-lg border border-red-500/20 bg-[#171b36]/60 p-4 text-left">
               <p className="text-xs uppercase tracking-wide text-red-400/70 mb-2 font-semibold">
                 Error Details
               </p>
-              <code className="block text-sm text-slate-400 bg-slate-900/50 rounded p-3 overflow-x-auto whitespace-pre-wrap wrap-break-word">
+              <code className="block text-sm text-[#f3e9d2]/80 bg-[#0d1024]/50 rounded p-3 overflow-x-auto whitespace-pre-wrap wrap-break-word">
                 {error.message}
               </code>
               {error.digest && (

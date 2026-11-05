@@ -46,7 +46,7 @@ export function TimelineControls({
   };
 
   const inputClass =
-    "h-10 w-28 rounded-md border border-border bg-background px-3 type-ui tabular-nums text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
+    "h-10 w-full sm:w-28 rounded-md border border-border bg-background px-3 type-ui tabular-nums text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
 
   return (
     <div
@@ -82,45 +82,49 @@ export function TimelineControls({
         })}
       </div>
 
-      <div className="flex flex-wrap items-center gap-3">
-        <label
-          htmlFor="timeline-start-year"
-          className="type-ui font-medium text-muted-foreground"
-        >
-          Start year
-        </label>
-        <input
-          id="timeline-start-year"
-          type="number"
-          inputMode="numeric"
-          min={minYear}
-          max={maxYear}
-          step={50}
-          value={currentRange[0]}
-          onChange={(event) =>
-            updateBoundary(0, Number.parseInt(event.target.value, 10))
-          }
-          className={inputClass}
-        />
-        <label
-          htmlFor="timeline-end-year"
-          className="type-ui font-medium text-muted-foreground"
-        >
-          End year
-        </label>
-        <input
-          id="timeline-end-year"
-          type="number"
-          inputMode="numeric"
-          min={minYear}
-          max={maxYear}
-          step={50}
-          value={currentRange[1]}
-          onChange={(event) =>
-            updateBoundary(1, Number.parseInt(event.target.value, 10))
-          }
-          className={inputClass}
-        />
+      <div className="grid w-full grid-cols-2 gap-3 sm:flex sm:w-auto sm:flex-wrap sm:items-center">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+          <label
+            htmlFor="timeline-start-year"
+            className="type-ui font-medium text-muted-foreground"
+          >
+            Start year
+          </label>
+          <input
+            id="timeline-start-year"
+            type="number"
+            inputMode="numeric"
+            min={minYear}
+            max={maxYear}
+            step={50}
+            value={currentRange[0]}
+            onChange={(event) =>
+              updateBoundary(0, Number.parseInt(event.target.value, 10))
+            }
+            className={inputClass}
+          />
+        </div>
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+          <label
+            htmlFor="timeline-end-year"
+            className="type-ui font-medium text-muted-foreground"
+          >
+            End year
+          </label>
+          <input
+            id="timeline-end-year"
+            type="number"
+            inputMode="numeric"
+            min={minYear}
+            max={maxYear}
+            step={50}
+            value={currentRange[1]}
+            onChange={(event) =>
+              updateBoundary(1, Number.parseInt(event.target.value, 10))
+            }
+            className={inputClass}
+          />
+        </div>
       </div>
 
       <div className="flex items-center gap-1 lg:ml-auto">

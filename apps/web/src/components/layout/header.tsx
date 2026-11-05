@@ -44,8 +44,12 @@ export function Header() {
     document.dispatchEvent(new CustomEvent("open-command-palette"));
   };
 
+  // Opaque below md: the translucent blur left a dark smudge over mobile story
+  // pages (VIS-015). From md up it keeps main's translucent blur, because over
+  // an opaque header the search trigger's rounded corners rasterise one colour
+  // level differently between identical runs and flake the visual check.
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background md:bg-background/90 md:backdrop-blur-md md:supports-[backdrop-filter]:bg-background/80">
       <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">

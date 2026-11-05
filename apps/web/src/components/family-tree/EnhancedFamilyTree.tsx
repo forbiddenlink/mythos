@@ -218,7 +218,18 @@ export function buildTreeData(
       const again = placed.get(rel.toDeityId);
       const childDeity = deityMap.get(rel.toDeityId);
       if (again !== undefined && childDeity) {
-        if (!visited.has(rel.toDeityId)) {
+        // The other half of a couple repeats the same children; they are
+        // already drawn under the first parent, so no stub is added.
+        const firstParentId = deities.find((d) => d.name === again)?.id;
+        const sharedWithSpouse =
+          firstParentId !== undefined &&
+          relationships.some(
+            (r) =>
+              r.relationshipType.toLowerCase().includes("spouse") &&
+              ((r.fromDeityId === deityId && r.toDeityId === firstParentId) ||
+                (r.toDeityId === deityId && r.fromDeityId === firstParentId)),
+          );
+        if (!sharedWithSpouse && !visited.has(rel.toDeityId)) {
           children.push({
             name: childDeity.name,
             deity: childDeity,

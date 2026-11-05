@@ -18,6 +18,24 @@ import {
 /** Re-run the screen-space collision check at most this often, not per frame. */
 const LABEL_DECLUTTER_INTERVAL_MS = 120;
 
+/** Resting edges are dimmed so the threads read as texture, not a hairball. */
+const EDGE_REST_OPACITY = 0.55;
+
+/** How far a tradition label sits outside its cluster, along the ring's radius. */
+const LABEL_RADIAL_OFFSET = 9;
+
+/** Label position: above the cluster and pushed outward, clear of its stars. */
+function labelPosition(
+  center: readonly [number, number, number],
+): [number, number, number] {
+  const radius = Math.hypot(center[0], center[2]) || 1;
+  return [
+    center[0] + (center[0] / radius) * LABEL_RADIAL_OFFSET,
+    center[1] + 6.5,
+    center[2] + (center[2] / radius) * LABEL_RADIAL_OFFSET,
+  ];
+}
+
 /* ----------------------------- one deity star ---------------------------- */
 
 function Star({
@@ -203,7 +221,7 @@ function Scene({
           color={e.type === "syncretism" ? "#d4af37" : "#b28f56"}
           lineWidth={e.type === "syncretism" ? 1.5 : 1}
           transparent
-          opacity={e.opacity}
+          opacity={e.opacity * EDGE_REST_OPACITY}
           dashed={e.type === "syncretism"}
         />
       ))}
@@ -229,7 +247,7 @@ function Scene({
         return (
           <Html
             key={p.id}
-            position={[p.center[0], p.center[1] + 6.5, p.center[2]]}
+            position={labelPosition(p.center)}
             center
             distanceFactor={40}
           >
@@ -244,7 +262,10 @@ function Scene({
                 // Tinted towards parchment: several tradition colours (Akan,
                 // Aztec) are too dark to read as text on the night sky.
                 color: `color-mix(in oklch, ${p.color} 45%, oklch(0.94 0.02 85))`,
-                textShadow: "0 0 12px rgba(0,0,0,0.9)",
+                // Halo: a tight dark rim plus a wide glow, so the text stays
+                // legible over stars and edges.
+                textShadow:
+                  "0 0 3px #0a0a19, 0 0 3px #0a0a19, 0 0 10px #0a0a19, 0 0 18px #0a0a19",
                 opacity: isHidden ? 0 : 1,
                 transition: reducedMotion ? "none" : "opacity 200ms ease",
               }}

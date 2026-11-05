@@ -346,8 +346,8 @@ export function TimelineVisualizationD3({
         )
         .attr("y", innerHeight + 20)
         .attr("text-anchor", "middle")
-        .attr("fill", "rgba(255,255,255,0.4)")
-        .attr("font-size", 10)
+        .attr("fill", "rgba(255,255,255,0.72)")
+        .attr("font-size", 12)
         .text((d) => d.label)
         .attr("opacity", (d) => (xScale(d.end) - xScale(d.start) > 60 ? 1 : 0));
 
@@ -360,7 +360,7 @@ export function TimelineVisualizationD3({
 
       axisLayer
         .call(xAxis)
-        .attr("class", "axis-layer text-[10px] text-muted-foreground/50");
+        .attr("class", "axis-layer text-[12px] text-muted-foreground");
 
       // Style axis lines
       axisLayer
@@ -411,7 +411,7 @@ export function TimelineVisualizationD3({
             .attr("y", barHeight / 2)
             .attr("dominant-baseline", "middle")
             .attr("fill", "currentColor")
-            .attr("class", "text-xs text-muted-foreground")
+            .attr("class", "type-meta text-muted-foreground")
             .text("No shared period recorded");
           return;
         }
