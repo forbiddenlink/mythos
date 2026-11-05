@@ -131,3 +131,39 @@ describe("resend webhook: unsubscribe record", () => {
     expect(await mayMutate()).toBe("unsubscribed");
   });
 });
+
+describe("resend webhook: body size cap", () => {
+  function oversized(withLength: boolean): NextRequest {
+    const big = new TextEncoder().encode("x".repeat(64 * 1024 + 1));
+    const headers: Record<string, string> = {
+      "svix-id": "msg_1",
+      "svix-timestamp": "1",
+      "svix-signature": "v1,abc",
+    };
+    if (withLength) headers["content-length"] = String(big.byteLength);
+    const body = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(big);
+        controller.close();
+      },
+    });
+    return new Request("http://localhost:3000/api/newsletter/webhook", {
+      method: "POST",
+      headers,
+      body,
+      duplex: "half",
+    } as unknown as RequestInit) as unknown as NextRequest;
+  }
+
+  it("answers 413 for a declared oversized body without verifying it", async () => {
+    const res = await POST(oversized(true));
+    expect(res.status).toBe(413);
+    expect(resend.verify).not.toHaveBeenCalled();
+  });
+
+  it("answers 413 for an oversized chunked body with no content-length", async () => {
+    const res = await POST(oversized(false));
+    expect(res.status).toBe(413);
+    expect(resend.verify).not.toHaveBeenCalled();
+  });
+});
