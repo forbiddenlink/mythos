@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
+import { readCappedStream } from "@/lib/http/read-json-body";
 import { logger } from "@/lib/logger";
 import {
   getNewsletterConfig,
@@ -13,6 +14,9 @@ import {
   unsubscribeNeedsRepair,
   withConsentLock,
 } from "@/lib/newsletter-redemption";
+
+/** Resend contact events are a few hundred bytes; anything this big is not one. */
+const MAX_BODY_BYTES = 64 * 1024;
 
 function json(body: Record<string, unknown>, status: number): Response {
   return Response.json(body, {
@@ -40,7 +44,16 @@ export async function POST(req: NextRequest) {
     return json({ ok: false, reason: "not_configured" }, 501);
   }
 
-  const payload = await req.text();
+  // Cap the read before the signature check: verification needs the whole
+  // body, so an uncapped read lets any caller make us buffer it first.
+  const declaredLength = Number(req.headers.get("content-length"));
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+    await req.body?.cancel();
+    return json({ ok: false, reason: "too_large" }, 413);
+  }
+  const bytes = await readCappedStream(req.body, MAX_BODY_BYTES);
+  if (bytes === null) return json({ ok: false, reason: "too_large" }, 413);
+  const payload = new TextDecoder().decode(bytes);
   const resend = new Resend(config.apiKey);
   let event: ReturnType<Resend["webhooks"]["verify"]>;
   try {
