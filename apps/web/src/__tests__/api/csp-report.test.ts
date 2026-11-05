@@ -64,6 +64,61 @@ describe("parseCspReports", () => {
     ]);
   });
 
+  it("drops extension-injected and wasm-eval reports", () => {
+    const report = (body: Record<string, unknown>) => [
+      {
+        type: "csp-violation",
+        body: {
+          documentURL: "https://mythosatlas.com/gods-of/magic",
+          disposition: "enforce",
+          ...body,
+        },
+      },
+    ];
+    expect(
+      parseCspReports(
+        report({
+          effectiveDirective: "script-src-elem",
+          blockedURL: "inline",
+          sourceFile: "moz-extension://abc/content.js",
+        }),
+      ),
+    ).toEqual([]);
+    expect(
+      parseCspReports(
+        report({
+          effectiveDirective: "script-src",
+          blockedURL: "wasm-eval",
+        }),
+      ),
+    ).toEqual([]);
+    expect(
+      parseCspReports({
+        "csp-report": {
+          "document-uri": "https://mythosatlas.com/deities/apollo",
+          "blocked-uri": "chrome-extension://abc/x.js",
+          "effective-directive": "script-src-elem",
+        },
+      }),
+    ).toEqual([]);
+  });
+
+  it("keeps a first-party inline block", () => {
+    expect(
+      parseCspReports([
+        {
+          type: "csp-violation",
+          body: {
+            documentURL: "https://mythosatlas.com/gods-of/magic",
+            blockedURL: "inline",
+            sourceFile: "https://mythosatlas.com/gods-of/magic",
+            effectiveDirective: "script-src-elem",
+          },
+        },
+      ]),
+    ).toHaveLength(1);
+  });
+
   it("ignores junk", () => {
     expect(parseCspReports(null)).toEqual([]);
     expect(parseCspReports({ foo: 1 })).toEqual([]);
