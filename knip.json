@@ -28,6 +28,7 @@
       "entry": [
         "i18n.ts",
         "scripts/quality-sweep.ts",
+        "scripts/summarize-visual-diffs.mjs",
         "scripts/measure-client-js.mjs"
       ],
       "ignoreDependencies": ["eslint-plugin-jsx-a11y", "husky", "lint-staged"],

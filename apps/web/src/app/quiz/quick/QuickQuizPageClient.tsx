@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useContext } from "react";
+import { useState, useEffect, useCallback, useContext, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -18,40 +18,14 @@ import {
 import Link from "next/link";
 import { ProgressContext } from "@/providers/progress-provider";
 import { useAchievements } from "@/hooks/useAchievements";
-import { shuffle } from "@/lib/shuffle";
-
-interface Deity {
-  id: string;
-  name: string;
-  domain: string[];
-  pantheonId: string;
-}
-
-interface Question {
-  question: string;
-  options: string[];
-  correctAnswer: string;
-  deityName: string;
-}
-
-function generateQuestion(deities: Deity[]): Question {
-  const target = deities[Math.floor(Math.random() * deities.length)];
-  const domain =
-    target.domain[Math.floor(Math.random() * target.domain.length)];
-  const wrongAnswers = shuffle(deities.filter((d) => d.id !== target.id))
-    .slice(0, 3)
-    .map((d) => d.name);
-
-  return {
-    question: `Which deity is associated with "${domain}"?`,
-    options: shuffle([target.name, ...wrongAnswers]),
-    correctAnswer: target.name,
-    deityName: target.name,
-  };
-}
+import {
+  generateQuickQuizQuestion,
+  type QuickQuizDeity,
+  type QuickQuizQuestion,
+} from "@/lib/quick-quiz";
 
 interface QuickQuizPageClientProps {
-  deitiesData: Deity[];
+  deitiesData: QuickQuizDeity[];
 }
 
 export function QuickQuizPageClient({
@@ -63,16 +37,32 @@ export function QuickQuizPageClient({
   const [timeLeft, setTimeLeft] = useState(60);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [question, setQuestion] = useState<Question | null>(null);
+  const [question, setQuestion] = useState<QuickQuizQuestion | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [isNewHighScore, setIsNewHighScore] = useState(false);
   const [showCopiedToast, setShowCopiedToast] = useState(false);
+  const [manualShare, setManualShare] = useState<string | null>(null);
+  const [quizUnavailable, setQuizUnavailable] = useState(false);
+  const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const manualShareField = useRef<HTMLTextAreaElement>(null);
+  const deadline = useRef(0);
 
   const progressContext = useContext(ProgressContext);
   const { checkAchievements } = useAchievements();
 
-  const deities = deitiesData as Deity[];
+  useEffect(() => {
+    // The recovery field can appear below the fold on phones. Move focus to
+    // the requested fallback so it is visible and its text is ready to copy.
+    const field = manualShareField.current;
+    if (manualShare && field) {
+      field.focus({ preventScroll: true });
+      // WebKit can focus a read-only field without revealing it. Keep this
+      // user-requested recovery visible regardless of smooth-scroll settings.
+      field.scrollIntoView({ block: "center", behavior: "instant" });
+    }
+  }, [manualShare]);
 
   // Load high score from progress context or localStorage
   useEffect(() => {
@@ -80,36 +70,74 @@ export function QuickQuizPageClient({
       // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from progress context
       setHighScore(progressContext.progress.quickQuizHighScore);
     } else {
-      const saved = localStorage.getItem("mythos_quick_quiz_highscore");
-      if (saved) setHighScore(Number.parseInt(saved));
+      try {
+        const saved = Number(
+          localStorage.getItem("mythos_quick_quiz_highscore"),
+        );
+        if (Number.isSafeInteger(saved) && saved >= 0) setHighScore(saved);
+      } catch {
+        // Storage can be disabled; the quiz remains playable for this visit.
+      }
     }
   }, [progressContext?.progress.quickQuizHighScore]);
 
   const nextQuestion = useCallback(() => {
-    if (deities.length > 0) {
-      setQuestion(generateQuestion(deities));
-      setSelectedAnswer(null);
-      setShowResult(false);
-    }
-  }, [deities]);
+    const next = generateQuickQuizQuestion(deitiesData);
+    setQuestion(next);
+    setSelectedAnswer(null);
+    setShowResult(false);
+    setQuizUnavailable(!next);
+    return Boolean(next);
+  }, [deitiesData]);
 
   const startGame = useCallback(() => {
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    if (copiedTimer.current) clearTimeout(copiedTimer.current);
+    setShowCopiedToast(false);
+    setManualShare(null);
+    if (!nextQuestion()) return;
+    deadline.current = Date.now() + 60_000;
     setGameState("playing");
     setTimeLeft(60);
     setScore(0);
-    nextQuestion();
+    setIsNewHighScore(false);
   }, [nextQuestion]);
 
-  // Timer
+  // Use an elapsed-time deadline so answers and background tabs cannot extend
+  // the round by repeatedly restarting a one-second interval.
+  useEffect(() => {
+    if (gameState !== "playing") return;
+    const tick = () =>
+      setTimeLeft(
+        Math.max(0, Math.ceil((deadline.current - Date.now()) / 1000)),
+      );
+    const timer = setInterval(tick, 250);
+    return () => clearInterval(timer);
+  }, [gameState]);
+
+  useEffect(
+    () => () => {
+      if (advanceTimer.current) clearTimeout(advanceTimer.current);
+      if (copiedTimer.current) clearTimeout(copiedTimer.current);
+    },
+    [],
+  );
+
+  // Finish the round and save its score without depending on storage access.
   useEffect(() => {
     if (gameState !== "playing") return;
     if (timeLeft <= 0) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- game-over state transition in timer effect
       setGameState("finished");
+      if (advanceTimer.current) clearTimeout(advanceTimer.current);
       if (score > highScore) {
         setHighScore(score);
         setIsNewHighScore(true);
-        localStorage.setItem("mythos_quick_quiz_highscore", score.toString());
+        try {
+          localStorage.setItem("mythos_quick_quiz_highscore", score.toString());
+        } catch {
+          // Keep the result visible even when browser storage is full or blocked.
+        }
         // Save to progress context for achievements
         if (progressContext) {
           progressContext.updateQuickQuizHighScore(score);
@@ -121,12 +149,6 @@ export function QuickQuizPageClient({
       }
       return;
     }
-
-    const timer = setInterval(() => {
-      setTimeLeft((t) => t - 1);
-    }, 1000);
-
-    return () => clearInterval(timer);
   }, [
     gameState,
     timeLeft,
@@ -136,23 +158,35 @@ export function QuickQuizPageClient({
     checkAchievements,
   ]);
 
-  const handleAnswer = (answer: string) => {
-    if (showResult) return;
-    setSelectedAnswer(answer);
-    setShowResult(true);
+  const handleAnswer = useCallback(
+    (answer: string) => {
+      if (
+        showResult ||
+        gameState !== "playing" ||
+        Date.now() >= deadline.current
+      )
+        return;
+      setSelectedAnswer(answer);
+      setShowResult(true);
 
-    if (answer === question?.correctAnswer) {
-      setScore((s) => s + 1);
-    }
+      if (answer === question?.correctAnswer) {
+        setScore((s) => s + 1);
+      }
 
-    setTimeout(() => {
-      nextQuestion();
-    }, 800);
-  };
+      advanceTimer.current = setTimeout(() => {
+        nextQuestion();
+      }, 800);
+    },
+    [showResult, gameState, question, nextQuestion],
+  );
 
   const handleShare = async () => {
     const shareText = `I scored ${score} in the Mythos Atlas Quick Quiz! Can you beat my score?`;
     const shareUrl = `${globalThis.location.origin}/quiz/quick`;
+    const fullText = `${shareText}\n${shareUrl}`;
+    setManualShare(null);
+    setShowCopiedToast(false);
+    if (copiedTimer.current) clearTimeout(copiedTimer.current);
 
     if (navigator.share) {
       try {
@@ -161,19 +195,24 @@ export function QuickQuizPageClient({
           text: shareText,
           url: shareUrl,
         });
-      } catch {
-        // User cancelled or share failed
+        return;
+      } catch (error) {
+        if (
+          error &&
+          typeof error === "object" &&
+          "name" in error &&
+          error.name === "AbortError"
+        )
+          return;
+        // A failed native share can still fall back to copying the score.
       }
-    } else {
-      // Fallback: copy to clipboard
-      try {
-        const fullText = `${shareText}\n${shareUrl}`;
-        await navigator.clipboard.writeText(fullText);
-        setShowCopiedToast(true);
-        setTimeout(() => setShowCopiedToast(false), 3000);
-      } catch {
-        // Clipboard API unavailable (insecure context / WebView)
-      }
+    }
+    try {
+      await navigator.clipboard.writeText(fullText);
+      setShowCopiedToast(true);
+      copiedTimer.current = setTimeout(() => setShowCopiedToast(false), 3000);
+    } catch {
+      setManualShare(fullText);
     }
   };
 
@@ -207,6 +246,15 @@ export function QuickQuizPageClient({
               <Zap className="h-5 w-5" />
               Start Quiz
             </Button>
+            {quizUnavailable && (
+              <p role="status" className="mt-4 text-parchment">
+                There aren&apos;t enough distinct answers for a round. Try the{" "}
+                <Link href="/quiz" className="underline underline-offset-4">
+                  quiz hub
+                </Link>
+                .
+              </p>
+            )}
             <p className="mt-5 flex items-center justify-center gap-2 type-ui text-parchment/75">
               <Trophy className="size-4 text-gold-light" aria-hidden="true" />
               High Score: {highScore}
@@ -220,7 +268,7 @@ export function QuickQuizPageClient({
             <div className="flex items-center justify-between">
               <Badge
                 variant="outline"
-                className={`text-lg px-4 py-2 ${timeLeft <= 10 ? "border-destructive text-destructive animate-pulse" : "border-gold text-gold"}`}
+                className={`text-lg px-4 py-2 ${timeLeft <= 10 ? "border-destructive text-destructive animate-pulse" : "border-gold text-gold-text"}`}
               >
                 <Timer className="h-4 w-4 mr-2" />
                 {timeLeft}s
@@ -231,17 +279,29 @@ export function QuickQuizPageClient({
               </Badge>
             </div>
 
-            <Progress value={(timeLeft / 60) * 100} className="h-2" />
+            <Progress
+              value={(timeLeft / 60) * 100}
+              aria-label="Time remaining"
+              aria-valuetext={`${timeLeft} seconds remaining`}
+              className="h-2"
+            />
 
             {/* Question */}
             <Card>
               <CardHeader>
-                <CardTitle className="font-serif text-xl text-center">
+                <CardTitle
+                  id="quick-quiz-question"
+                  className="font-serif text-xl text-center"
+                >
                   {question.question}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-3">
+                <div
+                  role="group"
+                  aria-labelledby="quick-quiz-question"
+                  className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+                >
                   {question.options.map((option) => {
                     const isSelected = selectedAnswer === option;
                     const isCorrect = option === question.correctAnswer;
@@ -252,10 +312,10 @@ export function QuickQuizPageClient({
                       <Button
                         key={option}
                         variant="outline"
-                        className={`h-auto py-4 px-4 text-left justify-start ${
+                        className={`h-auto min-h-12 min-w-0 whitespace-normal break-words py-4 px-4 text-left justify-start disabled:opacity-100 ${
                           showFeedback
                             ? isCorrect
-                              ? "border-green-500 bg-green-500/10 text-green-700"
+                              ? "border-green-500 bg-green-500/10 text-green-800 dark:text-green-300"
                               : isSelected
                                 ? "border-destructive bg-destructive/10 text-destructive"
                                 : ""
@@ -278,6 +338,13 @@ export function QuickQuizPageClient({
                     );
                   })}
                 </div>
+                <p
+                  role="status"
+                  className="mt-4 min-h-6 text-sm text-foreground"
+                >
+                  {showResult &&
+                    `${selectedAnswer === question.correctAnswer ? "Correct." : "Not quite."} ${question.correctAnswer} is linked to ${question.domain} in the atlas.`}
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -319,6 +386,22 @@ export function QuickQuizPageClient({
                   <Link href="/quiz">Back to Quizzes</Link>
                 </Button>
               </div>
+              {manualShare && (
+                <div className="space-y-2 text-left">
+                  <p role="alert" className="text-sm text-foreground">
+                    Sharing is unavailable. Select and copy your score below.
+                  </p>
+                  <textarea
+                    ref={manualShareField}
+                    aria-label="Score to copy manually"
+                    readOnly
+                    value={manualShare}
+                    onFocus={(event) => event.currentTarget.select()}
+                    rows={4}
+                    className="w-full min-w-0 rounded-md border border-border bg-background p-3 text-sm text-foreground"
+                  />
+                </div>
+              )}
             </CardContent>
           </Card>
         )}
@@ -326,7 +409,10 @@ export function QuickQuizPageClient({
 
       {/* Copied toast */}
       {showCopiedToast && (
-        <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-card/95 backdrop-blur-md border border-gold/30 shadow-lg shadow-gold/10 rounded-xl px-4 py-3 animate-in slide-in-from-right-5 fade-in duration-300">
+        <div
+          role="status"
+          className="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-card/95 backdrop-blur-md border border-gold/30 shadow-lg shadow-gold/10 rounded-xl px-4 py-3 animate-in slide-in-from-right-5 fade-in duration-300"
+        >
           <ClipboardCheck className="h-4 w-4 text-gold" />
           <span className="text-sm font-medium text-foreground">
             Score copied to clipboard!

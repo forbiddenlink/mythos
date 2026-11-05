@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useMemo } from 'react';
-import { ComparisonCard, type Deity } from './ComparisonCard';
+import { useMemo } from "react";
+import { ComparisonCard, type Deity } from "./ComparisonCard";
 
 interface ComparisonTableProps {
   deities: Deity[];
@@ -9,8 +9,12 @@ interface ComparisonTableProps {
   pantheons: { id: string; name: string }[];
 }
 
-export function ComparisonTable({ deities, onRemove, pantheons }: ComparisonTableProps) {
-  // Find shared domains across all selected deities
+export function ComparisonTable({
+  deities,
+  onRemove,
+  pantheons,
+}: ComparisonTableProps) {
+  // Find attributes recorded for at least two selected figures.
   const { sharedDomains, sharedSymbols } = useMemo(() => {
     if (deities.length < 2) {
       return { sharedDomains: [], sharedSymbols: [] };
@@ -43,8 +47,13 @@ export function ComparisonTable({ deities, onRemove, pantheons }: ComparisonTabl
   }, [deities]);
 
   const getPantheonName = (pantheonId: string) => {
-    const pantheon = pantheons.find(p => p.id === pantheonId);
-    return pantheon?.name || pantheonId.replace('-pantheon', '').replaceAll(/\b\w/g, c => c.toUpperCase());
+    const pantheon = pantheons.find((p) => p.id === pantheonId);
+    return (
+      pantheon?.name ||
+      pantheonId
+        .replace("-pantheon", "")
+        .replaceAll(/\b\w/g, (c) => c.toUpperCase())
+    );
   };
 
   if (deities.length === 0) {
@@ -63,14 +72,22 @@ export function ComparisonTable({ deities, onRemove, pantheons }: ComparisonTabl
       {(sharedDomains.length > 0 || sharedSymbols.length > 0) && (
         <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
           <h3 className="text-sm font-semibold mb-3 text-muted-foreground uppercase tracking-wide">
-            Shared Attributes
+            Shared attributes
           </h3>
+          <p className="mb-3 text-sm text-muted-foreground">
+            Highlighted attributes appear in at least two selected figures, not
+            necessarily every figure. A shared role does not establish a shared
+            origin.
+          </p>
           <div className="flex flex-wrap gap-4">
             {sharedDomains.length > 0 && (
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-gold" />
                 <span className="text-sm">
-                  Shared domains: {sharedDomains.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ')}
+                  Shared domains:{" "}
+                  {sharedDomains
+                    .map((d) => d.charAt(0).toUpperCase() + d.slice(1))
+                    .join(", ")}
                 </span>
               </div>
             )}
@@ -78,7 +95,10 @@ export function ComparisonTable({ deities, onRemove, pantheons }: ComparisonTabl
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-emerald-600" />
                 <span className="text-sm">
-                  Shared symbols: {sharedSymbols.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(', ')}
+                  Shared symbols:{" "}
+                  {sharedSymbols
+                    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+                    .join(", ")}
                 </span>
               </div>
             )}
@@ -90,12 +110,12 @@ export function ComparisonTable({ deities, onRemove, pantheons }: ComparisonTabl
       <div
         className={`grid gap-6 ${
           deities.length === 1
-            ? 'grid-cols-1 max-w-md mx-auto'
+            ? "grid-cols-1 max-w-md mx-auto"
             : deities.length === 2
-            ? 'grid-cols-1 md:grid-cols-2'
-            : deities.length === 3
-            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-            : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+              ? "grid-cols-1 md:grid-cols-2"
+              : deities.length === 3
+                ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
         }`}
       >
         {deities.map((deity) => (

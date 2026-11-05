@@ -158,3 +158,12 @@ jobs:
           name: playwright-screenshots
           path: apps/web/test-results/
           retention-days: 7
+
+      - name: Save quiz layout evidence
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: quick-quiz-layouts
+          path: apps/web/test-results/**/active-quiz.png
+          if-no-files-found: error
+          retention-days: 7

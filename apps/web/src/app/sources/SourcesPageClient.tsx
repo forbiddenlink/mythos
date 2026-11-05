@@ -80,7 +80,7 @@ const TRADITION_GROUPS: TraditionGroup[] = [
   },
   {
     id: "academic",
-    label: "Scholarly Reference",
+    label: "Other works & scholarship",
     match: (s) =>
       s.type === "academic" ||
       s.type === "reference" ||
@@ -147,7 +147,7 @@ export function SourcesPageClient({
             : `${filteredSources.length} of ${sources.length} works`
         }
         chips={
-          <ChipRow label="Tradition">
+          <ChipRow label="Collection">
             <FilterChip
               active={activeGroup === null}
               onClick={() => setActiveGroup(null)}
@@ -198,6 +198,7 @@ export function SourcesPageClient({
                 media={false}
                 href={`/sources/${source.id}`}
                 title={source.title}
+                headingLevel="h2"
                 tradition={source.language}
                 subtitle={[source.author || "Traditional", source.year]
                   .filter(Boolean)

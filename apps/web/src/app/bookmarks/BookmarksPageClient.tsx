@@ -385,7 +385,11 @@ export function BookmarksPageClient({
                           <span>Reading progress</span>
                           <span>{Math.round(card.progress)}%</span>
                         </div>
-                        <Progress value={card.progress} className="h-1.5" />
+                        <Progress
+                          value={card.progress}
+                          aria-label={`Reading progress for ${card.title}`}
+                          className="h-1.5"
+                        />
                       </div>
                     ) : null}
                   </EntityCard>

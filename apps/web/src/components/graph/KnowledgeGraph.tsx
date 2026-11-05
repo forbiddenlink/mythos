@@ -257,7 +257,7 @@ const DeityNode = memo(function DeityNode({
           style={{ textShadow: "0 1px 4px rgba(11,12,20,0.95)" }}
         >
           {deity.name}
-        </span>
+        </span>{" "}
         {isMajor && deity.domain && deity.domain.length > 0 && (
           <span
             className="whitespace-nowrap text-[9px] text-parchment-dark"
@@ -500,7 +500,7 @@ function KnowledgeGraphInner({
       nodes.push({
         id: deity.id,
         type: "deityNode",
-        ariaLabel: `${deity.name}${deity.domain?.[0] ? `, ${deity.domain[0]}` : ""}`,
+        ariaLabel: `${deity.name}${deity.domain?.[0] ? ` ${deity.domain[0]}` : ""}`,
         position,
         data: {
           deity,

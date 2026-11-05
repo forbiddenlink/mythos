@@ -553,6 +553,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
             aria-valuenow={currentQuestion + 1}
             aria-valuemin={1}
             aria-valuemax={questions.length}
+            aria-valuetext={`Question ${currentQuestion + 1} of ${questions.length}`}
           />
         </div>
         <output
