@@ -42,8 +42,10 @@ export function QuickQuizPageClient({
   const [showResult, setShowResult] = useState(false);
   const [isNewHighScore, setIsNewHighScore] = useState(false);
   const [showCopiedToast, setShowCopiedToast] = useState(false);
+  const [manualShare, setManualShare] = useState<string | null>(null);
   const [quizUnavailable, setQuizUnavailable] = useState(false);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const deadline = useRef(0);
 
   const progressContext = useContext(ProgressContext);
@@ -77,6 +79,9 @@ export function QuickQuizPageClient({
 
   const startGame = useCallback(() => {
     if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    if (copiedTimer.current) clearTimeout(copiedTimer.current);
+    setShowCopiedToast(false);
+    setManualShare(null);
     if (!nextQuestion()) return;
     deadline.current = Date.now() + 60_000;
     setGameState("playing");
@@ -100,6 +105,7 @@ export function QuickQuizPageClient({
   useEffect(
     () => () => {
       if (advanceTimer.current) clearTimeout(advanceTimer.current);
+      if (copiedTimer.current) clearTimeout(copiedTimer.current);
     },
     [],
   );
@@ -164,6 +170,10 @@ export function QuickQuizPageClient({
   const handleShare = async () => {
     const shareText = `I scored ${score} in the Mythos Atlas Quick Quiz! Can you beat my score?`;
     const shareUrl = `${globalThis.location.origin}/quiz/quick`;
+    const fullText = `${shareText}\n${shareUrl}`;
+    setManualShare(null);
+    setShowCopiedToast(false);
+    if (copiedTimer.current) clearTimeout(copiedTimer.current);
 
     if (navigator.share) {
       try {
@@ -172,19 +182,24 @@ export function QuickQuizPageClient({
           text: shareText,
           url: shareUrl,
         });
-      } catch {
-        // User cancelled or share failed
+        return;
+      } catch (error) {
+        if (
+          error &&
+          typeof error === "object" &&
+          "name" in error &&
+          error.name === "AbortError"
+        )
+          return;
+        // A failed native share can still fall back to copying the score.
       }
-    } else {
-      // Fallback: copy to clipboard
-      try {
-        const fullText = `${shareText}\n${shareUrl}`;
-        await navigator.clipboard.writeText(fullText);
-        setShowCopiedToast(true);
-        setTimeout(() => setShowCopiedToast(false), 3000);
-      } catch {
-        // Clipboard API unavailable (insecure context / WebView)
-      }
+    }
+    try {
+      await navigator.clipboard.writeText(fullText);
+      setShowCopiedToast(true);
+      copiedTimer.current = setTimeout(() => setShowCopiedToast(false), 3000);
+    } catch {
+      setManualShare(fullText);
     }
   };
 
@@ -240,7 +255,7 @@ export function QuickQuizPageClient({
             <div className="flex items-center justify-between">
               <Badge
                 variant="outline"
-                className={`text-lg px-4 py-2 ${timeLeft <= 10 ? "border-destructive text-destructive animate-pulse" : "border-gold text-gold"}`}
+                className={`text-lg px-4 py-2 ${timeLeft <= 10 ? "border-destructive text-destructive animate-pulse" : "border-gold text-gold-text"}`}
               >
                 <Timer className="h-4 w-4 mr-2" />
                 {timeLeft}s
@@ -358,6 +373,21 @@ export function QuickQuizPageClient({
                   <Link href="/quiz">Back to Quizzes</Link>
                 </Button>
               </div>
+              {manualShare && (
+                <div className="space-y-2 text-left">
+                  <p role="alert" className="text-sm text-foreground">
+                    Sharing is unavailable. Select and copy your score below.
+                  </p>
+                  <textarea
+                    aria-label="Score to copy manually"
+                    readOnly
+                    value={manualShare}
+                    onFocus={(event) => event.currentTarget.select()}
+                    rows={4}
+                    className="w-full min-w-0 rounded-md border border-border bg-background p-3 text-sm text-foreground"
+                  />
+                </div>
+              )}
             </CardContent>
           </Card>
         )}
@@ -365,7 +395,10 @@ export function QuickQuizPageClient({
 
       {/* Copied toast */}
       {showCopiedToast && (
-        <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-card/95 backdrop-blur-md border border-gold/30 shadow-lg shadow-gold/10 rounded-xl px-4 py-3 animate-in slide-in-from-right-5 fade-in duration-300">
+        <div
+          role="status"
+          className="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-card/95 backdrop-blur-md border border-gold/30 shadow-lg shadow-gold/10 rounded-xl px-4 py-3 animate-in slide-in-from-right-5 fade-in duration-300"
+        >
           <ClipboardCheck className="h-4 w-4 text-gold" />
           <span className="text-sm font-medium text-foreground">
             Score copied to clipboard!

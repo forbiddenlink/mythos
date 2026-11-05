@@ -697,6 +697,7 @@ export function PersonalityQuiz() {
             aria-valuenow={currentQuestion + 1}
             aria-valuemin={1}
             aria-valuemax={QUESTIONS.length}
+            aria-valuetext={`Question ${currentQuestion + 1} of ${QUESTIONS.length}`}
           />
         </div>
         <output

@@ -30,6 +30,7 @@ afterEach(() => {
   cleanup();
   vi.useRealTimers();
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 function start() {
@@ -38,6 +39,67 @@ function start() {
 }
 
 describe("Quick Quiz", () => {
+  it("offers manual score copying when sharing and clipboard access fail", async () => {
+    vi.stubGlobal("navigator", {
+      share: vi.fn().mockRejectedValue(new Error("Unavailable")),
+      clipboard: { writeText: vi.fn().mockRejectedValue(new Error("Denied")) },
+    });
+    start();
+    act(() => vi.advanceTimersByTime(60_000));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Share Score" }));
+    });
+    expect(screen.getByRole("alert")).toHaveTextContent(
+      "Select and copy your score",
+    );
+    expect(
+      screen.getByRole("textbox", { name: "Score to copy manually" }),
+    ).toHaveValue(
+      `I scored 0 in the Mythos Atlas Quick Quiz! Can you beat my score?\n${globalThis.location.origin}/quiz/quick`,
+    );
+    expect(
+      screen.queryByText("Score copied to clipboard!"),
+    ).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Play Again" }));
+    expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
+  });
+
+  it("falls back to copying after a native share failure", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    vi.stubGlobal("navigator", {
+      share: vi.fn().mockRejectedValue(new Error("Unavailable")),
+      clipboard: { writeText },
+    });
+    start();
+    act(() => vi.advanceTimersByTime(60_000));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Share Score" }));
+    });
+    expect(writeText).toHaveBeenCalledWith(
+      expect.stringContaining("I scored 0"),
+    );
+    expect(screen.getByRole("status")).toHaveTextContent(
+      "Score copied to clipboard!",
+    );
+  });
+
+  it("treats cancellation as cancellation without copying or showing an error", async () => {
+    const writeText = vi.fn();
+    vi.stubGlobal("navigator", {
+      share: vi
+        .fn()
+        .mockRejectedValue(new DOMException("Cancelled", "AbortError")),
+      clipboard: { writeText },
+    });
+    start();
+    act(() => vi.advanceTimersByTime(60_000));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: "Share Score" }));
+    });
+    expect(writeText).not.toHaveBeenCalled();
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+  });
+
   it("keeps a sixty-second deadline while the player answers rapidly", () => {
     start();
     for (let i = 0; i < 74; i++) {

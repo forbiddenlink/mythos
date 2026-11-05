@@ -174,6 +174,7 @@ function addRelatedNodes(
         type: "smoothstep",
         animated: false,
         label: rel.relationshipType,
+        ariaLabel: `${rel.relationshipType}: ${ctx.deityMap.get(source)?.name ?? source} to ${ctx.deityMap.get(target)?.name ?? target}`,
         style: { stroke: getEdgeColor(rel.relationshipType), strokeWidth: 2 },
       };
       if (config.includeMarkerEnd) {
@@ -585,6 +586,7 @@ function FamilyTreeInner({
               type: "smoothstep",
               animated: false,
               label: rel.relationshipType,
+              ariaLabel: `${rel.relationshipType}: ${deityMap.get(rel.fromDeityId)?.name ?? rel.fromDeityId} to ${deityMap.get(rel.toDeityId)?.name ?? rel.toDeityId}`,
               style: {
                 stroke: getEdgeColor(rel.relationshipType),
                 strokeWidth: 2,

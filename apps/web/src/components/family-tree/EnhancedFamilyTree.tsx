@@ -73,10 +73,8 @@ const renderForeignObjectNode = ({
   const childCount = nodeDatum.children?.length ?? 0;
   const domains = deity.domain?.slice(0, 2).join(", ") ?? "";
   const childLabel = childCount === 1 ? "1 child" : `${childCount} children`;
-  const ariaLabel = [
-    deity.name,
+  const description = [
     domains && `domains: ${domains}`,
-    hasChildren && childLabel,
     customNode.relationshipType && `relation: ${customNode.relationshipType}`,
   ]
     .filter(Boolean)
@@ -95,7 +93,11 @@ const renderForeignObjectNode = ({
         <div className="flex h-full flex-col items-center justify-center">
           <button
             type="button"
-            aria-label={ariaLabel}
+            aria-describedby={
+              description
+                ? `tree-description-${nodeDatum.__rd3t.id}`
+                : undefined
+            }
             className={`relative flex w-[16rem] cursor-pointer appearance-none items-center gap-3 overflow-hidden rounded-lg border border-border bg-card p-2.5 pr-3 text-left shadow-md transition-shadow hover:border-gold/60 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${customNode.alsoUnder ? "border-dashed border-gold/70" : ""}`}
             onClick={toggleNode}
           >
@@ -103,7 +105,10 @@ const renderForeignObjectNode = ({
               aria-hidden="true"
               className={`absolute inset-y-0 left-0 w-1 ${accent}`}
             />
-            <span className="relative ml-1 block size-12 shrink-0 overflow-hidden rounded-md bg-muted ring-1 ring-border">
+            <span
+              aria-hidden="true"
+              className="relative ml-1 block size-12 shrink-0 overflow-hidden rounded-md bg-muted ring-1 ring-border"
+            >
               {deity.imageUrl ? (
                 <Image
                   src={deity.imageUrl}
@@ -135,6 +140,11 @@ const renderForeignObjectNode = ({
               </span>
             </span>
           </button>
+          {description && (
+            <span id={`tree-description-${nodeDatum.__rd3t.id}`} hidden>
+              {description}
+            </span>
+          )}
         </div>
       </foreignObject>
     </g>

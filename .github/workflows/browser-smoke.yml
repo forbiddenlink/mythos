@@ -67,7 +67,7 @@ jobs:
           e2e/sharing-recovery.spec.ts
           e2e/quick-quiz-reliability.spec.ts
           --project=firefox --project=webkit
-          --grep='First reading visit|should navigate to result on selection|offers direct reading and one optional narration interface|failed local saves remain recoverable|stages and restores a valid backup|clipboard failure offers a real recovery|successful .* copying reports success|Quick Quiz expires'
+          --grep='First reading visit|should navigate to result on selection|offers direct reading and one optional narration interface|failed local saves remain recoverable|stages and restores a valid backup|clipboard failure offers a real recovery|successful .* copying reports success|Quick Quiz expires|Quick Quiz offers'
 
       - name: Upload failure evidence
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

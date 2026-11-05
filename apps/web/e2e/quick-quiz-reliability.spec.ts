@@ -124,6 +124,42 @@ test("teacher shortcuts reach their sections at phone width", async ({
   }
 });
 
+test("Quick Quiz offers manual score sharing when browser APIs fail", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.clock.install();
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "share", {
+      configurable: true,
+      value: undefined,
+    });
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: {
+        writeText: async () => {
+          throw new DOMException("Denied", "NotAllowedError");
+        },
+      },
+    });
+  });
+  await page.goto("/quiz/quick");
+  await page.getByRole("button", { name: "Start Quiz" }).click();
+  await page.clock.fastForward(60_000);
+  await page.getByRole("button", { name: "Share Score" }).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "Select and copy your score",
+  );
+  const text = page.getByRole("textbox", { name: "Score to copy manually" });
+  await expect(text).toHaveValue(/I scored 0[\s\S]*\/quiz\/quick$/);
+  await expect(text).toBeInViewport();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+});
+
 test("source cards follow the page heading and the catch-all label is accurate", async ({
   page,
 }) => {

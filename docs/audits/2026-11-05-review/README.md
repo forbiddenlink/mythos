@@ -4,7 +4,7 @@
 
 The app has a coherent illustrated-atlas identity and substantial working infrastructure. The most valuable next work is making its existing learning features more trustworthy and easier to use. This pass fixes confirmed quiz behavior, reading accessibility, and navigation issues. It is **not a complete release sign-off**: local browser execution and server binding were blocked in this session, so the changed UI still needs the repository's Playwright and visual gates.
 
-The checkout was safely fast-forwarded from `7fdcaaef` to `c8573a24` (`main`, release 1.17.0). Existing changes to `apps/web/AGENTS.md` and existing untracked November 4 screenshots were preserved. Changes from this review are local and have not been deployed.
+The checkout was safely fast-forwarded from `7fdcaaef` to `c8573a24` (`main`, release 1.17.0). Existing changes to `apps/web/AGENTS.md` and existing untracked November 4 screenshots were preserved. The fixes are on `codex/quiz-reliability-qa-20261105` in [draft PR #293](https://github.com/forbiddenlink/mythos/pull/293). A preview of commit `4b3541f` was built and inspected; production has not been changed. The initial local results below are supplemented by the hosted follow-up at the end of this report.
 
 Inventory: **79 page templates, 16 route handlers, 222 unit/integration test files, 26 E2E specification files**, and the visual regression suite. Review included the app's structure, CI, installed framework guidance, recent audit/action plan, quiz logic, comparison semantics, source presentation, teacher navigation, API guards, and production browser samples. Inventory does not mean every line, generated record, or browser state was manually inspected.
 
@@ -141,3 +141,21 @@ No full content fact-check, screen-reader session, Safari/Firefox E2E run, full-
 The source-review changes and quiz logic have local automated evidence. Final screenshots and interactive validation of the changed build remain outstanding because of the execution restrictions above.
 
 For the unavailable Codacy check, reset its MCP connection. If using GitHub Copilot, verify MCP access in [Copilot settings](https://github.com/settings/copilot/features), including any organization restrictions; contact Codacy support if reconnecting does not restore the server.
+
+## Hosted follow-up and fixes
+
+First hosted revision (`4b3541f`) results:
+
+- [Test run](https://github.com/forbiddenlink/mythos/actions/runs/42027427083): lint/types/static checks passed; **2,141 tests in 223 files** passed with the same coverage percentages above. Chromium E2E: **287 passed, 2 failed**, both active-quiz light-mode timer contrast (2.2:1 versus 4.5:1).
+- [Visual regression](https://github.com/forbiddenlink/mythos/actions/runs/42027427063): **24 passed**, with unchanged reference images.
+- [Firefox/WebKit journeys](https://github.com/forbiddenlink/mythos/actions/runs/42027427304): passed.
+- [Template QA](https://github.com/forbiddenlink/mythos/actions/runs/42027427600): **458 passed, 16 failed**. All failures were `label-content-name-mismatch`, concentrated in deity relationship edges, family-tree buttons, and knowledge-graph nodes. The fresh registry advisory scan passed (`pnpm audit --json` exited zero and its artifact was retained).
+- [CodeQL](https://github.com/forbiddenlink/mythos/actions/runs/42027427900): passed.
+
+The follow-up fixes use the existing accessible gold token for the timer, preserve question-count announcements when progress percentages are forwarded, give family relationships names containing their visible relationship text, separate family-node descriptions from visible names, and insert a text boundary between knowledge-graph names and domains. The full template sweep remains enabled with no excluded rules.
+
+Score sharing now falls back from a failed native share to clipboard copying, then to a labelled manual-copy field. Cancellation is respected; successful copying is announced; transient copy feedback is cleared on restart/unmount. Three new unit cases and a browser failure-path case cover this flow. The focused local run passed **16 quiz/progress tests**, and existing family-tree suites passed **14 tests**. There are now ten new browser cases.
+
+Manual preview inspection confirmed stacked/wrapping answers and correct/incorrect feedback at 390px dark and 320px light, a completed 60-second round, teacher anchors landing below the header, and corrected source headings/filter at 1440px. The weak light-mode timer contrast was visible and then independently confirmed by the browser test. Preview testing used a deployment-only ignored-build override because the project normally skips non-production builds.
+
+Hosted gates must be rerun for these follow-up fixes. Results for `4b3541f` do not establish that the later changes pass.
