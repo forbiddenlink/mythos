@@ -164,6 +164,6 @@ jobs:
         if: always()
         with:
           name: quick-quiz-layouts
-          path: apps/web/test-results/**/attachments/active-quiz-*.png
-          if-no-files-found: ignore
-          retention-days: 14
+          path: apps/web/test-results/**/active-quiz.png
+          if-no-files-found: error
+          retention-days: 7

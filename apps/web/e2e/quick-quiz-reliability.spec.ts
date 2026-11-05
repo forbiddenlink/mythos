@@ -60,8 +60,10 @@ test.describe("Quick Quiz readable answers", () => {
           .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
           .analyze();
         expect(scan.violations).toEqual([]);
+        const screenshotPath = testInfo.outputPath("active-quiz.png");
+        await page.screenshot({ path: screenshotPath, fullPage: true });
         await testInfo.attach("active-quiz", {
-          body: await page.screenshot({ fullPage: true }),
+          path: screenshotPath,
           contentType: "image/png",
         });
         await answer.click();
