@@ -44,11 +44,12 @@ export function Header() {
     document.dispatchEvent(new CustomEvent("open-command-palette"));
   };
 
-  // transform-gpu keeps the header on its own compositing layer, as the old
-  // backdrop-blur did; without it the search trigger's rounded corners
-  // rasterise one colour level differently between runs.
+  // The background is opaque, so backdrop-blur-md changes no pixels. It stays
+  // because it keeps the header on the backdrop-filter render path: without
+  // it the search trigger's rounded corners rasterise one colour level
+  // differently between identical runs (transform-gpu did not help).
   return (
-    <header className="sticky top-0 z-50 w-full transform-gpu border-b border-border/70 bg-background">
+    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background backdrop-blur-md">
       <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">
