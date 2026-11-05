@@ -65,6 +65,10 @@ jobs:
       - name: Compare reviewed visual baselines
         run: pnpm --filter web visual
 
+      - name: Summarize exact pixel differences
+        if: failure()
+        run: pnpm --filter web exec node scripts/summarize-visual-diffs.mjs
+
       - name: Upload failure evidence
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -73,4 +77,4 @@ jobs:
           path: |
             apps/web/playwright-report/visual/
             apps/web/visual-test-results/
-          retention-days: 14
+          retention-days: 7

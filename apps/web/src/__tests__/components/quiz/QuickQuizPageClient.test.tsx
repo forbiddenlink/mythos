@@ -58,6 +58,9 @@ describe("Quick Quiz", () => {
       `I scored 0 in the Mythos Atlas Quick Quiz! Can you beat my score?\n${globalThis.location.origin}/quiz/quick`,
     );
     expect(
+      screen.getByRole("textbox", { name: "Score to copy manually" }),
+    ).toHaveFocus();
+    expect(
       screen.queryByText("Score copied to clipboard!"),
     ).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Play Again" }));

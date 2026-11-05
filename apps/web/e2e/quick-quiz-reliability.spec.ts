@@ -152,6 +152,7 @@ test("Quick Quiz offers manual score sharing when browser APIs fail", async ({
   );
   const text = page.getByRole("textbox", { name: "Score to copy manually" });
   await expect(text).toHaveValue(/I scored 0[\s\S]*\/quiz\/quick$/);
+  await expect(text).toBeFocused();
   await expect(text).toBeInViewport();
   expect(
     await page.evaluate(

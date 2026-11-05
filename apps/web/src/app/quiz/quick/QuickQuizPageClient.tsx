@@ -46,10 +46,17 @@ export function QuickQuizPageClient({
   const [quizUnavailable, setQuizUnavailable] = useState(false);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const manualShareField = useRef<HTMLTextAreaElement>(null);
   const deadline = useRef(0);
 
   const progressContext = useContext(ProgressContext);
   const { checkAchievements } = useAchievements();
+
+  useEffect(() => {
+    // The recovery field can appear below the fold on phones. Move focus to
+    // the requested fallback so it is visible and its text is ready to copy.
+    if (manualShare) manualShareField.current?.focus();
+  }, [manualShare]);
 
   // Load high score from progress context or localStorage
   useEffect(() => {
@@ -379,6 +386,7 @@ export function QuickQuizPageClient({
                     Sharing is unavailable. Select and copy your score below.
                   </p>
                   <textarea
+                    ref={manualShareField}
                     aria-label="Score to copy manually"
                     readOnly
                     value={manualShare}
