@@ -55,7 +55,13 @@ export function QuickQuizPageClient({
   useEffect(() => {
     // The recovery field can appear below the fold on phones. Move focus to
     // the requested fallback so it is visible and its text is ready to copy.
-    if (manualShare) manualShareField.current?.focus();
+    const field = manualShareField.current;
+    if (manualShare && field) {
+      field.focus({ preventScroll: true });
+      // WebKit can focus a read-only field without revealing it. Keep this
+      // user-requested recovery visible regardless of smooth-scroll settings.
+      field.scrollIntoView({ block: "center", behavior: "instant" });
+    }
   }, [manualShare]);
 
   // Load high score from progress context or localStorage
