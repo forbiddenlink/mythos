@@ -147,7 +147,7 @@ test("Quick Quiz offers manual score sharing when browser APIs fail", async ({
   await page.getByRole("button", { name: "Start Quiz" }).click();
   await page.clock.fastForward(60_000);
   await page.getByRole("button", { name: "Share Score" }).click();
-  await expect(page.getByRole("alert")).toContainText(
+  await expect(page.getByRole("main").getByRole("alert")).toContainText(
     "Select and copy your score",
   );
   const text = page.getByRole("textbox", { name: "Score to copy manually" });
