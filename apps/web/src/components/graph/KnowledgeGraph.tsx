@@ -87,6 +87,7 @@ interface KnowledgeGraphProps {
 }
 
 import { PANTHEON_COLORS, getPantheonColor } from "@/lib/pantheon-colors";
+import { relationshipFamily } from "@/lib/relationship-family";
 
 // Re-export for callers that import colors from this module
 export { PANTHEON_COLORS, getPantheonColor };
@@ -96,7 +97,7 @@ const getEdgeStyle = (
   relationshipType: string,
   isCrossPantheon: boolean = false,
 ) => {
-  const type = relationshipType.toLowerCase();
+  const family = relationshipFamily(relationshipType);
 
   if (isCrossPantheon) {
     return {
@@ -106,7 +107,7 @@ const getEdgeStyle = (
     };
   }
 
-  if (type.includes("spouse") || type.includes("lover") || type === "ally_of") {
+  if (family === "partner") {
     return {
       stroke: "#ec4899",
       strokeWidth: 1.5,
@@ -114,11 +115,19 @@ const getEdgeStyle = (
     };
   }
 
-  if (type.includes("sibling")) {
+  if (family === "sibling") {
     return {
       stroke: "#3b82f6",
       strokeWidth: 1.5,
       strokeDasharray: "4 2",
+    };
+  }
+
+  if (family === "other") {
+    return {
+      stroke: "#94a3b8",
+      strokeWidth: 1,
+      strokeDasharray: "1 4",
     };
   }
 
@@ -528,15 +537,11 @@ function KnowledgeGraphInner({
         return;
       }
 
-      const relType = rel.relationshipType.toLowerCase();
-
       // Check filters
-      const isParentChild = relType.includes("parent");
-      const isSpouse =
-        relType.includes("spouse") ||
-        relType.includes("lover") ||
-        relType === "ally_of";
-      const isSibling = relType.includes("sibling");
+      const family = relationshipFamily(rel.relationshipType);
+      const isParentChild = family === "lineage";
+      const isSpouse = family === "partner";
+      const isSibling = family === "sibling";
 
       if (isParentChild && !relationshipFilters.parent) return;
       if (isSpouse && !relationshipFilters.spouse) return;

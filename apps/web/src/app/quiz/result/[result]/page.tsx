@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { Container } from "@/components/layout/container";
-import { SupportNudge } from "@/components/support/SupportNudge";
 import { Button } from "@/components/ui/button";
 import { ShareButton } from "@/components/sharing/ShareButton";
 import { generateBaseMetadata, siteConfig } from "@/lib/metadata";
@@ -110,10 +109,6 @@ export default async function QuizResultPage({
               url={`https://mythosatlas.com/quiz/result/${result}`}
             />
           </div>
-        </div>
-
-        <div className="mt-12">
-          <SupportNudge moment="quiz_completed" placement="quiz_result_page" />
         </div>
 
         <p className="mt-12 type-reading text-muted-foreground">

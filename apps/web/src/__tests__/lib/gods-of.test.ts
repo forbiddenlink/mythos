@@ -91,3 +91,25 @@ describe("gods-of domain pages", () => {
     }
   });
 });
+
+describe("gods-of domain identity", () => {
+  it("groups spellings through the shared domain category table", () => {
+    expect(normalizeDomain("the hunt")).toBe("hunting");
+    expect(normalizeDomain("hunt")).toBe("hunting");
+    expect(normalizeDomain("craftsmanship")).toBe("crafts");
+    expect(normalizeDomain("medicine")).toBe("healing");
+  });
+
+  it("redirects every merged slug to a page that exists", async () => {
+    const { CONSOLIDATION_REDIRECTS } = await import("@/lib/route-redirects");
+    const slugs = new Set(getGodsOfDomains().map((page) => page.slug));
+    const merged = CONSOLIDATION_REDIRECTS.filter((r) =>
+      r.source.startsWith("/gods-of/"),
+    );
+    expect(merged.length).toBeGreaterThan(0);
+    for (const { source, destination } of merged) {
+      expect(slugs.has(source.replace("/gods-of/", ""))).toBe(false);
+      expect(slugs.has(destination.replace("/gods-of/", ""))).toBe(true);
+    }
+  });
+});

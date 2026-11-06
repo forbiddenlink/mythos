@@ -14,6 +14,16 @@ function permanent(source: string, destination: string): RouteRedirect {
 }
 
 export const CONSOLIDATION_REDIRECTS: readonly RouteRedirect[] = [
+  // /gods-of pages for spellings of one domain merged into a single page
+  // (2026-11-06), when the pages began grouping terms through the shared
+  // alias table in domain-categories.ts.
+  permanent("/gods-of/commerce", "/gods-of/trade"),
+  permanent("/gods-of/forest", "/gods-of/forests"),
+  permanent("/gods-of/hunt", "/gods-of/hunting"),
+  permanent("/gods-of/medicine", "/gods-of/healing"),
+  permanent("/gods-of/smithcraft", "/gods-of/smithing"),
+  permanent("/gods-of/waters", "/gods-of/water"),
+
   // "Your Stats" was a local-only leaderboard; it now lives on /progress.
   permanent("/leaderboard", "/progress"),
 

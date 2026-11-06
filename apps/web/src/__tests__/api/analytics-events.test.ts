@@ -162,4 +162,18 @@ describe("POST /api/analytics/events", () => {
     );
     expect(response.status).toBe(400);
   });
+  it("refuses a field outside the event schema before any upstream request", async () => {
+    process.env.POSTHOG_KEY = "phc_server";
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const response = await POST(
+      postEvent({
+        type: "pmf_survey_answered",
+        rating: "very",
+        quizId: "mythology-quiz",
+        comment: "my name is Jane Doe",
+      }),
+    );
+    expect(response.status).toBe(400);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
 });

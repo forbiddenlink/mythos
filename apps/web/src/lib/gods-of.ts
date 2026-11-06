@@ -3,6 +3,7 @@ import "server-only";
 import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
 import { getDeityComparisons } from "@/lib/comparisons";
+import { domainCategoryForTerm } from "@/lib/domain-categories";
 import { getImageProvenance } from "@/lib/image-provenance";
 import { shortTraditionName } from "@/lib/tradition-name";
 
@@ -18,15 +19,6 @@ import { shortTraditionName } from "@/lib/tradition-name";
 
 export const MIN_DEITIES = 3;
 export const MIN_TRADITIONS = 2;
-
-/**
- * Spellings the catalog uses for the same domain. Kept deliberately small:
- * only true synonyms are merged, and the page names every spelling it matched.
- */
-const DOMAIN_ALIASES: Record<string, string> = {
-  warfare: "war",
-  ocean: "sea",
-};
 
 interface RawDeity {
   id: string;
@@ -89,13 +81,15 @@ function shortTradition(pantheonId: string): string {
   return name ? shortTraditionName(name) : pantheonId.replace(/-pantheon$/, "");
 }
 
-/** "The Sun" → "sun"; "Warfare" → "war". */
+/**
+ * "The Sun" → "sun"; "Warfare" → "war"; "the hunt" → "hunting". Spellings are
+ * merged only through the shared alias table in domain-categories.ts, and the
+ * page names every spelling it matched.
+ */
 export function normalizeDomain(raw: string): string {
-  const base = raw
-    .toLowerCase()
-    .trim()
-    .replace(/^the\s+/, "");
-  return DOMAIN_ALIASES[base] ?? base;
+  const key = raw.toLowerCase().trim();
+  const base = key.replace(/^the\s+/, "");
+  return domainCategoryForTerm(key) ?? domainCategoryForTerm(base) ?? base;
 }
 
 export function domainSlug(domain: string): string {

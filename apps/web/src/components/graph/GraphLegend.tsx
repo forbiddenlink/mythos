@@ -83,6 +83,18 @@ export function GraphLegend({
             </div>
             <div className="flex items-center gap-2">
               <div
+                className="w-6 h-0.5"
+                style={{
+                  background:
+                    "repeating-linear-gradient(90deg, #94a3b8, #94a3b8 1px, transparent 1px, transparent 5px)",
+                }}
+              />
+              <span className="text-sm text-foreground/85">
+                Ally/Rival/Aspect
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div
                 className="w-6 h-1 rounded-full"
                 style={{
                   background: "linear-gradient(90deg, #fbbf24, #f59e0b)",
