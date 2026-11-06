@@ -1,7 +1,13 @@
 "use client";
 
 import { NextIntlClientProvider, type AbstractIntlMessages } from "next-intl";
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { isValidLocale, type Locale } from "@/i18n/config";
 import { LOCALE_CHANGE_EVENT, readLocaleCookie } from "@/i18n/client-locale";
 
@@ -37,11 +43,17 @@ export function IntlProvider({
     messages: initialMessages,
   });
 
+  // Only the newest request may commit: a slower earlier load must not
+  // overwrite a later choice (the cookie already holds the later one).
+  const latestRequest = useRef(0);
+
   const apply = useCallback(
     async (next: string | null) => {
       if (!next || !isValidLocale(next)) return;
+      const request = ++latestRequest.current;
       const messages =
         next === initialLocale ? initialMessages : await loadMessages(next);
+      if (request !== latestRequest.current) return;
       setState((current) =>
         current.locale === next ? current : { locale: next, messages },
       );
@@ -54,7 +66,6 @@ export function IntlProvider({
   useEffect(() => {
     const saved = readLocaleCookie();
     if (saved && saved !== initialLocale) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- adopt the saved locale after hydration (cookie is client state)
       void apply(saved).catch(() => {
         // Keep the default locale if the messages chunk fails to load.
       });

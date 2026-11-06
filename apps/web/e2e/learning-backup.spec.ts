@@ -1,4 +1,6 @@
 import { expect, test } from "@playwright/test";
+import { LEARNING_KEYS } from "../src/lib/learning-keys";
+import { readStored } from "./helpers/storage";
 
 const BACKUP_NAME = "mythos-learning-backup.json";
 
@@ -112,14 +114,14 @@ test.describe("Learning backup", () => {
       page.getByRole("heading", { level: 1, name: "Your Stats" }),
     ).toBeVisible();
 
-    const restored = await page.evaluate(() => ({
-      bookmarks: localStorage.getItem("mythos-atlas-bookmarks"),
-      reading: localStorage.getItem("mythos-atlas-reading-progress"),
-      progress: localStorage.getItem("mythos-atlas-progress"),
-      review: localStorage.getItem("mythos-atlas-review"),
-      theme: localStorage.getItem("theme"),
-      locale: localStorage.getItem("locale"),
-    }));
+    const restored = {
+      bookmarks: await readStored(page, LEARNING_KEYS.bookmarks),
+      reading: await readStored(page, LEARNING_KEYS.readingProgress),
+      progress: await readStored(page, LEARNING_KEYS.progress),
+      review: await readStored(page, LEARNING_KEYS.review),
+      theme: await readStored(page, "theme"),
+      locale: await readStored(page, "locale"),
+    };
 
     expect(JSON.parse(restored.bookmarks ?? "[]")).toEqual([
       { type: "deity", id: "zeus", timestamp: 1 },

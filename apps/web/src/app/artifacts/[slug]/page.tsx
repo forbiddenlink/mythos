@@ -3,12 +3,11 @@ import {
   generateEntityAlt,
   getIllustrativeImageNote,
 } from "@/lib/image-provenance";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import artifacts from "@/data/artifacts.json";
 import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import storiesData from "@/data/stories.json";
-import { canonicalArtifactSlug } from "@/lib/artifact-aliases";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
@@ -95,8 +94,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug: rawSlug } = await params;
-  const slug = canonicalArtifactSlug(rawSlug);
+  const { slug } = await params;
   const artifact = artifacts.find((a) => a.slug === slug) as
     ArtifactData | undefined;
 
@@ -143,11 +141,6 @@ export async function generateMetadata({
 
 export default async function ArtifactPage({ params }: PageProps) {
   const { slug } = await params;
-  const canonical = canonicalArtifactSlug(slug);
-  if (canonical !== slug) {
-    redirect(`/artifacts/${canonical}`);
-  }
-
   const allArtifacts = artifacts as ArtifactData[];
   const artifact = allArtifacts.find((a) => a.slug === slug);
   if (!artifact) {

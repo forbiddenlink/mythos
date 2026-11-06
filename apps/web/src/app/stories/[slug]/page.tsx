@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { ArrowDown, Headphones, Play, ScrollText } from "lucide-react";
 import { TrackPageView } from "@/components/analytics/TrackPageView";
 import { EditorialByline } from "@/components/content/EditorialByline";
@@ -71,7 +71,6 @@ import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { getMuseumObjectsForStory } from "@/lib/museum";
 import { getMythVersions } from "@/lib/myth-versions";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import { canonicalStorySlug } from "@/lib/story-aliases";
 import { getStoryContexts } from "@/lib/story-contexts";
 import { StoryProgressTracker } from "./_components/StoryProgressTracker";
 
@@ -124,8 +123,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug: rawSlug } = await params;
-  const slug = canonicalStorySlug(rawSlug);
+  const { slug } = await params;
   const story = allStories.find((s) => s.slug === slug);
 
   if (!story) {
@@ -168,11 +166,6 @@ export async function generateMetadata({
 
 export default async function StoryPage({ params }: PageProps) {
   const { slug } = await params;
-  const canonical = canonicalStorySlug(slug);
-  if (canonical !== slug) {
-    redirect(`/stories/${canonical}`);
-  }
-
   const story = allStories.find((s) => s.slug === slug);
   if (!story) {
     notFound();

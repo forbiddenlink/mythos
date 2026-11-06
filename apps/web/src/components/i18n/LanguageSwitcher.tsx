@@ -5,17 +5,13 @@ import { ChevronDown, Globe } from "lucide-react";
 import { useLocale } from "next-intl";
 import { saveLocale } from "@/i18n/client-locale";
 import { useEffect, useRef, useState } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
 
 export function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currentLocale = useLocale() as Locale;
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- standard hydration-safe mounted flag
-    setMounted(true);
-  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {

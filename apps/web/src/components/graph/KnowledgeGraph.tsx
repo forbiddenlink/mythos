@@ -22,6 +22,7 @@ import ReactFlow, {
 import "reactflow/dist/style.css";
 import { normalizeDeityReference } from "@/lib/deity-reference";
 import Image from "next/image";
+import { applyHoverHighlight } from "./graph-highlight";
 
 // Types
 interface Deity {
@@ -505,8 +506,7 @@ function KnowledgeGraphInner({
         data: {
           deity,
           pantheonColor: getPantheonColor(deity.pantheonId),
-          isHighlighted:
-            highlightedNodeId === deity.id || exploreFocusId === deity.id,
+          isHighlighted: exploreFocusId === deity.id,
           showImage: true,
           explored: visited,
         },
@@ -603,19 +603,30 @@ function KnowledgeGraphInner({
     selectedPantheons,
     relationshipFilters,
     positions,
-    highlightedNodeId,
     exploreMode,
     exploreFocusId,
     exploredDeityIds,
   ]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   // Update nodes when props change
   useEffect(() => {
     setNodes(initialNodes);
   }, [initialNodes, setNodes]);
+
+  // Update edges when filters or selected pantheons change
+  useEffect(() => {
+    setEdges(initialEdges);
+  }, [initialEdges, setEdges]);
+
+  // Hover highlight is derived from current nodes so dragged positions survive
+  useEffect(() => {
+    setNodes((current) =>
+      applyHoverHighlight(current, highlightedNodeId, exploreFocusId),
+    );
+  }, [highlightedNodeId, exploreFocusId, initialNodes, setNodes]);
 
   // Handle node click
   const handleNodeClick = useCallback(

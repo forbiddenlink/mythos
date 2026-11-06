@@ -13,13 +13,13 @@ const fake = vi.hoisted(() => ({
   onUpdateStarted: null as null | (() => void),
   /** While true, every write of unsubscribed:true fails (Resend is down). */
   failUnsubscribeWrites: false,
-  /** While true, every write to the consent-repair store fails. */
-  failRepairWrites: false,
   updates: [] as Array<{ email: string; unsubscribed?: boolean }>,
   event: null as unknown,
-  kv: new Map<string, string>(),
-  hashes: new Map<string, Map<string, string>>(),
 }));
+
+const store = await vi.hoisted(async () =>
+  (await import("../helpers/fake-upstash")).createFakeRedis(),
+);
 
 vi.mock("resend", () => ({
   Resend: class {
@@ -67,91 +67,13 @@ vi.mock("resend", () => ({
   },
 }));
 
-vi.mock("@upstash/ratelimit", () => ({
-  Ratelimit: class {
-    static slidingWindow() {
-      return {};
-    }
-    async limit() {
-      return { success: true };
-    }
-  },
-}));
+vi.mock("@upstash/ratelimit", async () =>
+  (await import("../helpers/fake-upstash")).fakeRatelimitModule(store),
+);
 
-vi.mock("@upstash/redis", () => ({
-  Redis: class {
-    async set(
-      key: string,
-      value: string,
-      opts: { nx?: boolean; ex?: number },
-    ) {
-      await Promise.resolve();
-      if (opts.nx && fake.kv.has(key)) return null;
-      fake.kv.set(key, value);
-      return "OK";
-    }
-    async get(key: string) {
-      return fake.kv.get(key) ?? null;
-    }
-    async hgetall(key: string) {
-      const hash = fake.hashes.get(key);
-      return hash && hash.size > 0 ? Object.fromEntries(hash) : null;
-    }
-    async expire() {
-      return 1;
-    }
-    async eval(script: string, keys: string[], args: string[]) {
-      await Promise.resolve();
-      if (keys[0] === "mythos:newsletter:consent-repair" && fake.failRepairWrites) {
-        throw new Error("repair store down");
-      }
-      if (script.includes('"del"')) {
-        // Consent lock release: compare-and-delete.
-        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-        fake.kv.delete(keys[0]!);
-        return 1;
-      }
-      if (script.includes("string.match")) {
-        // Monotonic repair record: keep the newest reader intent.
-        const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
-        const cur = hash.get(args[0]!);
-        const curAt = cur ? Number(cur.split(":")[0]) : Number.NaN;
-        if (Number.isFinite(curAt) && curAt >= Number(args[3])) return 0;
-        hash.set(args[0]!, args[1]!);
-        fake.hashes.set(keys[0]!, hash);
-        return 1;
-      }
-      if (script.includes('"hdel"')) {
-        const hash = fake.hashes.get(keys[0]!);
-        if (hash?.get(args[0]!) !== args[1]) return 0;
-        hash.delete(args[0]!);
-        return 1;
-      }
-      if (script.includes('"hset"')) {
-        const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
-        hash.set(args[0]!, args[1]!);
-        fake.hashes.set(keys[0]!, hash);
-        return 1;
-      }
-      if (script.includes("tonumber(cur)")) {
-        const cur = fake.kv.get(keys[0]!);
-        if (cur === undefined || Number(cur) < Number(args[0])) {
-          fake.kv.set(keys[0]!, args[0]!);
-        }
-        return 1;
-      }
-      if (keys.length === 2) {
-        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-        const unsub = fake.kv.get(keys[1]!);
-        if (unsub !== undefined && Number(unsub) >= Number(args[1])) return 2;
-        return 1;
-      }
-      if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-      fake.kv.set(keys[0]!, args[1]!);
-      return 1;
-    }
-  },
-}));
+vi.mock("@upstash/redis", async () =>
+  (await import("../helpers/fake-upstash")).fakeRedisModule(store),
+);
 
 import { GET as REPAIR_CRON } from "@/app/api/cron/newsletter-consent-repair/route";
 import { POST as CONFIRM } from "@/app/api/newsletter/confirm/route";
@@ -191,9 +113,12 @@ function webhookRequest(): NextRequest {
 }
 
 function cronRequest(): Request {
-  return new Request("http://localhost:3000/api/cron/newsletter-consent-repair", {
-    headers: { authorization: "Bearer cron_test" },
-  });
+  return new Request(
+    "http://localhost:3000/api/cron/newsletter-consent-repair",
+    {
+      headers: { authorization: "Bearer cron_test" },
+    },
+  );
 }
 
 async function deliverUnsubscribeWebhook(atMs: number) {
@@ -223,7 +148,7 @@ async function startConfirmHeldAtUpdate(token: string) {
   return { gate, response };
 }
 
-const pendingRepairs = () => fake.hashes.get(REPAIR_HASH)?.size ?? 0;
+const pendingRepairs = () => store.hashes.get(REPAIR_HASH)?.size ?? 0;
 const contactUnsubscribed = () => fake.contacts.get(EMAIL)?.unsubscribed;
 
 beforeEach(() => {
@@ -239,11 +164,11 @@ beforeEach(() => {
   fake.gate = null;
   fake.onUpdateStarted = null;
   fake.failUnsubscribeWrites = false;
-  fake.failRepairWrites = false;
+  store.failRepairWrites = false;
   fake.updates.length = 0;
   fake.event = null;
-  fake.kv.clear();
-  fake.hashes.clear();
+  store.kv.clear();
+  store.hashes.clear();
   vi.useFakeTimers({ toFake: ["Date"] });
   vi.setSystemTime(T0);
 });
@@ -372,7 +297,7 @@ describe("recovery never depends on one late write", () => {
     // The in-flight confirm then resubscribes; the re-apply fails and so does
     // the repair store.
     fake.failUnsubscribeWrites = true;
-    fake.failRepairWrites = true;
+    store.failRepairWrites = true;
     gate.release();
     expect((await response).status).toBe(502);
     expect(contactUnsubscribed()).toBe(false);
@@ -380,7 +305,7 @@ describe("recovery never depends on one late write", () => {
     // Everything recovers. A replay of the spent token is refused, so the
     // cron is the only way left; it must still have work.
     fake.failUnsubscribeWrites = false;
-    fake.failRepairWrites = false;
+    store.failRepairWrites = false;
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(409);
@@ -390,21 +315,22 @@ describe("recovery never depends on one late write", () => {
   });
 
   it("does not resubscribe when the repair store cannot be written first", async () => {
-    fake.failRepairWrites = true;
+    store.failRepairWrites = true;
     const token = createConfirmToken(EMAIL, "re_test", new Date(T0));
     const res = await CONFIRM(post("/api/newsletter/confirm", { token }));
     expect(res.status).toBe(503);
     expect(contactUnsubscribed()).toBe(true);
-    expect(
-      fake.updates.filter((u) => u.unsubscribed === false),
-    ).toHaveLength(0);
+    expect(fake.updates.filter((u) => u.unsubscribed === false)).toHaveLength(
+      0,
+    );
   });
 
   it("keeps the newest repair when a delayed older webhook fails too", async () => {
     // Token A confirms and leaves the contact subscribed.
     const tokenA = createConfirmToken(EMAIL, "re_test", new Date(T0));
     expect(
-      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenA }))).status,
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenA })))
+        .status,
     ).toBe(200);
     expect(contactUnsubscribed()).toBe(false);
 
@@ -414,7 +340,7 @@ describe("recovery never depends on one late write", () => {
     vi.setSystemTime(T0 + 10_000);
     expect((await deliverUnsubscribeWebhook(T0 + 9_000)).status).toBe(503);
     expect((await deliverUnsubscribeWebhook(T0 + 5_000)).status).toBe(503);
-    const [record] = [...(fake.hashes.get(REPAIR_HASH)?.values() ?? [])];
+    const [record] = [...(store.hashes.get(REPAIR_HASH)?.values() ?? [])];
     expect(record).toMatch(new RegExp(`^${T0 + 9_000}:`));
 
     // A link issued between the two, redeemed after the newer unsubscribe, is
@@ -422,7 +348,8 @@ describe("recovery never depends on one late write", () => {
     vi.setSystemTime(T0 + 11_000);
     const tokenB = createConfirmToken(EMAIL, "re_test", new Date(T0 + 7_000));
     expect(
-      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenB }))).status,
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenB })))
+        .status,
     ).toBe(409);
 
     fake.failUnsubscribeWrites = false;
@@ -433,7 +360,8 @@ describe("recovery never depends on one late write", () => {
   it("judges supersession against the latest recorded unsubscribe", async () => {
     const tokenA = createConfirmToken(EMAIL, "re_test", new Date(T0));
     expect(
-      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenA }))).status,
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenA })))
+        .status,
     ).toBe(200);
 
     // An early unsubscribe fails its re-apply and queues a repair at +5s.
@@ -449,7 +377,8 @@ describe("recovery never depends on one late write", () => {
     // A link issued between the two is refused after the later unsubscribe.
     const tokenB = createConfirmToken(EMAIL, "re_test", new Date(T0 + 100_000));
     expect(
-      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenB }))).status,
+      (await CONFIRM(post("/api/newsletter/confirm", { token: tokenB })))
+        .status,
     ).toBe(409);
 
     fake.failUnsubscribeWrites = false;

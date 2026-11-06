@@ -19,9 +19,11 @@ const fake = vi.hoisted(() => ({
   onUpdateStarted: null as null | (() => void),
   updates: [] as Array<{ email: string; unsubscribed?: boolean }>,
   event: null as unknown,
-  kv: new Map<string, string>(),
-  hashes: new Map<string, Map<string, string>>(),
 }));
+
+const store = await vi.hoisted(async () =>
+  (await import("../helpers/fake-upstash")).createFakeRedis(),
+);
 
 vi.mock("resend", () => ({
   Resend: class {
@@ -66,72 +68,13 @@ vi.mock("resend", () => ({
   },
 }));
 
-vi.mock("@upstash/ratelimit", () => ({
-  Ratelimit: class {
-    static slidingWindow() {
-      return {};
-    }
-    async limit() {
-      return { success: true };
-    }
-  },
-}));
+vi.mock("@upstash/ratelimit", async () =>
+  (await import("../helpers/fake-upstash")).fakeRatelimitModule(store),
+);
 
-vi.mock("@upstash/redis", () => ({
-  Redis: class {
-    async set(
-      key: string,
-      value: string,
-      opts: { nx?: boolean; ex?: number },
-    ) {
-      await Promise.resolve();
-      if (opts.nx && fake.kv.has(key)) return null;
-      fake.kv.set(key, value);
-      return "OK";
-    }
-    async get(key: string) {
-      return fake.kv.get(key) ?? null;
-    }
-    async hgetall(key: string) {
-      const hash = fake.hashes.get(key);
-      return hash ? Object.fromEntries(hash) : null;
-    }
-    async expire() {
-      return 1;
-    }
-    async eval(script: string, keys: string[], args: string[]) {
-      await Promise.resolve();
-      if (script.includes('"del"')) {
-        // Consent lock release: compare-and-delete.
-        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-        fake.kv.delete(keys[0]!);
-        return 1;
-      }
-      if (script.includes('"hset"')) {
-        const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
-        hash.set(args[0]!, args[1]!);
-        fake.hashes.set(keys[0]!, hash);
-        return 1;
-      }
-      if (script.includes("tonumber(cur)")) {
-        const cur = fake.kv.get(keys[0]!);
-        if (cur === undefined || Number(cur) < Number(args[0])) {
-          fake.kv.set(keys[0]!, args[0]!);
-        }
-        return 1;
-      }
-      if (keys.length === 2) {
-        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-        const unsub = fake.kv.get(keys[1]!);
-        if (unsub !== undefined && Number(unsub) >= Number(args[1])) return 2;
-        return 1;
-      }
-      if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-      fake.kv.set(keys[0]!, args[1]!);
-      return 1;
-    }
-  },
-}));
+vi.mock("@upstash/redis", async () =>
+  (await import("../helpers/fake-upstash")).fakeRedisModule(store),
+);
 
 import { POST as CONFIRM } from "@/app/api/newsletter/confirm/route";
 import { POST as WEBHOOK } from "@/app/api/newsletter/webhook/route";
@@ -224,8 +167,8 @@ beforeEach(() => {
   fake.onUpdateStarted = null;
   fake.updates.length = 0;
   fake.event = null;
-  fake.kv.clear();
-  fake.hashes.clear();
+  store.kv.clear();
+  store.hashes.clear();
   vi.useFakeTimers({ toFake: ["Date"] });
   vi.setSystemTime(T0);
 });

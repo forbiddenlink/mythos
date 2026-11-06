@@ -8,8 +8,8 @@ import { Check, Share2 } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useUrlSelection } from "@/hooks/use-url-selection";
+import { useCallback, useMemo, useState } from "react";
 
 interface Pantheon {
   id: string;
@@ -51,6 +51,9 @@ const PREDEFINED_COMPARISONS = [
   },
 ];
 
+const deitySlug = (deity: Deity): string => deity.slug;
+const lowerTrimId = (raw: string): string => raw.trim().toLowerCase();
+
 interface ComparePageClientProps {
   deitiesData: Deity[];
   pantheonsData: Pantheon[];
@@ -66,9 +69,6 @@ export function ComparePageClient({
   const t = useTranslations("pages.compare");
   // Interface strings follow the reader's locale; catalog content stays English.
   const locale = useLocale();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const [selectedDeities, setSelectedDeities] = useState<Deity[]>([]);
   const [shareStatus, setShareStatus] = useState<"idle" | "success" | "error">(
     "idle",
   );
@@ -85,62 +85,34 @@ export function ComparePageClient({
     });
     return map;
   }, [allDeities]);
-
-  // Initialize from URL params
-  useEffect(() => {
-    const deityParams = searchParams.get("deities");
-    if (deityParams && allDeities.length > 0) {
-      const deityIds = deityParams
-        .split(",")
-        .map((s) => s.trim().toLowerCase());
-      const foundDeities = deityIds
-        .map((id) => deityMap.get(id))
-        .filter((d): d is Deity => d !== undefined)
-        .slice(0, 4);
-
-      if (foundDeities.length > 0) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrating selection from URL params on mount
-        setSelectedDeities(foundDeities);
-      }
-    }
-  }, [searchParams, allDeities, deityMap]);
-
-  // Update URL when selection changes
-  const updateUrl = useCallback(
-    (deities: Deity[]) => {
-      if (deities.length > 0) {
-        const params = new URLSearchParams();
-        params.set("deities", deities.map((d) => d.slug).join(","));
-        router.replace(`/compare?${params.toString()}`, { scroll: false });
-      } else {
-        router.replace("/compare", { scroll: false });
-      }
-    },
-    [router],
+  const resolveDeity = useCallback(
+    (id: string) => deityMap.get(id),
+    [deityMap],
   );
+
+  const [selectedDeities, setSelectedDeities] = useUrlSelection<Deity>({
+    param: "deities",
+    basePath: "/compare",
+    resolve: resolveDeity,
+    getSlug: deitySlug,
+    max: 4,
+    normalizeId: lowerTrimId,
+  });
 
   const handleSelect = useCallback(
     (deity: Deity) => {
-      setSelectedDeities((prev) => {
-        if (prev.length >= 4) return prev;
-        if (prev.some((d) => d.id === deity.id)) return prev;
-        const newDeities = [...prev, deity];
-        updateUrl(newDeities);
-        return newDeities;
-      });
+      if (selectedDeities.length >= 4) return;
+      if (selectedDeities.some((d) => d.id === deity.id)) return;
+      setSelectedDeities([...selectedDeities, deity]);
     },
-    [updateUrl],
+    [selectedDeities, setSelectedDeities],
   );
 
   const handleRemove = useCallback(
     (id: string) => {
-      setSelectedDeities((prev) => {
-        const newDeities = prev.filter((d) => d.id !== id);
-        updateUrl(newDeities);
-        return newDeities;
-      });
+      setSelectedDeities(selectedDeities.filter((d) => d.id !== id));
     },
-    [updateUrl],
+    [selectedDeities, setSelectedDeities],
   );
 
   const handlePredefinedComparison = useCallback(
@@ -152,10 +124,9 @@ export function ComparePageClient({
 
       if (foundDeities.length > 0) {
         setSelectedDeities(foundDeities);
-        updateUrl(foundDeities);
       }
     },
-    [deityMap, updateUrl],
+    [deityMap, setSelectedDeities],
   );
 
   const handleShare = useCallback(async () => {

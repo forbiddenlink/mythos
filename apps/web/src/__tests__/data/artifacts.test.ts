@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import artifacts from "../../data/artifacts.json";
 import pantheons from "../../data/pantheons.json";
-import { ARTIFACT_ALIASES } from "@/lib/artifact-aliases";
+import { SLUG_ALIASES } from "@/lib/slug-aliases";
 
 const { describe, it, expect } = await import("vitest");
 
@@ -97,7 +97,7 @@ describe("artifacts.json data integrity", () => {
   it("aliased duplicate slugs are not still in the catalog", () => {
     const slugs = new Set(artifacts.map((a: { slug: string }) => a.slug));
     const ids = new Set(artifacts.map((a: { id: string }) => a.id));
-    for (const [from, to] of Object.entries(ARTIFACT_ALIASES)) {
+    for (const [from, to] of Object.entries(SLUG_ALIASES.artifacts)) {
       expect(slugs.has(from) || ids.has(from), from).toBe(false);
       expect(slugs.has(to), to).toBe(true);
     }

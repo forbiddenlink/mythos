@@ -22,6 +22,7 @@ describe("POST /api/quiz/generate-from-story", () => {
     vi.unstubAllEnvs();
     vi.resetModules();
     vi.doUnmock("@/lib/oracle/token-budget");
+    vi.doUnmock("@/lib/oracle/global-budget");
   });
 
   it("reserves against the daily token budget and refuses when exhausted, before calling the model", async () => {
@@ -43,6 +44,33 @@ describe("POST /api/quiz/generate-from-story", () => {
     expect(res.status).toBe(429);
     expect(reserveOracleTokens).toHaveBeenCalledTimes(1);
     expect(settleOracleTokens).not.toHaveBeenCalled();
+  });
+
+  it("gives the global request slot back when the token budget refuses", async () => {
+    vi.stubEnv("ANTHROPIC_API_KEY", "test-key");
+    const releaseGlobalOracleBudget = vi.fn().mockResolvedValue(undefined);
+    vi.doMock("@/lib/oracle/global-budget", () => ({
+      checkGlobalOracleBudget: vi
+        .fn()
+        .mockResolvedValue({ allowed: true, reservation: "quiz-key" }),
+      releaseGlobalOracleBudget,
+    }));
+    vi.doMock("@/lib/oracle/token-budget", () => ({
+      estimateTokens: (s: string) => s.length,
+      reserveOracleTokens: vi
+        .fn()
+        .mockResolvedValue({ allowed: false, reason: "budget_exhausted" }),
+      settleOracleTokens: vi.fn(),
+    }));
+
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
+    const res = await POST(postRequest({ storySlug: "aeneid", count: 2 }));
+
+    expect(res.status).toBe(429);
+    expect(releaseGlobalOracleBudget).toHaveBeenCalledWith({
+      allowed: true,
+      reservation: "quiz-key",
+    });
   });
 
   it("returns 503 when the token budget store is misconfigured", async () => {

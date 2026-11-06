@@ -18,7 +18,7 @@ describe("analytics consent", () => {
       join(srcRoot, "components/analytics/ConsentGatedAnalytics.tsx"),
       "utf8",
     );
-    expect(gated).toMatch(/hasAnalyticsConsent/);
+    expect(gated).toMatch(/useAnalyticsConsent\(\)/);
     expect(gated).toMatch(/<Analytics\s*\/>/);
   });
 });

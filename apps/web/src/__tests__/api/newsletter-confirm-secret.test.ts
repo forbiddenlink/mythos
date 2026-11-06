@@ -6,10 +6,10 @@ const resend = vi.hoisted(() => ({
   update: vi.fn(),
   add: vi.fn(),
 }));
-const redis = vi.hoisted(() => ({
-  touched: false,
-  values: new Map<string, string>(),
-}));
+
+const store = await vi.hoisted(async () =>
+  (await import("../helpers/fake-upstash")).createFakeRedis(),
+);
 
 vi.mock("resend", () => ({
   Resend: class {
@@ -21,37 +21,13 @@ vi.mock("resend", () => ({
   },
 }));
 
-vi.mock("@upstash/ratelimit", () => ({
-  Ratelimit: class {
-    static slidingWindow() {
-      return {};
-    }
-    async limit() {
-      return { success: true };
-    }
-  },
-}));
+vi.mock("@upstash/ratelimit", async () =>
+  (await import("../helpers/fake-upstash")).fakeRatelimitModule(store),
+);
 
-vi.mock("@upstash/redis", () => ({
-  Redis: class {
-    constructor() {
-      redis.touched = true;
-    }
-    async set(key: string, value: string) {
-      redis.values.set(key, value);
-      return "OK";
-    }
-    async get(key: string) {
-      return redis.values.get(key) ?? null;
-    }
-    async eval() {
-      return 1;
-    }
-    async hgetall() {
-      return null;
-    }
-  },
-}));
+vi.mock("@upstash/redis", async () =>
+  (await import("../helpers/fake-upstash")).fakeRedisModule(store),
+);
 
 import { POST as CONFIRM } from "@/app/api/newsletter/confirm/route";
 import { logger } from "@/lib/logger";
@@ -78,8 +54,8 @@ beforeEach(() => {
   process.env.NEWSLETTER_FROM = "Mythos <digest@example.com>";
   process.env.UPSTASH_REDIS_REST_URL = "https://example.upstash.io";
   process.env.UPSTASH_REDIS_REST_TOKEN = "token";
-  redis.touched = false;
-  redis.values.clear();
+  store.touched = false;
+  store.kv.clear();
   for (const fn of Object.values(resend)) fn.mockReset();
   resend.create.mockResolvedValue({ error: null });
 });
@@ -105,7 +81,7 @@ describe("confirm needs the webhook secret", () => {
     expect(resend.create).not.toHaveBeenCalled();
     expect(resend.update).not.toHaveBeenCalled();
     expect(resend.add).not.toHaveBeenCalled();
-    expect(redis.touched).toBe(false);
+    expect(store.touched).toBe(false);
     expect(logged).toHaveBeenCalledWith(
       expect.stringContaining("RESEND_WEBHOOK_SECRET"),
       {},

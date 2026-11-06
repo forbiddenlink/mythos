@@ -1,6 +1,11 @@
 "use client";
 
 import { saveLearningValue } from "@/lib/learning-persistence";
+import {
+  BOOKMARK_TYPES,
+  LEARNING_KEYS,
+  type BookmarkType,
+} from "@/lib/learning-keys";
 
 import {
   createContext,
@@ -12,18 +17,7 @@ import {
 } from "react";
 import { trackEvent } from "@/lib/analytics/events";
 
-export const BOOKMARK_TYPES = [
-  "deity",
-  "story",
-  "pantheon",
-  "hero",
-  "source",
-  "creature",
-  "artifact",
-  "location",
-] as const;
-
-export type BookmarkType = (typeof BOOKMARK_TYPES)[number];
+export { BOOKMARK_TYPES, type BookmarkType };
 
 export interface Bookmark {
   type: BookmarkType;
@@ -47,8 +41,8 @@ export interface BookmarksContextValue {
   setReadingProgress: (storyId: string, percentage: number) => void;
 }
 
-const BOOKMARKS_STORAGE_KEY = "mythos-atlas-bookmarks";
-const READING_PROGRESS_STORAGE_KEY = "mythos-atlas-reading-progress";
+const BOOKMARKS_STORAGE_KEY = LEARNING_KEYS.bookmarks;
+const READING_PROGRESS_STORAGE_KEY = LEARNING_KEYS.readingProgress;
 
 export const BookmarksContext = createContext<BookmarksContextValue | null>(
   null,

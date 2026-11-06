@@ -842,4 +842,71 @@ describe("ProgressProvider", () => {
       expect(saved.deitiesViewed).toContain("zeus");
     });
   });
+
+  describe("mythology quiz score migration", () => {
+    async function load(saved: Record<string, unknown>) {
+      localStorageData["mythos-atlas-progress"] = JSON.stringify(saved);
+      vi.setSystemTime(new Date("2024-01-15"));
+      const hook = renderHook(() => useProgress(), { wrapper });
+      await act(async () => {
+        vi.runAllTimers();
+      });
+      return hook;
+    }
+
+    it("rescales a stored raw count to a percentage once", async () => {
+      const first = await load({
+        quizScores: { "mythology-quiz": 4, "quiz-1": 3 },
+      });
+      expect(first.result.current.progress.quizScores).toEqual({
+        "mythology-quiz": 80,
+        "quiz-1": 3,
+      });
+      expect(first.result.current.progress.quizScoresVersion).toBe(2);
+      const saved = JSON.parse(localStorageData["mythos-atlas-progress"]);
+      expect(saved.quizScores["mythology-quiz"]).toBe(80);
+      expect(saved.quizScoresVersion).toBe(2);
+      first.unmount();
+
+      // A later load of the migrated record does not scale it again.
+      const second = renderHook(() => useProgress(), { wrapper });
+      await act(async () => {
+        vi.runAllTimers();
+      });
+      expect(second.result.current.progress.quizScores["mythology-quiz"]).toBe(
+        80,
+      );
+    });
+
+    it("does not rescale a small value once the record is marked migrated", async () => {
+      const { result } = await load({
+        quizScores: { "mythology-quiz": 3 },
+        quizScoresVersion: 2,
+      });
+      expect(result.current.progress.quizScores["mythology-quiz"]).toBe(3);
+    });
+
+    it("leaves percentage values untouched and marks the record migrated", async () => {
+      const { result } = await load({ quizScores: { "mythology-quiz": 80 } });
+      expect(result.current.progress.quizScores["mythology-quiz"]).toBe(80);
+      expect(result.current.progress.quizScoresVersion).toBe(2);
+    });
+
+    it("lets a perfect percentage replace a migrated raw score", async () => {
+      const { result } = await load({ quizScores: { "mythology-quiz": 4 } });
+      act(() => {
+        result.current.recordQuizScore("mythology-quiz", 100);
+      });
+      expect(result.current.progress.quizScores["mythology-quiz"]).toBe(100);
+    });
+
+    it("marks a brand new record as migrated", async () => {
+      vi.setSystemTime(new Date("2024-01-15"));
+      const { result } = renderHook(() => useProgress(), { wrapper });
+      await act(async () => {
+        vi.runAllTimers();
+      });
+      expect(result.current.progress.quizScoresVersion).toBe(2);
+    });
+  });
 });

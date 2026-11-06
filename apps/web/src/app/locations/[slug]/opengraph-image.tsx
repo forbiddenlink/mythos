@@ -1,6 +1,7 @@
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import { ogPalette, renderOgCard } from "@/lib/og/card";
+import { shortTraditionName } from "@/lib/tradition-name";
 
 // Node runtime: the catalogs these cards read are too large for an edge bundle.
 export const runtime = "nodejs";
@@ -29,10 +30,8 @@ export default async function Image({
   if (!entry) {
     return renderOgCard({ eyebrow: "Mythos Atlas", title: "Location" });
   }
-  const tradition =
-    pantheons
-      .find((p) => p.id === entry.pantheonId)
-      ?.name.replace(/\s+(?:Pantheon|Tradition|Traditions)$/, "") ?? "World";
+  const pantheonName = pantheons.find((p) => p.id === entry.pantheonId)?.name;
+  const tradition = pantheonName ? shortTraditionName(pantheonName) : "World";
   return renderOgCard({
     image: entry.imageUrl,
     eyebrow: `${tradition} place`,

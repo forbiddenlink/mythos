@@ -29,6 +29,7 @@ import {
   Shield,
   Wind,
 } from "lucide-react";
+import { shareOrCopy } from "@/lib/quiz-share";
 
 // Deity archetypes with scoring categories
 type DeityArchetype =
@@ -484,24 +485,12 @@ export function PersonalityQuiz() {
     const deity = DEITY_RESULTS[archetype];
     const shareUrl = `${globalThis.location.origin}/quiz/personality?result=${archetype}`;
 
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: `I'm ${deity.name}! - Mythos Atlas`,
-          text: `I took the "Which God Are You?" quiz and got ${deity.name}, ${deity.title}! Find your divine counterpart:`,
-          url: shareUrl,
-        });
-      } else {
-        await navigator.clipboard.writeText(shareUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      }
-    } catch {
-      try {
-        await navigator.clipboard.writeText(shareUrl);
-      } catch {
-        // Clipboard API unavailable
-      }
+    const outcome = await shareOrCopy({
+      title: `I'm ${deity.name}! - Mythos Atlas`,
+      text: `I took the "Which God Are You?" quiz and got ${deity.name}, ${deity.title}! Find your divine counterpart:`,
+      url: shareUrl,
+    });
+    if (outcome === "copied") {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }

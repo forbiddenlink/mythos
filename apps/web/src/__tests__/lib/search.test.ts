@@ -123,6 +123,29 @@ describe("search", () => {
       expect(getRecentSearches()).toEqual(["Zeus", "Thor"]);
     });
 
+    it("drops non-string entries from corrupt data", () => {
+      mockStorage.mock.setItem(
+        "mythos-atlas-recent-searches",
+        JSON.stringify(["Zeus", {}, 7, null, ["x"], "Thor"]),
+      );
+      expect(getRecentSearches()).toEqual(["Zeus", "Thor"]);
+    });
+
+    it("falls back to empty for non-array or unparseable data", () => {
+      mockStorage.mock.setItem("mythos-atlas-recent-searches", '{"a":1}');
+      expect(getRecentSearches()).toEqual([]);
+      mockStorage.mock.setItem("mythos-atlas-recent-searches", "{not json");
+      expect(getRecentSearches()).toEqual([]);
+    });
+
+    it("caps the list length", () => {
+      mockStorage.mock.setItem(
+        "mythos-atlas-recent-searches",
+        JSON.stringify(Array.from({ length: 50 }, (_, i) => `q${i}`)),
+      );
+      expect(getRecentSearches()).toHaveLength(10);
+    });
+
     it("should handle malformed JSON", () => {
       mockStorage.mock.setItem(
         "mythos-atlas-recent-searches",

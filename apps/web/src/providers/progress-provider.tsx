@@ -3,6 +3,7 @@
 import { saveLearningValue } from "@/lib/learning-persistence";
 
 import { progressSchema } from "@/lib/learning-backup";
+import { LEARNING_KEYS } from "@/lib/learning-keys";
 
 import { getLocalToday, getLocalYesterday } from "@/lib/date";
 import {
@@ -27,6 +28,8 @@ export interface UserProgress {
   dailyStreak: number;
   /** Best daily streak ever reached (carried over from the retired stats store). */
   longestStreak: number;
+  /** 2 once the mythology quiz score is stored as a percentage. */
+  quizScoresVersion?: number;
   lastVisit: string; // ISO date
   totalXP: number;
   streakFreezes: number;
@@ -80,7 +83,16 @@ export interface ProgressContextValue {
   trackQuizCompletion: (score: number) => void;
 }
 
-const PROGRESS_STORAGE_KEY = "mythos-atlas-progress";
+const PROGRESS_STORAGE_KEY = LEARNING_KEYS.progress;
+
+/**
+ * quizScores["mythology-quiz"] used to hold the raw correct count of a
+ * five-question run, and now holds a percentage like every other quiz. Version
+ * 2 of the record marks the rescale as done.
+ */
+const QUIZ_SCORES_VERSION = 2;
+const MYTHOLOGY_QUIZ_ID = "mythology-quiz";
+const MYTHOLOGY_QUIZ_QUESTION_COUNT = 5;
 
 const DEFAULT_PROGRESS: UserProgress = {
   deitiesViewed: [],
@@ -149,6 +161,21 @@ export function readLegacyLongestStreak(): number {
   }
 }
 
+function migrateQuizScores(progress: UserProgress): UserProgress {
+  if (progress.quizScoresVersion === QUIZ_SCORES_VERSION) return progress;
+  const raw = progress.quizScores[MYTHOLOGY_QUIZ_ID];
+  const quizScores =
+    raw !== undefined && raw <= MYTHOLOGY_QUIZ_QUESTION_COUNT
+      ? {
+          ...progress.quizScores,
+          [MYTHOLOGY_QUIZ_ID]: Math.round(
+            (raw / MYTHOLOGY_QUIZ_QUESTION_COUNT) * 100,
+          ),
+        }
+      : progress.quizScores;
+  return { ...progress, quizScores, quizScoresVersion: QUIZ_SCORES_VERSION };
+}
+
 function loadProgress(): UserProgress {
   if (globalThis.window === undefined) return DEFAULT_PROGRESS;
   try {
@@ -176,9 +203,11 @@ function loadProgress(): UserProgress {
       progress.dailyStreak,
       readLegacyLongestStreak(),
     );
-    return longestStreak === progress.longestStreak
-      ? progress
-      : { ...progress, longestStreak };
+    return migrateQuizScores(
+      longestStreak === progress.longestStreak
+        ? progress
+        : { ...progress, longestStreak },
+    );
   } catch {
     return DEFAULT_PROGRESS;
   }

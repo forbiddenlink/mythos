@@ -17,7 +17,10 @@ import {
   ORACLE_SOURCES_CHUNK_TYPE,
 } from "@/lib/oracle/constants";
 import { notInSourcesReply } from "@/lib/oracle/coverage";
-import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
+import {
+  checkGlobalOracleBudget,
+  releaseGlobalOracleBudget,
+} from "@/lib/oracle/global-budget";
 import { getOracleGroundingForConversation } from "@/lib/oracle/grounding";
 import { trimOracleHistory } from "@/lib/oracle/history";
 import { parseOracleLocale } from "@/lib/oracle/oracle-locale";
@@ -185,6 +188,9 @@ export async function POST(req: NextRequest) {
       }),
     );
     if (!tokens.allowed) {
+      // The token cap refused this request, so it did not run: return its
+      // slot in the global request counter.
+      await releaseGlobalOracleBudget(budget);
       return tokens.reason === "misconfigured"
         ? jsonError(
             503,

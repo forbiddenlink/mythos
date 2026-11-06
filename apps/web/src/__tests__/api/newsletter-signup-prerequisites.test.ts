@@ -7,7 +7,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
  * refuse before it spends rate-limit or send budget, or sends any mail.
  */
 
-const fake = vi.hoisted(() => ({ sends: 0, limitCalls: 0, creates: 0 }));
+const fake = vi.hoisted(() => ({ sends: 0, creates: 0 }));
+
+const store = await vi.hoisted(async () =>
+  (await import("../helpers/fake-upstash")).createFakeRedis(),
+);
 
 vi.mock("resend", () => ({
   Resend: class {
@@ -26,28 +30,13 @@ vi.mock("resend", () => ({
   },
 }));
 
-vi.mock("@upstash/ratelimit", () => ({
-  Ratelimit: class {
-    static slidingWindow() {
-      return {};
-    }
-    async limit() {
-      fake.limitCalls += 1;
-      return { success: true };
-    }
-  },
-}));
+vi.mock("@upstash/ratelimit", async () =>
+  (await import("../helpers/fake-upstash")).fakeRatelimitModule(store),
+);
 
-vi.mock("@upstash/redis", () => ({
-  Redis: class {
-    async incr() {
-      return 1;
-    }
-    async expire() {
-      return 1;
-    }
-  },
-}));
+vi.mock("@upstash/redis", async () =>
+  (await import("../helpers/fake-upstash")).fakeRedisModule(store),
+);
 
 import { POST as SIGNUP } from "@/app/api/newsletter/route";
 import { logger } from "@/lib/logger";
@@ -74,7 +63,7 @@ beforeEach(() => {
   process.env.UPSTASH_REDIS_REST_URL = "https://example.upstash.io";
   process.env.UPSTASH_REDIS_REST_TOKEN = "token";
   fake.sends = 0;
-  fake.limitCalls = 0;
+  store.limitCalls = 0;
   fake.creates = 0;
 });
 
@@ -93,7 +82,7 @@ describe("POST /api/newsletter prerequisites", () => {
     expect(res.status).toBe(503);
     expect(fake.sends).toBe(0);
     expect(fake.creates).toBe(0);
-    expect(fake.limitCalls).toBe(0);
+    expect(store.limitCalls).toBe(0);
     expect(error).toHaveBeenCalledWith(
       expect.stringContaining("RESEND_WEBHOOK_SECRET"),
       {},

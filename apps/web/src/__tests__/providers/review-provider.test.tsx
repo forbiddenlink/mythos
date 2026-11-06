@@ -253,4 +253,50 @@ describe("ReviewProvider", () => {
     });
     expect(Object.keys(result.current.reviewState.cards)).toHaveLength(2);
   });
+
+  it("does not mutate the module-level default when the day rolls over", () => {
+    localStorage.setItem(
+      "mythos-atlas-review",
+      JSON.stringify({ stats: null, lastReviewDate: "2020-01-01" }),
+    );
+    const { result } = renderHook(() => useReview(), { wrapper: Providers });
+    const outside = renderHook(() => useReview()).result.current.reviewState;
+    expect(result.current.reviewState.stats).not.toBe(outside.stats);
+    expect(result.current.reviewState.todayReviewed).not.toBe(
+      outside.todayReviewed,
+    );
+  });
+
+  it("picks up review data written by another tab", async () => {
+    const { result } = renderHook(() => useReview(), { wrapper: Providers });
+    await waitFor(() => expect(result.current.reviewState).toBeDefined());
+    expect(result.current.reviewState.stats.totalReviewed).toBe(0);
+
+    const newer = {
+      ...result.current.reviewState,
+      stats: { ...result.current.reviewState.stats, totalReviewed: 7 },
+    };
+    localStorage.setItem("mythos-atlas-review", JSON.stringify(newer));
+    act(() => {
+      window.dispatchEvent(
+        new StorageEvent("storage", { key: "mythos-atlas-review" }),
+      );
+    });
+
+    await waitFor(() =>
+      expect(result.current.reviewState.stats.totalReviewed).toBe(7),
+    );
+  });
+
+  it("ignores storage events for other keys", async () => {
+    const { result } = renderHook(() => useReview(), { wrapper: Providers });
+    await waitFor(() => expect(result.current.reviewState).toBeDefined());
+    const before = result.current.reviewState;
+    act(() => {
+      window.dispatchEvent(
+        new StorageEvent("storage", { key: "mythos-atlas-progress" }),
+      );
+    });
+    expect(result.current.reviewState).toBe(before);
+  });
 });

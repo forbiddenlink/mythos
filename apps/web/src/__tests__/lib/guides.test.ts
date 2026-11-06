@@ -37,15 +37,22 @@ describe("guides registry", () => {
       guidesFeaturing("deity", "artemis")
         .map((g) => g.slug)
         .sort(),
-    ).toEqual(["greek-gods-family-tree", "percy-jackson-titans-curse"]);
+    ).toEqual([
+      "greek-gods-family-tree",
+      "greek-roman-gods-chart",
+      "hades-ii",
+      "percy-jackson-titans-curse",
+    ]);
     expect(
       guidesFeaturing("hero", "odysseus")
         .map((g) => g.slug)
         .sort(),
     ).toEqual(["hades-ii", "odyssey"]);
-    expect(guidesFeaturing("deity", "melinoe").map((g) => g.slug)).toEqual([
-      "hades-ii",
-    ]);
+    expect(
+      guidesFeaturing("deity", "melinoe")
+        .map((g) => g.slug)
+        .sort(),
+    ).toEqual(["greek-gods-family-tree", "hades-ii"]);
     expect(getGuide("nope")).toBeUndefined();
   });
 

@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import {
+  ArticleJsonLd,
   BreadcrumbJsonLd,
   OrganizationJsonLd,
   DeityJsonLd,
@@ -163,5 +164,35 @@ describe("entity structured data", () => {
     expect(data["@type"]).toBe("Book");
     expect(data.workTranslation[0].translator.name).toBe("Emily Wilson");
     expect(data.character[0]["@type"]).toBe("Thing");
+  });
+
+  it("omits article dates when no real date is supplied", () => {
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(
+      <ArticleJsonLd headline="A story" description="About a story" />,
+    );
+    const data = JSON.parse(
+      container.querySelector("script")?.textContent ?? "{}",
+    );
+    expect(data["@type"]).toBe("Article");
+    expect(data).not.toHaveProperty("datePublished");
+    expect(data).not.toHaveProperty("dateModified");
+  });
+
+  it("keeps article dates that are supplied", () => {
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(
+      <ArticleJsonLd
+        headline="A story"
+        description="About a story"
+        datePublished="2026-03-04T00:00:00Z"
+        dateModified="2026-03-05T00:00:00Z"
+      />,
+    );
+    const data = JSON.parse(
+      container.querySelector("script")?.textContent ?? "{}",
+    );
+    expect(data.datePublished).toBe("2026-03-04T00:00:00Z");
+    expect(data.dateModified).toBe("2026-03-05T00:00:00Z");
   });
 });

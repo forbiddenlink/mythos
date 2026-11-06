@@ -4,11 +4,10 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { X } from "lucide-react";
 import Link from "next/link";
 import {
+  getCookieConsent,
   hasGlobalPrivacyControl,
-  notifyCookieConsentChanged,
+  setCookieConsent,
 } from "@/lib/privacy-consent";
-
-const COOKIE_CONSENT_KEY = "mythos-cookie-consent";
 
 export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,13 +35,7 @@ export function CookieConsent() {
     };
     window.addEventListener("mythos-cookie-consent-open", openHandler);
 
-    let stored: string | null = null;
-    try {
-      stored = localStorage.getItem(COOKIE_CONSENT_KEY);
-    } catch {
-      // localStorage blocked (SecurityError in strict browsers/iframes)
-    }
-    if (stored === "accepted" || stored === "rejected") {
+    if (getCookieConsent() !== null) {
       hasConsentedRef.current = true;
       return () =>
         window.removeEventListener("mythos-cookie-consent-open", openHandler);
@@ -76,25 +69,15 @@ export function CookieConsent() {
   }, [isVisible]);
 
   const handleAccept = useCallback(() => {
-    try {
-      localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
-    } catch {
-      /* blocked */
-    }
+    setCookieConsent("accepted");
     hasConsentedRef.current = true;
     setIsVisible(false);
-    notifyCookieConsentChanged();
   }, []);
 
   const handleReject = useCallback(() => {
-    try {
-      localStorage.setItem(COOKIE_CONSENT_KEY, "rejected");
-    } catch {
-      /* blocked */
-    }
+    setCookieConsent("rejected");
     hasConsentedRef.current = true;
     setIsVisible(false);
-    notifyCookieConsentChanged();
   }, []);
 
   const handleDismiss = useCallback(() => {

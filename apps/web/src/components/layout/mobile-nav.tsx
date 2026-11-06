@@ -16,7 +16,8 @@ import { ChevronDown, Menu } from "lucide-react";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
 
 interface NavLink {
   href: string;
@@ -39,12 +40,7 @@ interface MobileNavProps {
 function MobileQuickStats() {
   const { progress } = useProgress();
   const { dueCount } = useReview();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
-    setMounted(true);
-  }, []);
+  const mounted = useHydrated();
 
   if (!mounted) return null;
 

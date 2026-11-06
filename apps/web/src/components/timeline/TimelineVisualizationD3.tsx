@@ -5,7 +5,6 @@ import * as d3 from "d3";
 import { motion, AnimatePresence } from "framer-motion";
 import { RotateCcw, ZoomIn, ZoomOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { PANTHEON_HEX as PANTHEON_COLORS } from "@/lib/pantheon-colors";
 
 // ---------------------------------------------------------------------------
@@ -36,6 +35,8 @@ interface TimelineVisualizationProps {
   pantheons: Pantheon[];
   events: TimelineEvent[];
   viewRange: [number, number];
+  /** Reports the visible year range when a zoom or pan gesture ends. */
+  onRangeChange?: (range: [number, number]) => void;
 }
 
 // ---------------------------------------------------------------------------
@@ -96,6 +97,16 @@ const ERA_MARKERS = [
   },
 ];
 
+const SELECTED_LABEL_CLASS =
+  "text-xs font-medium transition-colors label-text sm:text-sm text-white";
+const IDLE_LABEL_CLASS =
+  "text-xs font-medium transition-colors label-text sm:text-sm text-muted-foreground";
+
+/** Whether two year ranges are the same chart position (sub-year drift ignored). */
+function sameRange(a: [number, number], b: [number, number]): boolean {
+  return Math.abs(a[0] - b[0]) < 1 && Math.abs(a[1] - b[1]) < 1;
+}
+
 function formatYear(year: number) {
   if (year < 0) return `${Math.abs(year)} BCE`;
   return `${year} CE`;
@@ -105,6 +116,7 @@ export function TimelineVisualizationD3({
   pantheons,
   events,
   viewRange,
+  onRangeChange,
 }: TimelineVisualizationProps) {
   const chartHeight = Math.max(
     600,
@@ -124,6 +136,21 @@ export function TimelineVisualizationD3({
     unknown
   > | null>(null);
   const xScaleRef = useRef<d3.ScaleLinear<number, number> | null>(null);
+  // The init effect draws from this ref, so a selection change restyles the
+  // chart without rebuilding it (which would reset the zoom).
+  const selectedPantheonRef = useRef<string | null>(null);
+  const onRangeChangeRef = useRef(onRangeChange);
+  useEffect(() => {
+    onRangeChangeRef.current = onRangeChange;
+  }, [onRangeChange]);
+  // Set while a viewRange-driven transition runs, so the chart does not echo
+  // the parent's own range (or a clamped version of it) back to it.
+  const applyingRangeRef = useRef(false);
+  // Domain currently drawn, kept so viewRange can skip a no-op transition.
+  const visibleDomainRef = useRef<[number, number]>([
+    TIMELINE_START,
+    TIMELINE_END,
+  ]);
 
   const zoomBy = (factor: number) => {
     const zoom = zoomBehaviorRef.current;
@@ -148,6 +175,8 @@ export function TimelineVisualizationD3({
     // Current Scale Domain: [-3500, 2025] -> Total Span: 5525
     // Target Scale Domain: [start, end] -> Target Span: end - start
     // k (Scale Factor) = TotalSpan / TargetSpan
+
+    if (sameRange(visibleDomainRef.current, viewRange)) return;
 
     const totalSpan = TIMELINE_END - TIMELINE_START;
     const targetSpan = viewRange[1] - viewRange[0];
@@ -190,6 +219,7 @@ export function TimelineVisualizationD3({
 
     const newTx = -xStart * newK;
 
+    applyingRangeRef.current = true;
     svg
       .transition()
       .duration(750)
@@ -223,6 +253,7 @@ export function TimelineVisualizationD3({
       .range([0, innerWidth]);
 
     xScaleRef.current = xScaleOriginal;
+    visibleDomainRef.current = [TIMELINE_START, TIMELINE_END];
 
     let xScale = xScaleOriginal;
 
@@ -251,7 +282,17 @@ export function TimelineVisualizationD3({
       })
       .on("zoom", (event) => {
         xScale = event.transform.rescaleX(xScaleOriginal);
+        const [from, to] = xScale.domain();
+        visibleDomainRef.current = [from, to];
         update();
+      })
+      .on("end", () => {
+        if (applyingRangeRef.current) {
+          applyingRangeRef.current = false;
+          return;
+        }
+        const [from, to] = visibleDomainRef.current;
+        onRangeChangeRef.current?.([Math.round(from), Math.round(to)]);
       });
 
     zoomBehaviorRef.current = zoom;
@@ -429,7 +470,9 @@ export function TimelineVisualizationD3({
           .attr("stroke-opacity", 0.5)
           .attr(
             "opacity",
-            selectedPantheon && selectedPantheon !== d.id ? 0.3 : 1,
+            selectedPantheonRef.current && selectedPantheonRef.current !== d.id
+              ? 0.3
+              : 1,
           ) // Dim if not selected
           .transition()
           .duration(200);
@@ -557,12 +600,9 @@ export function TimelineVisualizationD3({
             .attr("fill", "currentColor")
             .attr(
               "class",
-              cn(
-                "text-xs font-medium transition-colors label-text sm:text-sm",
-                selectedPantheon === d.id
-                  ? "text-white"
-                  : "text-muted-foreground",
-              ),
+              selectedPantheonRef.current === d.id
+                ? SELECTED_LABEL_CLASS
+                : IDLE_LABEL_CLASS,
             );
 
           // Ellipsize whatever still overflows the label column so it never
@@ -586,7 +626,30 @@ export function TimelineVisualizationD3({
     return () => {
       // D3 cleanup if needed
     };
-  }, [pantheons, events, selectedPantheon, chartHeight]); // Re-run when selection changes
+  }, [pantheons, events, chartHeight]);
+
+  // Selection only restyles; the init effect above must not rerun for it.
+  useEffect(() => {
+    selectedPantheonRef.current = selectedPantheon;
+    if (!svgRef.current) return;
+    const svg = d3.select(svgRef.current);
+    svg.selectAll<SVGGElement, Pantheon>(".pantheon-group").each(function (d) {
+      d3.select(this)
+        .select("rect")
+        .attr(
+          "opacity",
+          selectedPantheon && selectedPantheon !== d.id ? 0.3 : 1,
+        );
+    });
+    svg.selectAll<SVGGElement, Pantheon>(".row-label").each(function (d) {
+      d3.select(this)
+        .select(".label-text")
+        .attr(
+          "class",
+          selectedPantheon === d.id ? SELECTED_LABEL_CLASS : IDLE_LABEL_CLASS,
+        );
+    });
+  }, [selectedPantheon]);
 
   return (
     <div className="dark relative w-full overflow-hidden rounded-lg bg-midnight text-foreground ring-1 ring-border">

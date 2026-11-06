@@ -69,11 +69,12 @@ export function InteractiveStory({ story }: InteractiveStoryProps) {
 
   // Handle ending discovery
   useEffect(() => {
-    if (currentNode?.ending && !discoveredEndings.includes(currentNodeId)) {
+    if (!currentNode?.ending) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- show the ending screen whenever an ending is reached
+    setShowEndingScreen(true);
+    if (!discoveredEndings.includes(currentNodeId)) {
       saveDiscoveredEnding(story.id, currentNodeId);
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- update endings when new ending discovered
       setDiscoveredEndings((prev) => [...prev, currentNodeId]);
-      setShowEndingScreen(true);
     }
   }, [currentNode, currentNodeId, story.id, discoveredEndings]);
 

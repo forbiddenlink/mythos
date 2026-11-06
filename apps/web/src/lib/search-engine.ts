@@ -549,7 +549,10 @@ export function getRecentSearches(): string[] {
     const stored = localStorage.getItem(RECENT_SEARCHES_KEY);
     if (!stored) return [];
     const parsed = JSON.parse(stored);
-    return Array.isArray(parsed) ? parsed : [];
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .filter((entry): entry is string => typeof entry === "string")
+      .slice(0, MAX_RECENT_SEARCHES);
   } catch {
     return [];
   }

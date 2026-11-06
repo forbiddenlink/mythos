@@ -26,6 +26,7 @@ import { QuizRetentionSurvey } from "@/components/quiz/QuizRetentionSurvey";
 import { SupportNudge } from "@/components/support/SupportNudge";
 import { trackEvent } from "@/lib/analytics/events";
 import { quizResultPath } from "@/lib/quiz-share";
+import { readHighScore, writeHighScore } from "@/lib/quiz-high-score";
 import { useProgress } from "@/hooks/use-progress";
 import { useReview } from "@/providers/review-provider";
 import { quizLearnMore } from "@/lib/quiz-learn-more";
@@ -126,15 +127,18 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
 
   // Load high score
   useEffect(() => {
-    const saved = localStorage.getItem("mythos_quiz_highscore");
+    const saved = readHighScore("mythos_quiz_highscore");
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from localStorage
-    if (saved) setHighScore(Number.parseInt(saved));
+    if (saved) setHighScore(saved);
   }, []);
 
   useEffect(() => {
     if (!quizCompleted || recordedCompletion.current) return;
     recordedCompletion.current = true;
-    recordQuizScore("mythology-quiz", score);
+    recordQuizScore(
+      "mythology-quiz",
+      questions.length > 0 ? Math.round((score / questions.length) * 100) : 0,
+    );
     trackQuizCompletion(score);
     trackEvent("quiz_completed", {
       quizId: "mythology-quiz",
@@ -179,9 +183,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           type: "visual",
           question: "Which mythical beast or creature is depicted here?",
           imageUrl: target.imageUrl || undefined,
-          options: [target.name, ...others.map((o) => o.name)].sort(
-            () => Math.random() - 0.5,
-          ),
+          options: shuffle([target.name, ...others.map((o) => o.name)]),
           correctAnswer: target.name,
           explanation: `This is ${target.name}, legendary creature of ${target.habitat}.`,
           ...quizLearnMore(target, "creatures"),
@@ -201,9 +203,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           type: "visual",
           question: "Which legendary relic or artifact is shown here?",
           imageUrl: target.imageUrl || undefined,
-          options: [target.name, ...others.map((o) => o.name)].sort(
-            () => Math.random() - 0.5,
-          ),
+          options: shuffle([target.name, ...others.map((o) => o.name)]),
           correctAnswer: target.name,
           explanation: `This is ${target.name}, legendary ${target.type}.`,
           ...quizLearnMore(target, "artifacts"),
@@ -223,9 +223,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
           type: "visual",
           question: "Which sacred site or mythical realm is depicted here?",
           imageUrl: target.imageUrl || undefined,
-          options: [target.name, ...others.map((o) => o.name)].sort(
-            () => Math.random() - 0.5,
-          ),
+          options: shuffle([target.name, ...others.map((o) => o.name)]),
           correctAnswer: target.name,
           explanation: `This is ${target.name}, sacred location in world mythology.`,
           ...quizLearnMore(
@@ -351,7 +349,7 @@ export function MythologyQuiz({ pool }: { pool: MythologyQuizPool }) {
       setScore(newScore);
       if (newScore > highScore) {
         setHighScore(newScore);
-        localStorage.setItem("mythos_quiz_highscore", newScore.toString());
+        writeHighScore("mythos_quiz_highscore", newScore);
       }
     }
   };

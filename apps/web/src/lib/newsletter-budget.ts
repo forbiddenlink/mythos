@@ -6,15 +6,9 @@
  * fails closed on a Redis error: each admission sends a real email.
  */
 import { Redis } from "@upstash/redis";
+import { isProductionRuntime, utcDayKey } from "@/lib/server/runtime";
 
 export const DEFAULT_NEWSLETTER_DAILY_SEND_CAP = 200;
-
-function isProductionRuntime(): boolean {
-  return (
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL_ENV === "production"
-  );
-}
 
 export function newsletterDailySendCap(): number {
   const raw = process.env.NEWSLETTER_DAILY_SEND_CAP?.trim();
@@ -35,7 +29,7 @@ const memoryCounts = new Map<string, number>();
 export async function checkNewsletterSendBudget(
   now: Date = new Date(),
 ): Promise<NewsletterBudgetResult> {
-  const day = now.toISOString().slice(0, 10);
+  const day = utcDayKey(now);
   const cap = newsletterDailySendCap();
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;

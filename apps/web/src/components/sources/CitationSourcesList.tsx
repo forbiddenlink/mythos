@@ -10,6 +10,7 @@ export interface CitationSourceItem {
   title: string;
   url?: string;
   author?: string;
+  sourceId?: string;
   lines?: string;
   book?: string;
   chapters?: string;
@@ -56,7 +57,7 @@ export function CitationSourcesList({
           // No edition link: point to the atlas's own page for the work.
           const internal = external
             ? undefined
-            : citedWorkHref(source.title, source.author);
+            : citedWorkHref(source.title, source.author, source.sourceId);
           return (
             <li
               key={`${source.title}-${source.author ?? ""}-${index}`}

@@ -213,4 +213,24 @@ describe("toOracleRequestMessages", () => {
     ]);
     expect(out[0]!.content).toHaveLength(ORACLE_MAX_MESSAGE_CONTENT_CHARS);
   });
+
+  it("drops failed and empty assistant turns from the next request", () => {
+    const out = toOracleRequestMessages([
+      { role: "user", content: "first" },
+      { role: "assistant", content: "", status: "failed" },
+      { role: "user", content: "second" },
+      { role: "assistant", content: "half an ans", status: "failed" },
+      { role: "user", content: "third" },
+      { role: "assistant", content: "   ", status: "streaming" },
+      { role: "assistant", content: "a real answer", status: "done" },
+      { role: "user", content: "fourth" },
+    ]);
+    expect(out.map((m) => m.content)).toEqual([
+      "first",
+      "second",
+      "third",
+      "a real answer",
+      "fourth",
+    ]);
+  });
 });

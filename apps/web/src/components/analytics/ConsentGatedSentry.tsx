@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { hasAnalyticsConsent } from "@/lib/privacy-consent";
+import { hasAnalyticsConsent, subscribeConsent } from "@/lib/privacy-consent";
 import { scrubEvent } from "@/lib/sentry-scrub";
 
 /**
@@ -89,12 +89,10 @@ export function ConsentGatedSentry() {
     };
 
     void sync();
-    window.addEventListener("storage", onConsent);
-    window.addEventListener("mythos-cookie-consent", onConsent);
+    const unsubscribe = subscribeConsent(onConsent);
     return () => {
       cancelled = true;
-      window.removeEventListener("storage", onConsent);
-      window.removeEventListener("mythos-cookie-consent", onConsent);
+      unsubscribe();
     };
   }, []);
 

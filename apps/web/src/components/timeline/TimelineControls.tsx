@@ -68,7 +68,9 @@ export function TimelineControls({
               key={era.label}
               type="button"
               aria-pressed={selected}
-              onClick={() => onRangeChange(era.range as [number, number])}
+              // A fresh array every click, so re-picking the current era after a
+              // pan still re-applies it.
+              onClick={() => onRangeChange([era.range[0], era.range[1]])}
               className={cn(
                 "inline-flex min-h-10 items-center rounded-[5px] px-3 type-ui font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
                 selected

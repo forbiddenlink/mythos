@@ -4,6 +4,7 @@ import { saveLearningValue } from "@/lib/learning-persistence";
 
 import { loadDeityIndex, loadStoryIndex } from "@/lib/catalog-client";
 import { reviewSchema } from "@/lib/learning-backup";
+import { LEARNING_KEYS } from "@/lib/learning-keys";
 
 import {
   calculateAccuracy,
@@ -50,7 +51,7 @@ export interface QueuedDeity {
   symbols?: string[];
 }
 
-const REVIEW_STORAGE_KEY = "mythos-atlas-review";
+const REVIEW_STORAGE_KEY = LEARNING_KEYS.review;
 
 interface ReviewDeityData {
   id: string;
@@ -105,6 +106,26 @@ function loadReviewState(): ReviewState {
   } catch {
     return DEFAULT_REVIEW_STATE;
   }
+}
+
+/** Load the saved state, resetting today's counters if the day has rolled over. */
+function loadReviewStateForToday(): ReviewState {
+  const loaded = loadReviewState();
+  const today = getToday();
+  if (loaded.lastReviewDate === today) return loaded;
+
+  const staleStreak =
+    loaded.lastReviewDate !== "" && loaded.lastReviewDate !== getYesterday();
+  return {
+    ...loaded,
+    todayReviewed: [],
+    stats: {
+      ...loaded.stats,
+      correctToday: 0,
+      incorrectToday: 0,
+      ...(staleStreak ? { currentStreak: 0 } : {}),
+    },
+  };
 }
 
 function saveReviewState(state: ReviewState) {
@@ -189,22 +210,8 @@ export function ReviewProvider({
 
   // Hydration-safe: load from localStorage on client mount
   useEffect(() => {
-    const loaded = loadReviewState();
-
-    // Check if it's a new day and reset today's progress
-    const today = getToday();
-    if (loaded.lastReviewDate !== today) {
-      loaded.todayReviewed = [];
-      loaded.stats.correctToday = 0;
-      loaded.stats.incorrectToday = 0;
-
-      if (loaded.lastReviewDate && loaded.lastReviewDate !== getYesterday()) {
-        loaded.stats.currentStreak = 0;
-      }
-    }
-
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate review state from localStorage (SSR-safe)
-    setReviewState(loaded);
+    setReviewState(loadReviewStateForToday());
     setMounted(true);
   }, []);
 
@@ -214,6 +221,17 @@ export function ReviewProvider({
       saveReviewState(reviewState);
     }
   }, [reviewState, mounted]);
+
+  // Cross-tab sync: re-read from localStorage when another tab updates it
+  useEffect(() => {
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === REVIEW_STORAGE_KEY) {
+        setReviewState(loadReviewStateForToday());
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
 
   // Generate cards from user's viewed content
   const generateCardsFromProgress = useCallback(async () => {
