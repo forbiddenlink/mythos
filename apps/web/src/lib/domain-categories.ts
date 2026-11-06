@@ -8,7 +8,7 @@ const DOMAIN_ALIASES: Record<string, readonly string[]> = {
   moon: ["moon", "the moon"],
   sky: ["sky", "the sky"],
   earth: ["earth", "the earth"],
-  sea: ["sea", "seas", "the sea"],
+  sea: ["sea", "seas", "the sea", "ocean", "the ocean"],
   water: ["water", "waters", "the waters"],
   freshwater: ["fresh water", "fresh waters", "freshwater"],
   rivers: ["rivers", "the rivers"],
@@ -89,6 +89,15 @@ const aliasToCategory = new Map(
     aliases.map((alias) => [alias, category] as const),
   ),
 );
+
+/**
+ * The category a single catalog domain term belongs to, or undefined when the
+ * term is not a listed alias. This table is the one owner of domain identity:
+ * the deity filters and the /gods-of pages both group terms through it.
+ */
+export function domainCategoryForTerm(raw: string): string | undefined {
+  return aliasToCategory.get(raw.trim().toLowerCase());
+}
 
 export function domainCategoryLabel(category: string): string {
   if (category === OTHER_DOMAIN) return "Other recorded domains";
