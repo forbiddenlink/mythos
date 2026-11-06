@@ -52,7 +52,7 @@ describe("server analytics sink", () => {
     const result = await captureServerEvent({
       event: "pmf_survey_answered",
       distinctId: "anon-1",
-      properties: { rating: "very" },
+      properties: { rating: "very", quizId: "mythology-quiz" },
     });
 
     expect(result).toEqual({ ok: false, reason: "not_configured" });
@@ -111,7 +111,7 @@ describe("server analytics sink", () => {
     const result = await captureServerEvent({
       event: "pmf_survey_answered",
       distinctId: "anon-1",
-      properties: {},
+      properties: { rating: "very", quizId: "mythology-quiz" },
     });
 
     expect(result).toEqual({
@@ -128,7 +128,7 @@ describe("server analytics sink", () => {
     const result = await captureServerEvent({
       event: "pmf_survey_answered",
       distinctId: "anon-1",
-      properties: {},
+      properties: { rating: "very", quizId: "mythology-quiz" },
     });
 
     expect(result).toEqual({ ok: false, reason: "network_error" });

@@ -5,6 +5,7 @@ import {
   sanitizeProperties,
   type AnalyticsProperties,
 } from "@/lib/analytics/events";
+import { matchesEventSchema } from "@/lib/analytics/event-schemas";
 
 const DEFAULT_HOST = "https://us.i.posthog.com";
 
@@ -61,7 +62,10 @@ export async function captureServerEvent({
     return { ok: false, reason: "unknown_event" };
   }
 
-  if (!hasValidLearningEventProperties(event, properties)) {
+  if (
+    !matchesEventSchema(event, properties) ||
+    !hasValidLearningEventProperties(event, properties)
+  ) {
     return { ok: false, reason: "invalid_properties" };
   }
 

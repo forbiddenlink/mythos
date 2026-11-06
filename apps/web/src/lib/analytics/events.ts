@@ -4,7 +4,8 @@
  * Why a closed set: free-form `capture("whatever")` calls drift within weeks and
  * the resulting funnels silently measure the wrong thing. Every event the app
  * can emit is listed here, typed, and validated at runtime before it leaves the
- * browser.
+ * browser. The server checks every beacon again against the per-event field
+ * schemas in event-schemas.ts and refuses any extra or malformed field.
  *
  * Privacy contract: no event carries free text a visitor typed, no identifiers,
  * and no entity beyond a public slug, with ONE exception: `search_no_results`
