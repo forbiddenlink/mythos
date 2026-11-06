@@ -29,11 +29,6 @@ export function saveLocale(locale: Locale): void {
   const secureFlag = process.env.NODE_ENV === "production" ? ";Secure" : "";
   // Mirrors the flags proxy.ts sets on this same cookie.
   document.cookie = `locale=${locale};path=/;max-age=31536000;SameSite=Lax${secureFlag}`;
-  try {
-    localStorage.setItem("locale", locale);
-  } catch {
-    /* blocked */
-  }
   window.dispatchEvent(
     new CustomEvent(LOCALE_CHANGE_EVENT, { detail: locale }),
   );

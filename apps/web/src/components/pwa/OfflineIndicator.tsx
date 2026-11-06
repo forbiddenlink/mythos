@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { WifiOff, Wifi } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useEffect, useState } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
+import { WifiOff, Wifi } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function OfflineIndicator() {
   const [isOnline, setIsOnline] = useState(true);
   const [showReconnected, setShowReconnected] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
-    setMounted(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync initial online state on client mount
     setIsOnline(navigator.onLine);
 
     const handleOnline = () => {
@@ -26,12 +26,12 @@ export function OfflineIndicator() {
       setShowReconnected(false);
     };
 
-    globalThis.addEventListener('online', handleOnline);
-    globalThis.addEventListener('offline', handleOffline);
+    globalThis.addEventListener("online", handleOnline);
+    globalThis.addEventListener("offline", handleOffline);
 
     return () => {
-      globalThis.removeEventListener('online', handleOnline);
-      globalThis.removeEventListener('offline', handleOffline);
+      globalThis.removeEventListener("online", handleOnline);
+      globalThis.removeEventListener("offline", handleOffline);
     };
   }, []);
 
@@ -43,10 +43,10 @@ export function OfflineIndicator() {
   return (
     <output
       className={cn(
-        'fixed top-0 left-0 right-0 z-100 flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300',
+        "fixed top-0 left-0 right-0 z-100 flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium transition-all duration-300",
         isOnline
-          ? 'bg-green-600 text-white animate-in slide-in-from-top-2'
-          : 'bg-amber-600 text-white animate-in slide-in-from-top-2'
+          ? "bg-green-600 text-white animate-in slide-in-from-top-2"
+          : "bg-amber-600 text-white animate-in slide-in-from-top-2",
       )}
       aria-live="polite"
     >

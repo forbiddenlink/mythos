@@ -63,6 +63,16 @@ CATALOG = {
     "Location": ("location", "locations.json", "name"),
     "Artifact": ("artifact", "artifacts.json", "name"),
 }
+# Entity type -> folder under apps/web/public (irregular plurals: deities, heroes, stories).
+ENTITY_FOLDER = {
+    "hero": "heroes",
+    "deity": "deities",
+    "creature": "creatures",
+    "pantheon": "pantheons",
+    "story": "stories",
+    "location": "locations",
+    "artifact": "artifacts",
+}
 PORTRAIT = {"hero", "deity", "creature"}
 # Native sizes the model accepts; cropped to 4:5 or 3:2 afterwards.
 API_SIZE = {True: "3:4", False: "4:3"}
@@ -154,7 +164,7 @@ def build_prompt(row: dict, rec: dict, cat: dict) -> tuple[str, str]:
 
 def target_path(rec: dict, etype: str) -> tuple[str, str]:
     """(new imageUrl, old imageUrl). Always webp; folder stays the entity folder."""
-    old = rec.get("imageUrl") or f"/{etype}s/{rec['id']}.webp"
+    old = rec.get("imageUrl") or f"/{ENTITY_FOLDER[etype]}/{rec['id']}.webp"
     new = str(Path(old).with_suffix(".webp"))
     return new, old
 

@@ -3,11 +3,10 @@ import {
   generateEntityAlt,
   getIllustrativeImageNote,
 } from "@/lib/image-provenance";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import creatures from "@/data/creatures.json";
 import deitiesData from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
-import { canonicalCreatureSlug } from "@/lib/creature-aliases";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
@@ -89,8 +88,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug: rawSlug } = await params;
-  const slug = canonicalCreatureSlug(rawSlug);
+  const { slug } = await params;
   const creature = creatures.find((c) => c.slug === slug) as
     CreatureData | undefined;
 
@@ -137,11 +135,6 @@ export async function generateMetadata({
 
 export default async function CreaturePage({ params }: PageProps) {
   const { slug } = await params;
-  const canonical = canonicalCreatureSlug(slug);
-  if (canonical !== slug) {
-    redirect(`/creatures/${canonical}`);
-  }
-
   const allCreatures = creatures as CreatureData[];
   const creature = allCreatures.find((c) => c.slug === slug);
   if (!creature) {

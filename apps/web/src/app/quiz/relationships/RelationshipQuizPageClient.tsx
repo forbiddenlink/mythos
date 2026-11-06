@@ -39,7 +39,8 @@ import {
 } from "@/lib/relationship-quiz";
 import { useProgress } from "@/hooks/use-progress";
 import type { QuizDeity as Deity } from "@/lib/relationship-quiz";
-import { quizResultPath } from "@/lib/quiz-share";
+import { quizResultPath, shareOrCopy } from "@/lib/quiz-share";
+import { readHighScore, writeHighScore } from "@/lib/quiz-high-score";
 
 interface QuizState {
   questions: RelationshipQuestion[];
@@ -91,9 +92,9 @@ export function RelationshipQuizPageClient({
 
   // Load high score
   useEffect(() => {
-    const saved = localStorage.getItem("mythos_relationship_quiz_highscore");
+    const saved = readHighScore("mythos_relationship_quiz_highscore");
     // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from localStorage
-    if (saved) setHighScore(Number.parseInt(saved));
+    if (saved) setHighScore(saved);
   }, []);
   const deities = deitiesData as Deity[];
   const relationships = relationshipsData as Relationship[];
@@ -157,10 +158,7 @@ export function RelationshipQuizPageClient({
       // Update high score
       if (finalScore > highScore) {
         setHighScore(finalScore);
-        localStorage.setItem(
-          "mythos_relationship_quiz_highscore",
-          finalScore.toString(),
-        );
+        writeHighScore("mythos_relationship_quiz_highscore", finalScore);
       }
 
       // Record quiz score
@@ -214,27 +212,13 @@ export function RelationshipQuizPageClient({
       "relationships",
     )}`;
 
-    try {
-      // Try native share first on mobile
-      if (navigator.share) {
-        const percentage = Math.round((score / total) * 100);
-        await navigator.share({
-          title: "My Quiz Results - Mythos Atlas",
-          text: `I scored ${percentage}% on the Divine Relationships Quiz! Can you beat my score?`,
-          url: shareUrl,
-        });
-      } else {
-        // Fall back to clipboard
-        await navigator.clipboard.writeText(shareUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      }
-    } catch {
-      try {
-        await navigator.clipboard.writeText(shareUrl);
-      } catch {
-        // Clipboard API unavailable
-      }
+    const percentage = Math.round((score / total) * 100);
+    const outcome = await shareOrCopy({
+      title: "My Quiz Results - Mythos Atlas",
+      text: `I scored ${percentage}% on the Divine Relationships Quiz! Can you beat my score?`,
+      url: shareUrl,
+    });
+    if (outcome === "copied") {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }

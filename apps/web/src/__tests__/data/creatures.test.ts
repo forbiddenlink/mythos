@@ -1,6 +1,6 @@
 import creatures from "../../data/creatures.json";
 import pantheons from "../../data/pantheons.json";
-import { CREATURE_ALIASES } from "@/lib/creature-aliases";
+import { SLUG_ALIASES } from "@/lib/slug-aliases";
 
 const { describe, it, expect } = await import("vitest");
 
@@ -104,7 +104,7 @@ describe("creatures.json data integrity", () => {
 
   it("aliased duplicate slugs are not still in the catalog", () => {
     const slugs = new Set(creatures.map((c: { slug: string }) => c.slug));
-    for (const [from, to] of Object.entries(CREATURE_ALIASES)) {
+    for (const [from, to] of Object.entries(SLUG_ALIASES.creatures)) {
       expect(slugs.has(from), from).toBe(false);
       expect(slugs.has(to), to).toBe(true);
     }

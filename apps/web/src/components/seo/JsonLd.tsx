@@ -109,8 +109,8 @@ export function ArticleJsonLd({
     image: image
       ? `${siteConfig.url}${image}`
       : `${siteConfig.url}/opengraph-image`,
-    datePublished: datePublished || "2026-01-01T00:00:00Z",
-    dateModified: dateModified || "2026-02-01T00:00:00Z",
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ? { dateModified } : {}),
     author: {
       "@type": "Organization",
       name: author,

@@ -20,16 +20,14 @@ const fake = vi.hoisted(() => ({
   getGate: null as null | Promise<void>,
   onGetStarted: null as null | (() => void),
   failUnsubscribeWrites: false,
-  /** While true, every write to the consent-repair store fails. */
-  failRepairWrites: false,
   segmentAdds: 0,
-  /** While true, taking any consent lock fails as if another holder had it. */
-  lockContended: false,
   updates: [] as Array<{ email: string; unsubscribed?: boolean }>,
   event: null as unknown,
-  kv: new Map<string, string>(),
-  hashes: new Map<string, Map<string, string>>(),
 }));
+
+const store = await vi.hoisted(async () =>
+  (await import("../helpers/fake-upstash")).createFakeRedis(),
+);
 
 vi.mock("resend", () => ({
   Resend: class {
@@ -91,93 +89,13 @@ vi.mock("resend", () => ({
   },
 }));
 
-vi.mock("@upstash/ratelimit", () => ({
-  Ratelimit: class {
-    static slidingWindow() {
-      return {};
-    }
-    async limit() {
-      return { success: true };
-    }
-  },
-}));
+vi.mock("@upstash/ratelimit", async () =>
+  (await import("../helpers/fake-upstash")).fakeRatelimitModule(store),
+);
 
-vi.mock("@upstash/redis", () => ({
-  Redis: class {
-    async set(
-      key: string,
-      value: string,
-      opts: { nx?: boolean; ex?: number; px?: number },
-    ) {
-      await Promise.resolve();
-      if (key.startsWith("mythos:newsletter:lock:") && fake.lockContended) {
-        return null;
-      }
-      if (opts.nx && fake.kv.has(key)) return null;
-      fake.kv.set(key, value);
-      return "OK";
-    }
-    async get(key: string) {
-      return fake.kv.get(key) ?? null;
-    }
-    async hgetall(key: string) {
-      const hash = fake.hashes.get(key);
-      return hash && hash.size > 0 ? Object.fromEntries(hash) : null;
-    }
-    async expire() {
-      return 1;
-    }
-    async eval(script: string, keys: string[], args: string[]) {
-      await Promise.resolve();
-      if (keys[0] === "mythos:newsletter:consent-repair" && fake.failRepairWrites) {
-        throw new Error("repair store down");
-      }
-      if (script.includes('"del"')) {
-        // Lock release: compare-and-delete.
-        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-        fake.kv.delete(keys[0]!);
-        return 1;
-      }
-      if (script.includes("string.match")) {
-        const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
-        const cur = hash.get(args[0]!);
-        const curAt = cur ? Number(cur.split(":")[0]) : Number.NaN;
-        if (Number.isFinite(curAt) && curAt >= Number(args[3])) return 0;
-        hash.set(args[0]!, args[1]!);
-        fake.hashes.set(keys[0]!, hash);
-        return 1;
-      }
-      if (script.includes('"hdel"')) {
-        const hash = fake.hashes.get(keys[0]!);
-        if (hash?.get(args[0]!) !== args[1]) return 0;
-        hash.delete(args[0]!);
-        return 1;
-      }
-      if (script.includes('"hset"')) {
-        const hash = fake.hashes.get(keys[0]!) ?? new Map<string, string>();
-        hash.set(args[0]!, args[1]!);
-        fake.hashes.set(keys[0]!, hash);
-        return 1;
-      }
-      if (script.includes("tonumber(cur)")) {
-        const cur = fake.kv.get(keys[0]!);
-        if (cur === undefined || Number(cur) < Number(args[0])) {
-          fake.kv.set(keys[0]!, args[0]!);
-        }
-        return 1;
-      }
-      if (keys.length === 2) {
-        if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-        const unsub = fake.kv.get(keys[1]!);
-        if (unsub !== undefined && Number(unsub) >= Number(args[1])) return 2;
-        return 1;
-      }
-      if (fake.kv.get(keys[0]!) !== args[0]) return 0;
-      fake.kv.set(keys[0]!, args[1]!);
-      return 1;
-    }
-  },
-}));
+vi.mock("@upstash/redis", async () =>
+  (await import("../helpers/fake-upstash")).fakeRedisModule(store),
+);
 
 import { GET as REPAIR_CRON } from "@/app/api/cron/newsletter-consent-repair/route";
 import { POST as CONFIRM } from "@/app/api/newsletter/confirm/route";
@@ -216,9 +134,12 @@ function webhookRequest(): NextRequest {
 }
 
 function cronRequest(): Request {
-  return new Request("http://localhost:3000/api/cron/newsletter-consent-repair", {
-    headers: { authorization: "Bearer cron_test" },
-  });
+  return new Request(
+    "http://localhost:3000/api/cron/newsletter-consent-repair",
+    {
+      headers: { authorization: "Bearer cron_test" },
+    },
+  );
 }
 
 function deferred() {
@@ -232,11 +153,11 @@ function deferred() {
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 /** Simulates every consent lease lapsing (the holder ran past its lease). */
 const expireLocks = () => {
-  for (const key of [...fake.kv.keys()]) {
-    if (key.startsWith("mythos:newsletter:lock:")) fake.kv.delete(key);
+  for (const key of [...store.kv.keys()]) {
+    if (key.startsWith("mythos:newsletter:lock:")) store.kv.delete(key);
   }
 };
-const pendingRepairs = () => fake.hashes.get(REPAIR_HASH)?.size ?? 0;
+const pendingRepairs = () => store.hashes.get(REPAIR_HASH)?.size ?? 0;
 const contactUnsubscribed = () => fake.contacts.get(EMAIL)?.unsubscribed;
 
 beforeEach(() => {
@@ -257,13 +178,13 @@ beforeEach(() => {
   fake.getGate = null;
   fake.onGetStarted = null;
   fake.failUnsubscribeWrites = false;
-  fake.lockContended = false;
-  fake.failRepairWrites = false;
+  store.lockContended = false;
+  store.failRepairWrites = false;
   fake.segmentAdds = 0;
   fake.updates.length = 0;
   fake.event = null;
-  fake.kv.clear();
-  fake.hashes.clear();
+  store.kv.clear();
+  store.hashes.clear();
   vi.useFakeTimers({ toFake: ["Date"] });
   vi.setSystemTime(T0);
 });
@@ -409,7 +330,7 @@ describe("an unsubscribe webhook that arrives mid-confirm", () => {
 describe("when the per-address lock cannot be taken", () => {
   beforeEach(() => {
     redemption.__setConsentLockTimingForTests({ waitMs: 30, retryMs: 10 });
-    fake.lockContended = true;
+    store.lockContended = true;
   });
 
   it("makes the confirm route answer 503 and touch nothing", async () => {
@@ -417,7 +338,7 @@ describe("when the per-address lock cannot be taken", () => {
     const res = await CONFIRM(confirmRequest(token));
     expect(res.status).toBe(503);
     expect(fake.updates).toHaveLength(0);
-    expect(fake.kv.size).toBe(0);
+    expect(store.kv.size).toBe(0);
     expect(pendingRepairs()).toBe(0);
   });
 
@@ -434,14 +355,14 @@ describe("when the per-address lock cannot be taken", () => {
     expect(pendingRepairs()).toBe(1);
 
     // The lock frees up and the cron still unsubscribes the reader.
-    fake.lockContended = false;
+    store.lockContended = false;
     expect((await REPAIR_CRON(cronRequest())).status).toBe(200);
     expect(contactUnsubscribed()).toBe(true);
     expect(pendingRepairs()).toBe(0);
   });
 
   it("makes the webhook answer 503 only when nothing could be persisted", async () => {
-    fake.failRepairWrites = true;
+    store.failRepairWrites = true;
     fake.event = {
       type: "contact.updated",
       created_at: new Date(T0 + 5_000).toISOString(),

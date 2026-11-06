@@ -1,16 +1,17 @@
 import "@/lib/zod-jitless";
 import { z } from "zod";
+import { BOOKMARK_TYPES, LEARNING_KEYS } from "@/lib/learning-keys";
 
 export const LEARNING_BACKUP_VERSION = 1;
 export const LEARNING_BACKUP_MAX_BYTES = 1024 * 1024;
 
 export const LEARNING_STORAGE_KEYS = [
-  "mythos-atlas-bookmarks",
-  "mythos-atlas-reading-progress",
-  "mythos-atlas-progress",
-  "mythos-atlas-review",
-  "mythos-story-progress",
-  "mythos-story-endings",
+  LEARNING_KEYS.bookmarks,
+  LEARNING_KEYS.readingProgress,
+  LEARNING_KEYS.progress,
+  LEARNING_KEYS.review,
+  LEARNING_KEYS.storyProgress,
+  LEARNING_KEYS.storyEndings,
 ] as const;
 
 /**
@@ -18,8 +19,8 @@ export const LEARNING_STORAGE_KEYS = [
  * still restores, and leaves the reader's current values for them untouched.
  */
 const LATER_STORAGE_KEYS = new Set<LearningStorageKey>([
-  "mythos-story-progress",
-  "mythos-story-endings",
+  LEARNING_KEYS.storyProgress,
+  LEARNING_KEYS.storyEndings,
 ]);
 
 export type LearningStorageKey = (typeof LEARNING_STORAGE_KEYS)[number];
@@ -40,7 +41,7 @@ const dateOnlySchema = z.string().refine(isValidCalendarDate, {
 const emptyOrDateOnlySchema = z.union([z.literal(""), dateOnlySchema]);
 
 const bookmarkSchema = z.strictObject({
-  type: z.enum(["deity", "story", "pantheon", "hero", "source"]),
+  type: z.enum(BOOKMARK_TYPES),
   id: z.string().min(1).max(200),
   timestamp: z.number().int().nonnegative(),
 });
@@ -64,6 +65,8 @@ export const progressSchema = z.strictObject({
   dailyStreak: z.number().int().nonnegative(),
   // Added after v1 backups were first written; optional so older ones restore.
   longestStreak: z.number().int().nonnegative().optional(),
+  // Marks quizScores as migrated to percentages; absent on older records.
+  quizScoresVersion: z.number().int().nonnegative().optional(),
   lastVisit: emptyOrDateOnlySchema,
   totalXP: z.number().finite().nonnegative(),
   streakFreezes: z.number().int().nonnegative(),
@@ -121,12 +124,12 @@ const storyProgressSchema = z.record(
 const storyEndingsSchema = z.record(idSchema, z.array(idSchema));
 
 const storedValueSchemas: Record<LearningStorageKey, z.ZodType> = {
-  "mythos-atlas-bookmarks": z.array(bookmarkSchema),
-  "mythos-atlas-reading-progress": readingProgressSchema,
-  "mythos-atlas-progress": progressSchema,
-  "mythos-atlas-review": reviewSchema,
-  "mythos-story-progress": storyProgressSchema,
-  "mythos-story-endings": storyEndingsSchema,
+  [LEARNING_KEYS.bookmarks]: z.array(bookmarkSchema),
+  [LEARNING_KEYS.readingProgress]: readingProgressSchema,
+  [LEARNING_KEYS.progress]: progressSchema,
+  [LEARNING_KEYS.review]: reviewSchema,
+  [LEARNING_KEYS.storyProgress]: storyProgressSchema,
+  [LEARNING_KEYS.storyEndings]: storyEndingsSchema,
 };
 
 const backupSchema = z.strictObject({
@@ -134,12 +137,12 @@ const backupSchema = z.strictObject({
   version: z.literal(LEARNING_BACKUP_VERSION),
   exportedAt: z.string().datetime({ offset: true }),
   data: z.strictObject({
-    "mythos-atlas-bookmarks": z.string().nullable(),
-    "mythos-atlas-reading-progress": z.string().nullable(),
-    "mythos-atlas-progress": z.string().nullable(),
-    "mythos-atlas-review": z.string().nullable(),
-    "mythos-story-progress": z.string().nullable().optional(),
-    "mythos-story-endings": z.string().nullable().optional(),
+    [LEARNING_KEYS.bookmarks]: z.string().nullable(),
+    [LEARNING_KEYS.readingProgress]: z.string().nullable(),
+    [LEARNING_KEYS.progress]: z.string().nullable(),
+    [LEARNING_KEYS.review]: z.string().nullable(),
+    [LEARNING_KEYS.storyProgress]: z.string().nullable().optional(),
+    [LEARNING_KEYS.storyEndings]: z.string().nullable().optional(),
   }),
 });
 
@@ -198,23 +201,24 @@ function checkedBackup(candidate: unknown): BackupParseResult {
   }
 
   const data = parsed.data.data;
-  const bookmarks = data["mythos-atlas-bookmarks"]
-    ? (JSON.parse(data["mythos-atlas-bookmarks"]) as unknown[]).length
+  const bookmarksRaw = data[LEARNING_KEYS.bookmarks];
+  const readingRaw = data[LEARNING_KEYS.readingProgress];
+  const progressRaw = data[LEARNING_KEYS.progress];
+  const reviewRaw = data[LEARNING_KEYS.review];
+  const bookmarks = bookmarksRaw
+    ? (JSON.parse(bookmarksRaw) as unknown[]).length
     : 0;
-  const readingProgress = data["mythos-atlas-reading-progress"]
-    ? Object.keys(JSON.parse(data["mythos-atlas-reading-progress"]) as object)
-        .length
+  const readingProgress = readingRaw
+    ? Object.keys(JSON.parse(readingRaw) as object).length
     : 0;
-  const progress = data["mythos-atlas-progress"]
-    ? (JSON.parse(data["mythos-atlas-progress"]) as {
+  const progress = progressRaw
+    ? (JSON.parse(progressRaw) as {
         deitiesViewed: unknown[];
         storiesRead: unknown[];
       })
     : null;
-  const reviewCards = data["mythos-atlas-review"]
-    ? Object.keys(
-        (JSON.parse(data["mythos-atlas-review"]) as { cards: object }).cards,
-      ).length
+  const reviewCards = reviewRaw
+    ? Object.keys((JSON.parse(reviewRaw) as { cards: object }).cards).length
     : 0;
 
   return {

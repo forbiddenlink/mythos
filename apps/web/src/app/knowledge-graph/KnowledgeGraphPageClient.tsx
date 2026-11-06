@@ -1,5 +1,6 @@
 "use client";
 
+import { countUniqueRelationships } from "@/components/graph/relationship-counts";
 import { useState, useMemo, useCallback, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
@@ -152,11 +153,10 @@ export function KnowledgeGraphPageClient({
       });
     });
 
-    const connections = relationships.filter(
-      (r) =>
-        filteredDeityIds.has(r.fromDeityId) &&
-        filteredDeityIds.has(r.toDeityId),
-    ).length;
+    const connections = countUniqueRelationships(
+      relationships,
+      filteredDeityIds,
+    );
 
     const crossPantheonCount = filteredDeities.reduce((count, d) => {
       if (!d.crossPantheonParallels) return count;

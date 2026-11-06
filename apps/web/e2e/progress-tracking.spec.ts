@@ -1,4 +1,7 @@
 import { expect, test } from "@playwright/test";
+import { LEARNING_KEYS } from "../src/lib/learning-keys";
+import type { UserProgress } from "../src/providers/progress-provider";
+import { readStoredJson } from "./helpers/storage";
 
 const getBrowserLocalDate = async (
   page: import("@playwright/test").Page,
@@ -29,10 +32,9 @@ test.describe("Progress Tracking", () => {
     ).toBeVisible();
     await expect
       .poll(() =>
-        page.evaluate(() => {
-          const saved = localStorage.getItem("mythos-atlas-progress");
-          return saved ? JSON.parse(saved).deitiesViewed : [];
-        }),
+        readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+          (progress) => progress?.deitiesViewed ?? [],
+        ),
       )
       .toContain("zeus");
   });
@@ -50,10 +52,9 @@ test.describe("Progress Tracking", () => {
     ).toBeVisible();
     await expect
       .poll(() =>
-        page.evaluate(() => {
-          const saved = localStorage.getItem("mythos-atlas-progress");
-          return saved ? JSON.parse(saved).storiesRead : [];
-        }),
+        readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+          (progress) => progress?.storiesRead ?? [],
+        ),
       )
       .toContain("abduction-of-persephone");
   });
@@ -67,10 +68,9 @@ test.describe("Progress Tracking", () => {
     });
     await expect(heading).toBeVisible();
     const viewedDeities = () =>
-      page.evaluate(() => {
-        const saved = localStorage.getItem("mythos-atlas-progress");
-        return saved ? JSON.parse(saved).deitiesViewed : [];
-      });
+      readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+        (progress) => progress?.deitiesViewed ?? [],
+      );
     await expect.poll(viewedDeities).toContain("athena");
     await page.reload({ waitUntil: "domcontentloaded" });
     await expect(heading).toBeVisible();
@@ -112,10 +112,10 @@ test.describe("Progress Tracking", () => {
     await expect
       .poll(
         async () => {
-          const progress = await page.evaluate(() => {
-            const saved = localStorage.getItem("mythos-atlas-progress");
-            return saved ? JSON.parse(saved) : null;
-          });
+          const progress = await readStoredJson<UserProgress>(
+            page,
+            LEARNING_KEYS.progress,
+          );
           return progress?.dailyStreak;
         },
         { timeout: 5000 },
@@ -133,10 +133,10 @@ test.describe("Progress Tracking", () => {
     await expect
       .poll(
         async () => {
-          const progress = await page.evaluate(() => {
-            const saved = localStorage.getItem("mythos-atlas-progress");
-            return saved ? JSON.parse(saved) : null;
-          });
+          const progress = await readStoredJson<UserProgress>(
+            page,
+            LEARNING_KEYS.progress,
+          );
           return progress?.lastVisit;
         },
         { timeout: 5000 },
@@ -213,10 +213,8 @@ test.describe("First reading visit", () => {
     ).toBeVisible();
     await expect
       .poll(() =>
-        page.evaluate(
-          () =>
-            JSON.parse(localStorage.getItem("mythos-atlas-progress") || "{}")
-              .deitiesViewed || [],
+        readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+          (progress) => progress?.deitiesViewed ?? [],
         ),
       )
       .toContain("athena");
@@ -252,10 +250,8 @@ test.describe("First reading visit", () => {
     await page.locator('main a[href="/deities/athena"]').first().click();
     await expect
       .poll(() =>
-        page.evaluate(
-          () =>
-            JSON.parse(localStorage.getItem("mythos-atlas-progress") || "{}")
-              .deitiesViewed || [],
+        readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+          (progress) => progress?.deitiesViewed ?? [],
         ),
       )
       .toContain("athena");

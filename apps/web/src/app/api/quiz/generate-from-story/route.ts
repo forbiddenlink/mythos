@@ -2,7 +2,10 @@ import { anthropic } from "@ai-sdk/anthropic";
 import { generateObject } from "ai";
 import stories from "@/data/stories.json";
 import { isOracleFlagEnabled } from "@/lib/oracle/availability";
-import { checkGlobalOracleBudget } from "@/lib/oracle/global-budget";
+import {
+  checkGlobalOracleBudget,
+  releaseGlobalOracleBudget,
+} from "@/lib/oracle/global-budget";
 import { logger } from "@/lib/logger";
 import { readJsonBody } from "@/lib/http/read-json-body";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
@@ -187,6 +190,7 @@ ${sourceText}`;
       estimateTokens(prompt) + MAX_OUTPUT_TOKENS,
     );
     if (!tokens.allowed) {
+      await releaseGlobalOracleBudget(budget);
       return NextResponse.json(
         {
           error:

@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { Popover } from "radix-ui";
 import { Button } from "@/components/ui/button";
 import { Share2, Link2, Check } from "lucide-react";
 import { Twitter, Facebook, Linkedin } from "@/components/icons/brand";
 import { trackEvent } from "@/lib/analytics/events";
 import { cn } from "@/lib/utils";
+import { copyToClipboard, shareOrCopy } from "@/lib/quiz-share";
 
 interface ShareButtonProps {
   title: string;
@@ -32,6 +33,7 @@ export function ShareButton({
   const [copyFailed, setCopyFailed] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [shareUrl, setShareUrl] = useState(url ?? "");
+  const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Defer native-share detection until mount so SSR and client HTML match
   const [hasNativeShare, setHasNativeShare] = useState(false);
 
@@ -51,21 +53,17 @@ export function ShareButton({
   }, [url]);
 
   const handleNativeShare = useCallback(async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title,
-          text,
-          url: shareUrl,
-        });
-        trackEvent("share_clicked", { surface, method: "native" });
-      } catch (error) {
-        // User cancelled or share failed, show fallback
-        if ((error as Error).name !== "AbortError") {
-          setIsOpen(true);
-        }
-      }
-    } else {
+    const outcome = await shareOrCopy({ title, text, url: shareUrl });
+    if (outcome === "shared") {
+      trackEvent("share_clicked", { surface, method: "native" });
+    } else if (outcome === "copied") {
+      trackEvent("share_clicked", { surface, method: "copy_link" });
+      setCopied(true);
+      if (copiedTimer.current) clearTimeout(copiedTimer.current);
+      copiedTimer.current = setTimeout(() => setCopied(false), 2000);
+      setIsOpen(true);
+    } else if (outcome === "manual") {
+      setCopyFailed(true);
       setIsOpen(true);
     }
   }, [title, text, shareUrl, surface]);
@@ -73,40 +71,27 @@ export function ShareButton({
   const handleCopyLink = useCallback(async () => {
     setCopied(false);
     setCopyFailed(false);
-    let succeeded = false;
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-      succeeded = true;
-    } catch {
-      const focused = document.activeElement;
-      const textArea = document.createElement("textarea");
-      textArea.value = shareUrl;
-      textArea.style.position = "fixed";
-      textArea.style.opacity = "0";
-      // Keep fallback focus inside the popover so copying does not dismiss it.
-      const container =
-        focused instanceof HTMLElement
-          ? (focused.closest('[role="dialog"]') ?? document.body)
-          : document.body;
-      container.appendChild(textArea);
-      try {
-        textArea.select();
-        succeeded = document.execCommand("copy");
-      } catch {
-        succeeded = false;
-      } finally {
-        textArea.remove();
-        if (focused instanceof HTMLElement) focused.focus();
-      }
-    }
-    if (succeeded) {
+    if (copiedTimer.current) clearTimeout(copiedTimer.current);
+    if (await copyToClipboard(shareUrl)) {
       trackEvent("share_clicked", { surface, method: "copy_link" });
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      copiedTimer.current = setTimeout(() => setCopied(false), 2000);
     } else {
       setCopyFailed(true);
     }
   }, [shareUrl, surface]);
+
+  useEffect(
+    () => () => {
+      if (copiedTimer.current) clearTimeout(copiedTimer.current);
+    },
+    [],
+  );
+
+  const handleOpenChange = useCallback((open: boolean) => {
+    setIsOpen(open);
+    if (!open) setCopyFailed(false);
+  }, []);
 
   const handleTwitterShare = useCallback(() => {
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
@@ -159,7 +144,7 @@ export function ShareButton({
   // The existing Radix primitive keeps the panel within the viewport and
   // handles Escape, outside interaction and focus restoration.
   return (
-    <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
+    <Popover.Root open={isOpen} onOpenChange={handleOpenChange}>
       <div className={cn("relative", className)}>
         <Popover.Trigger asChild>
           <Button
@@ -182,7 +167,7 @@ export function ShareButton({
             <button
               onClick={() => {
                 handleTwitterShare();
-                setIsOpen(false);
+                handleOpenChange(false);
               }}
               className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-gold/10 transition-colors"
             >
@@ -193,7 +178,7 @@ export function ShareButton({
             <button
               onClick={() => {
                 handleFacebookShare();
-                setIsOpen(false);
+                handleOpenChange(false);
               }}
               className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-gold/10 transition-colors"
             >
@@ -204,7 +189,7 @@ export function ShareButton({
             <button
               onClick={() => {
                 handleLinkedInShare();
-                setIsOpen(false);
+                handleOpenChange(false);
               }}
               className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-gold/10 transition-colors"
             >

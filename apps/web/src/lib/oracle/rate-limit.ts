@@ -6,6 +6,7 @@
 
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import { isProductionRuntime } from "@/lib/server/runtime";
 
 const RATE_LIMIT = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
@@ -73,13 +74,6 @@ const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   "newsletter-confirm": undefined,
   analytics: undefined,
 };
-
-function isProductionRuntime(): boolean {
-  return (
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL_ENV === "production"
-  );
-}
 
 function getEdgeRatelimit(bucket: Bucket): Ratelimit | null {
   if (edgeLimiters[bucket] !== undefined) return edgeLimiters[bucket]!;

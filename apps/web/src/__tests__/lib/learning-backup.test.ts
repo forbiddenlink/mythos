@@ -4,7 +4,9 @@ import {
   LEARNING_STORAGE_KEYS,
   parseLearningBackup,
   restoreLearningBackup,
+  serializeLearningBackup,
 } from "@/lib/learning-backup";
+import { BOOKMARK_TYPES, LEARNING_KEYS } from "@/lib/learning-keys";
 
 function progress() {
   return {
@@ -153,6 +155,46 @@ describe("learning backup", () => {
       { type: "source", id: "iliad", timestamp: 1 },
     ]);
     expect(parseLearningBackup(JSON.stringify(backup)).success).toBe(true);
+  });
+
+  it("round-trips every bookmark type the provider can write", () => {
+    const storage = memoryStorage();
+    seed(storage);
+    const bookmarks = BOOKMARK_TYPES.map((type, index) => ({
+      type,
+      id: `${type}-id`,
+      timestamp: index + 1,
+    }));
+    storage.setItem(LEARNING_KEYS.bookmarks, JSON.stringify(bookmarks));
+    const raw = serializeLearningBackup(storage);
+    const parsed = parseLearningBackup(raw);
+    expect(parsed.success).toBe(true);
+    const restored = memoryStorage();
+    if (parsed.success) restoreLearningBackup(restored, parsed.backup);
+    expect(JSON.parse(restored.getItem(LEARNING_KEYS.bookmarks)!)).toEqual(
+      bookmarks,
+    );
+    expect(
+      JSON.parse(restored.getItem(LEARNING_KEYS.bookmarks)!).map(
+        (b: { type: string }) => b.type,
+      ),
+    ).toContain("creature");
+  });
+
+  it("accepts the quizScoresVersion marker and still accepts records without it", () => {
+    const storage = memoryStorage();
+    seed(storage);
+    storage.setItem(
+      LEARNING_KEYS.progress,
+      JSON.stringify({ ...progress(), quizScoresVersion: 2 }),
+    );
+    expect(parseLearningBackup(serializeLearningBackup(storage)).success).toBe(
+      true,
+    );
+    storage.setItem(LEARNING_KEYS.progress, JSON.stringify(progress()));
+    expect(parseLearningBackup(serializeLearningBackup(storage)).success).toBe(
+      true,
+    );
   });
 
   it("does not touch unrelated storage keys", () => {

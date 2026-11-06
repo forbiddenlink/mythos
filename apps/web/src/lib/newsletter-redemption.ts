@@ -35,6 +35,7 @@
 import { createHash, randomUUID } from "node:crypto";
 import { Redis } from "@upstash/redis";
 import { logger } from "@/lib/logger";
+import { isProductionRuntime } from "@/lib/server/runtime";
 import {
   CONFIRM_TOKEN_TTL_SECONDS,
   confirmTokenIssuedAtMs,
@@ -56,13 +57,6 @@ export type MutationVerdict = "ok" | "lost" | "unsubscribed" | "unavailable";
 export const CONFIRM_OVERLAP_SKEW_MS = 2 * 60 * 1000;
 
 const DONE = "done";
-
-function isProductionRuntime(): boolean {
-  return (
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL_ENV === "production"
-  );
-}
 
 function redemptionKey(token: string): string {
   return `mythos:newsletter:redeemed:${createHash("sha256").update(token).digest("hex")}`;
@@ -116,7 +110,7 @@ export function __setConsentLockTimingForTests(t: Partial<LockTiming>): void {
 const memoryLocks = new Map<string, { token: string; until: number }>();
 // Delete the lock only if we still hold it, so a lapsed lease that someone
 // else has since taken is never released from under them.
-const LOCK_RELEASE = `if redis.call("get", KEYS[1]) == ARGV[1] then return redis.call("del", KEYS[1]) end return 0`;
+export const LOCK_RELEASE = `if redis.call("get", KEYS[1]) == ARGV[1] then return redis.call("del", KEYS[1]) end return 0`;
 
 function consentLockKey(email: string): string {
   const normalized = email.trim().toLowerCase();
@@ -286,14 +280,14 @@ function getRedis(): Redis | null {
 }
 
 // Compare-and-set: only the holder of the exact value may change a claim.
-const CAS_SET = `if redis.call("get", KEYS[1]) == ARGV[1] then redis.call("set", KEYS[1], ARGV[2], "EX", ARGV[3]) return 1 else return 0 end`;
+export const CAS_SET = `if redis.call("get", KEYS[1]) == ARGV[1] then redis.call("set", KEYS[1], ARGV[2], "EX", ARGV[3]) return 1 else return 0 end`;
 // One atomic read of "do we still own the claim" and "did the reader leave
 // after the link was issued": 0 lost, 2 unsubscribed, 1 ok.
-const GUARD = `if redis.call("get", KEYS[1]) ~= ARGV[1] then return 0 end local u = redis.call("get", KEYS[2]) if u and tonumber(u) >= tonumber(ARGV[2]) then return 2 end return 1`;
+export const GUARD = `if redis.call("get", KEYS[1]) ~= ARGV[1] then return 0 end local u = redis.call("get", KEYS[2]) if u and tonumber(u) >= tonumber(ARGV[2]) then return 2 end return 1`;
 // Keep the newest unsubscribe time, so a late event cannot move it backwards.
 // Write one index field and keep the whole index no longer than a token lives.
-const INDEX_SET = `redis.call("hset", KEYS[1], ARGV[1], ARGV[2]) redis.call("expire", KEYS[1], ARGV[3]) return 1`;
-const MAX_SET = `local cur = redis.call("get", KEYS[1]) if (not cur) or tonumber(cur) < tonumber(ARGV[1]) then redis.call("set", KEYS[1], ARGV[1], "EX", ARGV[2]) end return 1`;
+export const INDEX_SET = `redis.call("hset", KEYS[1], ARGV[1], ARGV[2]) redis.call("expire", KEYS[1], ARGV[3]) return 1`;
+export const MAX_SET = `local cur = redis.call("get", KEYS[1]) if (not cur) or tonumber(cur) < tonumber(ARGV[1]) then redis.call("set", KEYS[1], ARGV[1], "EX", ARGV[2]) end return 1`;
 
 /**
  * Two-state claim. `pending:<id>` is written with the FULL token TTL, so it
@@ -569,9 +563,9 @@ const REPAIR_TTL_SECONDS = 30 * 24 * 60 * 60;
 export const CONFIRM_ARM_GRACE_MS = 15 * 60 * 1000;
 // Delete the field only if it still holds the value we repaired, so a newer
 // record written meanwhile survives.
-const REPAIR_CLEAR = `if redis.call("hget", KEYS[1], ARGV[1]) == ARGV[2] then return redis.call("hdel", KEYS[1], ARGV[1]) end return 0`;
+export const REPAIR_CLEAR = `if redis.call("hget", KEYS[1], ARGV[1]) == ARGV[2] then return redis.call("hdel", KEYS[1], ARGV[1]) end return 0`;
 // Replace the record only when the new one is not older than the stored one.
-const REPAIR_SET_NEWEST = `local cur = redis.call("hget", KEYS[1], ARGV[1]) if cur then local at = tonumber(string.match(cur, "^(%d+):")) if at and at >= tonumber(ARGV[4]) then return 0 end end redis.call("hset", KEYS[1], ARGV[1], ARGV[2]) redis.call("expire", KEYS[1], ARGV[3]) return 1`;
+export const REPAIR_SET_NEWEST = `local cur = redis.call("hget", KEYS[1], ARGV[1]) if cur then local at = tonumber(string.match(cur, "^(%d+):")) if at and at >= tonumber(ARGV[4]) then return 0 end end redis.call("hset", KEYS[1], ARGV[1], ARGV[2]) redis.call("expire", KEYS[1], ARGV[3]) return 1`;
 
 export type ConsentRepairKind = "unsubscribe" | "confirm";
 

@@ -26,19 +26,25 @@ interface Message {
   content: string;
   /** Grounding metadata streamed with this reply (entity pages + primary sources). */
   sources?: OracleSourcesPayload | null;
-  /** Set once the reply has finished streaming. */
-  done?: boolean;
+  /** Assistant replies only: streaming in, finished, or ended by an error. */
+  status?: "streaming" | "done" | "failed";
 }
 
 /**
  * The server rejects more than ORACLE_MAX_REQUEST_MESSAGES messages (and any
  * message over the per-message cap) with a 400, and only uses the last few
  * turns anyway. Send just the tail so a long conversation keeps working.
+ * Failed and empty assistant turns are dropped: they carry no usable answer.
  */
 export function toOracleRequestMessages(
-  messages: readonly Pick<Message, "role" | "content">[],
+  messages: readonly Pick<Message, "role" | "content" | "status">[],
 ): { role: "user" | "assistant"; content: string }[] {
-  return messages.slice(-ORACLE_MAX_REQUEST_MESSAGES).map((m) => ({
+  const usable = messages.filter(
+    (m) =>
+      m.role === "user" ||
+      (m.status !== "failed" && m.content.trim().length > 0),
+  );
+  return usable.slice(-ORACLE_MAX_REQUEST_MESSAGES).map((m) => ({
     role: m.role,
     content: m.content.slice(0, ORACLE_MAX_MESSAGE_CONTENT_CHARS),
   }));
@@ -121,6 +127,7 @@ export function OracleChat() {
       };
       setMessages((prev) => [...prev, userMessage]);
       setInput("");
+      let assistantId: string | null = null;
 
       try {
         const response = await fetch("/api/oracle", {
@@ -145,7 +152,9 @@ export function OracleChat() {
           id: (Date.now() + 1).toString(),
           role: "assistant",
           content: "",
+          status: "streaming",
         };
+        assistantId = assistantMessage.id;
         setMessages((prev) => [...prev, assistantMessage]);
 
         const update = (patch: Partial<Message>) =>
@@ -172,9 +181,17 @@ export function OracleChat() {
         update({
           content: result.text,
           sources: result.sources,
-          done: true,
+          status: "done",
         });
       } catch (err) {
+        if (assistantId) {
+          const failedId = assistantId;
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === failedId ? { ...m, status: "failed" } : m,
+            ),
+          );
+        }
         setError(err instanceof Error ? err.message : t("errors.generic"));
       } finally {
         setIsLoading(false);
@@ -322,7 +339,7 @@ export function OracleChat() {
                               )}
                             </p>
                             {message.role === "assistant" &&
-                              message.done &&
+                              message.status === "done" &&
                               message.sources &&
                               message.sources.hitCount > 0 &&
                               !isNotInSourcesAnswer(message.content) && (
@@ -343,15 +360,16 @@ export function OracleChat() {
                                   </span>
                                 </p>
                               )}
-                            {message.role === "assistant" && message.done && (
-                              <OracleSources
-                                sources={message.sources ?? null}
-                                notInSources={
-                                  message.sources?.hitCount === 0 ||
-                                  isNotInSourcesAnswer(message.content)
-                                }
-                              />
-                            )}
+                            {message.role === "assistant" &&
+                              message.status === "done" && (
+                                <OracleSources
+                                  sources={message.sources ?? null}
+                                  notInSources={
+                                    message.sources?.hitCount === 0 ||
+                                    isNotInSourcesAnswer(message.content)
+                                  }
+                                />
+                              )}
                           </div>
                         </div>
                       ))

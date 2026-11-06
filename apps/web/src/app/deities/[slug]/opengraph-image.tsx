@@ -1,6 +1,7 @@
 import deities from "@/data/deities.json";
 import pantheons from "@/data/pantheons.json";
 import { ogPalette, renderOgCard } from "@/lib/og/card";
+import { shortTraditionName } from "@/lib/tradition-name";
 
 // Node runtime: the catalogs these cards read are too large for an edge bundle.
 export const runtime = "nodejs";
@@ -19,12 +20,8 @@ interface Entry {
 }
 
 function traditionName(pantheonId: string): string {
-  return (
-    pantheons
-      .find((p) => p.id === pantheonId)
-      ?.name.replace(/\s*\([^)]*\)/g, "")
-      .replace(/\s+(?:Pantheon|Tradition|Traditions)\b/, "") ?? "World"
-  );
+  const name = pantheons.find((p) => p.id === pantheonId)?.name;
+  return name ? shortTraditionName(name) : "World";
 }
 
 export default async function Image({

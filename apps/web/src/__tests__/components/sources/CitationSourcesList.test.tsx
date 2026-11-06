@@ -84,4 +84,21 @@ describe("CitationSourcesList", () => {
       screen.queryByRole("link", { name: "Maori Oral Tradition" }),
     ).not.toBeInTheDocument();
   });
+
+  it("links a citation by sourceId when its title is not in the catalog", () => {
+    render(
+      <CitationSourcesList
+        sources={[
+          {
+            title: "Changse-ga, in Joseon Singa Yupyeon",
+            sourceId: "joseon-singa-yupyeon",
+          },
+        ]}
+      />,
+    );
+    expect(screen.getByRole("link", { name: /Changse-ga/ })).toHaveAttribute(
+      "href",
+      "/sources/joseon-singa-yupyeon",
+    );
+  });
 });

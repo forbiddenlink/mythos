@@ -23,6 +23,8 @@ import {
   type QuickQuizDeity,
   type QuickQuizQuestion,
 } from "@/lib/quick-quiz";
+import { shareOrCopy } from "@/lib/quiz-share";
+import { readHighScore, writeHighScore } from "@/lib/quiz-high-score";
 
 interface QuickQuizPageClientProps {
   deitiesData: QuickQuizDeity[];
@@ -70,14 +72,8 @@ export function QuickQuizPageClient({
       // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate high score from progress context
       setHighScore(progressContext.progress.quickQuizHighScore);
     } else {
-      try {
-        const saved = Number(
-          localStorage.getItem("mythos_quick_quiz_highscore"),
-        );
-        if (Number.isSafeInteger(saved) && saved >= 0) setHighScore(saved);
-      } catch {
-        // Storage can be disabled; the quiz remains playable for this visit.
-      }
+      const saved = readHighScore("mythos_quick_quiz_highscore");
+      if (saved > 0) setHighScore(saved);
     }
   }, [progressContext?.progress.quickQuizHighScore]);
 
@@ -133,11 +129,7 @@ export function QuickQuizPageClient({
       if (score > highScore) {
         setHighScore(score);
         setIsNewHighScore(true);
-        try {
-          localStorage.setItem("mythos_quick_quiz_highscore", score.toString());
-        } catch {
-          // Keep the result visible even when browser storage is full or blocked.
-        }
+        writeHighScore("mythos_quick_quiz_highscore", score);
         // Save to progress context for achievements
         if (progressContext) {
           progressContext.updateQuickQuizHighScore(score);
@@ -188,30 +180,16 @@ export function QuickQuizPageClient({
     setShowCopiedToast(false);
     if (copiedTimer.current) clearTimeout(copiedTimer.current);
 
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: "Mythos Atlas Quick Quiz",
-          text: shareText,
-          url: shareUrl,
-        });
-        return;
-      } catch (error) {
-        if (
-          error &&
-          typeof error === "object" &&
-          "name" in error &&
-          error.name === "AbortError"
-        )
-          return;
-        // A failed native share can still fall back to copying the score.
-      }
-    }
-    try {
-      await navigator.clipboard.writeText(fullText);
+    const outcome = await shareOrCopy({
+      title: "Mythos Atlas Quick Quiz",
+      text: shareText,
+      url: shareUrl,
+      copyText: fullText,
+    });
+    if (outcome === "copied") {
       setShowCopiedToast(true);
       copiedTimer.current = setTimeout(() => setShowCopiedToast(false), 3000);
-    } catch {
+    } else if (outcome === "manual") {
       setManualShare(fullText);
     }
   };

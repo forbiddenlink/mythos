@@ -114,3 +114,88 @@ export function quizResultVerdict(score: number, total: number): QuizVerdict {
     blurb: "Everyone starts here. The stories are worth the second attempt.",
   };
 }
+
+/**
+ * How a share attempt ended. "cancelled" means the person dismissed the
+ * native sheet, so callers must not copy or confirm anything. "manual" means
+ * neither sharing nor copying worked and the person has to copy by hand.
+ */
+export type ShareOutcome = "shared" | "cancelled" | "copied" | "manual";
+
+export interface ShareOrCopyPayload {
+  title: string;
+  text: string;
+  url: string;
+  /** Text placed on the clipboard when sharing falls back to copying. Defaults to `url`. */
+  copyText?: string;
+}
+
+/**
+ * Copies text with the async clipboard API, then a hidden textarea and
+ * `execCommand`. The textarea is attached inside the focused dialog (when
+ * there is one) so copying does not dismiss a popover.
+ */
+export async function copyToClipboard(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    // Fall through to the legacy path.
+  }
+
+  const focused = document.activeElement;
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.opacity = "0";
+  const container =
+    focused instanceof HTMLElement
+      ? (focused.closest('[role="dialog"]') ?? document.body)
+      : document.body;
+  container.appendChild(textArea);
+  try {
+    textArea.select();
+    return document.execCommand("copy");
+  } catch {
+    return false;
+  } finally {
+    textArea.remove();
+    if (focused instanceof HTMLElement) focused.focus();
+  }
+}
+
+function isAbortError(error: unknown): boolean {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "name" in error &&
+    error.name === "AbortError"
+  );
+}
+
+/**
+ * Opens the native share sheet when available, otherwise (or when it fails
+ * for a reason other than dismissal) copies to the clipboard.
+ */
+export async function shareOrCopy(
+  payload: ShareOrCopyPayload,
+): Promise<ShareOutcome> {
+  if (
+    typeof navigator !== "undefined" &&
+    typeof navigator.share === "function"
+  ) {
+    try {
+      await navigator.share({
+        title: payload.title,
+        text: payload.text,
+        url: payload.url,
+      });
+      return "shared";
+    } catch (error) {
+      if (isAbortError(error)) return "cancelled";
+    }
+  }
+  return (await copyToClipboard(payload.copyText ?? payload.url))
+    ? "copied"
+    : "manual";
+}

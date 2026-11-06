@@ -4,19 +4,15 @@ import Link from "next/link";
 import { MythosMark } from "@/components/icons/mythos-marks";
 import { useProgress } from "@/hooks/use-progress";
 import { useReview } from "@/providers/review-provider";
-import { useEffect, useState } from "react";
+
+import { useHydrated } from "@/hooks/use-hydrated";
 import { m, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function StreakBadge() {
   const { progress } = useProgress();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
-    setMounted(true);
-  }, []);
 
   // Don't render streak badge if no streak
   if (!mounted || progress.dailyStreak === 0) {
@@ -47,12 +43,7 @@ export function StreakBadge() {
 
 export function ReviewCountBadge() {
   const { dueCount } = useReview();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- track client hydration
-    setMounted(true);
-  }, []);
+  const mounted = useHydrated();
 
   // Don't render if no cards due
   if (!mounted || dueCount === 0) {

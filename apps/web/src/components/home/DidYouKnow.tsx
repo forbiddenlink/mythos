@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
 import Link from "next/link";
 import { m, AnimatePresence } from "framer-motion";
 import { RefreshCw, ChevronRight, Copy, Check } from "lucide-react";
@@ -62,12 +63,11 @@ export function DidYouKnow({ deityLookup }: DidYouKnowProps) {
   const [currentFact, setCurrentFact] = useState<Fact | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: detect client-side mount
-    setMounted(true);
     const dailyIndex = getDailyFactIndex(new Date());
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydration: pick the daily fact on client mount
     setCurrentFact(facts[dailyIndex] as Fact);
   }, []);
 

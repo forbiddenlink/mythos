@@ -14,14 +14,16 @@ import {
 import { Check, Share2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useUrlSelection } from "@/hooks/use-url-selection";
+import { useCallback, useMemo, useState } from "react";
 
 interface Pantheon {
   id: string;
   name: string;
   slug: string;
 }
+
+const storySlug = (story: Story): string => story.slug;
 
 interface CompareMythsPageClientProps {
   pantheonsData: Pantheon[];
@@ -35,9 +37,6 @@ export function CompareMythsPageClient({
   const t = useTranslations("pages.compareMyths");
   // Interface strings follow the reader's locale; catalog content stays English.
   const locale = useLocale();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const [selectedStories, setSelectedStories] = useState<Story[]>([]);
   const [shareStatus, setShareStatus] = useState<"idle" | "success" | "error">(
     "idle",
   );
@@ -69,6 +68,18 @@ export function CompareMythsPageClient({
     });
     return map;
   }, [allStories]);
+  const resolveStory = useCallback(
+    (id: string) => storyMap.get(id),
+    [storyMap],
+  );
+
+  const [selectedStories, setSelectedStories] = useUrlSelection<Story>({
+    param: "stories",
+    basePath: "/compare/myths",
+    resolve: resolveStory,
+    getSlug: storySlug,
+    max: 3,
+  });
 
   // Get available categories
   const categories = useMemo(
@@ -121,63 +132,22 @@ export function CompareMythsPageClient({
     searchQuery,
   ]);
 
-  // Initialize from URL params
-  useEffect(() => {
-    const storiesParam = searchParams.get("stories");
-    if (storiesParam && allStories.length > 0) {
-      const storyIds = storiesParam.split(",").map((s) => s.trim());
-      const foundStories = storyIds
-        .map((id) => storyMap.get(id))
-        .filter((s): s is Story => s !== undefined)
-        .slice(0, 3);
-
-      if (foundStories.length > 0) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrating selection from URL params on mount
-        setSelectedStories(foundStories);
-      }
-    }
-  }, [searchParams, allStories, storyMap]);
-
-  // Update URL when selection changes
-  const updateUrl = useCallback(
-    (stories: Story[]) => {
-      if (stories.length > 0) {
-        const params = new URLSearchParams();
-        params.set("stories", stories.map((s) => s.slug).join(","));
-        router.replace(`/compare/myths?${params.toString()}`, {
-          scroll: false,
-        });
-      } else {
-        router.replace("/compare/myths", { scroll: false });
-      }
-    },
-    [router],
-  );
-
   const handleSelect = useCallback(
     (story: Story) => {
-      setSelectedStories((prev) => {
-        if (prev.length >= 3) return prev;
-        if (prev.some((s) => s.id === story.id)) return prev;
-        const newStories = [...prev, story];
-        updateUrl(newStories);
-        return newStories;
-      });
+      if (selectedStories.length >= 3) return;
+      if (selectedStories.some((s) => s.id === story.id)) return;
+      setSelectedStories([...selectedStories, story]);
       setSearchQuery("");
       setIsDropdownOpen(false);
     },
-    [updateUrl],
+    [selectedStories, setSelectedStories],
   );
 
   const handleRemove = useCallback(
     (id: string) => {
-      setSelectedStories((prev) => {
-        const newStories = prev.filter((s) => s.id !== id);
-        updateUrl(newStories);
-        return newStories;
-      });
+      setSelectedStories(selectedStories.filter((s) => s.id !== id));
     },
-    [updateUrl],
+    [selectedStories, setSelectedStories],
   );
 
   const handlePresetComparison = useCallback(
@@ -189,10 +159,9 @@ export function CompareMythsPageClient({
 
       if (foundStories.length > 0) {
         setSelectedStories(foundStories);
-        updateUrl(foundStories);
       }
     },
-    [storyMap, updateUrl],
+    [storyMap, setSelectedStories],
   );
 
   const handleShare = useCallback(async () => {

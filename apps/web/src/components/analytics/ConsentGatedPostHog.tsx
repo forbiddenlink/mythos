@@ -1,11 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { resetAnalyticsSink, setAnalyticsSink } from "@/lib/analytics/events";
 import { isProductionHostname } from "@/lib/analytics/production-host";
 import { redactConfirmToken } from "@/lib/analytics/redact-url";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
+import { useAnalyticsConsent } from "@/lib/privacy-consent-hooks";
 
 type PostHogClient = {
   init: (key: string, options: Record<string, unknown>) => void;
@@ -38,19 +39,8 @@ export function getPostHogDistinctId(): string | undefined {
  * built next.
  */
 export function ConsentGatedPostHog() {
-  const [allowed, setAllowed] = useState(false);
+  const allowed = useAnalyticsConsent();
   const pathname = usePathname();
-
-  useEffect(() => {
-    const sync = () => setAllowed(hasAnalyticsConsent());
-    sync();
-    window.addEventListener("storage", sync);
-    window.addEventListener("mythos-cookie-consent", sync);
-    return () => {
-      window.removeEventListener("storage", sync);
-      window.removeEventListener("mythos-cookie-consent", sync);
-    };
-  }, []);
 
   useEffect(() => {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;

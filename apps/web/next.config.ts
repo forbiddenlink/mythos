@@ -3,12 +3,9 @@ import { withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 import path from "node:path";
-import { CREATURE_ALIASES } from "./src/lib/creature-aliases";
-import { ARTIFACT_ALIASES } from "./src/lib/artifact-aliases";
-import { LOCATION_ALIASES } from "./src/lib/location-aliases";
-import { STORY_ALIASES } from "./src/lib/story-aliases";
 import { getReversedComparisonSlugs } from "./src/lib/comparisons";
 import { CONSOLIDATION_REDIRECTS } from "./src/lib/route-redirects";
+import { aliasRedirects } from "./src/lib/slug-aliases";
 
 const withNextIntl = createNextIntlPlugin("./i18n.ts");
 const withBundleAnalyzer = bundleAnalyzer({
@@ -146,33 +143,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...CONSOLIDATION_REDIRECTS,
-      ...Object.entries(STORY_ALIASES).flatMap(([from, to]) => [
-        {
-          source: `/stories/${from}`,
-          destination: `/stories/${to}`,
-          permanent: true,
-        },
-        {
-          source: `/stories/${from}/read`,
-          destination: `/stories/${to}/read`,
-          permanent: true,
-        },
-      ]),
-      ...Object.entries(CREATURE_ALIASES).map(([from, to]) => ({
-        source: `/creatures/${from}`,
-        destination: `/creatures/${to}`,
-        permanent: true,
-      })),
-      ...Object.entries(ARTIFACT_ALIASES).map(([from, to]) => ({
-        source: `/artifacts/${from}`,
-        destination: `/artifacts/${to}`,
-        permanent: true,
-      })),
-      ...Object.entries(LOCATION_ALIASES).map(([from, to]) => ({
-        source: `/locations/${from}`,
-        destination: `/locations/${to}`,
-        permanent: true,
-      })),
+      ...aliasRedirects(),
       ...Object.entries(getReversedComparisonSlugs()).map(([from, to]) => ({
         source: `/compare/${from}`,
         destination: `/compare/${to}`,

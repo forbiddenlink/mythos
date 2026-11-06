@@ -5,6 +5,8 @@
  * creating and navigating choose-your-own-adventure mythology stories.
  */
 
+import { LEARNING_KEYS } from "@/lib/learning-keys";
+
 export interface StoryChoice {
   text: string;
   nextNodeId: string;
@@ -46,8 +48,8 @@ export interface StoryProgress {
 }
 
 // Storage key prefix for localStorage
-const STORY_PROGRESS_KEY = "mythos-story-progress";
-const STORY_ENDINGS_KEY = "mythos-story-endings";
+const STORY_PROGRESS_KEY = LEARNING_KEYS.storyProgress;
+const STORY_ENDINGS_KEY = LEARNING_KEYS.storyEndings;
 
 /**
  * Save story progress to localStorage

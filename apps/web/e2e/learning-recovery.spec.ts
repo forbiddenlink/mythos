@@ -1,5 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { expect, test } from "@playwright/test";
+import { LEARNING_KEYS } from "../src/lib/learning-keys";
+import type { UserProgress } from "../src/providers/progress-provider";
+import { readStoredJson } from "./helpers/storage";
 
 test.describe("Review across midnight", () => {
   test.use({
@@ -14,10 +17,8 @@ test.describe("Review across midnight", () => {
     await page.goto("/deities/athena");
     await expect
       .poll(() =>
-        page.evaluate(
-          () =>
-            JSON.parse(localStorage.getItem("mythos-atlas-progress") || "{}")
-              .deitiesViewed,
+        readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+          (progress) => progress?.deitiesViewed,
         ),
       )
       .toContain("athena");
@@ -55,12 +56,12 @@ test.describe("Review across midnight", () => {
       });
     await expect
       .poll(() =>
-        page.evaluate(() => {
-          const progress = JSON.parse(
-            localStorage.getItem("mythos-atlas-progress") || "{}",
-          );
-          return { date: progress.lastVisit, streak: progress.dailyStreak };
-        }),
+        readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+          (progress) => ({
+            date: progress?.lastVisit,
+            streak: progress?.dailyStreak,
+          }),
+        ),
       )
       .toEqual({ date: "2026-10-16", streak: 2 });
   });
@@ -71,12 +72,12 @@ test.describe("Review across midnight", () => {
     await page.clock.setFixedTime("2026-10-16T03:59:00Z");
     await page.goto("/deities/athena");
     const visit = () =>
-      page.evaluate(() => {
-        const progress = JSON.parse(
-          localStorage.getItem("mythos-atlas-progress") || "{}",
-        );
-        return { date: progress.lastVisit, streak: progress.dailyStreak };
-      });
+      readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+        (progress) => ({
+          date: progress?.lastVisit,
+          streak: progress?.dailyStreak,
+        }),
+      );
     await expect.poll(visit).toEqual({ date: "2026-10-15", streak: 1 });
     await page.clock.setFixedTime("2026-10-16T04:01:00Z");
     await page.keyboard.press("Control+k");
@@ -158,10 +159,8 @@ for (const width of [1440, 390]) {
     await page.goto("/deities/athena", { waitUntil: "domcontentloaded" });
     await expect
       .poll(() =>
-        page.evaluate(
-          () =>
-            JSON.parse(localStorage.getItem("mythos-atlas-progress") || "{}")
-              .deitiesViewed || [],
+        readStoredJson<UserProgress>(page, LEARNING_KEYS.progress).then(
+          (progress) => progress?.deitiesViewed ?? [],
         ),
       )
       .toContain("athena");

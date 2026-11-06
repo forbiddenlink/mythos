@@ -1,6 +1,7 @@
 import "server-only";
 
 import sources from "@/data/sources.json";
+import { matchesSource } from "./source-matching";
 import { foldForSearch } from "./search-fold";
 
 /**
@@ -75,11 +76,20 @@ const ALIASES: Record<string, string> = {
   "descent of inanna to the underworld": "descent-of-inanna",
 };
 
-/** The site's page for a cited work, when the sources catalog has one. */
+/**
+ * The site's page for a cited work, when the sources catalog has one. An
+ * explicit `sourceId` wins; the title match is the fallback for citations
+ * that carry only a human-readable title.
+ */
 export function citedWorkHref(
   title: string,
   author?: string,
+  sourceId?: string,
 ): string | undefined {
+  if (sourceId?.trim()) {
+    const byId = sources.find((source) => matchesSource({ sourceId }, source));
+    if (byId) return `/sources/${byId.id}`;
+  }
   for (const key of titleKeys(title)) {
     const alias = ALIASES[key];
     if (alias && sourceIds.has(alias)) return `/sources/${alias}`;

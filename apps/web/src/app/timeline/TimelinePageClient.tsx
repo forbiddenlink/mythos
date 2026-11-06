@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { StageLoading } from "@/components/layout/tool-stage";
 import { TimelineControls } from "@/components/timeline/TimelineControls";
 import { cn } from "@/lib/utils";
@@ -111,6 +111,14 @@ export function TimelinePageClient({
   ]);
   const [view, setView] = useState<TimelineView>("traditions");
 
+  // The chart reports pans and zooms; adopt them unless they match the current
+  // range, so the controls follow the chart without a render loop.
+  const followChart = useCallback((next: [number, number]) => {
+    setViewRange((current) =>
+      current[0] === next[0] && current[1] === next[1] ? current : next,
+    );
+  }, []);
+
   // The page is prerendered; the view is read from the URL after hydration.
   useEffect(() => {
     const sync = () => setView(viewFromHash(globalThis.location.hash));
@@ -183,6 +191,7 @@ export function TimelinePageClient({
               pantheons={pantheons}
               events={events}
               viewRange={viewRange}
+              onRangeChange={followChart}
             />
           </div>
 

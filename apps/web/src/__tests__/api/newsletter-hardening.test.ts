@@ -10,18 +10,9 @@ const resend = vi.hoisted(() => ({
   list: vi.fn(),
 }));
 
-const upstash = vi.hoisted(() => ({
-  /** What the mocked Ratelimit.limit() does next; undefined = allow. */
-  limit: undefined as undefined | (() => Promise<Record<string, unknown>>),
-  kv: new Map<string, string>(),
-  hashes: new Map<string, Map<string, string>>(),
-  counters: new Map<string, number>(),
-  incrFails: false,
-  /** Next set() commits but throws, like a lost acknowledgement. */
-  lostAck: false,
-  /** The next eval() (pending -> done) throws. */
-  evalFails: false,
-}));
+const store = await vi.hoisted(async () =>
+  (await import("../helpers/fake-upstash")).createFakeRedis(),
+);
 
 vi.mock("resend", () => ({
   Resend: class {
@@ -35,81 +26,13 @@ vi.mock("resend", () => ({
   },
 }));
 
-vi.mock("@upstash/ratelimit", () => ({
-  Ratelimit: class {
-    static slidingWindow() {
-      return {};
-    }
-    async limit() {
-      return upstash.limit ? upstash.limit() : { success: true };
-    }
-  },
-}));
+vi.mock("@upstash/ratelimit", async () =>
+  (await import("../helpers/fake-upstash")).fakeRatelimitModule(store),
+);
 
-vi.mock("@upstash/redis", () => ({
-  Redis: class {
-    async set(key: string, value: string, opts: { nx?: boolean; ex?: number }) {
-      // Yield so concurrent callers genuinely interleave.
-      await Promise.resolve();
-      if (opts.nx && upstash.kv.has(key)) return null;
-      upstash.kv.set(key, value);
-      if (upstash.lostAck && !key.startsWith("mythos:newsletter:lock:")) {
-        upstash.lostAck = false;
-        upstash.evalFails = false;
-        vi.useFakeTimers({ toFake: ["Date"] });
-        throw new Error("ack lost");
-      }
-      return "OK";
-    }
-    async get(key: string) {
-      return upstash.kv.get(key) ?? null;
-    }
-    async hgetall(key: string) {
-      const hash = upstash.hashes.get(key);
-      return hash ? Object.fromEntries(hash) : null;
-    }
-    async eval(_script: string, keys: string[], args: string[]) {
-      if (_script.includes('"hset"')) {
-        const hash = upstash.hashes.get(keys[0]!) ?? new Map<string, string>();
-        hash.set(args[0]!, args[1]!);
-        upstash.hashes.set(keys[0]!, hash);
-        return 1;
-      }
-      if (upstash.evalFails && args.length === 3) {
-        upstash.evalFails = false;
-        throw new Error("redis down");
-      }
-      if (keys.length === 2) {
-        // Mutation guard: 0 claim lost, 2 reader unsubscribed, 1 ok.
-        if (upstash.kv.get(keys[0]!) !== args[0]) return 0;
-        const unsub = upstash.kv.get(keys[1]!);
-        if (unsub !== undefined && Number(unsub) >= Number(args[1])) return 2;
-        return 1;
-      }
-      if (_script.includes("tonumber(cur)")) {
-        const cur = upstash.kv.get(keys[0]!);
-        if (cur === undefined || Number(cur) < Number(args[0])) {
-          upstash.kv.set(keys[0]!, args[0]!);
-        }
-        return 1;
-      }
-      const key = keys[0]!;
-      if (upstash.kv.get(key) !== args[0]) return 0;
-      if (args.length === 3) upstash.kv.set(key, args[1]!);
-      else upstash.kv.delete(key);
-      return 1;
-    }
-    async incr(key: string) {
-      if (upstash.incrFails) throw new Error("down");
-      const v = (upstash.counters.get(key) ?? 0) + 1;
-      upstash.counters.set(key, v);
-      return v;
-    }
-    async expire() {
-      return 1;
-    }
-  },
-}));
+vi.mock("@upstash/redis", async () =>
+  (await import("../helpers/fake-upstash")).fakeRedisModule(store),
+);
 
 import { POST as CONFIRM } from "@/app/api/newsletter/confirm/route";
 import { POST } from "@/app/api/newsletter/route";
@@ -160,12 +83,12 @@ beforeEach(() => {
   delete process.env.NEWSLETTER_DAILY_SEND_CAP;
   process.env.UPSTASH_REDIS_REST_URL = "https://example.upstash.io";
   process.env.UPSTASH_REDIS_REST_TOKEN = "token";
-  upstash.limit = undefined;
-  upstash.kv.clear();
-  upstash.hashes.clear();
-  upstash.counters.clear();
-  upstash.incrFails = false;
-  upstash.lostAck = false;
+  store.limit = undefined;
+  store.kv.clear();
+  store.hashes.clear();
+  store.counters.clear();
+  store.incrFails = false;
+  store.lostAck = false;
   for (const fn of Object.values(resend)) fn.mockReset();
   resend.create.mockResolvedValue({ error: null });
   resend.send.mockResolvedValue({ error: null });
@@ -232,7 +155,7 @@ describe("confirm: single-use redemption", () => {
 
   it("does not report success to a retry after a lost acknowledgement", async () => {
     const token = createConfirmToken("lostack@example.com", "re_test");
-    upstash.lostAck = true;
+    store.lostAck = true;
     expect(
       (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
     ).toBe(503);
@@ -320,8 +243,8 @@ describe("confirm: single-use redemption", () => {
       const pending = CONFIRM(post("/api/newsletter/confirm", { token }));
       await vi.waitFor(() => expect(resend.create).toHaveBeenCalledTimes(1));
       // Only the claim goes; the consent lock stays held.
-      for (const k of [...upstash.kv.keys()]) {
-        if (k.includes(":redeemed:")) upstash.kv.delete(k);
+      for (const k of [...store.kv.keys()]) {
+        if (k.includes(":redeemed:")) store.kv.delete(k);
       }
       resolveCreate({ error: { message: "already exists", statusCode: 409 } });
       expect((await pending).status).toBe(409);
@@ -330,7 +253,7 @@ describe("confirm: single-use redemption", () => {
 
     it("keeps a pending record that nobody can read the contact for", async () => {
       const token = createConfirmToken("leaver2@example.com", "re_test");
-      upstash.evalFails = true; // the done-write fails
+      store.evalFails = true; // the done-write fails
       expect(
         (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
       ).toBe(200);
@@ -343,7 +266,7 @@ describe("confirm: single-use redemption", () => {
       resend.get.mockRejectedValue(new Error("resend down"));
       resend.create.mockClear();
       const recordKey = () =>
-        [...upstash.kv.entries()].find(([k]) => k.includes(":redeemed:"));
+        [...store.kv.entries()].find(([k]) => k.includes(":redeemed:"));
       const before = recordKey();
 
       for (let i = 0; i < 3; i++) {
@@ -360,7 +283,7 @@ describe("confirm: single-use redemption", () => {
 
     it("never calls a stale retry confirmed because the contact once joined the segment", async () => {
       const token = createConfirmToken("fresh@example.com", "re_test");
-      upstash.lostAck = true; // claim commits, confirm never ran
+      store.lostAck = true; // claim commits, confirm never ran
       expect(
         (await CONFIRM(post("/api/newsletter/confirm", { token }))).status,
       ).toBe(503);
@@ -403,7 +326,7 @@ describe("confirm: single-use redemption", () => {
         "owner@example.com",
       ),
     ).toBe(false);
-    expect([...upstash.kv.values()]).toEqual([claim.marker]);
+    expect([...store.kv.values()]).toEqual([claim.marker]);
     expect(
       await completeConfirmToken(
         "owner-check-token",
@@ -412,7 +335,7 @@ describe("confirm: single-use redemption", () => {
         "owner@example.com",
       ),
     ).toBe(true);
-    expect([...upstash.kv.values()]).toEqual(["done"]);
+    expect([...store.kv.values()]).toEqual(["done"]);
   });
 
   it("rate limits confirm attempts per client", async () => {
@@ -422,7 +345,7 @@ describe("confirm: single-use redemption", () => {
       host: "localhost:3000",
       "x-real-ip": "198.51.100.9",
     };
-    upstash.limit = async () => ({ success: false });
+    store.limit = async () => ({ success: false });
     const response = await CONFIRM(
       new Request("http://localhost:3000/api/newsletter/confirm", {
         method: "POST",
@@ -437,7 +360,7 @@ describe("confirm: single-use redemption", () => {
   });
 
   it("answers 503 before Resend when the limiter times out", async () => {
-    upstash.limit = async () => ({ success: true, reason: "timeout" });
+    store.limit = async () => ({ success: true, reason: "timeout" });
     const token = createConfirmToken("slow@example.com", "re_test");
     const response = await CONFIRM(post("/api/newsletter/confirm", { token }));
     expect(response.status).toBe(503);
@@ -447,7 +370,7 @@ describe("confirm: single-use redemption", () => {
 
 describe("send path: fail closed on Redis trouble", () => {
   it("answers 503 and sends nothing when Upstash times out", async () => {
-    upstash.limit = async () => ({ success: true, reason: "timeout" });
+    store.limit = async () => ({ success: true, reason: "timeout" });
     const response = await signup("timeout@example.com");
     expect(response.status).toBe(503);
     expect(resend.create).not.toHaveBeenCalled();
@@ -455,7 +378,7 @@ describe("send path: fail closed on Redis trouble", () => {
   });
 
   it("answers 503 and sends nothing when Upstash errors", async () => {
-    upstash.limit = async () => {
+    store.limit = async () => {
       throw new Error("ECONNRESET");
     };
     const response = await signup("error@example.com");
@@ -471,14 +394,14 @@ describe("send path: fail closed on Redis trouble", () => {
       checkQuizRateLimit,
       checkSearchRateLimit,
     ];
-    upstash.limit = async () => ({ success: true, reason: "timeout" });
+    store.limit = async () => ({ success: true, reason: "timeout" });
     for (const check of paid) {
       await expect(check("someone")).resolves.toEqual({
         allowed: false,
         reason: "unavailable",
       });
     }
-    upstash.limit = async () => {
+    store.limit = async () => {
       throw new Error("ECONNRESET");
     };
     for (const check of paid) {
@@ -490,7 +413,7 @@ describe("send path: fail closed on Redis trouble", () => {
   });
 
   it("keeps the analytics beacon bucket fail-open", async () => {
-    upstash.limit = async () => ({ success: true, reason: "timeout" });
+    store.limit = async () => ({ success: true, reason: "timeout" });
     await expect(checkAnalyticsRateLimit("someone")).resolves.toEqual({
       allowed: true,
     });
@@ -552,7 +475,7 @@ describe("per-inbox key and aggregate budget", () => {
   });
 
   it("answers 503 and sends nothing when the budget counter errors", async () => {
-    upstash.incrFails = true;
+    store.incrFails = true;
     const response = await signup("budget-down@example.com");
     expect(response.status).toBe(503);
     expect(resend.send).not.toHaveBeenCalled();

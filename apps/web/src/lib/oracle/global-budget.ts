@@ -5,15 +5,9 @@
  */
 
 import { Redis } from "@upstash/redis";
+import { isProductionRuntime, utcDayKey } from "@/lib/server/runtime";
 
 const DEFAULT_DAILY_CAP = 500;
-
-function isProductionRuntime(): boolean {
-  return (
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL_ENV === "production"
-  );
-}
 
 function dailyCap(): number {
   const raw = process.env.ORACLE_DAILY_REQUEST_CAP?.trim();
@@ -22,14 +16,19 @@ function dailyCap(): number {
   return Number.isFinite(n) && n > 0 ? n : DEFAULT_DAILY_CAP;
 }
 
-function utcDayKey(): string {
-  return new Date().toISOString().slice(0, 10);
-}
-
 export type GlobalBudgetScope = "oracle" | "quiz";
 
+// The oracle key keeps its historical name so a deploy does not reset today's count.
+function dailyKey(scope: GlobalBudgetScope): string {
+  return scope === "oracle"
+    ? `mythos:oracle:daily:${utcDayKey()}`
+    : `mythos:${scope}:daily:${utcDayKey()}`;
+}
+
 export type GlobalOracleBudgetResult =
-  | { allowed: true }
+  // `reservation` is the counter key this admission incremented, absent when
+  // no shared counter is configured. Pass the result to the release call.
+  | { allowed: true; reservation?: string }
   | { allowed: false; reason: "budget_exhausted" | "misconfigured" };
 
 /**
@@ -53,11 +52,7 @@ export async function checkGlobalOracleBudget(
   }
 
   const redis = new Redis({ url, token });
-  // The oracle key keeps its historical name so a deploy does not reset today's count.
-  const key =
-    scope === "oracle"
-      ? `mythos:oracle:daily:${utcDayKey()}`
-      : `mythos:${scope}:daily:${utcDayKey()}`;
+  const key = dailyKey(scope);
   const count = await redis.incr(key);
   if (count === 1) {
     // Expire shortly after the UTC day ends (+1h slack)
@@ -67,5 +62,27 @@ export async function checkGlobalOracleBudget(
   if (count > dailyCap()) {
     return { allowed: false, reason: "budget_exhausted" };
   }
-  return { allowed: true };
+  return { allowed: true, reservation: key };
+}
+
+/**
+ * Give back a slot taken by checkGlobalOracleBudget when the request is then
+ * refused by a later gate (the token cap), so a denied request does not eat
+ * the day's request cap. It decrements the exact key the admission
+ * incremented, so a refund that lands after UTC midnight still returns the
+ * slot to the day it was taken from. Best effort: a failed refund
+ * over-counts, which keeps the cap conservative.
+ */
+export async function releaseGlobalOracleBudget(
+  admission: Extract<GlobalOracleBudgetResult, { allowed: true }>,
+): Promise<void> {
+  const key = admission.reservation;
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!key || !url || !token) return;
+  try {
+    await new Redis({ url, token }).decr(key);
+  } catch {
+    // Over-counting is the safe failure.
+  }
 }

@@ -3,10 +3,9 @@ import {
   generateEntityAlt,
   getIllustrativeImageNote,
 } from "@/lib/image-provenance";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
-import { canonicalLocationSlug } from "@/lib/location-aliases";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
@@ -93,8 +92,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug: rawSlug } = await params;
-  const slug = canonicalLocationSlug(rawSlug);
+  const { slug } = await params;
   const location = locations.find((l) => l.id === slug) as
     LocationData | undefined;
 
@@ -141,11 +139,6 @@ export async function generateMetadata({
 
 export default async function LocationPage({ params }: PageProps) {
   const { slug } = await params;
-  const canonical = canonicalLocationSlug(slug);
-  if (canonical !== slug) {
-    redirect(`/locations/${canonical}`);
-  }
-
   const allLocations = locations as unknown as LocationData[];
   const location = allLocations.find((l) => l.id === slug);
   if (!location) {

@@ -12,6 +12,7 @@
  */
 
 import { Redis } from "@upstash/redis";
+import { isProductionRuntime, utcDayKey } from "@/lib/server/runtime";
 
 export const DEFAULT_DAILY_TOKEN_CAP = 2_000_000;
 
@@ -43,17 +44,6 @@ export function dailyTokenCap(): number {
   if (!raw) return DEFAULT_DAILY_TOKEN_CAP;
   const n = Number.parseInt(raw, 10);
   return Number.isFinite(n) && n > 0 ? n : DEFAULT_DAILY_TOKEN_CAP;
-}
-
-function isProductionRuntime(): boolean {
-  return (
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL_ENV === "production"
-  );
-}
-
-function utcDayKey(): string {
-  return new Date().toISOString().slice(0, 10);
 }
 
 function redisKey(day: string): string {

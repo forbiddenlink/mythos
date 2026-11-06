@@ -57,4 +57,21 @@ describe("citedWorkHref", () => {
   ])("leaves %s unlinked", (title, author) => {
     expect(citedWorkHref(title, author)).toBeUndefined();
   });
+
+  it("resolves by sourceId when the title does not match the catalog", () => {
+    const title = "Changse-ga, in Joseon Singa Yupyeon";
+    expect(citedWorkHref(title)).toBeUndefined();
+    expect(citedWorkHref(title, undefined, "joseon-singa-yupyeon")).toBe(
+      "/sources/joseon-singa-yupyeon",
+    );
+  });
+
+  it("prefers sourceId over a title match, and falls back to the title for an unknown id", () => {
+    expect(citedWorkHref("Kalevala, Rune 1", undefined, "prose-edda")).toBe(
+      "/sources/prose-edda",
+    );
+    expect(citedWorkHref("Kalevala, Rune 1", undefined, "no-such-id")).toBe(
+      "/sources/kalevala",
+    );
+  });
 });

@@ -136,9 +136,17 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(false);
   const [howlerLoaded, setHowlerLoaded] = useState(false);
 
+  // Mirrors isMuted synchronously so callbacks run in the same tick as an
+  // unmute (toggleMute -> togglePlay -> playTrack) see the new value.
+  const isMutedRef = useRef(true);
   const howlRef = useRef<HowlType | null>(null);
   const HowlClass = useRef<typeof import("howler").Howl | null>(null);
   const pathname = usePathname();
+
+  const updateMuted = useCallback((muted: boolean) => {
+    isMutedRef.current = muted;
+    setIsMuted(muted);
+  }, []);
 
   // Lazy load Howler.js only when needed
   const loadHowler = useCallback(async () => {
@@ -195,13 +203,13 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       howlRef.current = newHowl;
       setCurrentTrack(trackKey);
 
-      if (!isMuted) {
+      if (!isMutedRef.current) {
         newHowl.play();
         newHowl.fade(0, volume, 1000);
         setIsPlaying(true);
       }
     },
-    [currentTrack, isMuted, volume, loadHowler],
+    [currentTrack, volume, loadHowler],
   );
 
   // Effect to handle navigation changes - only switch tracks if audio is active
@@ -240,16 +248,16 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         howlRef.current.fade(0, volume, 500);
       }
       setIsPlaying(true);
-      if (isMuted) {
-        setIsMuted(false);
+      if (isMutedRef.current) {
+        updateMuted(false);
         howlRef.current?.mute(false);
       }
     }
-  }, [isPlaying, currentTrack, volume, isMuted, loadHowler, playTrack]);
+  }, [isPlaying, currentTrack, volume, loadHowler, playTrack, updateMuted]);
 
   const toggleMute = useCallback(async () => {
     if (isMuted) {
-      setIsMuted(false);
+      updateMuted(false);
       // Load Howler and start playing when user unmutes
       await loadHowler();
 
@@ -265,10 +273,10 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         await togglePlay();
       }
     } else {
-      setIsMuted(true);
+      updateMuted(true);
       howlRef.current?.mute(true);
     }
-  }, [isMuted, isPlaying, volume, loadHowler, togglePlay]);
+  }, [isMuted, isPlaying, volume, loadHowler, togglePlay, updateMuted]);
 
   const updateVolume = useCallback((val: number) => {
     setVolume(val);
