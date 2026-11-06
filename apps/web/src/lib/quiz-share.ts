@@ -128,18 +128,29 @@ export interface ShareOrCopyPayload {
   url: string;
   /** Text placed on the clipboard when sharing falls back to copying. Defaults to `url`. */
   copyText?: string;
+  /**
+   * Also try the hidden-textarea `execCommand` path when the async clipboard
+   * API fails. Off by default: the quizzes show a manual-copy box instead,
+   * because a legacy copy outside a user gesture can report success without
+   * reaching the clipboard.
+   */
+  legacyCopy?: boolean;
 }
 
 /**
- * Copies text with the async clipboard API, then a hidden textarea and
- * `execCommand`. The textarea is attached inside the focused dialog (when
- * there is one) so copying does not dismiss a popover.
+ * Copies text with the async clipboard API, then (unless `legacy` is false) a
+ * hidden textarea and `execCommand`. The textarea is attached inside the
+ * focused dialog (when there is one) so copying does not dismiss a popover.
  */
-export async function copyToClipboard(text: string): Promise<boolean> {
+export async function copyToClipboard(
+  text: string,
+  { legacy = true }: { legacy?: boolean } = {},
+): Promise<boolean> {
   try {
     await navigator.clipboard.writeText(text);
     return true;
   } catch {
+    if (!legacy) return false;
     // Fall through to the legacy path.
   }
 
@@ -195,7 +206,9 @@ export async function shareOrCopy(
       if (isAbortError(error)) return "cancelled";
     }
   }
-  return (await copyToClipboard(payload.copyText ?? payload.url))
+  return (await copyToClipboard(payload.copyText ?? payload.url, {
+    legacy: payload.legacyCopy ?? false,
+  }))
     ? "copied"
     : "manual";
 }

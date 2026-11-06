@@ -59,6 +59,23 @@ describe("shareOrCopy", () => {
     document.execCommand = vi.fn().mockReturnValue(false);
     await expect(shareOrCopy(payload)).resolves.toBe("manual");
   });
+
+  it("returns manual without trying the legacy copy by default", async () => {
+    const writeText = vi.fn().mockRejectedValue(new Error("denied"));
+    stubNavigator({ clipboard: { writeText } } as never);
+    document.execCommand = vi.fn().mockReturnValue(true);
+    await expect(shareOrCopy(payload)).resolves.toBe("manual");
+    expect(document.execCommand).not.toHaveBeenCalled();
+  });
+
+  it("uses the legacy copy when the caller opts in", async () => {
+    const writeText = vi.fn().mockRejectedValue(new Error("denied"));
+    stubNavigator({ clipboard: { writeText } } as never);
+    document.execCommand = vi.fn().mockReturnValue(true);
+    await expect(shareOrCopy({ ...payload, legacyCopy: true })).resolves.toBe(
+      "copied",
+    );
+  });
 });
 
 describe("copyToClipboard", () => {

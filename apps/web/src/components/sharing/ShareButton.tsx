@@ -53,7 +53,12 @@ export function ShareButton({
   }, [url]);
 
   const handleNativeShare = useCallback(async () => {
-    const outcome = await shareOrCopy({ title, text, url: shareUrl });
+    const outcome = await shareOrCopy({
+      title,
+      text,
+      url: shareUrl,
+      legacyCopy: true,
+    });
     if (outcome === "shared") {
       trackEvent("share_clicked", { surface, method: "native" });
     } else if (outcome === "copied") {
