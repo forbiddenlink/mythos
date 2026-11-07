@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.17.1](https://github.com/forbiddenlink/mythos/compare/v1.17.0...v1.17.1) (2026-11-06)
+
+
+### Bug Fixes
+
+* resolve the held data-structure audit items ([#295](https://github.com/forbiddenlink/mythos/issues/295)) ([e11a9be](https://github.com/forbiddenlink/mythos/commit/e11a9becd368cddf36ddf0005c6e29f45233dee3))
+
 ## [1.17.0](https://github.com/forbiddenlink/mythos/compare/v1.16.0...v1.17.0) (2026-11-05)
 
 
