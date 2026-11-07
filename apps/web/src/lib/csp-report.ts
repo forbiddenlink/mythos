@@ -67,11 +67,17 @@ function isExtensionUrl(raw: string | undefined): boolean {
  *   WASM), so the compile comes from an injected script or the browser.
  *   If we ever ship WASM, add 'wasm-unsafe-eval' to script-src and remove
  *   this clause.
+ * - PostHog's own internal hosts (internal-*.posthog.com). Our analytics goes
+ *   through the /ingest proxy, so no first-party code calls posthog.com from
+ *   the browser; these come from PostHog's toolbar or its crawler.
  */
+const POSTHOG_INTERNAL_HOST = /^https:\/\/internal-[a-z0-9]+\.posthog\.com(\/|$)/;
+
 export function isBrowserNoise(body: Record<string, unknown>): boolean {
   const source = str(body.sourceFile) ?? str(body["source-file"]);
   const blocked = str(body.blockedURL) ?? str(body["blocked-uri"]);
   if (isExtensionUrl(source) || isExtensionUrl(blocked)) return true;
+  if (blocked && POSTHOG_INTERNAL_HOST.test(blocked)) return true;
   const directive =
     str(body.effectiveDirective) ?? str(body["effective-directive"]);
   return (

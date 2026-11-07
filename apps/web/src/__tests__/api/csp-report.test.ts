@@ -103,6 +103,38 @@ describe("parseCspReports", () => {
     ).toEqual([]);
   });
 
+  it("drops PostHog's own internal hosts (toolbar and screenshot tooling)", () => {
+    // First-party analytics goes through /ingest, so the browser never needs
+    // posthog.com. internal-*.posthog.com is PostHog's own app telemetry,
+    // seen only from its toolbar or crawler (Sentry MYTHOS-W, MYTHOS-X).
+    expect(
+      parseCspReports([
+        {
+          type: "csp-violation",
+          body: {
+            documentURL: "https://mythosatlas.com/progress",
+            effectiveDirective: "connect-src",
+            blockedURL: "https://internal-j.posthog.com/i/v0/e/",
+            disposition: "enforce",
+          },
+        },
+      ]),
+    ).toEqual([]);
+    expect(
+      parseCspReports([
+        {
+          type: "csp-violation",
+          body: {
+            documentURL: "https://mythosatlas.com/progress",
+            effectiveDirective: "connect-src",
+            blockedURL: "https://us.i.posthog.com/e/",
+            disposition: "enforce",
+          },
+        },
+      ]),
+    ).toHaveLength(1);
+  });
+
   it("keeps a first-party inline block", () => {
     expect(
       parseCspReports([
