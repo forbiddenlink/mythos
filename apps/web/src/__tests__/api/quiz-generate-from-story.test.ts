@@ -149,4 +149,58 @@ describe("POST /api/quiz/generate-from-story", () => {
     expect(checkQuizRateLimit.mock.calls[0]![0]).toMatch(/^anon:/);
     vi.doUnmock("@/lib/oracle/rate-limit");
   });
+
+  describe("prompt construction", () => {
+    async function capturePrompt(): Promise<string> {
+      vi.stubEnv("ANTHROPIC_API_KEY", "test-key");
+      const generateObject = vi.fn().mockResolvedValue({
+        object: { questions: [] },
+        usage: { totalTokens: 10 },
+      });
+      vi.doMock("ai", () => ({ generateObject }));
+      vi.doMock("@ai-sdk/anthropic", () => ({ anthropic: () => "model" }));
+      vi.doMock("@/lib/oracle/rate-limit", () => ({
+        checkQuizRateLimit: vi.fn().mockResolvedValue({ allowed: true }),
+      }));
+      vi.doMock("@/lib/oracle/global-budget", () => ({
+        checkGlobalOracleBudget: vi
+          .fn()
+          .mockResolvedValue({ allowed: true, reservation: "k" }),
+        releaseGlobalOracleBudget: vi.fn(),
+      }));
+      vi.doMock("@/lib/oracle/token-budget", () => ({
+        estimateTokens: (s: string) => s.length,
+        reserveOracleTokens: vi
+          .fn()
+          .mockResolvedValue({ allowed: true, reservation: "r" }),
+        settleOracleTokens: vi.fn(),
+      }));
+      const { POST } = await import("@/app/api/quiz/generate-from-story/route");
+      await POST(postRequest({ storySlug: "aeneid", count: 5 }));
+      return generateObject.mock.calls[0]![0].prompt as string;
+    }
+
+    afterEach(() => {
+      vi.doUnmock("ai");
+      vi.doUnmock("@ai-sdk/anthropic");
+      vi.doUnmock("@/lib/oracle/rate-limit");
+    });
+
+    it("puts the story in <story> tags before the rules, marked as data", async () => {
+      const prompt = await capturePrompt();
+      const open = prompt.indexOf("<story>");
+      const close = prompt.indexOf("</story>");
+      expect(open).toBeGreaterThanOrEqual(0);
+      expect(close).toBeGreaterThan(open);
+      expect(prompt.slice(open, close)).toContain("Title:");
+      expect(prompt.indexOf("Rules:")).toBeGreaterThan(close);
+      expect(prompt).toMatch(/untrusted DATA/i);
+    });
+
+    it("lets the model return fewer questions instead of forcing the count", async () => {
+      const prompt = await capturePrompt();
+      expect(prompt).not.toMatch(/still produce the requested count/i);
+      expect(prompt).toMatch(/fewer/i);
+    });
+  });
 });
