@@ -307,7 +307,7 @@ importers:
         specifier: '>=8.5.18 <9.0.0'
         version: 8.5.28
       sharp:
-        specifier: ^0.35.5
+        specifier: '>=0.35.3 <0.36.0'
         version: 0.35.5(@types/node@26.6.5)
       tailwindcss:
         specifier: 4.3.3
