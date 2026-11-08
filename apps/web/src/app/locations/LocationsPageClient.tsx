@@ -67,6 +67,7 @@ interface Location {
   latitude: number | null;
   longitude: number | null;
   imageUrl?: string;
+  blurHash?: string;
 }
 
 interface Pantheon {
@@ -373,6 +374,7 @@ export function LocationsPageClient({
         linkLabel={`Explore ${location.name}`}
         title={location.name}
         image={location.imageUrl}
+        blurHash={location.blurHash}
         imageAlt={location.name}
         aspect="landscape"
         priority={!list && index < 3}

@@ -1,3 +1,4 @@
+import { getBlurHash } from "@/lib/image-blur";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -98,6 +99,7 @@ export default async function PantheonCreaturesPage({
                 href={`/creatures/${creature.slug}`}
                 title={creature.name}
                 image={creature.imageUrl}
+                blurHash={getBlurHash(creature.imageUrl)}
                 aspect="landscape"
                 traditionColor={getPantheonColor(tradition.id)}
                 subtitle={creature.habitat}

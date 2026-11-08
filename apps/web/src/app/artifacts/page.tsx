@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { getPantheonShortNames } from "@/lib/data/catalog";
+import { getBlurHash } from "@/lib/image-blur";
 import artifactsData from "@/data/artifacts.json";
 
 interface ArtifactRecord {
@@ -49,6 +50,7 @@ const items = artifacts.map((artifact) => ({
   pantheonId: artifact.pantheonId,
   description: artifact.description,
   imageUrl: artifact.imageUrl,
+  blurHash: getBlurHash(artifact.imageUrl),
   subtitle: artifact.powers[0],
   badge: capitalize(artifact.type),
   facet: typeGroup(artifact.type),
@@ -89,8 +91,9 @@ export default function ArtifactsPage() {
       </Container>
       <AboutThisPage title="About the artifacts">
         <p>
-          Looking for a name? The <Link href="/artifacts/a-z">A to Z index</Link>{" "}
-          lists every artifact alphabetically.
+          Looking for a name? The{" "}
+          <Link href="/artifacts/a-z">A to Z index</Link> lists every artifact
+          alphabetically.
         </p>
         <p>
           Mythic artifacts matter because they carry ownership, symbolism, and

@@ -41,7 +41,7 @@ import { useCatalogState } from "@/hooks/useCatalogState";
 import type { DeityListItem } from "@/lib/data/types";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
-type Deity = DeityListItem;
+type Deity = DeityListItem & { blurHash?: string };
 
 const RECOMMENDED_DEITIES = [
   {
@@ -370,6 +370,7 @@ function PaginatedDeityGrid({
             href={`/deities/${deity.slug}`}
             title={deity.name}
             image={deity.imageUrl}
+            blurHash={deity.blurHash}
             imagePosition="50% 22%"
             aspect="portrait"
             priority={index < 4}

@@ -1,5 +1,6 @@
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { getHeroes, getPantheonShortNames } from "@/lib/data/catalog";
+import { getBlurHash } from "@/lib/image-blur";
 import type { CatalogQuery } from "@/lib/catalog-query";
 import { HeroesPageClient, type HeroListItem } from "./HeroesPageClient";
 
@@ -12,6 +13,7 @@ const heroCards: HeroListItem[] = getHeroes().map((hero) => ({
   description: String(hero.description ?? ""),
   alternateNames: (hero.alternateNames as string[] | undefined) ?? [],
   imageUrl: (hero.imageUrl as string | null | undefined) ?? null,
+  blurHash: getBlurHash(hero.imageUrl as string | null | undefined),
   keyDeedCount: Array.isArray(hero.keyDeeds) ? hero.keyDeeds.length : 0,
 }));
 

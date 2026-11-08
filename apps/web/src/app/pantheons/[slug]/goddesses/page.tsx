@@ -1,3 +1,4 @@
+import { getBlurHash } from "@/lib/image-blur";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -97,6 +98,7 @@ export default async function PantheonGoddessesPage({
                 href={`/deities/${goddess.slug}`}
                 title={goddess.name}
                 image={goddess.imageUrl}
+                blurHash={getBlurHash(goddess.imageUrl)}
                 imagePosition="50% 22%"
                 aspect="portrait"
                 traditionColor={getPantheonColor(tradition.id)}

@@ -1,3 +1,4 @@
+import { getBlurHash } from "@/lib/image-blur";
 import Link from "next/link";
 import { CatalogImageNotice } from "@/components/entities/CatalogImageNotice";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
@@ -86,12 +87,14 @@ export default function PantheonsPage() {
           {pantheons.map((pantheon, index) => {
             const deities = deityCounts.get(pantheon.id) ?? 0;
             const stories = storyCounts.get(pantheon.id) ?? 0;
+            const cover = coverImage(pantheon.id, pantheon.imageUrl);
             return (
               <EntityCard
                 key={pantheon.id}
                 href={`/pantheons/${pantheon.slug}`}
                 title={pantheon.name}
-                image={coverImage(pantheon.id, pantheon.imageUrl)}
+                image={cover}
+                blurHash={getBlurHash(cover)}
                 aspect="landscape"
                 priority={index < 3}
                 headingLevel="h2"
