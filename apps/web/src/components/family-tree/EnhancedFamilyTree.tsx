@@ -350,8 +350,23 @@ export function EnhancedFamilyTree({
   focusDeityId,
 }: Readonly<EnhancedFamilyTreeProps>) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [translate, setTranslate] = useState({ x: 0, y: 0 });
-  const [zoom, setZoom] = useState(1);
+  // `translate` and `zoom` are the view we COMMAND (initial layout, fit, the
+  // buttons). react-d3-tree rebinds a new d3-zoom behavior whenever either
+  // prop changes, so the tree's own drag/pinch updates must not flow back
+  // into them: a rebind mid-gesture leaves the old behavior's gesture on the
+  // element and d3-zoom's touchended throws on `touchfirst` (a double tap).
+  // `view` follows the live position instead, for the relative buttons.
+  const [translate, setTranslateState] = useState({ x: 0, y: 0 });
+  const [zoom, setZoomState] = useState(1);
+  const view = useRef({ translate: { x: 0, y: 0 }, zoom: 1 });
+  const setTranslate = useCallback((next: { x: number; y: number }) => {
+    view.current.translate = next;
+    setTranslateState(next);
+  }, []);
+  const setZoom = useCallback((next: number) => {
+    view.current.zoom = next;
+    setZoomState(next);
+  }, []);
   const [measured, setMeasured] = useState(false);
   const measuredRef = useRef(false);
   const [frameHeight, setFrameHeight] = useState<number | null>(null);
@@ -370,7 +385,7 @@ export function EnhancedFamilyTree({
     setTranslate({ x: 160, y: frame.clientHeight / 2 });
     measuredRef.current = true;
     setMeasured(true);
-  }, []);
+  }, [setTranslate, setZoom]);
 
   // Fit to the drawn tree. `all` shows every branch (zoom may fall below the
   // readable floor); otherwise the tree is shown at a readable size, top-left
@@ -404,7 +419,7 @@ export function EnhancedFamilyTree({
       // below the frame and the left of the canvas empty.
       y: fitsY ? height / 2 - (box.y + box.height / 2) * nextZoom : height / 2,
     });
-  }, []);
+  }, [setTranslate, setZoom]);
 
   // The canvas is hidden below md, so it has no width until the viewport
   // grows; measure as soon as it has one.
@@ -427,11 +442,12 @@ export function EnhancedFamilyTree({
   }, [measured, fit]);
 
   const zoomBy = useCallback((delta: number) => {
-    setZoom((prev) => Math.min(Math.max(prev + delta, 0.3), 2));
-  }, []);
+    setZoom(Math.min(Math.max(view.current.zoom + delta, 0.3), 2));
+  }, [setZoom]);
   const panBy = useCallback((dx: number, dy: number) => {
-    setTranslate((prev) => ({ x: prev.x + dx, y: prev.y + dy }));
-  }, []);
+    const { translate: live } = view.current;
+    setTranslate({ x: live.x + dx, y: live.y + dy });
+  }, [setTranslate]);
 
   if (!treeData) {
     return (
@@ -537,8 +553,7 @@ export function EnhancedFamilyTree({
               translate={translate}
               zoom={zoom}
               onUpdate={(state) => {
-                setTranslate(state.translate);
-                setZoom(state.zoom);
+                view.current = { translate: state.translate, zoom: state.zoom };
               }}
               orientation="horizontal"
               pathFunc="step"
