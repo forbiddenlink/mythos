@@ -42,6 +42,7 @@ export interface StoryListItem {
   summary: string | null;
   themes: string[];
   imageUrl: string | null;
+  blurHash?: string;
 }
 
 const capitalize = (value: string) =>
@@ -276,6 +277,7 @@ function PaginatedStoryGrid({
             href={`/stories/${story.slug}`}
             title={story.title}
             image={story.imageUrl}
+            blurHash={story.blurHash}
             aspect="landscape"
             tradition={
               traditionNames[story.pantheonId] ??

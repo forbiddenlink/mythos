@@ -35,6 +35,7 @@ export interface HeroListItem {
   description: string;
   alternateNames: string[];
   imageUrl: string | null;
+  blurHash?: string;
   keyDeedCount: number;
 }
 
@@ -194,6 +195,7 @@ export function HeroesPageClient({
                   linkLabel={`View ${hero.name}`}
                   title={hero.name}
                   image={hero.imageUrl}
+                  blurHash={hero.blurHash}
                   imagePosition="50% 20%"
                   aspect="portrait"
                   priority={index < 4}

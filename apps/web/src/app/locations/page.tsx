@@ -6,6 +6,7 @@ import locations from "@/data/locations.json";
 import pantheons from "@/data/pantheons.json";
 import deities from "@/data/deities.json";
 import stories from "@/data/stories.json";
+import { getBlurHash } from "@/lib/image-blur";
 import { LocationsPageClient } from "./LocationsPageClient";
 
 // Browse cards and map popups do not need full biographies or story texts.
@@ -28,6 +29,7 @@ const locationCards = locations.map(
     latitude,
     longitude,
     imageUrl,
+    blurHash: getBlurHash(imageUrl),
   }),
 );
 const traditionLabels = pantheons.map(({ id, name, slug, culture }) => ({
@@ -77,8 +79,9 @@ export default async function LocationsPage({
       />
       <AboutThisPage title="About the places" className="mb-12">
         <p>
-          Looking for a name? The <Link href="/locations/a-z">A to Z index</Link>{" "}
-          lists every place alphabetically.
+          Looking for a name? The{" "}
+          <Link href="/locations/a-z">A to Z index</Link> lists every place
+          alphabetically.
         </p>
       </AboutThisPage>
     </>

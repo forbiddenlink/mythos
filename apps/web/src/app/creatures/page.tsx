@@ -6,6 +6,7 @@ import { PageHero } from "@/components/layout/page-hero";
 import { CollectionPageJsonLd } from "@/components/seo/JsonLd";
 import { getPantheonShortNames } from "@/lib/data/catalog";
 import { getCreatureHubs } from "@/lib/pantheon-hubs";
+import { getBlurHash } from "@/lib/image-blur";
 import creaturesData from "@/data/creatures.json";
 
 interface CreatureRecord {
@@ -35,6 +36,7 @@ const items = creatures.map((creature) => ({
   pantheonId: creature.pantheonId,
   description: creature.description,
   imageUrl: creature.imageUrl,
+  blurHash: getBlurHash(creature.imageUrl),
   subtitle: creature.habitat,
   badge: `Danger ${creature.dangerLevel}/10`,
   facet: threatBand(creature.dangerLevel),
@@ -95,8 +97,9 @@ export default function CreaturesPage() {
       </Container>
       <AboutThisPage title="About the bestiary">
         <p>
-          Looking for a name? The <Link href="/creatures/a-z">A to Z index</Link>{" "}
-          lists every creature alphabetically.
+          Looking for a name? The{" "}
+          <Link href="/creatures/a-z">A to Z index</Link> lists every creature
+          alphabetically.
         </p>
         <p>
           Mythological creatures often repeat the same narrative jobs across

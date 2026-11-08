@@ -4,6 +4,7 @@ import {
   getTraditionCount,
 } from "@/lib/data/catalog";
 import { interactiveStoryItems } from "@/lib/data/interactive-stories";
+import { getBlurHash } from "@/lib/image-blur";
 import { pick } from "@/lib/data/project";
 import { StoriesPageClient, type StoryListItem } from "./StoriesPageClient";
 
@@ -17,6 +18,7 @@ export default function StoriesPage() {
     return {
       ...pick(story, ["id", "pantheonId", "title", "slug", "summary"]),
       imageUrl: story.imageUrl ?? null,
+      blurHash: getBlurHash(story.imageUrl),
       themes: themes ?? [],
     };
   });

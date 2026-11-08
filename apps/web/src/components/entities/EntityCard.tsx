@@ -1,5 +1,6 @@
 import type * as React from "react";
 import Image from "next/image";
+import { thumbHashToBlurDataURL } from "@/lib/thumbhash-data-url";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +24,8 @@ export interface EntityCardProps {
   /** CSS object-position for the crop, e.g. "50% 20%" for faces. */
   imagePosition?: string;
   imageUnoptimized?: boolean;
+  /** Base64 ThumbHash from `getBlurHash()`; shows a blurred preview while the image loads. */
+  blurHash?: string;
   aspect?: EntityCardAspect;
   variant?: EntityCardVariant;
   /** Short tradition name ("Greek"); rendered as a chip. */
@@ -86,6 +89,7 @@ export function EntityCard({
   imageAlt = "",
   imagePosition,
   imageUnoptimized,
+  blurHash,
   aspect = "landscape",
   variant = "grid",
   tradition,
@@ -130,6 +134,10 @@ export function EntityCard({
             loading={priority ? "eager" : undefined}
             fetchPriority={priority ? "high" : undefined}
             unoptimized={imageUnoptimized}
+            placeholder={blurHash ? "blur" : undefined}
+            blurDataURL={
+              blurHash ? thumbHashToBlurDataURL(blurHash) : undefined
+            }
             sizes={list ? "8rem" : (sizes ?? DEFAULT_SIZES[aspect])}
             className="object-cover transition-transform duration-700 ease-out group-hover/entity:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover/entity:scale-100"
             style={

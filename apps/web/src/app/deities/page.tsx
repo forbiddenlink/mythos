@@ -4,6 +4,7 @@ import {
   getPantheonShortNames,
   getTraditionCount,
 } from "@/lib/data/catalog";
+import { getBlurHash } from "@/lib/image-blur";
 import { DeitiesPageClient } from "./DeitiesPageClient";
 
 export default function DeitiesPage() {
@@ -15,7 +16,10 @@ export default function DeitiesPage() {
         url="/deities"
       />
       <DeitiesPageClient
-        deities={getDeityListItems()}
+        deities={getDeityListItems().map((deity) => ({
+          ...deity,
+          blurHash: getBlurHash(deity.imageUrl),
+        }))}
         traditionCount={getTraditionCount()}
         traditionNames={getPantheonShortNames()}
       />

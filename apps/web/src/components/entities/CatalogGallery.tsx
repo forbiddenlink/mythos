@@ -39,6 +39,8 @@ export interface CatalogGalleryItem {
   pantheonId: string;
   description: string;
   imageUrl: string | null;
+  /** ThumbHash for `imageUrl`, resolved on the server with `getBlurHash`. */
+  blurHash?: string;
   /** Line under the title (habitat, first power). */
   subtitle?: string;
   /** Pill on the image ("Danger 9/10", "Weapon"). */
@@ -284,6 +286,7 @@ export function CatalogGallery({
                   href={`${basePath}/${item.slug}`}
                   title={item.name}
                   image={item.imageUrl}
+                  blurHash={item.blurHash}
                   aspect={aspect}
                   priority={index < 3}
                   tradition={traditionName(item.pantheonId)}
