@@ -8,6 +8,7 @@ import artifacts from "@/data/artifacts.json";
 import locations from "@/data/locations.json";
 import relationships from "@/data/relationships.json";
 import journeys from "@/data/journeys.json";
+import heroes from "@/data/heroes.json";
 import {
   PantheonsArraySchema,
   DeitiesArraySchema,
@@ -60,4 +61,24 @@ describe("principal catalog datasets", () => {
       }
     },
   );
+});
+
+describe("pronunciation data", () => {
+  // A slash-wrapped IPA string such as "/ˈkupe/" lands in the RSC payload,
+  // and Googlebot crawls it as a relative URL that 404s. The component adds
+  // the slashes at render time instead.
+  it.each([
+    { name: "deities", data: deities as unknown[] },
+    { name: "heroes", data: heroes as unknown[] },
+  ])("$name stores IPA without surrounding slashes", ({ data }) => {
+    const wrapped = data
+      .map(
+        (entry) =>
+          (entry as { pronunciation?: { ipa?: string } }).pronunciation?.ipa,
+      )
+      .filter(
+        (ipa): ipa is string => typeof ipa === "string" && /^\/|\/$/.test(ipa),
+      );
+    expect(wrapped).toEqual([]);
+  });
 });

@@ -23,7 +23,7 @@
     "relatedDeityIds": ["athena", "apollo"],
     "imageUrl": "/heroes/achilles.jpg",
     "pronunciation": {
-      "ipa": "/əˈkɪliːz/",
+      "ipa": "əˈkɪliːz",
       "phonetic": "uh-KIL-eez"
     },
     "primarySources": [
@@ -73,7 +73,7 @@
     "relatedDeityIds": ["athena", "poseidon"],
     "imageUrl": "/heroes/odysseus.jpg",
     "pronunciation": {
-      "ipa": "/əˈdɪsiəs/",
+      "ipa": "əˈdɪsiəs",
       "phonetic": "oh-DIS-ee-us"
     },
     "primarySources": [
@@ -116,7 +116,7 @@
     "relatedDeityIds": ["apollo"],
     "imageUrl": "/heroes/hector.webp",
     "pronunciation": {
-      "ipa": "/ˈhɛktər/",
+      "ipa": "ˈhɛktər",
       "phonetic": "HEK-tor"
     },
     "primarySources": [
@@ -159,7 +159,7 @@
     "relatedDeityIds": ["zeus", "hera", "prometheus"],
     "imageUrl": "/heroes/heracles.jpg",
     "pronunciation": {
-      "ipa": "/ˈhɛrəkliːz/",
+      "ipa": "ˈhɛrəkliːz",
       "phonetic": "HERR-uh-kleez"
     },
     "primarySources": [
@@ -209,7 +209,7 @@
     "relatedDeityIds": ["hera"],
     "imageUrl": "/heroes/jason.webp",
     "pronunciation": {
-      "ipa": "/ˈdʒeɪsən/",
+      "ipa": "ˈdʒeɪsən",
       "phonetic": "JAY-sun"
     },
     "primarySources": [
@@ -252,7 +252,7 @@
     "relatedDeityIds": ["poseidon"],
     "imageUrl": "/heroes/theseus.jpg",
     "pronunciation": {
-      "ipa": "/ˈθiːsiəs/",
+      "ipa": "ˈθiːsiəs",
       "phonetic": "THEE-see-us"
     },
     "primarySources": [
@@ -294,7 +294,7 @@
     "relatedDeityIds": ["apollo"],
     "imageUrl": "/heroes/oedipus.webp",
     "pronunciation": {
-      "ipa": "/ˈɛdɪpəs/",
+      "ipa": "ˈɛdɪpəs",
       "phonetic": "ED-ih-pus"
     },
     "primarySources": [
@@ -329,7 +329,7 @@
     "relatedDeityIds": ["athena"],
     "imageUrl": "/heroes/penelope.webp",
     "pronunciation": {
-      "ipa": "/pəˈnɛləpiː/",
+      "ipa": "pəˈnɛləpiː",
       "phonetic": "puh-NEL-oh-pee"
     },
     "primarySources": [
@@ -365,7 +365,7 @@
     "relatedDeityIds": ["zeus", "aphrodite"],
     "imageUrl": "/heroes/helen.jpg",
     "pronunciation": {
-      "ipa": "/ˈhɛlən/",
+      "ipa": "ˈhɛlən",
       "phonetic": "HEL-en"
     },
     "primarySources": [
@@ -406,7 +406,7 @@
     "relatedDeityIds": ["artemis"],
     "imageUrl": "/heroes/agamemnon.webp",
     "pronunciation": {
-      "ipa": "/ˌæɡəˈmɛmnɒn/",
+      "ipa": "ˌæɡəˈmɛmnɒn",
       "phonetic": "ag-uh-MEM-non"
     },
     "primarySources": [
@@ -446,7 +446,7 @@
     "relatedDeityIds": ["apollo"],
     "imageUrl": "/heroes/patroclus.webp",
     "pronunciation": {
-      "ipa": "/pəˈtroʊkləs/",
+      "ipa": "pəˈtroʊkləs",
       "phonetic": "puh-TROH-klus"
     },
     "primarySources": [
@@ -481,7 +481,7 @@
     "relatedDeityIds": ["athena"],
     "imageUrl": "/heroes/ajax.webp",
     "pronunciation": {
-      "ipa": "/ˈeɪdʒæks/",
+      "ipa": "ˈeɪdʒæks",
       "phonetic": "AY-jaks"
     },
     "primarySources": [
@@ -522,7 +522,7 @@
     "relatedDeityIds": ["artemis", "aphrodite"],
     "imageUrl": "/heroes/atalanta.webp",
     "pronunciation": {
-      "ipa": "/ˌætəˈlæntə/",
+      "ipa": "ˌætəˈlæntə",
       "phonetic": "at-uh-LAN-tuh"
     },
     "primarySources": [
@@ -563,7 +563,7 @@
     "relatedDeityIds": ["athena", "poseidon", "zeus"],
     "imageUrl": "/heroes/bellerophon.webp",
     "pronunciation": {
-      "ipa": "/bəˈlɛrəfɒn/",
+      "ipa": "bəˈlɛrəfɒn",
       "phonetic": "buh-LAIR-oh-fon"
     },
     "primarySources": [
@@ -603,7 +603,7 @@
     "relatedDeityIds": ["apollo", "hades", "persephone"],
     "imageUrl": "/heroes/orpheus.webp",
     "pronunciation": {
-      "ipa": "/ˈɔːrfiəs/",
+      "ipa": "ˈɔːrfiəs",
       "phonetic": "OR-fee-us"
     },
     "primarySources": [
@@ -644,7 +644,7 @@
     "relatedDeityIds": ["venus", "juno", "jupiter"],
     "imageUrl": "/heroes/aeneas.webp",
     "pronunciation": {
-      "ipa": "/ɪˈniːəs/",
+      "ipa": "ɪˈniːəs",
       "phonetic": "ih-NEE-us"
     },
     "primarySources": [
@@ -685,7 +685,7 @@
     "relatedDeityIds": ["odin"],
     "imageUrl": "/heroes/sigurd.jpg",
     "pronunciation": {
-      "ipa": "/ˈsɪɡərd/",
+      "ipa": "ˈsɪɡərd",
       "phonetic": "SIG-urd"
     },
     "primarySources": [
@@ -735,7 +735,7 @@
     "relatedDeityIds": ["lug", "morrigan"],
     "imageUrl": "/heroes/cu-chulainn.webp",
     "pronunciation": {
-      "ipa": "/kuːˈxʊlɪnʲ/",
+      "ipa": "kuːˈxʊlɪnʲ",
       "phonetic": "koo-KHUL-in"
     },
     "primarySources": [
@@ -784,7 +784,7 @@
     "relatedDeityIds": [],
     "imageUrl": "/heroes/fionn-mac-cumhaill.webp",
     "pronunciation": {
-      "ipa": "/fɪn məˈkuːl/",
+      "ipa": "fɪn məˈkuːl",
       "phonetic": "fin muh-KOOL"
     },
     "primarySources": [
@@ -819,7 +819,7 @@
     "relatedDeityIds": ["indra", "krishna"],
     "imageUrl": "/heroes/arjuna.webp",
     "pronunciation": {
-      "ipa": "/ˈɑːrdʒʊnə/",
+      "ipa": "ˈɑːrdʒʊnə",
       "phonetic": "AR-juh-nuh"
     },
     "primarySources": [
@@ -863,7 +863,7 @@
     "fate": "Struck down by illness after insulting the mountain deity of Ibuki; the Kojiki records that his spirit left the tomb built for him in the form of a great white bird and flew away toward the sea.",
     "relatedDeityIds": ["susanoo", "amaterasu"],
     "pronunciation": {
-      "ipa": "/jaˈmato taˈkeɾɯ/",
+      "ipa": "jaˈmato taˈkeɾɯ",
       "phonetic": "yah-MAH-toh tah-KEH-roo"
     },
     "primarySources": [
@@ -915,7 +915,7 @@
     "fate": "The byliny give no single agreed death for Ilya. Some songs have him turned to stone after refusing to fight fellow bogatyrs; a separate, later Orthodox tradition venerates him as a monk-warrior saint whose relics are said to rest at the Kyiv Pechersk Lavra, a conflation of epic hero and historical monk that remains disputed.",
     "relatedDeityIds": [],
     "pronunciation": {
-      "ipa": "/ɪlʲˈja ˈmurəmʲɪts/",
+      "ipa": "ɪlʲˈja ˈmurəmʲɪts",
       "phonetic": "il-YAH MOOR-oh-mets"
     },
     "primarySources": [
@@ -954,7 +954,7 @@
     "fate": "No single death is fixed for Dobrynya in the byliny; he continues to appear across the wider Kievan cycle as one of Prince Vladimir's chief bogatyrs, later popularized as one of a fixed trio with Ilya Muromets and Alyosha Popovich in nineteenth-century Russian art.",
     "relatedDeityIds": [],
     "pronunciation": {
-      "ipa": "/dɐˈbrɨnʲə nʲɪˈkʲitʲɪtɕ/",
+      "ipa": "dɐˈbrɨnʲə nʲɪˈkʲitʲɪtɕ",
       "phonetic": "duh-BRIN-yuh nih-KEE-tich"
     },
     "primarySources": [
@@ -988,7 +988,7 @@
     "fate": "The ballad ends with her peaceful return home rather than any battlefield death; its closing image compares a running male and female hare, indistinguishable once they are both in motion, as a comment on how completely she had passed as a man.",
     "relatedDeityIds": [],
     "pronunciation": {
-      "ipa": "/xwä˥ mu˥˩län˧˥/",
+      "ipa": "xwä˥ mu˥˩län˧˥",
       "phonetic": "hwah moo-LAHN"
     },
     "primarySources": [
@@ -1023,7 +1023,7 @@
     "fate": "Traditions differ on whether Kupe settled in Aotearoa or returned permanently to Hawaiki; many iwi genealogies (whakapapa) trace descent from him or from the voyage he made possible, and he is remembered chiefly as a founding ancestor rather than through a fixed death story.",
     "relatedDeityIds": ["tangaroa"],
     "pronunciation": {
-      "ipa": "/ˈkupe/",
+      "ipa": "ˈkupe",
       "phonetic": "KOO-peh"
     },
     "primarySources": [
@@ -1062,7 +1062,7 @@
     "fate": "Yoruba oral tradition does not give a fixed death for Moremi beyond the sacrifice tied to her vow; she is remembered as an ancestral heroine of Ile-Ife and commemorated annually in the city's Edi Festival, which reenacts her sacrifice and Ife's deliverance from the Ugbo raids.",
     "relatedDeityIds": [],
     "pronunciation": {
-      "ipa": "/moɾemi adʒaʃoɾo/",
+      "ipa": "moɾemi adʒaʃoɾo",
       "phonetic": "moh-REH-mee ah-jah-SHOH-roh"
     },
     "primarySources": [
@@ -1096,7 +1096,7 @@
     "fate": "The climax of the Myth of Etana is lost to damage on every surviving tablet. Some reconstructions have Etana and the eagle fall back to earth after flying too high; the Sumerian King List's record of his son Balih succeeding him suggests the quest for an heir succeeded in some form, but the myth's own ending is not known with confidence.",
     "relatedDeityIds": ["shamash", "anu"],
     "pronunciation": {
-      "ipa": "/eˈtana/",
+      "ipa": "eˈtana",
       "phonetic": "eh-TAH-nah"
     },
     "primarySources": [
@@ -1340,7 +1340,7 @@
     "relatedDeityIds": ["anat", "kothar-wa-khasis", "el", "baal"],
     "imageUrl": "/heroes/aqhat.webp",
     "pronunciation": {
-      "ipa": "/ˈɑːkhɑːt/",
+      "ipa": "ˈɑːkhɑːt",
       "phonetic": "AHK-haht"
     },
     "primarySources": [
@@ -1373,7 +1373,7 @@
     "relatedDeityIds": ["el", "athirat", "baal"],
     "imageUrl": "/heroes/kirta.webp",
     "pronunciation": {
-      "ipa": "/ˈkɪərtə/",
+      "ipa": "ˈkɪərtə",
       "phonetic": "KEER-tah"
     },
     "primarySources": [
@@ -1407,7 +1407,7 @@
     "relatedDeityIds": [],
     "imageUrl": "/heroes/kiviuq.webp",
     "pronunciation": {
-      "ipa": "/kiviuq/",
+      "ipa": "kiviuq",
       "phonetic": "KEE-vee-ook"
     },
     "primarySources": [
@@ -1451,7 +1451,7 @@
     ],
     "imageUrl": "/heroes/rostam.webp",
     "pronunciation": {
-      "ipa": "/rosˈtæm/",
+      "ipa": "rosˈtæm",
       "phonetic": "ross-TAM"
     },
     "primarySources": [
