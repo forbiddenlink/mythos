@@ -62,7 +62,7 @@ export function PronunciationDisplay({
 
   const handleCopyIPA = async () => {
     try {
-      await navigator.clipboard.writeText(pronunciation.ipa);
+      await navigator.clipboard.writeText(`/${pronunciation.ipa}/`);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -207,7 +207,7 @@ export function PronunciationDisplay({
               </span>
               <div className="flex items-center gap-2">
                 <span className="font-mono text-sm text-foreground">
-                  {pronunciation.ipa}
+                  /{pronunciation.ipa}/
                 </span>
                 <button
                   onClick={handleCopyIPA}

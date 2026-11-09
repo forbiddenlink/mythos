@@ -6,7 +6,8 @@ vi.mock("@/data/name-audio.json", () => ({ default: ["zeus"] }));
 
 import { PronunciationDisplay } from "@/components/ui/pronunciation";
 
-const pron = { ipa: "/zjuːs/", phonetic: "ZYOOS" };
+// IPA is stored without slashes so the RSC payload never holds a "/…/" string Googlebot crawls as a path.
+const pron = { ipa: "zjuːs", phonetic: "ZYOOS" };
 
 describe("PronunciationDisplay audio", () => {
   const speak = vi.fn();
@@ -125,5 +126,12 @@ describe("PronunciationDisplay opening", () => {
     expect(await screen.findByText("Pronunciation Guide")).toBeInTheDocument();
     await user.keyboard("{Escape}");
     expect(screen.queryByText("Pronunciation Guide")).not.toBeInTheDocument();
+  });
+
+  it("wraps the stored IPA in slashes when shown", async () => {
+    const user = userEvent.setup();
+    render(<PronunciationDisplay pronunciation={pron} />);
+    await user.click(screen.getByText("[ZYOOS]"));
+    expect(await screen.findByText("/zjuːs/")).toBeInTheDocument();
   });
 });
