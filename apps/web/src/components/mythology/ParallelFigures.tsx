@@ -99,7 +99,7 @@ function IllustrationNote({ figures }: { figures: ParallelFigure[] }) {
       Portraits are illustrations unless a museum is credited.{" "}
       <Link
         href="/about#images"
-        className="underline underline-offset-2 hover:text-foreground"
+        className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-foreground"
       >
         About our images
       </Link>
