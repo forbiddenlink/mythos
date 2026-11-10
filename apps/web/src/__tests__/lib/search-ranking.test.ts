@@ -125,6 +125,13 @@ describe("reader-intent search", () => {
     expect(top("egyptian god of the dead", 1)).toEqual(["Osiris"]);
   });
 
+  it("answers the question in the result row", () => {
+    const [poseidon] = searchAll("god of the sea", 1);
+    expect(poseidon.subtitle).toBe("Greek god of the sea");
+    const [aphrodite] = searchAll("goddess of love", 1);
+    expect(aphrodite.subtitle).toBe("Greek goddess of love");
+  });
+
   it("limits a domain query to the named tradition", () => {
     const titles = searchAll("norse god of war", 10)
       .filter((r) => r.type === "deity")

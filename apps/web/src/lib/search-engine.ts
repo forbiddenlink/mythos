@@ -482,21 +482,24 @@ export function searchIndex(
 
 interface DomainIntent {
   topic: string;
+  /** The reader wrote "of the sea", so the answer says "of the sea" too. */
+  article?: boolean;
   female?: boolean;
   tradition?: string;
 }
 
 const INTENT_RE =
-  /^(?:([a-z]+)\s+)?(god|goddess|deity|gods|goddesses|deities)\s+of\s+(?:the\s+)?(.+)$/;
+  /^(?:([a-z]+)\s+)?(god|goddess|deity|gods|goddesses|deities)\s+of\s+(the\s+)?(.+)$/;
 
 /** Read "norse goddess of love" as { tradition, female, topic }. */
 export function parseDomainIntent(folded: string): DomainIntent | null {
   const m = INTENT_RE.exec(folded);
   if (!m) return null;
-  const topic = m[3].trim();
+  const topic = m[4].trim();
   if (!topic) return null;
   return {
     topic,
+    ...(m[3] ? { article: true } : {}),
     ...(m[2].startsWith("goddess") ? { female: true } : {}),
     ...(m[1] ? { tradition: m[1] } : {}),
   };
@@ -544,11 +547,28 @@ function domainIntentResults(
       id: d.id,
       slug: d.slug,
       title: d.name,
-      subtitle: getPantheonLabel(labels, d.pantheonId, "Deity"),
+      // Answer the question in the row itself: "Greek god of the sea".
+      subtitle: domainAnswer(
+        label,
+        d.gender,
+        `${intent.article ? "the " : ""}${d.domain?.[position] ?? ""}`,
+      ),
       matchScore: score,
     });
   }
   return results;
+}
+
+/** "Greek god of the sea", "Norse goddess of love", "deity of time". */
+export function domainAnswer(
+  tradition: string,
+  gender: string | undefined,
+  domain: string,
+): string {
+  const noun =
+    gender === "female" ? "goddess" : gender === "male" ? "god" : "deity";
+  const phrase = `${noun} of ${domain.trim()}`;
+  return tradition ? `${tradition} ${phrase}` : phrase;
 }
 
 /* ------------------------ transliteration variants ----------------------- */

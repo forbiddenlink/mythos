@@ -36,8 +36,10 @@ describe("Greek family tree guide data", () => {
     expect(parents.find((p) => p.id === "zeus")?.disputed).toBe(true);
   });
 
-  it("leaves Aphrodite without a recorded parent rather than picking one", () => {
-    expect(parentsOf("aphrodite")).toEqual([]);
+  it("records both of Aphrodite's parentages as disputed rather than picking one", () => {
+    const parents = parentsOf("aphrodite");
+    expect(parents.map((p) => p.id).sort()).toEqual(["uranus", "zeus"]);
+    expect(parents.every((p) => p.disputed)).toBe(true);
   });
 
   it("gives every Olympian a recorded father or a named outside mother", () => {

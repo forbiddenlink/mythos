@@ -1470,7 +1470,15 @@
     "toDeityId": "persephone",
     "relationshipType": "spouse_of",
     "confidenceLevel": "high",
-    "description": "Queen of the underworld beside Hades"
+    "description": "Queen of the underworld beside Hades",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 912–914",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r177",
@@ -1871,7 +1879,15 @@
     "fromDeityId": "gaia",
     "toDeityId": "uranus",
     "relationshipType": "spouse_of",
-    "confidenceLevel": "high"
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 132–138",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
   },
   {
     "id": "r222",
@@ -3422,5 +3438,197 @@
         "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
       }
     ]
+  },
+  {
+    "id": "greek-zeus-demeter",
+    "fromDeityId": "zeus",
+    "toDeityId": "demeter",
+    "relationshipType": "lover_of",
+    "confidenceLevel": "high",
+    "description": "Hesiod lists Demeter among Zeus's partners; she bore him Persephone.",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 912–914",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-hera-poseidon",
+    "fromDeityId": "hera",
+    "toDeityId": "poseidon",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-hera-hades",
+    "fromDeityId": "hera",
+    "toDeityId": "hades",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-hera-demeter",
+    "fromDeityId": "hera",
+    "toDeityId": "demeter",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-hera-hestia",
+    "fromDeityId": "hera",
+    "toDeityId": "hestia",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-poseidon-hades",
+    "fromDeityId": "poseidon",
+    "toDeityId": "hades",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-poseidon-demeter",
+    "fromDeityId": "poseidon",
+    "toDeityId": "demeter",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-poseidon-hestia",
+    "fromDeityId": "poseidon",
+    "toDeityId": "hestia",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-hades-demeter",
+    "fromDeityId": "hades",
+    "toDeityId": "demeter",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-hades-hestia",
+    "fromDeityId": "hades",
+    "toDeityId": "hestia",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-demeter-hestia",
+    "fromDeityId": "demeter",
+    "toDeityId": "hestia",
+    "relationshipType": "sibling_of",
+    "confidenceLevel": "high",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 453–458",
+        "sourceUrl": "https://www.theoi.com/Text/HesiodTheogony.html",
+        "edition": "H. G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Loeb Classical Library 57; Theoi transcription"
+      }
+    ]
+  },
+  {
+    "id": "greek-uranus-aphrodite",
+    "fromDeityId": "uranus",
+    "toDeityId": "aphrodite",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "isDisputed": true,
+    "description": "Hesiod has Aphrodite grow from the foam around Uranus's severed members; Homer instead calls her the daughter of Zeus and Dione (Iliad 5.370–371).",
+    "evidence": [
+      {
+        "sourceId": "theogony",
+        "locator": "Theogony 188–206",
+        "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
+        "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
+      }
+    ]
+  },
+  {
+    "id": "greek-zeus-aphrodite",
+    "fromDeityId": "zeus",
+    "toDeityId": "aphrodite",
+    "relationshipType": "parent_of",
+    "confidenceLevel": "medium",
+    "isDisputed": true,
+    "description": "Homer calls Aphrodite the daughter of Zeus and Dione (Iliad 5.370–371); Hesiod instead has her born from the foam around Uranus's severed members (Theogony 188–206)."
   }
 ]
