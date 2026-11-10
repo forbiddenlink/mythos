@@ -21,6 +21,7 @@ DEITIES = [
     # GREEK TITANS & PRIMORDIALS
     {"id": "cronus", "name": "CRONUS", "tag": "GREEK TITAN", "domain": "HARVEST · GOLDEN AGE · KING OF TITANS", "accent": (212, 175, 55), "bg": (22, 18, 14), "motif": "sickle_hourglass"},
     {"id": "gaia", "name": "GAIA", "tag": "GREEK PRIMORDIAL", "domain": "MOTHER EARTH · CREATION OF TITANS", "accent": (140, 185, 90), "bg": (16, 22, 14), "motif": "earth_vines"},
+    {"id": "rhea", "name": "RHEA", "tag": "GREEK TITANESS", "domain": "MOTHER OF THE OLYMPIANS · THE CRETAN CAVE", "accent": (190, 150, 90), "bg": (22, 18, 14), "motif": "emblem_mountain"},
     {"id": "uranus", "name": "URANUS", "tag": "GREEK PRIMORDIAL", "domain": "THE STARRY SKY · VAULT OF HEAVEN", "accent": (80, 140, 220), "bg": (12, 16, 28), "motif": "starry_vault"},
     {"id": "hecate", "name": "HECATE", "tag": "GREEK GODDESS", "domain": "CROSSROADS · NIGHT · SACRED TORCHES", "accent": (170, 120, 200), "bg": (20, 14, 24), "motif": "triple_torch"},
     
