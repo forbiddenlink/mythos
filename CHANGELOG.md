@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.18.0](https://github.com/forbiddenlink/mythos/compare/v1.17.2...v1.18.0) (2026-11-10)
+
+
+### Features
+
+* passage-backed Greek kinship and answer-first search rows ([#310](https://github.com/forbiddenlink/mythos/issues/310)) ([d0ec8b7](https://github.com/forbiddenlink/mythos/commit/d0ec8b75359ff4b13da4934ab645f4850dfa6d99))
+* ThumbHash blur placeholders for catalog image grids ([#304](https://github.com/forbiddenlink/mythos/issues/304)) ([485e176](https://github.com/forbiddenlink/mythos/commit/485e176928cfb8b83c98d21464385c348ce7cad8))
+
+
+### Bug Fixes
+
+* **deploy:** build when the last deployed commit is not in the clone ([#302](https://github.com/forbiddenlink/mythos/issues/302)) ([070f6ac](https://github.com/forbiddenlink/mythos/commit/070f6aced4472162e3bc64b7a5a901adad65447d))
+* **family-tree:** stop rebinding d3-zoom mid-gesture on the hierarchy view ([#303](https://github.com/forbiddenlink/mythos/issues/303)) ([800ae75](https://github.com/forbiddenlink/mythos/commit/800ae755fa6e620f6d6973b239299e3dd224a8ab))
+* live test pass: search intent, family tree, graph focus, layout bugs ([#308](https://github.com/forbiddenlink/mythos/issues/308)) ([6e3f710](https://github.com/forbiddenlink/mythos/commit/6e3f710191bb22b32cb47b26cc8b67de30e9a272))
+* **quiz:** tag story source and let the model return fewer questions ([#300](https://github.com/forbiddenlink/mythos/issues/300)) ([a122fee](https://github.com/forbiddenlink/mythos/commit/a122fee764dc0d35639da926b1f6774600e18290))
+* **seo:** store IPA without slashes so Googlebot stops crawling it as paths ([#305](https://github.com/forbiddenlink/mythos/issues/305)) ([c420a2a](https://github.com/forbiddenlink/mythos/commit/c420a2adb971cd4a84510f7f317ace77d6ba78d1))
+
 ## [1.17.2](https://github.com/forbiddenlink/mythos/compare/v1.17.1...v1.17.2) (2026-11-07)
 
 
