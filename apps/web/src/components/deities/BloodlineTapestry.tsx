@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import {
   hasLineage,
+  kinHref,
   type Bloodline,
   type DisputedKin,
   type Kin,
@@ -46,8 +47,9 @@ function Medallion({
     </>
   );
   const cls = "group flex flex-col items-center";
-  return kin.slug ? (
-    <Link href={`/deities/${kin.slug}`} className={cls}>
+  const href = kinHref(kin);
+  return href ? (
+    <Link href={href} className={cls}>
       {inner}
     </Link>
   ) : (

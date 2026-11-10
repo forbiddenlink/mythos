@@ -121,6 +121,8 @@ export interface Kin {
   key: string;
   name: string;
   slug: string | null;
+  /** Entry link; omitted for deities, whose entries live at /deities/{slug}. */
+  href?: string;
   color: string;
   /** Catalog illustration; omitted when the figure has none. */
   imageUrl?: string;
@@ -176,11 +178,40 @@ function toKin(id: string, byId: ReadonlyMap<string, KinDeity>): Kin {
   };
 }
 
-/** Group undisputed genealogy into the bloodline plate; variants stay in the graph. */
+/** A hero record; only `parentage.divineParentId` is read for kinship. */
+export interface KinHero {
+  id: string;
+  name: string;
+  slug: string;
+  pantheonId?: string;
+  imageUrl?: unknown;
+  parentage?: unknown;
+}
+
+function divineParentOf(hero: KinHero): string | undefined {
+  const parentage = hero.parentage;
+  if (!parentage || typeof parentage !== "object") return undefined;
+  const id = (parentage as { divineParentId?: unknown }).divineParentId;
+  return typeof id === "string" ? id : undefined;
+}
+
+/** Where a kin medallion or FAQ name links. */
+export function kinHref(kin: Kin): string | null {
+  if (kin.href) return kin.href;
+  return kin.slug ? `/deities/${kin.slug}` : null;
+}
+
+/**
+ * Group undisputed genealogy into the bloodline plate; variants stay in the
+ * graph. Heroes with this deity as their divine parent (Heracles, Helen,
+ * Theseus...) join the children: the relationship catalog links deities
+ * only, and heroes.json records the parentage on the hero.
+ */
 export function buildBloodline(
   deityId: string,
   relationships: readonly RelationshipInput[],
   deities: readonly KinDeity[],
+  heroes: readonly KinHero[] = [],
 ): Bloodline {
   const byId = new Map(deities.map((d) => [d.id, d]));
   const groups: Bloodline = {
@@ -229,6 +260,23 @@ export function buildBloodline(
       default:
         break; // ally_of / aspect_of are not part of the bloodline plate
     }
+  }
+
+  for (const hero of heroes) {
+    if (divineParentOf(hero) !== deityId) continue;
+    const key = `hero:${hero.id}`;
+    if (seen.has(`:${key}`)) continue;
+    seen.add(`:${key}`);
+    groups.children.push({
+      key,
+      name: hero.name,
+      slug: hero.slug,
+      href: `/heroes/${hero.slug}`,
+      color: getPantheonColor(hero.pantheonId ?? ""),
+      ...(typeof hero.imageUrl === "string" && hero.imageUrl
+        ? { imageUrl: hero.imageUrl }
+        : {}),
+    });
   }
 
   // Disputed links come after the canonical ones, so a figure already placed

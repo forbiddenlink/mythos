@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
+import heroesData from "@/data/heroes.json";
 import branchingStoriesData from "@/data/branching-stories.json";
 import {
   buildBloodline,
@@ -10,6 +11,7 @@ import {
   hasLineage,
   interactiveStoriesFeaturing,
   relationshipsFor,
+  kinHref,
   relationshipCitations,
   resolveParallels,
   selectRelatedDeities,
@@ -360,6 +362,24 @@ describe("relationship claim citations", () => {
         ]),
       );
     }
+  });
+});
+
+describe("heroes in the bloodline", () => {
+  it("adds heroes whose divine parent is this deity, linked to their hero entry", () => {
+    const bloodline = buildBloodline(
+      "zeus",
+      relationshipsData,
+      deitiesData,
+      heroesData,
+    );
+    const heracles = bloodline.children.find((k) => k.name === "Heracles");
+    expect(heracles?.href).toBe("/heroes/heracles");
+    expect(kinHref(heracles!)).toBe("/heroes/heracles");
+    expect(bloodline.children.map((k) => k.name)).toContain("Helen");
+    // Deity kin keep their deity link.
+    const ares = bloodline.children.find((k) => k.key === "ares");
+    expect(ares && kinHref(ares)).toBe("/deities/ares");
   });
 });
 

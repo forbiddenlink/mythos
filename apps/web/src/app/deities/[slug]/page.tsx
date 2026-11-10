@@ -51,6 +51,7 @@ import {
   getDeities,
   getDeityById,
   getDeityLookup,
+  getHeroes,
   getPantheonById,
   getRelationships,
   getSourceWorks,
@@ -219,7 +220,12 @@ export default async function DeityPage({ params }: PageProps) {
       c.slug,
     ]),
   );
-  const bloodline = buildBloodline(deity.id, relationships, allDeities);
+  const bloodline = buildBloodline(
+    deity.id,
+    relationships,
+    allDeities,
+    getHeroes(),
+  );
   const domainPages = godsOfLinksForDomains(deity.domain ?? []);
 
   const ownRelationships = relationshipsFor(deity.id, relationships);
