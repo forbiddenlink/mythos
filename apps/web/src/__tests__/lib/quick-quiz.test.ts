@@ -84,3 +84,20 @@ describe("quick quiz questions", () => {
     expect(JSON.stringify(deities)).toBe(before);
   });
 });
+
+describe("quick quiz hedged domains", () => {
+  it("never asks about a parenthetically qualified domain", () => {
+    const pool = [
+      { id: "a", name: "Cronus", domain: ["time (later folk association)"] },
+      { id: "b", name: "Tlaloc", domain: ["rain"] },
+      { id: "c", name: "Midir", domain: ["kingship"] },
+      { id: "d", name: "Centeotl", domain: ["maize"] },
+      { id: "e", name: "Ra", domain: ["sun"] },
+    ];
+    for (let i = 0; i < 50; i += 1) {
+      const question = generateQuickQuizQuestion(pool, () => (i % 10) / 10);
+      expect(question?.domain).not.toMatch(/[()]/);
+      expect(question?.question).not.toContain('"');
+    }
+  });
+});

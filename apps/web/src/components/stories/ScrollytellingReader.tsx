@@ -155,14 +155,10 @@ export function ScrollytellingReader({
               aria-label={plate.heading ?? `Chapter ${index + 1}`}
               className="border-t border-gold/15 py-14 first:border-t-0 first:pt-6 md:py-20"
             >
-              <p
-                aria-hidden="true"
-                className="font-serif text-sm tracking-[0.3em] text-gold-light"
-              >
-                {String(index + 1).padStart(2, "0")}
-              </p>
+              {/* Chapters are numbered by the global Roman section counter
+                  (globals.css, main:has(.detail-title)); no manual number. */}
               {plate.heading ? (
-                <h2 className="page-section-title mt-3 text-parchment">
+                <h2 className="page-section-title text-parchment">
                   {plate.heading}
                 </h2>
               ) : null}

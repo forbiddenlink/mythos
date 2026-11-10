@@ -196,14 +196,14 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
               <span className="sr-only">, </span>
               <span>Deities</span>
             </h2>
-            <ol className="columns-[8rem] gap-x-6 sm:gap-x-10 xl:columns-3 [&>li]:break-inside-avoid">
+            <ol className="columns-[10rem] gap-x-6 sm:gap-x-10 xl:columns-3 [&>li]:break-inside-avoid">
               {index.slice(0, 6).map((entry) => (
                 <li key={entry.slug}>
                   <Link
                     href={`/pantheons/${entry.slug}`}
                     className="index-line group min-h-11 items-center text-[0.9375rem] text-parchment/85 transition-colors hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
                   >
-                    <span className="flex items-center gap-2">
+                    <span className="flex min-w-0 items-center gap-2 whitespace-nowrap">
                       <span
                         className="h-3.5 w-1 shrink-0 rounded-[1px]"
                         style={{ backgroundColor: entry.color }}
@@ -213,7 +213,7 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
                         .replace(/\s+(Pantheon|Tradition|Traditions)\b/g, "")
                         .replace(/\s*\([^)]*\)/g, "")}
                     </span>
-                    <span className="tabular-nums text-parchment/70">
+                    <span className="shrink-0 tabular-nums text-parchment/70">
                       {entry.deities}
                     </span>
                   </Link>

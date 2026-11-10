@@ -177,7 +177,9 @@ export function PronunciationDisplay({
             className,
           )}
         >
-          <span className="font-mono text-sm">[{pronunciation.phonetic}]</span>
+          <span className="font-sans text-sm tracking-wider">
+            [{pronunciation.phonetic}]
+          </span>
         </button>
       </PopoverTrigger>
       <PopoverContent className="w-72" align="start">
@@ -193,18 +195,14 @@ export function PronunciationDisplay({
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="type-meta text-muted-foreground">
-                Phonetic
-              </span>
-              <span className="font-mono text-sm font-medium text-foreground">
+              <span className="type-meta text-muted-foreground">Phonetic</span>
+              <span className="font-sans text-sm font-medium tracking-wider text-foreground">
                 {pronunciation.phonetic}
               </span>
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="type-meta text-muted-foreground">
-                IPA
-              </span>
+              <span className="type-meta text-muted-foreground">IPA</span>
               <div className="flex items-center gap-2">
                 <span className="font-mono text-sm text-foreground">
                   /{pronunciation.ipa}/

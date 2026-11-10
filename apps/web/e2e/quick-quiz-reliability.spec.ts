@@ -7,7 +7,7 @@ async function correctOption(page: Page) {
   const group = page.getByRole("group", { name: /Which figure is linked to/ });
   await expect(group.getByRole("button")).toHaveCount(4);
   const prompt = await page.locator("#quick-quiz-question").innerText();
-  const domain = prompt.match(/"([^"]+)"/)?.[1];
+  const domain = prompt.match(/["\u201c]([^"\u201d]+)["\u201d]/)?.[1];
   expect(domain).toBeTruthy();
   const names = await group.getByRole("button").allTextContents();
   expect(new Set(names).size).toBe(4);

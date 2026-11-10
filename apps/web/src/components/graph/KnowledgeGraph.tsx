@@ -9,6 +9,7 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   useReactFlow,
+  useNodesInitialized,
   ReactFlowProvider,
   MarkerType,
   Position,
@@ -22,6 +23,7 @@ import ReactFlow, {
 import "reactflow/dist/style.css";
 import { normalizeDeityReference } from "@/lib/deity-reference";
 import Image from "next/image";
+import Link from "next/link";
 import { applyHoverHighlight } from "./graph-highlight";
 
 // Types
@@ -78,6 +80,8 @@ interface KnowledgeGraphProps {
   };
   clusterByPantheon: boolean;
   exploreMode?: boolean;
+  /** Deity id focused on first load in explore mode (its neighbourhood only). */
+  initialFocusId?: string | null;
   exploredDeityIds?: Set<string>;
   onNodeClick?: (deityId: string, slug: string) => void;
   /** Prefer layoutMode; clusterByPantheon kept for callers mid-migration. */
@@ -461,7 +465,11 @@ function KnowledgeGraphInner({
   );
 
   // Build nodes and edges
-  const { nodes: initialNodes, edges: initialEdges } = useMemo(() => {
+  const {
+    nodes: initialNodes,
+    edges: initialEdges,
+    neighborIds: focusNeighborIds,
+  } = useMemo(() => {
     const nodes: Node[] = [];
     const edges: Edge[] = [];
     const addedEdges = new Set<string>();
@@ -502,8 +510,26 @@ function KnowledgeGraphInner({
     }
 
     // Create nodes
+    // Ego layout: a focused figure's neighbours are gathered on a ring around
+    // it (parallels can sit on the far side of the whole network), and every
+    // other figure is hidden until the focus is cleared.
+    const egoPositions = new Map<string, { x: number; y: number }>();
+    if (focusId && neighborIds.size > 1) {
+      const center = positions.get(focusId) ?? { x: 0, y: 0 };
+      const ring = [...neighborIds].filter((id) => id !== focusId);
+      const radius = Math.max(280, (ring.length * 150) / (2 * Math.PI));
+      ring.forEach((id, i) => {
+        const angle = (i / ring.length) * 2 * Math.PI - Math.PI / 2;
+        egoPositions.set(id, {
+          x: center.x + Math.cos(angle) * radius,
+          y: center.y + Math.sin(angle) * radius,
+        });
+      });
+    }
+
     filteredDeities.forEach((deity) => {
-      const position = positions.get(deity.id) || { x: 0, y: 0 };
+      const position = egoPositions.get(deity.id) ??
+        positions.get(deity.id) ?? { x: 0, y: 0 };
       const inNeighborhood = !focusId || neighborIds.has(deity.id);
       const visited = exploredDeityIds?.has(deity.id);
 
@@ -519,8 +545,8 @@ function KnowledgeGraphInner({
           showImage: true,
           explored: visited,
         },
+        hidden: !inNeighborhood,
         style: {
-          opacity: inNeighborhood ? 1 : 0.18,
           transition: "opacity 200ms ease",
         },
         sourcePosition: Position.Right,
@@ -601,7 +627,23 @@ function KnowledgeGraphInner({
       });
     }
 
-    return { nodes, edges };
+    // With a figure focused, only its own links stay bright; the rest fade
+    // to texture so the neighbourhood reads instead of the whole hairball.
+    const visibleEdges = focusId
+      ? edges.map((edge) =>
+          edge.source === focusId || edge.target === focusId
+            ? edge
+            : {
+                ...edge,
+                animated: false,
+                label: undefined,
+                markerEnd: undefined,
+                style: { ...edge.style, opacity: 0.05 },
+              },
+        )
+      : edges;
+
+    return { nodes, edges: visibleEdges, neighborIds };
   }, [
     deities,
     relationships,
@@ -663,12 +705,36 @@ function KnowledgeGraphInner({
 
   // Expose control methods via ref or context if needed
   useEffect(() => {
-    // Fit view after initial render
+    // Fit the whole network after render, unless a focused neighbourhood is
+    // framed instead (below). Clearing the focus refits the whole network.
+    if (exploreMode && exploreFocusId) return;
     const timer = setTimeout(() => {
       fitView({ padding: 0.2, duration: 500 });
     }, 100);
     return () => clearTimeout(timer);
-  }, [fitView, selectedPantheons, resolvedLayout]);
+  }, [fitView, selectedPantheons, resolvedLayout, exploreMode, exploreFocusId]);
+
+  // In explore mode, frame the focused figure's neighbourhood rather than
+  // the whole network, so the first view reads as a family, not a hairball.
+  const nodesMeasured = useNodesInitialized();
+  useEffect(() => {
+    if (
+      !nodesMeasured ||
+      !exploreMode ||
+      !exploreFocusId ||
+      focusNeighborIds.size === 0
+    ) {
+      return;
+    }
+    const timer = setTimeout(() => {
+      fitView({
+        nodes: [...focusNeighborIds].map((id) => ({ id })),
+        padding: 0.35,
+        duration: 500,
+      });
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [nodesMeasured, exploreMode, exploreFocusId, focusNeighborIds, fitView]);
 
   return (
     <ReactFlow
@@ -716,7 +782,12 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
   const [highlightedNodeId, setHighlightedNodeId] = useState<string | null>(
     null,
   );
-  const [exploreFocusId, setExploreFocusId] = useState<string | null>(null);
+  const [exploreFocusId, setExploreFocusId] = useState<string | null>(
+    props.initialFocusId ?? null,
+  );
+  const focusedDeity = props.exploreMode
+    ? props.deities.find((d) => d.id === exploreFocusId)
+    : undefined;
 
   const listDeities = useMemo(() => {
     return props.deities
@@ -739,14 +810,25 @@ export function KnowledgeGraph(props: KnowledgeGraphProps) {
           Figures ({listDeities.length})
           {props.exploreMode && exploreFocusId ? " · explore focus" : ""}
         </p>
-        {props.exploreMode && exploreFocusId && (
-          <button
-            type="button"
-            className="mb-2 text-xs text-gold underline-offset-2 hover:underline"
-            onClick={() => setExploreFocusId(null)}
-          >
-            Clear explore focus
-          </button>
+        {focusedDeity && (
+          <div className="mb-3 rounded-md border border-gold/25 bg-gold/5 p-2">
+            <p className="px-1 font-serif text-base text-foreground">
+              {focusedDeity.name}
+            </p>
+            <Link
+              href={`/deities/${focusedDeity.slug}`}
+              className="flex min-h-11 items-center px-1 text-sm text-gold-text underline-offset-4 hover:underline"
+            >
+              Open {focusedDeity.name}&rsquo;s entry
+            </Link>
+            <button
+              type="button"
+              className="flex min-h-11 items-center px-1 text-xs text-muted-foreground underline-offset-2 hover:underline"
+              onClick={() => setExploreFocusId(null)}
+            >
+              Show the whole network
+            </button>
+          </div>
         )}
         <ul className="space-y-1">
           {listDeities.map((deity) => (

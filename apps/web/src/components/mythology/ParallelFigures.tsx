@@ -87,11 +87,24 @@ function ArtworkCredit({ figure }: { figure: ParallelFigure }) {
       </a>
     );
   }
-  return figure.imageUrl ? (
-    <span className="mt-2 block text-xs text-muted-foreground">
-      Illustration
-    </span>
-  ) : null;
+  // Illustrations are disclosed once per section (IllustrationNote), not
+  // under every portrait.
+  return null;
+}
+
+function IllustrationNote({ figures }: { figures: ParallelFigure[] }) {
+  if (!figures.some((f) => f.imageUrl)) return null;
+  return (
+    <p className="type-meta mt-4 text-muted-foreground">
+      Portraits are illustrations unless a museum is credited.{" "}
+      <Link
+        href="/about#images"
+        className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-foreground"
+      >
+        About our images
+      </Link>
+    </p>
+  );
 }
 
 function Tradition({ figure }: { figure: ParallelFigure }) {
@@ -160,6 +173,7 @@ export function ParallelFigures({
             </li>
           ))}
         </ul>
+        <IllustrationNote figures={members} />
       </section>
     );
   }
@@ -219,6 +233,7 @@ export function ParallelFigures({
           );
         })}
       </ul>
+      <IllustrationNote figures={members} />
     </section>
   );
 }

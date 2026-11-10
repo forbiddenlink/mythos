@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import deitiesData from "@/data/deities.json";
 import relationshipsData from "@/data/relationships.json";
+import heroesData from "@/data/heroes.json";
 import branchingStoriesData from "@/data/branching-stories.json";
 import {
   buildBloodline,
@@ -10,6 +11,7 @@ import {
   hasLineage,
   interactiveStoriesFeaturing,
   relationshipsFor,
+  kinHref,
   relationshipCitations,
   resolveParallels,
   selectRelatedDeities,
@@ -332,6 +334,20 @@ describe("relationship claim citations", () => {
     ).toEqual([]);
   });
 
+  it("merges claims that rest on the same passage into one citation", () => {
+    const citations = relationshipCitations(
+      "zeus",
+      [
+        { ...edge, fromDeityId: "zeus", toDeityId: "ares" },
+        { ...edge, fromDeityId: "zeus", toDeityId: "hera" },
+      ],
+      deities,
+      works,
+    );
+    expect(citations).toHaveLength(1);
+    expect(citations[0].title).toBe("Theogony (Zeus parent of Ares and Hera)");
+  });
+
   it("makes the reviewed Zeus/Rhea parentage evidence available on both entries", () => {
     const works = [{ id: "theogony", title: "Theogony", author: "Hesiod" }];
     for (const id of ["zeus", "rhea"]) {
@@ -340,7 +356,7 @@ describe("relationship claim citations", () => {
       ).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
-            title: "Theogony (Rhea parent of Zeus)",
+            title: expect.stringMatching(/Rhea parent of Zeus/),
             lines: expect.stringContaining("453"),
           }),
         ]),
@@ -349,7 +365,47 @@ describe("relationship claim citations", () => {
   });
 });
 
+describe("heroes in the bloodline", () => {
+  it("adds heroes whose divine parent is this deity, linked to their hero entry", () => {
+    const bloodline = buildBloodline(
+      "zeus",
+      relationshipsData,
+      deitiesData,
+      heroesData,
+    );
+    const heracles = bloodline.children.find((k) => k.name === "Heracles");
+    expect(heracles?.href).toBe("/heroes/heracles");
+    expect(kinHref(heracles!)).toBe("/heroes/heracles");
+    expect(bloodline.children.map((k) => k.name)).toContain("Helen");
+    // Deity kin keep their deity link.
+    const ares = bloodline.children.find((k) => k.key === "ares");
+    expect(ares && kinHref(ares)).toBe("/deities/ares");
+  });
+});
+
 describe("canonical bloodline and disputed parentage", () => {
+  it("lists disputed kin apart from the canonical tiers, with the catalog note", () => {
+    const bloodline = buildBloodline("zeus", relationshipsData, deitiesData);
+    const disputed = bloodline.disputed.map((d) => [d.kin.key, d.role]);
+    expect(disputed).toEqual(
+      expect.arrayContaining([
+        ["hephaestus", "child"],
+        ["melinoe", "child"],
+      ]),
+    );
+    expect(bloodline.children.map((k) => k.key)).not.toContain("hephaestus");
+    expect(
+      bloodline.disputed.find((d) => d.kin.key === "hephaestus")?.note,
+    ).toContain("Theogony");
+    // A figure already placed canonically is never repeated as disputed.
+    const placed = new Set(
+      [...bloodline.parents, ...bloodline.children, ...bloodline.consorts].map(
+        (k) => k.key,
+      ),
+    );
+    expect(bloodline.disputed.some((d) => placed.has(d.kin.key))).toBe(false);
+  });
+
   it("names Hera alone for Hephaestus while preserving the Zeus variant in graph relationships", () => {
     const bloodline = buildBloodline(
       "hephaestus",

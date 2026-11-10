@@ -2398,7 +2398,8 @@
     "fromDeityId": "zeus",
     "toDeityId": "dioscuri",
     "relationshipType": "parent_of",
-    "confidenceLevel": "high",
+    "confidenceLevel": "medium",
+    "isDisputed": true,
     "description": "The Homeric Hymns call Castor and Polydeuces sons of Zeus and Leda; Pindar makes only Polydeuces Zeus's son, and the Odyssey names Tyndareus as father of both."
   },
   {

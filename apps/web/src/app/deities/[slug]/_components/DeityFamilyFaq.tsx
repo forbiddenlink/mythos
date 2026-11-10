@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FAQJsonLd } from "@/components/seo/JsonLd";
 import type { FamilyAnswer } from "@/lib/deity-faq";
+import { kinHref } from "@/lib/deity-page";
 
 /**
  * Family questions answered from the kinship records, rendered visibly and as
@@ -36,27 +37,30 @@ export function DeityFamilyFaq({
               </dt>
               <dd className="mt-1 type-reading text-foreground/85">
                 {entry.lead}{" "}
-                {entry.kin.map((k, index) => (
-                  <span key={k.key}>
-                    {index > 0
-                      ? index === entry.kin.length - 1
-                        ? entry.kin.length > 2
-                          ? ", and "
-                          : " and "
-                        : ", "
-                      : null}
-                    {k.slug ? (
-                      <Link
-                        href={`/deities/${k.slug}`}
-                        className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
-                      >
-                        {k.name}
-                      </Link>
-                    ) : (
-                      k.name
-                    )}
-                  </span>
-                ))}
+                {entry.kin.map((k, index) => {
+                  const href = kinHref(k);
+                  return (
+                    <span key={k.key}>
+                      {index > 0
+                        ? index === entry.kin.length - 1
+                          ? entry.kin.length > 2
+                            ? ", and "
+                            : " and "
+                          : ", "
+                        : null}
+                      {href ? (
+                        <Link
+                          href={href}
+                          className="text-foreground underline decoration-gold/50 underline-offset-4 hover:text-gold-text hover:decoration-current"
+                        >
+                          {k.name}
+                        </Link>
+                      ) : (
+                        k.name
+                      )}
+                    </span>
+                  );
+                })}
                 {entry.tail}
               </dd>
             </div>

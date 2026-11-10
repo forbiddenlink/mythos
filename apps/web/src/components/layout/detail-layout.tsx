@@ -7,6 +7,7 @@ import {
   type EntryCloserProps,
 } from "@/components/layout/EntryCloser";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { getBlurDataURL } from "@/lib/image-blur";
 import { cn } from "@/lib/utils";
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -169,6 +170,9 @@ export function DetailHero({
   imageTransitionName,
   titleTransitionName,
 }: DetailHeroProps) {
+  // Blurred ThumbHash preview while the hero loads; remote (museum) images
+  // have no hash and render without one.
+  const heroBlur = image ? getBlurDataURL(image.src) : undefined;
   return (
     <div className="dark relative isolate overflow-hidden border-b border-gold/15 bg-midnight text-foreground">
       <div className="absolute inset-0 -z-10" aria-hidden="true">
@@ -277,6 +281,8 @@ export function DetailHero({
                       fill
                       priority
                       unoptimized={image.unoptimized}
+                      placeholder={heroBlur ? "blur" : undefined}
+                      blurDataURL={heroBlur}
                       sizes={
                         imageAspect === "landscape"
                           ? "(min-width: 1024px) 30rem, (min-width: 768px) 19rem, 22rem"
