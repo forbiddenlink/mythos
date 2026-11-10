@@ -165,6 +165,41 @@ function usePageScrollPassthrough() {
   }, [canvas]);
 }
 
+/**
+ * Frame the whole label ring at any aspect ratio. Labels sit up to
+ * CLUSTER_RADIUS + LABEL_RADIAL_OFFSET from the centre and auto-rotation
+ * sweeps every one of them past the left and right edges, so the camera
+ * distance is set so the ring fits both the horizontal and the vertical
+ * frustum. Runs on mount and on resize only, so it never fights the
+ * reader's own zoom.
+ */
+const FIT_RADIUS = 36;
+// The ring is flat and seen from about 35 degrees up, so vertically it spans
+// roughly FIT_RADIUS * sin(35deg) plus the labels' 6.5-unit lift.
+const FIT_RADIUS_VERTICAL = 27;
+const FIT_MIN_DISTANCE = 52;
+const FIT_MAX_DISTANCE = 88;
+
+function useFitLabelRing() {
+  const camera = useThree((state) => state.camera);
+  const aspect = useThree((state) => state.size.width / state.size.height);
+  useEffect(() => {
+    if (!(camera instanceof THREE.PerspectiveCamera) || !aspect) return;
+    const halfV = THREE.MathUtils.degToRad(camera.fov / 2);
+    const halfH = Math.atan(Math.tan(halfV) * aspect);
+    const distance = THREE.MathUtils.clamp(
+      Math.max(
+        FIT_RADIUS / Math.sin(halfH),
+        FIT_RADIUS_VERTICAL / Math.sin(halfV),
+      ),
+      FIT_MIN_DISTANCE,
+      FIT_MAX_DISTANCE,
+    );
+    camera.position.setLength(distance);
+    camera.updateProjectionMatrix();
+  }, [camera, aspect]);
+}
+
 function Scene({
   layout,
   onSelect,
@@ -179,6 +214,7 @@ function Scene({
   const hovered = hoveredId ? nodes.find((n) => n.id === hoveredId) : undefined;
   const hoveredPantheonId = hovered?.pantheonId ?? null;
   usePageScrollPassthrough();
+  useFitLabelRing();
 
   // Bigger clusters (more figures) win a label collision by default; the
   // hovered star's own tradition always wins regardless of size.
