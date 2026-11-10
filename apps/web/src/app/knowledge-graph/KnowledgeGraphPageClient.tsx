@@ -272,8 +272,10 @@ export function KnowledgeGraphPageClient({
             onClick={() => setExploreMode((v) => !v)}
             className={cn(
               "gap-2",
+              // The outline variant sets dark:bg-card/50 and hover:text-primary,
+              // which would leave dark text on a dark fill; restate both.
               exploreMode &&
-                "border-gold bg-gold text-midnight hover:bg-gold-light",
+                "border-gold bg-gold text-midnight hover:bg-gold-light hover:text-midnight dark:border-gold dark:bg-gold dark:hover:bg-gold-light",
             )}
           >
             <MythosMark id="constellation" className="size-4" />
