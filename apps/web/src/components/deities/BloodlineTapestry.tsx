@@ -16,6 +16,7 @@ function Medallion({
 }: {
   kin: Kin;
   big?: boolean;
+  /** Dashed ring and no caption: the disputed row names the figure in text. */
   disputed?: boolean;
 }) {
   const inner = (
@@ -39,11 +40,15 @@ function Medallion({
           kin.name.charAt(0)
         )}
       </span>
-      <span
-        className={`mt-1.5 line-clamp-2 max-w-[7.5rem] text-balance text-center leading-tight ${big ? "text-[0.9375rem] font-semibold text-foreground" : "text-sm text-foreground group-hover:text-gold-text"}`}
-      >
-        {kin.name}
-      </span>
+      {disputed ? (
+        <span className="sr-only">{kin.name}</span>
+      ) : (
+        <span
+          className={`mt-1.5 line-clamp-2 max-w-[7.5rem] text-balance text-center leading-tight ${big ? "text-[0.9375rem] font-semibold text-foreground" : "text-sm text-foreground group-hover:text-gold-text"}`}
+        >
+          {kin.name}
+        </span>
+      )}
     </>
   );
   const cls = "group flex flex-col items-center";
@@ -101,7 +106,9 @@ function Disputed({ items }: { items: DisputedKin[] }) {
       <ul className="mx-auto mt-4 grid max-w-2xl gap-4 sm:grid-cols-2">
         {items.map((item) => (
           <li key={`d-${item.kin.key}`} className="flex items-start gap-3">
-            <Medallion kin={item.kin} disputed />
+            <span className="shrink-0">
+              <Medallion kin={item.kin} disputed />
+            </span>
             <p className="min-w-0 pt-1 text-sm leading-relaxed text-muted-foreground">
               <span className="text-foreground">
                 {item.kin.name} as {ROLE_LABEL[item.role]}.
