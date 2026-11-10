@@ -84,7 +84,10 @@ export function KnowledgeGraphPageClient({
   const [layoutMode, setLayoutMode] = useState<"cluster" | "grid" | "radial">(
     "cluster",
   );
-  const [exploreMode, setExploreMode] = useState(false);
+  // Explore mode is the default: a click focuses a figure's neighbourhood
+  // (an opened entry is one more click away in the sidebar) instead of
+  // leaving the graph. Starting on Zeus avoids opening on all 360 nodes.
+  const [exploreMode, setExploreMode] = useState(true);
   const graphControlsRef = useRef<KnowledgeGraphControls | null>(null);
 
   const exploredDeityIds = useMemo(
@@ -208,6 +211,7 @@ export function KnowledgeGraphPageClient({
       clusterByPantheon={clusterByPantheon}
       layoutMode={layoutMode}
       exploreMode={exploreMode}
+      initialFocusId="zeus"
       exploredDeityIds={exploredDeityIds}
       onNodeClick={handleNodeClick}
       onControlsReady={handleControlsReady}
