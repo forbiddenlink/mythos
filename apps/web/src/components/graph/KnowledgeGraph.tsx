@@ -9,6 +9,7 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   useReactFlow,
+  useNodesInitialized,
   ReactFlowProvider,
   MarkerType,
   Position,
@@ -509,8 +510,26 @@ function KnowledgeGraphInner({
     }
 
     // Create nodes
+    // Ego layout: a focused figure's neighbours are gathered on a ring around
+    // it (parallels can sit on the far side of the whole network), and every
+    // other figure is hidden until the focus is cleared.
+    const egoPositions = new Map<string, { x: number; y: number }>();
+    if (focusId && neighborIds.size > 1) {
+      const center = positions.get(focusId) ?? { x: 0, y: 0 };
+      const ring = [...neighborIds].filter((id) => id !== focusId);
+      const radius = Math.max(280, (ring.length * 150) / (2 * Math.PI));
+      ring.forEach((id, i) => {
+        const angle = (i / ring.length) * 2 * Math.PI - Math.PI / 2;
+        egoPositions.set(id, {
+          x: center.x + Math.cos(angle) * radius,
+          y: center.y + Math.sin(angle) * radius,
+        });
+      });
+    }
+
     filteredDeities.forEach((deity) => {
-      const position = positions.get(deity.id) || { x: 0, y: 0 };
+      const position = egoPositions.get(deity.id) ??
+        positions.get(deity.id) ?? { x: 0, y: 0 };
       const inNeighborhood = !focusId || neighborIds.has(deity.id);
       const visited = exploredDeityIds?.has(deity.id);
 
@@ -526,8 +545,8 @@ function KnowledgeGraphInner({
           showImage: true,
           explored: visited,
         },
+        hidden: !inNeighborhood,
         style: {
-          opacity: inNeighborhood ? 1 : 0.18,
           transition: "opacity 200ms ease",
         },
         sourcePosition: Position.Right,
@@ -608,7 +627,23 @@ function KnowledgeGraphInner({
       });
     }
 
-    return { nodes, edges, neighborIds };
+    // With a figure focused, only its own links stay bright; the rest fade
+    // to texture so the neighbourhood reads instead of the whole hairball.
+    const visibleEdges = focusId
+      ? edges.map((edge) =>
+          edge.source === focusId || edge.target === focusId
+            ? edge
+            : {
+                ...edge,
+                animated: false,
+                label: undefined,
+                markerEnd: undefined,
+                style: { ...edge.style, opacity: 0.05 },
+              },
+        )
+      : edges;
+
+    return { nodes, edges: visibleEdges, neighborIds };
   }, [
     deities,
     relationships,
@@ -670,17 +705,27 @@ function KnowledgeGraphInner({
 
   // Expose control methods via ref or context if needed
   useEffect(() => {
-    // Fit view after initial render
+    // Fit the whole network after render, unless a focused neighbourhood is
+    // framed instead (below). Clearing the focus refits the whole network.
+    if (exploreMode && exploreFocusId) return;
     const timer = setTimeout(() => {
       fitView({ padding: 0.2, duration: 500 });
     }, 100);
     return () => clearTimeout(timer);
-  }, [fitView, selectedPantheons, resolvedLayout]);
+  }, [fitView, selectedPantheons, resolvedLayout, exploreMode, exploreFocusId]);
 
   // In explore mode, frame the focused figure's neighbourhood rather than
   // the whole network, so the first view reads as a family, not a hairball.
+  const nodesMeasured = useNodesInitialized();
   useEffect(() => {
-    if (!exploreMode || !exploreFocusId || focusNeighborIds.size === 0) return;
+    if (
+      !nodesMeasured ||
+      !exploreMode ||
+      !exploreFocusId ||
+      focusNeighborIds.size === 0
+    ) {
+      return;
+    }
     const timer = setTimeout(() => {
       fitView({
         nodes: [...focusNeighborIds].map((id) => ({ id })),
@@ -689,7 +734,7 @@ function KnowledgeGraphInner({
       });
     }, 150);
     return () => clearTimeout(timer);
-  }, [exploreMode, exploreFocusId, focusNeighborIds, fitView]);
+  }, [nodesMeasured, exploreMode, exploreFocusId, focusNeighborIds, fitView]);
 
   return (
     <ReactFlow
