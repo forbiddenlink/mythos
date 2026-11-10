@@ -118,6 +118,7 @@ describe("deity family answers", () => {
         consorts: [],
         siblings: [],
         rivals: [],
+        disputed: [],
       }),
     ).toEqual([]);
   });

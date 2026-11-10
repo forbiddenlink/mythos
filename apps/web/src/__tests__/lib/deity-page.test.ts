@@ -332,6 +332,20 @@ describe("relationship claim citations", () => {
     ).toEqual([]);
   });
 
+  it("merges claims that rest on the same passage into one citation", () => {
+    const citations = relationshipCitations(
+      "zeus",
+      [
+        { ...edge, fromDeityId: "zeus", toDeityId: "ares" },
+        { ...edge, fromDeityId: "zeus", toDeityId: "hera" },
+      ],
+      deities,
+      works,
+    );
+    expect(citations).toHaveLength(1);
+    expect(citations[0].title).toBe("Theogony (Zeus parent of Ares and Hera)");
+  });
+
   it("makes the reviewed Zeus/Rhea parentage evidence available on both entries", () => {
     const works = [{ id: "theogony", title: "Theogony", author: "Hesiod" }];
     for (const id of ["zeus", "rhea"]) {
@@ -340,7 +354,7 @@ describe("relationship claim citations", () => {
       ).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
-            title: "Theogony (Rhea parent of Zeus)",
+            title: expect.stringMatching(/Rhea parent of Zeus/),
             lines: expect.stringContaining("453"),
           }),
         ]),
@@ -350,6 +364,28 @@ describe("relationship claim citations", () => {
 });
 
 describe("canonical bloodline and disputed parentage", () => {
+  it("lists disputed kin apart from the canonical tiers, with the catalog note", () => {
+    const bloodline = buildBloodline("zeus", relationshipsData, deitiesData);
+    const disputed = bloodline.disputed.map((d) => [d.kin.key, d.role]);
+    expect(disputed).toEqual(
+      expect.arrayContaining([
+        ["hephaestus", "child"],
+        ["melinoe", "child"],
+      ]),
+    );
+    expect(bloodline.children.map((k) => k.key)).not.toContain("hephaestus");
+    expect(
+      bloodline.disputed.find((d) => d.kin.key === "hephaestus")?.note,
+    ).toContain("Theogony");
+    // A figure already placed canonically is never repeated as disputed.
+    const placed = new Set(
+      [...bloodline.parents, ...bloodline.children, ...bloodline.consorts].map(
+        (k) => k.key,
+      ),
+    );
+    expect(bloodline.disputed.some((d) => placed.has(d.kin.key))).toBe(false);
+  });
+
   it("names Hera alone for Hephaestus while preserving the Zeus variant in graph relationships", () => {
     const bloodline = buildBloodline(
       "hephaestus",

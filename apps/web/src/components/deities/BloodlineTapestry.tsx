@@ -1,15 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import { hasLineage, type Bloodline, type Kin } from "@/lib/deity-page";
+import {
+  hasLineage,
+  type Bloodline,
+  type DisputedKin,
+  type Kin,
+} from "@/lib/deity-page";
 
-function Medallion({ kin, big = false }: { kin: Kin; big?: boolean }) {
+function Medallion({
+  kin,
+  big = false,
+  disputed = false,
+}: {
+  kin: Kin;
+  big?: boolean;
+  disputed?: boolean;
+}) {
   const inner = (
     <>
       <span
         className={`relative flex items-center justify-center overflow-hidden rounded-full border-2 bg-midnight/80 font-serif text-parchment transition-transform duration-200 group-hover:scale-110 ${
           big ? "size-16 text-2xl" : "size-12 text-lg"
-        }`}
+        } ${disputed ? "border-dashed opacity-80" : ""}`}
         style={{ borderColor: kin.color }}
       >
         {kin.imageUrl ? (
@@ -67,6 +80,39 @@ function Tier({ label, kin }: { label: string; kin: Kin[] }) {
   );
 }
 
+const ROLE_LABEL: Record<DisputedKin["role"], string> = {
+  parent: "parent",
+  child: "child",
+  consort: "consort",
+  sibling: "sibling",
+  rival: "rival",
+};
+
+/** Links the sources disagree on: dashed, labelled, with the catalog's note. */
+function Disputed({ items }: { items: DisputedKin[] }) {
+  if (items.length === 0) return null;
+  return (
+    <div className="mt-8 w-full border-t border-dashed border-border/70 pt-6">
+      <p className="text-center text-[0.8125rem] uppercase tracking-[0.16em] text-muted-foreground">
+        Sources disagree
+      </p>
+      <ul className="mx-auto mt-4 grid max-w-2xl gap-4 sm:grid-cols-2">
+        {items.map((item) => (
+          <li key={`d-${item.kin.key}`} className="flex items-start gap-3">
+            <Medallion kin={item.kin} disputed />
+            <p className="min-w-0 pt-1 text-sm leading-relaxed text-muted-foreground">
+              <span className="text-foreground">
+                {item.kin.name} as {ROLE_LABEL[item.role]}.
+              </span>{" "}
+              {item.note}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 /**
  * Genealogy plate for a deity page. Pure markup: the server page computes the
  * tiers with `buildBloodline` and passes only the kin it links to.
@@ -84,7 +130,7 @@ export function BloodlineTapestry({
   pantheonId: string;
   bloodline: Bloodline;
 }) {
-  const { parents, children, consorts, siblings, rivals } = bloodline;
+  const { parents, children, consorts, siblings, rivals, disputed } = bloodline;
   if (!hasLineage(bloodline)) return null;
 
   const self: Kin = {
@@ -142,6 +188,7 @@ export function BloodlineTapestry({
             )}
           </div>
         )}
+        <Disputed items={disputed} />
       </div>
     </section>
   );

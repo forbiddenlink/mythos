@@ -88,6 +88,7 @@ export function resolveParallels(
 
 interface RelationshipInput {
   isDisputed?: boolean;
+  description?: string | null;
   fromDeityId: string;
   toDeityId: string;
   relationshipType: string;
@@ -125,12 +126,23 @@ export interface Kin {
   imageUrl?: string;
 }
 
+/** A kinship the sources disagree on, kept out of the canonical tiers. */
+export interface DisputedKin {
+  kin: Kin;
+  /** The other figure's role relative to this deity: "parent", "child"... */
+  role: "parent" | "child" | "consort" | "sibling" | "rival";
+  /** The catalog's note on who says what, when it has one. */
+  note?: string;
+}
+
 export interface Bloodline {
   parents: Kin[];
   children: Kin[];
   consorts: Kin[];
   siblings: Kin[];
   rivals: Kin[];
+  /** Disputed links, shown apart so the canonical tiers stay one reading. */
+  disputed: DisputedKin[];
 }
 
 interface KinDeity {
@@ -177,6 +189,7 @@ export function buildBloodline(
     consorts: [],
     siblings: [],
     rivals: [],
+    disputed: [],
   };
   const seen = new Set<string>();
   const push = (arr: Kin[], id: string) => {
@@ -188,8 +201,12 @@ export function buildBloodline(
     arr.push(toKin(id, byId));
   };
 
+  const disputed: RelationshipInput[] = [];
   for (const r of relationships) {
-    if (r.isDisputed) continue;
+    if (r.isDisputed) {
+      disputed.push(r);
+      continue;
+    }
     const involvesFrom = r.fromDeityId === deityId;
     const involvesTo = r.toDeityId === deityId;
     if (!involvesFrom && !involvesTo) continue;
@@ -212,6 +229,44 @@ export function buildBloodline(
       default:
         break; // ally_of / aspect_of are not part of the bloodline plate
     }
+  }
+
+  // Disputed links come after the canonical ones, so a figure already placed
+  // in a tier (Hera as Hephaestus's parent) is never repeated as disputed.
+  const placed = new Set(
+    [
+      ...groups.parents,
+      ...groups.children,
+      ...groups.consorts,
+      ...groups.siblings,
+      ...groups.rivals,
+    ].map((k) => k.key),
+  );
+  for (const r of disputed) {
+    const involvesFrom = r.fromDeityId === deityId;
+    const involvesTo = r.toDeityId === deityId;
+    if (!involvesFrom && !involvesTo) continue;
+    const other = involvesFrom ? r.toDeityId : r.fromDeityId;
+    const role: DisputedKin["role"] | null =
+      r.relationshipType === "parent_of"
+        ? involvesTo
+          ? "parent"
+          : "child"
+        : r.relationshipType === "spouse_of" ||
+            r.relationshipType === "lover_of"
+          ? "consort"
+          : r.relationshipType === "sibling_of"
+            ? "sibling"
+            : r.relationshipType === "enemy_of"
+              ? "rival"
+              : null;
+    if (!role || placed.has(other)) continue;
+    placed.add(other);
+    groups.disputed.push({
+      kin: toKin(other, byId),
+      role,
+      ...(r.description ? { note: r.description } : {}),
+    });
   }
   return groups;
 }
@@ -342,13 +397,28 @@ export function relationshipCitations(
   const names = new Map(figures.map((figure) => [figure.id, figure.name]));
   const works = new Map(sources.map((source) => [source.id, source]));
   const seen = new Set<string>();
-  const citations: CitationSourceItem[] = [];
+  const list = new Intl.ListFormat("en", { type: "conjunction" });
+
+  // One row per passage: the same locator in the same edition supporting the
+  // same kind of link ("Theogony 453-458: Zeus sibling of Hera, Poseidon,
+  // Hades...") is one citation, not five. Claims with their own note stay
+  // separate, because the note is what differs.
+  interface Group {
+    selfName: string;
+    selfIsSource: boolean;
+    type: string;
+    others: string[];
+    description?: string | null;
+    sourceTitle: string;
+    item: Omit<CitationSourceItem, "title">;
+  }
+  const groups = new Map<string, Group>();
 
   for (const relationship of relationshipsFor(deityId, relationships)) {
     const from = names.get(relationship.fromDeityId);
     const to = names.get(relationship.toDeityId);
     if (!from || !to) continue;
-    const claim = `${from} ${relationship.relationshipType.replaceAll("_", " ")} ${to}${relationship.description ? `: ${relationship.description}` : ""}`;
+    const selfIsSource = relationship.fromDeityId === deityId;
     for (const evidence of relationship.evidence ?? []) {
       const source = works.get(evidence.sourceId);
       if (!source) continue;
@@ -364,14 +434,48 @@ export function relationshipCitations(
       ]);
       if (seen.has(key)) continue;
       seen.add(key);
-      citations.push({
-        title: `${source.title} (${claim})`,
-        url: evidence.sourceUrl,
-        author: source.author,
-        lines: evidence.locator,
-        book: evidence.edition,
+      const groupKey = JSON.stringify([
+        selfIsSource,
+        relationship.relationshipType,
+        relationship.description ?? null,
+        // A described claim never merges with another claim.
+        relationship.description ? key : null,
+        evidence.sourceId,
+        evidence.locator,
+        evidence.edition,
+        evidence.sourceUrl,
+      ]);
+      const other = selfIsSource ? to : from;
+      const group = groups.get(groupKey);
+      if (group) {
+        if (!group.others.includes(other)) group.others.push(other);
+        continue;
+      }
+      groups.set(groupKey, {
+        selfName: selfIsSource ? from : to,
+        selfIsSource,
+        type: relationship.relationshipType.replaceAll("_", " "),
+        others: [other],
+        description: relationship.description,
+        sourceTitle: source.title,
+        item: {
+          url: evidence.sourceUrl,
+          author: source.author,
+          lines: evidence.locator,
+          book: evidence.edition,
+        },
       });
     }
   }
-  return citations;
+
+  return [...groups.values()].map((group) => {
+    const others = list.format(group.others);
+    const claim = group.selfIsSource
+      ? `${group.selfName} ${group.type} ${others}`
+      : `${others} ${group.type} ${group.selfName}`;
+    return {
+      title: `${group.sourceTitle} (${claim}${group.description ? `: ${group.description}` : ""})`,
+      ...group.item,
+    };
+  });
 }

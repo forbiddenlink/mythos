@@ -13,6 +13,7 @@ const answers = familyFaq("Zeus", {
   consorts: [],
   siblings: [],
   rivals: [],
+  disputed: [],
 });
 
 describe("DeityFamilyFaq", () => {
