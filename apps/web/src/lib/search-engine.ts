@@ -19,8 +19,18 @@ export interface DeityData {
   slug: string;
   description: string;
   domain?: string[];
+  /** Attributes a reader searches by ("owl", "trident"). */
+  symbols?: string[];
   alternateNames?: string[];
   pantheonId?: string;
+  /** "male" / "female" etc., used only to read "goddess of ..." queries. */
+  gender?: string;
+  /**
+   * How widely the catalog connects this figure across traditions (its own
+   * parallels plus the parallels that name it). Ranks "god of the sea"
+   * results: Poseidon before a figure who also has the sea as a domain.
+   */
+  prominence?: number;
 }
 
 export interface StoryData {
@@ -102,6 +112,17 @@ function compact<T extends object>(row: T): T {
   ) as T;
 }
 
+/** The deity ids a raw catalog row lists as cross-pantheon parallels. */
+function parallelIds(row: Loose): string[] {
+  const list = row.crossPantheonParallels;
+  if (!Array.isArray(list)) return [];
+  return list
+    .map((p) =>
+      p && typeof p === "object" ? str((p as Loose).deityId) : undefined,
+    )
+    .filter((id): id is string => Boolean(id));
+}
+
 /** Reduce raw catalog rows to a search index (drops biographies, narratives, passages). */
 export function toSearchIndex(raw: {
   deities: readonly object[];
@@ -123,6 +144,12 @@ export function toSearchIndex(raw: {
         .replace(/\s+(?:Pantheon|Traditions?)$/, ""),
     ]),
   );
+  const inboundParallels = new Map<string, number>();
+  for (const d of rows(raw.deities)) {
+    for (const id of parallelIds(d)) {
+      inboundParallels.set(id, (inboundParallels.get(id) ?? 0) + 1);
+    }
+  }
   return {
     pantheonLabels,
     deities: rows(raw.deities).map((d) =>
@@ -132,8 +159,13 @@ export function toSearchIndex(raw: {
         slug: String(d.slug),
         description: str(d.description) ?? "",
         domain: strs(d.domain),
+        symbols: strs(d.symbols),
         alternateNames: strs(d.alternateNames),
         pantheonId: str(d.pantheonId),
+        gender: str(d.gender),
+        prominence:
+          (inboundParallels.get(String(d.id)) ?? 0) + parallelIds(d).length ||
+          undefined,
       }),
     ),
     stories: rows(raw.stories).map((s) =>
@@ -207,6 +239,19 @@ const QUERY_STOPWORDS = new Set([
   "in",
   "from",
   "for",
+  // Question words: "who killed baldur" should search "killed baldur".
+  "who",
+  "what",
+  "which",
+  "where",
+  "when",
+  "why",
+  "how",
+  "is",
+  "was",
+  "are",
+  "did",
+  "does",
 ]);
 
 /**
@@ -260,6 +305,11 @@ const RELATED_WORDS: Record<string, string[]> = {
   sun: ["solar"],
   moon: ["lunar"],
   battle: ["war"],
+  // "who killed baldur" finds "The Death of Baldur".
+  kill: ["death", "slay", "murder"],
+  killed: ["death", "slain", "murder"],
+  murdered: ["murder", "death"],
+  died: ["death"],
 };
 
 /** The word, its plain singular ("gods" -> "god"), and related words. */
@@ -268,6 +318,9 @@ function wordVariants(word: string): string[] {
   if (word.length > 3 && word.endsWith("s") && !word.endsWith("ss")) {
     variants.push(word.slice(0, -1));
   }
+  // "killed" / "killing" -> "kill", which also finds "killing" and "kills".
+  const stem = word.replace(/(?:ed|ing)$/, "");
+  if (stem !== word && stem.length >= 3) variants.push(stem);
   return variants;
 }
 
@@ -337,6 +390,8 @@ function searchItems<T extends { id: string }>(
     getSubtitle: (item: T) => string;
     /** Tradition name, matched only by the word-by-word fallback. */
     getTradition?: (item: T) => string;
+    /** Other names; one that IS the query ranks like an exact title. */
+    getAliases?: (item: T) => string[] | undefined;
   },
 ): SearchResult[] {
   const results: SearchResult[] = [];
@@ -356,6 +411,14 @@ function searchItems<T extends { id: string }>(
     // "Prometheus Steals Fire"). Field weights alone let those outscore it.
     if (score > 0 && foldForSearch(config.getTitle(item)) === foldedQuery) {
       score += EXACT_TITLE_BONUS;
+    } else if (
+      score > 0 &&
+      config
+        .getAliases?.(item)
+        ?.some((alias) => foldForSearch(alias) === foldedQuery)
+    ) {
+      // "Hercules" opens Heracles before "The Twelve Labors of Hercules".
+      score += EXACT_TITLE_BONUS * 0.9;
     }
     if (score > 0) {
       results.push({
@@ -382,8 +445,213 @@ export function searchIndex(
   if (!query || query.trim().length < 2) {
     return [];
   }
+  const folded = foldForSearch(query).trim();
 
-  const normalizedQuery = foldForSearch(query).trim();
+  // "god of the sea", "norse goddess of love": the reader wants the figures
+  // whose domain it is, ranked by prominence, ahead of any text match.
+  const intent = parseDomainIntent(folded);
+  const intentResults = intent ? domainIntentResults(index, intent) : [];
+
+  // An epithet such as Guan Yu's "God of War" should not outrank Ares and
+  // Tyr on a domain query, so alias bonuses are off when the intent applies.
+  let results = scoredSearch(index, folded, { aliasBonus: !intent });
+  // Transliterations a reader types ("herakles", "kronos", "dionysos").
+  if (results.length === 0) {
+    for (const variant of transliterations(folded)) {
+      results = scoredSearch(index, variant);
+      if (results.length > 0) break;
+    }
+  }
+  // One typo in a name ("zues", "posiedon", "quetzalcoatal").
+  if (results.length === 0 && intentResults.length === 0) {
+    results = fuzzyNameResults(index, folded);
+  }
+
+  const merged = new Map<string, SearchResult>();
+  for (const r of [...intentResults, ...results]) {
+    const key = `${r.type}:${r.id}`;
+    const existing = merged.get(key);
+    if (!existing || existing.matchScore < r.matchScore) merged.set(key, r);
+  }
+  return [...merged.values()]
+    .toSorted((a, b) => b.matchScore - a.matchScore)
+    .slice(0, limit);
+}
+
+/* ----------------------- "god of X" domain intent ------------------------ */
+
+interface DomainIntent {
+  topic: string;
+  female?: boolean;
+  tradition?: string;
+}
+
+const INTENT_RE =
+  /^(?:([a-z]+)\s+)?(god|goddess|deity|gods|goddesses|deities)\s+of\s+(?:the\s+)?(.+)$/;
+
+/** Read "norse goddess of love" as { tradition, female, topic }. */
+export function parseDomainIntent(folded: string): DomainIntent | null {
+  const m = INTENT_RE.exec(folded);
+  if (!m) return null;
+  const topic = m[3].trim();
+  if (!topic) return null;
+  return {
+    topic,
+    ...(m[2].startsWith("goddess") ? { female: true } : {}),
+    ...(m[1] ? { tradition: m[1] } : {}),
+  };
+}
+
+/** Above every ordinary text match, below an exact title (EXACT_TITLE_BONUS). */
+const INTENT_BASE = 400;
+
+function domainIntentResults(
+  index: SearchIndex,
+  intent: DomainIntent,
+): SearchResult[] {
+  const labels = index.pantheonLabels ?? {};
+  const topics = new Set(
+    intent.topic.split(/\s+/).length === 1
+      ? wordVariants(intent.topic)
+      : [intent.topic],
+  );
+  const results: SearchResult[] = [];
+  for (const d of index.deities) {
+    const domains = (d.domain ?? []).map((x) => foldForSearch(x).trim());
+    // "war" also matches "warfare"; "dead" matches "death" via wordVariants.
+    const position = domains.findIndex((domain) =>
+      [...topics].some(
+        (t) =>
+          domain === t || domain.startsWith(`${t} `) || domain.startsWith(t),
+      ),
+    );
+    if (position < 0) continue;
+    const label = d.pantheonId ? (labels[d.pantheonId] ?? "") : "";
+    if (
+      intent.tradition &&
+      !foldForSearch(label).startsWith(intent.tradition) &&
+      !foldForSearch(d.pantheonId ?? "").startsWith(intent.tradition)
+    ) {
+      continue;
+    }
+    let score = INTENT_BASE + (position === 0 ? 120 : 60);
+    score += Math.min(d.prominence ?? 0, 20) * 15;
+    if (intent.female !== undefined) {
+      score += d.gender === "female" ? 60 : -60;
+    }
+    results.push({
+      type: "deity",
+      id: d.id,
+      slug: d.slug,
+      title: d.name,
+      subtitle: getPantheonLabel(labels, d.pantheonId, "Deity"),
+      matchScore: score,
+    });
+  }
+  return results;
+}
+
+/* ------------------------ transliteration variants ----------------------- */
+
+/**
+ * Greek and Latin spellings a reader types for the catalog's English forms:
+ * k/c (Herakles, Kronos), -os/-us (Dionysos), ai/ae.
+ */
+export function transliterations(folded: string): string[] {
+  const out = new Set<string>();
+  const kc = folded.replace(/k/g, "c");
+  out.add(kc);
+  for (const base of [folded, kc]) {
+    out.add(base.replace(/os\b/g, "us"));
+    out.add(base.replace(/us\b/g, "os"));
+    out.add(base.replace(/ai/g, "ae"));
+  }
+  out.delete(folded);
+  return [...out];
+}
+
+/* --------------------------- typo-tolerant names -------------------------- */
+
+/** Optimal string alignment distance (Levenshtein plus adjacent swaps). */
+export function editDistance(a: string, b: string, max = 3): number {
+  if (Math.abs(a.length - b.length) > max) return max + 1;
+  const rows: number[][] = [];
+  for (let i = 0; i <= a.length; i += 1) {
+    rows.push([i, ...Array.from({ length: b.length }, () => 0)]);
+  }
+  for (let j = 0; j <= b.length; j += 1) rows[0][j] = j;
+  for (let i = 1; i <= a.length; i += 1) {
+    for (let j = 1; j <= b.length; j += 1) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      let v = Math.min(
+        rows[i - 1][j] + 1,
+        rows[i][j - 1] + 1,
+        rows[i - 1][j - 1] + cost,
+      );
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+        v = Math.min(v, rows[i - 2][j - 2] + 1);
+      }
+      rows[i][j] = v;
+    }
+  }
+  return rows[a.length][b.length];
+}
+
+/** Typos allowed for a query of this length: none under 4 letters. */
+function allowedTypos(length: number): number {
+  if (length < 4) return 0;
+  return length < 8 ? 1 : 2;
+}
+
+function fuzzyNameResults(index: SearchIndex, folded: string): SearchResult[] {
+  const max = allowedTypos(folded.length);
+  if (max === 0 || folded.includes(" ")) return [];
+  const labels = index.pantheonLabels ?? {};
+  const results: SearchResult[] = [];
+  const consider = (
+    type: ContentType,
+    item: {
+      id: string;
+      slug?: string;
+      name: string;
+      alternateNames?: string[];
+      pantheonId?: string;
+    },
+    typeName: string,
+  ) => {
+    const names = [item.name, ...(item.alternateNames ?? [])].flatMap((n) => {
+      const f = foldForSearch(n).trim();
+      // "Longwang (the Dragon Kings)" is also tried as "longwang".
+      return [f, f.split(/[\s(]/)[0]];
+    });
+    let best = max + 1;
+    for (const n of names) best = Math.min(best, editDistance(folded, n, max));
+    if (best > max) return;
+    results.push({
+      type,
+      id: item.id,
+      slug: item.slug ?? item.id,
+      title: item.name,
+      subtitle: getPantheonLabel(labels, item.pantheonId, typeName),
+      // Below any real text match, nearer spellings first.
+      matchScore: 50 - best * 15,
+    });
+  };
+  for (const d of index.deities) consider("deity", d, "Deity");
+  for (const h of index.heroes) consider("hero", h, "Hero");
+  for (const c of index.creatures) consider("creature", c, "Creature");
+  for (const a of index.artifacts) consider("artifact", a, "Artifact");
+  for (const l of index.locations) consider("location", l, "Location");
+  return results;
+}
+
+/* ---------------------------- scored text search -------------------------- */
+
+function scoredSearch(
+  index: SearchIndex,
+  normalizedQuery: string,
+  { aliasBonus = true }: { aliasBonus?: boolean } = {},
+) {
   const labels = index.pantheonLabels ?? {};
   const tradition = (item: { pantheonId?: string }) =>
     item.pantheonId ? (labels[item.pantheonId] ?? "") : "";
@@ -399,6 +667,7 @@ export function searchIndex(
         { value: h.description, weight: 1 },
       ],
       getTradition: tradition,
+      getAliases: aliasBonus ? (h) => h.alternateNames : undefined,
       getSubtitle: (h) => getPantheonLabel(labels, h.pantheonId, "Hero"),
     }),
     ...searchItems(index.sources, normalizedQuery, {
@@ -420,9 +689,11 @@ export function searchIndex(
         { value: d.name, weight: 3 },
         { value: d.alternateNames?.join(" ") || "", weight: 2.5 },
         { value: d.domain?.join(" ") || "", weight: 1.5 },
+        { value: d.symbols?.join(" ") || "", weight: 1.2 },
         { value: d.description, weight: 1 },
       ],
       getTradition: tradition,
+      getAliases: aliasBonus ? (d) => d.alternateNames : undefined,
       getSubtitle: (d) => getPantheonLabel(labels, d.pantheonId, "Deity"),
     }),
     ...searchItems(index.stories, normalizedQuery, {
@@ -485,9 +756,7 @@ export function searchIndex(
     }),
   ];
 
-  return results
-    .toSorted((a, b) => b.matchScore - a.matchScore)
-    .slice(0, limit);
+  return results;
 }
 
 /**

@@ -111,3 +111,47 @@ describe("capPerType", () => {
     expect(scores).toEqual(scores.toSorted((a, b) => b - a));
   });
 });
+
+describe("reader-intent search", () => {
+  const top = (query: string, n = 3) =>
+    searchAll(query, 10)
+      .slice(0, n)
+      .map((r) => r.title);
+
+  it('reads "god of X" as a domain and ranks by prominence', () => {
+    expect(top("god of the sea", 1)).toEqual(["Poseidon"]);
+    expect(top("god of war", 1)).toEqual(["Ares"]);
+    expect(top("goddess of love", 1)).toEqual(["Aphrodite"]);
+    expect(top("egyptian god of the dead", 1)).toEqual(["Osiris"]);
+  });
+
+  it("limits a domain query to the named tradition", () => {
+    const titles = searchAll("norse god of war", 10)
+      .filter((r) => r.type === "deity")
+      .map((r) => r.title);
+    expect(titles).toContain("Tyr");
+    expect(titles).not.toContain("Ares");
+  });
+
+  it("finds Greek and Latin spellings and exact alternate names", () => {
+    expect(top("herakles", 1)).toEqual(["Heracles"]);
+    expect(top("hercules", 1)).toEqual(["Heracles"]);
+    expect(top("kronos", 1)).toEqual(["Cronus"]);
+  });
+
+  it("tolerates one typo in a name", () => {
+    expect(top("zues", 1)).toEqual(["Zeus"]);
+    expect(top("posiedon", 1)).toEqual(["Poseidon"]);
+    expect(top("quetzalcoatal", 1)).toEqual(["Quetzalcoatl"]);
+  });
+
+  it("matches symbols and question phrasing", () => {
+    expect(top("athena owl", 1)).toEqual(["Athena"]);
+    expect(top("who killed baldur", 1)).toEqual(["The Death of Baldur"]);
+  });
+
+  it("keeps exact names first", () => {
+    expect(top("hera", 1)).toEqual(["Hera"]);
+    expect(top("thor", 1)).toEqual(["Thor"]);
+  });
+});
