@@ -436,10 +436,10 @@ export default function GreekGodsFamilyTreeGuide() {
                   daughter of Zeus and the goddess Dione (Iliad 5.370-371).
                 </li>
                 <li>
-                  <strong className="font-medium">The atlas:</strong> her entry
-                  follows Hesiod, so the interactive tree shows no parent for
-                  her. It records her as the wife of{" "}
-                  <DeityLink id="hephaestus" /> and the lover of{" "}
+                  <strong className="font-medium">The atlas:</strong> records
+                  both parentages and marks each as disputed, so neither appears
+                  as her parent in the table above. It records her as the wife
+                  of <DeityLink id="hephaestus" /> and the lover of{" "}
                   <DeityLink id="ares" /> (Theogony 933-937).
                 </li>
               </ul>

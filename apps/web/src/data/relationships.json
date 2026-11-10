@@ -3612,11 +3612,11 @@
     "relationshipType": "parent_of",
     "confidenceLevel": "medium",
     "isDisputed": true,
-    "description": "Hesiod has Aphrodite grow from the foam around Uranus's severed members; Homer instead calls her the daughter of Zeus and Dione (Iliad, Book 5).",
+    "description": "Hesiod has Aphrodite grow from the foam around Uranus's severed members; Homer instead calls her the daughter of Zeus and Dione (Iliad 5.370–371).",
     "evidence": [
       {
         "sourceId": "theogony",
-        "locator": "Theogony 176–200",
+        "locator": "Theogony 188–206",
         "sourceUrl": "https://www.gutenberg.org/files/348/348-h/348-h.htm",
         "edition": "Hugh G. Evelyn-White, Hesiod, the Homeric Hymns and Homerica (1914), Project Gutenberg #348"
       }
@@ -3629,6 +3629,6 @@
     "relationshipType": "parent_of",
     "confidenceLevel": "medium",
     "isDisputed": true,
-    "description": "Homer calls Aphrodite the daughter of Zeus, with Dione as her mother (Iliad, Book 5); Hesiod instead has her born from the foam around Uranus's severed members (Theogony 176–200)."
+    "description": "Homer calls Aphrodite the daughter of Zeus and Dione (Iliad 5.370–371); Hesiod instead has her born from the foam around Uranus's severed members (Theogony 188–206)."
   }
 ]
