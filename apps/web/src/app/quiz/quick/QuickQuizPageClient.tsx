@@ -269,7 +269,7 @@ export function QuickQuizPageClient({
               <CardHeader>
                 <CardTitle
                   id="quick-quiz-question"
-                  className="font-serif text-xl text-center"
+                  className="font-body text-[1.375rem] font-medium leading-snug tracking-normal text-center text-balance"
                 >
                   {question.question}
                 </CardTitle>

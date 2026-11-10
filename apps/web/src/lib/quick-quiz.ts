@@ -25,7 +25,11 @@ export function generateQuickQuizQuestion(
   for (const target of shuffle(candidates, random)) {
     for (const raw of shuffle(target.domain, random)) {
       const domain = raw.trim();
-      if (!domain || /^uncertain\b/i.test(domain)) continue;
+      // Skip hedged catalogue values ("time (later folk association)",
+      // "irrigation (disputed)"): the qualifier is editorial, not a domain,
+      // and a quiz should not assert a contested attribution as fact.
+      if (!domain || /^uncertain\b/i.test(domain) || /[()]/.test(domain))
+        continue;
 
       // Exclude every matching name, including duplicate catalogue records and
       // known aliases such as "war"/"warfare" and "sun"/"the sun".
@@ -46,7 +50,7 @@ export function generateQuickQuizQuestion(
 
       const answer = target.name.trim();
       return {
-        question: `Which figure is linked to "${domain}" in the atlas?`,
+        question: `Which figure is linked to \u201c${domain}\u201d in the atlas?`,
         options: shuffle(
           [answer, ...shuffle([...wrongNames.values()], random).slice(0, 3)],
           random,
