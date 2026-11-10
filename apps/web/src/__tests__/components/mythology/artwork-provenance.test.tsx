@@ -34,7 +34,9 @@ for (const variant of ["annotated", "portraits"] as const) {
         "src",
         expect.stringContaining("osiris.png"),
       );
-      expect(container).toHaveTextContent("Illustration");
+      expect(container).toHaveTextContent(
+        "Portraits are illustrations unless a museum is credited.",
+      );
       expect(container.querySelector(`a[href="${portrait.url}"]`)).toBeNull();
     });
 
@@ -83,8 +85,13 @@ for (const variant of ["annotated", "portraits"] as const) {
           ]}
         />,
       );
-      expect(container).toHaveTextContent("Illustration");
-      expect(container.querySelectorAll("a")).toHaveLength(1);
+      expect(container).toHaveTextContent(
+        "Portraits are illustrations unless a museum is credited.",
+      );
+      expect(container.querySelectorAll('a[href^="/deities/"]')).toHaveLength(
+        1,
+      );
+      expect(container.querySelector('a[href="/about#images"]')).not.toBeNull();
       expect(container.querySelector("img")).toHaveClass("object-cover");
     });
   });

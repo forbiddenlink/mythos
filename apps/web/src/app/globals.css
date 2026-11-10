@@ -1585,12 +1585,20 @@ html.cookie-banner-open {
     background:
       radial-gradient(
         120% 90% at 30% 20%,
-        color-mix(in oklch, var(--plate-accent, var(--gold)) 28%, var(--midnight-light)),
+        color-mix(
+          in oklch,
+          var(--plate-accent, var(--gold)) 28%,
+          var(--midnight-light)
+        ),
         transparent 70%
       ),
       linear-gradient(
         165deg,
-        color-mix(in oklch, var(--plate-accent, var(--gold)) 12%, var(--midnight-light)),
+        color-mix(
+          in oklch,
+          var(--plate-accent, var(--gold)) 12%,
+          var(--midnight-light)
+        ),
         var(--midnight)
       );
   }
@@ -1670,6 +1678,9 @@ html.cookie-banner-open {
   }
   .index-line > :last-child {
     order: 2;
+    /* The value (a count) never wraps or shrinks; the label gives way. */
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 }
 

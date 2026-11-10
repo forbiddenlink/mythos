@@ -116,10 +116,6 @@ export function SyncretismStrip() {
                       >
                         {portrait.institution}
                       </a>
-                    ) : image ? (
-                      <span className="mt-2 block text-xs text-muted-foreground">
-                        Illustration
-                      </span>
                     ) : null}
                   </li>
                 );
@@ -128,6 +124,15 @@ export function SyncretismStrip() {
           </li>
         ))}
       </ul>
+      <p className="type-meta mt-5 text-muted-foreground">
+        Portraits are illustrations unless a museum is credited.{" "}
+        <Link
+          href="/about#images"
+          className="underline underline-offset-2 hover:text-foreground"
+        >
+          About our images
+        </Link>
+      </p>
     </Section>
   );
 }
