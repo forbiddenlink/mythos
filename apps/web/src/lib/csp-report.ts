@@ -70,14 +70,19 @@ function isExtensionUrl(raw: string | undefined): boolean {
  * - PostHog's own internal hosts (internal-*.posthog.com). Our analytics goes
  *   through the /ingest proxy, so no first-party code calls posthog.com from
  *   the browser; these come from PostHog's toolbar or its crawler.
+ * - Google Fonts hosts. Every font is self-hosted through next/font/local and
+ *   nothing in the repo references fonts.gstatic.com, so a blocked load there
+ *   is a translate tool or extension injecting its own stylesheet.
  */
 const POSTHOG_INTERNAL_HOST = /^https:\/\/internal-[a-z0-9]+\.posthog\.com(\/|$)/;
+const GOOGLE_FONTS_HOST = /^https:\/\/fonts\.(gstatic|googleapis)\.com(\/|$)/;
 
 export function isBrowserNoise(body: Record<string, unknown>): boolean {
   const source = str(body.sourceFile) ?? str(body["source-file"]);
   const blocked = str(body.blockedURL) ?? str(body["blocked-uri"]);
   if (isExtensionUrl(source) || isExtensionUrl(blocked)) return true;
   if (blocked && POSTHOG_INTERNAL_HOST.test(blocked)) return true;
+  if (blocked && GOOGLE_FONTS_HOST.test(blocked)) return true;
   const directive =
     str(body.effectiveDirective) ?? str(body["effective-directive"]);
   return (

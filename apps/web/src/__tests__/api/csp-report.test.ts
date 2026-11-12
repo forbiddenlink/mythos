@@ -135,6 +135,38 @@ describe("parseCspReports", () => {
     ).toHaveLength(1);
   });
 
+  it("drops Google Fonts hosts (the site self-hosts all fonts)", () => {
+    // next/font/local serves every face from this origin and no first-party
+    // code references fonts.gstatic.com, so a blocked load there is a
+    // translate tool or extension injecting a stylesheet (Sentry MYTHOS-Z).
+    expect(
+      parseCspReports([
+        {
+          type: "csp-violation",
+          body: {
+            documentURL: "https://mythosatlas.com/pantheons/yoruba",
+            effectiveDirective: "font-src",
+            blockedURL: "https://fonts.gstatic.com/s/inter/v13/x.woff2",
+            disposition: "enforce",
+          },
+        },
+      ]),
+    ).toEqual([]);
+    expect(
+      parseCspReports([
+        {
+          type: "csp-violation",
+          body: {
+            documentURL: "https://mythosatlas.com/pantheons/yoruba",
+            effectiveDirective: "font-src",
+            blockedURL: "https://cdn.example.com/x.woff2",
+            disposition: "enforce",
+          },
+        },
+      ]),
+    ).toHaveLength(1);
+  });
+
   it("keeps a first-party inline block", () => {
     expect(
       parseCspReports([
