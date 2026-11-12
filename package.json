@@ -96,5 +96,8 @@
       "source-map-js": ">=1.2.2 <2"
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "next": "16.4.5"
+  }
 }
