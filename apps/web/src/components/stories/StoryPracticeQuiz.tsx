@@ -103,7 +103,7 @@ export function StoryPracticeQuiz({
             onClick={generate}
             // @ts-expect-error status narrowed but kept for guard
             disabled={status === "loading"}
-            className="gap-2"
+            className="h-auto min-h-9 gap-2 whitespace-normal py-2 text-left"
           >
             {/* @ts-expect-error status narrowed but kept for guard */}
             {status === "loading" ? (
