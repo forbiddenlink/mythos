@@ -8,6 +8,7 @@ import {
   confirmNewsletterSubscription,
   ensureConfirmationEnabled,
   getNewsletterConfig,
+  getNewsletterConfirmSecret,
 } from "@/lib/newsletter";
 import {
   armConfirmReconcile,
@@ -85,7 +86,10 @@ export async function POST(req: NextRequest) {
     return json({ confirmed: false, reason: "invalid" }, 400);
   }
 
-  const verified = verifyConfirmToken(parsed.data.token, config.apiKey);
+  const verified = verifyConfirmToken(
+    parsed.data.token,
+    getNewsletterConfirmSecret(config.apiKey),
+  );
   if (!verified.ok) {
     return json({ confirmed: false, reason: verified.reason }, 400);
   }

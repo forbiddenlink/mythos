@@ -8,6 +8,7 @@ import {
   canonicalMailboxKey,
   ensureConfirmationEnabled,
   getNewsletterConfig,
+  getNewsletterConfirmSecret,
   newsletterRequestSchema,
   requestNewsletterConfirmation,
 } from "@/lib/newsletter";
@@ -102,7 +103,10 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const token = createConfirmToken(parsed.data.email, config.apiKey);
+    const token = createConfirmToken(
+      parsed.data.email,
+      getNewsletterConfirmSecret(config.apiKey),
+    );
     const confirmUrl = `${siteConfig.url}/newsletter/confirm?token=${encodeURIComponent(token)}`;
     const result = await requestNewsletterConfirmation(
       new Resend(config.apiKey),

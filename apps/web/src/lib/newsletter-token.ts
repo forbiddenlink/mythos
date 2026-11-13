@@ -2,7 +2,8 @@
  * Signed confirmation links for the weekly digest's double opt-in.
  *
  * Token: base64url(email) "." expiry (unix seconds) "." base64url(HMAC-SHA256).
- * The HMAC key is derived from RESEND_API_KEY with a fixed label, so the
+ * The HMAC key is derived from the signing secret (NEWSLETTER_CONFIRM_SECRET,
+ * else RESEND_API_KEY; see getNewsletterConfirmSecret) with a fixed label, so the
  * feature needs no extra secret and the API key itself is never the MAC key.
  * Rotating RESEND_API_KEY invalidates outstanding links, which only means a
  * pending reader signs up again.
