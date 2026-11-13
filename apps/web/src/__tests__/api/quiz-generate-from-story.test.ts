@@ -133,6 +133,71 @@ describe("POST /api/quiz/generate-from-story", () => {
     expect(checkGlobalOracleBudget).not.toHaveBeenCalled();
   });
 
+  it("generates through Groq when only GROQ_API_KEY is configured", async () => {
+    vi.stubEnv("ANTHROPIC_API_KEY", "");
+    vi.stubEnv("ORACLE_PROVIDER", "");
+    vi.stubEnv("GROQ_API_KEY", "groq-test-key");
+    vi.stubEnv("GROQ_ORACLE_MODEL", "groq-test-model");
+    const generateObject = vi.fn().mockResolvedValue({
+      object: { questions: [] },
+      usage: { totalTokens: 10 },
+    });
+    const groq = vi.fn().mockReturnValue("groq-model");
+    const anthropic = vi.fn().mockReturnValue("anthropic-model");
+    vi.doMock("ai", () => ({ generateObject }));
+    vi.doMock("@ai-sdk/groq", () => ({ groq }));
+    vi.doMock("@ai-sdk/anthropic", () => ({ anthropic }));
+    vi.doMock("@/lib/oracle/rate-limit", () => ({
+      checkQuizRateLimit: vi.fn().mockResolvedValue({ allowed: true }),
+    }));
+    vi.doMock("@/lib/oracle/global-budget", () => ({
+      checkGlobalOracleBudget: vi
+        .fn()
+        .mockResolvedValue({ allowed: true, reservation: "k" }),
+      releaseGlobalOracleBudget: vi.fn(),
+    }));
+    vi.doMock("@/lib/oracle/token-budget", () => ({
+      estimateTokens: (s: string) => s.length,
+      reserveOracleTokens: vi
+        .fn()
+        .mockResolvedValue({ allowed: true, reservation: "r" }),
+      settleOracleTokens: vi.fn(),
+    }));
+
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
+    const res = await POST(postRequest({ storySlug: "aeneid", count: 2 }));
+
+    vi.doUnmock("ai");
+    vi.doUnmock("@ai-sdk/groq");
+    vi.doUnmock("@ai-sdk/anthropic");
+    vi.doUnmock("@/lib/oracle/rate-limit");
+    expect(res.status).toBe(200);
+    expect(groq).toHaveBeenCalledWith("groq-test-model");
+    expect(anthropic).not.toHaveBeenCalled();
+    expect(generateObject.mock.calls[0]![0].model).toBe("groq-model");
+  });
+
+  it("returns 503 without touching the budget when no provider is configured", async () => {
+    vi.stubEnv("ANTHROPIC_API_KEY", "");
+    vi.stubEnv("GROQ_API_KEY", "");
+    vi.stubEnv("ORACLE_PROVIDER", "");
+    const checkGlobalOracleBudget = vi.fn();
+    const checkQuizRateLimit = vi.fn();
+    vi.doMock("@/lib/oracle/global-budget", () => ({
+      checkGlobalOracleBudget,
+      releaseGlobalOracleBudget: vi.fn(),
+    }));
+    vi.doMock("@/lib/oracle/rate-limit", () => ({ checkQuizRateLimit }));
+
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
+    const res = await POST(postRequest({ storySlug: "aeneid", count: 2 }));
+
+    vi.doUnmock("@/lib/oracle/rate-limit");
+    expect(res.status).toBe(503);
+    expect(checkQuizRateLimit).not.toHaveBeenCalled();
+    expect(checkGlobalOracleBudget).not.toHaveBeenCalled();
+  });
+
   it("returns 404 for unknown story slug", async () => {
     const { POST } = await import("@/app/api/quiz/generate-from-story/route");
     const req = new NextRequest(
