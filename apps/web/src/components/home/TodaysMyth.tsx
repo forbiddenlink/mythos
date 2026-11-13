@@ -57,6 +57,37 @@ type Phase =
   | { kind: "result"; score: number };
 
 /**
+ * The reader's local date, set like the head of an almanac leaf: the day's
+ * numeral in gold beside the weekday and month. Screen readers get the date
+ * as one phrase instead of the visual pieces.
+ */
+function AlmanacDate({ date }: { date: string }) {
+  const [year, month, day] = date.split("-").map(Number);
+  const local = new Date(year, month - 1, day);
+  const weekday = local.toLocaleDateString("en-US", { weekday: "long" });
+  const monthYear = local.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+  return (
+    <p className="mt-6">
+      <time dateTime={date} className="sr-only">
+        {weekday}, {local.toLocaleDateString("en-US", { dateStyle: "long" })}
+      </time>
+      <span aria-hidden="true" className="flex items-center gap-4">
+        <span className="font-display text-6xl leading-none font-bold tabular-nums text-gold-text">
+          {day}
+        </span>
+        <span className="border-l border-gold/40 pl-4 text-xs leading-relaxed font-medium tracking-[0.2em] uppercase text-muted-foreground">
+          <span className="block text-foreground">{weekday}</span>
+          {monthYear}
+        </span>
+      </span>
+    </p>
+  );
+}
+
+/**
  * "Today's myth": a small daily ritual on the prerendered homepage. The
  * question pool is fetched as static JSON once the section nears the
  * viewport, and the day is taken from the reader's local date.
@@ -158,7 +189,7 @@ export function TodaysMyth() {
       ref={sectionRef}
       id="todays-myth"
       aria-labelledby="todays-myth-title"
-      className="section-space scroll-mt-20 border-y border-border/60 bg-muted/45"
+      className="almanac-band section-space scroll-mt-20 bg-muted/45"
     >
       <div className="layout-container layout-container-content grid gap-8 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:gap-16">
         <div>
@@ -173,6 +204,7 @@ export function TodaysMyth() {
             One myth a day and three questions about it. A new one each morning,
             by your local date.
           </p>
+          {today ? <AlmanacDate date={today} /> : null}
         </div>
 
         <div className="min-h-48" aria-live="polite">

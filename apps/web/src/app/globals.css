@@ -1320,7 +1320,12 @@ html.cookie-banner-open {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    /* Faint fibre grain painted below content, above the card bg-color. */
+  }
+
+  /* Faint fibre grain painted below content, above the bg-color. Shared by
+     the parchment cards and the almanac band on the homepage. */
+  .parchment-card,
+  .almanac-band {
     background-image:
       radial-gradient(
         circle at 22% 26%,
@@ -1699,6 +1704,11 @@ html.cookie-banner-open {
     font-size: 0.9375rem;
     letter-spacing: 0;
     text-transform: none;
+  }
+
+  /* Almanac band: the homepage's daily leaf, ruled like a printed page. */
+  .almanac-band {
+    border-block: 3px double color-mix(in oklch, var(--gold) 45%, transparent);
   }
 
   /* Running head: the line a book prints above every sheet. */
