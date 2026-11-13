@@ -44,7 +44,7 @@ test.describe("Story and source reading", () => {
     });
     await expect(title).toBeInViewport();
     const heroFigure = page.locator("main figure").first();
-    // The catalog illustration leads; museum objects follow in the article.
+    // A curated museum object leads Athena's hero, credited in its caption.
     const portrait = heroFigure.getByRole("img").first();
     const titleBox = await title.boundingBox();
     const portraitBox = await portrait.boundingBox();
@@ -63,9 +63,14 @@ test.describe("Story and source reading", () => {
       .getByRole("link", { name: "Sources and further reading", exact: true })
       .click();
     await expect(page.locator("#deity-sources")).toBeInViewport();
+    await expect(heroFigure.locator("figcaption")).toContainText(
+      "Bronze statuette of Athena flying her owl",
+    );
     await expect(
-      heroFigure.getByTestId("illustrative-image-caption"),
-    ).toContainText("Illustration of Athena");
+      heroFigure.locator(
+        'figcaption a[href="https://www.metmuseum.org/art/collection/search/254648"]',
+      ),
+    ).toBeAttached();
     await expect(
       page
         .locator(
