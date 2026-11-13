@@ -102,6 +102,15 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Story not found" }, { status: 404 });
     }
 
+    // Before the rate limit and the daily budget: an unkeyed deployment must
+    // not spend a request slot or a daily-cap slot on a call that cannot run.
+    if (!process.env.ANTHROPIC_API_KEY) {
+      return NextResponse.json(
+        { error: "Quiz generation is not configured (missing API key)." },
+        { status: 503 },
+      );
+    }
+
     const rateLimit = await checkQuizRateLimit(
       getOracleClientIdentity(req.headers).key,
     );
@@ -146,13 +155,6 @@ export async function POST(req: NextRequest) {
           error: "Daily quiz generation capacity reached. Try again tomorrow.",
         },
         { status: 429 },
-      );
-    }
-
-    if (!process.env.ANTHROPIC_API_KEY) {
-      return NextResponse.json(
-        { error: "Quiz generation is not configured (missing API key)." },
-        { status: 503 },
       );
     }
 

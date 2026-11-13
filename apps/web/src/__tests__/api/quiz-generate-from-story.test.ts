@@ -116,6 +116,23 @@ describe("POST /api/quiz/generate-from-story", () => {
     expect(res.status).toBe(503);
   });
 
+  it("does not spend a daily budget slot when the Anthropic key is missing", async () => {
+    vi.stubEnv("ANTHROPIC_API_KEY", "");
+    const checkGlobalOracleBudget = vi
+      .fn()
+      .mockResolvedValue({ allowed: true, reservation: "quiz-key" });
+    vi.doMock("@/lib/oracle/global-budget", () => ({
+      checkGlobalOracleBudget,
+      releaseGlobalOracleBudget: vi.fn(),
+    }));
+
+    const { POST } = await import("@/app/api/quiz/generate-from-story/route");
+    const res = await POST(postRequest({ storySlug: "aeneid", count: 2 }));
+
+    expect(res.status).toBe(503);
+    expect(checkGlobalOracleBudget).not.toHaveBeenCalled();
+  });
+
   it("returns 404 for unknown story slug", async () => {
     const { POST } = await import("@/app/api/quiz/generate-from-story/route");
     const req = new NextRequest(
