@@ -1561,6 +1561,64 @@ html.cookie-banner-open {
     mask: url("/hero-star-chart.webp") center / contain no-repeat luminance;
   }
 
+  /* Candlelight over the engraved sky (components/home/HeroLantern.tsx): the
+     same chart in brighter gilt, cut to a soft circle at --lx/--ly. Hidden
+     unless the device has a fine pointer and motion is allowed. */
+  .hero-lantern {
+    display: none;
+  }
+
+  @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .hero-lantern {
+      display: block;
+      opacity: 0;
+      background-color: var(--gold-light);
+      -webkit-mask:
+        radial-gradient(
+          circle 16rem at var(--lx) var(--ly),
+          #fff 0,
+          transparent 100%
+        ),
+        url("/hero-star-chart.webp") center / contain no-repeat;
+      -webkit-mask-composite: source-in;
+      mask:
+        radial-gradient(
+            circle 16rem at var(--lx) var(--ly),
+            #fff 0,
+            transparent 100%
+          )
+          luminance,
+        url("/hero-star-chart.webp") center / contain no-repeat luminance;
+      mask-composite: intersect;
+      transition: opacity 600ms ease-out;
+      animation: hero-lantern-sweep 3.2s ease-in-out 0.8s both;
+    }
+
+    .hero-lantern[data-lit] {
+      opacity: 0.85;
+      animation: none;
+    }
+  }
+
+  @keyframes hero-lantern-sweep {
+    0% {
+      --lx: 5%;
+      --ly: 30%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.85;
+    }
+    75% {
+      opacity: 0.85;
+    }
+    100% {
+      --lx: 85%;
+      --ly: 65%;
+      opacity: 0;
+    }
+  }
+
   /* A mounted plate: mat, gilt keyline just inside the mat edge, a tab of
      the tradition colour on top. Children: .plate-art (the picture). */
   .plate {
@@ -1715,6 +1773,80 @@ main:has(#atlas-title) .page-section-title::before {
   }
 }
 
+/* Ariadne's thread: the home page's signature. A gilt thread runs down the
+   left margin past the section numerals and unspools as the reader scrolls;
+   each numeral catches the light as its section reaches mid-screen. Scroll-
+   driven CSS only (no script). Browsers without scroll timelines, and readers
+   who ask for reduced motion, get the thread fully drawn and the numerals
+   lit. Wrapper: .ariadne in app/page.tsx. */
+.ariadne {
+  position: relative;
+  /* The content edge of a Container size="content" (layout-container). */
+  --content-edge: max(
+    var(--gutter),
+    calc((100% - var(--container-content)) / 2)
+  );
+  /* Just inside the gutter below 1440px; left of the hung numerals above. */
+  --thread-x: max(6px, calc(var(--content-edge) - 10px));
+}
+@media (min-width: 1440px) {
+  .ariadne {
+    --thread-x: calc(var(--content-edge) - 4.75rem);
+  }
+}
+.ariadne::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: var(--thread-x);
+  width: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--gold) 70%, transparent),
+    color-mix(in oklch, var(--gold) 30%, transparent) 85%,
+    transparent
+  );
+  transform-origin: top;
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ariadne::before {
+      animation: ariadne-unspool linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    .ariadne .page-section-title::before {
+      animation: ariadne-numeral linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+@keyframes ariadne-unspool {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes ariadne-numeral {
+  0% {
+    opacity: 0.25;
+  }
+  70% {
+    opacity: 1;
+    text-shadow: 0 0 0.7em color-mix(in oklch, var(--gold) 60%, transparent);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: none;
+  }
+}
+
 /* Windows High Contrast (forced colors) drops box-shadow, and every focus ring
    here is a box-shadow over `outline-none`, so keyboard focus vanished. Give
    focus a real system-colour outline there. Unlayered so it outranks the
@@ -1752,4 +1884,18 @@ main:has(#atlas-title) .page-section-title::before {
 .react-flow .react-flow__minimap {
   background: var(--card);
   border: 1px solid var(--border);
+}
+
+/* Registered so the hero lantern sweep (.hero-lantern) can interpolate the
+   candle position in @keyframes. */
+@property --lx {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --ly {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 40%;
 }

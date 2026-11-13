@@ -175,16 +175,18 @@ export default function Home() {
         figure={HERO_FIGURE}
         index={TRADITION_INDEX}
       />
-      <PantheonShowcase
-        traditions={TRADITIONS}
-        totalTraditions={HERO_COUNTS.pantheons}
-      />
-      <TodaysMyth />
-      <CollectionsShowcase />
-      <SyncretismStrip />
-      <InteractiveStoriesBanner stories={INTERACTIVE_STORIES} />
-      <GuidesStrip />
-      <LazyDidYouKnow deityLookup={DEITY_LOOKUP} />
+      <div className="ariadne">
+        <PantheonShowcase
+          traditions={TRADITIONS}
+          totalTraditions={HERO_COUNTS.pantheons}
+        />
+        <TodaysMyth />
+        <CollectionsShowcase />
+        <SyncretismStrip />
+        <InteractiveStoriesBanner stories={INTERACTIVE_STORIES} />
+        <GuidesStrip />
+        <LazyDidYouKnow deityLookup={DEITY_LOOKUP} />
+      </div>
     </div>
   );
 }

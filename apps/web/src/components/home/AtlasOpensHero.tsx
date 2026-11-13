@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { HeroLantern } from "./HeroLantern";
 
 export interface IndexEntry {
   name: string;
@@ -83,6 +84,7 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
         aria-hidden="true"
       >
         <div className="engraved-sky absolute -top-16 -right-40 aspect-[1100/1026] w-[34rem] opacity-[0.16] sm:-right-24 sm:w-[44rem] lg:-top-44 lg:right-[16%] lg:w-[60rem] lg:opacity-[0.11]" />
+        <HeroLantern className="absolute -top-16 -right-40 aspect-[1100/1026] w-[34rem] sm:-right-24 sm:w-[44rem] lg:-top-44 lg:right-[16%] lg:w-[60rem]" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-midnight to-transparent" />
       </div>
 
