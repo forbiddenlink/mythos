@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { HeroLantern } from "@/components/layout/HeroLantern";
 import { cn } from "@/lib/utils";
 
 export interface PageHeaderProps {
@@ -66,6 +67,7 @@ export function PageHeader({
   return (
     <div
       data-page-header=""
+      data-lantern-host={onDark ? undefined : ""}
       className={cn(
         "relative isolate overflow-hidden",
         onDark
@@ -99,6 +101,8 @@ export function PageHeader({
               onDark ? "opacity-[0.09]" : "opacity-[0.07]",
             )}
           />
+          {/* Hover-only candlelight, as on detail heroes; dimmer on parchment. */}
+          <HeroLantern className="absolute -top-28 -right-56 aspect-[1100/1026] w-[34rem] animate-none md:-right-24 md:w-[46rem] [&[data-lit]]:opacity-40 dark:[&[data-lit]]:opacity-70" />
         </div>
       )}
 
