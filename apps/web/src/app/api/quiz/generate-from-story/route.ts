@@ -1,7 +1,7 @@
-import { anthropic } from "@ai-sdk/anthropic";
 import { generateObject } from "ai";
 import stories from "@/data/stories.json";
 import { isOracleFlagEnabled } from "@/lib/oracle/availability";
+import { getOracleModelSelection } from "@/lib/oracle/provider";
 import {
   checkGlobalOracleBudget,
   releaseGlobalOracleBudget,
@@ -44,8 +44,6 @@ const QuizOutSchema = z.object({
     .max(10),
 });
 
-const DEFAULT_MODEL = "claude-sonnet-5";
-
 function stripMarkdownLite(s: string): string {
   return s
     .replace(/#{1,6}\s+/g, "")
@@ -56,7 +54,8 @@ function stripMarkdownLite(s: string): string {
 
 /**
  * Generate multiple-choice quiz questions grounded in a single story's text.
- * Requires ANTHROPIC_API_KEY; uses the same rate limit bucket as the Oracle.
+ * Resolves its model like the Oracle (Anthropic or Groq) and shares the
+ * Oracle quiz rate limit bucket.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -104,9 +103,13 @@ export async function POST(req: NextRequest) {
 
     // Before the rate limit and the daily budget: an unkeyed deployment must
     // not spend a request slot or a daily-cap slot on a call that cannot run.
-    if (!process.env.ANTHROPIC_API_KEY) {
+    const selection = getOracleModelSelection();
+    if (!selection) {
       return NextResponse.json(
-        { error: "Quiz generation is not configured (missing API key)." },
+        {
+          error:
+            "Quiz generation is not configured (no model provider is configured).",
+        },
         { status: 503 },
       );
     }
@@ -169,8 +172,6 @@ export async function POST(req: NextRequest) {
       .filter(Boolean)
       .join("\n\n");
 
-    const modelId = process.env.ANTHROPIC_ORACLE_MODEL?.trim() || DEFAULT_MODEL;
-
     const prompt = `You write study questions for Mythos Atlas, a mythology encyclopedia.
 
 <story>
@@ -211,7 +212,7 @@ Rules:
     // (settleOracleTokens is a no-op without a real usage figure), which
     // errs toward under-spending the budget rather than losing the reservation.
     const result = await generateObject({
-      model: anthropic(modelId),
+      model: selection.model,
       schema: QuizOutSchema,
       maxOutputTokens: MAX_OUTPUT_TOKENS,
       prompt,

@@ -86,7 +86,7 @@ pnpm knip                             # unused files/deps/exports (CI)
 
 From `apps/web/.env.example`:
 
-- `ANTHROPIC_API_KEY` / `GROQ_API_KEY` - server-side credentials for the configured Oracle provider
+- `ANTHROPIC_API_KEY` / `GROQ_API_KEY` - server-side credentials for the configured Oracle provider; the generated story practice quiz (`/api/quiz/generate-from-story`) resolves its provider and model the same way (via `src/lib/oracle/provider.ts`), so either key alone enables it
 - `ORACLE_PROVIDER` - optional `anthropic` or `groq`; default precedence is Anthropic when keyed, then Groq. A pinned provider never falls back to the other (missing key or construction failure = Oracle unavailable, logged)
 - `GROQ_ORACLE_MODEL` - optional Groq model override; see `src/lib/oracle/provider.ts` for defaults
 - `ANTHROPIC_ORACLE_MODEL` - optional override for the Oracle model
@@ -95,7 +95,7 @@ From `apps/web/.env.example`:
 - `ORACLE_KILL_SWITCH` - optional, disables Oracle and generated story quizzes; apply environment changes through the deployment configuration
 - `ORACLE_DAILY_REQUEST_CAP` - optional global daily request cap (default 500, requires Upstash)
 - `ORACLE_DAILY_TOKEN_CAP` - optional global daily Oracle token budget (default 2,000,000 estimated input+output tokens, reserved per request and settled to actual usage; requires Upstash, fails closed in production like the request cap)
-- `NEXT_PUBLIC_ORACLE_ENABLED` - shows the footer Oracle control and the header/mega-menu `/oracle` links; the server also requires a configured provider. When the flag is off or no provider is configured, `/oracle` is `noindex` and left out of the sitemap
+- `NEXT_PUBLIC_ORACLE_ENABLED` - shows the footer Oracle control, the header/mega-menu `/oracle` links and the story-page practice quiz (also hidden by `NEXT_PUBLIC_STORY_QUIZ_UI=false`); the server also requires a configured provider. When the flag is off or no provider is configured, `/oracle` is `noindex` and left out of the sitemap
 - `NEXT_PUBLIC_PWA_INSTALL_PROMPT` - optional install prompt, off by default
 - `NEXT_PUBLIC_POSTHOG_KEY` / `POSTHOG_KEY` - product analytics. Without a key the app runs normally, `trackEvent` has no sink, and `/api/analytics/*` answers 501 instead of acknowledging events it cannot store
 - `NEXT_PUBLIC_POSTHOG_HOST`, `NEXT_PUBLIC_POSTHOG_ASSET_HOST`, `NEXT_PUBLIC_POSTHOG_UI_HOST`, `POSTHOG_HOST` - PostHog hosts; browser traffic is proxied through the `/ingest` rewrite in `next.config.ts`

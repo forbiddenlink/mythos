@@ -28,16 +28,16 @@ interface StoryPracticeQuizProps {
 
 /**
  * AI-generated practice quiz grounded in this story’s catalog text.
- * Hidden when NEXT_PUBLIC_STORY_QUIZ_UI=false. Server still needs ANTHROPIC_API_KEY.
+ * Hidden when NEXT_PUBLIC_STORY_QUIZ_UI=false. Rendered on the story page only when NEXT_PUBLIC_ORACLE_ENABLED=true; the server needs a configured Oracle provider (Anthropic or Groq).
  */
 export function StoryPracticeQuiz({
   storySlug,
   storyTitle,
   questionCount = 5,
 }: Readonly<StoryPracticeQuizProps>) {
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "error" | "ready"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "error" | "ready">(
+    "idle",
+  );
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [questions, setQuestions] = useState<StoryQuizQuestion[]>([]);
   /** Per-question: index of option user chose, or undefined */
@@ -95,8 +95,7 @@ export function StoryPracticeQuiz({
   }, [questions, picked]);
 
   const allAnswered =
-    questions.length > 0 &&
-    questions.every((_, i) => picked[i] !== undefined);
+    questions.length > 0 && questions.every((_, i) => picked[i] !== undefined);
 
   if (!showUi) {
     return null;
@@ -112,11 +111,7 @@ export function StoryPracticeQuiz({
         <CardDescription className="text-parchment/70">
           Short multiple-choice questions generated from this article’s text on
           Mythos Atlas, not general trivia. Uses the same rate limits as the
-          Oracle.{" "}
-          <span className="text-parchment/55">
-            Requires an Anthropic API key on the server to generate new
-            questions.
-          </span>
+          Oracle.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">

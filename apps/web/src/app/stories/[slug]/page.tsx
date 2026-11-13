@@ -39,6 +39,7 @@ import {
   MythVariants,
   type MythVariant,
 } from "@/components/stories/MythVariants";
+import { StoryPracticeQuiz } from "@/components/stories/StoryPracticeQuiz";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
 import { StoryReadingContext } from "@/components/stories/StoryReadingContext";
 import { readingMinutes } from "@/lib/reading-time";
@@ -267,6 +268,11 @@ export default async function StoryPage({ params }: PageProps) {
   // page stays static and its canonical URL stays parameter-free.
   const readingContexts = getStoryContexts(story.slug);
 
+  // Same gate as the footer Oracle button, plus the quiz component's own flag.
+  const showPracticeQuiz =
+    process.env.NEXT_PUBLIC_ORACLE_ENABLED === "true" &&
+    process.env.NEXT_PUBLIC_STORY_QUIZ_UI !== "false";
+
   const toc: TocItem[] = [
     { id: "story-narrative", label: "The story" },
     ...(story.keyExcerpts ? [{ id: "highlights", label: "Highlights" }] : []),
@@ -281,6 +287,7 @@ export default async function StoryPage({ params }: PageProps) {
     ...(museumObjects.length > 0
       ? [{ id: "in-art", label: "The myth in art" }]
       : []),
+    ...(showPracticeQuiz ? [{ id: "practice", label: "Test yourself" }] : []),
     { id: "story-sources", label: "Sources and further reading" },
   ];
 
@@ -549,6 +556,23 @@ export default async function StoryPage({ params }: PageProps) {
               reading={false}
             >
               <MuseumGallery objects={museumObjects} intro={null} columns={2} />
+            </ArticleSection>
+          ) : null}
+
+          {showPracticeQuiz ? (
+            <ArticleSection
+              id="practice"
+              title="Test yourself"
+              description="A short quiz written from this story's text."
+              reading={false}
+            >
+              {/* The quiz card is styled for dark surfaces; scope the dark tokens. */}
+              <div className="dark rounded-xl bg-background text-foreground">
+                <StoryPracticeQuiz
+                  storySlug={story.slug}
+                  storyTitle={story.title}
+                />
+              </div>
             </ArticleSection>
           ) : null}
 
