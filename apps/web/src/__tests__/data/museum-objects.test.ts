@@ -25,6 +25,7 @@ type MuseumObject = {
   imageRights: string;
   checkedAt: string;
   imageUrl?: string;
+  leadPortraitFor?: string;
   imageAlt?: string;
 };
 
@@ -94,6 +95,24 @@ describe("museum-objects.json data integrity", () => {
         );
       }
     }
+  });
+
+  it("a figure has at most one curated lead portrait, and it has an image", () => {
+    const leads = new Map<string, string>();
+    for (const obj of objects.filter((o) => o.leadPortraitFor)) {
+      expect(
+        obj.imageUrl,
+        `${obj.id}: lead portrait needs an image`,
+      ).toBeTruthy();
+      const slug = obj.leadPortraitFor as string;
+      expect(
+        obj.deityIds,
+        `${obj.id}: leads ${slug} but does not depict it`,
+      ).toContain(slug);
+      expect(leads.get(slug), `${slug}: second lead ${obj.id}`).toBeUndefined();
+      leads.set(slug, obj.id);
+    }
+    expect(leads.size).toBeGreaterThan(0);
   });
 
   it("every deityId should reference a real deity slug", () => {

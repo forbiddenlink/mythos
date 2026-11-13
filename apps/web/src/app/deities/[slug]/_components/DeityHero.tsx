@@ -16,16 +16,21 @@ export function DeityHero({
   deity,
   traditionLabel,
   museumPortrait,
+  museumLeads = false,
   imageNote,
 }: {
   deity: DeityRecord;
   traditionLabel?: string;
   museumPortrait: MuseumObject | null;
+  /** The museum object leads even when an illustration exists. */
+  museumLeads?: boolean;
   imageNote?: ImageNote;
 }) {
-  // The illustration is the portrait; a museum object stands in only when a
-  // figure has none. Documented objects get their own section further down.
-  const image = deity.imageUrl
+  // The illustration is the portrait unless a curated museum object leads
+  // (museumLeads); otherwise a museum object stands in only when a figure has
+  // none. Documented objects get their own section further down.
+  const showIllustration = Boolean(deity.imageUrl) && !museumLeads;
+  const image = showIllustration
     ? {
         src: deity.imageUrl,
         alt: generateEntityAlt({
@@ -40,12 +45,11 @@ export function DeityHero({
       ? {
           src: museumPortrait.imageUrl,
           alt: museumPortrait.imageAlt || museumPortrait.title,
-          unoptimized: true,
           fit: "contain" as const,
         }
       : null;
 
-  const caption = deity.imageUrl ? (
+  const caption = showIllustration ? (
     <IllustrativeImageCaption
       note={imageNote}
       subject={`Illustration of ${deity.name}`}
@@ -75,7 +79,10 @@ export function DeityHero({
           {deity.name.charAt(0)}
         </span>
       }
-      imageTransitionName={`deity-image-${deity.slug}`}
+      // Cards show the illustration; morph only into that same image.
+      imageTransitionName={
+        showIllustration ? `deity-image-${deity.slug}` : undefined
+      }
       titleTransitionName="page-header"
       eyebrow={
         <>

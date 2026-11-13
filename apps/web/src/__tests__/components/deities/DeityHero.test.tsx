@@ -70,7 +70,11 @@ describe("deity hero artwork provenance", () => {
       />,
     );
     const image = container.querySelector("figure img");
-    expect(image).toHaveAttribute("src", museumPortrait.imageUrl);
+    // Served through the image optimizer, which caches the museum's file.
+    expect(image).toHaveAttribute(
+      "src",
+      expect.stringContaining(encodeURIComponent(museumPortrait.imageUrl!)),
+    );
     expect(image).toHaveAttribute("alt", museumPortrait.imageAlt);
     expect(image).toHaveClass("object-contain");
     expect(container.querySelector("figcaption")).toHaveTextContent(
@@ -101,4 +105,21 @@ describe("deity hero artwork provenance", () => {
       expect(container).not.toHaveTextContent(museumPortrait.institution);
     },
   );
+
+  it("leads with the curated museum object over the illustration and credits it", () => {
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(
+      <DeityHero deity={deity} museumPortrait={museumPortrait} museumLeads />,
+    );
+    expect(container.querySelector("figure img")).toHaveAttribute(
+      "src",
+      expect.stringContaining(encodeURIComponent(museumPortrait.imageUrl!)),
+    );
+    expect(
+      container.querySelector('[data-testid="illustrative-image-caption"]'),
+    ).toBeNull();
+    expect(container.querySelector("figcaption a")).toHaveTextContent(
+      museumPortrait.institution,
+    );
+  });
 });

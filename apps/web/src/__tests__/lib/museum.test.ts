@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  getLeadPortrait,
   getMuseumObjectsFor,
   getMuseumPortrait,
   type MuseumObject,
@@ -101,5 +102,16 @@ describe("getMuseumPortrait", () => {
   it("falls back to a later in-tradition work", () => {
     const folio = { ...fixture[0], id: "folio", context: "Later depiction" };
     expect(getMuseumPortrait([fixture[0], folio])?.id).toBe("folio");
+  });
+});
+
+describe("getLeadPortrait", () => {
+  it("returns only an object curated for that figure, with an image", () => {
+    const lead = { ...fixture[1], id: "lead", leadPortraitFor: "zeus" };
+    const blank = { ...lead, id: "blank", imageUrl: undefined };
+    expect(getLeadPortrait([fixture[1], blank, lead], "zeus")?.id).toBe("lead");
+    expect(getLeadPortrait([lead], "hera")).toBeNull();
+    expect(getLeadPortrait(fixture, "zeus")).toBeNull();
+    expect(getLeadPortrait([blank], "zeus")).toBeNull();
   });
 });

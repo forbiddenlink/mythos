@@ -194,7 +194,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/DP-39614-001.jpg",
-    "imageAlt": "Lapis lazuli statuette of the mummiform god Ptah holding a staff. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Lapis lazuli statuette of the mummiform god Ptah holding a staff. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "ptah"
   },
   {
     "id": "met-570664",
@@ -248,7 +249,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/DP-38626-001.jpg",
-    "imageAlt": "Gold statuette of the god Amun standing in a striding pose. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Gold statuette of the god Amun standing in a striding pose. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "amun"
   },
   {
     "id": "met-544691",
@@ -500,7 +502,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP324650.jpg",
-    "imageAlt": "Bronze statuette of Athena with her owl in flight. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze statuette of Athena with her owl in flight. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "athena"
   },
   {
     "id": "met-247960",
@@ -734,7 +737,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP-14970-002.jpg",
-    "imageAlt": "Bronze statuette of Jupiter Capitolinus. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze statuette of Jupiter Capitolinus. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "jupiter"
   },
   {
     "id": "met-247973",
@@ -752,7 +756,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP-14287-149.jpg",
-    "imageAlt": "Bronze statuette of the god Neptune. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze statuette of the god Neptune. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "neptune"
   },
   {
     "id": "met-203920",
@@ -789,7 +794,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP-14972-001.jpg",
-    "imageAlt": "Bronze statuette of the goddess Minerva. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze statuette of the goddess Minerva. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "minerva"
   },
   {
     "id": "met-198929",
@@ -881,7 +887,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/17.190.1641_front.jpg",
-    "imageAlt": "Bronze statuette of Isis nursing the infant Horus. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze statuette of Isis nursing the infant Horus. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "isis"
   },
   {
     "id": "met-550936",
@@ -917,7 +924,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/DP-38684-002.jpg",
-    "imageAlt": "Stone statue of Horus as a falcon sheltering King Nectanebo II. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Stone statue of Horus as a falcon sheltering King Nectanebo II. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "horus"
   },
   {
     "id": "met-570675",
@@ -935,7 +943,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/04.2.430_01.jpg",
-    "imageAlt": "Cupreous metal statuette of the jackal-headed god Anubis. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Cupreous metal statuette of the jackal-headed god Anubis. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "anubis"
   },
   {
     "id": "met-544075",
@@ -971,7 +980,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/DP-39665-005.jpg",
-    "imageAlt": "Faience statuette of the ibis-headed god Thoth striding forward. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Faience statuette of the ibis-headed god Thoth striding forward. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "thoth"
   },
   {
     "id": "met-570260",
@@ -1025,7 +1035,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/57.101_002.jpg",
-    "imageAlt": "Cupreous metal statuette of the cat goddess Bastet. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Cupreous metal statuette of the cat goddess Bastet. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "bastet"
   },
   {
     "id": "met-545258",
@@ -1061,7 +1072,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/eg/web-large/DP261360.jpg",
-    "imageAlt": "Cupreous metal statuette of the lion-headed goddess Sekhmet. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Cupreous metal statuette of the lion-headed goddess Sekhmet. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "sekhmet"
   },
   {
     "id": "met-570673",
@@ -1133,7 +1145,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DP702339.jpg",
-    "imageAlt": "Gilt copper-alloy figure of the god Vishnu, dated 1105 CE. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Gilt copper-alloy figure of the god Vishnu, dated 1105 CE. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "vishnu"
   },
   {
     "id": "met-39326",
@@ -1169,7 +1182,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DT240.jpg",
-    "imageAlt": "Bronze figure of Shiva as Nataraja, Lord of the Dance, within a ring of flame. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze figure of Shiva as Nataraja, Lord of the Dance, within a ring of flame. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "shiva"
   },
   {
     "id": "met-38930",
@@ -1241,7 +1255,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DT5243.jpg",
-    "imageAlt": "Bronze figure of the seated, elephant-headed god Ganesha. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze figure of the seated, elephant-headed god Ganesha. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "ganesha"
   },
   {
     "id": "met-39256",
@@ -1313,7 +1328,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DT5250.jpg",
-    "imageAlt": "Copper-alloy figure of the monkey god Hanuman in conversation. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Copper-alloy figure of the monkey god Hanuman in conversation. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "hanuman"
   },
   {
     "id": "met-39011",
@@ -1349,7 +1365,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/1987_142_202.jpg",
-    "imageAlt": "Bronze figure of the god Brahma with silver-inlaid eyes. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Bronze figure of the god Brahma with silver-inlaid eyes. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "brahma"
   },
   {
     "id": "met-61658",
@@ -1367,7 +1384,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/as/web-large/DP223478.jpg",
-    "imageAlt": "Wood sculpture of the bodhisattva Avalokiteshvara (Guanyin), dated 1282. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Wood sculpture of the bodhisattva Avalokiteshvara (Guanyin), dated 1282. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "guanyin"
   },
   {
     "id": "met-54083",
@@ -1493,7 +1511,8 @@
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
     "imageUrl": "https://images.metmuseum.org/CRDImages/ao/web-large/DP-23817-001.jpg",
-    "imageAlt": "Basalt figure of the water goddess Chalchiuhtlicue. Photograph: The Metropolitan Museum of Art."
+    "imageAlt": "Basalt figure of the water goddess Chalchiuhtlicue. Photograph: The Metropolitan Museum of Art.",
+    "leadPortraitFor": "chalchiuhtlicue"
   },
   {
     "id": "met-307640",
