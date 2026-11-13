@@ -1,6 +1,6 @@
 import { act, render } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { HeroLantern } from "@/components/home/HeroLantern";
+import { HeroLantern } from "@/components/layout/HeroLantern";
 
 function mockMatchMedia(matches: boolean) {
   vi.stubGlobal(
@@ -16,7 +16,7 @@ function mockMatchMedia(matches: boolean) {
 
 function renderInSection() {
   const { container } = render(
-    <section>
+    <section data-lantern-host>
       <HeroLantern />
     </section>,
   );

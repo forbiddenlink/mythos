@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
-import { HeroLantern } from "./HeroLantern";
+import { HeroLantern } from "@/components/layout/HeroLantern";
 
 export interface IndexEntry {
   name: string;
@@ -70,6 +70,7 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
   return (
     <section
       aria-labelledby="atlas-title"
+      data-lantern-host
       className="dark relative isolate overflow-hidden bg-midnight text-foreground"
     >
       <link

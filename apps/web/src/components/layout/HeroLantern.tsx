@@ -6,7 +6,8 @@ import { rafThrottle } from "@/lib/rafThrottle";
 /**
  * Candlelight over the engraved sky: a gilded copy of the star chart, masked
  * to a soft circle. CSS sweeps the candle across the chart once on load; after
- * that it follows a fine pointer over the hero. Decorative only. Under
+ * that it follows a fine pointer over the nearest [data-lantern-host]
+ * ancestor (the hero band). Decorative only. Under
  * reduced motion or on touch screens the CSS keeps it hidden and this effect
  * attaches no listeners.
  */
@@ -15,8 +16,8 @@ export function HeroLantern({ className }: { className?: string }) {
 
   useEffect(() => {
     const el = ref.current;
-    const section = el?.closest("section");
-    if (!el || !section) return;
+    const host = el?.closest<HTMLElement>("[data-lantern-host]");
+    if (!el || !host) return;
     const media = window.matchMedia(
       "(pointer: fine) and (prefers-reduced-motion: no-preference)",
     );
@@ -35,12 +36,12 @@ export function HeroLantern({ className }: { className?: string }) {
       delete el.dataset.lit;
     };
 
-    section.addEventListener("pointermove", onMove, { passive: true });
-    section.addEventListener("pointerleave", onLeave);
+    host.addEventListener("pointermove", onMove, { passive: true });
+    host.addEventListener("pointerleave", onLeave);
     return () => {
       move.cancel();
-      section.removeEventListener("pointermove", onMove);
-      section.removeEventListener("pointerleave", onLeave);
+      host.removeEventListener("pointermove", onMove);
+      host.removeEventListener("pointerleave", onLeave);
     };
   }, []);
 
