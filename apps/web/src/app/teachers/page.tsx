@@ -5,9 +5,14 @@ import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
-import { getTraditions } from "@/lib/data/catalog";
+import { getPantheons, getStories, getTraditions } from "@/lib/data/catalog";
 import { getWorksheetSlugs } from "@/lib/data/worksheets";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { generateBaseMetadata, shortPantheonName } from "@/lib/metadata";
+import {
+  fleschKincaidGrade,
+  READING_BANDS,
+  readingBand,
+} from "@/lib/reading-level";
 import { listGuides } from "../study/_guides";
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -48,10 +53,28 @@ const TOOLS = [
   },
 ] as const;
 
+/** Every retelling, graded by formula and grouped into school-grade bands. */
+function storiesByReadingLevel() {
+  const pantheons = new Map(getPantheons().map((p) => [p.id, p]));
+  const graded = getStories()
+    .map((story) => ({
+      slug: story.slug,
+      title: story.title,
+      tradition: shortPantheonName(pantheons.get(story.pantheonId)),
+      grade: fleschKincaidGrade(story.fullNarrative),
+    }))
+    .sort((a, b) => a.grade - b.grade || a.title.localeCompare(b.title));
+  return READING_BANDS.map((band) => ({
+    band,
+    stories: graded.filter((story) => readingBand(story.grade) === band),
+  })).filter((group) => group.stories.length > 0);
+}
+
 export default function TeachersPage() {
   const worksheetSlugs = new Set(getWorksheetSlugs());
   const traditions = getTraditions().filter((p) => worksheetSlugs.has(p.slug));
   const studyGuides = listGuides();
+  const readingLevels = storiesByReadingLevel();
 
   return (
     <>
@@ -88,6 +111,12 @@ export default function TeachersPage() {
             className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
           >
             Classroom tools
+          </a>
+          <a
+            href="#teachers-reading"
+            className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+          >
+            Stories by reading level
           </a>
           {studyGuides.length > 0 && (
             <a
@@ -154,6 +183,49 @@ export default function TeachersPage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section aria-labelledby="teachers-reading" className="mb-14">
+          <h2 id="teachers-reading" className="page-section-title scroll-mt-24">
+            Stories by reading level
+          </h2>
+          <p className="mt-2 mb-6 max-w-prose text-muted-foreground">
+            Every retelling, grouped by its Flesch-Kincaid grade: a formula over
+            sentence length and syllables per word, computed from the text. It
+            measures how hard the prose is to read, not how mature the story is,
+            so read a story before you assign it.
+          </p>
+          <div className="space-y-3">
+            {readingLevels.map(({ band, stories }) => (
+              <details
+                key={band.id}
+                className="rounded-lg border border-border/70 bg-card"
+              >
+                <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-4 px-5 py-3 font-serif text-lg">
+                  <span>{band.label}</span>
+                  <span className="type-meta text-muted-foreground">
+                    {stories.length}{" "}
+                    {stories.length === 1 ? "story" : "stories"}
+                  </span>
+                </summary>
+                <ul className="grid gap-x-8 gap-y-2 border-t border-border/70 px-5 py-4 sm:grid-cols-2">
+                  {stories.map((story) => (
+                    <li key={story.slug}>
+                      <Link
+                        href={`/stories/${story.slug}`}
+                        className="underline decoration-gold/40 underline-offset-4 hover:decoration-current"
+                      >
+                        {story.title}
+                      </Link>{" "}
+                      <span className="text-sm text-muted-foreground">
+                        {story.tradition}, grade {story.grade.toFixed(1)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
         </section>
 
         {studyGuides.length > 0 ? (
