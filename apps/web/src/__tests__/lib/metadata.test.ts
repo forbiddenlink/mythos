@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { shortPantheonName, traditionHubTitle } from "@/lib/metadata";
+import pantheons from "@/data/pantheons.json";
+import {
+  figuresNoun,
+  shortPantheonName,
+  traditionHubTitle,
+} from "@/lib/metadata";
 
 describe("shortPantheonName", () => {
   it.each([
@@ -26,5 +31,18 @@ describe("traditionHubTitle", () => {
     ],
   ])("puts the searched phrase in the hub title: %s", (name, expected) => {
     expect(traditionHubTitle({ name })).toBe(expected);
+  });
+});
+
+describe("figuresNoun", () => {
+  it("counts a tradition with its own label as figures, never deities", () => {
+    const shinto = pantheons.find((p) => p.id === "japanese-pantheon");
+    expect(shinto?.figuresLabel).toBe("Kami");
+    expect(figuresNoun(shinto!)).toBe("figures");
+  });
+
+  it("counts a tradition without a label as deities", () => {
+    expect(figuresNoun({})).toBe("deities");
+    expect(figuresNoun({ figuresLabel: null })).toBe("deities");
   });
 });
