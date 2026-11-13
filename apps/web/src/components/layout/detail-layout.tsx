@@ -6,6 +6,7 @@ import {
   EntryCloser,
   type EntryCloserProps,
 } from "@/components/layout/EntryCloser";
+import { HeroLantern } from "@/components/layout/HeroLantern";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { getBlurDataURL } from "@/lib/image-blur";
 import { cn } from "@/lib/utils";
@@ -174,7 +175,10 @@ export function DetailHero({
   // have no hash and render without one.
   const heroBlur = image ? getBlurDataURL(image.src) : undefined;
   return (
-    <div className="dark relative isolate overflow-hidden border-b border-gold/15 bg-midnight text-foreground">
+    <div
+      data-lantern-host
+      className="dark relative isolate overflow-hidden border-b border-gold/15 bg-midnight text-foreground"
+    >
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         {/* The tradition's colour as a plate tab, and the engraved sky
             printed faintly behind the title. */}
@@ -183,6 +187,8 @@ export function DetailHero({
           style={{ backgroundColor: accentColor ?? "var(--gold)" }}
         />
         <div className="engraved-sky absolute -top-24 -right-48 aspect-[1100/1026] w-[36rem] opacity-[0.09] md:-right-16 md:w-[52rem]" />
+        {/* Hover-only here: the load sweep belongs to the home page. */}
+        <HeroLantern className="absolute -top-24 -right-48 aspect-[1100/1026] w-[36rem] animate-none md:-right-16 md:w-[52rem]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-midnight to-transparent" />
       </div>
 
