@@ -12,7 +12,9 @@ export default defineConfig({
   testMatch: "template-sweep.spec.ts",
   fullyParallel: true,
   workers: 2,
-  retries: 0,
+  // One retry, used only after a recorded browser hang (template-sweep.spec.ts
+  // refuses to retry any other failure).
+  retries: 1,
   timeout: 90_000,
   outputDir: path.join(evidenceRoot, "playwright"),
   reporter: [
