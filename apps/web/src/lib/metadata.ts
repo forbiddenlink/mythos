@@ -22,6 +22,18 @@ export function shortPantheonName(
 }
 
 /**
+ * Plural noun for a tradition's figures in a count ("12 deities"). A tradition
+ * that names its own figures (Kami, the Orisha, the Holy People) is not
+ * counted as "deities": its own label is too long for a count, so it reads
+ * "figures".
+ */
+export function figuresNoun(pantheon: {
+  figuresLabel?: string | null;
+}): "figures" | "deities" {
+  return pantheon.figuresLabel ? "figures" : "deities";
+}
+
+/**
  * Title for a tradition's hub page. Story pages are titled "<story> -
  * <Tradition> Mythology", so a hub called "<Tradition> Guide" lost the
  * "<tradition> mythology" query to a single story (Search Console, Oct 2026:

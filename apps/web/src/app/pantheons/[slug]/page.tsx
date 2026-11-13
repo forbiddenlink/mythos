@@ -39,6 +39,7 @@ import { getDeities, getStories } from "@/lib/data/catalog";
 import { hasWorksheet } from "@/lib/data/worksheets";
 import { generateEntityAlt } from "@/lib/image-provenance";
 import {
+  figuresNoun,
   generateBaseMetadata,
   generateNotFoundMetadata,
   shortPantheonName,
@@ -144,9 +145,7 @@ export async function generateMetadata({
     (s) => s.pantheonId === pantheon.id,
   ).length;
   const holdings = [
-    deityCount > 0
-      ? `${deityCount} ${pantheon.figuresLabel ? "figures" : "deities"}`
-      : "",
+    deityCount > 0 ? `${deityCount} ${figuresNoun(pantheon)}` : "",
     storyCount > 0
       ? `${storyCount} ${storyCount === 1 ? "story" : "stories"}`
       : "",

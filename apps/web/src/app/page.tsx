@@ -13,7 +13,7 @@ import {
 } from "@/components/home/PantheonShowcase";
 import { TodaysMyth } from "@/components/home/TodaysMyth";
 import { SyncretismStrip } from "@/components/mythology/SyncretismStrip";
-import { generateBaseMetadata } from "@/lib/metadata";
+import { figuresNoun, generateBaseMetadata } from "@/lib/metadata";
 import {
   getBranchingStories,
   getDeities,
@@ -134,7 +134,7 @@ const TRADITIONS: FeaturedTradition[] = FEATURED_TRADITIONS.flatMap(
         description: featured.description,
         imageUrl: featured.image,
         figureCount: deities.filter((d) => d.pantheonId === pantheon.id).length,
-        figuresLabel: "deities",
+        figuresLabel: figuresNoun(pantheon),
       },
     ];
   },
