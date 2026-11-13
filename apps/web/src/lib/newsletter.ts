@@ -57,6 +57,21 @@ export function getNewsletterConfig(
 }
 
 /**
+ * Secret that signs and verifies double opt-in confirmation links.
+ *
+ * NEWSLETTER_CONFIRM_SECRET when set, so rotating RESEND_API_KEY no longer
+ * voids pending links. When unset it falls back to the Resend key, which keeps
+ * links already sent (signed with that key) valid and breaks no deploy.
+ * Exactly one secret is used; there is no try-both verification.
+ */
+export function getNewsletterConfirmSecret(
+  apiKey: string,
+  env: Record<string, string | undefined> = process.env,
+): string {
+  return env.NEWSLETTER_CONFIRM_SECRET?.trim() || apiKey;
+}
+
+/**
  * Unsubscribe tracking depends on Resend's signed webhook. Without the secret
  * a link issued before an unsubscribe could resubscribe the reader, so
  * confirmation is disabled until it is set.
