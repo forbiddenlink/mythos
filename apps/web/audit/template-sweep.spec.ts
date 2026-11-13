@@ -1,6 +1,12 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import path from "node:path";
 import { currentRoutes, evidenceRoot } from "./routes";
 
@@ -11,6 +17,73 @@ writeFileSync(
   JSON.stringify(routes, null, 2),
 );
 const existence = new Map<string, number | string>();
+const hangMarker = (stem: string): string =>
+  path.join(evidenceRoot, `${stem}.hang`);
+
+/**
+ * In-page steps get their own deadlines. A headless renderer in CI can stop
+ * answering mid-step; without a deadline the step silently spends the whole
+ * test budget. A hang is recorded, with what the page could still do, so the
+ * route is retried once in a fresh page; findings are never retried.
+ */
+async function probeRendering(page: Page): Promise<string> {
+  let timer: NodeJS.Timeout | undefined;
+  const probe = page
+    .evaluate(
+      () =>
+        new Promise<string>((resolve) => {
+          let frame = false;
+          requestAnimationFrame(() => {
+            frame = true;
+          });
+          setTimeout(
+            () =>
+              resolve(
+                `visibility=${document.visibilityState}, timers run, frame drawn=${frame}`,
+              ),
+            1_000,
+          );
+        }),
+    )
+    .catch((error: unknown) => `probe failed: ${String(error)}`);
+  const silent = new Promise<string>((resolve) => {
+    timer = setTimeout(
+      () => resolve("page did not answer within 3s (main thread blocked)"),
+      3_000,
+    );
+  });
+  return Promise.race([probe, silent]).finally(() => clearTimeout(timer));
+}
+
+async function recordHang(
+  page: Page,
+  stem: string,
+  step: string,
+): Promise<never> {
+  const reason = `${step}: ${await probeRendering(page)}`;
+  writeFileSync(hangMarker(stem), reason);
+  throw new Error(`Browser stopped answering during ${reason}`);
+}
+
+async function within<T>(
+  page: Page,
+  stem: string,
+  step: string,
+  ms: number,
+  work: Promise<T>,
+): Promise<T> {
+  const hung = Symbol("hung");
+  let timer: NodeJS.Timeout | undefined;
+  const deadline = new Promise<typeof hung>((resolve) => {
+    timer = setTimeout(() => resolve(hung), ms);
+  });
+  const result = await Promise.race([work, deadline]).finally(() =>
+    clearTimeout(timer),
+  );
+  if (result !== hung) return result as T;
+  work.catch(() => undefined);
+  return recordHang(page, stem, `${step} (over ${ms / 1000}s)`);
+}
 function claimFailureScreenshot(): boolean {
   // Filesystem slots remain bounded when Playwright restarts workers after failures.
   for (let slot = 0; slot < 8; slot++) {
@@ -31,6 +104,8 @@ function claimFailureScreenshot(): boolean {
 // Playwright requires the fixture argument to be an object pattern.
 // biome-ignore lint/correctness/noEmptyPattern: this hook only uses test metadata
 test.beforeEach(async ({}, testInfo) => {
+  // A retry keeps the first attempt's report: a refused retry must not erase it.
+  if (testInfo.retry > 0) return;
   const stem = `${testInfo.title.replace(/[^a-z0-9-]/gi, "_") || "home"}-${testInfo.project.name}`;
   rmSync(path.join(evidenceRoot, `${stem}.json`), { force: true });
 });
@@ -59,6 +134,16 @@ test.afterEach(async ({ page }, testInfo) => {
 
 for (const entry of routes) {
   test(entry.pattern, async ({ page, request, baseURL }, testInfo) => {
+    const stem = `${entry.pattern.replace(/[^a-z0-9-]/gi, "_") || "home"}-${testInfo.project.name}`;
+    let previousAttemptHang: string | undefined;
+    if (testInfo.retry > 0) {
+      if (!existsSync(hangMarker(stem)))
+        throw new Error(
+          "Not retried: the first attempt failed on a finding, not a browser hang.",
+        );
+      previousAttemptHang = readFileSync(hangMarker(stem), "utf8");
+    }
+    rmSync(hangMarker(stem), { force: true });
     const pageErrors: string[] = [];
     const failedAssets: string[] = [];
     const canceledPrefetches: string[] = [];
@@ -109,243 +194,285 @@ for (const entry of routes) {
       waitUntil: "networkidle",
       timeout: 45_000,
     });
-    await page.evaluate(async () => {
-      await document.fonts.ready;
-    });
+    await within(
+      page,
+      stem,
+      "font loading",
+      15_000,
+      page.evaluate(async () => {
+        await document.fonts.ready;
+      }),
+    );
     // Exercise lazy content without activating links, providers, or forms.
-    const scrollEvidence = await page.evaluate(async () => {
-      const encountered = new Set<string>();
-      const observedImageUrls = new Set<string>();
-      const pendingAtDeparture: string[] = [];
-      let intersectionTimeouts = 0;
-      const waitDeadline = performance.now() + 15_000;
-      for (
-        let y = 0, step = 0;
-        y < document.documentElement.scrollHeight && step < 48;
-        y += innerHeight, step++
-      ) {
-        scrollTo(0, y);
-        await new Promise((resolve) =>
-          requestAnimationFrame(() => requestAnimationFrame(resolve)),
-        );
-        for (const image of document.images) {
-          if (image.src) observedImageUrls.add(image.src);
-          if (image.currentSrc) observedImageUrls.add(image.currentSrc);
-        }
-        const intersection = await new Promise<{
-          images: HTMLImageElement[];
-          timedOut: boolean;
-        }>((resolve) => {
-          const images = [...document.images];
-          if (!images.length) {
-            resolve({ images: [], timedOut: false });
-            return;
+    const scrollEvidence = await within(
+      page,
+      stem,
+      "scroll pass",
+      50_000,
+      page.evaluate(async () => {
+        const encountered = new Set<string>();
+        const observedImageUrls = new Set<string>();
+        const pendingAtDeparture: string[] = [];
+        let intersectionTimeouts = 0;
+        let frameStalls = 0;
+        const waitDeadline = performance.now() + 15_000;
+        for (
+          let y = 0, step = 0;
+          y < document.documentElement.scrollHeight && step < 48;
+          y += innerHeight, step++
+        ) {
+          scrollTo(0, y);
+          // Bounded: a renderer that stops drawing must not stall the step.
+          const drew = await new Promise<boolean>((resolve) => {
+            const timer = setTimeout(() => resolve(false), 1_000);
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() => {
+                clearTimeout(timer);
+                resolve(true);
+              }),
+            );
+          });
+          if (!drew) {
+            frameStalls++;
+            break;
           }
-          const intersecting = new Set<HTMLImageElement>();
-          const reported = new Set<Element>();
-          const observer = new IntersectionObserver((entries) => {
-            for (const entry of entries) {
-              reported.add(entry.target);
-              if (entry.isIntersecting && entry.intersectionRatio > 0)
-                intersecting.add(entry.target as HTMLImageElement);
+          for (const image of document.images) {
+            if (image.src) observedImageUrls.add(image.src);
+            if (image.currentSrc) observedImageUrls.add(image.currentSrc);
+          }
+          const intersection = await new Promise<{
+            images: HTMLImageElement[];
+            timedOut: boolean;
+          }>((resolve) => {
+            const images = [...document.images];
+            if (!images.length) {
+              resolve({ images: [], timedOut: false });
+              return;
             }
-            if (reported.size === images.length) {
-              clearTimeout(timer);
+            const intersecting = new Set<HTMLImageElement>();
+            const reported = new Set<Element>();
+            const observer = new IntersectionObserver((entries) => {
+              for (const entry of entries) {
+                reported.add(entry.target);
+                if (entry.isIntersecting && entry.intersectionRatio > 0)
+                  intersecting.add(entry.target as HTMLImageElement);
+              }
+              if (reported.size === images.length) {
+                clearTimeout(timer);
+                observer.disconnect();
+                resolve({ images: [...intersecting], timedOut: false });
+              }
+            });
+            const timer = setTimeout(() => {
               observer.disconnect();
-              resolve({ images: [...intersecting], timedOut: false });
-            }
+              resolve({ images: [...intersecting], timedOut: true });
+            }, 500);
+            images.forEach((image) => {
+              observer.observe(image);
+            });
           });
-          const timer = setTimeout(() => {
-            observer.disconnect();
-            resolve({ images: [...intersecting], timedOut: true });
-          }, 500);
-          images.forEach((image) => {
-            observer.observe(image);
+          if (intersection.timedOut) intersectionTimeouts++;
+          const visibleImages = intersection.images.filter((image) => {
+            const rect = image.getBoundingClientRect();
+            const style = getComputedStyle(image);
+            return (
+              rect.width > 0 &&
+              rect.height > 0 &&
+              style.display !== "none" &&
+              style.visibility !== "hidden"
+            );
           });
-        });
-        if (intersection.timedOut) intersectionTimeouts++;
-        const visibleImages = intersection.images.filter((image) => {
+          for (const image of visibleImages) {
+            image.dataset.auditEncounteredImage = "true";
+            encountered.add(image.currentSrc || image.src);
+          }
+          // Stay at each viewport while lazy loads start and settle; bounded globally.
+          const stepDeadline = Math.min(
+            waitDeadline,
+            performance.now() + 1_500,
+          );
+          while (
+            visibleImages.some((image) => !image.complete) &&
+            performance.now() < stepDeadline
+          ) {
+            await new Promise((resolve) => setTimeout(resolve, 50));
+          }
+          pendingAtDeparture.push(
+            ...visibleImages
+              .filter((image) => !image.complete)
+              .map((image) => image.currentSrc || image.src),
+          );
+        }
+        scrollTo(0, 0);
+        return {
+          urls: [...encountered],
+          observedImageUrls: [...observedImageUrls],
+          pendingAtDeparture: [...new Set(pendingAtDeparture)],
+          intersectionTimeouts,
+          frameStalls,
+          waitBudgetExpired: performance.now() >= waitDeadline,
+        };
+      }),
+    );
+    if (scrollEvidence.frameStalls > 0)
+      await recordHang(page, stem, "scroll pass (no frame drawn within 1s)");
+    const encounteredImages = scrollEvidence.urls;
+    const imageSettle = await within(
+      page,
+      stem,
+      "image settle",
+      20_000,
+      page.evaluate(async () => {
+        const candidates = [...document.images].filter(
+          (image) =>
+            image.loading !== "lazy" ||
+            image.dataset.auditEncounteredImage === "true",
+        );
+        const rendered = (image: HTMLImageElement): boolean => {
           const rect = image.getBoundingClientRect();
           const style = getComputedStyle(image);
+          if (
+            rect.width <= 0 ||
+            rect.height <= 0 ||
+            style.display === "none" ||
+            style.visibility === "hidden"
+          )
+            return false;
+          let left = rect.left,
+            right = rect.right,
+            top = rect.top,
+            bottom = rect.bottom;
+          // Ignore viewport position here: previously encountered content can be below
+          // the viewport now. Respect canvas/scroll-container clipping, however.
+          for (
+            let parent = image.parentElement;
+            parent &&
+            parent !== document.body &&
+            parent !== document.documentElement;
+            parent = parent.parentElement
+          ) {
+            const parentStyle = getComputedStyle(parent);
+            const bounds = parent.getBoundingClientRect();
+            if (/hidden|clip|scroll|auto/.test(parentStyle.overflowX)) {
+              left = Math.max(left, bounds.left);
+              right = Math.min(right, bounds.right);
+            }
+            if (/hidden|clip|scroll|auto/.test(parentStyle.overflowY)) {
+              top = Math.max(top, bounds.top);
+              bottom = Math.min(bottom, bounds.bottom);
+            }
+            if (right <= left || bottom <= top) return false;
+          }
+          return true;
+        };
+        const images = candidates.filter(rendered);
+        const excludedUnrendered = candidates
+          .filter((image) => !rendered(image))
+          .map((image) => ({
+            src: image.currentSrc || image.src,
+            complete: image.complete,
+            reason:
+              "No rendered dimensions, hidden visibility, or fully ancestor-clipped at final settle",
+          }));
+        const decodeErrors: string[] = [];
+        let timedOut = false;
+        await Promise.race([
+          Promise.all(
+            images.map(async (image) => {
+              try {
+                await image.decode();
+              } catch {
+                decodeErrors.push(image.currentSrc || image.src);
+              }
+            }),
+          ),
+          new Promise<void>((resolve) =>
+            setTimeout(() => {
+              timedOut = true;
+              resolve();
+            }, 5_000),
+          ),
+        ]);
+        return {
+          timedOut,
+          excludedUnrendered,
+          decodeErrors,
+          pending: images
+            .filter((image) => !image.complete)
+            .map((image) => image.currentSrc || image.src),
+        };
+      }),
+    );
+    const details = await within(
+      page,
+      stem,
+      "page details",
+      20_000,
+      page.evaluate(() => {
+        const visible = (element: Element): boolean => {
+          const rect = element.getBoundingClientRect();
+          const style = getComputedStyle(element);
           return (
             rect.width > 0 &&
             rect.height > 0 &&
-            style.display !== "none" &&
-            style.visibility !== "hidden"
+            style.visibility !== "hidden" &&
+            style.display !== "none"
           );
-        });
-        for (const image of visibleImages) {
-          image.dataset.auditEncounteredImage = "true";
-          encountered.add(image.currentSrc || image.src);
-        }
-        // Stay at each viewport while lazy loads start and settle; bounded globally.
-        const stepDeadline = Math.min(waitDeadline, performance.now() + 1_500);
-        while (
-          visibleImages.some((image) => !image.complete) &&
-          performance.now() < stepDeadline
-        ) {
-          await new Promise((resolve) => setTimeout(resolve, 50));
-        }
-        pendingAtDeparture.push(
-          ...visibleImages
-            .filter((image) => !image.complete)
-            .map((image) => image.currentSrc || image.src),
-        );
-      }
-      scrollTo(0, 0);
-      return {
-        urls: [...encountered],
-        observedImageUrls: [...observedImageUrls],
-        pendingAtDeparture: [...new Set(pendingAtDeparture)],
-        intersectionTimeouts,
-        waitBudgetExpired: performance.now() >= waitDeadline,
-      };
-    });
-    const encounteredImages = scrollEvidence.urls;
-    const imageSettle = await page.evaluate(async () => {
-      const candidates = [...document.images].filter(
-        (image) =>
-          image.loading !== "lazy" ||
-          image.dataset.auditEncounteredImage === "true",
-      );
-      const rendered = (image: HTMLImageElement): boolean => {
-        const rect = image.getBoundingClientRect();
-        const style = getComputedStyle(image);
-        if (
-          rect.width <= 0 ||
-          rect.height <= 0 ||
-          style.display === "none" ||
-          style.visibility === "hidden"
-        )
-          return false;
-        let left = rect.left,
-          right = rect.right,
-          top = rect.top,
-          bottom = rect.bottom;
-        // Ignore viewport position here: previously encountered content can be below
-        // the viewport now. Respect canvas/scroll-container clipping, however.
-        for (
-          let parent = image.parentElement;
-          parent &&
-          parent !== document.body &&
-          parent !== document.documentElement;
-          parent = parent.parentElement
-        ) {
-          const parentStyle = getComputedStyle(parent);
-          const bounds = parent.getBoundingClientRect();
-          if (/hidden|clip|scroll|auto/.test(parentStyle.overflowX)) {
-            left = Math.max(left, bounds.left);
-            right = Math.min(right, bounds.right);
-          }
-          if (/hidden|clip|scroll|auto/.test(parentStyle.overflowY)) {
-            top = Math.max(top, bounds.top);
-            bottom = Math.min(bottom, bounds.bottom);
-          }
-          if (right <= left || bottom <= top) return false;
-        }
-        return true;
-      };
-      const images = candidates.filter(rendered);
-      const excludedUnrendered = candidates
-        .filter((image) => !rendered(image))
-        .map((image) => ({
-          src: image.currentSrc || image.src,
-          complete: image.complete,
-          reason:
-            "No rendered dimensions, hidden visibility, or fully ancestor-clipped at final settle",
-        }));
-      const decodeErrors: string[] = [];
-      let timedOut = false;
-      await Promise.race([
-        Promise.all(
-          images.map(async (image) => {
-            try {
-              await image.decode();
-            } catch {
-              decodeErrors.push(image.currentSrc || image.src);
-            }
-          }),
-        ),
-        new Promise<void>((resolve) =>
-          setTimeout(() => {
-            timedOut = true;
-            resolve();
-          }, 5_000),
-        ),
-      ]);
-      return {
-        timedOut,
-        excludedUnrendered,
-        decodeErrors,
-        pending: images
-          .filter((image) => !image.complete)
-          .map((image) => image.currentSrc || image.src),
-      };
-    });
-    const details = await page.evaluate(() => {
-      const visible = (element: Element): boolean => {
-        const rect = element.getBoundingClientRect();
-        const style = getComputedStyle(element);
-        return (
-          rect.width > 0 &&
-          rect.height > 0 &&
-          style.visibility !== "hidden" &&
-          style.display !== "none"
-        );
-      };
-      return {
-        title: document.title,
-        theme: document.documentElement.classList.contains("dark")
-          ? "dark"
-          : "light",
-        headings: Array.from(document.querySelectorAll("h1"))
-          .filter(visible)
-          .map((h) => h.textContent?.trim()),
-        overflow:
-          Math.max(
-            document.documentElement.scrollWidth,
-            document.body.scrollWidth,
-          ) - innerWidth,
-        overflowElements: Array.from(document.querySelectorAll("body *"))
-          .filter(visible)
-          .filter((element) => {
-            const rect = element.getBoundingClientRect();
-            return rect.left < -1 || rect.right > innerWidth + 1;
-          })
-          .slice(0, 20)
-          .map((element) => ({
-            tag: element.tagName,
-            className: element.className,
-            text: element.textContent?.slice(0, 100),
+        };
+        return {
+          title: document.title,
+          theme: document.documentElement.classList.contains("dark")
+            ? "dark"
+            : "light",
+          headings: Array.from(document.querySelectorAll("h1"))
+            .filter(visible)
+            .map((h) => h.textContent?.trim()),
+          overflow:
+            Math.max(
+              document.documentElement.scrollWidth,
+              document.body.scrollWidth,
+            ) - innerWidth,
+          overflowElements: Array.from(document.querySelectorAll("body *"))
+            .filter(visible)
+            .filter((element) => {
+              const rect = element.getBoundingClientRect();
+              return rect.left < -1 || rect.right > innerWidth + 1;
+            })
+            .slice(0, 20)
+            .map((element) => ({
+              tag: element.tagName,
+              className: element.className,
+              text: element.textContent?.slice(0, 100),
+            })),
+          images: Array.from(document.images).map((image) => ({
+            src: image.currentSrc || image.src,
+            complete: image.complete,
+            naturalWidth: image.naturalWidth,
+            loading: image.loading,
           })),
-        images: Array.from(document.images).map((image) => ({
-          src: image.currentSrc || image.src,
-          complete: image.complete,
-          naturalWidth: image.naturalWidth,
-          loading: image.loading,
-        })),
-        links: Array.from(document.querySelectorAll("a[href]")).map(
-          (anchor) => {
-            const raw = anchor.getAttribute("href") ?? "";
-            try {
-              return {
-                href: new URL(raw, document.baseURI).href,
-                raw,
-                invalid: false,
-                label: anchor.textContent?.trim().slice(0, 100),
-              };
-            } catch {
-              return {
-                href: "",
-                raw,
-                invalid: true,
-                label: anchor.textContent?.trim().slice(0, 100),
-              };
-            }
-          },
-        ),
-      };
-    });
+          links: Array.from(document.querySelectorAll("a[href]")).map(
+            (anchor) => {
+              const raw = anchor.getAttribute("href") ?? "";
+              try {
+                return {
+                  href: new URL(raw, document.baseURI).href,
+                  raw,
+                  invalid: false,
+                  label: anchor.textContent?.trim().slice(0, 100),
+                };
+              } catch {
+                return {
+                  href: "",
+                  raw,
+                  invalid: true,
+                  label: anchor.textContent?.trim().slice(0, 100),
+                };
+              }
+            },
+          ),
+        };
+      }),
+    );
     const obsoleteImageCancellations = canceledImages
       .filter(
         (failure) =>
@@ -377,9 +504,15 @@ for (const entry of routes) {
         failedAssets.push(`${failure.error} ${failure.url}`);
     }
     const invalidLinks = details.links.filter((link) => link.invalid);
-    const axe = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
-      .analyze();
+    const axe = await within(
+      page,
+      stem,
+      "accessibility scan",
+      45_000,
+      new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
+        .analyze(),
+    );
     const localOrigin = new URL(baseURL!).origin;
     const internalLinks = [
       ...new Set(
@@ -393,23 +526,29 @@ for (const entry of routes) {
       const url = new URL(href);
       return url.pathname === new URL(page.url()).pathname && Boolean(url.hash);
     });
-    const missingFragments = await page.evaluate(
-      (links) =>
-        links.filter((href) => {
-          let id: string;
-          try {
-            id = decodeURIComponent(new URL(href).hash.slice(1));
-          } catch {
-            return true;
-          }
-          return (
-            id &&
-            !id.startsWith(":~:text=") &&
-            !document.getElementById(id) &&
-            !document.getElementsByName(id).length
-          );
-        }),
-      fragments,
+    const missingFragments = await within(
+      page,
+      stem,
+      "fragment check",
+      15_000,
+      page.evaluate(
+        (links) =>
+          links.filter((href) => {
+            let id: string;
+            try {
+              id = decodeURIComponent(new URL(href).hash.slice(1));
+            } catch {
+              return true;
+            }
+            return (
+              id &&
+              !id.startsWith(":~:text=") &&
+              !document.getElementById(id) &&
+              !document.getElementsByName(id).length
+            );
+          }),
+        fragments,
+      ),
     );
     // Live existence requests run only once per route, at the wide/light baseline.
     // External URLs and cross-page fragments are recorded but deliberately not requested.
@@ -500,7 +639,6 @@ for (const entry of routes) {
         brokenTargets,
         violations,
       ].some((items) => items.length > 0);
-    const stem = `${entry.pattern.replace(/[^a-z0-9-]/gi, "_") || "home"}-${testInfo.project.name}`;
     writeFileSync(
       path.join(evidenceRoot, `${stem}.json`),
       JSON.stringify(
@@ -515,6 +653,7 @@ for (const entry of routes) {
           canceledPrefetches,
           obsoleteImageCancellations,
           problems,
+          previousAttemptHang,
           internalTargets: targetStatuses,
           axeIncomplete: axe.incomplete,
           limits: [

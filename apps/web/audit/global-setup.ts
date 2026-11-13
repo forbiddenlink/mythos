@@ -9,7 +9,7 @@ export default function globalSetup(): void {
     currentRoutes().flatMap((entry) =>
       [320, 768, 1440].flatMap((width) =>
         ["light", "dark"].flatMap((theme) =>
-          ["json", "png"].map(
+          ["json", "png", "hang"].map(
             (extension) =>
               `${entry.pattern.replace(/[^a-z0-9-]/gi, "_") || "home"}-${width}-${theme}.${extension}`,
           ),
