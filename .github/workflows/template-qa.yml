@@ -53,6 +53,26 @@ jobs:
           done
           curl --fail --silent "$AUDIT_BASE_URL" > /dev/null
           pnpm --filter web exec playwright test --config=audit/playwright.config.ts --shard=${{ matrix.shard }}/3
+      # A route that froze and passed on its retry still leaves the job green,
+      # so name it where a reader of the PR will see it.
+      - name: Flag routes where the browser stopped answering
+        if: always()
+        shell: bash
+        run: |
+          shopt -s nullglob
+          dir="functional-review/evidence/2026-10-18/$AUDIT_RUN_LABEL"
+          for report in "$dir"/*.json; do
+            line=$(jq -r 'select(.previousAttemptHang) | "\(.template.route) at \(.project): \(.previousAttemptHang)"' "$report")
+            if [ -n "$line" ]; then
+              echo "::warning title=Browser stopped answering, passed on retry::$line"
+              echo "- Passed on retry: $line" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+          for marker in "$dir"/*.hang; do
+            line="$(basename "$marker" .hang): $(cat "$marker")"
+            echo "::warning title=Browser stopped answering::$line"
+            echo "- Stopped answering: $line" >> "$GITHUB_STEP_SUMMARY"
+          done
       - name: Save complete reports and failure screenshots
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
