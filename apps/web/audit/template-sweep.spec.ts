@@ -1,4 +1,4 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect, type CDPSession, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {
   existsSync,
@@ -55,12 +55,71 @@ async function probeRendering(page: Page): Promise<string> {
   return Promise.race([probe, silent]).finally(() => clearTimeout(timer));
 }
 
+/**
+ * The debugger is switched on before each page loads, because once a page is
+ * busy Chromium no longer answers Debugger.enable. It is used only to pause a
+ * hung page and name the running function; any other pause (a stray
+ * `debugger;` statement) is resumed at once.
+ */
+const debuggers = new WeakMap<
+  Page,
+  { cdp: CDPSession; wantPause: { value: boolean } }
+>();
+
+async function attachDebugger(page: Page): Promise<void> {
+  const cdp = await page.context().newCDPSession(page);
+  const wantPause = { value: false };
+  cdp.on("Debugger.paused", () => {
+    if (!wantPause.value) cdp.send("Debugger.resume").catch(() => undefined);
+  });
+  await cdp.send("Debugger.enable");
+  debuggers.set(page, { cdp, wantPause });
+}
+
+async function runningStack(page: Page): Promise<string> {
+  const attached = debuggers.get(page);
+  if (!attached) return "no debugger attached";
+  const { cdp, wantPause } = attached;
+  let timer: NodeJS.Timeout | undefined;
+  wantPause.value = true;
+  try {
+    const paused = new Promise<{
+      callFrames: Array<{
+        functionName: string;
+        url: string;
+        location: { lineNumber: number; columnNumber?: number };
+      }>;
+    }>((resolve) => cdp.once("Debugger.paused", resolve));
+    await cdp.send("Debugger.pause");
+    const event = await Promise.race([
+      paused,
+      new Promise<null>((resolve) => {
+        timer = setTimeout(() => resolve(null), 5_000);
+      }),
+    ]);
+    if (!event) return "no script was running (the browser itself was stuck)";
+    await cdp.send("Debugger.resume").catch(() => undefined);
+    return event.callFrames
+      .slice(0, 6)
+      .map(
+        (frame) =>
+          `${frame.functionName || "(anonymous)"} ${frame.url.replace(/^https?:\/\/[^/]+/, "")}:${frame.location.lineNumber + 1}:${(frame.location.columnNumber ?? 0) + 1}`,
+      )
+      .join(" < ");
+  } catch (error: unknown) {
+    return `stack capture failed: ${String(error)}`;
+  } finally {
+    clearTimeout(timer);
+    wantPause.value = false;
+  }
+}
+
 async function recordHang(
   page: Page,
   stem: string,
   step: string,
 ): Promise<never> {
-  const reason = `${step}: ${await probeRendering(page)}`;
+  const reason = `${step}: ${await probeRendering(page)}; running: ${await runningStack(page)}`;
   writeFileSync(hangMarker(stem), reason);
   throw new Error(`Browser stopped answering during ${reason}`);
 }
@@ -144,6 +203,7 @@ for (const entry of routes) {
       previousAttemptHang = readFileSync(hangMarker(stem), "utf8");
     }
     rmSync(hangMarker(stem), { force: true });
+    await attachDebugger(page);
     const pageErrors: string[] = [];
     const failedAssets: string[] = [];
     const canceledPrefetches: string[] = [];
@@ -224,7 +284,8 @@ for (const entry of routes) {
           scrollTo(0, y);
           // Bounded: a renderer that stops drawing must not stall the step.
           const drew = await new Promise<boolean>((resolve) => {
-            const timer = setTimeout(() => resolve(false), 1_000);
+            // A frame can take over a second under CI load; five is a freeze.
+            const timer = setTimeout(() => resolve(false), 5_000);
             requestAnimationFrame(() =>
               requestAnimationFrame(() => {
                 clearTimeout(timer);
@@ -315,7 +376,7 @@ for (const entry of routes) {
       }),
     );
     if (scrollEvidence.frameStalls > 0)
-      await recordHang(page, stem, "scroll pass (no frame drawn within 1s)");
+      await recordHang(page, stem, "scroll pass (no frame drawn within 5s)");
     const encounteredImages = scrollEvidence.urls;
     const imageSettle = await within(
       page,
@@ -672,10 +733,16 @@ for (const entry of routes) {
       ),
     );
     if (entry.route === "/" || (hasProblems && claimFailureScreenshot()))
-      await page.screenshot({
-        path: path.join(evidenceRoot, `${stem}.png`),
-        fullPage: false,
-      });
+      await within(
+        page,
+        stem,
+        "screenshot",
+        20_000,
+        page.screenshot({
+          path: path.join(evidenceRoot, `${stem}.png`),
+          fullPage: false,
+        }),
+      );
     expect
       .soft(
         scrollEvidence.intersectionTimeouts,
