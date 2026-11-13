@@ -15,6 +15,8 @@ const routes = [
 const WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];
 
 // Footer controls fade in once hydrated; axe must not sample mid-transition.
+// Scroll-driven animations (the home page's Ariadne thread) only finish when
+// the reader scrolls, so wait on time-based ones alone.
 const settle = async (page: Page) => {
   await page.evaluate(() => document.fonts.ready.then(() => undefined));
   await expect(
@@ -24,6 +26,7 @@ const settle = async (page: Page) => {
     Promise.all(
       document
         .getAnimations()
+        .filter((a) => a.timeline instanceof DocumentTimeline)
         .filter((a) => a.effect?.getComputedTiming().iterations !== Infinity)
         .map((a) => a.finished.catch(() => undefined)),
     ),
