@@ -566,13 +566,10 @@ export default async function StoryPage({ params }: PageProps) {
               description="A short quiz written from this story's text."
               reading={false}
             >
-              {/* The quiz card is styled for dark surfaces; scope the dark tokens. */}
-              <div className="dark rounded-xl bg-background text-foreground">
-                <StoryPracticeQuiz
-                  storySlug={story.slug}
-                  storyTitle={story.title}
-                />
-              </div>
+              <StoryPracticeQuiz
+                storySlug={story.slug}
+                storyTitle={story.title}
+              />
             </ArticleSection>
           ) : null}
 
