@@ -165,4 +165,19 @@ describe("TodaysMyth", () => {
     render(withProgress(<TodaysMyth />));
     expect(await screen.findByText("Mortal Among Gods")).toBeInTheDocument();
   });
+
+  it("heads the leaf with the reader's local date, read as one phrase", async () => {
+    const { toLocalDateString } = await import("@/lib/date");
+    const now = new Date();
+    const { container } = render(withProgress(<TodaysMyth />));
+    await screen.findByRole("button", { name: "Answer three questions" });
+    const time = container.querySelector("time");
+    expect(time).toHaveAttribute("dateTime", toLocalDateString(now));
+    expect(time).toHaveTextContent(
+      now.toLocaleDateString("en-US", { weekday: "long" }),
+    );
+    expect(time).toHaveTextContent(String(now.getFullYear()));
+    expect(time?.nextElementSibling).toHaveAttribute("aria-hidden", "true");
+    expect(time?.nextElementSibling).toHaveTextContent(String(now.getDate()));
+  });
 });
