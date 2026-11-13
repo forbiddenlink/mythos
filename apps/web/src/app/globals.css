@@ -1788,7 +1788,8 @@ main:has(#atlas-title) .page-section-title::before {
    each numeral catches the light as its section reaches mid-screen. Scroll-
    driven CSS only (no script). Browsers without scroll timelines, and readers
    who ask for reduced motion, get the thread fully drawn and the numerals
-   lit. Wrapper: .ariadne in app/page.tsx. */
+   lit. Wrapper: .ariadne in app/page.tsx, and .ariadne.ariadne-column on the
+   deity article column (app/deities/[slug]/page.tsx). */
 .ariadne {
   position: relative;
   /* The content edge of a Container size="content" (layout-container). */
@@ -1802,6 +1803,16 @@ main:has(#atlas-title) .page-section-title::before {
 @media (min-width: 1440px) {
   .ariadne {
     --thread-x: calc(var(--content-edge) - 4.75rem);
+  }
+}
+/* On an entity page the wrapper is the article column, whose left edge is
+   already the content edge, so the thread sits at the same place as on home. */
+.ariadne-column {
+  --thread-x: -10px;
+}
+@media (min-width: 1440px) {
+  .ariadne-column {
+    --thread-x: -4.75rem;
   }
 }
 .ariadne::before {
