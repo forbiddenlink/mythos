@@ -4,9 +4,9 @@
  * Token: base64url(email) "." expiry (unix seconds) "." base64url(HMAC-SHA256).
  * The HMAC key is derived from the signing secret (NEWSLETTER_CONFIRM_SECRET,
  * else RESEND_API_KEY; see getNewsletterConfirmSecret) with a fixed label, so the
- * feature needs no extra secret and the API key itself is never the MAC key.
- * Rotating RESEND_API_KEY invalidates outstanding links, which only means a
- * pending reader signs up again.
+ * dedicated secret is optional and the API key itself is never the MAC key.
+ * Without NEWSLETTER_CONFIRM_SECRET, rotating RESEND_API_KEY invalidates
+ * outstanding links, which only means a pending reader signs up again.
  */
 import { createHmac, timingSafeEqual } from "node:crypto";
 
