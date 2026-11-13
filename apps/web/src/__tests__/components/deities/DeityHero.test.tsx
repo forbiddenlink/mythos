@@ -101,4 +101,21 @@ describe("deity hero artwork provenance", () => {
       expect(container).not.toHaveTextContent(museumPortrait.institution);
     },
   );
+
+  it("leads with the curated museum object over the illustration and credits it", () => {
+    const container = document.createElement("div");
+    container.innerHTML = renderToStaticMarkup(
+      <DeityHero deity={deity} museumPortrait={museumPortrait} museumLeads />,
+    );
+    expect(container.querySelector("figure img")).toHaveAttribute(
+      "src",
+      museumPortrait.imageUrl,
+    );
+    expect(
+      container.querySelector('[data-testid="illustrative-image-caption"]'),
+    ).toBeNull();
+    expect(container.querySelector("figcaption a")).toHaveTextContent(
+      museumPortrait.institution,
+    );
+  });
 });

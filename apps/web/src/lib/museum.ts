@@ -15,6 +15,8 @@ export interface MuseumObject {
   imageRights: string;
   imageUrl?: string;
   imageAlt?: string;
+  /** Curated: the figure (slug) whose hero this object leads over the illustration. */
+  leadPortraitFor?: string;
   storyIds?: string[];
   deityIds?: string[];
   creatureIds?: string[];
@@ -59,6 +61,18 @@ export function getMuseumPortrait(
     withImage.find((o) => o.context === "Later depiction") ??
     null
   );
+}
+
+/**
+ * The documented object chosen to lead a figure's hero over its illustration:
+ * a full-figure piece that holds up at portrait size (Nataraja, the gold Amun,
+ * the faience Thoth). Most figures have none and keep the illustration.
+ */
+export function getLeadPortrait(
+  objects: MuseumObject[],
+  slug: string,
+): MuseumObject | null {
+  return objects.find((o) => o.leadPortraitFor === slug && o.imageUrl) ?? null;
 }
 
 /** Documented objects and later interpretations of one story. */
