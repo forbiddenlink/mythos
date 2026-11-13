@@ -448,7 +448,7 @@ export default async function DeityPage({ params }: PageProps) {
         }}
         asideLabel={`${deity.name} at a glance`}
       >
-        <div className="space-y-16 md:space-y-20">
+        <div className="ariadne ariadne-column space-y-16 md:space-y-20">
           <ArticleSection id="deity-about" title={`About ${deity.name}`}>
             <DeityNarrative deity={deity} />
           </ArticleSection>
