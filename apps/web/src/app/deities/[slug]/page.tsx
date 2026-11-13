@@ -196,12 +196,9 @@ export default async function DeityPage({ params }: PageProps) {
   const relationships = getRelationships();
   const pantheon = getPantheonById(deity.pantheonId);
   const museumObjects = getMuseumObjectsFor({ deity: deity.slug });
-  // A curated museum object leads the hero over the illustration, and then
-  // leaves the gallery below so the page does not show it twice.
+  // A curated museum object leads the hero over the illustration. It stays
+  // in the gallery below, which carries its description and zoom.
   const leadPortrait = getLeadPortrait(museumObjects, deity.slug);
-  const galleryObjects = museumObjects.filter(
-    (object) => object.id !== leadPortrait?.id,
-  );
 
   // Hero comparisons live in their own field; render them with the deity
   // parallels so the comparison section links them to hero articles.
@@ -303,7 +300,7 @@ export default async function DeityPage({ params }: PageProps) {
     ...(worship ? [{ id: "worship", label: "Worship" }] : []),
     ...(hasFamily ? [{ id: "family", label: "Family" }] : []),
     ...(hasAtlasLinks ? [{ id: "in-the-atlas", label: "In the atlas" }] : []),
-    ...(galleryObjects.length > 0 ? [{ id: "in-art", label: "In art" }] : []),
+    ...(museumObjects.length > 0 ? [{ id: "in-art", label: "In art" }] : []),
     ...(hasSources
       ? [{ id: "deity-sources", label: "Sources and further reading" }]
       : []),
@@ -538,14 +535,14 @@ export default async function DeityPage({ params }: PageProps) {
             </ArticleSection>
           ) : null}
 
-          {galleryObjects.length > 0 ? (
+          {museumObjects.length > 0 ? (
             <ArticleSection
               id="in-art"
               eyebrow="In the museums"
               title={`${deity.name} in art`}
               reading={false}
             >
-              <MuseumGallery objects={galleryObjects} />
+              <MuseumGallery objects={museumObjects} />
             </ArticleSection>
           ) : null}
 
