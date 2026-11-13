@@ -50,7 +50,6 @@ import {
   checkOracleAnonymousRateLimit,
   checkOracleRateLimit,
   checkQuizRateLimit,
-  checkSearchRateLimit,
 } from "@/lib/oracle/rate-limit";
 
 const ORIGINAL_ENV = { ...process.env };
@@ -392,7 +391,6 @@ describe("send path: fail closed on Redis trouble", () => {
       checkOracleRateLimit,
       checkOracleAnonymousRateLimit,
       checkQuizRateLimit,
-      checkSearchRateLimit,
     ];
     store.limit = async () => ({ success: true, reason: "timeout" });
     for (const check of paid) {

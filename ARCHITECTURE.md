@@ -4,7 +4,7 @@ Verified against the repository on September 23, 2026. This describes the web ap
 
 ## Runtime and data boundaries
 
-`apps/web` is a self-contained Next.js App Router application. Its encyclopedia data comes from versioned JSON in `src/data/`; a database is not required to browse the site. Pages use server-side catalog lookups and client-side filtering/interaction. There is no public data API: the former `/api/graphql` facade and the disabled Hygraph CMS stubs (`/api/hygraph/*`, `/api/preview`, `/api/revalidate`) were removed because nothing in the app called them. The remaining route handlers under `src/app/api/` (search, analytics, CSP reports, story-quiz generation, Oracle) serve the app itself.
+`apps/web` is a self-contained Next.js App Router application. Its encyclopedia data comes from versioned JSON in `src/data/`; a database is not required to browse the site. Pages use server-side catalog lookups and client-side filtering/interaction. There is no public data API: the former `/api/graphql` facade and the disabled Hygraph CMS stubs (`/api/hygraph/*`, `/api/preview`, `/api/revalidate`) were removed because nothing in the app called them. The remaining route handlers under `src/app/api/` (analytics, CSP reports, story-quiz generation, Oracle) serve the app itself.
 
 The optional Rust/Axum/async-graphql service that used to live in `apps/api` (with PostgreSQL migrations, seed data and a `docker-compose.yml` Postgres service) was retired in September 2026: the web app never depended on it. It remains in history; the last `main` commit containing it is `42ada2685ba563ef0a9ead081940e4a849391f66` (its last change was `ba36dfc`). Restore it with `git checkout 42ada26 -- apps/api docker-compose.yml`.
 

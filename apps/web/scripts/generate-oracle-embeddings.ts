@@ -1,6 +1,6 @@
 /**
  * Generates apps/web/src/data/oracle-embeddings.json — the optional semantic
- * index the Oracle (and /api/search) use to fill retrieval slots that keyword
+ * index the Oracle uses to fill retrieval slots that keyword
  * grounding leaves empty.
  *
  * The committed file is an empty stub (`"vectors": []`), which keeps the

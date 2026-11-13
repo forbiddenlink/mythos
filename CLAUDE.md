@@ -55,7 +55,7 @@ pnpm knip                             # unused files/deps/exports (CI)
 
 ## Layout
 
-- `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `search`, `analytics`, `csp-report`, `quiz`, `newsletter`, and the prerendered `catalog/*` and `daily-myth` JSON)
+- `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `analytics`, `csp-report`, `quiz`, `newsletter`, and the prerendered `catalog/*` and `daily-myth` JSON)
 - `apps/web/src/data/` - static JSON content: `pantheons.json`, `deities.json`, `stories.json`, `creatures.json`, `artifacts.json`, `locations.json`, `relationships.json`, plus game/progress data (`achievements.ts`, `daily-challenges.json`, `collections.json`, `journeys.json`, etc.)
 - `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the Zod catalog schemas in `src/lib/schemas.ts` (validated in tests) must stay consistent with these interfaces
 - `apps/web/src/components/ui/` - shadcn/ui components (new-york style), configured via `apps/web/components.json`

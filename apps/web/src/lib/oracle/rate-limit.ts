@@ -1,6 +1,6 @@
 /**
  * Shared Upstash / development in-memory rate limiters for Oracle, quiz,
- * search, and newsletter sign-ups.
+ * newsletter sign-ups, and analytics.
  * Production fails closed when Upstash is not configured.
  */
 
@@ -10,10 +10,6 @@ import { isProductionRuntime } from "@/lib/server/runtime";
 
 const RATE_LIMIT = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
-
-// Search is typed/debounced traffic, so it gets a looser per-IP ceiling than
-// the chat buckets while still bounding the billed-embeddings cost.
-const SEARCH_RATE_LIMIT = 60;
 
 // Oracle requests with no determinable client IP get their own, stricter
 // bucket keyed by a header fingerprint (see client-identity.ts) instead of
@@ -37,7 +33,6 @@ type Bucket =
   | "oracle"
   | "oracle-anon"
   | "quiz"
-  | "search"
   | "newsletter"
   | "newsletter-confirm"
   | "analytics";
@@ -46,7 +41,6 @@ const BUCKET_LIMITS: Record<Bucket, number> = {
   oracle: RATE_LIMIT,
   "oracle-anon": ORACLE_ANONYMOUS_RATE_LIMIT,
   quiz: RATE_LIMIT,
-  search: SEARCH_RATE_LIMIT,
   newsletter: NEWSLETTER_RATE_LIMIT,
   "newsletter-confirm": NEWSLETTER_CONFIRM_RATE_LIMIT,
   analytics: ANALYTICS_RATE_LIMIT,
@@ -59,7 +53,6 @@ const memoryStores: Record<
   oracle: new Map(),
   "oracle-anon": new Map(),
   quiz: new Map(),
-  search: new Map(),
   newsletter: new Map(),
   "newsletter-confirm": new Map(),
   analytics: new Map(),
@@ -69,7 +62,6 @@ const edgeLimiters: Record<Bucket, Ratelimit | null | undefined> = {
   oracle: undefined,
   "oracle-anon": undefined,
   quiz: undefined,
-  search: undefined,
   newsletter: undefined,
   "newsletter-confirm": undefined,
   analytics: undefined,
@@ -128,7 +120,7 @@ export interface RateLimitOptions {
    * Redis is slow, and `limit()` throws when Redis errors. Both normally let
    * the request through. With `failClosed` they deny with "unavailable", for
    * paths that send mail or otherwise cost real money per admission: Oracle,
-   * quiz generation, search and newsletter. Only analytics stays open.
+   * quiz generation and newsletter. Only analytics stays open.
    */
   failClosed?: boolean;
 }
@@ -159,7 +151,7 @@ async function checkBucketRateLimit(
     }
   }
 
-  // Fail closed in prod for EVERY bucket. quiz/search bill real money; the oracle
+  // Fail closed in prod for EVERY bucket. quiz bills real money; the oracle
   // bucket (even on free Groq) must be globally capped — an in-memory limiter lives
   // in a single serverless instance, so under concurrency the "10/hr per IP" ceiling
   // multiplies per instance and is trivially bypassed, leaving the endpoint open to
@@ -195,13 +187,6 @@ export async function checkQuizRateLimit(
   identifier: string,
 ): Promise<OracleRateLimitResult> {
   return checkBucketRateLimit("quiz", identifier, { failClosed: true });
-}
-
-/** Search rate limit (60/hr per IP) — guards billed embedding lookups. */
-export async function checkSearchRateLimit(
-  identifier: string,
-): Promise<OracleRateLimitResult> {
-  return checkBucketRateLimit("search", identifier, { failClosed: true });
 }
 
 /**
