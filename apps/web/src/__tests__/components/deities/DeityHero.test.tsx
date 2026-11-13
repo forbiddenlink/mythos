@@ -70,7 +70,11 @@ describe("deity hero artwork provenance", () => {
       />,
     );
     const image = container.querySelector("figure img");
-    expect(image).toHaveAttribute("src", museumPortrait.imageUrl);
+    // Served through the image optimizer, which caches the museum's file.
+    expect(image).toHaveAttribute(
+      "src",
+      expect.stringContaining(encodeURIComponent(museumPortrait.imageUrl!)),
+    );
     expect(image).toHaveAttribute("alt", museumPortrait.imageAlt);
     expect(image).toHaveClass("object-contain");
     expect(container.querySelector("figcaption")).toHaveTextContent(
@@ -109,7 +113,7 @@ describe("deity hero artwork provenance", () => {
     );
     expect(container.querySelector("figure img")).toHaveAttribute(
       "src",
-      museumPortrait.imageUrl,
+      expect.stringContaining(encodeURIComponent(museumPortrait.imageUrl!)),
     );
     expect(
       container.querySelector('[data-testid="illustrative-image-caption"]'),

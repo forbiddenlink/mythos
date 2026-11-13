@@ -45,7 +45,6 @@ export function DeityHero({
       ? {
           src: museumPortrait.imageUrl,
           alt: museumPortrait.imageAlt || museumPortrait.title,
-          unoptimized: true,
           fit: "contain" as const,
         }
       : null;
