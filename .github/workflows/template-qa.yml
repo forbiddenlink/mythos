@@ -62,7 +62,7 @@ jobs:
           shopt -s nullglob
           dir="functional-review/evidence/2026-10-18/$AUDIT_RUN_LABEL"
           for report in "$dir"/*.json; do
-            line=$(jq -r 'select(.previousAttemptHang) | "\(.template.route) at \(.project): \(.previousAttemptHang)"' "$report")
+            line=$(jq -r 'objects | select(.previousAttemptHang) | "\(.template.route) at \(.project): \(.previousAttemptHang)"' "$report")
             if [ -n "$line" ]; then
               echo "::warning title=Browser stopped answering, passed on retry::$line"
               echo "- Passed on retry: $line" >> "$GITHUB_STEP_SUMMARY"
