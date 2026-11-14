@@ -3,9 +3,11 @@
  * worksheet has the same three sections, so one map covers them all.
  *
  * Wording is quoted from thecorestandards.org (checked 2026-11-13). Grade 4
- * and grade 6 codes are listed because the worksheets suit grades 4 to 8; the
- * same-numbered standard at grades 5, 7 and 8 asks for the same skill at a
- * higher level. A teacher should still confirm the fit for their own class:
+ * and grade 6 codes are listed because the worksheets suit grades 4 to 8.
+ * RI.x.1 and RL.x.2 keep the same skill at grades 5, 7 and 8; RL.4.4 (mythology
+ * allusions) and RL.6.3 (plot and character change) do not carry over, since
+ * RL.5.4 is figurative language and RL.7.3 is how story elements interact.
+ * A teacher should still confirm the fit for their own class:
  * this is a draft alignment, not a published review.
  */
 export interface StandardRef {

@@ -171,10 +171,10 @@ export default function TeachersPage() {
             <div className="border-t border-border/70 px-5 py-4">
               <p className="max-w-prose text-sm text-muted-foreground">
                 Every worksheet has the same sections, so the same standards
-                apply to each. Grade 4 and grade 6 codes are shown; the
-                same-numbered standards at grades 5, 7 and 8 ask for the same
-                skill at a higher level. This is a draft alignment, so check the
-                fit for your own class.
+                apply to each. Grade 4 and grade 6 codes are shown. RI.4.1 and
+                RL.4.2 continue at grades 5, 7 and 8 with the same skill at a
+                higher level; RL.4.4 and RL.6.3 change focus at other grades.
+                This is a draft alignment, so check the fit for your own class.
               </p>
               <dl className="mt-4 space-y-4">
                 {WORKSHEET_STANDARDS.map((entry) => (
