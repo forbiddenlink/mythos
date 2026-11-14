@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { PrintButton } from "@/components/worksheet/PrintButton";
 import { buildWorksheet, getWorksheetSlugs } from "@/lib/data/worksheets";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { WORKSHEET_STANDARDS } from "@/lib/worksheet-standards";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -220,6 +221,18 @@ export default async function WorksheetPage({ params }: PageProps) {
           <p className="mt-8 text-xs text-[#55524a] print:text-black">
             Generated from the Mythos Atlas catalog. Traditions vary between
             sources; accept well-supported alternatives.
+          </p>
+          <p className="mt-2 text-xs text-[#55524a] print:text-black">
+            Common Core reading standards practised (draft alignment):{" "}
+            {WORKSHEET_STANDARDS.filter(
+              (entry) => entry.section !== "family" || family.length > 0,
+            )
+              .map(
+                (entry) =>
+                  `${entry.label}: ${entry.standards.map((s) => s.code).join(", ")}`,
+              )
+              .join("; ")}
+            . Details at mythosatlas.com/teachers.
           </p>
         </section>
       </div>

@@ -13,6 +13,11 @@ import {
   READING_BANDS,
   readingBand,
 } from "@/lib/reading-level";
+import {
+  COMPARISON_EXTENSION,
+  standardUrl,
+  WORKSHEET_STANDARDS,
+} from "@/lib/worksheet-standards";
 import { listGuides } from "../study/_guides";
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -159,6 +164,58 @@ export default function TeachersPage() {
               />
             ))}
           </EntityGrid>
+          <details className="mt-6 rounded-lg border border-border/70 bg-card">
+            <summary className="flex min-h-11 cursor-pointer items-center px-5 py-3 font-serif text-lg">
+              Common Core reading standards
+            </summary>
+            <div className="border-t border-border/70 px-5 py-4">
+              <p className="max-w-prose text-sm text-muted-foreground">
+                Every worksheet has the same sections, so the same standards
+                apply to each. Grade 4 and grade 6 codes are shown; the
+                same-numbered standards at grades 5, 7 and 8 ask for the same
+                skill at a higher level. This is a draft alignment, so check the
+                fit for your own class.
+              </p>
+              <dl className="mt-4 space-y-4">
+                {WORKSHEET_STANDARDS.map((entry) => (
+                  <div key={entry.section}>
+                    <dt className="font-medium">{entry.label}</dt>
+                    <dd className="mt-1 text-sm text-muted-foreground">
+                      {entry.practice}
+                    </dd>
+                    <dd className="mt-2">
+                      <ul className="space-y-1 text-sm">
+                        {entry.standards.map((standard) => (
+                          <li key={standard.code}>
+                            <a
+                              href={standardUrl(standard.code)}
+                              className="font-medium text-gold-text underline underline-offset-4"
+                            >
+                              {standard.code}
+                            </a>{" "}
+                            <span className="text-muted-foreground">
+                              {standard.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-4 max-w-prose text-sm text-muted-foreground">
+                Extension: hand out worksheets from two traditions and have
+                students compare a figure or story across them (
+                <a
+                  href={standardUrl(COMPARISON_EXTENSION.code)}
+                  className="font-medium text-gold-text underline underline-offset-4"
+                >
+                  {COMPARISON_EXTENSION.code}
+                </a>
+                ).
+              </p>
+            </div>
+          </details>
         </section>
 
         <section aria-labelledby="teachers-tools" className="mb-14">
