@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.19.0](https://github.com/forbiddenlink/mythos/compare/v1.18.1...v1.19.0) (2026-11-14)
+
+
+### Features
+
+* **deities:** museum objects lead the hero for 19 gods ([#317](https://github.com/forbiddenlink/mythos/issues/317)) ([9a462ac](https://github.com/forbiddenlink/mythos/commit/9a462ac839262e89e37ae5b447d0522df9285849))
+* **deities:** run Ariadne's thread down the deity article column ([#328](https://github.com/forbiddenlink/mythos/issues/328)) ([0349340](https://github.com/forbiddenlink/mythos/commit/034934015776d9682d7b7fac437592d7452bc9c6))
+* **detail:** candlelight lantern on entry heroes ([#316](https://github.com/forbiddenlink/mythos/issues/316)) ([5188f91](https://github.com/forbiddenlink/mythos/commit/5188f919a09d4091e660c9e794998be9e56622df))
+* **header:** hover candlelight on parchment page headers ([#322](https://github.com/forbiddenlink/mythos/issues/322)) ([30ffe63](https://github.com/forbiddenlink/mythos/commit/30ffe63b1871e75711e9e24c8430bf8556771f3d))
+* **home:** candlelight lantern and Ariadne's thread ([#315](https://github.com/forbiddenlink/mythos/issues/315)) ([0ff6c0f](https://github.com/forbiddenlink/mythos/commit/0ff6c0fc8dd6110d9de92be6afbc9026214ff4e3))
+* **home:** set Today's Myth as a dated almanac leaf ([#318](https://github.com/forbiddenlink/mythos/issues/318)) ([9d36dfd](https://github.com/forbiddenlink/mythos/commit/9d36dfd20e479ead0b68770a0ba7e3623ed8a6e0))
+* **teachers:** draft Common Core alignment for the worksheets ([#331](https://github.com/forbiddenlink/mythos/issues/331)) ([33da007](https://github.com/forbiddenlink/mythos/commit/33da00794e4cbbf937e647d2f0257db082cf207d))
+* **teachers:** group every story by Flesch-Kincaid reading level ([#330](https://github.com/forbiddenlink/mythos/issues/330)) ([c1618d8](https://github.com/forbiddenlink/mythos/commit/c1618d8d0feb073d6a309dabe86d720a3d2a29eb))
+
+
+### Bug Fixes
+
+* **audit:** bound template sweep steps and retry only on browser hangs ([#321](https://github.com/forbiddenlink/mythos/issues/321)) ([5c2486c](https://github.com/forbiddenlink/mythos/commit/5c2486c5b23580a0a817d58284706f631a00dd5f))
+* **audit:** name the running code when a page freezes, and stop flagging slow frames as freezes ([#324](https://github.com/forbiddenlink/mythos/issues/324)) ([d2a2af4](https://github.com/forbiddenlink/mythos/commit/d2a2af4be8a00295248450c43c9e1c9681b3526f))
+* **deps:** bump next to 16.4.5 (security) ([#313](https://github.com/forbiddenlink/mythos/issues/313)) ([0d1980c](https://github.com/forbiddenlink/mythos/commit/0d1980cd4f5d0558c84dddb22f9409bd9461dd7c))
+* **home:** count Shinto's kami as figures, not deities ([#329](https://github.com/forbiddenlink/mythos/issues/329)) ([35bac5f](https://github.com/forbiddenlink/mythos/commit/35bac5ff733f0710e2d23649097f60e0805e9cd5))
+* **newsletter:** let confirmation links be signed with their own secret ([#326](https://github.com/forbiddenlink/mythos/issues/326)) ([c28001c](https://github.com/forbiddenlink/mythos/commit/c28001c0fb663085f1e068f35ee6acb0f0c15464))
+* **quiz:** check the Anthropic key before spending rate-limit and budget slots ([#319](https://github.com/forbiddenlink/mythos/issues/319)) ([31a3d5c](https://github.com/forbiddenlink/mythos/commit/31a3d5c4538fb3d64fba119dee928d2ac7f424c4))
+* **quiz:** resolve the story quiz model like the Oracle and mount it on story pages ([#325](https://github.com/forbiddenlink/mythos/issues/325)) ([a3017dc](https://github.com/forbiddenlink/mythos/commit/a3017dc056ccbd782f7586edfbfc441f2786dcb0))
+
 ## [1.18.1](https://github.com/forbiddenlink/mythos/compare/v1.18.0...v1.18.1) (2026-11-12)
 
 
