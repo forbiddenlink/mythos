@@ -117,3 +117,22 @@ describe("entryDescription", () => {
     expect(out.endsWith(" 5 deities, 9 stories.")).toBe(true);
   });
 });
+
+describe("truncateDescription clause cuts", () => {
+  it("drops a parenthesis the cut left open", () => {
+    const text =
+      "Maui snares the sun with ropes of flax so that the day runs long enough for his mother to dry her cloth (or, in Hawaiian tellings, so that the kapa of Hina can be finished before the night comes down)";
+    const out = truncateDescription(text);
+    expect(out).not.toContain("(");
+    expect(out.endsWith(".")).toBe(true);
+    expect(out.length).toBeLessThanOrEqual(160);
+  });
+
+  it("drops a dangling conjunction after a comma cut", () => {
+    const text =
+      "The people climb through a series of worlds stacked one above another, leaving each because of wrongdoing or disaster, until, in the present world, they find a home";
+    const out = truncateDescription(text);
+    expect(out).not.toMatch(/\buntil\.$/);
+    expect(out).toMatch(/disaster\.$/);
+  });
+});

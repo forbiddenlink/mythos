@@ -67,6 +67,7 @@ import {
   formatPantheonLabel,
   hasLineage,
   type Kin,
+  kinHref,
   interactiveStoriesFeaturing,
   relationshipsFor,
   relationshipCitations,
@@ -309,21 +310,25 @@ export default async function DeityPage({ params }: PageProps) {
   const kinList = (kin: Kin[], max = 6) =>
     kin.length === 0 ? null : (
       <>
-        {kin.slice(0, max).map((k, index) => (
-          <span key={k.key}>
-            {index > 0 ? ", " : null}
-            {k.slug ? (
-              <Link
-                href={`/deities/${k.slug}`}
-                className="underline decoration-gold/40 underline-offset-4 hover:text-gold-text hover:decoration-current"
-              >
-                {k.name}
-              </Link>
-            ) : (
-              k.name
-            )}
-          </span>
-        ))}
+        {kin.slice(0, max).map((k, index) => {
+          // Heroes among the kin (Indra's son Arjuna) link to /heroes.
+          const href = kinHref(k);
+          return (
+            <span key={k.key}>
+              {index > 0 ? ", " : null}
+              {href ? (
+                <Link
+                  href={href}
+                  className="underline decoration-gold/40 underline-offset-4 hover:text-gold-text hover:decoration-current"
+                >
+                  {k.name}
+                </Link>
+              ) : (
+                k.name
+              )}
+            </span>
+          );
+        })}
         {kin.length > max ? ` and ${kin.length - max} more` : null}
       </>
     );

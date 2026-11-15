@@ -21,11 +21,10 @@ import {
 import { listGuides } from "../study/_guides";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: "Mythology for Teachers: Printable Worksheets and Classroom Tools",
+  title: "Mythology for Teachers: Printable Worksheets and Tools",
   description:
-    "Free printable mythology worksheets with answer keys for Greek, Norse, Egyptian and other traditions, plus study guides, quizzes and ready-made MLA, APA and Chicago citations.",
+    "Free printable mythology worksheets with answer keys for Greek, Norse, Egyptian and more, plus study guides, quizzes and ready-made citations.",
   url: "/teachers",
-  image: null,
   keywords: [
     "mythology worksheets",
     "Greek mythology worksheet",

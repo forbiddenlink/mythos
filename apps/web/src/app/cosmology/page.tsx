@@ -10,7 +10,7 @@ import cosmologiesData from "@/data/cosmologies.json";
 
 export const metadata = generateBaseMetadata({
   title: "Cosmologies Compared Across Cultures",
-  description: `${cosmologiesData.length} mythic universes side by side: Yggdrasil's nine worlds, the Egyptian Duat, the Hindu lokas, Aztec heavens and Mictlan, and more, each drawn from its primary sources.`,
+  description: `${cosmologiesData.length} mythic universes side by side: Yggdrasil's nine worlds, the Egyptian Duat, the Hindu lokas, the Aztec heavens and more, each drawn from its primary sources.`,
   url: "/cosmology",
   keywords: [
     "mythology cosmology",

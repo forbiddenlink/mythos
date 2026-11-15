@@ -50,6 +50,7 @@ export function QuickQuizPageClient({
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const manualShareField = useRef<HTMLTextAreaElement>(null);
   const deadline = useRef(0);
+  const roundRef = useRef<HTMLDivElement>(null);
 
   const progressContext = useContext(ProgressContext);
   const { checkAchievements } = useAchievements();
@@ -98,6 +99,19 @@ export function QuickQuizPageClient({
     setScore(0);
     setIsNewHighScore(false);
   }, [nextQuestion]);
+
+  // On a phone the round opens below the page header, with the last answers
+  // under the fold; bring the timer and question to the top as the clock starts.
+  useEffect(() => {
+    if (gameState !== "playing") return;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    roundRef.current?.scrollIntoView({
+      block: "start",
+      behavior: reduce ? "instant" : "smooth",
+    });
+  }, [gameState]);
 
   // Use an elapsed-time deadline so answers and background tabs cannot extend
   // the round by repeatedly restarting a one-second interval.
@@ -241,7 +255,7 @@ export function QuickQuizPageClient({
         )}
 
         {gameState === "playing" && question && (
-          <div className="space-y-6">
+          <div ref={roundRef} className="scroll-mt-20 space-y-6">
             {/* Timer and Score */}
             <div className="flex items-center justify-between">
               <Badge

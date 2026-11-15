@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ...generateBaseMetadata({
       title: "Mythos Atlas - Ancient Mythology Encyclopedia",
       description:
-        "Explore ancient mythology through interactive deity family trees, comparative analysis, and epic stories from Greek, Norse, Egyptian, and world civilizations. Built by Elizabeth Stein with Next.js and modern web technologies.",
+        "Explore world mythology through deity family trees, side-by-side comparisons and the stories of Greek, Norse, Egyptian and many other traditions.",
       url: "/",
       locale,
     }),

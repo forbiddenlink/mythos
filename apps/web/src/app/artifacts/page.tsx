@@ -56,7 +56,7 @@ const items = artifacts.map((artifact) => ({
   facet: typeGroup(artifact.type),
   cells: [
     capitalize(artifact.type),
-    artifact.ownerLabel ?? capitalize(artifact.ownerId ?? "—"),
+    artifact.ownerLabel ?? capitalize(artifact.ownerId ?? "none recorded"),
   ],
 }));
 

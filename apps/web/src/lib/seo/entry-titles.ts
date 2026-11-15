@@ -23,6 +23,20 @@ function firstFitting(candidates: readonly string[]): string {
   );
 }
 
+/**
+ * The tradition as an adjective before "God" or "Hero": "Finnish Tradition
+ * (Kalevala)" and "Aboriginal Australian Traditions" become "Finnish" and
+ * "Aboriginal Australian".
+ */
+function traditionAdjective(tradition: string): string {
+  return (
+    tradition
+      .replace(/\s*\([^)]*\)/g, "")
+      .replace(/\s+(?:Pantheon|Traditions?)$/, "")
+      .trim() || tradition
+  );
+}
+
 /** "God" for male, "Goddess" for female, "Deity" for anything else or unset. */
 export function deityKind(gender: string | undefined): string {
   if (gender === "male") return "God";
@@ -35,10 +49,13 @@ export function deityTitle(
   tradition: string,
 ): string {
   const kind = deityKind(deity.gender);
-  const base = `${deity.name}: ${tradition} ${kind}`;
+  const base = `${deity.name}: ${traditionAdjective(tradition)} ${kind}`;
   const domains: string[] = [];
   for (const raw of deity.domain ?? []) {
-    const label = domainLabel(normalizeDomain(raw));
+    // "The Underworld (Tuonela)" reads "Underworld" in a title.
+    const label = domainLabel(
+      normalizeDomain(raw.replace(/\s*\([^)]*\)/g, "").trim()),
+    );
     if (label && !domains.includes(label)) domains.push(label);
   }
   const withDomains = [3, 2, 1]
@@ -51,15 +68,18 @@ export function creatureTitle(
   creature: { name: string; habitat?: string },
   tradition: string,
 ): string {
-  const base = `${creature.name}: ${tradition} Mythological Creature`;
-  const habitat = creature.habitat?.trim();
+  const base = `${creature.name}: ${traditionAdjective(tradition)} Mythological Creature`;
+  // "The sea" reads "of the sea" mid-title.
+  const habitat = creature.habitat
+    ?.trim()
+    .replace(/^(The|A|An) /, (article) => article.toLowerCase());
   // A parenthetical or very long habitat reads badly in a title.
   if (!habitat || habitat.includes("(")) return base;
   return firstFitting([`${base} of ${habitat}`, base]);
 }
 
 export function heroTitle(hero: { name: string }, tradition: string): string {
-  return `${hero.name}: ${tradition} Hero`;
+  return `${hero.name}: ${traditionAdjective(tradition)} Hero`;
 }
 
 /**

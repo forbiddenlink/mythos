@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Timeline",
   description:
-    "Two timelines in one: the historical periods and dated events of the world's mythic traditions, and their stories arranged by cosmic era from creation to the twilight of the gods.",
+    "Two timelines in one: the dated history of the world's mythic traditions, and their stories arranged by cosmic era from creation to the twilight of the gods.",
   url: "/timeline",
 });
 

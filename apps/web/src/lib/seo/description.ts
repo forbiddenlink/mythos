@@ -25,11 +25,60 @@ const DANGLING = new Set([
   "whose",
   "into",
   "than",
+  "until",
+  "when",
+  "while",
+  "where",
+  "because",
+  "after",
+  "before",
+  "if",
+  "though",
+  "although",
+  "since",
 ]);
+
+/** A cut never drops trailing clauses below this many characters. */
+const MIN_CLAUSE_KEEP = 60;
 
 function endWithPeriod(text: string): string {
   const trimmed = text.replace(/[\s,;:\u2013\u2014\-.]+$/, "");
   return `${trimmed}.`;
+}
+
+/**
+ * Close a cut that did not land on a sentence end: drop a parenthesis the cut
+ * left open, then any dangling word ("and", "the", "until"...), and end with
+ * a period.
+ */
+function closeCut(text: string): string {
+  const open = text.lastIndexOf("(");
+  let kept = open > text.lastIndexOf(")") ? text.slice(0, open) : text;
+  // A trailing clause that opens on a dangling word ("..., until, in the
+  // present world") is a fragment too: drop it while enough text remains.
+  for (;;) {
+    const comma = kept.lastIndexOf(", ");
+    if (comma < MIN_CLAUSE_KEEP) break;
+    const first = kept
+      .slice(comma + 2)
+      .split(" ")[0]!
+      .toLowerCase();
+    if (!DANGLING.has(first)) break;
+    kept = kept.slice(0, comma);
+  }
+  const words = kept.replace(/[\s,;:\u2013\u2014\-]+$/, "").split(" ");
+  while (
+    words.length > 1 &&
+    DANGLING.has(
+      words
+        .at(-1)!
+        .replace(/[,;:]$/, "")
+        .toLowerCase(),
+    )
+  ) {
+    words.pop();
+  }
+  return endWithPeriod(words.join(" "));
 }
 
 /**
@@ -66,20 +115,16 @@ export function truncateDescription(
     return at;
   };
   const strong = lastMatch(/[;:\u2013\u2014]/g);
-  if (strong >= max * 0.6) return endWithPeriod(clean.slice(0, strong));
+  if (strong >= max * 0.6) return closeCut(clean.slice(0, strong));
   const comma = lastMatch(/,/g);
-  if (comma >= max / 2) return endWithPeriod(clean.slice(0, comma));
+  if (comma >= max / 2) return closeCut(clean.slice(0, comma));
 
   // Leave one character for the closing period.
   const room = clean.slice(0, max - 1);
   const space = room.lastIndexOf(" ");
   const base =
     clean[max - 1] === " " || space <= 0 ? room : room.slice(0, space);
-  const words = base.replace(/[\s,;:\u2013\u2014\-]+$/, "").split(" ");
-  while (words.length > 1 && DANGLING.has(words.at(-1)!.toLowerCase())) {
-    words.pop();
-  }
-  return endWithPeriod(words.join(" "));
+  return closeCut(base);
 }
 
 /**

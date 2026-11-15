@@ -376,11 +376,7 @@ export function GlobalSearch({
               })}
             </CommandGroup>
           </>
-        ) : showPendingResults ? (
-          <CommandItem disabled value="search-pending">
-            Searching…
-          </CommandItem>
-        ) : (
+        ) : showPendingResults ? null : (
           <>
             {/* Search Results */}
             {groupedResults.length === 0 && (
