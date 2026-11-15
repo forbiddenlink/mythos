@@ -63,7 +63,7 @@ const columns = [
 ] as const;
 
 const footerLinkClass =
-  "inline-flex min-h-8 items-center py-1 text-[0.9375rem] text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
+  "inline-flex min-h-11 items-center py-1 text-[0.9375rem] sm:min-h-8 text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
 
 export function Footer() {
   return (
@@ -151,7 +151,7 @@ export function Footer() {
               href="https://github.com/forbiddenlink/mythos"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex size-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="inline-flex size-11 items-center justify-center rounded-md sm:size-9 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               aria-label="View source on GitHub"
             >
               <Github className="h-[1.125rem] w-[1.125rem]" />
