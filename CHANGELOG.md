@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.21.0](https://github.com/forbiddenlink/mythos/compare/v1.20.0...v1.21.0) (2026-11-15)
+
+
+### Features
+
+* **sources:** quote the two Hesiod passages the Prometheus story cites ([#338](https://github.com/forbiddenlink/mythos/issues/338)) ([c2858b3](https://github.com/forbiddenlink/mythos/commit/c2858b3331485fe2d3bc913633efdd121d3517a3))
+
+
+### Bug Fixes
+
+* **footer:** 44px tap targets for footer links on mobile ([#337](https://github.com/forbiddenlink/mythos/issues/337)) ([fd44155](https://github.com/forbiddenlink/mythos/commit/fd441559e58832ae50ecabf5db756313b8be0e70))
+
+
+### Performance Improvements
+
+* **ui:** smaller engraved-sky mask below lg, 44px header controls ([#333](https://github.com/forbiddenlink/mythos/issues/333)) ([031607e](https://github.com/forbiddenlink/mythos/commit/031607e1b1ed338622bb9a2203596d45d659c6fd))
+
 ## [1.20.0](https://github.com/forbiddenlink/mythos/compare/v1.19.0...v1.20.0) (2026-11-15)
 
 
