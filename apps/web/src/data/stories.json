@@ -1155,6 +1155,34 @@
         "type": "primary"
       }
     ],
+    "primarySourceExcerpts": [
+      {
+        "text": "ἀλλά μιν ἐξαπάτησεν ἐὺς πάις Ἰαπετοῖο κλέψας ἀκαμάτοιο πυρὸς τηλέσκοπον. αὐγὴν ἐν κοΐλῳ νάρθηκι· δάκεν δέ ἑ νειόθι θυμόν, Ζῆνʼ ὑψιβρεμέτην, ἐχόλωσε δέ μιν φίλον ἦτορ, ὡς ἴδʼ ἐν ἀνθρώποισι πυρὸς τηλέσκοπον αὐγήν.",
+        "translation": "But the noble son of Iapetus outwitted him and stole the far-seen gleam of unwearying fire in a hollow fennel stalk. And Zeus who thunders on high was stung in spirit, and his dear heart was angered when he saw amongst men the far-seen ray of fire.",
+        "source": "Hesiod, Theogony",
+        "sourceId": "theogony",
+        "lineNumbers": "565-569",
+        "translator": "Hugh G. Evelyn-White",
+        "originalLanguage": "Ancient Greek",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://github.com/PerseusDL/canonical-greekLit/blob/master/data/tlg0020/tlg001/tlg0020.tlg001.perseus-eng2.xml",
+        "edition": "H. G. Evelyn-White, 1914 (Perseus Digital Library)"
+      },
+      {
+        "text": "ἀλλὰ Ζεὺς ἔκρυψε χολωσάμενος φρεσὶν ᾗσιν, ὅττι μιν ἐξαπάτησε Προμηθεὺς ἀγκυλομήτης· τοὔνεκʼ ἄρʼ ἀνθρώποισιν ἐμήσατο κήδεα λυγρά. κρύψε δὲ πῦρ· τὸ μὲν αὖτις ἐὺς πάις Ἰαπετοῖο ἔκλεψʼ ἀνθρώποισι Διὸς πάρα μητιόεντος ἐν κοΐλῳ νάρθηκι λαθὼν Δία τερπικέραυνον.",
+        "translation": "But Zeus in the anger of his heart hid it, because Prometheus the crafty deceived him; therefore he planned sorrow and mischief against men. He hid fire; but that the noble son of Iapetus stole again for men from Zeus the counsellor in a hollow fennel-stalk, so that Zeus who delights in thunder did not see it.",
+        "source": "Hesiod, Works and Days",
+        "sourceId": "works-and-days",
+        "lineNumbers": "47-52",
+        "translator": "Hugh G. Evelyn-White",
+        "originalLanguage": "Ancient Greek",
+        "quoteStatus": "direct-quotation",
+        "verification": "verified",
+        "sourceUrl": "https://github.com/PerseusDL/canonical-greekLit/blob/master/data/tlg0020/tlg002/tlg0020.tlg002.perseus-eng2.xml",
+        "edition": "H. G. Evelyn-White, 1914 (Perseus Digital Library)"
+      }
+    ],
     "featuredDeities": ["prometheus", "zeus", "hephaestus"],
     "relatedStories": ["titanomachy"],
     "variants": [

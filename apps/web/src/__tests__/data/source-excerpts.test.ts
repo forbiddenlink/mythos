@@ -22,7 +22,7 @@ describe("structured primary-source excerpts", () => {
   it("has an explicit, valid web citation and editorial status for every record", () => {
     const excerpts = [...excerptsFrom(deities), ...excerptsFrom(stories)];
 
-    expect(excerpts).toHaveLength(40);
+    expect(excerpts).toHaveLength(42);
     for (const excerpt of excerpts) {
       expect(excerpt.edition.trim()).not.toBe("");
       expect([
@@ -43,5 +43,35 @@ describe("structured primary-source excerpts", () => {
   it("passes the shared data contract", () => {
     expect(DeitiesArraySchema.safeParse(deities).success).toBe(true);
     expect(StoriesArraySchema.safeParse(stories).success).toBe(true);
+  });
+
+  it("backs the Prometheus story with the two Hesiod passages it cites", () => {
+    const story = (
+      stories as Array<{
+        slug: string;
+        primarySourceExcerpts?: Array<Record<string, string>>;
+      }>
+    ).find((s) => s.slug === "prometheus-fire");
+    const byLocator = new Map(
+      (story?.primarySourceExcerpts ?? []).map((e) => [e.lineNumbers, e]),
+    );
+
+    expect([...byLocator.keys()].sort()).toEqual(["47-52", "565-569"]);
+
+    const theogony = byLocator.get("565-569");
+    expect(theogony?.sourceId).toBe("theogony");
+    expect(theogony?.text).toContain("ἐν κοΐλῳ νάρθηκι");
+    expect(theogony?.translation).toContain("hollow fennel stalk");
+
+    const worksAndDays = byLocator.get("47-52");
+    expect(worksAndDays?.sourceId).toBe("works-and-days");
+    expect(worksAndDays?.text).toContain("ἐν κοΐλῳ νάρθηκι");
+    expect(worksAndDays?.translation).toContain("hollow fennel-stalk");
+
+    for (const excerpt of byLocator.values()) {
+      expect(excerpt.translator).toBe("Hugh G. Evelyn-White");
+      expect(excerpt.quoteStatus).toBe("direct-quotation");
+      expect(excerpt.verification).toBe("verified");
+    }
   });
 });
