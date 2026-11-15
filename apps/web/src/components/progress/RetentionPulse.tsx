@@ -70,7 +70,7 @@ export function RetentionPulse() {
           <dd className="mt-0.5 text-foreground">
             {typeof pulse.score === "number" && typeof pulse.total === "number"
               ? `${pulse.score}/${pulse.total}`
-              : "—"}
+              : "Not taken yet"}
           </dd>
         </div>
         <div>

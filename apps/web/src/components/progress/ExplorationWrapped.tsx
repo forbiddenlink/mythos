@@ -43,7 +43,7 @@ export function ExplorationWrapped({
       (a, b) => b[1] - a[1],
     )[0]?.[0];
     const topPantheon =
-      pantheons.find((p) => p.id === topPantheonId)?.name ?? "—";
+      pantheons.find((p) => p.id === topPantheonId)?.name ?? "None yet";
 
     const sampleDeities = deities.filter((d) => viewed.has(d.id)).slice(0, 3);
     const sampleStories = stories.filter((s) => read.has(s.id)).slice(0, 2);
