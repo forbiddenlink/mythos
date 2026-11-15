@@ -28,6 +28,7 @@ import {
 } from "@/lib/comparisons";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { truncateDescription } from "@/lib/seo/description";
 
 interface PageProps {
   params: Promise<{ pair: string }>;
@@ -126,11 +127,16 @@ export async function generateMetadata({
 
   const { a, b } = comparison;
   const title = headline(comparison);
-  const description = `${title}: domains, symbols, origins, and where the two traditions actually line up. ${basisSentence(comparison)}`;
+  // The basis sentence leads: it is the part that differs between the pairs.
+  const scope =
+    a.pantheonName === b.pantheonName
+      ? "domains, symbols and origins"
+      : "domains, symbols, origins and where the two traditions line up";
+  const description = `${basisSentence(comparison)} Compare ${a.displayName} and ${b.displayName}: ${scope}.`;
 
   return generateBaseMetadata({
     title,
-    description: description.slice(0, 300),
+    description: truncateDescription(description),
     url: `/compare/${comparison.slug}`,
     type: "article",
     image: null,

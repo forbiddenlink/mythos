@@ -29,7 +29,7 @@ import { listGuides } from "../study/_guides";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Paths Through World Mythology",
   description:
-    "Guided ways through the atlas: themed collections across traditions, mapped hero journeys, study guides with Anki decks, and reading paths built from what you have read.",
+    "Guided ways through the atlas: themed collections, mapped hero journeys, study guides with Anki decks, and reading paths built from what you have read.",
   url: "/paths",
   keywords: [
     "mythology learning paths",

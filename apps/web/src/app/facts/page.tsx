@@ -31,7 +31,7 @@ for (const d of deitiesData as Array<{
 export const metadata: Metadata = generateBaseMetadata({
   title: "Mythology Facts & Ancient Festival Almanac",
   description:
-    "Discover fascinating facts about ancient gods, myths, and cultures worldwide, plus an almanac of the seasonal festivals and sacred rites the ancient world actually observed.",
+    "Facts about ancient gods, myths and cultures worldwide, plus an almanac of the seasonal festivals and sacred rites the ancient world observed.",
   url: "/facts",
   keywords: [
     "mythology facts",

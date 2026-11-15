@@ -168,3 +168,42 @@ describe("godsOfPageTitle", () => {
     expect(title.length).toBeLessThanOrEqual(TITLE_BUDGET);
   });
 });
+
+describe("tradition and habitat wording in titles", () => {
+  it("drops a parenthetical from a domain", () => {
+    expect(
+      deityTitle(
+        {
+          name: "Tuoni",
+          gender: "male",
+          domain: ["Death", "The Underworld (Tuonela)"],
+        },
+        "Finnish Tradition (Kalevala)",
+      ),
+    ).toBe("Tuoni: Finnish God of Death and Underworld");
+  });
+
+  it("uses the tradition as an adjective", () => {
+    expect(
+      deityTitle(
+        { name: "Ukko", gender: "male" },
+        "Finnish Tradition (Kalevala)",
+      ),
+    ).toBe("Ukko: Finnish God");
+    expect(
+      deityTitle(
+        { name: "Kuniya", gender: "female" },
+        "Aboriginal Australian Traditions",
+      ),
+    ).toBe("Kuniya: Aboriginal Australian Goddess");
+    expect(heroTitle({ name: "Anansi" }, "African Traditions")).toBe(
+      "Anansi: African Hero",
+    );
+  });
+
+  it("lowercases a leading article in a creature habitat", () => {
+    expect(
+      creatureTitle({ name: "Hedammu", habitat: "The sea" }, "Hittite"),
+    ).toBe("Hedammu: Hittite Mythological Creature of the sea");
+  });
+});

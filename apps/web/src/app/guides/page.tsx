@@ -9,9 +9,9 @@ import { GUIDES } from "@/lib/guides";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
-  title: "Mythology Guides: Epics, Novels and Games Read Against the Myths",
+  title: "Mythology Guides: Epics, Novels and Games vs the Myths",
   description:
-    "Guides to Homer's Odyssey, Percy Jackson's The Titan's Curse and Hades II, plus answer pages on the Greek gods family tree, Greek and Roman gods, and Valhalla versus Folkvangr: the ancient sources behind each, with links to every figure and place.",
+    "Guides to the Odyssey, Percy Jackson and Hades II, plus answers on the Greek gods family tree and Valhalla, each traced to its ancient sources.",
   url: "/guides",
   image: null,
   keywords: [
