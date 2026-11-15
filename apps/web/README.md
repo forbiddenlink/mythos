@@ -51,8 +51,8 @@ Web frontend for Mythos Atlas, an interactive encyclopedia of ancient mythology 
 
 ### Prerequisites
 
-- Node.js 20+
-- pnpm 10+
+- Node.js >=22.22.2 <23 (required by the workspace root)
+- pnpm 10.34.9 (pinned by the workspace root)
 
 ### Installation
 
