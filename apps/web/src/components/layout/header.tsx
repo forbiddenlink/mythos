@@ -17,7 +17,7 @@ import { BookmarksContext } from "@/providers/bookmarks-provider";
 
 /** Shared look for the square icon controls on the right of the header. */
 const headerIconButtonClass =
-  "size-10 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
+  "size-11 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold";
 
 export function Header() {
   const t = useTranslations();
@@ -50,7 +50,7 @@ export function Header() {
   // level differently between identical runs and flake the visual check.
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background md:bg-background/90 md:backdrop-blur-md md:supports-[backdrop-filter]:bg-background/80">
-      <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
+      <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2 max-sm:gap-1">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">
           <MobileNav
@@ -89,7 +89,7 @@ export function Header() {
         </div>
 
         {/* Right Actions */}
-        <div className="flex max-w-full flex-wrap items-center gap-1">
+        <div className="flex max-w-full flex-wrap items-center gap-1 max-sm:gap-0">
           {/* Quick Actions (Streak & Review Count) */}
           <QuickActions />
 
@@ -98,7 +98,7 @@ export function Header() {
             type="button"
             onClick={handleSearchClick}
             lang={locale}
-            className="group inline-flex h-10 items-center gap-2 rounded-md px-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold md:border md:border-border md:bg-card/60 md:pr-1.5 md:pl-3"
+            className="group inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-md px-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold md:border md:border-border md:bg-card/60 md:pr-1.5 md:pl-3"
           >
             <Search className="h-4 w-4" aria-hidden="true" />
             <span className="w-20 text-left max-lg:sr-only lg:inline">

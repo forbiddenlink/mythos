@@ -1,6 +1,7 @@
 import type * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { preload } from "react-dom";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
@@ -67,19 +68,28 @@ const studyPaths = [
  * composition. The large engraved sky can be the LCP image on mobile.
  */
 export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
+  // The sky mask: a smaller copy below lg, the original from lg up (see --sky-mask in
+  // globals.css). Each preload matches only the viewport that will use it. preload() rather
+  // than <link> tags: React hoists a media-gated <link> into <head> and also emits the
+  // Flight hint for it, which left two copies of each in the document.
+  preload("/hero-star-chart-800.webp", {
+    as: "image",
+    media: "(max-width: 1023px)",
+    crossOrigin: "anonymous",
+    fetchPriority: "high",
+  });
+  preload("/hero-star-chart.webp", {
+    as: "image",
+    media: "(min-width: 1024px)",
+    crossOrigin: "anonymous",
+    fetchPriority: "high",
+  });
   return (
     <section
       aria-labelledby="atlas-title"
       data-lantern-host
       className="dark relative isolate overflow-hidden bg-midnight text-foreground"
     >
-      <link
-        rel="preload"
-        as="image"
-        href="/hero-star-chart.webp"
-        crossOrigin="anonymous"
-        fetchPriority="high"
-      />
       <div
         className="pointer-events-none absolute inset-0 -z-10"
         aria-hidden="true"

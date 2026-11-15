@@ -50,7 +50,7 @@ export function LanguageSwitcher() {
   // Prevent hydration mismatch
   if (!mounted) {
     return (
-      <div className="flex h-10 items-center justify-center px-2.5 text-muted-foreground">
+      <div className="flex h-11 min-w-11 items-center justify-center px-2.5 text-muted-foreground max-sm:px-0">
         <Globe className="h-4 w-4" />
       </div>
     );
@@ -60,7 +60,7 @@ export function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-10 items-center gap-1.5 rounded-md px-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+        className="flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-md px-2.5 text-sm max-sm:px-0 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         aria-label={`Interface language: ${currentLocale.toUpperCase()}. Navigation and Oracle chat follow this locale; most encyclopedia pages remain in English.`}
         title="Navigation and Oracle language"
         aria-expanded={isOpen ? "true" : "false"}
@@ -71,7 +71,7 @@ export function LanguageSwitcher() {
           {currentLocale}
         </span>
         <ChevronDown
-          className={`h-3 w-3 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          className={`hidden h-3 w-3 transition-transform duration-200 sm:block ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 

@@ -17,15 +17,27 @@ describe("homepage hero image discovery", () => {
       />,
     );
     const document = new DOMParser().parseFromString(html, "text/html");
-    const preload = document.querySelector(
-      'link[rel="preload"][href="/hero-star-chart.webp"]',
+    const preloads = document.querySelectorAll(
+      'link[rel="preload"][href^="/hero-star-chart"]',
     );
-    expect(preload).not.toBeNull();
-    expect(preload?.getAttribute("as")).toBe("image");
-    expect(preload?.getAttribute("crossorigin")).toBe("anonymous");
-    expect(preload?.getAttribute("fetchpriority")).toBe("high");
+    // One per viewport class: the 800px copy below lg, the original from lg up.
+    expect(
+      [...preloads].map((p) => [
+        p.getAttribute("href"),
+        p.getAttribute("media"),
+      ]),
+    ).toEqual([
+      ["/hero-star-chart-800.webp", "(max-width: 1023px)"],
+      ["/hero-star-chart.webp", "(min-width: 1024px)"],
+    ]);
+    for (const preload of preloads) {
+      expect(preload.getAttribute("as")).toBe("image");
+      // React serializes crossOrigin="anonymous" as the bare attribute, which means the same.
+      expect(preload.getAttribute("crossorigin")).toBe("");
+      expect(preload.getAttribute("fetchpriority")).toBe("high");
+    }
     // React hoists the preload ahead of the hero, so discovery need not wait for CSS.
-    expect(html.indexOf('href="/hero-star-chart.webp"')).toBeLessThan(
+    expect(html.indexOf('href="/hero-star-chart-800.webp"')).toBeLessThan(
       html.indexOf("engraved-sky"),
     );
     const image = document.querySelector("img");

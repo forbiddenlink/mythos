@@ -6,14 +6,26 @@ test("homepage reuses the high-priority sky artwork preload", async ({
 }) => {
   const requests: string[] = [];
   page.on("request", (request) => {
-    if (new URL(request.url()).pathname === "/hero-star-chart.webp") {
+    const { pathname } = new URL(request.url());
+    if (
+      pathname === "/hero-star-chart.webp" ||
+      pathname === "/hero-star-chart-800.webp"
+    ) {
       requests.push(request.url());
     }
   });
   await page.goto("/", { waitUntil: "networkidle" });
+  // Two media-gated preloads, one element each: the 800px copy below lg, the original from lg up.
   await expect(
-    page.locator('link[rel="preload"][href="/hero-star-chart.webp"]').first(),
-  ).toHaveAttribute("crossorigin", "anonymous");
+    page.locator('link[rel="preload"][href^="/hero-star-chart"]'),
+  ).toHaveCount(2);
+  const used = new URL(requests[0] ?? "http://x/").pathname;
+  // The DOM property normalizes the bare crossorigin attribute to "anonymous".
+  const preloadLink = page.locator(`link[rel="preload"][href="${used}"]`);
+  await expect(preloadLink).toHaveCount(1);
+  expect(
+    await preloadLink.evaluate((link) => (link as HTMLLinkElement).crossOrigin),
+  ).toBe("anonymous");
   expect(requests).toHaveLength(1);
 });
 
@@ -186,3 +198,41 @@ test("family answers expand with keyboard without repeating them above the fold"
     page.getByText("Who are Zeus's parents?", { exact: true }),
   ).toBeVisible();
 });
+
+for (const width of [375, 390]) {
+  test.describe(`mobile header at ${width}px`, () => {
+    test.use({ viewport: { width, height: 844 } });
+    test("keeps the wordmark visible beside 44px header buttons", async ({
+      page,
+    }) => {
+      await page.goto("/");
+      const header = page.locator("header").first();
+      const wordmark = header.getByText("Mythos Atlas", { exact: true });
+      await expect(wordmark).toBeVisible();
+      // Playwright counts a clipped box as visible, so compare the text box
+      // with the box that clips it: a wrapped wordmark sits below that box.
+      const clipped = await wordmark.evaluate((element) => {
+        const text = element.getBoundingClientRect();
+        const clip = element.parentElement?.getBoundingClientRect();
+        if (!clip) return true;
+        return (
+          text.top < clip.top - 0.5 ||
+          text.bottom > clip.bottom + 0.5 ||
+          text.right > clip.right + 0.5 ||
+          text.right > innerWidth
+        );
+      });
+      expect(clipped).toBe(false);
+      const buttons = header.getByRole("button");
+      const count = await buttons.count();
+      expect(count).toBeGreaterThan(2);
+      for (let index = 0; index < count; index += 1) {
+        const button = buttons.nth(index);
+        if (!(await button.isVisible())) continue;
+        const box = await button.boundingBox();
+        expect(box?.width ?? 0).toBeGreaterThanOrEqual(44);
+        expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+      }
+    });
+  });
+}

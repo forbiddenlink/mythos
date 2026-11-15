@@ -1555,6 +1555,17 @@ html.cookie-banner-open {
   --plate-ink: oklch(0.82 0.02 85);
 }
 
+/* The engraved sky mask: an 800px copy below lg, where it is shown at most 704px wide, and
+   the 1100px original from lg up. components/home/AtlasOpensHero.tsx preloads the same pair. */
+:root {
+  --sky-mask: url("/hero-star-chart-800.webp");
+}
+@media (min-width: 1024px) {
+  :root {
+    --sky-mask: url("/hero-star-chart.webp");
+  }
+}
+
 @layer components {
   /* Hevelius' engraved Draco plate (1690, public domain) printed faintly in
      gilt behind titles on dark bands. The file is a greyscale luminance mask
@@ -1562,8 +1573,8 @@ html.cookie-banner-open {
      Callers set position, size and opacity. */
   .engraved-sky {
     background-color: var(--gold);
-    -webkit-mask: url("/hero-star-chart.webp") center / contain no-repeat;
-    mask: url("/hero-star-chart.webp") center / contain no-repeat luminance;
+    -webkit-mask: var(--sky-mask) center / contain no-repeat;
+    mask: var(--sky-mask) center / contain no-repeat luminance;
   }
 
   /* Candlelight over the engraved sky (components/home/HeroLantern.tsx): the
@@ -1584,7 +1595,7 @@ html.cookie-banner-open {
           #fff 0,
           transparent 100%
         ),
-        url("/hero-star-chart.webp") center / contain no-repeat;
+        var(--sky-mask) center / contain no-repeat;
       -webkit-mask-composite: source-in;
       mask:
         radial-gradient(
@@ -1593,7 +1604,7 @@ html.cookie-banner-open {
             transparent 100%
           )
           luminance,
-        url("/hero-star-chart.webp") center / contain no-repeat luminance;
+        var(--sky-mask) center / contain no-repeat luminance;
       mask-composite: intersect;
       transition: opacity 600ms ease-out;
       animation: hero-lantern-sweep 3.2s ease-in-out 0.8s both;

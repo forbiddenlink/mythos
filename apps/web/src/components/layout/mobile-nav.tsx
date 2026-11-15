@@ -148,7 +148,7 @@ export function MobileNav({
         <Button
           variant="ghost"
           size="icon"
-          className="size-10 shrink-0 lg:hidden"
+          className="size-11 shrink-0 lg:hidden"
           aria-label={openLabel}
           lang={lang}
         >
