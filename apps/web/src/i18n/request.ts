@@ -9,8 +9,9 @@ import defaultMessages from "../../messages/en.json";
  * dynamic, which disabled static generation for the whole site. Pages are now
  * prerendered in the default locale, and `IntlProvider` (a client component in
  * the root layout) swaps in the reader's saved locale after hydration. The
- * cookie is still set by `proxy.ts` from Accept-Language and by the language
- * switcher, so a reader's choice persists across visits.
+ * cookie defaults to English in `proxy.ts` (Accept-Language is ignored) and
+ * changes only through the language switcher, so a reader's choice persists
+ * across visits.
  */
 export default getRequestConfig(async () => ({
   locale: defaultLocale,
