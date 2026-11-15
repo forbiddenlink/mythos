@@ -34,6 +34,19 @@ describe("daily myth pool", () => {
   it("is deterministic", () => {
     expect(buildDailyMythPool()).toEqual(pool);
   });
+
+  it("spreads the correct answer across all four positions", () => {
+    const counts = [0, 0, 0, 0];
+    for (const myth of pool.myths) {
+      for (const q of myth.questions) counts[q.answer] += 1;
+    }
+    const total = counts.reduce((sum, n) => sum + n, 0);
+    // The shuffle once left the answer last in nearly every question.
+    for (const count of counts) {
+      expect(count / total).toBeGreaterThan(0.15);
+      expect(count / total).toBeLessThan(0.35);
+    }
+  });
 });
 
 describe("pickDailyMyth", () => {

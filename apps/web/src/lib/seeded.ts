@@ -22,8 +22,11 @@ export function seededShuffle<T>(array: readonly T[], seed: number): T[] {
   let currentSeed = seed;
 
   for (let i = result.length - 1; i > 0; i--) {
-    currentSeed = (currentSeed * 1103515245 + 12345) & 0x7fffffff;
-    const j = currentSeed % (i + 1);
+    // Math.imul keeps the product exact; a plain multiply loses its low bits
+    // past 2^53. The generator's low bits also cycle too quickly to use, so
+    // the index comes from the high ones.
+    currentSeed = (Math.imul(currentSeed, 1103515245) + 12345) & 0x7fffffff;
+    const j = (currentSeed >>> 16) % (i + 1);
     [result[i], result[j]] = [result[j], result[i]];
   }
 
