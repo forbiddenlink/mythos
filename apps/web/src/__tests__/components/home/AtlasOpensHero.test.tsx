@@ -22,14 +22,18 @@ describe("homepage hero image discovery", () => {
     );
     // One per viewport class: the 800px copy below lg, the original from lg up.
     expect(
-      [...preloads].map((p) => [p.getAttribute("href"), p.getAttribute("media")]),
+      [...preloads].map((p) => [
+        p.getAttribute("href"),
+        p.getAttribute("media"),
+      ]),
     ).toEqual([
       ["/hero-star-chart-800.webp", "(max-width: 1023px)"],
       ["/hero-star-chart.webp", "(min-width: 1024px)"],
     ]);
     for (const preload of preloads) {
       expect(preload.getAttribute("as")).toBe("image");
-      expect(preload.getAttribute("crossorigin")).toBe("anonymous");
+      // React serializes crossOrigin="anonymous" as the bare attribute, which means the same.
+      expect(preload.getAttribute("crossorigin")).toBe("");
       expect(preload.getAttribute("fetchpriority")).toBe("high");
     }
     // React hoists the preload ahead of the hero, so discovery need not wait for CSS.

@@ -15,14 +15,17 @@ test("homepage reuses the high-priority sky artwork preload", async ({
     }
   });
   await page.goto("/", { waitUntil: "networkidle" });
-  // Two media-gated preloads: the 800px copy below lg, the original from lg up.
+  // Two media-gated preloads, one element each: the 800px copy below lg, the original from lg up.
   await expect(
     page.locator('link[rel="preload"][href^="/hero-star-chart"]'),
   ).toHaveCount(2);
   const used = new URL(requests[0] ?? "http://x/").pathname;
-  await expect(
-    page.locator(`link[rel="preload"][href="${used}"]`),
-  ).toHaveAttribute("crossorigin", "anonymous");
+  // The DOM property normalizes the bare crossorigin attribute to "anonymous".
+  const preloadLink = page.locator(`link[rel="preload"][href="${used}"]`);
+  await expect(preloadLink).toHaveCount(1);
+  expect(
+    await preloadLink.evaluate((link) => (link as HTMLLinkElement).crossOrigin),
+  ).toBe("anonymous");
   expect(requests).toHaveLength(1);
 });
 
