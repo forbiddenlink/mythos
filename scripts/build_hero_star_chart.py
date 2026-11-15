@@ -27,6 +27,10 @@ from PIL import Image, ImageFilter
 from _repo_paths import WEB_PUBLIC
 
 OUTPUT = WEB_PUBLIC / "hero-star-chart.webp"
+# Below the lg breakpoint the chart is shown at most 704 css px wide, so phones and tablets
+# fetch this smaller copy (about half the bytes).
+OUTPUT_SMALL = WEB_PUBLIC / "hero-star-chart-800.webp"
+SMALL_WIDTH = 800
 # Dark scanner margins measured on the 4400x3474 scan.
 CROP = 90
 # The part of the sheet the hero shows: the polar circle with the dragon,
@@ -62,6 +66,9 @@ def main(src: str) -> None:
     out = Image.fromarray((ink * 255).astype(np.uint8), "L")
     out.save(OUTPUT, "WEBP", quality=38, method=6)
     print(f"wrote {OUTPUT} {out.size}")
+    small = out.resize((SMALL_WIDTH, round(SMALL_WIDTH * out.height / out.width)), Image.LANCZOS)
+    small.save(OUTPUT_SMALL, "WEBP", quality=38, method=6)
+    print(f"wrote {OUTPUT_SMALL} {small.size}")
 
 
 if __name__ == "__main__":

@@ -6,13 +6,22 @@ test("homepage reuses the high-priority sky artwork preload", async ({
 }) => {
   const requests: string[] = [];
   page.on("request", (request) => {
-    if (new URL(request.url()).pathname === "/hero-star-chart.webp") {
+    const { pathname } = new URL(request.url());
+    if (
+      pathname === "/hero-star-chart.webp" ||
+      pathname === "/hero-star-chart-800.webp"
+    ) {
       requests.push(request.url());
     }
   });
   await page.goto("/", { waitUntil: "networkidle" });
+  // Two media-gated preloads: the 800px copy below lg, the original from lg up.
   await expect(
-    page.locator('link[rel="preload"][href="/hero-star-chart.webp"]').first(),
+    page.locator('link[rel="preload"][href^="/hero-star-chart"]'),
+  ).toHaveCount(2);
+  const used = new URL(requests[0] ?? "http://x/").pathname;
+  await expect(
+    page.locator(`link[rel="preload"][href="${used}"]`),
   ).toHaveAttribute("crossorigin", "anonymous");
   expect(requests).toHaveLength(1);
 });

@@ -73,10 +73,21 @@ export function AtlasOpensHero({ counts, figure, index }: AtlasOpensHeroProps) {
       data-lantern-host
       className="dark relative isolate overflow-hidden bg-midnight text-foreground"
     >
+      {/* The sky mask: a smaller copy below lg, the original from lg up (see --sky-mask in
+          globals.css). Each preload matches only the viewport that will use it. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/hero-star-chart-800.webp"
+        media="(max-width: 1023px)"
+        crossOrigin="anonymous"
+        fetchPriority="high"
+      />
       <link
         rel="preload"
         as="image"
         href="/hero-star-chart.webp"
+        media="(min-width: 1024px)"
         crossOrigin="anonymous"
         fetchPriority="high"
       />
