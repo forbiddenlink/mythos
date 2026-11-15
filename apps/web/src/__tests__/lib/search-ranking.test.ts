@@ -161,4 +161,11 @@ describe("reader-intent search", () => {
     expect(top("hera", 1)).toEqual(["Hera"]);
     expect(top("thor", 1)).toEqual(["Thor"]);
   });
+
+  it("leads with the name being typed, not a word that ends in it", () => {
+    // "ze" also ends "maize", which used to put maize gods above Zeus.
+    expect(top("ze", 1)).toEqual(["Zeus"]);
+    expect(top("od", 2)).toContain("Odin");
+    expect(top("ar", 2).sort()).toEqual(["Ares", "Artemis"]);
+  });
 });

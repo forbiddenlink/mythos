@@ -347,11 +347,9 @@ function calculateMatchScore(
     else if (normalizedValue.startsWith(normalizedQuery)) {
       totalScore += 80 * field.weight;
     }
-    // Word boundary match
-    else if (
-      normalizedValue.includes(` ${normalizedQuery}`) ||
-      normalizedValue.includes(`${normalizedQuery} `)
-    ) {
+    // A word starts with the query. A word that merely ENDS with it ("ze" in
+    // "maize") is a mid-word match and falls through to the branch below.
+    else if (normalizedValue.includes(` ${normalizedQuery}`)) {
       totalScore += 60 * field.weight;
     }
     // Contains query mid-word ("thor" in "Hathor"). Kept, so partial
@@ -378,6 +376,9 @@ function getPantheonLabel(
 /** Larger than any combination of field scores, so an exact title always leads. */
 const EXACT_TITLE_BONUS = 1000;
 
+/** Lifts a title that starts with the query over summary-only matches. */
+const TITLE_PREFIX_BONUS = 200;
+
 /** Generic scored search over a typed collection */
 function searchItems<T extends { id: string }>(
   items: T[],
@@ -392,6 +393,8 @@ function searchItems<T extends { id: string }>(
     getTradition?: (item: T) => string;
     /** Other names; one that IS the query ranks like an exact title. */
     getAliases?: (item: T) => string[] | undefined;
+    /** Breaks ties between titles that start with the query. */
+    getProminence?: (item: T) => number | undefined;
   },
 ): SearchResult[] {
   const results: SearchResult[] = [];
@@ -419,6 +422,18 @@ function searchItems<T extends { id: string }>(
     ) {
       // "Hercules" opens Heracles before "The Twelve Labors of Hercules".
       score += EXACT_TITLE_BONUS * 0.9;
+    }
+    // While a name is still being typed ("ze", "od"), the entry whose title
+    // starts with it leads entries that only mention the letters in a summary,
+    // and among those the more widely paralleled figure comes first.
+    if (
+      score > 0 &&
+      score < EXACT_TITLE_BONUS &&
+      foldForSearch(config.getTitle(item)).startsWith(foldedQuery)
+    ) {
+      score +=
+        TITLE_PREFIX_BONUS +
+        Math.min(config.getProminence?.(item) ?? 0, 20) * 10;
     }
     if (score > 0) {
       results.push({
@@ -714,6 +729,7 @@ function scoredSearch(
       ],
       getTradition: tradition,
       getAliases: aliasBonus ? (d) => d.alternateNames : undefined,
+      getProminence: (d) => d.prominence,
       getSubtitle: (d) => getPantheonLabel(labels, d.pantheonId, "Deity"),
     }),
     ...searchItems(index.stories, normalizedQuery, {
