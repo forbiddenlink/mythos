@@ -14,6 +14,7 @@ import { getDeityComparisons } from "@/lib/comparisons";
 import { getGodsOfDomains } from "@/lib/gods-of";
 import { getCreatureHubs, getGoddessHubs } from "@/lib/pantheon-hubs";
 import { GUIDES } from "@/lib/guides";
+import { THEME_HUBS } from "@/lib/theme-hubs";
 import { isOracleEnabled } from "@/lib/oracle/availability";
 
 const BASE_URL = "https://mythosatlas.com";
@@ -365,6 +366,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     })),
   ];
+  const themePages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/themes`, changeFrequency: "monthly", priority: 0.8 },
+    ...THEME_HUBS.map((hub) => ({
+      url: `${BASE_URL}/themes/${hub.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
+  ];
   const domainPages: MetadataRoute.Sitemap = getGodsOfDomains().map((page) => ({
     url: `${BASE_URL}/gods-of/${page.slug}`,
     changeFrequency: "monthly" as const,
@@ -388,6 +397,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...exploratoryPages,
     ...guidePages,
+    ...themePages,
     ...domainPages,
     ...traditionHubPages,
     ...studyPages,
