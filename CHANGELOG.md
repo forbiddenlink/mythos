@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.21.1](https://github.com/forbiddenlink/mythos/compare/v1.21.0...v1.21.1) (2026-11-15)
+
+
+### Bug Fixes
+
+* QA pass (daily myth answers, search ranking, dead hero links, SEO titles) ([#339](https://github.com/forbiddenlink/mythos/issues/339)) ([c79938e](https://github.com/forbiddenlink/mythos/commit/c79938e451de968c8d83f4309e73df4b1bcf0fc7))
+
 ## [1.21.0](https://github.com/forbiddenlink/mythos/compare/v1.20.0...v1.21.0) (2026-11-15)
 
 
