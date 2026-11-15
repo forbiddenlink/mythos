@@ -50,7 +50,7 @@ export function Header() {
   // level differently between identical runs and flake the visual check.
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background md:bg-background/90 md:backdrop-blur-md md:supports-[backdrop-filter]:bg-background/80">
-      <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2">
+      <div className="layout-container layout-container-content flex min-h-16 flex-wrap items-center gap-2 max-sm:gap-1">
         {/* Mobile Navigation Trigger */}
         <div className="-ml-2 lg:hidden">
           <MobileNav
@@ -89,7 +89,7 @@ export function Header() {
         </div>
 
         {/* Right Actions */}
-        <div className="flex max-w-full flex-wrap items-center gap-1">
+        <div className="flex max-w-full flex-wrap items-center gap-1 max-sm:gap-0">
           {/* Quick Actions (Streak & Review Count) */}
           <QuickActions />
 
