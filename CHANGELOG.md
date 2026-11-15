@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.20.0](https://github.com/forbiddenlink/mythos/compare/v1.19.0...v1.20.0) (2026-11-15)
+
+
+### Features
+
+* add 10 same-story-many-cultures theme hubs ([#334](https://github.com/forbiddenlink/mythos/issues/334)) ([3a2edf1](https://github.com/forbiddenlink/mythos/commit/3a2edf16b95fabe0157de61d11d692de09f55029))
+
 ## [1.19.0](https://github.com/forbiddenlink/mythos/compare/v1.18.1...v1.19.0) (2026-11-15)
 
 
