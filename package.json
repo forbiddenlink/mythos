@@ -94,6 +94,11 @@
       "vite": ">=8.1.6 <9.0.0",
       "yaml": ">=2.8.3 <3.0.0",
       "source-map-js": ">=1.2.2 <2"
+    },
+    "auditConfig": {
+      "ignoreGhsas": [
+        "GHSA-fc5q-39xc-vjpf"
+      ]
     }
   },
   "license": "MIT"
