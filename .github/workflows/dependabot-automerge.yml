@@ -1,18 +1,19 @@
 name: Dependabot auto-merge
 # CI-gated: waits for the repo's CI workflow to pass on the PR's head SHA, then
 # squash-merges patch + minor dependabot PRs. Major updates stay manual.
-# Uses pull_request_target so the GITHUB_TOKEN runs in the base-branch context
-# (required for dependabot/fetch-metadata to read commit metadata without a 403).
-# Safe: gated on github.actor == 'dependabot[bot]'; no PR code is checked out or executed.
-on: pull_request_target
+# Runs on pull_request, not pull_request_target (blocked by default in public repos
+# from 2026-12-02). Dependabot pull_request runs honor the job-level permissions.
+# Gated on the PR author plus a same-repo head; no PR code is checked out or executed.
+on: pull_request
 permissions: {}
 jobs:
   automerge:
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
+      actions: read
     steps:
       - name: Dependabot metadata
         id: meta
