@@ -98,7 +98,9 @@ export function buildCsp(options: {
     "font-src 'self' data:",
     `connect-src ${connectSrc}`,
     "worker-src 'self' blob:",
-    "media-src 'self'",
+    // data: is only for howler's built-in silent WAV (html5 audio unlock and
+    // pool reset in node_modules/howler/dist/howler.js). No remote media.
+    "media-src 'self' data:",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
