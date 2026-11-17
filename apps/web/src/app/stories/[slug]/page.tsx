@@ -43,6 +43,7 @@ import { StoryPracticeQuiz } from "@/components/stories/StoryPracticeQuiz";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
 import { StoryReadingContext } from "@/components/stories/StoryReadingContext";
 import { readingMinutes } from "@/lib/reading-time";
+import { placeIdsForStory } from "@/lib/story-locations";
 import { StoryRecording } from "@/components/stories/StoryRecording";
 import { VersionMatrix } from "@/components/stories/VersionMatrix";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
@@ -189,12 +190,7 @@ export default async function StoryPage({ params }: PageProps) {
         .filter((d) => d.pantheonId === story.pantheonId && mentions(d.name))
         .slice(0, 8)
         .map((d) => d.id);
-  const locationIds = story.featuredLocations?.length
-    ? story.featuredLocations
-    : locations
-        .filter((l) => l.pantheonId === story.pantheonId && mentions(l.name))
-        .slice(0, 6)
-        .map((l) => l.id);
+  const locationIds = placeIdsForStory(story);
 
   const characters = [
     ...deityIds.flatMap((id) => {

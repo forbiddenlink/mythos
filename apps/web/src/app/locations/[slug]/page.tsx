@@ -49,6 +49,8 @@ import {
 import { formatPantheonLabel } from "@/lib/deity-page";
 import { guidesFeaturing } from "@/lib/guides";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { storiesSetAt } from "@/lib/story-locations";
+import { neighborWindow } from "@/lib/neighbor-window";
 
 function formatLocationType(type: string): string {
   return type.replaceAll("_", " ").replaceAll(/\b\w/g, (c) => c.toUpperCase());
@@ -152,9 +154,17 @@ export default async function LocationPage({ params }: PageProps) {
   const hasCoordinates =
     location.latitude != null && location.longitude != null;
 
-  const sameTradition = allLocations.filter(
-    (l) => l.pantheonId === location.pantheonId && l.id !== location.id,
+  const traditionLocations = allLocations.filter(
+    (l) => l.pantheonId === location.pantheonId,
   );
+  const sameTradition = traditionLocations.filter((l) => l.id !== location.id);
+  const nearbyPlaces = neighborWindow(
+    traditionLocations,
+    location.id,
+    5,
+    (l) => l.id,
+  );
+  const storiesHere = storiesSetAt(location.id);
   const guides = guidesFeaturing("location", location.id);
   const mentions = getEntryMentions(
     { kind: "location", id: location.id, name: location.name },
@@ -300,8 +310,17 @@ export default async function LocationPage({ params }: PageProps) {
             />
             <EntryMentionsAside mentions={mentions} />
             <RelatedFigures
+              title="Stories set here"
+              figures={storiesHere.map((story) => ({
+                name: story.title,
+                href: `/stories/${story.slug}`,
+                imageUrl: story.imageUrl,
+                meta: story.category,
+              }))}
+            />
+            <RelatedFigures
               title={`More ${shortPantheonName(pantheon)} places`}
-              figures={sameTradition.slice(0, 5).map((related) => ({
+              figures={nearbyPlaces.map((related) => ({
                 name: related.name,
                 href: `/locations/${related.id}`,
                 imageUrl: related.imageUrl,
