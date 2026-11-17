@@ -53,6 +53,7 @@ import {
 import { formatPantheonLabel } from "@/lib/deity-page";
 import { guidesFeaturing } from "@/lib/guides";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { neighborWindow } from "@/lib/neighbor-window";
 
 interface CreatureData {
   id: string;
@@ -146,15 +147,20 @@ export default async function CreaturePage({ params }: PageProps) {
     pantheon?.name ?? formatPantheonLabel(creature.pantheonId);
   const museumObjects = getMuseumObjectsFor({ creature: slug });
 
-  const sameTraditionCreatures = allCreatures
-    .filter((c) => c.pantheonId === creature.pantheonId && c.id !== creature.id)
-    .slice(0, 4)
-    .map((c) => ({
-      name: c.name,
-      href: `/creatures/${c.slug}`,
-      imageUrl: c.imageUrl,
-      meta: c.habitat,
-    }));
+  const traditionCreatures = allCreatures.filter(
+    (c) => c.pantheonId === creature.pantheonId,
+  );
+  const sameTraditionCreatures = neighborWindow(
+    traditionCreatures,
+    creature.id,
+    4,
+    (c) => c.id,
+  ).map((c) => ({
+    name: c.name,
+    href: `/creatures/${c.slug}`,
+    imageUrl: c.imageUrl,
+    meta: c.habitat,
+  }));
   const sameTraditionDeities = (
     deitiesData as Array<{
       id: string;

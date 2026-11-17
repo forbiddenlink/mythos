@@ -44,6 +44,7 @@ import {
   getIllustrativeImageNote,
 } from "@/lib/image-provenance";
 import { findHeroByReference } from "@/lib/heroes";
+import { neighborWindow } from "@/lib/neighbor-window";
 import {
   generateBaseMetadata,
   generateNotFoundMetadata,
@@ -222,15 +223,17 @@ export default async function HeroPage({ params }: PageProps) {
         ]
       : [];
   });
-  const sameTradition = allHeroes
-    .filter((h) => h.pantheonId === hero.pantheonId && h.id !== hero.id)
-    .slice(0, 4)
-    .map((h) => ({
-      name: h.name,
-      href: `/heroes/${h.slug}`,
-      imageUrl: h.imageUrl,
-      meta: "Hero",
-    }));
+  const sameTradition = neighborWindow(
+    allHeroes.filter((h) => h.pantheonId === hero.pantheonId),
+    hero.id,
+    4,
+    (h) => h.id,
+  ).map((h) => ({
+    name: h.name,
+    href: `/heroes/${h.slug}`,
+    imageUrl: h.imageUrl,
+    meta: "Hero",
+  }));
   const guides = guidesFeaturing("hero", hero.id);
 
   const sourceFields = {

@@ -48,6 +48,7 @@ import {
 } from "@/components/sources/EntitySources";
 import { formatPantheonLabel } from "@/lib/deity-page";
 import { getPantheonColor } from "@/lib/pantheon-colors";
+import { neighborWindow } from "@/lib/neighbor-window";
 
 interface ArtifactData {
   id: string;
@@ -183,15 +184,17 @@ export default async function ArtifactPage({ params }: PageProps) {
         ]
       : [];
   });
-  const sameTradition = allArtifacts
-    .filter((a) => a.pantheonId === artifact.pantheonId && a.id !== artifact.id)
-    .slice(0, 4)
-    .map((a) => ({
-      name: a.name,
-      href: `/artifacts/${a.slug}`,
-      imageUrl: a.imageUrl,
-      meta: a.type,
-    }));
+  const sameTradition = neighborWindow(
+    allArtifacts.filter((a) => a.pantheonId === artifact.pantheonId),
+    artifact.id,
+    4,
+    (a) => a.id,
+  ).map((a) => ({
+    name: a.name,
+    href: `/artifacts/${a.slug}`,
+    imageUrl: a.imageUrl,
+    meta: a.type,
+  }));
 
   const pantheon = pantheons.find((p) => p.id === artifact.pantheonId);
   const traditionName =
