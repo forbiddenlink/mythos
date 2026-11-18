@@ -28,6 +28,17 @@ export interface StoryContext {
   next: StoryContextLink | null;
 }
 
+/**
+ * Where the story page sends a reader who has no list in the URL: the next
+ * story of the same tradition, or the tradition's page after its last story.
+ * The link carries no `in` parameter, so it always points at a canonical URL.
+ */
+export interface StoryNextStep {
+  kind: "story" | "tradition";
+  title: string;
+  href: string;
+}
+
 export function storyContextKey(kind: StoryListKind, listSlug: string): string {
   return `${kind}/${listSlug}`;
 }

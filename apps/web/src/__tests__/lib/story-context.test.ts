@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { pickStoryContext, storyHrefIn } from "@/lib/story-context";
-import { getStoryContexts } from "@/lib/story-contexts";
+import { getNextInTradition, getStoryContexts } from "@/lib/story-contexts";
 
 describe("storyHrefIn", () => {
   it("keeps the reader's list in the query string", () => {
@@ -87,5 +87,36 @@ describe("pickStoryContext", () => {
   it("falls back to null when the story is not in the named list", () => {
     // Real list, wrong story: the Norse pantheon does not contain titanomachy.
     expect(pickStoryContext(contexts, "pantheon/norse")).toBeNull();
+  });
+});
+
+describe("getNextInTradition", () => {
+  it("links the next story of the tradition, with no list in the URL", () => {
+    expect(getNextInTradition("prometheus-fire")).toEqual({
+      kind: "story",
+      title: "Perseus and Medusa",
+      href: "/stories/perseus-medusa",
+    });
+  });
+
+  it("follows the order the tradition's own list uses", () => {
+    const greek = getStoryContexts("prometheus-fire").find(
+      (context) => context.key === "pantheon/greek",
+    );
+    expect(greek?.next?.href).toBe(
+      `${getNextInTradition("prometheus-fire")?.href}?in=pantheon/greek`,
+    );
+  });
+
+  it("links the tradition after its last story", () => {
+    expect(getNextInTradition("abduction-of-persephone")).toEqual({
+      kind: "tradition",
+      title: "Greek Pantheon",
+      href: "/pantheons/greek",
+    });
+  });
+
+  it("returns nothing for a story the catalog does not hold", () => {
+    expect(getNextInTradition("no-such-story")).toBeNull();
   });
 });
