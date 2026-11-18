@@ -10,6 +10,7 @@ import {
 } from "@/components/content/detail-parts";
 import { ReadingParagraph } from "@/components/content/reading-prose";
 import { AboutThisPage } from "@/components/layout/about-this-page";
+import { NextSteps } from "@/components/layout/NextSteps";
 import {
   ArticleSection,
   AsideLinks,
@@ -27,6 +28,7 @@ import {
   type DeityComparison,
 } from "@/lib/comparisons";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { comparisonNextSteps } from "@/lib/next-steps";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { truncateDescription } from "@/lib/seo/description";
 
@@ -555,6 +557,8 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
             </p>
           </AboutThisPage>
         </ArticleStack>
+
+        <NextSteps id="next-steps" {...comparisonNextSteps(comparison)} />
       </DetailLayout>
     </>
   );
