@@ -14,16 +14,10 @@ import {
   unsubscribeNeedsRepair,
   withConsentLock,
 } from "@/lib/newsletter-redemption";
+import { noStoreJson as json } from "@/lib/http/no-store-json";
 
 /** Resend contact events are a few hundred bytes; anything this big is not one. */
 const MAX_BODY_BYTES = 64 * 1024;
-
-function json(body: Record<string, unknown>, status: number): Response {
-  return Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
-}
 
 /**
  * Resend webhook receiver. Readers unsubscribe on Resend's hosted page, so

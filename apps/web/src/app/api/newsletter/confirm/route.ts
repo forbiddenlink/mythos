@@ -26,6 +26,7 @@ import { verifyConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkNewsletterConfirmRateLimit } from "@/lib/oracle/rate-limit";
 import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
+import { noStoreJson as json } from "@/lib/http/no-store-json";
 
 const MAX_REQUEST_BODY_BYTES = 2 * 1024;
 const bodySchema = z.strictObject({ token: z.string().min(1).max(1024) });
@@ -36,13 +37,6 @@ const bodySchema = z.strictObject({ token: z.string().min(1).max(1024) });
  * the abandoned call would go on to mutate after we had answered.
  */
 export const maxDuration = 30;
-
-function json(body: Record<string, unknown>, status: number): Response {
-  return Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
-}
 
 /**
  * Double opt-in, step two. POST only, and only from our own confirm page:

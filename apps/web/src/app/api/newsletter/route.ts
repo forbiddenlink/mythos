@@ -17,15 +17,9 @@ import { createConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkNewsletterRateLimit } from "@/lib/oracle/rate-limit";
 import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
+import { noStoreJson as json } from "@/lib/http/no-store-json";
 
 const MAX_REQUEST_BODY_BYTES = 2 * 1024;
-
-function json(body: Record<string, unknown>, status: number): Response {
-  return Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
-}
 
 /**
  * Weekly myth digest sign-up, step one of double opt-in: records the address
