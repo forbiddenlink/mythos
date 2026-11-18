@@ -90,8 +90,32 @@ export async function captureServerEvent({
   const config = resolveServerAnalyticsConfig();
   if (!config) return { ok: false, reason: "not_configured" };
 
-  const clean: AnalyticsProperties = sanitizeProperties(properties);
+  return postCaptureEvent(config, {
+    event,
+    distinctId,
+    timestamp: new Date(),
+    properties: sanitizeProperties(properties),
+  });
+}
 
+/**
+ * Sends one event to the capture API. It validates nothing: every caller
+ * checks the event against its own closed list first.
+ */
+export async function postCaptureEvent(
+  config: ServerAnalyticsConfig,
+  {
+    event,
+    distinctId,
+    timestamp,
+    properties,
+  }: {
+    event: string;
+    distinctId: string;
+    timestamp: Date;
+    properties: AnalyticsProperties;
+  },
+): Promise<CaptureResult> {
   try {
     const response = await fetch(`${config.host}/i/v0/e/`, {
       method: "POST",
@@ -100,9 +124,9 @@ export async function captureServerEvent({
         api_key: config.key,
         event,
         distinct_id: distinctId,
-        timestamp: new Date().toISOString(),
+        timestamp: timestamp.toISOString(),
         properties: {
-          ...clean,
+          ...properties,
           // Keep server events identifiable in the configured project. The browser SDK stamps
           // `app` via posthog.register(); this path posts to the capture API directly, so
           // without this line every server event from mythos is unattributable.

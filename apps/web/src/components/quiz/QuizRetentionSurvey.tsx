@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { getPostHogDistinctId } from "@/components/analytics/ConsentGatedPostHog";
 import { trackEvent } from "@/lib/analytics/events";
+import { postBeacon } from "@/lib/http/post-beacon";
 import { hasAnalyticsConsent } from "@/lib/privacy-consent";
 
 type Rating = "very" | "somewhat" | "not";
@@ -63,19 +64,8 @@ export function QuizRetentionSurvey({
     }
     if (hasAnalyticsConsent()) {
       trackEvent("pmf_survey_answered", { quizId, rating });
-      const body = JSON.stringify(payload);
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon("/api/analytics/events", body);
-      } else {
-        void fetch("/api/analytics/events", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body,
-          keepalive: true,
-        }).catch(() => {
-          // Feedback remains saved locally when analytics is unavailable.
-        });
-      }
+      // Feedback remains saved locally when analytics is unavailable.
+      postBeacon("/api/analytics/events", JSON.stringify(payload));
     }
     setTimeout(() => setDone(true), 1200);
   };
