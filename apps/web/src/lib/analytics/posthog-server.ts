@@ -90,52 +90,68 @@ export async function captureServerEvent({
   const config = resolveServerAnalyticsConfig();
   if (!config) return { ok: false, reason: "not_configured" };
 
-  return postCaptureEvent(config, {
+  return postToCapture(config, "/i/v0/e/", {
     event,
-    distinctId,
-    timestamp: new Date(),
-    properties: sanitizeProperties(properties),
+    distinct_id: distinctId,
+    timestamp: new Date().toISOString(),
+    properties: {
+      ...sanitizeProperties(properties),
+      ...SERVER_EVENT_PROPERTIES,
+    },
   });
 }
 
+export interface ServerBatchEvent {
+  event: string;
+  distinctId: string;
+  timestamp: Date;
+  properties: AnalyticsProperties;
+}
+
 /**
- * Sends one event to the capture API. It validates nothing: every caller
- * checks the event against its own closed list first.
+ * Sends several server-made events in one request, so they are stored together
+ * or not at all. It validates nothing: these events are built by server code
+ * from its own closed lists, never from a request body.
  */
-export async function postCaptureEvent(
+export async function captureServerBatch(
+  events: readonly ServerBatchEvent[],
+): Promise<CaptureResult> {
+  const config = resolveServerAnalyticsConfig();
+  if (!config) return { ok: false, reason: "not_configured" };
+
+  return postToCapture(config, "/batch/", {
+    batch: events.map(({ event, distinctId, timestamp, properties }) => ({
+      event,
+      timestamp: timestamp.toISOString(),
+      properties: {
+        ...properties,
+        ...SERVER_EVENT_PROPERTIES,
+        distinct_id: distinctId,
+      },
+    })),
+  });
+}
+
+const SERVER_EVENT_PROPERTIES = {
+  // Keep server events identifiable in the configured project. The browser SDK stamps
+  // `app` via posthog.register(); this path posts to the capture API directly, so
+  // without this line every server event from mythos is unattributable.
+  app: "mythos",
+  // Anonymous events only: no person profile, so no cross-session
+  // identity is built for a visitor who never signs in.
+  $process_person_profile: false,
+} as const;
+
+async function postToCapture(
   config: ServerAnalyticsConfig,
-  {
-    event,
-    distinctId,
-    timestamp,
-    properties,
-  }: {
-    event: string;
-    distinctId: string;
-    timestamp: Date;
-    properties: AnalyticsProperties;
-  },
+  path: "/i/v0/e/" | "/batch/",
+  body: Record<string, unknown>,
 ): Promise<CaptureResult> {
   try {
-    const response = await fetch(`${config.host}/i/v0/e/`, {
+    const response = await fetch(`${config.host}${path}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        api_key: config.key,
-        event,
-        distinct_id: distinctId,
-        timestamp: timestamp.toISOString(),
-        properties: {
-          ...properties,
-          // Keep server events identifiable in the configured project. The browser SDK stamps
-          // `app` via posthog.register(); this path posts to the capture API directly, so
-          // without this line every server event from mythos is unattributable.
-          app: "mythos",
-          // Anonymous events only: no person profile, so no cross-session
-          // identity is built for a visitor who never signs in.
-          $process_person_profile: false,
-        },
-      }),
+      body: JSON.stringify({ api_key: config.key, ...body }),
       cache: "no-store",
     });
 

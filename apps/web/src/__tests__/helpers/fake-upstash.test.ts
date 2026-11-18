@@ -176,6 +176,28 @@ describe("fake-upstash client hooks", () => {
     await expect(redis.incr("c")).rejects.toThrow("down");
   });
 
+  it("hincrby adds to one hash field and fails with incrFails", async () => {
+    const fake = createFakeRedis();
+    const { Redis } = fakeRedisModule(fake);
+    const redis = new Redis();
+    expect(await redis.hincrby("h", "a", 1)).toBe(1);
+    expect(await redis.hincrby("h", "a", 2)).toBe(3);
+    expect(await redis.hincrby("h", "b", 1)).toBe(1);
+    expect(await redis.hgetall("h")).toEqual({ a: "3", b: "1" });
+    fake.incrFails = true;
+    await expect(redis.hincrby("h", "a", 1)).rejects.toThrow("down");
+  });
+
+  it("del removes a key and reports whether it existed", async () => {
+    const fake = createFakeRedis();
+    const { Redis } = fakeRedisModule(fake);
+    const redis = new Redis();
+    await redis.set("k", "v", { nx: true });
+    expect(await redis.del("k")).toBe(1);
+    expect(await redis.del("k")).toBe(0);
+    expect(await redis.set("k", "v", { nx: true })).toBe("OK");
+  });
+
   it("ratelimit follows limit and counts calls", async () => {
     const fake = createFakeRedis();
     const { Ratelimit } = fakeRatelimitModule(fake);
