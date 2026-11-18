@@ -20,6 +20,14 @@ import {
 } from "@/components/layout/detail-layout";
 import { ArticleJsonLd, FAQJsonLd } from "@/components/seo/JsonLd";
 import {
+  basisSentence,
+  comparisonFaq,
+  comparisonHeadline,
+  lowerList,
+  sentence,
+  shortTradition,
+} from "@/lib/comparison-copy";
+import {
   getDeityComparison,
   getDeityComparisons,
   getRelatedComparisons,
@@ -45,54 +53,16 @@ export async function generateStaticParams() {
   }));
 }
 
-const listFormat = new Intl.ListFormat("en", {
-  style: "long",
-  type: "conjunction",
-});
-
-/** "sky, thunder and justice" as readers write it. */
-function list(items: readonly string[]): string {
-  return listFormat.format(items.map((item) => item.toLowerCase()));
-}
-
-function sentence(text: string): string {
-  const trimmed = text.trim();
-  const capitalized = trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
-  return /[.!?]$/.test(capitalized) ? capitalized : `${capitalized}.`;
-}
-
-function shortTradition(deity: ComparisonDeity): string {
-  return deity.pantheonName.replace(/\s+(Pantheon|Tradition|Traditions)$/, "");
-}
-
-/** One sentence saying why these two share a page (lede and description). */
-function basisSentence(comparison: DeityComparison): string {
-  const { a, b, basis } = comparison;
-  if (basis.kind === "parallel") {
-    const note = basis.notes[0];
-    return note
-      ? sentence(note)
-      : `${a.displayName} and ${b.displayName} hold comparable places in the ${shortTradition(a)} and ${shortTradition(b)} traditions.`;
-  }
-  if (basis.relation === "parent and child") {
-    return `${a.displayName} and ${b.displayName} are recorded as parent and child in the ${a.pantheonName}.`;
-  }
-  if (basis.relation === "rivals") {
-    return `${a.displayName} and ${b.displayName} are recorded as rivals in the ${a.pantheonName}.`;
-  }
-  return `${a.displayName} and ${b.displayName} are recorded as siblings in the ${a.pantheonName}.`;
-}
-
 /** Plain-language account of what the two share. */
 function meetingSentences(comparison: DeityComparison): string[] {
   const { a, b, sharedDomains, sharedSymbols, basis } = comparison;
   const sentences: string[] = [];
   if (sharedDomains.length > 0) {
-    sentences.push(`Both are associated with ${list(sharedDomains)}.`);
+    sentences.push(`Both are associated with ${lowerList(sharedDomains)}.`);
   }
   if (sharedSymbols.length > 0) {
     sentences.push(
-      `They share ${sharedSymbols.length === 1 ? "a symbol" : "symbols"}: ${list(sharedSymbols)}.`,
+      `They share ${sharedSymbols.length === 1 ? "a symbol" : "symbols"}: ${lowerList(sharedSymbols)}.`,
     );
   }
   if (sentences.length === 0) {
@@ -106,10 +76,6 @@ function meetingSentences(comparison: DeityComparison): string[] {
     );
   }
   return sentences;
-}
-
-function headline(comparison: DeityComparison): string {
-  return `${comparison.a.displayName} vs ${comparison.b.displayName}`;
 }
 
 export async function generateMetadata({
@@ -126,7 +92,7 @@ export async function generateMetadata({
   }
 
   const { a, b } = comparison;
-  const title = headline(comparison);
+  const title = comparisonHeadline(comparison);
   // The basis sentence leads: it is the part that differs between the pairs.
   const scope =
     a.pantheonName === b.pantheonName
@@ -283,7 +249,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
 
   const { a, b, sharedDomains, sharedSymbols, distinctDomains, basis } =
     comparison;
-  const title = headline(comparison);
+  const title = comparisonHeadline(comparison);
   const lede = basisSentence(comparison);
   const related = getRelatedComparisons(comparison);
   const hasWorship = hasWorshipDetail(a) || hasWorshipDetail(b);
@@ -291,24 +257,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
   const furtherNotes = basis.kind === "parallel" ? basis.notes.slice(1) : [];
   const meeting = meetingSentences(comparison);
 
-  const faq = [
-    {
-      question: `How are ${a.displayName} and ${b.displayName} related?`,
-      answer: lede,
-    },
-    {
-      question: `What do ${a.name} and ${b.name} have in common?`,
-      answer: sharedDomains.length
-        ? `Both are associated with ${list(sharedDomains)}.`
-        : `They share no domain in this atlas: ${a.name} is associated with ${list(a.domain)}, and ${b.name} with ${list(b.domain)}.`,
-    },
-    {
-      question: `Which traditions do they belong to?`,
-      answer: comparison.sameTradition
-        ? `Both belong to the ${a.pantheonName}.`
-        : `${a.displayName} belongs to the ${a.pantheonName}, and ${b.displayName} to the ${b.pantheonName}.`,
-    },
-  ];
+  const faq = comparisonFaq(comparison);
 
   const toc: TocItem[] = [
     { id: "glance", label: "At a glance" },
@@ -428,7 +377,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
             title="More comparisons"
             links={related.map((other) => ({
               href: `/compare/${other.slug}`,
-              label: headline(other),
+              label: comparisonHeadline(other),
             }))}
           />
         }
@@ -507,7 +456,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
                   </h3>
                   <p className="mt-2 type-reading text-foreground/90">
                     {domains.length > 0
-                      ? sentence(`associated with ${list(domains)}`)
+                      ? sentence(`associated with ${lowerList(domains)}`)
                       : "Every domain the atlas records is shared with the other."}
                   </p>
                 </div>
