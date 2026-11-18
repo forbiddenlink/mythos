@@ -16,6 +16,7 @@ import {
   getGodsOfDomains,
   godsOfFaq,
   godsOfLeads,
+  godsOfShortAnswer,
   godsOfTitle,
   type GodsOfDomain,
 } from "@/lib/gods-of";
@@ -36,15 +37,15 @@ export function generateStaticParams() {
 }
 
 function listNames(page: GodsOfDomain, limit: number): string {
-  return godsOfLeads(page)
-    .concat(page.traditions.flatMap((t) => t.deities.slice(1)))
-    .slice(0, limit)
-    .map((d) => d.name)
-    .join(", ");
-}
-
-function lede(page: GodsOfDomain): string {
-  return `${page.deityCount} deities from ${page.traditions.length} traditions whose entries in this atlas list ${page.domain} among their domains, grouped by tradition.`;
+  // Two traditions can share a name (the Greek and the Roman Apollo).
+  const names = new Set(
+    godsOfLeads(page)
+      .map((lead) => lead.name)
+      .concat(
+        page.traditions.flatMap((t) => t.deities.slice(1).map((d) => d.name)),
+      ),
+  );
+  return [...names].slice(0, limit).join(", ");
 }
 
 export async function generateMetadata({
@@ -127,13 +128,13 @@ export default async function GodsOfDomainPage({
     <>
       <CollectionPageJsonLd
         name={`${title} in World Mythology`}
-        description={lede(page)}
+        description={godsOfShortAnswer(page)}
         url={url}
         numberOfItems={page.deityCount}
       />
       <ItemListJsonLd
         name={title}
-        description={lede(page)}
+        description={godsOfShortAnswer(page)}
         url={url}
         items={items}
       />
@@ -143,7 +144,7 @@ export default async function GodsOfDomainPage({
         mark="constellation"
         tagline="Divine domains"
         title={title}
-        description={lede(page)}
+        description={godsOfShortAnswer(page)}
       />
 
       <Container className="pt-6 pb-4 md:pt-8">

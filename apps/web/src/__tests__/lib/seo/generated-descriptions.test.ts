@@ -68,4 +68,20 @@ describe("generated meta descriptions", () => {
     );
     expect(bad).toEqual([]);
   }, 60_000);
+
+  it("names no deity twice on a gods-of page", async () => {
+    // Two traditions can share a name: the Greek and the Roman Apollo.
+    const all = await descriptions(
+      godsOfMeta,
+      "domain",
+      getGodsOfDomains().map((g) => g.slug),
+    );
+    const repeated = all.filter(([, d]) => {
+      // The closing sentence is dropped when the text would pass 160.
+      const list = d.match(/including (.+?)\.(?: Compare |$)/)?.[1] ?? "";
+      const names = list.split(", ");
+      return names.length < 2 || new Set(names).size !== names.length;
+    });
+    expect(repeated).toEqual([]);
+  });
 });
