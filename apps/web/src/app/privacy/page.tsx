@@ -148,9 +148,13 @@ export default function PrivacyPolicyPage() {
           your IP address to deliver the response; the count keeps none of it.
         </p>
         <p>
-          You are left out of the count when your browser sends a Global Privacy
-          Control signal, or when you decline non-essential cookies in the
-          cookie banner or the Cookie Settings link in the footer.
+          You are left out of every count your browser sends (page loads, second
+          pages and confirmation links opened) when your browser sends a Global
+          Privacy Control signal, or when you decline non-essential cookies in
+          the cookie banner or the Cookie Settings link in the footer. Sign-up
+          requests and confirmations are counted for every request, because our
+          server counts its own answers there and cannot see those choices;
+          those totals still hold no email address and nothing about you.
         </p>
       </section>
 

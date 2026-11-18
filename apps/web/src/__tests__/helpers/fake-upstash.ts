@@ -24,6 +24,8 @@ export interface FakeRedis {
   kv: Map<string, string>;
   hashes: Map<string, Map<string, string>>;
   counters: Map<string, number>;
+  /** Expiry in seconds last given to `set` for a key. */
+  ttls: Map<string, number>;
   /** Set once the Redis constructor has run. */
   touched: boolean;
   /** Next set() (not a lock) commits but throws, like a lost acknowledgement. */
@@ -49,6 +51,7 @@ export function createFakeRedis(): FakeRedis {
     kv: new Map(),
     hashes: new Map(),
     counters: new Map(),
+    ttls: new Map(),
     touched: false,
     lostAck: false,
     evalFails: false,
@@ -61,6 +64,7 @@ export function createFakeRedis(): FakeRedis {
       fake.kv.clear();
       fake.hashes.clear();
       fake.counters.clear();
+      fake.ttls.clear();
       fake.touched = false;
       fake.lostAck = false;
       fake.evalFails = false;
@@ -186,6 +190,7 @@ export function fakeRedisModule(fake: FakeRedis) {
         if (isLock && fake.lockContended) return null;
         if (opts.nx && fake.kv.has(key)) return null;
         fake.kv.set(key, value);
+        if (opts.ex !== undefined) fake.ttls.set(key, opts.ex);
         if (fake.lostAck && !isLock) {
           fake.lostAck = false;
           fake.evalFails = false;

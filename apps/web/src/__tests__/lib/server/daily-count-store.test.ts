@@ -290,6 +290,17 @@ describe("the forward claim", () => {
     expect(await claimDayForward(DAY)).toBe(true);
   });
 
+  it("holds for ten minutes until the send is confirmed, then for the retention", async () => {
+    useUpstash();
+    const { claimDayForward, confirmDayForward } = await load();
+    const key = `mythos:count-forwarded:${DAY}`;
+    await claimDayForward(DAY);
+    expect(store.ttls.get(key)).toBe(600);
+    await confirmDayForward(DAY);
+    expect(store.ttls.get(key)).toBe(60 * 60 * 24 * 40);
+    expect(await claimDayForward(DAY)).toBe(false);
+  });
+
   it("works in memory outside production", async () => {
     const { claimDayForward, releaseDayForward } = await load();
     expect(await claimDayForward(DAY)).toBe(true);

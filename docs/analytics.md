@@ -60,7 +60,9 @@ Reloads and back/forward loads are not counted, so `arrive` with source
 **When it does not send.** Not on any host but the production one, not from an
 automated browser, not under Global Privacy Control, and not after the visitor
 rejected the cookie banner (`src/lib/analytics/daily-count-client.ts`). A
-visitor who has not answered the banner is counted. `/privacy` states this.
+visitor who has not answered the banner is counted. These gates apply to the
+browser beacon only: the newsletter step counts below are made by the server
+for every request, which cannot see either choice. `/privacy` states this.
 
 **What the server stores.** `src/lib/server/daily-count-store.ts` adds one to a
 field of the Redis hash `mythos:count:YYYY-MM-DD` (UTC) and sets a 40-day
@@ -71,7 +73,11 @@ nothing else from the request. A counter name that is not on the closed list is 
 There is no per-visitor rate limit, because that needs a key derived from the
 network address. Instead the store accepts at most 10,000 browser counts per UTC
 day (`DAILY_BEACON_CAP`) and answers 429 after that. The read-out returns the
-`beacons` tally, so a day near the ceiling is visible.
+`beacons` tally, so a day near the ceiling is visible. The same-site check
+reads headers a script can forge, so the ceiling bounds a flood but does not
+prevent one: a flooded day loses the real counts that arrive after the ceiling
+and its mix of page types is skewed. Treat a day with `beacons` near 10,000 as
+unreliable.
 
 **Newsletter steps.** `/api/newsletter` and `/api/newsletter/confirm` record
 their own answer server side: `signup-requested:<placement>`,
@@ -95,8 +101,10 @@ one `daily_total` event per counter to PostHog in a single batch request
 (`captureServerBatch`), dated noon UTC of that day, with distinct id
 `daily-count`, properties `day`, `counter`, `total`, and for page counters
 `step`, `page` and `source`. A claim key (`mythos:count-forwarded:<day>`) stops
-a second delivery from sending a day twice, and is released when the send
-fails so the next call retries. A day more than 40 days old cannot be re-sent.
+a second delivery from sending a day twice. The claim lasts 10 minutes until
+the send succeeds and is then kept for 40 days; it is released when the send
+fails. The cron reads only yesterday, so a day whose send failed is sent again
+by calling the route with `?day=`. A day more than 40 days old cannot be re-sent.
 
 `daily_total` is deliberately absent from `src/lib/analytics/events.ts`. That
 list is what a browser may post to `/api/analytics/events`, and a browser must

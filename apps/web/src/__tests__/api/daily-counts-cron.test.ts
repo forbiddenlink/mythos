@@ -159,6 +159,11 @@ describe("daily counts read-out: forward", () => {
       },
     ]);
 
+    // The claim now lasts as long as the day's totals.
+    expect(store.ttls.get(`mythos:count-forwarded:${YESTERDAY}`)).toBe(
+      60 * 60 * 24 * 40,
+    );
+
     // A second delivery of the same cron run reads the totals but sends nothing.
     const again = await handleDailyCountsRequest(get(), ENV, NOW);
     expect(again.status).toBe(200);

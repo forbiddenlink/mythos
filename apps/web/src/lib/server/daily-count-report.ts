@@ -14,6 +14,7 @@ import { noStoreJson as json } from "@/lib/http/no-store-json";
 import { bearerMatches } from "@/lib/server/cron-auth";
 import {
   claimDayForward,
+  confirmDayForward,
   readDailyCounts,
   releaseDayForward,
 } from "@/lib/server/daily-count-store";
@@ -73,7 +74,10 @@ async function forward(
   if (!claimed) return "already_sent";
 
   const result = await captureServerBatch(events);
-  if (result.ok) return "sent";
+  if (result.ok) {
+    await confirmDayForward(day);
+    return "sent";
+  }
   await releaseDayForward(day);
   return "failed";
 }

@@ -108,6 +108,13 @@ export const DAILY_BEACON_CAP = 10_000;
 
 /** How long a day's totals are kept. */
 const RETENTION_SECONDS = 60 * 60 * 24 * 40;
+/** Longest wait for one store request. */
+const STORE_TIMEOUT_MS = 1500;
+/**
+ * How long a forward claim holds before the send is confirmed. Long enough
+ * for one run, short enough that a run that died mid-send can be repeated.
+ */
+const FORWARD_CLAIM_SECONDS = 60 * 10;
 /** Hash field that counts stored beacons against the cap. Not a counter. */
 const BEACON_TALLY = "beacons";
 
@@ -126,9 +133,17 @@ function keyFor(day: string): string {
 function connect(): Redis | null {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  // One retry, not the client's default five: a count is best effort and must
-  // not hold a sign-up answer for seconds while the store is down.
-  return url && token ? new Redis({ url, token, retry: { retries: 1 } }) : null;
+  // One retry and a short time limit per request, not the client's default
+  // five retries: a count is best effort and must not hold a sign-up answer
+  // while the store is down or slow.
+  return url && token
+    ? new Redis({
+        url,
+        token,
+        retry: { retries: 1 },
+        signal: () => AbortSignal.timeout(STORE_TIMEOUT_MS),
+      })
+    : null;
 }
 
 /**
@@ -241,7 +256,9 @@ function forwardKeyFor(day: string): string {
 /**
  * Claims the single forward of a day's totals to analytics. False when the
  * day is already claimed, null when the store cannot say. A cron delivery
- * that arrives twice must not send the day twice.
+ * that arrives twice must not send the day twice. The claim is short-lived
+ * until confirmDayForward keeps it, so a run that dies mid-send does not
+ * block the day for good.
  */
 export async function claimDayForward(day: string): Promise<boolean | null> {
   try {
@@ -254,11 +271,23 @@ export async function claimDayForward(day: string): Promise<boolean | null> {
     }
     const set = await redis.set(forwardKeyFor(day), "1", {
       nx: true,
-      ex: RETENTION_SECONDS,
+      ex: FORWARD_CLAIM_SECONDS,
     });
     return set === "OK";
   } catch {
     return null;
+  }
+}
+
+/** Keeps a claim for as long as the day's totals exist, after a send that worked. */
+export async function confirmDayForward(day: string): Promise<void> {
+  try {
+    const redis = connect();
+    if (redis) {
+      await redis.set(forwardKeyFor(day), "1", { ex: RETENTION_SECONDS });
+    }
+  } catch {
+    // The short claim lapses; a later call for this day could send it again.
   }
 }
 
