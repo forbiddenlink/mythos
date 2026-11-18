@@ -1,6 +1,6 @@
 # Analytics and observability
 
-Snapshot as of 2026-10-08.
+Snapshot as of 2026-11-18.
 
 ## What the site measures and why
 
@@ -35,6 +35,86 @@ so nothing recorded pre-consent can be replayed afterwards. Withdrawing consent
 removes the sink and opts the SDK out. Accepting again reconnects the cached SDK
 without replaying earlier interactions; each product capture also checks current
 consent so a change cannot leak an event while React updates.
+
+## Anonymous daily counts
+
+Consented analytics saw about 7% of search visits in November 2026, too few to
+judge a page type. The daily count covers the rest without identifying anyone.
+It is a separate path from the event set above and shares none of its code on
+the browser side.
+
+**What the browser sends.** `DailyCountBeacon` (mounted once in
+`GlobalClientAddons`) posts to `/api/count` one of two bodies, built from
+closed lists in `src/lib/daily-counts.ts`:
+
+- `{ step, page, source }`: `step` is `arrive` (one per page load) or `onward`
+  (the first client navigation after it). `page` is a page type such as
+  `gods-of` or `story`. `source` is `search`, `internal`, `direct` or `other`.
+  Both steps describe the arrival page, so `onward / arrive` is an onward rate
+  per page type. The path and the referrer never leave the browser.
+- `{ step: "confirm-view" }`: the confirmation page opened with a link token.
+
+Reloads and back/forward loads are not counted, so `arrive` with source
+`search` stays comparable with Search Console clicks.
+
+**When it does not send.** Not on any host but the production one, not from an
+automated browser, not under Global Privacy Control, and not after the visitor
+rejected the cookie banner (`src/lib/analytics/daily-count-client.ts`). A
+visitor who has not answered the banner is counted. `/privacy` states this.
+
+**What the server stores.** `src/lib/server/daily-count-store.ts` adds one to a
+field of the Redis hash `mythos:count:YYYY-MM-DD` (UTC) and sets a 40-day
+expiry. Nothing else is written: no address, no User-Agent, no identifier. The
+route reads the JSON body, plus Origin and Host for the same-site check, and
+nothing else from the request. A counter name that is not on the closed list is refused.
+
+There is no per-visitor rate limit, because that needs a key derived from the
+network address. Instead the store accepts at most 10,000 browser counts per UTC
+day (`DAILY_BEACON_CAP`) and answers 429 after that. The read-out returns the
+`beacons` tally, so a day near the ceiling is visible.
+
+**Newsletter steps.** `/api/newsletter` and `/api/newsletter/confirm` record
+their own answer server side: `signup-requested:<placement>`,
+`signup-refused:<reason>`, and `confirm:<ok|expired|invalid|busy|rate-limited|unavailable>`.
+A honeypot hit is counted nowhere. The count is awaited and never changes the
+answer; when the store is down the step is not counted. Unsubscribes are not
+counted here: Resend holds that state, and the webhook can be delivered more
+than once.
+
+**Reading the totals.** `GET /api/cron/daily-counts` with
+`Authorization: Bearer $CRON_SECRET` returns `{ day, counts, beacons, forwarded }`.
+With no query it reads yesterday (UTC); `?day=YYYY-MM-DD` reads a named day.
+
+```bash
+curl -s -H "Authorization: Bearer $CRON_SECRET" \
+  "https://mythosatlas.com/api/cron/daily-counts?day=2026-11-18"
+```
+
+A Vercel cron calls the same route at 00:23 UTC. For a finished day it sends
+one `daily_total` event per counter to PostHog in a single batch request
+(`captureServerBatch`), dated noon UTC of that day, with distinct id
+`daily-count`, properties `day`, `counter`, `total`, and for page counters
+`step`, `page` and `source`. A claim key (`mythos:count-forwarded:<day>`) stops
+a second delivery from sending a day twice, and is released when the send
+fails so the next call retries. A day more than 40 days old cannot be re-sent.
+
+`daily_total` is deliberately absent from `src/lib/analytics/events.ts`. That
+list is what a browser may post to `/api/analytics/events`, and a browser must
+not be able to post a total.
+
+Example HogQL for the onward rate by page type:
+
+```sql
+SELECT properties.page AS page,
+       sumIf(toInt(properties.total), properties.step = 'arrive') AS arrivals,
+       sumIf(toInt(properties.total), properties.step = 'onward') AS onward
+FROM events
+WHERE event = 'daily_total'
+  AND properties.source = 'search'
+  AND timestamp >= now() - INTERVAL 28 DAY
+GROUP BY page
+ORDER BY arrivals DESC
+```
 
 ## The ingest proxy
 

@@ -55,7 +55,7 @@ pnpm knip                             # unused files/deps/exports (CI)
 
 ## Layout
 
-- `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `analytics`, `csp-report`, `quiz`, `newsletter`, and the prerendered `catalog/*` and `daily-myth` JSON)
+- `apps/web/src/app/` - Next.js App Router pages, including route handlers under `api/` (`oracle`, `analytics`, `count`, `csp-report`, `quiz`, `newsletter`, `cron`, and the prerendered `catalog/*` and `daily-myth` JSON)
 - `apps/web/src/data/` - static JSON content: `pantheons.json`, `deities.json`, `stories.json`, `creatures.json`, `artifacts.json`, `locations.json`, `relationships.json`, plus game/progress data (`achievements.ts`, `daily-challenges.json`, `collections.json`, `journeys.json`, etc.)
 - `apps/web/src/types/Entity.ts` - entity types (`Deity`, `Creature`, `Artifact`, `Story`, `Pantheon`, etc.) - the Zod catalog schemas in `src/lib/schemas.ts` (validated in tests) must stay consistent with these interfaces
 - `apps/web/src/components/ui/` - shadcn/ui components (new-york style), configured via `apps/web/components.json`
@@ -107,7 +107,7 @@ From `apps/web/.env.example`:
 - `NEWSLETTER_CONFIRM_SECRET` - optional secret that signs and verifies sign-up confirmation links (`getNewsletterConfirmSecret` in `src/lib/newsletter.ts`). Unset, links are signed with `RESEND_API_KEY` (so links already sent stay valid) and rotating that key voids pending links. Set it before rotating the Resend key. One secret is used, never both
 - `RESEND_WEBHOOK_SECRET` - secret; signing secret of the Resend webhook for `contact.updated` pointed at `/api/newsletter/webhook`. It is how unsubscribes are recorded, so while it is unset `/api/newsletter/confirm` answers 503 (and logs why) and the webhook answers 501. Set it before sign-up confirmation can work
 - `NEWSLETTER_FROM` - sender address for the sign-up confirmation email (`src/lib/newsletter.ts`). Required with `RESEND_API_KEY`; without it sign-ups answer 501 and the forms show "sign-ups open soon"
-- `CRON_SECRET` - secret; the `/api/cron/weekly-digest` and `/api/cron/newsletter-consent-repair` routes require `Authorization: Bearer $CRON_SECRET` and answer 501 while it is unset
+- `CRON_SECRET` - secret; the `/api/cron/weekly-digest`, `/api/cron/newsletter-consent-repair` and `/api/cron/daily-counts` routes require `Authorization: Bearer $CRON_SECRET` and answer 501 while it is unset
 - `NEWSLETTER_DIGEST_SEND` - optional; the weekly digest cron creates a Resend draft and sends it only when this is `"true"`
 - `RESEND_SEGMENT_ID` - optional, non-secret Resend segment for the digest (defaults to `ef4d9db5-a6ff-4f30-adf3-be3576e3fe42`)
 - `NEXT_PUBLIC_STRIPE_PATRON_LINK` - optional Stripe payment link for the recurring "patron" tier on `/support`; hidden when unset
@@ -118,4 +118,5 @@ From `apps/web/.env.example`:
 - The `src/lib/schemas.ts` Zod contracts and `src/types/Entity.ts` interfaces must be kept in sync.
 - Analytics events are a closed set in `src/lib/analytics/events.ts`, validated at runtime on both client and server. Add the name there first or the event is dropped. See `docs/analytics.md`.
 - Use the configured `pnpm --filter web build` webpack pipeline; next-pwa is not active.
+- The anonymous daily count (`/api/count`, `src/lib/server/daily-count-store.ts`) runs without cookie consent because it stores only per-day totals. It must stay that way: no address, User-Agent, path or identifier may be read or stored there, and its counter list is closed. `/privacy` promises this. See `docs/analytics.md`.
 - Vercel Analytics/Speed Insights load only after cookie consent (and never when Global Privacy Control is on); `NEXT_PUBLIC_VERCEL_ANALYTICS_ID` is unused by current code.
