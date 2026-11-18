@@ -49,6 +49,9 @@ function expectSound(steps: NextStepSet, page: string) {
     expect(link.label, page).not.toBe("");
     expect(link.meta, `${page} -> ${link.href}`).toMatch(/\S/);
     expect(link.meta, page).not.toMatch(/undefined|Same tradition/);
+    // A reason names at most two figures: a list of three would read
+    // "A, B, and C". A name may hold a comma of its own.
+    if (isFeature(link)) expect(link.meta, page).not.toContain(", and ");
   }
   for (const myth of steps.myths) {
     expect(storyByHref.has(myth.href), `${page} -> ${myth.href}`).toBe(true);
@@ -103,6 +106,13 @@ describe("godsOfNextSteps", () => {
       // The page lists its comparisons and related domains above the block.
       expect(steps.related, page.slug).toEqual([]);
     }
+  });
+
+  it("names two figures when one story features more than one of them", () => {
+    const reasons = pages.flatMap((page) =>
+      godsOfNextSteps(page).myths.map((link) => link.meta),
+    );
+    expect(reasons).toContain("Features Huitzilopochtli and Coyolxauhqui");
   });
 
   it("claims a myth features a deity only when the story records it", () => {

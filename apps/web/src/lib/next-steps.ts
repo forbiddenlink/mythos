@@ -118,15 +118,19 @@ function mythLinks(
 
   const stories = getStories();
   const shortNames = getPantheonShortNames();
-  const fromTradition = unique(pantheonIds).map((pantheonId) =>
-    stories
-      .filter((story) => story.pantheonId === pantheonId)
-      .map((story) => ({
-        href: `/stories/${story.slug}`,
-        label: story.title,
-        meta: `${shortNames[pantheonId] ?? "Same"} tradition`,
-      })),
-  );
+  // A tradition the catalog cannot name gives no reason line, so it gives no
+  // link.
+  const fromTradition = unique(pantheonIds)
+    .filter((pantheonId) => shortNames[pantheonId])
+    .map((pantheonId) =>
+      stories
+        .filter((story) => story.pantheonId === pantheonId)
+        .map((story) => ({
+          href: `/stories/${story.slug}`,
+          label: story.title,
+          meta: `${shortNames[pantheonId]} tradition`,
+        })),
+    );
   takeInTurn(fromTradition, (link) => link.href, MYTH_LINKS, taken);
 
   return [...taken.values()];
