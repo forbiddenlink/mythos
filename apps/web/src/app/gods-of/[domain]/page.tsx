@@ -15,6 +15,7 @@ import {
   getGodsOfDomain,
   getGodsOfDomains,
   godsOfFaq,
+  godsOfLeads,
   godsOfTitle,
   type GodsOfDomain,
 } from "@/lib/gods-of";
@@ -35,8 +36,7 @@ export function generateStaticParams() {
 }
 
 function listNames(page: GodsOfDomain, limit: number): string {
-  return page.traditions
-    .flatMap((t) => t.deities.slice(0, 1))
+  return godsOfLeads(page)
     .concat(page.traditions.flatMap((t) => t.deities.slice(1)))
     .slice(0, limit)
     .map((d) => d.name)

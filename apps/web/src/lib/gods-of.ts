@@ -251,6 +251,11 @@ export function godsOfLinksForDomains(
   return out;
 }
 
+/** The first deity listed under each tradition, in the page's tradition order. */
+export function godsOfLeads(page: GodsOfDomain): DomainDeity[] {
+  return page.traditions.flatMap((tradition) => tradition.deities.slice(0, 1));
+}
+
 /** "Gods of War" — the page's name, singular noun kept plural for search intent. */
 export function godsOfTitle(page: Pick<GodsOfDomain, "domain">): string {
   return `Gods of ${domainLabel(page.domain)}`;
