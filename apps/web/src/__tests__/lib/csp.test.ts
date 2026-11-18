@@ -95,16 +95,26 @@ describe("buildScriptSrc", () => {
     expect(csp).toContain("report-to csp-endpoint");
   });
 
+  it("allows data: media for howler's silent unlock clip, and nothing remote", () => {
+    const csp = buildCsp({ mode: "strict", nonce: "n", hashes: [] });
+    const media = csp
+      .split(";")
+      .map((d) => d.trim())
+      .find((d) => d.startsWith("media-src"));
+    expect(media).toBe("media-src 'self' data:");
+  });
+
   it("lets the browser SDK reach the US Sentry ingest host", () => {
     // CSP "*.a.b" only matches hosts ending in ".a.b", so *.ingest.sentry.io
     // silently blocked every client event sent to o<org>.ingest.us.sentry.io.
     const csp = buildCsp({ mode: "strict", nonce: "n", hashes: [] });
-    const connect = csp
-      .split(";")
-      .map((d) => d.trim())
-      .find((d) => d.startsWith("connect-src"))
-      ?.split(" ")
-      .slice(1) ?? [];
+    const connect =
+      csp
+        .split(";")
+        .map((d) => d.trim())
+        .find((d) => d.startsWith("connect-src"))
+        ?.split(" ")
+        .slice(1) ?? [];
     const host = "o4509096111112192.ingest.us.sentry.io";
     const allowed = connect.some((src) => {
       const m = /^https:\/\/\*\.(.+)$/.exec(src);
