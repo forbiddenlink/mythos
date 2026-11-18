@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  comparisonPageTitle,
   creatureTitle,
   deityKind,
   deityTitle,
@@ -166,6 +167,23 @@ describe("godsOfPageTitle", () => {
   it("shortens a long label to fit", () => {
     const title = godsOfPageTitle("Gods of Agriculture and Fertility", 40, 20);
     expect(title.length).toBeLessThanOrEqual(TITLE_BUDGET);
+  });
+});
+
+describe("comparisonPageTitle", () => {
+  it("names what a reader who types the pairing is asking for", () => {
+    expect(comparisonPageTitle("Indra vs Thor")).toBe(
+      "Indra vs Thor: Similarities and Differences",
+    );
+  });
+  it("keeps the bare pairing when the suffix does not fit", () => {
+    const pairing = "Baal (Baʿlu Haddu) vs Tarhunna (the Storm-god of Hatti)";
+    expect(comparisonPageTitle(pairing)).toBe(pairing);
+    const justFits = "x".repeat(
+      TITLE_BUDGET - ": Similarities and Differences".length,
+    );
+    expect(comparisonPageTitle(justFits)).toHaveLength(TITLE_BUDGET);
+    expect(comparisonPageTitle(`${justFits}x`)).toBe(`${justFits}x`);
   });
 });
 

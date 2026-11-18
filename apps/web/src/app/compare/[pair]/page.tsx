@@ -8,6 +8,7 @@ import {
   FactLink,
   TagList,
 } from "@/components/content/detail-parts";
+import { EntryFaq } from "@/components/content/EntryFaq";
 import { ReadingParagraph } from "@/components/content/reading-prose";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import {
@@ -18,12 +19,13 @@ import {
   FactList,
   type TocItem,
 } from "@/components/layout/detail-layout";
-import { ArticleJsonLd, FAQJsonLd } from "@/components/seo/JsonLd";
+import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import {
   basisSentence,
   comparisonFaq,
   comparisonHeadline,
-  lowerList,
+  contrastSummary,
+  phraseList,
   sentence,
   sharedTraitSentences,
   shortTradition,
@@ -37,6 +39,7 @@ import {
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { truncateDescription } from "@/lib/seo/description";
+import { comparisonPageTitle } from "@/lib/seo/entry-titles";
 
 interface PageProps {
   params: Promise<{ pair: string }>;
@@ -67,7 +70,9 @@ export async function generateMetadata({
   }
 
   const { a, b } = comparison;
-  const title = comparisonHeadline(comparison);
+  // The heading on the page stays "X vs Y"; the search title also names what
+  // a reader who types "X vs Y" is asking for.
+  const title = comparisonPageTitle(comparisonHeadline(comparison));
   // The basis sentence leads: it is the part that differs between the pairs.
   const scope =
     a.pantheonName === b.pantheonName
@@ -243,6 +248,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
       : []),
     ...(hasWorship ? [{ id: "worship", label: "Worship" }] : []),
     { id: "accounts", label: "The two figures" },
+    { id: "faq", label: "Quick answers" },
   ];
 
   const relationLabel =
@@ -315,7 +321,6 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
         section="Comparative mythology"
         tags={[a.name, b.name, a.pantheonName, b.pantheonName]}
       />
-      <FAQJsonLd questions={faq} />
 
       <DetailLayout
         hero={
@@ -332,7 +337,12 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
               </>
             }
             title={title}
-            lede={<p>{lede}</p>}
+            lede={
+              <>
+                <p>{lede}</p>
+                <p className="mt-3">{contrastSummary(comparison)}</p>
+              </>
+            }
             actions={
               <Link
                 href="/compare"
@@ -431,7 +441,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
                   </h3>
                   <p className="mt-2 type-reading text-foreground/90">
                     {domains.length > 0
-                      ? sentence(`associated with ${lowerList(domains)}`)
+                      ? sentence(`associated with ${phraseList(domains)}`)
                       : "Every domain the atlas records is shared with the other."}
                   </p>
                 </div>
@@ -469,6 +479,10 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
               <DeityAccount deity={a} />
               <DeityAccount deity={b} />
             </div>
+          </ArticleSection>
+
+          <ArticleSection id="faq" title="Quick answers">
+            <EntryFaq id="compare-faq" items={faq} />
           </ArticleSection>
 
           <AboutThisPage title="About this comparison" size={false}>

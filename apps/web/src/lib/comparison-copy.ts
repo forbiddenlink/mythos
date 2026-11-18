@@ -12,9 +12,13 @@ const listFormat = new Intl.ListFormat("en", {
   type: "conjunction",
 });
 
-/** "sky, thunder, and justice": lower case, as a sentence reads it. */
-export function lowerList(items: readonly string[]): string {
-  return listFormat.format(items.map((item) => item.toLowerCase()));
+/**
+ * "sky, thunder, and justice". The catalog writes domains and symbols in
+ * lower case and capitalises only proper nouns ("the founding of Cusco"), so
+ * the items are joined as written.
+ */
+export function phraseList(items: readonly string[]): string {
+  return listFormat.format(items);
 }
 
 export function sentence(text: string): string {
@@ -55,11 +59,11 @@ export function sharedTraitSentences(comparison: DeityComparison): string[] {
   const { a, b, sharedDomains, sharedSymbols, basis } = comparison;
   const sentences: string[] = [];
   if (sharedDomains.length > 0) {
-    sentences.push(`Both are associated with ${lowerList(sharedDomains)}.`);
+    sentences.push(`Both are associated with ${phraseList(sharedDomains)}.`);
   }
   if (sharedSymbols.length > 0) {
     sentences.push(
-      `They share ${sharedSymbols.length === 1 ? "a symbol" : "symbols"}: ${lowerList(sharedSymbols)}.`,
+      `They share ${sharedSymbols.length === 1 ? "a symbol" : "symbols"}: ${phraseList(sharedSymbols)}.`,
     );
   }
   if (sentences.length === 0) {
@@ -75,25 +79,86 @@ export function sharedTraitSentences(comparison: DeityComparison): string[] {
   return sentences;
 }
 
-/** The questions a comparison page answers, in page order. */
+/** How many domains a summary sentence names before it stops. */
+const SUMMARY_DOMAINS = 3;
+
+/**
+ * What the two share and where they part, by domain, in one or two sentences.
+ * Each list keeps the order of the deity's own record, which puts the domains
+ * the deity is best known for first.
+ */
+export function contrastSummary(comparison: DeityComparison): string {
+  const { a, b, sharedDomains, distinctDomains } = comparison;
+  const shared = sharedDomains.slice(0, SUMMARY_DOMAINS);
+  const onlyA = distinctDomains.a.slice(0, SUMMARY_DOMAINS);
+  const onlyB = distinctDomains.b.slice(0, SUMMARY_DOMAINS);
+
+  if (shared.length === 0) {
+    return `${a.displayName} is associated with ${phraseList(onlyA)}, and ${b.displayName} with ${phraseList(onlyB)}.`;
+  }
+  const both = `Both are associated with ${phraseList(shared)}.`;
+  if (onlyA.length > 0 && onlyB.length > 0) {
+    return `${both} ${a.displayName} is also associated with ${phraseList(onlyA)}, and ${b.displayName} with ${phraseList(onlyB)}.`;
+  }
+  const [deity, domains] = onlyA.length > 0 ? [a, onlyA] : [b, onlyB];
+  return domains.length > 0
+    ? `${both} ${deity.displayName} is also associated with ${phraseList(domains)}.`
+    : both;
+}
+
+function traditionsSentence(comparison: DeityComparison): string {
+  const { a, b } = comparison;
+  return comparison.sameTradition
+    ? `Both belong to the ${a.pantheonName}.`
+    : `${a.displayName} belongs to the ${a.pantheonName}, and ${b.displayName} to the ${b.pantheonName}.`;
+}
+
+/** Every domain the records give to one of the two and not to the other. */
+function domainDifference(comparison: DeityComparison): string {
+  const { a, b, distinctDomains } = comparison;
+  const onlyA = distinctDomains.a;
+  const onlyB = distinctDomains.b;
+  if (onlyA.length > 0 && onlyB.length > 0) {
+    return `In this atlas, only ${a.displayName} is associated with ${phraseList(onlyA)}, and only ${b.displayName} with ${phraseList(onlyB)}.`;
+  }
+  if (onlyA.length === 0 && onlyB.length === 0) {
+    return "The atlas records the same domains for both.";
+  }
+  const [deity, other, domains] =
+    onlyA.length > 0 ? [a, b, onlyA] : [b, a, onlyB];
+  return `In this atlas, only ${deity.displayName} is associated with ${phraseList(domains)}; every domain recorded for ${other.displayName} is shared with ${deity.displayName}.`;
+}
+
+/**
+ * The questions a comparison page answers, in page order. The tradition is a
+ * difference between two figures only when they come from two traditions, so
+ * it is part of the first answer there and its own question otherwise.
+ */
 export function comparisonFaq(comparison: DeityComparison): EntryFaqItem[] {
-  const { a, b, sharedDomains } = comparison;
+  const { a, b } = comparison;
+  const difference = domainDifference(comparison);
   return [
+    {
+      question: `What is the difference between ${a.displayName} and ${b.displayName}?`,
+      answer: comparison.sameTradition
+        ? difference
+        : `${traditionsSentence(comparison)} ${difference}`,
+    },
+    {
+      question: `What do ${a.displayName} and ${b.displayName} have in common?`,
+      answer: sharedTraitSentences(comparison).join(" "),
+    },
     {
       question: `How are ${a.displayName} and ${b.displayName} related?`,
       answer: basisSentence(comparison),
     },
-    {
-      question: `What do ${a.name} and ${b.name} have in common?`,
-      answer: sharedDomains.length
-        ? `Both are associated with ${lowerList(sharedDomains)}.`
-        : `They share no domain in this atlas: ${a.name} is associated with ${lowerList(a.domain)}, and ${b.name} with ${lowerList(b.domain)}.`,
-    },
-    {
-      question: `Which traditions do they belong to?`,
-      answer: comparison.sameTradition
-        ? `Both belong to the ${a.pantheonName}.`
-        : `${a.displayName} belongs to the ${a.pantheonName}, and ${b.displayName} to the ${b.pantheonName}.`,
-    },
+    ...(comparison.sameTradition
+      ? [
+          {
+            question: "Which traditions do they belong to?",
+            answer: traditionsSentence(comparison),
+          },
+        ]
+      : []),
   ];
 }

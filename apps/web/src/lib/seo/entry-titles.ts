@@ -147,3 +147,11 @@ export function godsOfPageTitle(
     `${label} in World Mythology`,
   ]);
 }
+
+/**
+ * "Zeus vs Odin: Similarities and Differences". A pairing too long for the
+ * suffix keeps the bare "X vs Y".
+ */
+export function comparisonPageTitle(pairing: string): string {
+  return firstFitting([`${pairing}: Similarities and Differences`, pairing]);
+}
