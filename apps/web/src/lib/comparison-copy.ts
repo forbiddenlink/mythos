@@ -50,6 +50,31 @@ export function basisSentence(comparison: DeityComparison): string {
   return `${a.displayName} and ${b.displayName} are recorded as siblings in the ${a.pantheonName}.`;
 }
 
+/** Plain-language account of what the two share. */
+export function sharedTraitSentences(comparison: DeityComparison): string[] {
+  const { a, b, sharedDomains, sharedSymbols, basis } = comparison;
+  const sentences: string[] = [];
+  if (sharedDomains.length > 0) {
+    sentences.push(`Both are associated with ${lowerList(sharedDomains)}.`);
+  }
+  if (sharedSymbols.length > 0) {
+    sentences.push(
+      `They share ${sharedSymbols.length === 1 ? "a symbol" : "symbols"}: ${lowerList(sharedSymbols)}.`,
+    );
+  }
+  if (sentences.length === 0) {
+    sentences.push(
+      `The atlas records no domain or symbol that ${a.name} and ${b.name} share.`,
+    );
+    sentences.push(
+      basis.kind === "parallel"
+        ? "They are compared for the part each plays in their own tradition rather than for any attribute in common."
+        : "They are compared because of how the myths connect them, not because of what they rule.",
+    );
+  }
+  return sentences;
+}
+
 /** The questions a comparison page answers, in page order. */
 export function comparisonFaq(comparison: DeityComparison): EntryFaqItem[] {
   const { a, b, sharedDomains } = comparison;

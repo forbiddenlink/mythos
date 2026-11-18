@@ -25,6 +25,7 @@ import {
   comparisonHeadline,
   lowerList,
   sentence,
+  sharedTraitSentences,
   shortTradition,
 } from "@/lib/comparison-copy";
 import {
@@ -32,7 +33,6 @@ import {
   getDeityComparisons,
   getRelatedComparisons,
   type ComparisonDeity,
-  type DeityComparison,
 } from "@/lib/comparisons";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
@@ -51,31 +51,6 @@ export async function generateStaticParams() {
   return getDeityComparisons().map((comparison) => ({
     pair: comparison.slug,
   }));
-}
-
-/** Plain-language account of what the two share. */
-function meetingSentences(comparison: DeityComparison): string[] {
-  const { a, b, sharedDomains, sharedSymbols, basis } = comparison;
-  const sentences: string[] = [];
-  if (sharedDomains.length > 0) {
-    sentences.push(`Both are associated with ${lowerList(sharedDomains)}.`);
-  }
-  if (sharedSymbols.length > 0) {
-    sentences.push(
-      `They share ${sharedSymbols.length === 1 ? "a symbol" : "symbols"}: ${lowerList(sharedSymbols)}.`,
-    );
-  }
-  if (sentences.length === 0) {
-    sentences.push(
-      `The atlas records no domain or symbol that ${a.name} and ${b.name} share.`,
-    );
-    sentences.push(
-      basis.kind === "parallel"
-        ? "They are compared for the part each plays in their own tradition rather than for any attribute in common."
-        : "They are compared because of how the myths connect them, not because of what they rule.",
-    );
-  }
-  return sentences;
 }
 
 export async function generateMetadata({
@@ -255,7 +230,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
   const hasWorship = hasWorshipDetail(a) || hasWorshipDetail(b);
   // The first note is the lede; the others explain the pairing further.
   const furtherNotes = basis.kind === "parallel" ? basis.notes.slice(1) : [];
-  const meeting = meetingSentences(comparison);
+  const meeting = sharedTraitSentences(comparison);
 
   const faq = comparisonFaq(comparison);
 

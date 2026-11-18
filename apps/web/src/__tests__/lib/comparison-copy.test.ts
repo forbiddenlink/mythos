@@ -5,6 +5,7 @@ import {
   comparisonHeadline,
   lowerList,
   sentence,
+  sharedTraitSentences,
   shortTradition,
 } from "@/lib/comparison-copy";
 import {
@@ -81,6 +82,48 @@ describe("basisSentence", () => {
     };
     expect(basisSentence(noNote)).toBe(
       `${base.a.displayName} and ${base.b.displayName} hold comparable places in the ${shortTradition(base.a)} and ${shortTradition(base.b)} traditions.`,
+    );
+  });
+});
+
+describe("sharedTraitSentences", () => {
+  it("names the shared domains and the shared symbols", () => {
+    const both = pick(
+      (c) => c.sharedDomains.length > 0 && c.sharedSymbols.length > 1,
+    );
+    expect(sharedTraitSentences(both)).toEqual([
+      `Both are associated with ${lowerList(both.sharedDomains)}.`,
+      `They share symbols: ${lowerList(both.sharedSymbols)}.`,
+    ]);
+
+    const oneSymbol = pick(
+      (c) => c.sharedDomains.length === 0 && c.sharedSymbols.length === 1,
+    );
+    expect(sharedTraitSentences(oneSymbol)).toEqual([
+      `They share a symbol: ${lowerList(oneSymbol.sharedSymbols)}.`,
+    ]);
+  });
+
+  it("says why two figures with nothing in common share a page", () => {
+    const parallel = pick(
+      (c) =>
+        c.basis.kind === "parallel" &&
+        c.sharedDomains.length === 0 &&
+        c.sharedSymbols.length === 0,
+    );
+    expect(sharedTraitSentences(parallel)).toEqual([
+      `The atlas records no domain or symbol that ${parallel.a.name} and ${parallel.b.name} share.`,
+      "They are compared for the part each plays in their own tradition rather than for any attribute in common.",
+    ]);
+
+    const kin = pick(
+      (c) =>
+        c.basis.kind === "kin" &&
+        c.sharedDomains.length === 0 &&
+        c.sharedSymbols.length === 0,
+    );
+    expect(sharedTraitSentences(kin)[1]).toBe(
+      "They are compared because of how the myths connect them, not because of what they rule.",
     );
   });
 });
