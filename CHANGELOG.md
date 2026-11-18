@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.22.0](https://github.com/forbiddenlink/mythos/compare/v1.21.1...v1.22.0) (2026-11-18)
+
+
+### Features
+
+* **seo:** spread same-tradition links and list stories on place pages ([#345](https://github.com/forbiddenlink/mythos/issues/345)) ([699a3c4](https://github.com/forbiddenlink/mythos/commit/699a3c47861a55d4440b233d4229ba7142f601c9))
+
+
+### Bug Fixes
+
+* **csp:** allow data: in media-src for howler's silent unlock clip ([#348](https://github.com/forbiddenlink/mythos/issues/348)) ([26447b0](https://github.com/forbiddenlink/mythos/commit/26447b00d4479cbbc868e520e28cffae147b4705))
+
 ## [1.21.1](https://github.com/forbiddenlink/mythos/compare/v1.21.0...v1.21.1) (2026-11-15)
 
 
