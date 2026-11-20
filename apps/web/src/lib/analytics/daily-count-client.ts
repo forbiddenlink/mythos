@@ -1,6 +1,5 @@
 import { isProductionHostname } from "@/lib/analytics/production-host";
 import { type CountBeacon, isAutomatedUserAgent } from "@/lib/daily-counts";
-import { postBeacon } from "@/lib/http/post-beacon";
 import {
   getCookieConsent,
   hasGlobalPrivacyControl,
@@ -27,7 +26,16 @@ function mayCount(): boolean {
 /** Sends one count when this browser may be counted. Never throws. */
 export function sendCount(beacon: CountBeacon): void {
   try {
-    if (mayCount()) postBeacon("/api/count", JSON.stringify(beacon));
+    if (!mayCount()) return;
+    // Confirmation URLs can contain tokens. Omit both the Referer and cookies.
+    void fetch("/api/count", {
+      method: "POST",
+      credentials: "omit",
+      referrerPolicy: "no-referrer",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(beacon),
+      keepalive: true,
+    }).catch(() => {});
   } catch {
     // A count that cannot be sent is dropped.
   }
