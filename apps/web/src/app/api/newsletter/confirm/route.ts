@@ -26,6 +26,11 @@ import { verifyConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkNewsletterConfirmRateLimit } from "@/lib/oracle/rate-limit";
 import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
+import { noStoreJson as json } from "@/lib/http/no-store-json";
+import {
+  confirmCounter,
+  recordStepCount,
+} from "@/lib/server/daily-count-store";
 
 const MAX_REQUEST_BODY_BYTES = 2 * 1024;
 const bodySchema = z.strictObject({ token: z.string().min(1).max(1024) });
@@ -37,13 +42,6 @@ const bodySchema = z.strictObject({ token: z.string().min(1).max(1024) });
  */
 export const maxDuration = 30;
 
-function json(body: Record<string, unknown>, status: number): Response {
-  return Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
-}
-
 /**
  * Double opt-in, step two. POST only, and only from our own confirm page:
  * mail scanners prefetch GET links, so a GET that subscribed would confirm
@@ -51,6 +49,20 @@ function json(body: Record<string, unknown>, status: number): Response {
  * to the digest segment.
  */
 export async function POST(req: NextRequest) {
+  const seen: { tokenFailure?: string } = {};
+  const response = await confirm(req, seen);
+  // Anonymous daily count of the step. It never changes the answer.
+  await recordStepCount(
+    confirmCounter(response.status, seen.tokenFailure),
+    response.status,
+  );
+  return response;
+}
+
+async function confirm(
+  req: NextRequest,
+  seen: { tokenFailure?: string },
+): Promise<Response> {
   const forbidden = forbiddenUnlessSameOrigin(req);
   if (forbidden) return forbidden;
 
@@ -91,6 +103,7 @@ export async function POST(req: NextRequest) {
     getNewsletterConfirmSecret(config.apiKey),
   );
   if (!verified.ok) {
+    seen.tokenFailure = verified.reason;
     return json({ confirmed: false, reason: verified.reason }, 400);
   }
 

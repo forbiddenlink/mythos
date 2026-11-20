@@ -1,6 +1,7 @@
 import { getDeities, getJourneys, getStories } from "@/lib/data/catalog";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
+  captureServerBatch,
   captureServerEvent,
   isServerAnalyticsConfigured,
   resolveServerAnalyticsConfig,
@@ -250,6 +251,85 @@ describe("server analytics sink", () => {
       ).toEqual({ ok: true });
     }
   });
+  it("sends a batch in one request, stamped like single server events", async () => {
+    process.env.POSTHOG_KEY = "phc_server";
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(new Response("{}", { status: 200 }));
+    const timestamp = new Date("2026-11-18T12:00:00.000Z");
+
+    expect(
+      await captureServerBatch([
+        {
+          event: "daily_total",
+          distinctId: "daily-count",
+          timestamp,
+          properties: { counter: "confirm:ok", total: 2 },
+        },
+        {
+          event: "daily_total",
+          distinctId: "daily-count",
+          timestamp,
+          properties: { counter: "confirm-view", total: 5 },
+        },
+      ]),
+    ).toEqual({ ok: true });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    const [url, init] = fetchSpy.mock.calls[0] ?? [];
+    expect(url).toBe("https://us.i.posthog.com/batch/");
+    expect(JSON.parse(String(init?.body))).toEqual({
+      api_key: "phc_server",
+      batch: [
+        {
+          event: "daily_total",
+          timestamp: "2026-11-18T12:00:00.000Z",
+          properties: {
+            counter: "confirm:ok",
+            total: 2,
+            app: "mythos",
+            $process_person_profile: false,
+            distinct_id: "daily-count",
+          },
+        },
+        {
+          event: "daily_total",
+          timestamp: "2026-11-18T12:00:00.000Z",
+          properties: {
+            counter: "confirm-view",
+            total: 5,
+            app: "mythos",
+            $process_person_profile: false,
+            distinct_id: "daily-count",
+          },
+        },
+      ],
+    });
+  });
+
+  it("reports a batch as not sent when there is no key or the host refuses", async () => {
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(new Response("no", { status: 500 }));
+    const events = [
+      {
+        event: "daily_total",
+        distinctId: "daily-count",
+        timestamp: new Date("2026-11-18T12:00:00.000Z"),
+        properties: {},
+      },
+    ];
+    expect(await captureServerBatch(events)).toEqual({
+      ok: false,
+      reason: "not_configured",
+    });
+    expect(fetchSpy).not.toHaveBeenCalled();
+
+    process.env.POSTHOG_KEY = "phc_server";
+    expect((await captureServerBatch(events)).ok).toBe(false);
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
+
   it("does not send server captures into a relative ingest rewrite", () => {
     process.env.NEXT_PUBLIC_POSTHOG_KEY = "phc_browser";
     process.env.POSTHOG_INGEST_ORIGIN = "/ingest";

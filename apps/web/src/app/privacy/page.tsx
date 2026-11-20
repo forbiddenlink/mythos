@@ -15,6 +15,7 @@ const TOC = [
   { id: "information-we-collect", label: "Information We Collect" },
   { id: "how-we-use-your-information", label: "How We Use Your Information" },
   { id: "cookies-and-tracking", label: "Cookies and Tracking" },
+  { id: "anonymous-page-counts", label: "Anonymous Page Counts" },
   { id: "data-storage", label: "Data Storage" },
   { id: "ai-features-oracle", label: "AI features (Oracle)" },
   { id: "your-rights", label: "Your Rights" },
@@ -34,7 +35,7 @@ export default function PrivacyPolicyPage() {
       title="Privacy Policy"
       lede="What Mythos Atlas stores, what it sends to other services, and the choices you have."
       toc={TOC}
-      meta="Last updated: September 23, 2026"
+      meta="Last updated: November 18, 2026"
     >
       <section id="introduction">
         <h2>Introduction</h2>
@@ -103,7 +104,57 @@ export default function PrivacyPolicyPage() {
           Analytics and performance metrics are only sent after you explicitly
           accept non-essential cookies. If your browser sends a Global Privacy
           Control (GPC) signal, we treat it as an analytics opt-out and do not
-          load Vercel Analytics or Speed Insights.
+          load Vercel Analytics or Speed Insights. The one measurement that does
+          not wait for that choice is the anonymous page count described in the
+          next section.
+        </p>
+      </section>
+
+      <section id="anonymous-page-counts">
+        <h2>Anonymous Page Counts</h2>
+        <p>
+          To know which kinds of pages are read, we keep daily totals that say
+          nothing about who read them. This count uses no cookie and stores
+          nothing in your browser, so it does not wait for the cookie banner.
+        </p>
+        <h3>What is counted</h3>
+        <ul>
+          <li>
+            One count when a page loads, filed under the kind of page (for
+            example &quot;a story&quot; or &quot;a deity entry&quot;) and the
+            kind of place you came from (a search engine, another page of this
+            site, no referring page, or another website).
+          </li>
+          <li>One count if you then open a second page.</li>
+          <li>
+            Newsletter steps: sign-up requests by the form used, confirmation
+            links opened, and confirmations completed or refused.
+          </li>
+        </ul>
+        <h3>What is not stored</h3>
+        <ul>
+          <li>No IP address, cookie, visitor identifier or session.</li>
+          <li>
+            No page address and no referring address. Your browser sends only
+            the kind of page and the kind of referrer.
+          </li>
+          <li>No browser, device or location details, and no email address.</li>
+        </ul>
+        <p>
+          All we keep is a number per day for each counter. Those numbers are
+          deleted from our store after 40 days, and each finished day&apos;s
+          totals are copied to PostHog as totals, not as visits. As with any
+          page you load, the request reaches our hosting provider, which handles
+          your IP address to deliver the response; the count keeps none of it.
+        </p>
+        <p>
+          You are left out of every count your browser sends (page loads, second
+          pages and confirmation links opened) when your browser sends a Global
+          Privacy Control signal, or when you decline non-essential cookies in
+          the cookie banner or the Cookie Settings link in the footer. Sign-up
+          requests and confirmations are counted for every request, because our
+          server counts its own answers there and cannot see those choices;
+          those totals still hold no email address and nothing about you.
         </p>
       </section>
 
@@ -115,18 +166,19 @@ export default function PrivacyPolicyPage() {
           unless you explicitly choose to export it.
         </p>
         <p>
-          Analytics data is processed by third-party services (Vercel Analytics
-          and PostHog) only after you accept non-essential cookies (or never,
-          when Global Privacy Control is on). PostHog also records anonymized
-          session replays of how pages are used, with everything typed into form
-          fields masked. When you close site search on a query that found
-          nothing, that final search term is also sent once (only after you
-          accept analytics) so we can see which topics are missing. Only a
-          single word made of letters, hyphens and apostrophes is sent; a
-          search of two or more words is never sent, and
-          anything containing digits or punctuation, such as an email address, a
-          link or a number, is never sent. Browser error monitoring via Sentry
-          is likewise gated behind that consent. Server-side error logs for API
+          Analytics data about your visit is processed by third-party services
+          (Vercel Analytics and PostHog) only after you accept non-essential
+          cookies (or never, when Global Privacy Control is on). The anonymous
+          daily totals described above hold nothing about a visit. PostHog also
+          records anonymized session replays of how pages are used, with
+          everything typed into form fields masked. When you close site search
+          on a query that found nothing, that final search term is also sent
+          once (only after you accept analytics) so we can see which topics are
+          missing. Only a single word made of letters, hyphens and apostrophes
+          is sent; a search of two or more words is never sent, and anything
+          containing digits or punctuation, such as an email address, a link or
+          a number, is never sent. Browser error monitoring via Sentry is
+          likewise gated behind that consent. Server-side error logs for API
           routes may still be recorded without browser cookies for reliability.
         </p>
       </section>
@@ -173,6 +225,10 @@ export default function PrivacyPolicyPage() {
           <li>Anthropic - AI features (Oracle)</li>
           <li>Stripe - Optional support payments through a hosted checkout</li>
           <li>Resend - The optional weekly myth email digest</li>
+          <li>
+            Upstash - Rate limiting and the anonymous daily totals described
+            above
+          </li>
         </ul>
       </section>
 

@@ -38,6 +38,13 @@ const ConsentGatedPostHog = dynamic(
     ),
   { ssr: false },
 );
+const DailyCountBeacon = dynamic(
+  () =>
+    import("@/components/analytics/DailyCountBeacon").then(
+      (mod) => mod.DailyCountBeacon,
+    ),
+  { ssr: false },
+);
 export function GlobalClientAddons() {
   const searchTrigger = useRef<HTMLElement | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -72,6 +79,7 @@ export function GlobalClientAddons() {
       <ConsentGatedAnalytics />
       <ConsentGatedPostHog />
       <ConsentGatedSentry />
+      <DailyCountBeacon />
       <OfflineIndicator />
       {searchRequested ? (
         <GlobalSearch

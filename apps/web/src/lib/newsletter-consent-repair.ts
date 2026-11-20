@@ -3,7 +3,6 @@
  * recordConsentRepair). Free of Next imports so it can be tested with a fake
  * client, like the digest handler.
  */
-import { timingSafeEqual } from "node:crypto";
 import {
   getNewsletterConfig,
   reassertUnsubscribed,
@@ -18,6 +17,8 @@ import {
   type ConsentLockHandle,
   type ConsentRepair,
 } from "@/lib/newsletter-redemption";
+import { noStoreJson as json } from "@/lib/http/no-store-json";
+import { bearerMatches } from "@/lib/server/cron-auth";
 
 export interface ConsentRepairSummary {
   repaired: number;
@@ -111,19 +112,6 @@ export async function runConsentRepairs(
     summary[outcome] += 1;
   }
   return summary;
-}
-
-function json(body: Record<string, unknown>, status: number): Response {
-  return Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
-}
-
-function bearerMatches(header: string | null, secret: string): boolean {
-  const expected = Buffer.from(`Bearer ${secret}`);
-  const actual = Buffer.from(header ?? "");
-  return actual.length === expected.length && timingSafeEqual(actual, expected);
 }
 
 /**

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { sendCount } from "@/lib/analytics/daily-count-client";
 
 type Status =
   "idle" | "submitting" | "confirmed" | "expired" | "invalid" | "busy" | "error";
@@ -29,6 +30,12 @@ export function NewsletterConfirm({ token }: Readonly<{ token: string }>) {
   useEffect(() => {
     window.history.replaceState(null, "", window.location.pathname);
   }, []);
+
+  // Anonymous count of opened confirmation links, to compare with the number
+  // confirmed. It carries no token and no address.
+  useEffect(() => {
+    if (token) sendCount({ step: "confirm-view" });
+  }, [token]);
 
   const confirm = async () => {
     setStatus("submitting");

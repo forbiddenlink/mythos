@@ -24,6 +24,8 @@ export interface FakeRedis {
   kv: Map<string, string>;
   hashes: Map<string, Map<string, string>>;
   counters: Map<string, number>;
+  /** Expiry in seconds last given to `set` for a key. */
+  ttls: Map<string, number>;
   /** Set once the Redis constructor has run. */
   touched: boolean;
   /** Next set() (not a lock) commits but throws, like a lost acknowledgement. */
@@ -34,7 +36,7 @@ export interface FakeRedis {
   lockContended: boolean;
   /** While true, every eval against the consent-repair hash throws. */
   failRepairWrites: boolean;
-  /** While true, incr() throws. */
+  /** While true, incr() and hincrby() throw. */
   incrFails: boolean;
   /** What Ratelimit.limit() does next; undefined = allow. */
   limit: undefined | (() => Promise<Record<string, unknown>>);
@@ -49,6 +51,7 @@ export function createFakeRedis(): FakeRedis {
     kv: new Map(),
     hashes: new Map(),
     counters: new Map(),
+    ttls: new Map(),
     touched: false,
     lostAck: false,
     evalFails: false,
@@ -61,6 +64,7 @@ export function createFakeRedis(): FakeRedis {
       fake.kv.clear();
       fake.hashes.clear();
       fake.counters.clear();
+      fake.ttls.clear();
       fake.touched = false;
       fake.lostAck = false;
       fake.evalFails = false;
@@ -186,6 +190,7 @@ export function fakeRedisModule(fake: FakeRedis) {
         if (isLock && fake.lockContended) return null;
         if (opts.nx && fake.kv.has(key)) return null;
         fake.kv.set(key, value);
+        if (opts.ex !== undefined) fake.ttls.set(key, opts.ex);
         if (fake.lostAck && !isLock) {
           fake.lostAck = false;
           fake.evalFails = false;
@@ -197,6 +202,9 @@ export function fakeRedisModule(fake: FakeRedis) {
       }
       async get(key: string) {
         return fake.kv.get(key) ?? null;
+      }
+      async del(key: string) {
+        return fake.kv.delete(key) ? 1 : 0;
       }
       async hgetall(key: string) {
         const hash = fake.hashes.get(key);
@@ -210,6 +218,13 @@ export function fakeRedisModule(fake: FakeRedis) {
         if (fake.incrFails) throw new Error("down");
         const v = (fake.counters.get(key) ?? 0) + 1;
         fake.counters.set(key, v);
+        return v;
+      }
+      async hincrby(key: string, field: string, by: number) {
+        if (fake.incrFails) throw new Error("down");
+        const hash = hashFor(fake, key);
+        const v = Number(hash.get(field) ?? 0) + by;
+        hash.set(field, String(v));
         return v;
       }
       async expire() {

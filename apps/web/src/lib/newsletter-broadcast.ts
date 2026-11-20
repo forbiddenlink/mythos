@@ -6,7 +6,7 @@
  * can reach the network by accident. Safe by default: a broadcast is created
  * as a DRAFT, and sending needs NEWSLETTER_DIGEST_SEND=true.
  */
-import { randomUUID, timingSafeEqual } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import { Redis } from "@upstash/redis";
 import { DEFAULT_RESEND_SEGMENT_ID } from "@/lib/newsletter";
 import {
@@ -14,6 +14,8 @@ import {
   type DigestJourney,
   type DigestStory,
 } from "@/lib/newsletter-digest";
+import { noStoreJson as json } from "@/lib/http/no-store-json";
+import { bearerMatches } from "@/lib/server/cron-auth";
 
 interface ResendResponse<T> {
   data: T | null;
@@ -193,19 +195,6 @@ export async function runWeeklyDigest(
 /** Reads CRON_SECRET, RESEND_API_KEY, NEWSLETTER_FROM, RESEND_SEGMENT_ID and
  * NEWSLETTER_DIGEST_SEND. */
 export type DigestEnv = Readonly<Record<string, string | undefined>>;
-
-function json(body: Record<string, unknown>, status: number): Response {
-  return Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
-}
-
-function bearerMatches(header: string | null, secret: string): boolean {
-  const expected = Buffer.from(`Bearer ${secret}`);
-  const actual = Buffer.from(header ?? "");
-  return actual.length === expected.length && timingSafeEqual(actual, expected);
-}
 
 export interface DigestRequestDeps {
   env: DigestEnv;
