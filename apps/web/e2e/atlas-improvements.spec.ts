@@ -1,5 +1,9 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import museumObjects from "../src/data/museum-objects.json";
+
+const shivaImage = museumObjects.find((object) => object.id === "met-39328")?.imageUrl;
+if (!shivaImage) throw new Error("Missing Shiva museum image fixture");
 
 test("homepage reuses the high-priority sky artwork preload", async ({
   page,
@@ -60,7 +64,7 @@ for (const width of [390, 1440]) {
     test("fits the whole artwork before zooming and resets the scrollable view", async ({
       page,
     }) => {
-      await page.route("https://images.metmuseum.org/**", (route) =>
+      await page.route(shivaImage, (route) =>
         route.fulfill({
           contentType: "image/svg+xml",
           body: '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="800"><rect width="400" height="800" fill="silver"/></svg>',
@@ -121,7 +125,7 @@ for (const width of [390, 1440]) {
       page,
     }) => {
       // This deliberately exercises unavailable museum media, not live services.
-      await page.route("https://images.metmuseum.org/**", (route) =>
+      await page.route(shivaImage, (route) =>
         route.abort(),
       );
       await page.goto("/deities/shiva");
