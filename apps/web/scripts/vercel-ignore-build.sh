@@ -2,8 +2,13 @@
 # Vercel "ignored build step": exit 0 skips the build, exit 1 builds.
 # Any other exit code fails the deployment, so every path below ends in 0 or 1.
 
-# Previews are not built; only production deploys.
-[ "$VERCEL_ENV" = production ] || exit 0
+# Keep previews opt-in for changes that need testing on Vercel.
+if [ "$VERCEL_ENV" != production ]; then
+  case "$VERCEL_ENV:$VERCEL_GIT_COMMIT_MESSAGE" in
+    preview:*"[preview]"*) exit 1 ;;
+    *) exit 0 ;;
+  esac
+fi
 
 # Release Please commits only touch the version and changelog.
 case "$VERCEL_GIT_COMMIT_MESSAGE" in "chore(main): release"*) exit 0 ;; esac

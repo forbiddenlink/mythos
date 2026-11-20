@@ -21,7 +21,7 @@ export default async function Image({
   const traditions = comparison.sameTradition
     ? a.pantheonName
     : `${a.pantheonName} · ${b.pantheonName}`;
-  return renderOgCard({
+  const card = await renderOgCard({
     eyebrow: "Side by side",
     title: `${a.displayName} vs ${b.displayName}`,
     subtitle: sharedDomains.length
@@ -30,4 +30,6 @@ export default async function Image({
     description: basis.kind === "parallel" ? basis.notes[0] : traditions,
     palette: ogPalette(a.pantheonId),
   });
+  card.headers.set("Vercel-CDN-Cache-Control", "public, s-maxage=86400");
+  return card;
 }
