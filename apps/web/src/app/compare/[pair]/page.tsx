@@ -8,6 +8,7 @@ import {
   FactLink,
   TagList,
 } from "@/components/content/detail-parts";
+import { EntryFaq } from "@/components/content/EntryFaq";
 import { ReadingParagraph } from "@/components/content/reading-prose";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import {
@@ -18,17 +19,27 @@ import {
   FactList,
   type TocItem,
 } from "@/components/layout/detail-layout";
-import { ArticleJsonLd, FAQJsonLd } from "@/components/seo/JsonLd";
+import { ArticleJsonLd } from "@/components/seo/JsonLd";
+import {
+  basisSentence,
+  comparisonFaq,
+  comparisonHeadline,
+  contrastSummary,
+  phraseList,
+  sentence,
+  sharedTraitSentences,
+  shortTradition,
+} from "@/lib/comparison-copy";
 import {
   getDeityComparison,
   getDeityComparisons,
   getRelatedComparisons,
   type ComparisonDeity,
-  type DeityComparison,
 } from "@/lib/comparisons";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { truncateDescription } from "@/lib/seo/description";
+import { comparisonPageTitle } from "@/lib/seo/entry-titles";
 
 interface PageProps {
   params: Promise<{ pair: string }>;
@@ -45,73 +56,6 @@ export async function generateStaticParams() {
   }));
 }
 
-const listFormat = new Intl.ListFormat("en", {
-  style: "long",
-  type: "conjunction",
-});
-
-/** "sky, thunder and justice" as readers write it. */
-function list(items: readonly string[]): string {
-  return listFormat.format(items.map((item) => item.toLowerCase()));
-}
-
-function sentence(text: string): string {
-  const trimmed = text.trim();
-  const capitalized = trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
-  return /[.!?]$/.test(capitalized) ? capitalized : `${capitalized}.`;
-}
-
-function shortTradition(deity: ComparisonDeity): string {
-  return deity.pantheonName.replace(/\s+(Pantheon|Tradition|Traditions)$/, "");
-}
-
-/** One sentence saying why these two share a page (lede and description). */
-function basisSentence(comparison: DeityComparison): string {
-  const { a, b, basis } = comparison;
-  if (basis.kind === "parallel") {
-    const note = basis.notes[0];
-    return note
-      ? sentence(note)
-      : `${a.displayName} and ${b.displayName} hold comparable places in the ${shortTradition(a)} and ${shortTradition(b)} traditions.`;
-  }
-  if (basis.relation === "parent and child") {
-    return `${a.displayName} and ${b.displayName} are recorded as parent and child in the ${a.pantheonName}.`;
-  }
-  if (basis.relation === "rivals") {
-    return `${a.displayName} and ${b.displayName} are recorded as rivals in the ${a.pantheonName}.`;
-  }
-  return `${a.displayName} and ${b.displayName} are recorded as siblings in the ${a.pantheonName}.`;
-}
-
-/** Plain-language account of what the two share. */
-function meetingSentences(comparison: DeityComparison): string[] {
-  const { a, b, sharedDomains, sharedSymbols, basis } = comparison;
-  const sentences: string[] = [];
-  if (sharedDomains.length > 0) {
-    sentences.push(`Both are associated with ${list(sharedDomains)}.`);
-  }
-  if (sharedSymbols.length > 0) {
-    sentences.push(
-      `They share ${sharedSymbols.length === 1 ? "a symbol" : "symbols"}: ${list(sharedSymbols)}.`,
-    );
-  }
-  if (sentences.length === 0) {
-    sentences.push(
-      `The atlas records no domain or symbol that ${a.name} and ${b.name} share.`,
-    );
-    sentences.push(
-      basis.kind === "parallel"
-        ? "They are compared for the part each plays in their own tradition rather than for any attribute in common."
-        : "They are compared because of how the myths connect them, not because of what they rule.",
-    );
-  }
-  return sentences;
-}
-
-function headline(comparison: DeityComparison): string {
-  return `${comparison.a.displayName} vs ${comparison.b.displayName}`;
-}
-
 export async function generateMetadata({
   params,
 }: Readonly<PageProps>): Promise<Metadata> {
@@ -126,7 +70,9 @@ export async function generateMetadata({
   }
 
   const { a, b } = comparison;
-  const title = headline(comparison);
+  // The heading on the page stays "X vs Y"; the search title also names what
+  // a reader who types "X vs Y" is asking for.
+  const title = comparisonPageTitle(comparisonHeadline(comparison));
   // The basis sentence leads: it is the part that differs between the pairs.
   const scope =
     a.pantheonName === b.pantheonName
@@ -283,32 +229,15 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
 
   const { a, b, sharedDomains, sharedSymbols, distinctDomains, basis } =
     comparison;
-  const title = headline(comparison);
+  const title = comparisonHeadline(comparison);
   const lede = basisSentence(comparison);
   const related = getRelatedComparisons(comparison);
   const hasWorship = hasWorshipDetail(a) || hasWorshipDetail(b);
   // The first note is the lede; the others explain the pairing further.
   const furtherNotes = basis.kind === "parallel" ? basis.notes.slice(1) : [];
-  const meeting = meetingSentences(comparison);
+  const meeting = sharedTraitSentences(comparison);
 
-  const faq = [
-    {
-      question: `How are ${a.displayName} and ${b.displayName} related?`,
-      answer: lede,
-    },
-    {
-      question: `What do ${a.name} and ${b.name} have in common?`,
-      answer: sharedDomains.length
-        ? `Both are associated with ${list(sharedDomains)}.`
-        : `They share no domain in this atlas: ${a.name} is associated with ${list(a.domain)}, and ${b.name} with ${list(b.domain)}.`,
-    },
-    {
-      question: `Which traditions do they belong to?`,
-      answer: comparison.sameTradition
-        ? `Both belong to the ${a.pantheonName}.`
-        : `${a.displayName} belongs to the ${a.pantheonName}, and ${b.displayName} to the ${b.pantheonName}.`,
-    },
-  ];
+  const faq = comparisonFaq(comparison);
 
   const toc: TocItem[] = [
     { id: "glance", label: "At a glance" },
@@ -319,6 +248,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
       : []),
     ...(hasWorship ? [{ id: "worship", label: "Worship" }] : []),
     { id: "accounts", label: "The two figures" },
+    { id: "faq", label: "Quick answers" },
   ];
 
   const relationLabel =
@@ -391,7 +321,6 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
         section="Comparative mythology"
         tags={[a.name, b.name, a.pantheonName, b.pantheonName]}
       />
-      <FAQJsonLd questions={faq} />
 
       <DetailLayout
         hero={
@@ -408,7 +337,12 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
               </>
             }
             title={title}
-            lede={<p>{lede}</p>}
+            lede={
+              <>
+                <p>{lede}</p>
+                <p className="mt-3">{contrastSummary(comparison)}</p>
+              </>
+            }
             actions={
               <Link
                 href="/compare"
@@ -428,7 +362,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
             title="More comparisons"
             links={related.map((other) => ({
               href: `/compare/${other.slug}`,
-              label: headline(other),
+              label: comparisonHeadline(other),
             }))}
           />
         }
@@ -507,7 +441,7 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
                   </h3>
                   <p className="mt-2 type-reading text-foreground/90">
                     {domains.length > 0
-                      ? sentence(`associated with ${list(domains)}`)
+                      ? sentence(`associated with ${phraseList(domains)}`)
                       : "Every domain the atlas records is shared with the other."}
                   </p>
                 </div>
@@ -545,6 +479,10 @@ export default async function ComparisonPage({ params }: Readonly<PageProps>) {
               <DeityAccount deity={a} />
               <DeityAccount deity={b} />
             </div>
+          </ArticleSection>
+
+          <ArticleSection id="faq" title="Quick answers">
+            <EntryFaq id="compare-faq" items={faq} />
           </ArticleSection>
 
           <AboutThisPage title="About this comparison" size={false}>
