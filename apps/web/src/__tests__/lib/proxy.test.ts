@@ -14,6 +14,7 @@ describe("proxy matcher", () => {
     "/logo.png",
     "/hero-columns.webp",
     "/fonts/a.woff2",
+    "/compare/zeus-vs-odin/opengraph-image",
   ])("skips static asset %s", (path) => {
     expect(matcher.test(path)).toBe(false);
   });
@@ -24,6 +25,8 @@ describe("proxy matcher", () => {
     "/pantheons/greek",
     "/stories/ramayana",
     "/oracle",
+    "/compare/zeus-vs-odin",
+    "/compare/zeus-vs-odin/opengraph-image/details",
   ])("still runs on page %s", (path) => {
     expect(matcher.test(path)).toBe(true);
   });
