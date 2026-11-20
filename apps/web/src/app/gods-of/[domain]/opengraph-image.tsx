@@ -1,4 +1,4 @@
-import { getGodsOfDomain, godsOfTitle } from "@/lib/gods-of";
+import { getGodsOfDomain, godsOfLeads, godsOfTitle } from "@/lib/gods-of";
 import { renderOgCard } from "@/lib/og/card";
 
 // Node runtime: the catalogs these cards read are too large for an edge bundle.
@@ -17,10 +17,9 @@ export default async function Image({
   if (!page) {
     return renderOgCard({ eyebrow: "Mythos Atlas", title: "Divine domains" });
   }
-  const names = page.traditions
-    .map((t) => t.deities[0]?.name)
-    .filter(Boolean)
+  const names = godsOfLeads(page)
     .slice(0, 5)
+    .map((deity) => deity.name)
     .join(" · ");
   return renderOgCard({
     eyebrow: "Divine domains",

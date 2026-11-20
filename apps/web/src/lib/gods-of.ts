@@ -4,7 +4,6 @@ import deitiesData from "@/data/deities.json";
 import pantheonsData from "@/data/pantheons.json";
 import { getDeityComparisons } from "@/lib/comparisons";
 import { domainCategoryForTerm } from "@/lib/domain-categories";
-import { getImageProvenance } from "@/lib/image-provenance";
 import { shortTraditionName } from "@/lib/tradition-name";
 
 /**
@@ -112,6 +111,15 @@ export function domainLabel(domain: string): string {
     .join(" ");
 }
 
+/**
+ * Where a deity's own entry names the page's domain; 0 is first. The deity
+ * that names it first leads its tradition: Ares before Athena for war, Athena
+ * before Zeus for wisdom.
+ */
+function domainPosition(deity: RawDeity, slug: string): number {
+  return (deity.domain ?? []).findIndex((raw) => domainSlug(raw) === slug);
+}
+
 let cache: GodsOfDomain[] | null = null;
 
 /** Every qualifying domain page, largest first. */
@@ -154,21 +162,12 @@ export function getGodsOfDomains(): GodsOfDomain[] {
         name: shortTradition(pantheonId),
         deities: members
           .filter((d) => d.pantheonId === pantheonId)
-          .sort((x, y) => {
-            const kindX =
-              getImageProvenance("deity", x.slug)?.kind === "illustration-ai"
-                ? 0
-                : 1;
-            const kindY =
-              getImageProvenance("deity", y.slug)?.kind === "illustration-ai"
-                ? 0
-                : 1;
-            if (kindX !== kindY) return kindX - kindY;
-            return (
+          .sort(
+            (x, y) =>
+              domainPosition(x, slug) - domainPosition(y, slug) ||
               (x.importanceRank ?? 99) - (y.importanceRank ?? 99) ||
-              x.name.localeCompare(y.name)
-            );
-          })
+              x.name.localeCompare(y.name),
+          )
           .map((d) => ({
             id: d.id,
             name: d.name,
@@ -251,32 +250,101 @@ export function godsOfLinksForDomains(
   return out;
 }
 
+export interface DomainLead {
+  name: string;
+  slug: string;
+  /** Short tradition name ("Greek"). */
+  tradition: string;
+}
+
+/**
+ * The first deity of each tradition. Traditions follow the catalog's own order
+ * (Greek, Norse, Egyptian, Roman, ...) and not their size on this page, so the
+ * names a reader is most likely to look for come first.
+ */
+export function godsOfLeads(page: GodsOfDomain): DomainLead[] {
+  const order = new Map(pantheons.map((p, index) => [p.id, index]));
+  return [...page.traditions]
+    .sort(
+      (x, y) =>
+        (order.get(x.pantheonId) ?? pantheons.length) -
+        (order.get(y.pantheonId) ?? pantheons.length),
+    )
+    .flatMap((tradition) =>
+      tradition.deities
+        .slice(0, 1)
+        .map(({ name, slug }) => ({ name, slug, tradition: tradition.name })),
+    );
+}
+
+function sentenceList(items: string[]): string {
+  return items.length > 1
+    ? `${items.slice(0, -1).join(", ")} and ${items.at(-1)}`
+    : (items[0] ?? "");
+}
+
+/** "Ares (Greek), Tyr (Norse) and Mars (Roman)": the leads a short answer names. */
+function leadNames(page: GodsOfDomain, limit: number): string {
+  return sentenceList(
+    godsOfLeads(page)
+      .slice(0, limit)
+      .map((lead) => `${lead.name} (${lead.tradition})`),
+  );
+}
+
+/**
+ * "are among the N deities from M traditions"; "are the N deities ..." when
+ * the sentence already names every deity on the page.
+ */
+function countPhrase(page: GodsOfDomain, limit: number): string {
+  const named = Math.min(limit, page.traditions.length);
+  const verb = named < page.deityCount ? "are among the" : "are the";
+  return `${verb} ${page.deityCount} deities from ${page.traditions.length} traditions`;
+}
+
+/**
+ * The page's opening sentence: names first, then what the list is. Every name
+ * comes from a deity record that lists the domain, so it adds no claim the
+ * listing below does not already make.
+ */
+export function godsOfShortAnswer(page: GodsOfDomain, limit = 5): string {
+  return `${leadNames(page, limit)} ${countPhrase(page, limit)} whose entries in this atlas list ${page.domain} among their domains.`;
+}
+
 /** "Gods of War" — the page's name, singular noun kept plural for search intent. */
 export function godsOfTitle(page: Pick<GodsOfDomain, "domain">): string {
   return `Gods of ${domainLabel(page.domain)}`;
 }
 
 /**
- * Quick answers drawn from the listing itself: for each tradition with an
- * entry, which of its deities the catalog files under this domain. Only the
- * largest traditions get a question so the block stays short.
+ * Quick answers drawn from the listing itself. The first is the general
+ * question; the rest ask, for each leading tradition, which of its deities the
+ * catalog files under this domain. The block stays short.
  */
 export function godsOfFaq(
   page: GodsOfDomain,
   limit = 6,
 ): Array<{ question: string; answer: string }> {
   const label = page.domain;
-  return page.traditions.slice(0, limit).map((tradition) => {
-    const names = tradition.deities.map((d) => d.name);
-    const list =
-      names.length > 1
-        ? `${names.slice(0, -1).join(", ")} and ${names.at(-1)}`
-        : names[0];
-    const verb = names.length > 1 ? "are" : "is";
-    const noun = names.length > 1 ? "deities" : "deity";
-    return {
-      question: `Who is the ${tradition.name} god of ${label}?`,
-      answer: `In the Mythos Atlas catalog, the ${tradition.name} ${noun} whose domains include ${label} ${verb} ${list}.`,
-    };
-  });
+  const general = {
+    question: `Who is the god of ${label}?`,
+    answer: `It depends on the tradition. In the Mythos Atlas catalog, ${leadNames(page, 5)} ${countPhrase(page, 5)} whose domains include ${label}.`,
+  };
+  const byName = new Map(page.traditions.map((t) => [t.name, t]));
+  const perTradition = godsOfLeads(page)
+    .slice(0, Math.max(0, limit - 1))
+    .flatMap((lead) => {
+      const tradition = byName.get(lead.tradition);
+      if (!tradition) return [];
+      const names = tradition.deities.map((d) => d.name);
+      const verb = names.length > 1 ? "are" : "is";
+      const noun = names.length > 1 ? "deities" : "deity";
+      return [
+        {
+          question: `Who is the ${tradition.name} god of ${label}?`,
+          answer: `In the Mythos Atlas catalog, the ${tradition.name} ${noun} whose domains include ${label} ${verb} ${sentenceList(names)}.`,
+        },
+      ];
+    });
+  return [general, ...perTradition].slice(0, Math.max(0, limit));
 }
