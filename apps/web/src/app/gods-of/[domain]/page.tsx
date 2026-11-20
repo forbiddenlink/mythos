@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { EntityCard } from "@/components/entities/EntityCard";
 import { Container } from "@/components/layout/container";
+import { NextSteps } from "@/components/layout/NextSteps";
 import { PageHero } from "@/components/layout/page-hero";
 import {
   CollectionPageJsonLd,
@@ -21,6 +22,7 @@ import {
   type GodsOfDomain,
 } from "@/lib/gods-of";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { godsOfNextSteps } from "@/lib/next-steps";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { truncateDescription } from "@/lib/seo/description";
 import { godsOfPageTitle } from "@/lib/seo/entry-titles";
@@ -313,6 +315,8 @@ export default async function GodsOfDomainPage({
             </ul>
           </section>
         ) : null}
+
+        <NextSteps id="next-steps" {...godsOfNextSteps(page)} />
 
         <p className="mt-16 max-w-reading border-t border-border/50 pt-6 type-ui text-muted-foreground">
           Built from each deity&apos;s catalog entry

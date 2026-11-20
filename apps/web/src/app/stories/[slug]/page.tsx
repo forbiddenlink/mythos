@@ -41,6 +41,7 @@ import {
 } from "@/components/stories/MythVariants";
 import { StoryPracticeQuiz } from "@/components/stories/StoryPracticeQuiz";
 import { StoryNarrator } from "@/components/stories/StoryNarrator";
+import { StoryNextLink } from "@/components/stories/StoryNextLink";
 import { StoryReadingContext } from "@/components/stories/StoryReadingContext";
 import { readingMinutes } from "@/lib/reading-time";
 import { placeIdsForStory } from "@/lib/story-locations";
@@ -73,7 +74,7 @@ import { EntryMentionsAside } from "@/components/content/EntryMentionsAside";
 import { getMuseumObjectsForStory } from "@/lib/museum";
 import { getMythVersions } from "@/lib/myth-versions";
 import { getPantheonColor } from "@/lib/pantheon-colors";
-import { getStoryContexts } from "@/lib/story-contexts";
+import { getNextInTradition, getStoryContexts } from "@/lib/story-contexts";
 import { StoryProgressTracker } from "./_components/StoryProgressTracker";
 
 interface StoryData {
@@ -263,6 +264,7 @@ export default async function StoryPage({ params }: PageProps) {
   // Lists this story can be read in; `?in=` picks one on the client so the
   // page stays static and its canonical URL stays parameter-free.
   const readingContexts = getStoryContexts(story.slug);
+  const nextStep = getNextInTradition(story.slug);
 
   // Same gate as the footer Oracle button, plus the quiz component's own flag.
   const showPracticeQuiz =
@@ -506,10 +508,15 @@ export default async function StoryPage({ params }: PageProps) {
                 </div>
               </div>
             </details>
-            <Suspense fallback={null}>
+            {/* The fallback is what the prerendered page holds, so a reader
+                from search and a crawler both get the onward link. */}
+            <Suspense
+              fallback={nextStep ? <StoryNextLink step={nextStep} /> : null}
+            >
               <StoryReadingContext
                 contexts={readingContexts}
                 placement="bottom"
+                nextStep={nextStep}
               />
             </Suspense>
           </ArticleSection>

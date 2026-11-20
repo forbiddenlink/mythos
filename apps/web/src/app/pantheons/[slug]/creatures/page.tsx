@@ -4,10 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import { Container } from "@/components/layout/container";
+import { NextSteps } from "@/components/layout/NextSteps";
 import { PageHero } from "@/components/layout/page-hero";
 import { CollectionPageJsonLd, ItemListJsonLd } from "@/components/seo/JsonLd";
 import { joinNames } from "@/lib/deity-faq";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { creatureHubNextSteps } from "@/lib/next-steps";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getCreatureHub, getCreatureHubs } from "@/lib/pantheon-hubs";
 import { truncateDescription } from "@/lib/seo/description";
@@ -110,6 +112,9 @@ export default async function PantheonCreaturesPage({
             </li>
           ))}
         </EntityGrid>
+
+        <NextSteps id="next-steps" {...creatureHubNextSteps(hub)} />
+
         <p className="mt-16 max-w-reading border-t border-border/50 pt-6 type-ui text-muted-foreground">
           Built from each creature&apos;s catalog entry. Back to the{" "}
           <Link

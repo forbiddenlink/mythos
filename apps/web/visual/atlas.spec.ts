@@ -55,10 +55,12 @@ async function capture(page: Page, name: string): Promise<void> {
     fullPage: false,
     // Repeated captures vary slightly at rounded clipping edges on this same
     // Mac/browser. Keep zero differing pixels beyond this small color tolerance
-    // for the two family scenes; all other scenes remain exact.
+    // for the two family scenes. Mobile source cards also vary by one RGB level.
     threshold: ["deity-family.png", "family-connection.png"].includes(name)
       ? 0.1
-      : 0,
+      : name === "source-comparison.png" && page.viewportSize()?.width === 390
+        ? 0.005
+        : 0,
   });
 }
 

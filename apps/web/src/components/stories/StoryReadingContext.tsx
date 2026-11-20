@@ -3,27 +3,40 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { pickStoryContext, type StoryContext } from "@/lib/story-context";
+import { StoryNextLink } from "@/components/stories/StoryNextLink";
+import {
+  pickStoryContext,
+  type StoryContext,
+  type StoryNextStep,
+} from "@/lib/story-context";
 
 /**
  * Where the reader is in the list they came from (`?in=pantheon/greek`).
  * Reads the query on the client so the story page itself stays statically
- * prerendered with a parameter-free canonical URL. Renders nothing when the
- * parameter is absent or does not name a list this story belongs to.
+ * prerendered with a parameter-free canonical URL.
  *
- * `top` is the position line under the hero; `bottom` is previous/next at the
- * end of the retelling.
+ * `top` is the position line under the hero; it renders nothing when the
+ * parameter is absent or does not name a list this story belongs to. `bottom`
+ * is previous/next at the end of the retelling; without a list it falls back
+ * to `nextStep`, the onward link inside the story's own tradition.
  */
 export function StoryReadingContext({
   contexts,
   placement,
+  nextStep,
 }: {
   contexts: readonly StoryContext[];
   placement: "top" | "bottom";
+  /** Shown at the bottom when the URL names no list. */
+  nextStep?: StoryNextStep | null;
 }) {
   const params = useSearchParams();
   const context = pickStoryContext(contexts, params.get("in"));
-  if (!context) return null;
+  if (!context) {
+    return placement === "bottom" && nextStep ? (
+      <StoryNextLink step={nextStep} />
+    ) : null;
+  }
 
   if (placement === "top") {
     return (

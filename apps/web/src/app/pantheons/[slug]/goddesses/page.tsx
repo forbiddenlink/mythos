@@ -4,11 +4,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import { Container } from "@/components/layout/container";
+import { NextSteps } from "@/components/layout/NextSteps";
 import { PageHero } from "@/components/layout/page-hero";
 import { CollectionPageJsonLd, ItemListJsonLd } from "@/components/seo/JsonLd";
 import { joinNames } from "@/lib/deity-faq";
 import { domainLabel, normalizeDomain } from "@/lib/gods-of";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { goddessHubNextSteps } from "@/lib/next-steps";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getGoddessHub, getGoddessHubs } from "@/lib/pantheon-hubs";
 import { truncateDescription } from "@/lib/seo/description";
@@ -112,6 +114,9 @@ export default async function PantheonGoddessesPage({
             </li>
           ))}
         </EntityGrid>
+
+        <NextSteps id="next-steps" {...goddessHubNextSteps(hub)} />
+
         <p className="mt-16 max-w-reading border-t border-border/50 pt-6 type-ui text-muted-foreground">
           Built from each deity&apos;s catalog entry, using its recorded gender.
           Back to the{" "}
