@@ -375,7 +375,7 @@
     "url": "https://www.metmuseum.org/art/collection/search/246673",
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
-    "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP233561.jpg",
+    "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/246673/DP233561/main-image",
     "imageAlt": "Terracotta column-krater with a painted scene including Zeus. Photograph: The Metropolitan Museum of Art."
   },
   {
@@ -393,7 +393,7 @@
     "url": "https://www.metmuseum.org/art/collection/search/246589",
     "imageRights": "Public Domain (museum record)",
     "checkedAt": "2026-09-21",
-    "imageUrl": "https://images.metmuseum.org/CRDImages/gr/web-large/DP114835.jpg",
+    "imageUrl": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/246589/DP114835/main-image",
     "imageAlt": "Terracotta neck-amphora with a painted scene of Zeus. Photograph: The Metropolitan Museum of Art."
   },
   {
