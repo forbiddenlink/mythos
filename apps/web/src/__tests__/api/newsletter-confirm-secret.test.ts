@@ -67,6 +67,7 @@ afterEach(() => {
 
 describe("confirm needs the webhook secret", () => {
   it("answers 503 and touches neither Resend nor the claim store when it is unset", async () => {
+    store.hashes.clear();
     delete process.env.RESEND_WEBHOOK_SECRET;
     const logged = vi.spyOn(logger, "error").mockImplementation(() => {});
     const token = createConfirmToken("reader@example.com", "re_test");
@@ -81,7 +82,19 @@ describe("confirm needs the webhook secret", () => {
     expect(resend.create).not.toHaveBeenCalled();
     expect(resend.update).not.toHaveBeenCalled();
     expect(resend.add).not.toHaveBeenCalled();
-    expect(store.touched).toBe(false);
+    // No claim, lock or rate-limit key. The one write is the anonymous daily
+    // count of the refused step.
+    expect(store.kv.size).toBe(0);
+    expect(store.counters.size).toBe(0);
+    expect(store.limitCalls).toBe(0);
+    const written = [...store.hashes.entries()];
+    expect(written.map(([key]) => key)).toEqual([
+      expect.stringMatching(/^mythos:count:\d{4}-\d{2}-\d{2}$/),
+    ]);
+    expect(Object.fromEntries(written[0]?.[1] ?? [])).toEqual({
+      "confirm:unavailable": "1",
+      beacons: "1",
+    });
     expect(logged).toHaveBeenCalledWith(
       expect.stringContaining("RESEND_WEBHOOK_SECRET"),
       {},

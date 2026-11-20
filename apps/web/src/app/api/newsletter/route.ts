@@ -17,15 +17,10 @@ import { createConfirmToken } from "@/lib/newsletter-token";
 import { getOracleClientIdentity } from "@/lib/oracle/client-identity";
 import { checkNewsletterRateLimit } from "@/lib/oracle/rate-limit";
 import { forbiddenUnlessSameOrigin } from "@/lib/oracle/request-guards";
+import { noStoreJson as json } from "@/lib/http/no-store-json";
+import { recordStepCount, signupCounter } from "@/lib/server/daily-count-store";
 
 const MAX_REQUEST_BODY_BYTES = 2 * 1024;
-
-function json(body: Record<string, unknown>, status: number): Response {
-  return Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
-}
 
 /**
  * Weekly myth digest sign-up, step one of double opt-in: records the address
@@ -39,6 +34,20 @@ function json(body: Record<string, unknown>, status: number): Response {
  * address it cannot keep; the form then shows "sign-ups open soon".
  */
 export async function POST(req: NextRequest) {
+  const seen: { placement?: string } = {};
+  const response = await signUp(req, seen);
+  // Anonymous daily count of the step. It never changes the answer.
+  await recordStepCount(
+    signupCounter(response.status, seen.placement),
+    response.status,
+  );
+  return response;
+}
+
+async function signUp(
+  req: NextRequest,
+  seen: { placement?: string },
+): Promise<Response> {
   const forbidden = forbiddenUnlessSameOrigin(req);
   if (forbidden) return forbidden;
 
@@ -69,6 +78,7 @@ export async function POST(req: NextRequest) {
   if (parsed.data.website) {
     return json({ subscribed: false, pending: true }, 200);
   }
+  seen.placement = parsed.data.placement ?? "none";
 
   const identity = getOracleClientIdentity(req.headers);
   const limit = await checkNewsletterRateLimit(`newsletter:${identity.key}`);
