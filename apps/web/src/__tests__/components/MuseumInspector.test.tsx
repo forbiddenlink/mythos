@@ -12,7 +12,7 @@ const object: MuseumObject = {
   description: "A bronze of Shiva within a ring of flame.",
   url: "https://www.metmuseum.org/art/collection/search/39328",
   imageRights: "Public Domain",
-  imageUrl: "https://images.metmuseum.org/CRDImages/as/web-large/DT240.jpg",
+  imageUrl: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/39328/DT240/main-image",
 };
 
 describe("museum inspection", () => {
