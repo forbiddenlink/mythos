@@ -36,6 +36,8 @@ interface NewsletterSignupProps {
   /** Heading level-free title shown above the form. */
   title?: string;
   description?: string;
+  /** h3 where the form sits inside a section that has its own h2. */
+  headingLevel?: "h2" | "h3";
 }
 
 /**
@@ -47,6 +49,7 @@ export function NewsletterSignup({
   className,
   title = "The weekly myth",
   description = "One myth, its sources and a question to think about, in one email a week. Unsubscribe any time.",
+  headingLevel: Heading = "h2",
 }: Readonly<NewsletterSignupProps>) {
   const id = useId();
   const [email, setEmail] = useState("");
@@ -106,12 +109,12 @@ export function NewsletterSignup({
       className={cn("max-w-lg", className)}
       data-testid={`newsletter-${placement}`}
     >
-      <h2
+      <Heading
         id={`${id}-title`}
         className="font-serif text-sm font-semibold tracking-wide text-foreground"
       >
         {title}
-      </h2>
+      </Heading>
       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
         {description}
         {placement === "newsletter_page" ? null : (

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
 import { DetailLayout } from "@/components/layout/detail-layout";
 import { EntryCloser } from "@/components/layout/EntryCloser";
@@ -33,7 +33,7 @@ describe("EntryCloser", () => {
       screen.getByRole("link", { name: "Suggest a correction" }),
     ).toHaveAttribute("href", "/contact");
     expect(
-      screen.getByRole("link", { name: /One myth a week/ }),
+      screen.getByRole("link", { name: "See a sample issue" }),
     ).toHaveAttribute("href", "/newsletter");
     expect(
       screen.getByRole("link", { name: "Optional support." }),
@@ -73,12 +73,20 @@ describe("EntryCloser", () => {
     expect(screen.queryByRole("link", { name: /Walk a journey/ })).toBeNull();
   });
 
-  it("invites to the weekly myth without repeating the footer sign-up form", () => {
+  it("holds the weekly myth sign-up form, one heading level below its own", () => {
     renderCloser({ entityType: "creature", id: "hydra", name: "Hydra" });
+    const form = within(screen.getByTestId("newsletter-entry_closer"));
     expect(
-      screen.getByRole("link", { name: /One myth a week/ }),
-    ).toHaveAttribute("href", "/newsletter");
-    expect(screen.queryByTestId("newsletter-entry")).toBeNull();
+      form.getByRole("heading", {
+        level: 3,
+        name: "One myth a week, by email",
+      }),
+    ).toBeVisible();
+    expect(form.getByLabelText("Email address")).toBeVisible();
+    expect(form.getByRole("checkbox")).not.toBeChecked();
+    expect(form.getByRole("button", { name: "Subscribe" })).toBeVisible();
+    // The footer form on the same page keeps a different name.
+    expect(screen.queryByText("The weekly myth")).toBeNull();
   });
 });
 
