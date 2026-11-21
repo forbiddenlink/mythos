@@ -82,6 +82,26 @@ describe("newsletter request schema", () => {
       newsletterRequestSchema.safeParse({ ...valid, extra: 1 }).success,
     ).toBe(false);
   });
+
+  it("accepts each place a form sits and no other", () => {
+    for (const placement of [
+      "footer",
+      "daily_myth",
+      "newsletter_page",
+      "entry_closer",
+      "next_steps",
+      "teachers",
+    ]) {
+      expect(
+        newsletterRequestSchema.safeParse({ ...valid, placement }).success,
+        placement,
+      ).toBe(true);
+    }
+    expect(
+      newsletterRequestSchema.safeParse({ ...valid, placement: "popup" })
+        .success,
+    ).toBe(false);
+  });
 });
 
 describe("getNewsletterConfig", () => {

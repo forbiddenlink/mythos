@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { EntryCloserSave } from "@/components/layout/EntryCloserSave";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ReadEndNudge } from "@/components/support/ReadEndNudge";
 import { getJourneys } from "@/lib/data/catalog";
 import { findJourneyForPantheon } from "@/lib/journeys";
@@ -30,7 +31,7 @@ const linkClass =
 
 /**
  * One quiet closing block under an entry: save it, keep exploring, report a
- * problem, or read about the weekly digest. No modal, timer or gate; every item
+ * problem, or sign up for the weekly digest. No modal, timer or gate; every item
  * is an ordinary link or form the reader can ignore.
  */
 export function EntryCloser({
@@ -84,12 +85,13 @@ export function EntryCloser({
           className="mt-6"
         />
       )}
-      <p className="mt-6 type-ui text-muted-foreground">
-        <Link href="/newsletter" className={linkClass}>
-          One myth a week, with its sources
-        </Link>{" "}
-        in a short email. The sign-up form is at the foot of the page.
-      </p>
+      <NewsletterSignup
+        placement="entry_closer"
+        headingLevel="h3"
+        className="mt-6"
+        title="One myth a week, by email"
+        description="A short email with one myth, its sources and a question to think about. Unsubscribe any time."
+      />
       <p className="mt-4 type-meta text-muted-foreground">
         Free to read, no ads.{" "}
         <Link href="/support" className="underline underline-offset-4">

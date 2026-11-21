@@ -13,6 +13,27 @@ function setup() {
   };
 }
 
+describe("NewsletterSignup heading", () => {
+  it("titles the form with a level-two heading unless told otherwise", () => {
+    render(<NewsletterSignup placement="footer" />);
+    expect(
+      screen.getByRole("heading", { level: 2, name: "The weekly myth" }),
+    ).toBeVisible();
+  });
+
+  it("drops to level three inside a section that has its own heading", () => {
+    render(<NewsletterSignup placement="entry_closer" headingLevel="h3" />);
+    expect(
+      screen.getByRole("heading", { level: 3, name: "The weekly myth" }),
+    ).toBeVisible();
+    expect(screen.queryByRole("heading", { level: 2 })).toBeNull();
+    // The region keeps its name whatever the level.
+    expect(
+      screen.getByRole("region", { name: "The weekly myth" }),
+    ).toBeVisible();
+  });
+});
+
 describe("NewsletterSignup validation", () => {
   it("flags and focuses an empty email, and describes it with the error", () => {
     const { email, consent, submit } = setup();

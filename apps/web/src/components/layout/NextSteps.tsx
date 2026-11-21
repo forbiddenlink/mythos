@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import type { NextStepLink, NextStepSet } from "@/lib/next-steps";
 import { cn } from "@/lib/utils";
 
@@ -66,6 +67,13 @@ export function NextSteps({
         <LinkGroup title="Read the myths" links={myths} />
         <LinkGroup title="Related pages" links={related} />
       </div>
+      <NewsletterSignup
+        placement="next_steps"
+        headingLevel="h3"
+        className="mt-8"
+        title="One myth a week, by email"
+        description="A short email with one myth, its sources and a question to think about. Unsubscribe any time."
+      />
     </section>
   );
 }

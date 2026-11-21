@@ -4,6 +4,7 @@ import { EntityCard, EntityGrid } from "@/components/entities/EntityCard";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { getPantheons, getStories, getTraditions } from "@/lib/data/catalog";
 import { getWorksheetSlugs } from "@/lib/data/worksheets";
@@ -310,6 +311,12 @@ export default function TeachersPage() {
             </ul>
           </section>
         ) : null}
+        <NewsletterSignup
+          placement="teachers"
+          className="mt-14 border-t border-border pt-6"
+          title="One myth a week, by email"
+          description="Optional, and separate from the worksheets, which need no sign-up. A short email with one myth, its sources and a question to think about. Unsubscribe any time."
+        />
       </Container>
       <AboutThisPage title="About these resources">
         <p>

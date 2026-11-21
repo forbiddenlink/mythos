@@ -15,6 +15,9 @@ export const NEWSLETTER_PLACEMENTS = [
   "footer",
   "daily_myth",
   "newsletter_page",
+  "entry_closer",
+  "next_steps",
+  "teachers",
 ] as const;
 export type NewsletterPlacement = (typeof NEWSLETTER_PLACEMENTS)[number];
 
