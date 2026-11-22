@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.24.0](https://github.com/forbiddenlink/mythos/compare/v1.23.0...v1.24.0) (2026-11-22)
+
+
+### Features
+
+* **analytics:** count pages and newsletter steps as anonymous daily totals ([0ca009d](https://github.com/forbiddenlink/mythos/commit/0ca009d7acc6adfa8f9f956ae0a253290a9c058c))
+* **closers:** end list, comparison and story pages with a next step ([#352](https://github.com/forbiddenlink/mythos/issues/352)) ([c21711c](https://github.com/forbiddenlink/mythos/commit/c21711c8c258c5bd6d28170a14e70105c6ca0538))
+* **newsletter:** sign up in place at the end of an entry, a list and /teachers ([#356](https://github.com/forbiddenlink/mythos/issues/356)) ([00f3f2a](https://github.com/forbiddenlink/mythos/commit/00f3f2a1faeb54a81707d9a8f94975651c21399e))
+
+
+### Bug Fixes
+
+* **content:** correct year Seoul adopted the haechi symbol ([#357](https://github.com/forbiddenlink/mythos/issues/357)) ([abc599b](https://github.com/forbiddenlink/mythos/commit/abc599b7f6b115726d03efd8d180b285449f2c4b))
+* keep credentials and confirmation URLs out of anonymous counts ([6c1e20c](https://github.com/forbiddenlink/mythos/commit/6c1e20cc49ec2f3a92f664fc7c25a08390ffd986))
+* load the Shiva portrait from the working Met collection endpoint ([4627bb4](https://github.com/forbiddenlink/mythos/commit/4627bb4a268deb5fe5209bed036dad7c2f41a899))
+* restore museum photographs on Zeus pages and verify the home portrait ([e10390c](https://github.com/forbiddenlink/mythos/commit/e10390c3232327658be1a98ab05832a667295d13))
+* reuse public comparison cards across crawler requests ([#354](https://github.com/forbiddenlink/mythos/issues/354)) ([0f74d5a](https://github.com/forbiddenlink/mythos/commit/0f74d5a6e11fa53a8f0b23a4f2953d3760dd8355))
+
 ## [1.23.0](https://github.com/forbiddenlink/mythos/compare/v1.22.0...v1.23.0) (2026-11-20)
 
 
