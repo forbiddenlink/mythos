@@ -103,6 +103,26 @@ describe("parseCspReports", () => {
     ).toEqual([]);
   });
 
+  it("drops connect-src data: reports, which no first-party code produces", () => {
+    // Sentry MYTHOS issue 7862494230: one event on /stories/ra-journey. No
+    // first-party code fetches a data: URI (howler decodes base64 itself, and
+    // its silent WAV is media-src), so the request comes from the browser or
+    // an extension. Other directives blocking data: stay reported.
+    const report = (effectiveDirective: string) => [
+      {
+        type: "csp-violation",
+        body: {
+          documentURL: "https://mythosatlas.com/stories/ra-journey",
+          disposition: "enforce",
+          effectiveDirective,
+          blockedURL: "data",
+        },
+      },
+    ];
+    expect(parseCspReports(report("connect-src"))).toEqual([]);
+    expect(parseCspReports(report("script-src-elem"))).toHaveLength(1);
+  });
+
   it("drops PostHog's own internal hosts (toolbar and screenshot tooling)", () => {
     // First-party analytics goes through /ingest, so the browser never needs
     // posthog.com. internal-*.posthog.com is PostHog's own app telemetry,
