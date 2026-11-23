@@ -67,6 +67,10 @@ function isExtensionUrl(raw: string | undefined): boolean {
  *   WASM), so the compile comes from an injected script or the browser.
  *   If we ever ship WASM, add 'wasm-unsafe-eval' to script-src and remove
  *   this clause.
+ * - `connect-src` blocking `data:`. No first-party code fetches a data: URI
+ *   (howler decodes base64 itself and its silent WAV is a media-src load), so
+ *   the request is the browser's or an extension's (Sentry MYTHOS 7862494230,
+ *   one event). Other directives blocking data: are still reported.
  * - PostHog's own internal hosts (internal-*.posthog.com). Our analytics goes
  *   through the /ingest proxy, so no first-party code calls posthog.com from
  *   the browser; these come from PostHog's toolbar or its crawler.
@@ -85,6 +89,7 @@ export function isBrowserNoise(body: Record<string, unknown>): boolean {
   if (blocked && GOOGLE_FONTS_HOST.test(blocked)) return true;
   const directive =
     str(body.effectiveDirective) ?? str(body["effective-directive"]);
+  if (directive === "connect-src" && blocked === "data") return true;
   return (
     directive === "script-src" &&
     (blocked === "wasm-eval" || blocked === "wasm-unsafe-eval")
