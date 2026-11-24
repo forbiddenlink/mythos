@@ -15,6 +15,7 @@
     "timeline": "Timeline",
     "quiz": "Quiz",
     "dailyReview": "Daily Review",
+    "forTeachers": "For Teachers",
     "bookmarks": "Bookmarks",
     "about": "About",
     "atlas": "Aether Map",
@@ -43,6 +44,7 @@
     "paths": "Themed collections, journeys, and study guides",
     "quiz": "Test your mythology knowledge",
     "dailyReview": "Revisit what you have read with flashcards",
+    "forTeachers": "Printable worksheets and study guides for class",
     "oracle": "Ask questions with catalog references"
   },
   "actions": {

@@ -15,6 +15,7 @@
     "timeline": "Chronologie",
     "quiz": "Quiz",
     "dailyReview": "Révision Quotidienne",
+    "forTeachers": "Pour les enseignants",
     "bookmarks": "Favoris",
     "about": "À propos",
     "atlas": "Carte de l'Éther",
@@ -43,6 +44,7 @@
     "paths": "Collections thématiques, voyages et guides d'étude",
     "quiz": "Testez vos connaissances en mythologie",
     "dailyReview": "Révisez vos lectures avec des cartes mémoire",
+    "forTeachers": "Fiches imprimables et guides d'étude pour la classe",
     "oracle": "Posez des questions avec des références du catalogue"
   },
   "actions": {
