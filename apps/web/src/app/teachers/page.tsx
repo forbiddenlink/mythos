@@ -6,7 +6,6 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
-import { ClassroomShareButton } from "@/components/worksheet/ClassroomShareButton";
 import { getPantheons, getStories, getTraditions } from "@/lib/data/catalog";
 import { getWorksheetSlugs } from "@/lib/data/worksheets";
 import { getBlurHash } from "@/lib/image-blur";
