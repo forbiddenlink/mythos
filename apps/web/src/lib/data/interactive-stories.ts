@@ -3,6 +3,7 @@ import "server-only";
 import type { InteractiveStoryListItem } from "@/components/stories/InteractiveStoryCard";
 import { getBranchingStories, getPantheonShortNames } from "./catalog";
 import { pick } from "./project";
+import { getBlurHash } from "@/lib/image-blur";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 
 /** Interactive-story card fields, projected on the server (no story graph). */
@@ -21,6 +22,7 @@ export function interactiveStoryItems(): InteractiveStoryListItem[] {
         "totalEndings",
         "coverImage",
       ]),
+      blurHash: getBlurHash(story.coverImage),
       ...(pantheonId
         ? {
             tradition: names[pantheonId] ?? pantheonId,

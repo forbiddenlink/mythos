@@ -353,6 +353,8 @@ export default function OdysseyGuide() {
         tagline="Guide · Homer"
         title={guide.title}
         description="Twenty years, fourteen landfalls and twenty-four books: where Odysseus goes, what happens in each book, and who he meets on the way."
+        backgroundImage="/journeys/odyssey.png"
+        backgroundAlt="Illustration of Odysseus's voyage across the wine-dark sea"
         minHeight="min-h-[42vh]"
       />
 

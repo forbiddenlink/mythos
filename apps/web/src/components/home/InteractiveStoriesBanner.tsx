@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { EndingsDiscovered } from "@/components/home/EndingsDiscovered";
+import { getBlurDataURL } from "@/lib/image-blur";
 
 export interface InteractiveStorySummary {
   id: string;
@@ -28,6 +29,7 @@ export function InteractiveStoriesBanner({
   const [featured, ...others] = stories;
   if (!featured) return null;
   const totalEndings = stories.reduce((sum, s) => sum + s.totalEndings, 0);
+  const featuredBlur = getBlurDataURL(featured.coverImage);
 
   return (
     <section
@@ -45,6 +47,8 @@ export function InteractiveStoriesBanner({
                 src={featured.coverImage}
                 alt={`Illustration for ${featured.title}`}
                 fill
+                placeholder={featuredBlur ? "blur" : undefined}
+                blurDataURL={featuredBlur}
                 sizes="(min-width: 1024px) 38rem, 100vw"
                 className="object-cover object-[50%_35%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
               />

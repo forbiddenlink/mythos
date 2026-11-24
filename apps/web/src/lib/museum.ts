@@ -82,3 +82,17 @@ export function getMuseumObjectsForStory(
 ): MuseumObject[] {
   return source.filter((o) => o.storyIds?.includes(storyId));
 }
+
+/**
+ * Full public-domain museum catalog for the /museum exhibition index, sorted so
+ * ancient objects made within a tradition precede later depictions.
+ */
+export function getAllMuseumObjects(
+  source: MuseumObject[] = objectsData as MuseumObject[],
+): MuseumObject[] {
+  return [...source]
+    .filter((o) => Boolean(o.imageUrl))
+    .sort(
+      (a, b) => Number(b.context === ANCIENT) - Number(a.context === ANCIENT),
+    );
+}

@@ -40,18 +40,25 @@ export function MuseumGallery({
                 href={object.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mb-4 block rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                className="group mb-4 block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
               >
-                <span className="relative block aspect-4/5 overflow-hidden rounded-md bg-midnight ring-1 ring-border/60">
-                  <Image
-                    src={object.imageUrl}
-                    alt={object.imageAlt || object.title}
-                    fill
-                    unoptimized
-                    loading="lazy"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                  />
+                <span
+                  className="plate plate-paper block"
+                  style={
+                    { "--plate-accent": "var(--gold)" } as React.CSSProperties
+                  }
+                >
+                  <span className="plate-art relative block aspect-4/5 overflow-hidden bg-parchment">
+                    <Image
+                      src={object.imageUrl}
+                      alt={object.imageAlt || object.title}
+                      fill
+                      unoptimized
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    />
+                  </span>
                 </span>
                 <span className="sr-only"> (opens the museum record)</span>
               </a>

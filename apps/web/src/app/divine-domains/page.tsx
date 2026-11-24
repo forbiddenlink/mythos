@@ -5,6 +5,7 @@ import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { getDeities, getPantheonShortNames } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
 import { getGodsOfDomains, godsOfTitle } from "@/lib/gods-of";
+import { getBlurHash } from "@/lib/image-blur";
 import { DivineDomainsPageClient } from "./DivineDomainsPageClient";
 
 /**
@@ -75,7 +76,10 @@ export default function DivineDomainsPage() {
           "alternateNames",
           "importanceRank",
           "crossPantheonParallels",
-        ])}
+        ]).map((d) => ({
+          ...d,
+          blurHash: getBlurHash(d.imageUrl),
+        }))}
         pantheonNames={getPantheonShortNames()}
         domainPages={Object.fromEntries(
           getGodsOfDomains().flatMap((page) =>

@@ -43,6 +43,7 @@ interface Deity {
   domain: string[];
   description?: string | null;
   imageUrl?: string | null;
+  blurHash?: string;
   alternateNames?: string[];
   importanceRank?: number | null;
   crossPantheonParallels?: CrossPantheonParallel[];
@@ -115,7 +116,10 @@ export function DivineDomainsPageClient({
   // list the domain first win, then the more important ones.
   const domainLeads = useMemo(() => {
     const used = new Set<string>();
-    const leads = new Map<string, { image: string | null; names: string[] }>();
+    const leads = new Map<
+      string,
+      { image: string | null; blurHash?: string; names: string[] }
+    >();
     for (const domain of PRIMARY_DOMAINS) {
       const holders = deities
         .filter((d) => matchesDomainFilter(d.domain ?? [], domain))
@@ -129,6 +133,7 @@ export function DivineDomainsPageClient({
       if (lead) used.add(lead.id);
       leads.set(domain, {
         image: lead?.imageUrl ?? null,
+        blurHash: lead?.blurHash,
         names: holders.slice(0, 4).map((d) => d.name),
       });
     }
@@ -360,6 +365,7 @@ export function DivineDomainsPageClient({
                     href={`/deities/${deity.slug}`}
                     title={deity.name}
                     image={deity.imageUrl}
+                    blurHash={deity.blurHash}
                     imagePosition="50% 22%"
                     aspect="portrait"
                     priority={index < 4}
@@ -388,6 +394,7 @@ export function DivineDomainsPageClient({
                   href={`/gods-of/${slug}`}
                   title={domainCategoryLabel(domain)}
                   image={domainLeads.get(domain)?.image}
+                  blurHash={domainLeads.get(domain)?.blurHash}
                   imagePosition="50% 25%"
                   aspect="landscape"
                   priority={index < 3}

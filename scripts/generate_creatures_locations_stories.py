@@ -18,11 +18,13 @@ CREATURES_DIR = os.path.join(WEB_PUBLIC, "creatures")
 LOCATIONS_DIR = os.path.join(WEB_PUBLIC, "locations")
 STORIES_DIR = os.path.join(WEB_PUBLIC, "stories")
 ARTIFACTS_DIR = os.path.join(WEB_PUBLIC, "artifacts")
+JOURNEYS_DIR = os.path.join(WEB_PUBLIC, "journeys")
 
 os.makedirs(CREATURES_DIR, exist_ok=True)
 os.makedirs(LOCATIONS_DIR, exist_ok=True)
 os.makedirs(STORIES_DIR, exist_ok=True)
 os.makedirs(ARTIFACTS_DIR, exist_ok=True)
+os.makedirs(JOURNEYS_DIR, exist_ok=True)
 
 SIZE = 768
 
@@ -204,7 +206,18 @@ CREATURES = [
         "accent": (150, 180, 90),
         "bg": (14, 20, 14),
         "motif": "zmey_dragon"
-    }
+    },
+    # 2026-09 additions (Polynesian, Chinese, Mesopotamian, Aztec)
+    {"id": "moo", "name": "MO'O", "subtitle": "GUARDIAN WATER SPIRIT", "accent": (90, 165, 180), "bg": (10, 18, 24), "motif": "emblem_serpent"},
+    {"id": "taniwha", "name": "TANIWHA", "subtitle": "GUARDIAN OF RIVERS AND COASTS", "accent": (90, 165, 180), "bg": (10, 18, 24), "motif": "emblem_sea_monster"},
+    {"id": "fenghuang", "name": "FENGHUANG", "subtitle": "SOVEREIGN BIRD OF HARMONY", "accent": (215, 140, 65), "bg": (20, 13, 12), "motif": "emblem_great_bird"},
+    {"id": "qinglong", "name": "QINGLONG", "subtitle": "AZURE DRAGON OF THE EAST", "accent": (90, 175, 155), "bg": (12, 18, 18), "motif": "emblem_dragon"},
+    {"id": "bai-ze", "name": "BAI ZE", "subtitle": "BEAST WHO KNOWS ALL SPIRITS", "accent": (210, 185, 120), "bg": (18, 16, 12), "motif": "emblem_beast"},
+    {"id": "nian", "name": "NIAN", "subtitle": "BEAST OF THE NEW YEAR THRESHOLD", "accent": (215, 95, 65), "bg": (22, 12, 12), "motif": "emblem_beast"},
+    {"id": "anzu", "name": "ANZU", "subtitle": "LION-HEADED STORM BIRD", "accent": (195, 150, 75), "bg": (20, 15, 11), "motif": "emblem_great_bird"},
+    {"id": "itzpapalotl-obsidian-host", "name": "OBSIDIAN BUTTERFLY HOST", "subtitle": "ITZPAPALOTL'S STAR WARRIORS", "accent": (200, 105, 65), "bg": (22, 13, 11), "motif": "emblem_winged_disc"},
+    {"id": "mushussu", "name": "MUSHUSSU", "subtitle": "SACRED DRAGON OF MARDUK", "accent": (195, 155, 75), "bg": (20, 15, 11), "motif": "emblem_dragon"},
+    {"id": "ugallu", "name": "UGALLU", "subtitle": "GREAT STORM-DEMON GUARDIAN", "accent": (195, 145, 75), "bg": (20, 15, 11), "motif": "emblem_lightning"},
 ]
 
 def draw_creature_motif(draw, cx, cy, r, motif, accent, gold):
@@ -735,6 +748,13 @@ STORIES = [
     {"id": "princess-bari", "name": "PRINCESS BARI", "subtitle": "THE ABANDONED DAUGHTER", "accent": (200, 170, 210), "bg": (12, 10, 16), "motif": "emblem_flower"},
     {"id": "mireuk-and-seokga", "name": "MIREUK & SEOKGA", "subtitle": "THE CONTEST FOR THE WORLD", "accent": (190, 205, 230), "bg": (10, 12, 18), "motif": "emblem_water_flower"},
     {"id": "manpasikjeok", "name": "MANPASIKJEOK", "subtitle": "THE DRAGON'S BAMBOO", "accent": (90, 170, 170), "bg": (10, 14, 18), "motif": "emblem_flute"},
+    # 2026-09 additions (Polynesian, Japanese, Mesopotamian)
+    {"id": "maui-and-hina-death", "name": "MAUI AND HINE-NUI-TE-PO", "subtitle": "THE CONTEST AGAINST DEATH", "accent": (90, 165, 180), "bg": (10, 18, 24), "motif": "emblem_gate_below"},
+    {"id": "hina-maui-lengthened-day", "name": "SNARING THE SUN", "subtitle": "MAUI LENGTHENS THE DAY", "accent": (220, 165, 65), "bg": (14, 18, 24), "motif": "emblem_sun"},
+    {"id": "susanoo-banishment", "name": "SUSANOO'S BANISHMENT", "subtitle": "DESCENT FROM TAKAMA-GA-HARA", "accent": (140, 165, 210), "bg": (14, 17, 24), "motif": "emblem_lightning"},
+    {"id": "okuninushi-trials", "name": "TRIALS OF OKUNINUSHI", "subtitle": "THE ROOT COUNTRY TEST", "accent": (185, 145, 195), "bg": (14, 17, 24), "motif": "story_horse"},
+    {"id": "atrahasis-flood", "name": "ATRAHASIS AND THE FLOOD", "subtitle": "THE ARK OF REEDS AND PITCH", "accent": (195, 150, 75), "bg": (20, 15, 11), "motif": "emblem_waves"},
+    {"id": "etana-and-the-eagle", "name": "ETANA AND THE EAGLE", "subtitle": "THE ASCENT TO HEAVEN", "accent": (205, 165, 80), "bg": (20, 15, 11), "motif": "emblem_great_bird"},
 ]
 
 def draw_story_motif(draw, cx, cy, r, motif, accent, gold):
@@ -925,6 +945,13 @@ BRANCHING_COVERS = [
      "accent": (170, 130, 200), "bg": (16, 12, 22), "motif": "emblem_lyre", "pantheon": "greek-pantheon"},
 ]
 
+JOURNEYS = [
+    {"id": "maui-island-fishing", "name": "FISHING UP THE ISLANDS", "subtitle": "MAUI AND MANAIAKALANI · DEEP OCEAN",
+     "accent": (90, 165, 180), "bg": (10, 18, 24), "motif": "emblem_waves", "pantheon": "polynesian-pantheon"},
+    {"id": "xibalba-hero-twins", "name": "DESCENT INTO XIBALBA", "subtitle": "THE HERO TWINS IN THE MAYA UNDERWORLD",
+     "accent": (110, 175, 135), "bg": (14, 19, 16), "motif": "emblem_gate_below", "pantheon": "mesoamerican-pantheon"},
+]
+
 
 # ---------------------------------------------------------------------------
 # 5. Artifacts drawn with the tradition emblems (_plate_emblems.py)
@@ -950,6 +977,21 @@ EMBLEM_ARTIFACTS = [
     {"id": "cheonbuin", "name": "CHEONBUIN", "subtitle": "THE THREE HEAVENLY SEALS", "accent": (215, 180, 90), "bg": (16, 14, 10), "motif": "emblem_seals"},
     {"id": "manpasikjeok-flute", "name": "MANPASIKJEOK", "subtitle": "THE FLUTE THAT CALMS TEN THOUSAND WAVES", "accent": (150, 190, 130), "bg": (10, 16, 14), "motif": "emblem_flute"},
     {"id": "water-of-life", "name": "WATER OF LIFE", "subtitle": "BROUGHT BACK BY PRINCESS BARI", "accent": (140, 190, 210), "bg": (10, 14, 18), "motif": "emblem_well"},
+    # 2026-09 additions (Polynesian, Yoruba, Chinese, Japanese, Mesopotamian, Aztec, Mesoamerican)
+    {"id": "oguns-iron", "name": "OGUN'S SACRED IRON", "subtitle": "THE TOOLS THAT CLEAR THE PATH", "accent": (215, 145, 55), "bg": (22, 15, 11), "motif": "emblem_hammer"},
+    {"id": "oshe-of-shango", "name": "OSHE OF SHANGO", "subtitle": "DOUBLE-HEADED THUNDER AXE", "accent": (215, 130, 50), "bg": (22, 15, 11), "motif": "emblem_lightning"},
+    {"id": "manaiakalani", "name": "MANAIAKALANI", "subtitle": "MAUI'S ANCESTRAL FISHHOOK", "accent": (90, 165, 180), "bg": (10, 18, 24), "motif": "emblem_waves"},
+    {"id": "tablet-of-destinies", "name": "TABLET OF DESTINIES", "subtitle": "SEAL OF SUPREME RULE", "accent": (195, 150, 75), "bg": (20, 15, 11), "motif": "emblem_seals"},
+    {"id": "smoking-mirror", "name": "SMOKING MIRROR", "subtitle": "OBSIDIAN GLASS OF TEZCATLIPOCA", "accent": (170, 135, 200), "bg": (18, 13, 22), "motif": "emblem_moon"},
+    {"id": "xiuhcoatl", "name": "XIUHCOATL", "subtitle": "THE TURQUOISE FIRE SERPENT", "accent": (90, 185, 175), "bg": (12, 19, 20), "motif": "emblem_serpent_flame"},
+    {"id": "wind-jewel", "name": "WIND JEWEL", "subtitle": "TALISMAN OF THE STORM GOD", "accent": (140, 175, 210), "bg": (14, 17, 24), "motif": "emblem_stars"},
+    {"id": "peach-of-immortality", "name": "PEACH OF IMMORTALITY", "subtitle": "ORCHARD OF XIWANGMU", "accent": (215, 135, 95), "bg": (20, 13, 12), "motif": "emblem_tree_altar"},
+    {"id": "macuahuitl-of-huitzilopochtli", "name": "MACUAHUITL", "subtitle": "OBSIDIAN-EDGED WAR CLUB", "accent": (200, 105, 65), "bg": (22, 13, 11), "motif": "emblem_mace"},
+    {"id": "coyolxauhqui-stone", "name": "COYOLXAUHQUI STONE", "subtitle": "DISK OF THE MOON AT COATEPEC", "accent": (195, 165, 110), "bg": (20, 15, 12), "motif": "emblem_moon"},
+    {"id": "the-me", "name": "THE ME", "subtitle": "DECREES OF CIVILIZATION", "accent": (195, 150, 75), "bg": (20, 15, 11), "motif": "emblem_seals"},
+    {"id": "imhullu", "name": "IMHULLU", "subtitle": "THE EVIL WIND OF MARDUK", "accent": (165, 150, 195), "bg": (16, 14, 22), "motif": "emblem_lightning"},
+    {"id": "pakal-sarcophagus-lid", "name": "SARCOPHAGUS LID OF PAKAL", "subtitle": "THE WORLD TREE AT PALENQUE", "accent": (110, 175, 135), "bg": (14, 19, 16), "motif": "emblem_tree_altar"},
+    {"id": "hero-twins-blowgun", "name": "THE HERO TWINS' BLOWGUN", "subtitle": "HUNAHPU AND XBALANQUE", "accent": (110, 175, 135), "bg": (14, 19, 16), "motif": "emblem_flute"},
 ]
 
 def draw_artifact_motif(draw, cx, cy, r, motif, accent, gold):
@@ -969,6 +1011,7 @@ if __name__ == "__main__":
         ("Location", LOCATIONS, LOCATIONS_DIR, "location", draw_location_motif),
         ("Story", STORIES, STORIES_DIR, "story", draw_story_motif),
         ("Interactive story cover", BRANCHING_COVERS, STORIES_DIR, "cover", draw_story_motif),
+        ("Journey cover", JOURNEYS, JOURNEYS_DIR, "cover", draw_story_motif),
         ("Artifact", ARTIFACTS, ARTIFACTS_DIR, "artifact", draw_story_motif),
         ("Artifact", EMBLEM_ARTIFACTS, ARTIFACTS_DIR, "artifact", draw_artifact_motif),
     ]

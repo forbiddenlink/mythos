@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section, SectionHeading } from "@/components/layout/section";
 import collections from "@/data/collections.json";
 import deities from "@/data/deities.json";
+import { getBlurDataURL } from "@/lib/image-blur";
 import { getImageProvenance } from "@/lib/image-provenance";
 
 const featuredIds = [
@@ -58,20 +59,25 @@ export function CollectionsShowcase() {
                 className="group block rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
               >
                 <span className="grid grid-cols-4 gap-1 overflow-hidden rounded-md ring-1 ring-border/70">
-                  {portraits.map((deity) => (
-                    <span
-                      key={deity.id}
-                      className="relative block aspect-[2/3] overflow-hidden bg-muted"
-                    >
-                      <Image
-                        src={deity.imageUrl as string}
-                        alt=""
-                        fill
-                        sizes="(min-width: 1024px) 4.5rem, (min-width: 640px) 12vw, 25vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-                      />
-                    </span>
-                  ))}
+                  {portraits.map((deity) => {
+                    const blur = getBlurDataURL(deity.imageUrl);
+                    return (
+                      <span
+                        key={deity.id}
+                        className="relative block aspect-[2/3] overflow-hidden bg-muted"
+                      >
+                        <Image
+                          src={deity.imageUrl as string}
+                          alt=""
+                          fill
+                          placeholder={blur ? "blur" : undefined}
+                          blurDataURL={blur}
+                          sizes="(min-width: 1024px) 4.5rem, (min-width: 640px) 12vw, 25vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                        />
+                      </span>
+                    );
+                  })}
                 </span>
                 <span className="mt-4 flex items-baseline justify-between gap-3">
                   <span className="font-serif text-xl font-semibold text-foreground group-hover:text-gold-text">

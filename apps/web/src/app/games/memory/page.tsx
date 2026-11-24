@@ -4,6 +4,7 @@ import { project } from "@/lib/data/project";
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
 import { PageHeader } from "@/components/layout/page-header";
+import { getBlurHash } from "@/lib/image-blur";
 import { generateBaseMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
@@ -40,7 +41,11 @@ export default function MemoryGamePage() {
             "name",
             "symbols",
             "pantheonId",
-          ])}
+            "imageUrl",
+          ]).map((deity) => ({
+            ...deity,
+            blurHash: getBlurHash(deity.imageUrl),
+          }))}
         />
       </Container>
 

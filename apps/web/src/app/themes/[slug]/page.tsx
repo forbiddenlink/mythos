@@ -5,6 +5,7 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { CollectionPageJsonLd, ItemListJsonLd } from "@/components/seo/JsonLd";
 import { formatPantheonLabel } from "@/lib/deity-page";
+import { getImageProvenance } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
 import { THEME_HUBS, getThemeHub, hubStories } from "@/lib/theme-hubs";
@@ -45,6 +46,12 @@ export default async function ThemeHubPage({ params }: Readonly<PageProps>) {
   const hub = getThemeHub(slug);
   if (!hub) notFound();
   const stories = hubStories(hub);
+  const lead =
+    stories.find(
+      (s) =>
+        s.imageUrl &&
+        getImageProvenance("story", s.id)?.kind === "illustration-ai",
+    ) ?? stories.find((s) => Boolean(s.imageUrl));
   const url = `/themes/${hub.slug}`;
   const others = THEME_HUBS.filter((h) => h.slug !== hub.slug);
 
@@ -72,6 +79,8 @@ export default async function ThemeHubPage({ params }: Readonly<PageProps>) {
         title={hub.title}
         description={hub.description}
         count={`${stories.length} stories`}
+        backgroundImage={lead?.imageUrl || "/stories-hero.jpg"}
+        backgroundAlt={lead ? `Illustration for ${lead.title}` : "Ancient scrolls and manuscripts"}
       />
       <Container className="pt-8 pb-4 md:pt-10">
         <p className="max-w-3xl text-lg leading-relaxed text-foreground/90">

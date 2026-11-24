@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/layout/section";
 import { getDeities } from "@/lib/data/catalog";
+import { getBlurDataURL } from "@/lib/image-blur";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getSyncretismChains } from "@/lib/linked-mentions";
 import { getMuseumObjectsFor, getMuseumPortrait } from "@/lib/museum";
@@ -53,6 +54,7 @@ export function SyncretismStrip() {
                       )
                     : null;
                 const image = deity?.imageUrl ?? portrait?.imageUrl;
+                const blur = portrait ? undefined : getBlurDataURL(image);
                 return (
                   <li key={member.slug}>
                     <Link
@@ -74,6 +76,8 @@ export function SyncretismStrip() {
                                 : ""
                             }
                             unoptimized={Boolean(portrait)}
+                            placeholder={blur ? "blur" : undefined}
+                            blurDataURL={blur}
                             fill
                             sizes="(min-width: 768px) 8rem, 45vw"
                             className={cn(
