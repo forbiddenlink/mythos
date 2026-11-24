@@ -52,9 +52,9 @@ describe("theme hubs", () => {
     expect(getThemeHub("nope")).toBeUndefined();
   });
 
-  it("lists the index and every hub in the sitemap", () => {
+  it("lists every hub in the sitemap, not the retired index", () => {
     const urls = new Set(sitemap().map((e) => e.url));
-    expect(urls).toContain("https://mythosatlas.com/themes");
+    expect(urls).not.toContain("https://mythosatlas.com/themes");
     for (const hub of THEME_HUBS) {
       expect(urls).toContain(`https://mythosatlas.com/themes/${hub.slug}`);
     }

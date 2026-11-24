@@ -368,7 +368,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
   const themePages: MetadataRoute.Sitemap = [
-    { url: `${BASE_URL}/themes`, changeFrequency: "monthly", priority: 0.8 },
     ...THEME_HUBS.map((hub) => ({
       url: `${BASE_URL}/themes/${hub.slug}`,
       changeFrequency: "monthly" as const,

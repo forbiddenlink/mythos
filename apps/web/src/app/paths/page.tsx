@@ -13,6 +13,7 @@ import {
   CollectionsSection,
 } from "@/components/paths/CollectionsSection";
 import { ReadingPaths } from "@/components/paths/ReadingPaths";
+import { THEME_COUNT, ThemesSection } from "@/components/paths/ThemesSection";
 import { toDeityCardData } from "@/lib/anki-export";
 import {
   getDeities,
@@ -30,7 +31,7 @@ import { listGuides } from "../study/_guides";
 export const metadata: Metadata = generateBaseMetadata({
   title: "Paths Through World Mythology",
   description:
-    "Guided ways through the atlas: themed collections, mapped hero journeys, study guides with Anki decks, and reading paths built from what you have read.",
+    "Guided ways through the atlas: themed collections, myth themes across cultures, mapped hero journeys, study guides with Anki decks, and reading paths built from what you have read.",
   url: "/paths",
   keywords: [
     "mythology learning paths",
@@ -73,6 +74,11 @@ export default function PathsPage() {
       detail: `${COLLECTION_COUNT} themes across traditions`,
     },
     {
+      id: "themes",
+      label: "Myth themes",
+      detail: `${THEME_COUNT} ideas told across cultures`,
+    },
+    {
       id: "journeys",
       label: "Guided journeys",
       detail: `${journeys.length} routes, stop by stop`,
@@ -99,7 +105,7 @@ export default function PathsPage() {
       />
       <Container className="pt-6 pb-16 md:pt-8">
         <nav aria-label="Kinds of path" className="mb-14">
-          <ul className="grid gap-x-8 border-y border-border sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-x-8 border-y border-border sm:grid-cols-2 lg:grid-cols-5">
             {sections.map((section) => (
               <li key={section.id}>
                 <a
@@ -120,6 +126,8 @@ export default function PathsPage() {
 
         <div className="space-y-20">
           <CollectionsSection />
+
+          <ThemesSection />
 
           <section
             id="journeys"

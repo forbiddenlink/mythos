@@ -97,7 +97,7 @@ export default function GuidesIndex() {
           </Link>
           . To see one idea across many traditions, such as floods, tricksters
           or journeys to the underworld, browse the{" "}
-          <Link href="/themes">myth themes</Link>. Looking for a single domain
+          <Link href="/paths#themes">myth themes</Link>. Looking for a single domain
           instead? See the <Link href="/divine-domains">gods by domain</Link>,
           from war and love to the sea and the dead.
         </p>
