@@ -15,6 +15,7 @@
     "timeline": "Zeitleiste",
     "quiz": "Quiz",
     "dailyReview": "Tägliche Übung",
+    "forTeachers": "Für Lehrkräfte",
     "bookmarks": "Lesezeichen",
     "about": "Über uns",
     "atlas": "Ätherkarte",
@@ -43,6 +44,7 @@
     "paths": "Themensammlungen, Reisen und Lernleitfäden",
     "quiz": "Teste dein Mythologiewissen",
     "dailyReview": "Wiederhole Gelesenes mit Karteikarten",
+    "forTeachers": "Druckbare Arbeitsblätter und Lernhilfen für den Unterricht",
     "oracle": "Stelle Fragen mit Katalogverweisen"
   },
   "actions": {

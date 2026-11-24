@@ -110,6 +110,12 @@ export const PRIMARY_NAV: NavGroup[] = [
       },
       { href: "/quiz", labelKey: "quiz", descriptionKey: "quiz", mark: "lyre" },
       {
+        href: "/teachers",
+        labelKey: "forTeachers",
+        descriptionKey: "forTeachers",
+        mark: "codex",
+      },
+      {
         href: "/review",
         labelKey: "dailyReview",
         descriptionKey: "dailyReview",

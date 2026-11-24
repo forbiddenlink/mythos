@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
+import { ClassroomShareButton } from "@/components/worksheet/ClassroomShareButton";
 import { getPantheons, getStories, getTraditions } from "@/lib/data/catalog";
 import { getWorksheetSlugs } from "@/lib/data/worksheets";
 import { generateBaseMetadata, shortPantheonName } from "@/lib/metadata";
@@ -143,7 +144,8 @@ export default function TeachersPage() {
             One sheet per tradition: match figures to their roles, complete
             family relationships, fill in a word bank and answer short
             questions. The answer key prints on its own page, on A4 or US
-            Letter.
+            Letter. To assign one, open the worksheet and use Share to
+            Google Classroom.
           </p>
           <EntityGrid>
             {traditions.map((pantheon, index) => (

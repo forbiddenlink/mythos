@@ -15,6 +15,7 @@
     "timeline": "Cronología",
     "quiz": "Cuestionario",
     "dailyReview": "Repaso Diario",
+    "forTeachers": "Para docentes",
     "bookmarks": "Marcadores",
     "about": "Acerca de",
     "atlas": "Mapa del Éter",
@@ -43,6 +44,7 @@
     "paths": "Colecciones temáticas, viajes y guías de estudio",
     "quiz": "Pon a prueba lo que sabes de mitología",
     "dailyReview": "Repasa lo que has leído con tarjetas",
+    "forTeachers": "Fichas imprimibles y guías de estudio para clase",
     "oracle": "Haz preguntas con referencias del catálogo"
   },
   "actions": {

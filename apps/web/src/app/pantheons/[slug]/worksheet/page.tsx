@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ClassroomShareButton } from "@/components/worksheet/ClassroomShareButton";
 import { PrintButton } from "@/components/worksheet/PrintButton";
 import { buildWorksheet, getWorksheetSlugs } from "@/lib/data/worksheets";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
@@ -74,7 +75,13 @@ export default async function WorksheetPage({ params }: PageProps) {
               A4 or US Letter · answer key prints on its own page
             </p>
           </div>
-          <PrintButton />
+          <div className="flex flex-wrap gap-3">
+            <ClassroomShareButton
+              path={`/pantheons/${pantheon.slug}/worksheet`}
+              title={`${pantheon.name} worksheet`}
+            />
+            <PrintButton />
+          </div>
         </div>
       </div>
       <div className="worksheet mx-auto mt-8 max-w-[52rem] bg-white px-6 py-10 font-body text-[#1b1a17] shadow-xl shadow-black/10 ring-1 ring-black/5 sm:px-12 sm:py-14 md:mt-12 print:mt-0 print:max-w-none print:px-0 print:py-0 print:shadow-none print:ring-0">
