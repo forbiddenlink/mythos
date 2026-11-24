@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.25.0](https://github.com/forbiddenlink/mythos/compare/v1.24.0...v1.25.0) (2026-11-24)
+
+
+### Features
+
+* **paths:** fold the /themes index into /paths ([#364](https://github.com/forbiddenlink/mythos/issues/364)) ([b5cbfed](https://github.com/forbiddenlink/mythos/commit/b5cbfedf29d3cd365914586f1bb3ccbeca847df9))
+* restore unshipped QA pass work and the /museum page ([#363](https://github.com/forbiddenlink/mythos/issues/363)) ([b8d71b4](https://github.com/forbiddenlink/mythos/commit/b8d71b4c5c98a14641bbc56d2e8b39d98c28c214))
+* **teachers:** add Share to Google Classroom and a For Teachers nav link ([#362](https://github.com/forbiddenlink/mythos/issues/362)) ([65db6f9](https://github.com/forbiddenlink/mythos/commit/65db6f9ffc66dfa8459993d584b89ee51d0f8894))
+
+
+### Bug Fixes
+
+* **csp:** stop reporting connect-src data: violations ([#360](https://github.com/forbiddenlink/mythos/issues/360)) ([f56fc8b](https://github.com/forbiddenlink/mythos/commit/f56fc8b428ff53343421d62c42e02b540cdbd631))
+
 ## [1.24.0](https://github.com/forbiddenlink/mythos/compare/v1.23.0...v1.24.0) (2026-11-22)
 
 
