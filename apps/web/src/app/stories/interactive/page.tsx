@@ -16,6 +16,8 @@ export default function InteractiveStoriesIndexPage() {
         title="Interactive Stories"
         description="Branching myths where your choices shape the ending."
         count={`${stories.length} stories · ${stories.reduce((sum, s) => sum + s.totalEndings, 0)} endings`}
+        backgroundImage="/stories-hero.jpg"
+        backgroundAlt="Ancient scrolls and scholarly manuscripts by candlelight"
       />
 
       <Container className="pt-8 pb-12 md:pt-10">

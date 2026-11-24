@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/layout/section";
+import { getBlurDataURL } from "@/lib/image-blur";
 import { cn } from "@/lib/utils";
 import type { MuseumObject } from "@/lib/museum";
 
@@ -27,6 +28,7 @@ export function PantheonShowcase({
 }) {
   const [lead, ...companions] = traditions;
   if (!lead) return null;
+  const leadBlur = lead.artwork ? undefined : getBlurDataURL(lead.imageUrl);
   return (
     <Section
       id="featured-pantheons"
@@ -59,6 +61,8 @@ export function PantheonShowcase({
                 src={lead.imageUrl}
                 alt={lead.artwork?.imageAlt ?? ""}
                 fill
+                placeholder={leadBlur ? "blur" : undefined}
+                blurDataURL={leadBlur}
                 sizes="(min-width: 1024px) 36rem, 100vw"
                 className={cn(
                   lead.artwork ? "object-contain" : "object-cover",
@@ -96,39 +100,44 @@ export function PantheonShowcase({
           ) : null}
         </div>
         <ul className="min-w-0 divide-y divide-border border-y border-border">
-          {companions.map((tradition) => (
-            <li key={tradition.slug}>
-              <Link
-                href={`/pantheons/${tradition.slug}`}
-                className="group flex min-h-28 items-center gap-4 py-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:gap-5"
-              >
-                <span className="plate-flat relative block aspect-square w-1/4 max-w-24 shrink-0 overflow-hidden bg-midnight">
-                  <Image
-                    src={tradition.imageUrl}
-                    alt=""
-                    fill
-                    sizes="96px"
-                    className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
+          {companions.map((tradition) => {
+            const blur = getBlurDataURL(tradition.imageUrl);
+            return (
+              <li key={tradition.slug}>
+                <Link
+                  href={`/pantheons/${tradition.slug}`}
+                  className="group flex min-h-28 items-center gap-4 py-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:gap-5"
+                >
+                  <span className="plate-flat relative block aspect-square w-1/4 max-w-24 shrink-0 overflow-hidden bg-midnight">
+                    <Image
+                      src={tradition.imageUrl}
+                      alt=""
+                      fill
+                      placeholder={blur ? "blur" : undefined}
+                      blurDataURL={blur}
+                      sizes="96px"
+                      className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
+                    />
+                  </span>
+                  <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+                    <span className="type-meta block text-muted-foreground">
+                      {tradition.culture}
+                    </span>
+                    <span className="mt-1 block font-serif text-xl leading-snug text-foreground group-hover:text-gold-text">
+                      {tradition.name}
+                    </span>
+                    <span className="type-meta mt-2 block text-muted-foreground">
+                      {tradition.figureCount} {tradition.figuresLabel}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    className="size-4 shrink-0 text-gold-text motion-safe:transition-transform motion-safe:group-hover:translate-x-1"
+                    aria-hidden="true"
                   />
-                </span>
-                <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-                  <span className="type-meta block text-muted-foreground">
-                    {tradition.culture}
-                  </span>
-                  <span className="mt-1 block font-serif text-xl leading-snug text-foreground group-hover:text-gold-text">
-                    {tradition.name}
-                  </span>
-                  <span className="type-meta mt-2 block text-muted-foreground">
-                    {tradition.figureCount} {tradition.figuresLabel}
-                  </span>
-                </span>
-                <ArrowRight
-                  className="size-4 shrink-0 text-gold-text motion-safe:transition-transform motion-safe:group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
-            </li>
-          ))}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <p className="type-meta mt-5 text-muted-foreground">

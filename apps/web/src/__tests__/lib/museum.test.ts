@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  getAllMuseumObjects,
   getLeadPortrait,
   getMuseumObjectsFor,
   getMuseumPortrait,
@@ -113,5 +114,15 @@ describe("getLeadPortrait", () => {
     expect(getLeadPortrait([lead], "hera")).toBeNull();
     expect(getLeadPortrait(fixture, "zeus")).toBeNull();
     expect(getLeadPortrait([blank], "zeus")).toBeNull();
+  });
+});
+
+describe("getAllMuseumObjects", () => {
+  it("returns all imaged objects with ancient objects sorted first", () => {
+    expect(getAllMuseumObjects(fixture).map((o) => o.id)).toEqual([
+      "ancient",
+      "beast",
+      "later",
+    ]);
   });
 });

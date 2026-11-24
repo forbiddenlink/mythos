@@ -9,6 +9,7 @@ import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { ClassroomShareButton } from "@/components/worksheet/ClassroomShareButton";
 import { getPantheons, getStories, getTraditions } from "@/lib/data/catalog";
 import { getWorksheetSlugs } from "@/lib/data/worksheets";
+import { getBlurHash } from "@/lib/image-blur";
 import { generateBaseMetadata, shortPantheonName } from "@/lib/metadata";
 import {
   fleschKincaidGrade,
@@ -158,6 +159,7 @@ export default function TeachersPage() {
                     ? pantheon.imageUrl
                     : undefined
                 }
+                blurHash={getBlurHash(pantheon.imageUrl)}
                 aspect="landscape"
                 priority={index < 3}
                 headingLevel="h3"

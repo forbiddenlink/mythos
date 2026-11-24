@@ -22,6 +22,7 @@ import {
   getStories,
 } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
+import { getBlurHash } from "@/lib/image-blur";
 import { generateBaseMetadata } from "@/lib/metadata";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { listGuides } from "../study/_guides";
@@ -142,6 +143,7 @@ export default function PathsPage() {
                   href={`/journeys/${journey.slug}`}
                   title={journey.title}
                   image={journey.imageUrl}
+                  blurHash={getBlurHash(journey.imageUrl)}
                   aspect="landscape"
                   tradition={
                     shortNames[journey.pantheonId] ?? journey.pantheonId

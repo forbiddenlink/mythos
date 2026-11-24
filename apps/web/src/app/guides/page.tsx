@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
 import { ItemListJsonLd } from "@/components/seo/JsonLd";
 import { GUIDES } from "@/lib/guides";
+import { getBlurHash } from "@/lib/image-blur";
 import { generateBaseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = generateBaseMetadata({
@@ -51,6 +52,8 @@ export default function GuidesIndex() {
         title="Read the Myths Behind the Story"
         description="Epics, novels and games, set beside the ancient sources they draw on."
         count={`${GUIDES.length} guides`}
+        backgroundImage="/stories-hero.jpg"
+        backgroundAlt="Ancient scrolls and scholarly manuscripts by candlelight"
       />
       <Container className="pt-8 pb-12 md:pt-10">
         <EntityGrid>
@@ -60,6 +63,7 @@ export default function GuidesIndex() {
               href={`/guides/${guide.slug}`}
               title={guide.title}
               image={GUIDE_IMAGES[guide.slug]}
+              blurHash={getBlurHash(GUIDE_IMAGES[guide.slug])}
               imagePosition="50% 30%"
               aspect="landscape"
               priority={index < 3}

@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MythosMark } from "@/components/icons/mythos-marks";
+import { MythosMark, type MythosMarkId } from "@/components/icons/mythos-marks";
 import {
   Trophy,
   RefreshCw,
@@ -15,11 +16,15 @@ import {
   Zap,
 } from "lucide-react";
 import { shuffle } from "@/lib/shuffle";
+import { thumbHashToBlurDataURL } from "@/lib/thumbhash-data-url";
+
 export interface MemoryGameDeity {
   id: string;
   name: string;
   symbols: string[];
   pantheonId: string;
+  imageUrl?: string | null;
+  blurHash?: string;
 }
 
 interface MemoryCard {
@@ -27,6 +32,9 @@ interface MemoryCard {
   type: "symbol" | "deity";
   content: string;
   displayContent: string;
+  markId?: MythosMarkId;
+  imageUrl?: string | null;
+  blurHash?: string;
   pairId: string;
   isFlipped: boolean;
   isMatched: boolean;
@@ -43,113 +51,114 @@ const DIFFICULTY_CONFIG: Record<
   hard: { pairs: 12, label: "Hard", gridCols: "grid-cols-4 sm:grid-cols-6" },
 };
 
-// Symbol to emoji/display mapping
-const SYMBOL_DISPLAY: Record<string, string> = {
-  thunderbolt: "\u26A1",
-  eagle: "\uD83E\uDD85",
-  "oak tree": "\uD83C\uDF33",
-  bull: "\uD83D\uDC02",
-  peacock: "\uD83E\uDD9A",
-  cow: "\uD83D\uDC04",
-  pomegranate: "\uD83C\uDF52",
-  diadem: "\uD83D\uDC51",
-  trident: "\uD83D\uDD31",
-  horse: "\uD83D\uDC0E",
-  dolphin: "\uD83D\uDC2C",
-  owl: "\uD83E\uDD89",
-  "olive tree": "\uD83C\uDF3F",
-  spear: "\uD83D\uDDE1\uFE0F",
-  aegis: "\uD83D\uDEE1\uFE0F",
-  lyre: "\uD83C\uDFB5",
-  sun: "\u2600\uFE0F",
-  laurel: "\uD83C\uDF3F",
-  "bow and arrow": "\uD83C\uDFF9",
-  moon: "\uD83C\uDF19",
-  deer: "\uD83E\uDD8C",
-  cypress: "\uD83C\uDF32",
-  torch: "\uD83D\uDD25",
-  caduceus: "\u2695\uFE0F",
-  "winged sandals": "\uD83D\uDC5F",
-  hammer: "\uD83D\uDD28",
-  anvil: "\u2692\uFE0F",
-  fire: "\uD83D\uDD25",
-  tongs: "\uD83D\uDD27",
-  wheat: "\uD83C\uDF3E",
-  scepter: "\uD83D\uDC51",
-  dove: "\uD83D\uDD4A\uFE0F",
-  rose: "\uD83C\uDF39",
-  myrtle: "\uD83C\uDF3F",
-  mirror: "\uD83E\uDE9E",
-  sword: "\u2694\uFE0F",
-  helmet: "\uD83E\uDE96",
-  shield: "\uD83D\uDEE1\uFE0F",
-  spiders: "\uD83D\uDD77\uFE0F",
-  loom: "\uD83E\uDEA1",
-  grape: "\uD83C\uDF47",
-  ivy: "\uD83C\uDF3F",
-  thyrsus: "\uD83C\uDF3F",
-  "theater mask": "\uD83C\uDFAD",
-  "three-headed dog": "\uD83D\uDC15",
-  "cypress tree": "\uD83C\uDF32",
-  key: "\uD83D\uDD11",
-  narcissus: "\uD83C\uDF3C",
-  skull: "\uD83D\uDC80",
-  hearth: "\uD83D\uDD25",
-  "eternal flame": "\uD83D\uDD25",
-  serpent: "\uD83D\uDC0D",
-  snake: "\uD83D\uDC0D",
-  eye: "\uD83D\uDC41\uFE0F",
-  scarab: "\uD83E\uDEB2",
-  ankh: "\u2625\uFE0F",
-  cat: "\uD83D\uDC08",
-  sistrum: "\uD83C\uDFB5",
-  ibis: "\uD83E\uDDA9",
-  scales: "\u2696\uFE0F",
-  feather: "\uD83E\uDEB6",
-  "mummified form": "\uD83E\uDDDF",
-  crook: "\uD83E\uDE9D",
-  flail: "\uD83E\uDE9D",
-  crocodile: "\uD83D\uDC0A",
-  wolf: "\uD83D\uDC3A",
-  raven: "\uD83D\uDC26\u200D\u2B1B",
-  ring: "\uD83D\uDC8D",
-  ravens: "\uD83D\uDC26\u200D\u2B1B",
-  wolves: "\uD83D\uDC3A",
-  goats: "\uD83D\uDC10",
-  boar: "\uD83D\uDC17",
-  falcon: "\uD83E\uDD85",
-  necklace: "\uD83D\uDCFF",
-  apple: "\uD83C\uDF4E",
-  chariot: "\uD83D\uDE9C",
-  gold: "\u2728",
-  horn: "\uD83C\uDF7A",
-  "drinking horn": "\uD83C\uDF7A",
-  bow: "\uD83C\uDFF9",
-  skis: "\uD83C\uDFBF",
-  ship: "\u26F5",
-  mistletoe: "\uD83C\uDF3F",
-  runes: "\u16A0",
-  staff: "\uD83E\uDE84",
-  web: "\uD83D\uDD78\uFE0F",
-  frost: "\u2744\uFE0F",
-  ice: "\u2744\uFE0F",
-  lotus: "\uD83C\uDF38",
-  conch: "\uD83D\uDC1A",
-  discus: "\uD83E\uDD4F",
-  mace: "\uD83D\uDDE1\uFE0F",
-  flute: "\uD83C\uDFB6",
-  drum: "\uD83E\uDD41",
-  elephant: "\uD83D\uDC18",
-  lion: "\uD83E\uDD81",
-  tiger: "\uD83D\uDC05",
+// Symbol to classical MythosMark mapping (no OS emoji)
+const SYMBOL_MARK: Record<string, MythosMarkId> = {
+  thunderbolt: "bolt",
+  lightning: "bolt",
+  eagle: "owl",
+  falcon: "owl",
+  owl: "owl",
+  raven: "owl",
+  ravens: "owl",
+  ibis: "owl",
+  dove: "owl",
+  peacock: "owl",
+  "oak tree": "tree",
+  "olive tree": "tree",
+  "cypress tree": "tree",
+  cypress: "tree",
+  mistletoe: "tree",
+  myrtle: "myrtle",
+  rose: "myrtle",
+  pomegranate: "myrtle",
+  lotus: "myrtle",
+  narcissus: "myrtle",
+  apple: "myrtle",
+  grape: "wheat",
+  ivy: "wheat",
+  thyrsus: "wheat",
+  wheat: "wheat",
+  grain: "wheat",
+  corn: "wheat",
+  laurel: "laurel",
+  diadem: "scepter",
+  crown: "scepter",
+  scepter: "scepter",
+  ring: "scepter",
+  crook: "scepter",
+  flail: "scepter",
+  trident: "trident",
+  dolphin: "trident",
+  ship: "compass",
+  chariot: "compass",
+  "winged sandals": "compass",
+  spear: "blade",
+  sword: "blade",
+  mace: "blade",
+  axe: "blade",
+  "bow and arrow": "blade",
+  bow: "blade",
+  aegis: "relic",
+  shield: "relic",
+  helmet: "relic",
+  mirror: "relic",
+  necklace: "relic",
+  conch: "relic",
+  discus: "relic",
+  lyre: "lyre",
+  sistrum: "lyre",
+  flute: "lyre",
+  drum: "lyre",
+  "theater mask": "lyre",
+  sun: "chronos",
+  moon: "constellation",
+  gold: "constellation",
+  frost: "constellation",
+  ice: "constellation",
+  torch: "torch",
+  fire: "torch",
+  hearth: "torch",
+  "eternal flame": "torch",
+  caduceus: "staff",
+  staff: "staff",
+  ankh: "staff",
+  runes: "codex",
+  scroll: "scroll",
+  book: "codex",
+  hammer: "anvil",
+  anvil: "anvil",
+  tongs: "anvil",
+  loom: "labyrinth",
+  spiders: "labyrinth",
+  web: "labyrinth",
+  key: "urn",
+  skull: "urn",
+  "mummified form": "urn",
+  "three-headed dog": "urn",
+  serpent: "serpent",
+  snake: "serpent",
+  crocodile: "serpent",
+  scales: "scales",
+  feather: "scales",
+  eye: "constellation",
+  scarab: "chronos",
+  horn: "relic",
+  "drinking horn": "relic",
+  skis: "peak",
+  mountain: "peak",
 };
 
+function getSymbolMark(symbol: string): MythosMarkId {
+  const normalized = symbol.toLowerCase();
+  if (SYMBOL_MARK[normalized]) return SYMBOL_MARK[normalized];
+  for (const [key, mark] of Object.entries(SYMBOL_MARK)) {
+    if (normalized.includes(key)) return mark;
+  }
+  return "relic";
+}
+
 function getSymbolDisplay(symbol: string): string {
-  const normalizedSymbol = symbol.toLowerCase();
-  return (
-    SYMBOL_DISPLAY[normalizedSymbol] ||
-    symbol.charAt(0).toUpperCase() + symbol.slice(1)
-  );
+  return symbol.charAt(0).toUpperCase() + symbol.slice(1);
 }
 
 function formatTime(seconds: number): string {
@@ -280,6 +289,7 @@ export function SymbolMemoryGame({
         type: "symbol",
         content: primarySymbol,
         displayContent: getSymbolDisplay(primarySymbol),
+        markId: getSymbolMark(primarySymbol),
         pairId,
         isFlipped: false,
         isMatched: false,
@@ -291,6 +301,8 @@ export function SymbolMemoryGame({
         type: "deity",
         content: deity.name,
         displayContent: deity.name,
+        imageUrl: deity.imageUrl,
+        blurHash: deity.blurHash,
         pairId,
         isFlipped: false,
         isMatched: false,
@@ -589,19 +601,51 @@ export function SymbolMemoryGame({
                       {card.type === "symbol" ? (
                         <>
                           <span
-                            className="text-4xl sm:text-5xl"
+                            className="flex size-11 items-center justify-center rounded-full border border-gold/40 bg-gold/10 sm:size-14"
                             aria-hidden="true"
                           >
-                            {card.displayContent}
+                            <MythosMark
+                              id={card.markId ?? "relic"}
+                              className="size-6 text-gold-text sm:size-8"
+                            />
                           </span>
-                          <span className="text-xs text-muted-foreground mt-1 capitalize hidden sm:block">
-                            {card.content}
+                          <span className="mt-2 line-clamp-2 px-1 text-center font-serif text-xs font-medium capitalize text-foreground sm:text-sm">
+                            {card.displayContent}
                           </span>
                         </>
                       ) : (
-                        <span className="text-sm sm:text-base font-serif font-semibold text-center px-1">
-                          {card.displayContent}
-                        </span>
+                        <>
+                          {card.imageUrl ? (
+                            <span
+                              className="relative size-12 overflow-hidden rounded-full ring-1 ring-gold/50 sm:size-16"
+                              aria-hidden="true"
+                            >
+                              <Image
+                                src={card.imageUrl}
+                                alt=""
+                                fill
+                                sizes="64px"
+                                placeholder={card.blurHash ? "blur" : undefined}
+                                blurDataURL={
+                                  card.blurHash
+                                    ? thumbHashToBlurDataURL(card.blurHash)
+                                    : undefined
+                                }
+                                className="object-cover object-top"
+                              />
+                            </span>
+                          ) : (
+                            <span
+                              className="flex size-11 items-center justify-center rounded-full border border-gold/40 bg-midnight font-serif text-lg text-gold-light sm:size-14 sm:text-xl"
+                              aria-hidden="true"
+                            >
+                              {card.displayContent.charAt(0)}
+                            </span>
+                          )}
+                          <span className="mt-2 line-clamp-2 px-1 text-center font-serif text-xs font-semibold text-foreground sm:text-sm">
+                            {card.displayContent}
+                          </span>
+                        </>
                       )}
                     </motion.div>
                   ) : (

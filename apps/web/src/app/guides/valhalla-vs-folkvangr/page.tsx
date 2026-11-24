@@ -141,6 +141,8 @@ export default function ValhallaVsFolkvangrGuide() {
         tagline="Guide · The Eddas"
         title={guide.title}
         description="Where the Norse sources send the dead, and where they stop saying."
+        backgroundImage="/deities/freyja.jpg"
+        backgroundAlt="Illustration of Freyja, Norse goddess of love, battle, and Folkvangr"
         minHeight="min-h-[42vh]"
       />
 

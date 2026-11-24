@@ -130,6 +130,8 @@ export default function GreekRomanGodsChartGuide() {
         tagline="Guide · Greece and Rome"
         title={guide.title}
         description="Which Roman god matches which Greek god, what the two share, and where Rome made the god its own."
+        backgroundImage="/deities/jupiter.jpg"
+        backgroundAlt="Illustration of Jupiter, supreme god of the Roman state"
         minHeight="min-h-[42vh]"
       />
 

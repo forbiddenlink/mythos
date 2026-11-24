@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getBlurDataURL } from "@/lib/image-blur";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import type { MuseumObject } from "@/lib/museum";
 import { cn } from "@/lib/utils";
@@ -42,6 +43,7 @@ function Portrait({
       ? figure.museumPortrait
       : null;
   const image = portrait?.imageUrl ?? figure.imageUrl;
+  const blur = portrait ? undefined : getBlurDataURL(image);
   return (
     <span
       className={cn(
@@ -55,6 +57,8 @@ function Portrait({
           src={image}
           alt={portrait ? portrait.imageAlt || portrait.title : ""}
           unoptimized={Boolean(portrait)}
+          placeholder={blur ? "blur" : undefined}
+          blurDataURL={blur}
           fill
           sizes={sizes}
           className={cn(

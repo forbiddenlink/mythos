@@ -61,6 +61,7 @@ PROCEDURAL_SOURCES = [
     ("scripts/generate_creatures_locations_stories.py", "STORIES", "stories", "id"),
     ("scripts/generate_creatures_locations_stories.py", "ARTIFACTS", "artifacts", "id"),
     ("scripts/generate_creatures_locations_stories.py", "EMBLEM_ARTIFACTS", "artifacts", "id"),
+    ("scripts/generate_creatures_locations_stories.py", "JOURNEYS", "journeys", "id"),
 ]
 
 # Plates drawn per tradition straight from the catalog (no id list): every

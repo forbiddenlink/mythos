@@ -21,6 +21,7 @@ const footerLinks = {
     { label: "Creatures", href: "/creatures" },
     { label: "Artifacts", href: "/artifacts" },
     { label: "Locations", href: "/locations" },
+    { label: "Museum Collection", href: "/museum" },
   ],
   discover: [
     { label: "Compare Deities", href: "/compare" },

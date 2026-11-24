@@ -15,6 +15,7 @@ export interface InteractiveStoryListItem {
   estimatedTime: string;
   totalEndings: number;
   coverImage?: string;
+  blurHash?: string;
   /** Short tradition name, when known. */
   tradition?: string;
   traditionColor?: string;
@@ -47,6 +48,7 @@ export function InteractiveStoryCard({
       href={`/stories/interactive/${story.slug}`}
       title={story.title}
       image={story.coverImage}
+      blurHash={story.blurHash}
       imagePosition="50% 35%"
       aspect="landscape"
       priority={priority}

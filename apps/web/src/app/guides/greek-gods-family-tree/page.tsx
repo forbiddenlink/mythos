@@ -191,6 +191,8 @@ export default function GreekGodsFamilyTreeGuide() {
         tagline="Guide · Hesiod"
         title={guide.title}
         description="Who comes from whom among the primordials, Titans and 12 Olympians, as plain lists you can read top to bottom."
+        backgroundImage="/family-tree-hero.jpg"
+        backgroundAlt="Celestial genealogy tree of the ancient pantheons"
         minHeight="min-h-[42vh]"
       />
 
