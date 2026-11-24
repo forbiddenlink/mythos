@@ -37,11 +37,13 @@ export const CONSOLIDATION_REDIRECTS: readonly RouteRedirect[] = [
   permanent("/tours/egyptian-afterlife", "/journeys/duat-night-journey"),
   permanent("/tours/:path*", "/journeys"),
 
-  // Learning paths, collections and study guides share one hub, /paths.
-  // Detail pages (/collections/[slug], /study/[slug]) keep their URLs.
+  // Learning paths, collections, study guides and myth themes share one hub,
+  // /paths. Detail pages (/collections/[slug], /study/[slug]) keep their URLs.
   permanent("/learning-paths", "/paths#reading-paths"),
   permanent("/collections", "/paths#collections"),
   permanent("/study", "/paths#study-guides"),
+  // Myth themes joined /paths (2026-11-24); /themes/[slug] keeps its URL.
+  permanent("/themes", "/paths#themes"),
 
   // One timeline page with a view toggle.
   permanent("/story-timeline", "/timeline#stories"),

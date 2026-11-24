@@ -20,6 +20,7 @@ interface BreadcrumbItem {
 const PARENT_CRUMBS: Record<string, BreadcrumbItem> = {
   "/collections": { label: "Paths", href: "/paths" },
   "/study": { label: "Paths", href: "/paths" },
+  "/themes": { label: "Paths", href: "/paths" },
   "/story-timeline": { label: "Timeline", href: "/timeline" },
 };
 
