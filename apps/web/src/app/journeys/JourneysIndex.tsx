@@ -8,6 +8,7 @@ import {
 import { AboutThisPage } from "@/components/layout/about-this-page";
 import { Container } from "@/components/layout/container";
 import { PageHero } from "@/components/layout/page-hero";
+import { getBlurHash } from "@/lib/image-blur";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import type { JourneySetting } from "@/lib/journeys";
 
@@ -64,6 +65,7 @@ export function JourneysIndex({
               href={`/journeys/${journey.slug}`}
               title={journey.title}
               image={journey.imageUrl}
+              blurHash={getBlurHash(journey.imageUrl)}
               aspect="landscape"
               priority={index < 3}
               headingLevel="h2"

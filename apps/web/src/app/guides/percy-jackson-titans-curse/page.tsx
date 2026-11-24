@@ -116,6 +116,8 @@ export default function PercyJacksonTitansCurseGuide() {
         tagline="Guide · Percy Jackson"
         title={guide.title}
         description="Every god, monster and place in Rick Riordan's third novel has an ancient source behind it, and Riordan changes nearly all of them. Here is what the Greek texts actually say."
+        backgroundImage="/deities/artemis.jpg"
+        backgroundAlt="Illustration of Artemis, Greek goddess of the hunt and moon"
         minHeight="min-h-[42vh]"
       />
 

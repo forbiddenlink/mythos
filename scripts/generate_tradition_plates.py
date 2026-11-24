@@ -48,12 +48,23 @@ MUTED = (200, 180, 140)
 ABSTRACT_PANTHEONS = {"aboriginal-australian-pantheon", "dine-pantheon"}  # see _plate_art
 
 # Per-pantheon background and accent (dark ground, pigment accent).
+# Note: build_image_provenance.py reads PALETTES via AST to identify traditions
+# whose every .webp is procedural.
 PALETTES = {
     "hittite-pantheon": ((24, 17, 13), (190, 120, 70)),
     "canaanite-pantheon": ((22, 13, 20), (160, 80, 140)),
     "inuit-pantheon": ((12, 18, 26), (120, 170, 210)),
     "aboriginal-australian-pantheon": ((22, 16, 13), (170, 110, 80)),
     "dine-pantheon": ((13, 19, 21), (90, 160, 160)),
+}
+EXTRA_PALETTES = {
+    "polynesian-pantheon": ((10, 18, 24), (90, 165, 180)),
+    "yoruba-pantheon": ((22, 15, 11), (215, 145, 55)),
+    "chinese-pantheon": ((20, 13, 12), (205, 135, 65)),
+    "japanese-pantheon": ((14, 17, 24), (175, 140, 195)),
+    "mesopotamian-pantheon": ((20, 15, 11), (195, 150, 75)),
+    "aztec-pantheon": ((22, 13, 11), (200, 105, 65)),
+    "mesoamerican-pantheon": ((14, 19, 16), (110, 175, 135)),
 }
 DEFAULT_PALETTE = ((18, 16, 14), (200, 160, 90))
 
@@ -98,11 +109,26 @@ MOTIFS = {
     "born-for-water": "river", "first-man": "stars", "first-woman": "stars",
     "spider-woman": "ridge", "coyote": "stars", "johonaaei": "disc",
     "talking-god": "ridge",
+    # Polynesian & Yoruba (DNG living traditions)
+    "moo": "serpent", "taniwha": "sea", "manaiakalani": "sea",
+    "maui-and-hina-death": "under", "hina-maui-lengthened-day": "sun",
+    "maui-island-fishing": "sea",
+    "oguns-iron": "anvil", "oshe-of-shango": "storm",
+    # Chinese, Japanese, Mesopotamian, Aztec, Mesoamerican (2026-09 batch)
+    "fenghuang": "bird", "qinglong": "serpent", "bai-ze": "horns", "nian": "flame",
+    "anzu": "bird", "itzpapalotl-obsidian-host": "blade", "mushussu": "serpent", "ugallu": "storm",
+    "tablet-of-destinies": "stone", "smoking-mirror": "moon", "xiuhcoatl": "serpent",
+    "wind-jewel": "wind", "peach-of-immortality": "tree", "macuahuitl-of-huitzilopochtli": "blade",
+    "coyolxauhqui-stone": "moon", "the-me": "crown", "imhullu": "wind",
+    "pakal-sarcophagus-lid": "tree", "hero-twins-blowgun": "spear",
+    "susanoo-banishment": "storm", "okuninushi-trials": "crown",
+    "atrahasis-flood": "sea", "etana-and-the-eagle": "bird",
+    "xibalba-hero-twins": "under",
 }
 
 KIND_DEFAULTS = {
     "deities": "star", "heroes": "crown", "stories": "star", "creatures": "serpent",
-    "artifacts": "blade", "locations": "mountain", "pantheons": "star",
+    "artifacts": "blade", "locations": "mountain", "pantheons": "star", "journeys": "sea",
 }
 ABSTRACT_DEFAULT = "disc"
 
@@ -114,6 +140,7 @@ KINDS = {
     "creatures": ("creatures.json", "creatures", (768, 768), False),
     "artifacts": ("artifacts.json", "artifacts", (768, 768), False),
     "locations": ("locations.json", "locations", (768, 768), False),
+    "journeys": ("journeys.json", "journeys", (768, 768), False),
 }
 
 
@@ -274,7 +301,7 @@ def emblem(draw, motif, cx, cy, s, accent):
 # ---------------------------------------------------------------------------
 
 KIND_TYPES = {"deities": "deity", "heroes": "hero", "stories": "story", "creatures": "creature",
-              "artifacts": "artifact", "locations": "location"}
+              "artifacts": "artifact", "locations": "location", "journeys": "cover"}
 
 
 def hint_for(kind, rec):
@@ -296,7 +323,7 @@ def render(kind, rec, pantheon_id):
         motif = MOTIFS.get(rec["id"], ABSTRACT_DEFAULT)
         img = render_abstract_plate(key=rec["id"], size=size, motif=motif, pantheon=pantheon_id)
     else:
-        bg, accent = PALETTES.get(pantheon_id, DEFAULT_PALETTE)
+        bg, accent = PALETTES.get(pantheon_id) or EXTRA_PALETTES.get(pantheon_id, DEFAULT_PALETTE)
         motif = MOTIFS.get(rec["id"], KIND_DEFAULTS.get(kind, "star"))
         img = render_plate(
             kind=KIND_TYPES[kind], key=rec["id"], size=size, accent=accent, bg=bg,

@@ -19,6 +19,7 @@ import {
   type GodsOfDomain,
 } from "@/lib/gods-of";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
+import { getBlurHash } from "@/lib/image-blur";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { truncateDescription } from "@/lib/seo/description";
 import { godsOfPageTitle } from "@/lib/seo/entry-titles";
@@ -202,6 +203,7 @@ export default async function GodsOfDomainPage({
                     href={`/deities/${deity.slug}`}
                     title={deity.name}
                     image={deity.imageUrl}
+                    blurHash={getBlurHash(deity.imageUrl)}
                     imagePosition="50% 22%"
                     aspect="portrait"
                     traditionColor={getPantheonColor(tradition.pantheonId)}

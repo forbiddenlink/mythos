@@ -25,6 +25,11 @@ import {
   Trophy,
   X,
 } from "lucide-react";
+import {
+  MythosMark,
+  mythosMarks,
+  type MythosMarkId,
+} from "@/components/icons/mythos-marks";
 import { cn } from "@/lib/utils";
 
 export interface AchievementToastProps {
@@ -119,6 +124,7 @@ export function AchievementToast({
     return () => clearTimeout(dismissTimer);
   }, [autoHideDuration, handleClose]);
 
+  const isMark = Object.hasOwn(mythosMarks, achievement.icon);
   const Icon = getIcon(achievement.icon);
 
   return (
@@ -169,8 +175,14 @@ export function AchievementToast({
               "shadow-sm",
             )}
           >
-            {}
-            <Icon className="size-6 text-midnight" />
+            {isMark ? (
+              <MythosMark
+                id={achievement.icon as MythosMarkId}
+                className="size-6 text-midnight"
+              />
+            ) : (
+              <Icon className="size-6 text-midnight" />
+            )}
           </div>
 
           {/* Text content */}

@@ -69,13 +69,17 @@ function Medallion({
       aria-hidden="true"
       className={cn(
         "relative flex shrink-0 items-center justify-center rounded-full ring-2",
-        size === "lg" ? "size-16 text-3xl" : "size-12 text-2xl",
+        size === "lg" ? "size-16" : "size-12",
         unlocked ? TIER_RING[achievement.tier] : "bg-muted ring-border",
       )}
     >
-      <span className={cn(!unlocked && "opacity-45 grayscale")}>
-        {achievement.icon}
-      </span>
+      <MythosMark
+        id={achievement.icon}
+        className={cn(
+          size === "lg" ? "size-8" : "size-6",
+          unlocked ? "text-gold-text" : "text-muted-foreground opacity-55",
+        )}
+      />
       {!unlocked ? (
         <span className="absolute -right-1 -bottom-1 flex size-5 items-center justify-center rounded-full border border-border bg-background">
           <Lock className="size-3 text-muted-foreground" />

@@ -127,6 +127,8 @@ export default function HadesIIGuide() {
         tagline="Guide · Hades II"
         title={guide.title}
         description="Supergiant's sequel builds its cast from some of the most obscure figures in Greek religion. Here is what the ancient sources actually say about them, and where the game invents."
+        backgroundImage="/deities/hades.jpg"
+        backgroundAlt="Illustration of Hades, ruler of the Greek Underworld"
         minHeight="min-h-[42vh]"
       />
 

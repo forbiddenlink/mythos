@@ -23,6 +23,7 @@ import collections from "@/data/collections.json";
 import pantheons from "@/data/pantheons.json";
 import { getDeities, getStories } from "@/lib/data/catalog";
 import { formatPantheonLabel } from "@/lib/deity-page";
+import { getBlurDataURL } from "@/lib/image-blur";
 import { getImageProvenance } from "@/lib/image-provenance";
 import { generateBaseMetadata, generateNotFoundMetadata } from "@/lib/metadata";
 import { truncateDescription } from "@/lib/seo/description";
@@ -117,24 +118,29 @@ function PortraitMosaic({
       className="mx-auto grid w-full max-w-[18rem] grid-cols-2 gap-2 md:max-w-none"
       aria-hidden="true"
     >
-      {shown.map((figure, index) => (
-        <div
-          key={figure.name}
-          className={
-            "relative aspect-4/5 overflow-hidden rounded-md bg-midnight-light shadow-xl shadow-black/40 ring-1 ring-gold/25" +
-            (index % 2 === 1 ? " md:translate-y-6" : "")
-          }
-        >
-          <Image
-            src={figure.imageUrl as string}
-            alt=""
-            fill
-            priority={index < 2}
-            sizes="(min-width: 1024px) 14rem, (min-width: 768px) 10rem, 9rem"
-            className="object-cover object-top"
-          />
-        </div>
-      ))}
+      {shown.map((figure, index) => {
+        const blur = getBlurDataURL(figure.imageUrl);
+        return (
+          <div
+            key={figure.name}
+            className={
+              "relative aspect-4/5 overflow-hidden rounded-md bg-midnight-light shadow-xl shadow-black/40 ring-1 ring-gold/25" +
+              (index % 2 === 1 ? " md:translate-y-6" : "")
+            }
+          >
+            <Image
+              src={figure.imageUrl as string}
+              alt=""
+              fill
+              priority={index < 2}
+              placeholder={blur ? "blur" : undefined}
+              blurDataURL={blur}
+              sizes="(min-width: 1024px) 14rem, (min-width: 768px) 10rem, 9rem"
+              className="object-cover object-top"
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

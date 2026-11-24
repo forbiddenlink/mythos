@@ -1,6 +1,7 @@
 import type * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { getBlurDataURL } from "@/lib/image-blur";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { cn } from "@/lib/utils";
 
@@ -40,6 +41,7 @@ function Thumb({
   initialClassName?: string;
   plate?: boolean;
 }) {
+  const blur = item.unoptimized ? undefined : getBlurDataURL(item.imageUrl);
   const art = (
     <>
       {item.imageUrl ? (
@@ -49,6 +51,8 @@ function Thumb({
           fill
           sizes={sizes}
           unoptimized={item.unoptimized}
+          placeholder={blur ? "blur" : undefined}
+          blurDataURL={blur}
           className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
       ) : (

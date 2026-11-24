@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/layout/section";
 import { GUIDES } from "@/lib/guides";
+import { getBlurDataURL } from "@/lib/image-blur";
 
 /** A catalog portrait that stands for each guide's subject. */
 const GUIDE_IMAGES: Record<string, string> = {
@@ -29,6 +30,7 @@ export function GuidesStrip() {
       <ul className="grid gap-x-6 gap-y-10 md:grid-cols-3">
         {GUIDES.map((guide) => {
           const image = GUIDE_IMAGES[guide.slug];
+          const blur = getBlurDataURL(image);
           return (
             <li key={guide.slug}>
               <Link
@@ -41,6 +43,8 @@ export function GuidesStrip() {
                       src={image}
                       alt=""
                       fill
+                      placeholder={blur ? "blur" : undefined}
+                      blurDataURL={blur}
                       sizes="(min-width: 768px) 24rem, 100vw"
                       className="object-cover object-[50%_30%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:group-hover:scale-[1.025]"
                     />
