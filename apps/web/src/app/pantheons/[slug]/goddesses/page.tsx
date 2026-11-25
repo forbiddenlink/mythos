@@ -14,6 +14,7 @@ import { goddessHubNextSteps } from "@/lib/next-steps";
 import { getPantheonColor } from "@/lib/pantheon-colors";
 import { getGoddessHub, getGoddessHubs } from "@/lib/pantheon-hubs";
 import { truncateDescription } from "@/lib/seo/description";
+import { mythologyName } from "@/lib/seo/entry-titles";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -119,12 +120,12 @@ export default async function PantheonGoddessesPage({
 
         <p className="mt-16 max-w-reading border-t border-border/50 pt-6 type-ui text-muted-foreground">
           Built from each deity&apos;s catalog entry, using its recorded gender.
-          Back to the{" "}
+          Back to{" "}
           <Link
             href={`/pantheons/${tradition.slug}`}
             className="text-gold-text underline decoration-gold/50 underline-offset-4 hover:decoration-current"
           >
-            {tradition.name}
+            {mythologyName(tradition)}
           </Link>
           , or browse{" "}
           <Link
