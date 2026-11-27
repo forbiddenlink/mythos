@@ -68,7 +68,7 @@ function roleOf(domain: readonly string[]): string {
 function traditionDeities(pantheonId: string) {
   return getDeities()
     .filter((d) => d.pantheonId === pantheonId && d.domain.length > 0)
-    .toSorted(
+    .sort(
       (a, b) =>
         (a.importanceRank || 999) - (b.importanceRank || 999) ||
         a.name.localeCompare(b.name),

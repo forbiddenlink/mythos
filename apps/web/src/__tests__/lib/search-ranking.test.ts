@@ -108,7 +108,7 @@ describe("capPerType", () => {
     const capped = capPerType(searchAll("creation", 60), 4, 6);
     expect(capped).toHaveLength(6);
     const scores = capped.map((result) => result.matchScore);
-    expect(scores).toEqual(scores.toSorted((a, b) => b - a));
+    expect(scores).toEqual([...scores].sort((a, b) => b - a));
   });
 });
 

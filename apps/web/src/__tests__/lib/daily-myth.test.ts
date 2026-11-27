@@ -84,7 +84,7 @@ describe("pickDailyMyth", () => {
 describe("seeded helpers", () => {
   it("shuffle without losing items and seed dates stably", () => {
     const items = [1, 2, 3, 4, 5];
-    expect(seededShuffle(items, 7).toSorted()).toEqual(items);
+    expect([...seededShuffle(items, 7)].sort()).toEqual(items);
     expect(seededShuffle(items, 7)).toEqual(seededShuffle(items, 7));
     const d = new Date("2026-09-26T00:00:00Z");
     expect(getDateSeed(d)).toBe(getDateSeed(new Date(d)));

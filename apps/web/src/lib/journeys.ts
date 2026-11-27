@@ -53,7 +53,7 @@ export function isOtherworldJourney(
 export function sortWaypoints<T extends { order: number }>(
   waypoints: readonly T[],
 ): T[] {
-  return waypoints.toSorted((a, b) => a.order - b.order);
+  return [...waypoints].sort((a, b) => a.order - b.order);
 }
 
 /** Waypoints with coordinates, in route order. */

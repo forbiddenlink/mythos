@@ -46,7 +46,7 @@ export function buildDailyMythPool(): DailyMythPool {
   const stories = getStories();
   const famousDeities = getDeities()
     .filter((d) => d.importanceRank > 0)
-    .toSorted((a, b) => a.importanceRank - b.importanceRank);
+    .sort((a, b) => a.importanceRank - b.importanceRank);
 
   const storiesByPantheon = new Map<string, typeof stories>();
   for (const story of stories) {

@@ -174,7 +174,7 @@ export function AchievementsPageClient({
       : Number.POSITIVE_INFINITY;
   const nextUp = achievements
     .filter((a) => !a.unlocked)
-    .toSorted((a, b) => stepsLeft(a) - stepsLeft(b) || a.xp - b.xp)
+    .sort((a, b) => stepsLeft(a) - stepsLeft(b) || a.xp - b.xp)
     .slice(0, 3);
 
   return (
