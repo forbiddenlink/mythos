@@ -21,6 +21,7 @@ import {
   getPantheonShortNames,
   getPantheons,
   getStories,
+  getTraditionCount,
 } from "@/lib/data/catalog";
 import { project } from "@/lib/data/project";
 import { getBlurHash } from "@/lib/image-blur";
@@ -58,6 +59,7 @@ function ankiDeckProps(): AnkiDeckExportProps {
     pantheons: project(getPantheons(), ["id", "name", "slug"]),
     deityCounts,
     totalDeities: deities.length,
+    traditionCount: getTraditionCount(),
     samples,
   };
 }
