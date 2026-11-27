@@ -489,7 +489,7 @@ export function searchIndex(
     if (!existing || existing.matchScore < r.matchScore) merged.set(key, r);
   }
   return [...merged.values()]
-    .toSorted((a, b) => b.matchScore - a.matchScore)
+    .sort((a, b) => b.matchScore - a.matchScore)
     .slice(0, limit);
 }
 

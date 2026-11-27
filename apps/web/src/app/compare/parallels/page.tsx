@@ -44,7 +44,7 @@ function buildParallels(): ParallelEdge[] {
     }
   }
 
-  return out.toSorted((a, b) => {
+  return [...out].sort((a, b) => {
     const fa = `${a.fromName} ${a.toName}`;
     const fb = `${b.fromName} ${b.toName}`;
     return fa.localeCompare(fb);

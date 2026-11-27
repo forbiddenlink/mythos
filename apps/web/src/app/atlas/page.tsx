@@ -39,7 +39,7 @@ function traditionsForGrid(): AtlasGridTradition[] {
       const pantheon = byId.get(id);
       const figures = deities
         .filter((d) => d.pantheonId === id)
-        .toSorted(
+        .sort(
           (a, b) =>
             (a.importanceRank ?? 99) - (b.importanceRank ?? 99) ||
             a.name.localeCompare(b.name),
@@ -65,7 +65,7 @@ function traditionsForGrid(): AtlasGridTradition[] {
         figures,
       };
     })
-    .toSorted((a, b) => b.figures.length - a.figures.length);
+    .sort((a, b) => b.figures.length - a.figures.length);
 }
 
 export default function AtlasPage() {

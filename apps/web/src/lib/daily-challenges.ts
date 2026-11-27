@@ -124,9 +124,9 @@ export function isChallengeCompleted(
 export function calculateStreak(claimedDates: string[], today: string): number {
   if (claimedDates.length === 0) return 0;
 
-  const sortedDates = claimedDates
-    .toSorted((a, b) => a.localeCompare(b))
-    .toReversed();
+  const sortedDates = [...claimedDates]
+    .sort((a, b) => a.localeCompare(b))
+    .reverse();
   let streak = 0;
   const currentDate = new Date(today);
 

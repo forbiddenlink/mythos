@@ -28,7 +28,7 @@ describe("pantheon worksheets", () => {
     expect(sheet.roles).toHaveLength(sheet.matching.length);
     const letters = sheet.matching.map((m) => m.letter);
     expect(new Set(letters).size).toBe(letters.length);
-    expect(letters.toSorted()).toEqual(sheet.roles.map((r) => r.letter));
+    expect([...letters].sort()).toEqual(sheet.roles.map((r) => r.letter));
     // Every role is distinct, so each name has exactly one right letter.
     expect(new Set(sheet.roles.map((r) => r.role)).size).toBe(
       sheet.roles.length,

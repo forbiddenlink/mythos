@@ -114,7 +114,7 @@ export function pickStoryOfTheWeek(
 ): DigestStory | null {
   const eligible = stories
     .filter(isDigestEligible)
-    .toSorted((a, b) => a.slug.localeCompare(b.slug));
+    .sort((a, b) => a.slug.localeCompare(b.slug));
   if (eligible.length === 0) return null;
   const order = seededShuffle(
     eligible.map((_, i) => i),
