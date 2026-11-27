@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.25.2](https://github.com/forbiddenlink/mythos/compare/v1.25.1...v1.25.2) (2026-11-27)
+
+
+### Bug Fixes
+
+* **web:** derive tradition count from getTraditionCount everywhere ([#368](https://github.com/forbiddenlink/mythos/issues/368)) ([8d5bdd7](https://github.com/forbiddenlink/mythos/commit/8d5bdd705350016e94e60de1d4538bb9d84a38e2))
+
 ## [1.25.1](https://github.com/forbiddenlink/mythos/compare/v1.25.0...v1.25.1) (2026-11-25)
 
 
