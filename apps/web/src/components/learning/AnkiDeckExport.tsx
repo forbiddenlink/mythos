@@ -23,6 +23,8 @@ export interface AnkiDeckExportProps {
   /** Deity count per pantheon id. */
   deityCounts: Record<string, number>;
   totalDeities: number;
+  /** Traditions covered; excludes regional collection records. Defaults to the chip count. */
+  traditionCount?: number;
   /** Preview card per pantheon id, plus "all" for the whole catalog. */
   samples: Record<string, DeityCardData>;
 }
@@ -35,6 +37,7 @@ export function AnkiDeckExport({
   pantheons,
   deityCounts,
   totalDeities,
+  traditionCount,
   samples,
 }: AnkiDeckExportProps) {
   const [selectedPantheon, setSelectedPantheon] = useState<string>("all");
@@ -152,7 +155,7 @@ export function AnkiDeckExport({
                       : "border border-border bg-card text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  All {pantheons.length} Pantheons ({totalDeities})
+                  All {traditionCount ?? pantheons.length} Pantheons ({totalDeities})
                 </button>
                 {pantheons.map((p) => {
                   const count = deityCounts[p.id] ?? 0;
