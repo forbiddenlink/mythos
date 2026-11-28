@@ -153,6 +153,9 @@
       "nextStepQuiz": "Faire un quiz"
     },
     "compareMyths": {
+      "versionIndexJump": "Voir les comparaisons de sources",
+      "versionIndexTitle": "Versions d’un même mythe",
+      "versionIndexDescription": "Choisissez un récit pour voir comment différentes sources racontent le même épisode.",
       "title": "Comparer les Mythes",
       "heroTagline": "Récits Croisés",
       "description": "Comparez des récits mythologiques de différentes cultures pour révéler thèmes communs et variations.",

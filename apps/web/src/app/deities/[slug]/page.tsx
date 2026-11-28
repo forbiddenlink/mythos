@@ -281,8 +281,12 @@ export default async function DeityPage({ params }: PageProps) {
     deity.id,
     getBranchingStories(),
   );
+  const hasPersephoneSources =
+    deity.slug === "persephone" || deity.slug === "demeter";
   const hasAtlasLinks =
-    hasLinkedMentions(deity.id) || interactiveStories.length > 0;
+    hasLinkedMentions(deity.id) ||
+    interactiveStories.length > 0 ||
+    hasPersephoneSources;
   const worship = hasWorship(deity);
   const relatedDeities = selectRelatedDeities(
     deity.id,
@@ -524,6 +528,14 @@ export default async function DeityPage({ params }: PageProps) {
               reading={false}
             >
               <div className="space-y-10">
+                {hasPersephoneSources ? (
+                  <Link
+                    href="/stories/abduction-of-persephone#versions"
+                    className="inline-flex min-h-11 items-center text-gold-text underline underline-offset-4"
+                  >
+                    Compare the ancient accounts of Persephone
+                  </Link>
+                ) : null}
                 <LinkedMentions deityId={deity.id} deityName={deity.name} />
                 {interactiveStories.length > 0 ? (
                   <div>

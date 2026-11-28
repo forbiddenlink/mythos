@@ -153,6 +153,9 @@
       "nextStepQuiz": "Quiz starten"
     },
     "compareMyths": {
+      "versionIndexJump": "Quellenvergleiche ansehen",
+      "versionIndexTitle": "Versionen desselben Mythos",
+      "versionIndexDescription": "Wählen Sie eine Geschichte, um zu sehen, wie verschiedene Quellen dieselbe Episode erzählen.",
       "title": "Mythen Vergleichen",
       "heroTagline": "Kulturübergreifende Erzählungen",
       "description": "Vergleichen Sie Mythen verschiedener Kulturen, um gemeinsame Themen und markante Unterschiede zu erkennen.",

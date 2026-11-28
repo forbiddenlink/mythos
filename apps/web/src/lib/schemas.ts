@@ -358,6 +358,7 @@ export const JourneySchema = z.looseObject({
       name: z.string(),
       order: z.number().int().positive(),
       coordinates: z.tuple([z.number(), z.number()]).optional(),
+      mapNote: z.string().min(1).optional(),
       locationId: z.string().optional(),
     }),
   ),

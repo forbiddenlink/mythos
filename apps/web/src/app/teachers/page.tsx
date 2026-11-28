@@ -53,6 +53,11 @@ const TOOLS = [
     body: "Deity and story entries have a Cite this page control with MLA, APA and Chicago formats. The sources page lists the ancient texts and modern scholarship the atlas draws on.",
   },
   {
+    title: "Compare Persephone’s sources",
+    href: "/stories/abduction-of-persephone#versions",
+    body: "Ask students to find how much of the year Persephone spends below in the Homeric Hymn and in Ovid. Have them cite the passage that supports each answer.",
+  },
+  {
     title: "Reading paths",
     href: "/paths",
     body: "Ordered routes through a tradition or theme, for a unit that runs over several lessons.",

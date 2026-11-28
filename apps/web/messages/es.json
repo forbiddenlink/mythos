@@ -153,6 +153,9 @@
       "nextStepQuiz": "Hacer un cuestionario"
     },
     "compareMyths": {
+      "versionIndexJump": "Ver comparaciones de fuentes",
+      "versionIndexTitle": "Versiones de un mismo mito",
+      "versionIndexDescription": "Elige un relato para ver cómo distintas fuentes cuentan el mismo episodio.",
       "title": "Comparar Mitos",
       "heroTagline": "Relatos entre Culturas",
       "description": "Compara narrativas míticas entre culturas para descubrir temas compartidos y diferencias clave.",

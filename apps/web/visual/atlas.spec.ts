@@ -94,9 +94,12 @@ test("source version comparison", async ({ page }) => {
   await page.goto("/stories/osiris-myth");
   const versions = page.locator("#versions");
   await atSection(versions);
-  await expect(
-    versions.getByRole("list", { name: "Sources in chronological order" }),
-  ).toBeVisible();
+  // Below md the chronology collapses into a "Source editions" disclosure.
+  const sources =
+    page.viewportSize()!.width < 768
+      ? versions.getByText("Source editions", { exact: true })
+      : versions.getByRole("list", { name: "Sources in chronological order" });
+  await expect(sources).toBeVisible();
   await capture(page, "source-comparison.png");
 });
 

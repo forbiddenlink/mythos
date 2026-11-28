@@ -2,7 +2,7 @@
   {
     "storySlug": "death-of-baldur",
     "question": "Which parts of Baldr's death appear in which source?",
-    "takeaway": "The familiar story of the oath, the overlooked mistletoe, and Loki guiding the blind Höðr's hand is Snorri's. The Eddic poems allude to pieces of it, and Saxo tells a different story, where Baldr and Höðr are rivals for a woman and the fatal weapon is a sword.",
+    "takeaway": "Völuspá already names mistletoe as the source of the fatal shot. Snorri explains why Frigg exempted it and how Loki guided the blind Höðr. In Saxo, Balder and Hother are rivals for Nanna, and Hother strikes with a sword.",
     "beats": [
       {
         "id": "dreams",
@@ -35,11 +35,13 @@
     ],
     "sources": [
       {
-        "name": "Völuspá 31-35",
-        "work": "Poetic Edda",
+        "name": "Völuspá, stanzas 32–35",
+        "work": "Poetic Edda · Henry Adams Bellows translation (1923)",
         "date": "10th-century poem, 13th-century manuscript",
         "sortYear": 1000,
         "kind": "primary",
+        "readingUrl": "https://en.wikisource.org/wiki/The_Poetic_Edda_(tr._Bellows)/Voluspo#:~:text=the%20bleeding%20god",
+        "readingLabel": "Read Völuspá, stanzas 32–35",
         "cells": {
           "dreams": {
             "state": "absent"
@@ -49,128 +51,161 @@
           },
           "weapon": {
             "state": "present",
-            "note": "A mistletoe shoot, slender and fair, becomes the dart."
+            "note": "A mistletoe shoot becomes the fatal shaft.",
+            "passage": "Stanzas 32–33"
           },
           "loki": {
             "state": "variant",
-            "note": "Only seen bound afterwards; his role in the killing is not stated."
+            "note": "The seeress sees a bound figure resembling Loki. She gives him no role in the shooting.",
+            "passage": "Stanza 35"
           },
           "killer": {
             "state": "present",
-            "note": "Höðr shoots."
+            "note": "Höðr hurls the shaft.",
+            "passage": "Stanza 33"
           },
           "hel": {
             "state": "absent",
-            "note": "Frigg weeps in Fensalir."
+            "note": "Frigg weeps in Fensalir. There is no attempt to retrieve Baldr in these stanzas.",
+            "passage": "Stanza 34"
           },
           "vengeance": {
             "state": "present",
-            "note": "Baldr's brother, one night old, kills Höðr."
+            "note": "Baldr’s unnamed brother, only one night old, fights and carries Baldr’s enemy to the pyre.",
+            "passage": "Stanzas 33–34"
           }
         }
       },
       {
         "name": "Baldrs draumar",
-        "work": "Poetic Edda (eddic poem outside the Codex Regius)",
+        "work": "Poetic Edda · Henry Adams Bellows translation (1923)",
         "date": "older poem, c. 1300 manuscript",
         "sortYear": 1200,
         "kind": "primary",
+        "readingUrl": "https://en.wikisource.org/wiki/The_Poetic_Edda_(tr._Bellows)/Baldrs_Draumar#:~:text=Once%20were%20the%20gods",
+        "readingLabel": "Read Baldr’s Dreams, stanzas 1–14",
         "cells": {
           "dreams": {
             "state": "present",
-            "note": "Baldr's bad dreams send Odin riding to Hel to question a dead seeress."
+            "note": "Baldr’s bad dreams send Odin riding to the realm of the dead to question a seeress.",
+            "passage": "Stanzas 1–5"
           },
           "oath": {
             "state": "absent"
           },
           "weapon": {
             "state": "variant",
-            "note": "Höðr brings 'the famed branch', not named as mistletoe."
+            "note": "The seeress foretells that Höðr will bring a branch. She gives no name for the plant.",
+            "passage": "Stanza 9"
           },
           "loki": {
-            "state": "absent"
+            "state": "variant",
+            "note": "The seeress says Loki will break free at Ragnarök. She gives him no role in Baldr’s death.",
+            "passage": "Stanza 14"
           },
           "killer": {
-            "state": "present"
+            "state": "present",
+            "note": "The seeress foretells that Höðr will kill Baldr.",
+            "passage": "Stanza 9"
           },
           "hel": {
-            "state": "absent"
+            "state": "absent",
+            "note": "Odin visits Hel before Baldr’s death. The seeress tells him that the hall is being prepared for Baldr.",
+            "passage": "Stanzas 2–7"
           },
           "vengeance": {
             "state": "present",
-            "note": "Váli, born of Rindr, will avenge him at one night old."
+            "note": "The seeress foretells that Váli, born to Rindr, will avenge Baldr at one night old.",
+            "passage": "Stanzas 10–11"
           }
         }
       },
       {
         "name": "Saxo Grammaticus, Gesta Danorum 3",
-        "work": "Latin history of the Danes",
+        "work": "The Danish History · Oliver Elton translation (1894)",
         "date": "c. 1200",
         "sortYear": 1200,
         "kind": "medieval",
+        "readingUrl": "https://sacred-texts.com/book/the-danish-history-of-saxo-grammaticus/book-three#:~:text=Balder%20the%20son%20of%20Odin%20was%20troubled",
+        "readingLabel": "Read Saxo, Book III",
         "cells": {
           "dreams": {
             "state": "variant",
-            "note": "Balderus dreams that Proserpina promises him her embrace."
+            "note": "After Hother wounds him, Balder sees Proserpine in a dream predicting his death.",
+            "passage": "Book III · Balder’s dream after the wound"
           },
           "oath": {
             "state": "variant",
-            "note": "No oath; his body can only be pierced by a particular sword."
+            "note": "Gewar tells Hother that ordinary steel cannot harm Balder and points him to a sword that can kill him.",
+            "passage": "Book III · Gewar’s advice to Hother"
           },
           "weapon": {
             "state": "variant",
-            "note": "The sword of the satyr Mimingus."
+            "note": "Hother takes the sword from Miming, the forest satyr.",
+            "passage": "Book III · Hother’s encounter with Miming"
           },
           "loki": {
             "state": "absent"
           },
           "killer": {
             "state": "variant",
-            "note": "Hotherus, a human prince and Balderus' rival for Nanna."
+            "note": "Hother, Balder’s rival for Nanna, stabs him. Balder dies from the wound days later.",
+            "passage": "Book III · Balder’s fatal wound and burial"
           },
           "hel": {
             "state": "absent"
           },
           "vengeance": {
             "state": "variant",
-            "note": "Bous, son of Odin and Rinda, kills Hotherus."
+            "note": "Boe, son of Odin and Rinda, kills Hother in battle and dies of his own wounds the next day.",
+            "passage": "Book III · Boe’s battle with Hother"
           }
         }
       },
       {
-        "name": "Snorri Sturluson, Gylfaginning 49",
-        "work": "Prose Edda",
+        "name": "Snorri Sturluson, Gylfaginning 49–50",
+        "work": "Prose Edda · Arthur Gilchrist Brodeur translation (1916)",
         "date": "c. 1220",
         "sortYear": 1220,
         "kind": "medieval",
         "reference": true,
+        "readingUrl": "https://en.wikisource.org/wiki/The_Prose_Edda_(1916_translation_by_Arthur_Gilchrist_Brodeur)/Gylfaginning#:~:text=Baldr%20the%20Good%20dreamed",
+        "readingLabel": "Read Gylfaginning, chapters XLIX–L",
         "cells": {
           "dreams": {
-            "state": "present"
+            "state": "present",
+            "note": "Baldr’s dreams warn of danger to his life, so the gods seek to protect him.",
+            "passage": "Chapter XLIX · opening"
           },
           "oath": {
             "state": "present",
-            "note": "Frigg takes oaths from everything except the young mistletoe."
+            "note": "Frigg takes oaths but exempts the mistletoe because she thinks it too young.",
+            "passage": "Chapter XLIX · Frigg’s oaths"
           },
           "weapon": {
             "state": "present",
-            "note": "A mistletoe dart."
+            "note": "Loki takes the mistletoe and gives it to Höðr to shoot.",
+            "passage": "Chapter XLIX · the mistletoe shot"
           },
           "loki": {
             "state": "present",
-            "note": "Learns the secret in disguise and guides Höðr's hand."
+            "note": "Loki learns the secret in disguise and guides Höðr’s shot.",
+            "passage": "Chapter XLIX · Loki and Höðr"
           },
           "killer": {
             "state": "present",
-            "note": "Blind Höðr throws it unknowingly."
+            "note": "Höðr is blind. He shoots where Loki directs him, and the mistletoe kills Baldr.",
+            "passage": "Chapter XLIX · the mistletoe shot"
           },
           "hel": {
             "state": "present",
-            "note": "Hermóðr rides to Hel. Baldr may return if all things weep; the giantess Þökk refuses."
+            "note": "Hermóðr rides to Hel. Baldr may return if all things weep for him, but the giantess Þökk refuses.",
+            "passage": "Chapter XLIX · Hermóðr’s ride and Þökk’s refusal"
           },
           "vengeance": {
-            "state": "present",
-            "note": "Váli is named as the avenger elsewhere in the Edda."
+            "state": "variant",
+            "note": "The gods punish Loki. These chapters do not tell of Váli killing Höðr.",
+            "passage": "Chapter L · Loki’s punishment"
           }
         }
       }
@@ -944,7 +979,7 @@
   {
     "storySlug": "inanna-descent",
     "question": "Inanna in Sumerian and Ishtar in Akkadian",
-    "takeaway": "The Akkadian Descent of Ishtar is a shorter, later retelling. It keeps the seven gates and the rescue, but drops the choosing of Dumuzi as a substitute and the half-year arrangement that ends the Sumerian poem.",
+    "takeaway": "Both poems send a goddess through seven gates. In the Sumerian poem, the judges kill Inanna and she must provide a substitute to leave. In the Akkadian poem, Ishtar suffers sixty diseases and receives water of life before returning through the gates.",
     "beats": [
       {
         "id": "why",
@@ -982,28 +1017,37 @@
         "cells": {
           "why": {
             "state": "present",
-            "note": "Her stated reason is the funeral rites of Gugalanna, Ereshkigal's husband."
+            "note": "Her stated reason is the funeral rites of Gugalanna, Ereshkigal's husband.",
+            "passage": "Lines 85–89"
           },
           "gates": {
-            "state": "present"
+            "state": "present",
+            "note": "The sixth gate takes her measuring rod and line in the main text. One manuscript also places their removal at the first gate.",
+            "passage": "Lines 129–163"
           },
           "death": {
             "state": "present",
-            "note": "Ereshkigal's gaze kills her; her corpse hangs on a hook."
+            "note": "The seven judges condemn Inanna and fix her with a deadly gaze. Her body is hung on a hook.",
+            "passage": "Lines 164–172"
           },
           "rescue": {
             "state": "present",
-            "note": "Enki makes two beings from the dirt under his nails, bearing the food and water of life."
+            "note": "Enki creates two beings who revive Inanna with the life-giving plant and water.",
+            "passage": "Lines 217–281"
           },
           "substitute": {
             "state": "present",
-            "note": "She gives up Dumuzi, who did not mourn her."
+            "note": "Inanna finds Dumuzi richly dressed on a throne and hands him over to the demons.",
+            "passage": "Lines 348–358"
           },
           "halfyear": {
             "state": "present",
-            "note": "Dumuzi and his sister Geshtinanna each spend half the year below."
+            "note": "Dumuzi and his sister Geshtinanna each spend half the year below.",
+            "passage": "Lines 404–410"
           }
-        }
+        },
+        "readingUrl": "https://etcsl.orinst.ox.ac.uk/section1/tr141.htm",
+        "readingLabel": "Oxford translation"
       },
       {
         "name": "The Descent of Ishtar",
@@ -1014,18 +1058,23 @@
         "cells": {
           "why": {
             "state": "variant",
-            "note": "No reason given; she threatens to break the gate and raise the dead."
+            "note": "No reason given; she threatens to break the gate and raise the dead.",
+            "passage": "Lines 1–20"
           },
           "gates": {
-            "state": "present"
+            "state": "present",
+            "note": "The gatekeeper takes her tiara at the first gate, her earrings at the second and her bracelets and anklets at the sixth.",
+            "passage": "Lines 42–62"
           },
           "death": {
             "state": "variant",
-            "note": "Namtar strikes her with sixty diseases."
+            "note": "Ereshkigal orders Namtar to afflict Ishtar with sixty diseases.",
+            "passage": "Lines 63–75"
           },
           "rescue": {
             "state": "variant",
-            "note": "Ea creates Asushunamir to charm Ereshkigal."
+            "note": "Ea sends Asushunamir. Ereshkigal tells Namtar to sprinkle Ishtar with the water of life.",
+            "passage": "Lines 91–118"
           },
           "substitute": {
             "state": "variant",
@@ -1034,14 +1083,16 @@
           "halfyear": {
             "state": "absent"
           }
-        }
+        },
+        "readingUrl": "https://www.soas.ac.uk/baplar/recordings/istars-descent-netherworld-lines-1-125-read-martin-west",
+        "readingLabel": "SOAS translation and audio"
       }
     ]
   },
   {
     "storySlug": "abduction-of-persephone",
     "question": "Where does Persephone's story happen, and how long is she gone?",
-    "takeaway": "The hymn, Ovid, and Apollodorus agree on the abduction and the pomegranate, but not on the place, the witnesses, or how much of the year Persephone spends below. The half-year many people know is Ovid's; the oldest telling says a third.",
+    "takeaway": "The Homeric Hymn to Demeter and Apollodorus give Persephone a third of the year below. Ovid divides the year in half in both Metamorphoses and Fasti, but his two poems disagree about how many seeds she eats.",
     "beats": [
       {
         "id": "place",
@@ -1102,13 +1153,17 @@
           },
           "seed": {
             "state": "present",
-            "note": "Hades gives her a single seed in secret."
+            "note": "Hades gives her a single seed in secret.",
+            "passage": "Lines 371–374"
           },
           "time": {
             "state": "present",
-            "note": "A third of the year."
+            "note": "A third of the year.",
+            "passage": "Lines 463–466"
           }
-        }
+        },
+        "readingUrl": "https://www-current.chs.harvard.edu/primary-source/homeric-hymn-to-demeter-sb/",
+        "readingLabel": "Gregory Nagy’s translation at Harvard CHS"
       },
       {
         "name": "Ovid, Metamorphoses 5.341-661",
@@ -1138,13 +1193,17 @@
           },
           "seed": {
             "state": "variant",
-            "note": "She eats seven seeds in a garden."
+            "note": "She eats seven seeds in a garden.",
+            "passage": "Book 5, lines 533–541"
           },
           "time": {
             "state": "variant",
-            "note": "Half the year."
+            "note": "Half the year.",
+            "passage": "Book 5, lines 564–567"
           }
-        }
+        },
+        "readingUrl": "https://ftp.theoi.com/Text/OvidMetamorphoses5.html",
+        "readingLabel": "Metamorphoses translation at Theoi"
       },
       {
         "name": "Ovid, Fasti 4.417-620",
@@ -1169,7 +1228,8 @@
             "note": "Ceres heals the child Triptolemus at Eleusis."
           },
           "famine": {
-            "state": "absent"
+            "state": "variant",
+            "note": "The fields yield a late harvest after Ceres recovers her spirits."
           },
           "seed": {
             "state": "variant",
@@ -1177,9 +1237,12 @@
           },
           "time": {
             "state": "variant",
-            "note": "Half the year."
+            "note": "Half the year.",
+            "passage": "Book 4, lines 613–614"
           }
-        }
+        },
+        "readingUrl": "https://www.poetryintranslation.com/PITBR/Latin/OvidFastiBkFour.php",
+        "readingLabel": "A. S. Kline’s Fasti translation"
       },
       {
         "name": "Apollodorus, Library 1.5.1-3",
@@ -1207,13 +1270,17 @@
           },
           "seed": {
             "state": "present",
-            "note": "One seed, given by Hades."
+            "note": "One seed, given by Hades.",
+            "passage": "Library 1.5.3"
           },
           "time": {
             "state": "present",
-            "note": "A third of the year."
+            "note": "A third of the year.",
+            "passage": "Library 1.5.3"
           }
-        }
+        },
+        "readingUrl": "https://beta.perseus.tufts.edu/urn%3Acts%3AgreekLit%3Atlg0548.tlg001.perseus-eng2/section%3A1.5.3/",
+        "readingLabel": "Frazer’s translation at Perseus"
       }
     ]
   },

@@ -3,7 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { MAP_TILE_OPTIONS, MAP_TILE_URL } from "@/lib/map-tiles";
 import { PANTHEON_PRIMARY_SECONDARY as PANTHEON_COLORS } from "@/lib/pantheon-colors";
-import type { JourneyDetail, JourneyWaypoint } from "@/lib/journeys";
+import {
+  journeyRouteSegments,
+  mappedWaypoints,
+  sortWaypoints,
+  type JourneyDetail,
+  type JourneyWaypoint,
+} from "@/lib/journeys";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import {
@@ -15,10 +21,9 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-type Waypoint = JourneyWaypoint & { coordinates: [number, number] };
 interface JourneyMapProps {
-  journey: Omit<JourneyDetail, "waypoints"> & { waypoints: Waypoint[] };
-  onWaypointSelect?: (waypoint: Waypoint | null) => void;
+  journey: JourneyDetail;
+  onWaypointSelect?: (waypoint: JourneyWaypoint | null) => void;
   selectedWaypointId?: string | null;
 }
 
@@ -29,15 +34,16 @@ export function JourneyMap({
 }: JourneyMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
-  const markersRef = useRef<L.Marker[]>([]);
+  const markersRef = useRef<Map<string, L.Marker>>(new Map());
   const progressRef = useRef<L.Polyline | null>(null);
   const [localId, setLocalId] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [tilesUnavailable, setTilesUnavailable] = useState(false);
   const stops = useMemo(
-    () => journey.waypoints.toSorted((a, b) => a.order - b.order),
+    () => sortWaypoints(journey.waypoints),
     [journey.waypoints],
   );
+  const mapped = useMemo(() => mappedWaypoints(stops), [stops]);
   const selectedIndex = stops.findIndex(
     (stop) => stop.id === (selectedWaypointId ?? localId),
   );
@@ -60,9 +66,9 @@ export function JourneyMap({
   }, [select]);
 
   const showRoute = useCallback(() => {
-    if (stops.length) {
+    if (mapped.length) {
       mapRef.current?.fitBounds(
-        L.latLngBounds(stops.map((stop) => stop.coordinates)),
+        L.latLngBounds(mapped.map((stop) => stop.coordinates)),
         {
           padding: [36, 36],
           maxZoom: 5,
@@ -70,7 +76,7 @@ export function JourneyMap({
         },
       );
     }
-  }, [stops]);
+  }, [mapped]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -91,8 +97,7 @@ export function JourneyMap({
     })
       .on("tileerror", () => setTilesUnavailable(true))
       .addTo(map);
-    const coordinates = stops.map((stop) => stop.coordinates);
-    L.polyline(coordinates, {
+    L.polyline(journeyRouteSegments(stops), {
       color,
       weight: 2,
       opacity: 0.6,
@@ -103,38 +108,44 @@ export function JourneyMap({
       weight: 3,
       opacity: 0.95,
     }).addTo(map);
-    markersRef.current = stops.map((stop, stopIndex) => {
-      const marker = L.marker(stop.coordinates, {
-        keyboard: false,
-        title: `Stop ${stop.order}: ${stop.name}`,
-      });
-      marker.on("click", () => selectRef.current(stopIndex));
-      marker.on("add", () =>
-        marker.getElement()?.setAttribute("aria-hidden", "true"),
-      );
-      const label = document.createElement("span");
-      label.textContent = stop.name;
-      marker.bindTooltip(label, { direction: "top" });
-      return marker;
-    });
+    markersRef.current = new Map(
+      mapped.map((stop) => {
+        const marker = L.marker(stop.coordinates, {
+          keyboard: false,
+          title: `Stop ${stop.order}: ${stop.name}`,
+        });
+        marker.on("click", () =>
+          selectRef.current(stops.findIndex(({ id }) => id === stop.id)),
+        );
+        marker.on("add", () =>
+          marker.getElement()?.setAttribute("aria-hidden", "true"),
+        );
+        const label = document.createElement("span");
+        label.textContent = stop.name;
+        marker.bindTooltip(label, { direction: "top" });
+        return [stop.id, marker];
+      }),
+    );
     showRoute();
     return () => {
       map.remove();
       mapRef.current = null;
-      markersRef.current = [];
+      markersRef.current = new Map();
       progressRef.current = null;
     };
-  }, [stops, color, showRoute]);
+  }, [stops, mapped, color, showRoute]);
 
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    markersRef.current.forEach((marker, markerIndex) => {
-      const active = markerIndex === index;
+    for (const stop of mapped) {
+      const marker = markersRef.current.get(stop.id);
+      if (!marker) continue;
+      const active = stop.id === current?.id;
       marker.setIcon(
         L.divIcon({
           className: "journey-stop-marker",
-          html: `<span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:2px solid ${color};background:${active ? color : "#182129"};color:${active ? "#111827" : "#f5ecd8"};font:bold 12px Georgia,serif;box-shadow:0 1px 5px #0008">${stops[markerIndex].order}</span>`,
+          html: `<span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;border:2px solid ${color};background:${active ? color : "#182129"};color:${active ? "#111827" : "#f5ecd8"};font:bold 12px Georgia,serif;box-shadow:0 1px 5px #0008">${stop.order}</span>`,
           iconSize: [28, 28],
           iconAnchor: [14, 14],
           tooltipAnchor: [0, -17],
@@ -142,13 +153,13 @@ export function JourneyMap({
       );
       if (!map.hasLayer(marker)) marker.addTo(map);
       marker.setZIndexOffset(active ? 1000 : 0);
-    });
+    }
     progressRef.current?.setLatLngs(
-      stops.slice(0, index + 1).map((stop) => stop.coordinates),
+      journeyRouteSegments(stops.slice(0, index + 1)),
     );
-    if (current)
+    if (current?.coordinates)
       map.panInside(current.coordinates, { padding: [40, 40], animate: false });
-  }, [index, current, stops, color]);
+  }, [index, current, stops, mapped, color]);
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -175,6 +186,11 @@ export function JourneyMap({
               Stop {index + 1} of {stops.length}
             </span>{" "}
             · {current?.name}
+            {current && !current.coordinates ? (
+              <span className="block type-meta text-muted-foreground">
+                No map pin for this stop
+              </span>
+            ) : null}
           </p>
           <div className="flex items-center gap-1">
             <Button
@@ -253,9 +269,8 @@ export function JourneyMap({
           ))}
         </div>
         <p className="type-meta text-muted-foreground">
-          Dashed line: story sequence. Solid line: route to the selected stop.
-          Modern coastline shown for orientation; disputed and mythical places
-          are illustrative.
+          Dashes show the order of mapped stops. The solid line shows your
+          progress. Modern locations for disputed episodes are approximate.
         </p>
         {tilesUnavailable ? (
           <p role="status" className="type-meta text-muted-foreground">

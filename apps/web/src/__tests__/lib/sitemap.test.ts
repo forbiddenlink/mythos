@@ -6,6 +6,12 @@ import { getCreatureHubs, getGoddessHubs } from "@/lib/pantheon-hubs";
 afterEach(() => vi.useRealTimers());
 
 describe("sitemap", () => {
+  it("lists the museum collection", () => {
+    expect(sitemap().map((entry) => entry.url)).toContain(
+      "https://mythosatlas.com/museum",
+    );
+  });
+
   it("does not report unchanged content as modified when generated later", () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-09-22T00:00:00Z"));

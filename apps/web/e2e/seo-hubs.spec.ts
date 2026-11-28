@@ -151,8 +151,8 @@ test.describe("hub pages", () => {
       ],
       [
         "/pantheons",
-        /^Pantheons of the World: \d+ Mythologies/,
-        /^Compare \d+ pantheons/,
+        /^Pantheons of the World: \d+ Traditions/,
+        /^Explore \d+ mythological traditions/,
       ],
     ];
     for (const [path, titleRe, descRe] of cases) {

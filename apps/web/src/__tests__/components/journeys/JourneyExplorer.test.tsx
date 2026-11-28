@@ -70,6 +70,29 @@ describe("JourneyExplorer", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("preserves the reading and catalog links for a stop without a map pin", async () => {
+    const journey = journeys.find((item) => item.slug === "odyssey")!;
+    render(
+      <JourneyExplorer
+        journey={journey}
+        color="#D4AF37"
+        stopContexts={getJourneyStopContexts(journey)}
+      />,
+    );
+    await userEvent.click(
+      screen.getByRole("button", { name: "Select The Underworld" }),
+    );
+    expect(
+      screen.getByRole("heading", { name: "The Underworld" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/land of the Cimmerians by Ocean/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /Read Odyssey · Book 11/ }),
+    ).toHaveAttribute("href", expect.stringContaining(":book=11"));
+  });
+
   it("keeps otherworld routes available without geographic tiles", async () => {
     const journey = journeys.find(
       (item) => item.slug === "duat-night-journey",

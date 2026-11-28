@@ -284,7 +284,7 @@ export default async function JourneyPage({ params }: PageProps) {
             description={
               otherworld
                 ? "These realms belong to the mythic cosmos, not an earthly map, so the route is shown in order instead of as pins."
-                : "The map illustrates the story's route. Pins are not evidence of an exact historical itinerary; some places are disputed or mythical."
+                : "Follow the story in order. The map uses modern geography, and some pins show proposed locations."
             }
             reading={false}
           >
@@ -336,6 +336,11 @@ export default async function JourneyPage({ params }: PageProps) {
                       <p className="mt-2 type-reading text-foreground/90">
                         {stop.description}
                       </p>
+                      {stop.mapNote ? (
+                        <p className="mt-2 type-ui text-muted-foreground">
+                          {stop.mapNote}
+                        </p>
+                      ) : null}
                       {stopContexts[stop.id]?.passage ? (
                         <p className="mt-2 type-ui">
                           <a

@@ -55,4 +55,25 @@ describe("CookieConsent", () => {
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
   });
+
+  it("clears the initial prompt when preferences are opened before it runs", () => {
+    render(<CookieConsent />);
+    act(() => {
+      window.dispatchEvent(new Event("mythos-cookie-consent-open"));
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Reject" }));
+    act(() => vi.advanceTimersByTime(2800));
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("focuses Reject when settings are opened while the prompt is visible", () => {
+    render(<CookieConsent />);
+    act(() => vi.advanceTimersByTime(2800));
+    act(() => {
+      window.dispatchEvent(new Event("mythos-cookie-consent-open"));
+    });
+
+    expect(screen.getByRole("button", { name: "Reject" })).toHaveFocus();
+  });
 });

@@ -1,10 +1,10 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { VersionMatrix } from "@/components/stories/VersionMatrix";
 import { getMythVersions } from "@/lib/myth-versions";
 
-function renderComparison(): void {
-  const versions = getMythVersions("prometheus-fire");
+function renderComparison(slug = "prometheus-fire"): void {
+  const versions = getMythVersions(slug);
   if (!versions) throw new Error("Missing researched comparison");
   render(<VersionMatrix versions={versions} />);
 }
@@ -24,26 +24,66 @@ describe("VersionMatrix", () => {
     expect(chronology.querySelector('[style*="left"]')).toBeNull();
   });
 
-  it("provides every moment, state, and passage link in mobile source cards", () => {
+  it("groups the mobile comparison by moment and keeps edition links available", () => {
     renderComparison();
-    const cards = screen.getAllByRole("article");
     const versions = getMythVersions("prometheus-fire")!;
-    cards.forEach((card, index) => {
-      const source = versions.sources[index];
-      expect(within(card).getAllByRole("term")).toHaveLength(
-        versions.beats.length,
-      );
-      for (const beat of versions.beats) {
-        expect(within(card).getByText(beat.label)).toBeInTheDocument();
-        expect(card).toHaveTextContent(source.cells[beat.id].note!);
-      }
-      expect(within(card).getByRole("link")).toHaveAttribute(
-        "href",
-        source.readingUrl,
-      );
+    fireEvent.click(
+      screen.getByText("Source editions", { selector: "summary" }),
+    );
+    const editions = within(
+      screen.getByRole("list", { name: "Source editions" }),
+    );
+    const links = editions.getAllByRole("link");
+    versions.sources.forEach((source, index) => {
+      expect(links[index]).toHaveAttribute("href", source.readingUrl);
     });
-    expect(cards[0]).toHaveTextContent("Not narrated here");
-    expect(cards[0]).toHaveTextContent("comparison baseline");
+    expect(editions.getByText(/comparison baseline/)).toBeInTheDocument();
+
+    for (const beat of versions.beats) {
+      const scene = within(screen.getByRole("article", { name: beat.label }));
+      const terms = scene.getAllByRole("term");
+      versions.sources.forEach((source, index) => {
+        expect(terms[index]).toHaveTextContent(source.name);
+        expect(
+          scene.getByText(source.cells[beat.id].note!),
+        ).toBeInTheDocument();
+      });
+    }
+  });
+
+  it("keeps Inanna and Ishtar's passage locators with the right edition on both layouts", () => {
+    renderComparison("inanna-descent");
+    fireEvent.click(
+      screen.getByText("Source editions", { selector: "summary" }),
+    );
+    const editions = within(
+      screen.getByRole("list", { name: "Source editions" }),
+    );
+    expect(
+      editions.getByRole("link", { name: /Oxford translation/ }),
+    ).toHaveAttribute(
+      "href",
+      "https://etcsl.orinst.ox.ac.uk/section1/tr141.htm",
+    );
+    expect(
+      editions.getByRole("link", { name: /SOAS translation and audio/ }),
+    ).toHaveAttribute(
+      "href",
+      expect.stringContaining("www.soas.ac.uk/baplar/"),
+    );
+
+    const scene = within(
+      screen.getByRole("article", { name: "Stripped at seven gates" }),
+    );
+    const [sumerian, akkadian] = scene.getAllByRole("definition");
+    expect(sumerian).toHaveTextContent("Lines 129–163");
+    expect(akkadian).toHaveTextContent("Lines 42–62");
+
+    const row = within(
+      screen.getByRole("row", { name: /Stripped at seven gates/ }),
+    );
+    expect(row.getByText("Lines 129–163")).toBeInTheDocument();
+    expect(row.getByText("Lines 42–62")).toBeInTheDocument();
   });
 
   it("retains desktop table row and column headers", () => {
