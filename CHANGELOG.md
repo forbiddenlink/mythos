@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.25.3](https://github.com/forbiddenlink/mythos/compare/v1.25.2...v1.25.3) (2026-11-27)
+
+
+### Bug Fixes
+
+* avoid ES2023 array methods that crash older Safari ([#370](https://github.com/forbiddenlink/mythos/issues/370)) ([fd0a967](https://github.com/forbiddenlink/mythos/commit/fd0a967981078257be2c7a5636d1af125ab81e0b))
+
 ## [1.25.2](https://github.com/forbiddenlink/mythos/compare/v1.25.1...v1.25.2) (2026-11-27)
 
 
