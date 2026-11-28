@@ -412,7 +412,7 @@ export function TimelineVisualizationD3({
       axisLayer.select(".domain").remove(); // Remove main axis line
 
       // 3. Pantheon Bars
-      const sortedPantheons = pantheons.toSorted(
+      const sortedPantheons = [...pantheons].sort(
         (a, b) =>
           (a.timePeriodStart ?? a.timePeriodEnd ?? Number.POSITIVE_INFINITY) -
           (b.timePeriodStart ?? b.timePeriodEnd ?? Number.POSITIVE_INFINITY),
