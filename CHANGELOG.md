@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.26.0](https://github.com/forbiddenlink/mythos/compare/v1.25.3...v1.26.0) (2026-11-28)
+
+
+### Features
+
+* myth version index, journey map notes and cookie dialog focus ([#372](https://github.com/forbiddenlink/mythos/issues/372)) ([5223c0e](https://github.com/forbiddenlink/mythos/commit/5223c0eb4e4df7890c74dc626a7a012fbd025b90))
+
 ## [1.25.3](https://github.com/forbiddenlink/mythos/compare/v1.25.2...v1.25.3) (2026-11-27)
 
 
