@@ -7,7 +7,6 @@ import { trackEvent } from "@/lib/analytics/events";
 import { OtherworldRoute } from "@/components/maps/OtherworldRoute";
 import {
   isOtherworldJourney,
-  mappedWaypoints,
   sortWaypoints,
   type JourneyDetail,
   type JourneyWaypoint,
@@ -83,10 +82,6 @@ export function JourneyExplorer({
 }>) {
   const otherworld = isOtherworldJourney(journey);
   const stops = useMemo(() => sortWaypoints(journey.waypoints), [journey]);
-  const mapJourney = useMemo(
-    () => ({ ...journey, waypoints: mappedWaypoints(journey.waypoints) }),
-    [journey],
-  );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const current =
     stops.find((stop) => stop.id === selectedId) ?? stops[0] ?? null;
@@ -120,7 +115,7 @@ export function JourneyExplorer({
       ) : (
         <div>
           <JourneyMap
-            journey={mapJourney}
+            journey={journey}
             onWaypointSelect={select}
             selectedWaypointId={selectedId}
           />
@@ -153,6 +148,11 @@ export function JourneyExplorer({
           <p className="mt-4 type-reading text-foreground/90">
             {current.description}
           </p>
+          {current.mapNote ? (
+            <p className="mt-3 type-ui text-muted-foreground">
+              {current.mapNote}
+            </p>
+          ) : null}
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
             <TagRow label="Events" items={current.events} />
             <TagRow label="Creatures" items={current.creatures} />

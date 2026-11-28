@@ -36,10 +36,9 @@
           "Fall of Troy",
           "Departure for home"
         ],
-        "deities": [
-          "Athena"
-        ],
-        "duration": "10 years of war"
+        "deities": ["Athena"],
+        "duration": "10 years of war",
+        "mapNote": "The pin marks the archaeological site of Troy in modern Türkiye."
       },
       {
         "id": "cicones",
@@ -112,13 +111,10 @@
           "Escape under the sheep",
           "Odysseus reveals his name"
         ],
-        "creatures": [
-          "Polyphemus"
-        ],
-        "deities": [
-          "Poseidon"
-        ],
-        "duration": "Several days"
+        "creatures": ["Polyphemus"],
+        "deities": ["Poseidon"],
+        "duration": "Several days",
+        "mapNote": "The pin shows a Sicilian association. Book 9 describes the Cyclopes and a nearby island without naming Sicily."
       },
       {
         "id": "aeolia",
@@ -210,10 +206,6 @@
           "book": 11
         },
         "name": "The Underworld",
-        "coordinates": [
-          36.38,
-          22.48
-        ],
         "order": 8,
         "description": "Following Circe's instructions, Odysseus sailed to the edge of the world to consult the prophet Tiresias in the realm of the dead.",
         "events": [
@@ -222,11 +214,9 @@
           "Encounter with his mother Anticlea",
           "Seeing fallen heroes"
         ],
-        "deities": [
-          "Tiresias",
-          "Hades"
-        ],
-        "duration": "One day"
+        "deities": ["Tiresias", "Hades"],
+        "duration": "One day",
+        "mapNote": "No earthly location is assigned here. In Book 11, Odysseus reaches the land of the Cimmerians by Ocean, where he summons the dead."
       },
       {
         "id": "sirens",
@@ -274,11 +264,9 @@
           "Six men devoured by Scylla",
           "Avoidance of Charybdis"
         ],
-        "creatures": [
-          "Scylla",
-          "Charybdis"
-        ],
-        "duration": "Brief passage"
+        "creatures": ["Scylla", "Charybdis"],
+        "duration": "Brief passage",
+        "mapNote": "The pin shows a traditional association with the Strait of Messina. The poem gives no modern coordinates."
       },
       {
         "id": "thrinacia",
@@ -330,12 +318,9 @@
           "Zeus orders his release",
           "Building of the raft"
         ],
-        "deities": [
-          "Calypso",
-          "Hermes",
-          "Zeus"
-        ],
-        "duration": "Seven years"
+        "deities": ["Calypso", "Hermes", "Zeus"],
+        "duration": "Seven years",
+        "mapNote": "Homer names Calypso’s island Ogygia. The pin shows one proposed location."
       },
       {
         "id": "scheria",
@@ -359,10 +344,9 @@
           "Telling of his adventures",
           "Gifts and safe passage home"
         ],
-        "deities": [
-          "Athena"
-        ],
-        "duration": "Several days"
+        "deities": ["Athena"],
+        "duration": "Several days",
+        "mapNote": "Corfu is one proposed location for the land of the Phaeacians."
       },
       {
         "id": "ithaca",
@@ -386,10 +370,9 @@
           "Slaughter of the suitors",
           "Reunion with Penelope"
         ],
-        "deities": [
-          "Athena"
-        ],
-        "duration": "Final destination"
+        "deities": ["Athena"],
+        "duration": "Final destination",
+        "mapNote": "The pin shows modern Ithaki. The identification of Homer’s Ithaca is debated."
       }
     ]
   },

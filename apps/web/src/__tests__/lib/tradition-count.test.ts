@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
+import { metadata } from "@/app/pantheons/layout";
 import pantheons from "@/data/pantheons.json";
 import { getTraditionCount, getTraditions } from "@/lib/data/catalog";
 
@@ -23,6 +24,15 @@ describe("tradition count", () => {
     ).length;
     expect(getTraditionCount()).toBe(expected);
     expect(getTraditions().some((p) => p.isCollection)).toBe(false);
+  });
+
+  it("uses the same count in the pantheon index metadata", () => {
+    expect(metadata.title).toMatchObject({
+      default: expect.stringContaining(`${getTraditionCount()} Traditions`),
+    });
+    expect(metadata.description).toContain(
+      `${getTraditionCount()} mythological traditions`,
+    );
   });
 
   it("is never hardcoded in page copy", () => {

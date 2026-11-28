@@ -61,7 +61,7 @@ describe("cookie preferences focus", () => {
       fireEvent.click(opener);
     });
     const dialog = screen.getByRole("dialog");
-    expect(dialog).toContainElement(document.activeElement as HTMLElement);
+    expect(screen.getByRole("button", { name: "Reject" })).toHaveFocus();
     fireEvent.keyDown(dialog, { key: "Escape" });
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(opener).toHaveFocus();

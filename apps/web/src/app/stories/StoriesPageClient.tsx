@@ -126,6 +126,11 @@ export function StoriesPageClient({
         backgroundImage="/stories-hero.jpg"
         backgroundAlt="Ancient storytellers and heroes gathered in a mythic landscape"
         colorScheme="gold"
+        actions={
+          <Button asChild variant="outline">
+            <a href="#story-catalog">Search the story catalog</a>
+          </Button>
+        }
       />
 
       {interactiveStories.length > 0 && (
@@ -157,8 +162,10 @@ export function StoriesPageClient({
 
       <Container
         as="section"
+        id="story-catalog"
         aria-labelledby="epic-tales-heading"
-        className="pt-10 pb-12 md:pt-14"
+        tabIndex={-1}
+        className="scroll-mt-24 pt-10 pb-12 md:pt-14"
       >
         <SectionHeading
           id="epic-tales-heading"

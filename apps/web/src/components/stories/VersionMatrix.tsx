@@ -1,4 +1,9 @@
-import type { BeatState, MythVersions, SourceKind } from "@/lib/myth-versions";
+import type {
+  BeatState,
+  MythVersions,
+  SourceKind,
+  VersionSource,
+} from "@/lib/myth-versions";
 
 /**
  * "One myth, many tellings" — a story's key moments set against every source
@@ -59,6 +64,21 @@ function formatYear(year: number): string {
   return year < 0 ? `${Math.abs(year)} BCE` : `${year} CE`;
 }
 
+function EditionLink({ source }: { source: VersionSource }) {
+  if (!source.readingUrl) return null;
+  return (
+    <a
+      href={source.readingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex min-h-11 items-center text-sm text-gold-text underline underline-offset-4"
+    >
+      {source.readingLabel ?? "Read the passage"}
+      <span className="sr-only"> (opens a new tab)</span>
+    </a>
+  );
+}
+
 export function VersionMatrix({ versions }: { versions: MythVersions }) {
   const { sources, beats } = versions;
 
@@ -81,7 +101,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
 
       <ol
         aria-label="Sources in chronological order"
-        className="mt-8 flex flex-wrap gap-3"
+        className="mt-8 hidden flex-wrap gap-3 md:flex"
       >
         {sources.map((source, index) => (
           <li
@@ -98,7 +118,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
 
       <ul
         aria-label="Legend"
-        className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-muted-foreground"
+        className="mt-6 hidden flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-muted-foreground md:flex"
       >
         {(Object.keys(STATE_LABEL) as BeatState[]).map((state) => (
           <li key={state} className="flex items-center gap-2">
@@ -115,58 +135,71 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
         </li>
       </ul>
 
-      <div className="mt-6 space-y-4 md:hidden">
-        {sources.map((source, index) => (
-          <article
-            key={source.name}
-            aria-labelledby={`version-source-${index}`}
-            className={`min-w-0 rounded-lg border border-border/70 p-4 ${source.reference ? "bg-gold/5" : ""}`}
-          >
-            <h3
-              id={`version-source-${index}`}
-              className="break-words font-serif text-lg"
-            >
-              {index + 1}. {source.name}
-            </h3>
-            <p className="mt-1 text-sm text-muted-foreground">{source.work}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{source.date}</p>
-            <p className="mt-2 text-xs text-gold-text">
-              {KIND_LABEL[source.kind]}
-              {source.reference && " · comparison baseline"}
-            </p>
-            {source.readingUrl && (
-              <a
-                href={source.readingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center text-sm text-gold-text underline underline-offset-4"
+      <div className="mt-6 md:hidden">
+        <details className="border-b border-border pb-2">
+          <summary className="min-h-11 cursor-pointer py-2 text-sm font-medium text-gold-text focus-visible:outline-2 focus-visible:outline-ring">
+            Source editions
+          </summary>
+          <ol aria-label="Source editions" className="space-y-3">
+            {sources.map((source) => (
+              <li
+                key={source.name}
+                className="border-l-2 border-border pl-3 text-sm"
               >
-                Read the passage (opens a new tab)
-              </a>
-            )}
-            <dl className="mt-3 space-y-4">
-              {beats.map((beat) => {
-                const cell = source.cells[beat.id];
-                return (
-                  <div key={beat.id}>
-                    <dt className="font-serif text-sm">{beat.label}</dt>
-                    <dd className="mt-1 flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="mt-1.5">
-                        <StateMark state={cell.state} />
-                      </span>
-                      <span className="min-w-0 break-words">
-                        <span className="block text-xs text-gold-text">
-                          {STATE_LABEL[cell.state]}
+                <p className="font-serif text-base">{source.name}</p>
+                <p className="mt-1 text-muted-foreground">
+                  {source.work} · {source.date}
+                </p>
+                <p className="mt-1 text-xs text-gold-text">
+                  {KIND_LABEL[source.kind]}
+                  {source.reference && " · comparison baseline"}
+                </p>
+                <EditionLink source={source} />
+              </li>
+            ))}
+          </ol>
+        </details>
+        <div className="divide-y divide-border border-b border-border">
+          {beats.map((beat) => (
+            <article
+              key={beat.id}
+              aria-labelledby={`version-beat-${beat.id}`}
+              className="py-5"
+            >
+              <h3 id={`version-beat-${beat.id}`} className="font-serif text-lg">
+                {beat.label}
+              </h3>
+              <dl className="mt-3 space-y-4">
+                {sources.map((source) => {
+                  const cell = source.cells[beat.id];
+                  return (
+                    <div key={source.name}>
+                      <dt className="font-medium text-foreground">
+                        {source.name}
+                      </dt>
+                      <dd className="mt-1 flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="mt-1.5">
+                          <StateMark state={cell.state} />
                         </span>
-                        {cell.note}
-                      </span>
-                    </dd>
-                  </div>
-                );
-              })}
-            </dl>
-          </article>
-        ))}
+                        <span className="min-w-0 break-words">
+                          <span className="block text-xs text-gold-text">
+                            {STATE_LABEL[cell.state]}
+                          </span>
+                          {cell.note}
+                          {cell.passage && (
+                            <span className="mt-1 block text-xs">
+                              {cell.passage}
+                            </span>
+                          )}
+                        </span>
+                      </dd>
+                    </div>
+                  );
+                })}
+              </dl>
+            </article>
+          ))}
+        </div>
       </div>
 
       <p
@@ -211,16 +244,7 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
                   <span className="mt-1 block text-[0.8125rem] text-muted-foreground">
                     {s.date}
                   </span>
-                  {s.readingUrl && (
-                    <a
-                      href={s.readingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 inline-flex min-h-11 items-center text-[0.8125rem] text-gold-text underline underline-offset-4"
-                    >
-                      Read the passage (opens a new tab)
-                    </a>
-                  )}
+                  <EditionLink source={s} />
                   <span className="mt-1 block text-xs uppercase tracking-[0.12em] text-gold-text">
                     {KIND_LABEL[s.kind]}
                     {s.reference && " · baseline"}
@@ -258,6 +282,11 @@ export function VersionMatrix({ versions }: { versions: MythVersions }) {
                               {cell.state === "present"
                                 ? ""
                                 : STATE_LABEL[cell.state]}
+                            </span>
+                          )}
+                          {cell.passage && (
+                            <span className="mt-1 block text-xs text-muted-foreground">
+                              {cell.passage}
                             </span>
                           )}
                         </span>

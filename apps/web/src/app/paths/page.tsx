@@ -188,6 +188,13 @@ export default function PathsPage() {
               Short curricula that pair catalog entries with source passages and
               guided questions.
             </p>
+            <Link
+              href="/compare/myths#version-comparisons"
+              className="mt-3 inline-flex min-h-11 items-center gap-2 font-medium text-gold-text underline underline-offset-4"
+            >
+              Compare versions of a myth
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </Link>
             <ul className="mt-6 grid gap-x-12 md:grid-cols-2">
               {guides.map((guide) => (
                 <li key={guide.slug} className="border-t border-border">

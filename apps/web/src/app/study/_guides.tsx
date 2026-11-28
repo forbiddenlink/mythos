@@ -36,13 +36,13 @@ const GUIDES: StudyGuide[] = [
         href: "/deities/inanna",
       },
       {
-        title: "Read the translated composition",
-        body: "Oxford’s Electronic Text Corpus of Sumerian Literature presents Inana’s descent with line numbers and manuscript variations. Note what the text says at the seven gates and how the editors mark alternatives.",
+        title: "Read the seven gates, lines 129–163",
+        body: "In Oxford’s translation, look for the note at the first gate (lines 129–133). One manuscript adds that the measuring rod and line are taken there. In the main text they are taken at the sixth gate (lines 154–158). Which order does the atlas retelling follow?",
         href: "https://etcsl.orinst.ox.ac.uk/section1/tr141.htm",
       },
       {
         title: "Examine a temple foundation figure",
-        body: "The Met identifies this figure as Ur-Namma carrying a basket. Its inscription associates it with a temple of Inanna. It documents a ruler’s building activity, not the events of the descent narrative.",
+        body: "Find object 47.49 in The Met’s catalog. The inscription identifies the figure as a foundation deposit from a temple of Inanna built or restored by Ur-Namma. What does the inscription tell you about worship that the story’s seven gates cannot?",
         href: "https://www.metmuseum.org/art/collection/search/329067",
       },
       {

@@ -3,6 +3,7 @@ import journeysData from "@/data/journeys.json";
 import locations from "@/data/locations.json";
 import {
   isOtherworldJourney,
+  journeyRouteSegments,
   mappedWaypoints,
   sortWaypoints,
   type JourneyDetail,
@@ -17,12 +18,27 @@ describe("journeys", () => {
     expect(new Set(journeys.map((j) => j.slug)).size).toBe(journeys.length);
   });
 
-  it("map every earthly waypoint", () => {
+  it("keeps each earthly journey mappable and explains unplaced episodes", () => {
     for (const journey of journeys.filter((j) => !isOtherworldJourney(j))) {
-      expect(mappedWaypoints(journey.waypoints), journey.id).toHaveLength(
-        journey.waypoints.length,
-      );
+      expect(
+        mappedWaypoints(journey.waypoints).length,
+        journey.id,
+      ).toBeGreaterThan(0);
+      for (const stop of journey.waypoints.filter((w) => !w.coordinates)) {
+        expect(stop.mapNote, `${journey.id}/${stop.id}`).toBeTruthy();
+      }
     }
+  });
+
+  it("breaks the mapped Odyssey sequence at the Underworld", () => {
+    const { waypoints } = journeys.find(({ slug }) => slug === "odyssey")!;
+    const gap = waypoints.findIndex(({ id }) => id === "underworld");
+    expect(waypoints[gap].coordinates).toBeUndefined();
+    expect(waypoints[gap].sourcePassage?.book).toBe(11);
+    expect(journeyRouteSegments(waypoints)).toEqual([
+      waypoints.slice(0, gap).map(({ coordinates }) => coordinates),
+      waypoints.slice(gap + 1).map(({ coordinates }) => coordinates),
+    ]);
   });
 
   it("number waypoints 1..n in order", () => {

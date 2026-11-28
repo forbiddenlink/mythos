@@ -12,8 +12,7 @@ import {
 export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
   const [gpcActive, setGpcActive] = useState(false);
-  const hasConsentedRef = useRef<boolean | null>(null);
-  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const rejectButtonRef = useRef<HTMLButtonElement>(null);
   // Set only when the reader reopens preferences, so focus moves into the
   // banner for them and returns to Cookie Settings afterwards.
   const openerRef = useRef<HTMLElement | null>(null);
@@ -26,23 +25,19 @@ export function CookieConsent() {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- read the browser GPC signal once on client mount
     setGpcActive(hasGlobalPrivacyControl());
 
+    const timer =
+      getCookieConsent() === null ? setTimeout(showBanner, 2800) : undefined;
     const openHandler = () => {
+      clearTimeout(timer);
       openerRef.current =
         document.activeElement instanceof HTMLElement
           ? document.activeElement
           : null;
+      rejectButtonRef.current?.focus();
       showBanner();
     };
     window.addEventListener("mythos-cookie-consent-open", openHandler);
 
-    if (getCookieConsent() !== null) {
-      hasConsentedRef.current = true;
-      return () =>
-        window.removeEventListener("mythos-cookie-consent-open", openHandler);
-    }
-    hasConsentedRef.current = false;
-    // Defer past first paint / LCP so the hero isn't crushed by consent chrome
-    const timer = setTimeout(() => setIsVisible(true), 2800);
     return () => {
       clearTimeout(timer);
       window.removeEventListener("mythos-cookie-consent-open", openHandler);
@@ -57,7 +52,7 @@ export function CookieConsent() {
       return;
     }
     if (openerRef.current) {
-      dialogRef.current?.querySelector<HTMLElement>("button")?.focus();
+      rejectButtonRef.current?.focus();
     }
   }, [isVisible]);
 
@@ -70,13 +65,11 @@ export function CookieConsent() {
 
   const handleAccept = useCallback(() => {
     setCookieConsent("accepted");
-    hasConsentedRef.current = true;
     setIsVisible(false);
   }, []);
 
   const handleReject = useCallback(() => {
     setCookieConsent("rejected");
-    hasConsentedRef.current = true;
     setIsVisible(false);
   }, []);
 
@@ -92,7 +85,6 @@ export function CookieConsent() {
 
   return (
     <div
-      ref={dialogRef}
       role="dialog"
       onKeyDown={(event) => {
         // Escape is the same explicit "keep analytics off" choice as the X.
@@ -100,7 +92,7 @@ export function CookieConsent() {
       }}
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-description"
-      className="fixed bottom-0 left-0 right-0 z-[60] p-3 md:p-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pointer-events-none"
+      className="fixed bottom-0 left-0 right-0 z-40 p-3 md:p-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pointer-events-none"
     >
       <div className="pointer-events-auto mx-auto max-w-3xl rounded-md border border-border/80 bg-background px-3 py-3 shadow-lg md:px-4 md:py-3">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
@@ -143,6 +135,7 @@ export function CookieConsent() {
               <X className="h-4 w-4" />
             </button>
             <button
+              ref={rejectButtonRef}
               onClick={handleReject}
               className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted"
             >

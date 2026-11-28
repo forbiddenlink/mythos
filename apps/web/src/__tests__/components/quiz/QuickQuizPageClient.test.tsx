@@ -105,8 +105,9 @@ describe("Quick Quiz", () => {
 
   it("keeps a sixty-second deadline while the player answers rapidly", () => {
     start();
+    const answers = within(screen.getByRole("group", { name: /Which figure/ }));
     for (let i = 0; i < 74; i++) {
-      fireEvent.click(screen.getByRole("button", { name: "Ares" }));
+      fireEvent.click(answers.getByText("Ares", { selector: "button" }));
       act(() => vi.advanceTimersByTime(800));
     }
     expect(screen.getByText("1s")).toBeInTheDocument();

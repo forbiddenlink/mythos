@@ -13,8 +13,10 @@ export interface JourneyWaypoint {
   name: string;
   order: number;
   description: string;
-  /** [lat, lng]; absent for otherworld stops. */
+  /** [lat, lng], when this stop has an earthly map position. */
   coordinates?: [number, number];
+  /** How the story setting relates to the modern map. */
+  mapNote?: string;
   /** Catalog location for this stop, when there is one. */
   locationId?: string;
   storyIds?: string[];
@@ -65,6 +67,24 @@ export function mappedWaypoints<
       Array.isArray(w.coordinates),
     ),
   );
+}
+
+/** Keep geographically unplaced episodes as breaks in the mapped sequence. */
+export function journeyRouteSegments(
+  stops: readonly Pick<JourneyWaypoint, "coordinates">[],
+): [number, number][][] {
+  const segments: [number, number][][] = [];
+  let segment: [number, number][] = [];
+  for (const stop of stops) {
+    if (stop.coordinates) {
+      segment.push(stop.coordinates);
+    } else {
+      if (segment.length > 1) segments.push(segment);
+      segment = [];
+    }
+  }
+  if (segment.length > 1) segments.push(segment);
+  return segments;
 }
 
 /** The first journey set in a tradition, or undefined when it has none. */

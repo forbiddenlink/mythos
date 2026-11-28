@@ -6,6 +6,8 @@ export type SourceKind = "primary" | "later-ancient" | "medieval" | "modern";
 export interface VersionCell {
   state: BeatState;
   note?: string;
+  /** Locator in the edition linked by the source's readingUrl. */
+  passage?: string;
 }
 
 export interface VersionSource {
@@ -16,6 +18,7 @@ export interface VersionSource {
   kind: SourceKind;
   reference?: boolean;
   readingUrl?: string;
+  readingLabel?: string;
   cells: Record<string, VersionCell>;
 }
 
@@ -25,6 +28,14 @@ export interface MythVersions {
   takeaway: string;
   beats: { id: string; label: string }[];
   sources: VersionSource[];
+}
+
+/** The catalog's editorial order, with just the fields a browse list needs. */
+export function listMythVersionComparisons() {
+  return versionsData.map(({ storySlug, question }) => ({
+    storySlug,
+    question,
+  }));
 }
 
 /**

@@ -67,6 +67,23 @@ describe("myth-versions data", () => {
         1,
       );
   });
+
+  it("locates each reported episode in published translations of the four Baldr sources", () => {
+    const comparison = getMythVersions("death-of-baldur")!;
+    expect(comparison.sources.map(({ work }) => work)).toEqual([
+      expect.stringContaining("Henry Adams Bellows translation (1923)"),
+      expect.stringContaining("Henry Adams Bellows translation (1923)"),
+      expect.stringContaining("Oliver Elton translation (1894)"),
+      expect.stringContaining("Arthur Gilchrist Brodeur translation (1916)"),
+    ]);
+    for (const source of comparison.sources) {
+      expect(source.readingUrl).toMatch(/^https:\/\//);
+      expect(source.readingLabel).toBeTruthy();
+      for (const cell of Object.values(source.cells)) {
+        if (cell.note) expect(cell.passage, source.name).toBeTruthy();
+      }
+    }
+  });
 });
 
 describe("getMythVersions", () => {
@@ -134,4 +151,18 @@ describe("getMythVersions", () => {
     expect(tulsi?.cells.ordeal.note).toMatch(/dohas 105/);
     expect(tulsi?.cells.banishment.note).toMatch(/Kakabhushundi/);
   });
+});
+
+it("pairs every Persephone time-below claim with a passage locator and edition", () => {
+  const { sources } = getMythVersions("abduction-of-persephone")!;
+  expect(sources.map(({ cells }) => cells.time.passage)).toEqual([
+    "Lines 463–466",
+    "Book 5, lines 564–567",
+    "Book 4, lines 613–614",
+    "Library 1.5.3",
+  ]);
+  for (const source of sources) {
+    expect(source.readingUrl).toMatch(/^https:\/\//);
+    expect(source.readingLabel).toBeTruthy();
+  }
 });

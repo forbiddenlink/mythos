@@ -153,6 +153,9 @@
       "nextStepQuiz": "Take a Quiz"
     },
     "compareMyths": {
+      "versionIndexJump": "Browse source comparisons",
+      "versionIndexTitle": "Versions of the same myth",
+      "versionIndexDescription": "Choose a story to see how different sources tell the same episode.",
       "title": "Compare Myths",
       "heroTagline": "Cross-Cultural Storylines",
       "description": "Compare myth narratives across cultures to explore shared themes and distinct details.",

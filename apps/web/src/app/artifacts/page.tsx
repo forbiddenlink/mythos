@@ -79,6 +79,16 @@ export default function ArtifactsPage() {
         backgroundAlt="Relics and divine artifacts of ancient myth"
       />
       <Container className="pt-6 pb-12 md:pt-8">
+        <p className="mb-5 type-ui text-muted-foreground">
+          Looking for surviving objects?{" "}
+          <Link
+            href="/museum"
+            className="text-gold-text underline underline-offset-4"
+          >
+            Browse the museum collection
+          </Link>
+          .
+        </p>
         <CatalogGallery
           items={items}
           traditionNames={getPantheonShortNames()}
