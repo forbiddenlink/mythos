@@ -236,6 +236,9 @@ test("Osiris comparison exposes editions and preserves source differences", asyn
   const matrix = page.locator(
     'section[aria-labelledby="version-matrix-title"]',
   );
+  // On small screens the editions sit in a collapsed "Source editions"
+  // disclosure; open it the way a reader would before checking the links.
+  await matrix.getByText("Source editions", { exact: true }).click();
   await expect(matrix).toContainText("Miriam Lichtheim translation (1976)");
   await expect(matrix).toContainText("Alan H. Gardiner translation (1931)");
   await expect(matrix).toContainText("C. H. Oldfather translation (1933)");
