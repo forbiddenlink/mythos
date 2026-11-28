@@ -321,7 +321,7 @@ function calculateLayout(
       const clusterCenterX = Math.cos(clusterAngle) * clusterRadius;
       const clusterCenterY = Math.sin(clusterAngle) * clusterRadius;
 
-      const sortedDeities = deities.toSorted(
+      const sortedDeities = [...deities].sort(
         (a, b) => (a.importanceRank || 999) - (b.importanceRank || 999),
       );
 
@@ -345,7 +345,7 @@ function calculateLayout(
     });
   } else if (layoutMode === "radial") {
     // Single ring ordered by pantheon then importance (Obsidian radial feel)
-    const sorted = filteredDeities.toSorted((a, b) => {
+    const sorted = [...filteredDeities].sort((a, b) => {
       const pantheonCmp = a.pantheonId.localeCompare(b.pantheonId);
       if (pantheonCmp !== 0) return pantheonCmp;
       return (a.importanceRank || 999) - (b.importanceRank || 999);
@@ -365,7 +365,7 @@ function calculateLayout(
     const cols = Math.ceil(Math.sqrt(filteredDeities.length));
     const spacing = 200;
 
-    const sortedDeities = filteredDeities.toSorted(
+    const sortedDeities = [...filteredDeities].sort(
       (a, b) => (a.importanceRank || 999) - (b.importanceRank || 999),
     );
 

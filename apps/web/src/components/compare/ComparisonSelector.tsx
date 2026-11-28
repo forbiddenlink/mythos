@@ -38,7 +38,7 @@ export function ComparisonSelector({
     for (const deity of deities) {
       counts.set(deity.pantheonId, (counts.get(deity.pantheonId) ?? 0) + 1);
     }
-    return pantheons.toSorted(
+    return [...pantheons].sort(
       (a, b) => (counts.get(b.id) ?? 0) - (counts.get(a.id) ?? 0),
     );
   }, [deities, pantheons]);
